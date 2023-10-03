@@ -1,0 +1,29 @@
+# Movie
+
+Movie playback can be controlled from scripts.
+
+## Properties
+
+| Property | Type    | Description                              |
+| -------- | ------- | ---------------------------------------- |
+| Filename | string  | File path to the movie file. This file is NOT saved in the scene and must be present at the specified location on any computer that wishes to see it. |
+| Playing  | boolean | Whether or not the movie is playing      |
+| Repeat   | boolean | Whether to loop back and resume playback from the start |
+| Position | number  | Position through the movie playback      |
+| Volume   | number  | Volume of the sound in the movie (1.0 = normal volume) |
+
+## Example
+
+```lua
+-- Drag/Drop section BEGINS - Do not edit between BEGINS and ENDS.
+local Movie = __Script.dragdrop.Movie
+-- Drag/Drop section ENDS
+
+-- Toggle the playing state of the movie
+Movie.Playing = not Movie.Playing
+
+-- Print the movie details
+print("Filename = ", Movie.Filename)
+print("Repeat = ", Movie.Repeat)
+print("Position = ", Movie.Position)
+```

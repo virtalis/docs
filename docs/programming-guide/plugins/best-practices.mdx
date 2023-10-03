@@ -1,0 +1,11 @@
+---
+sidebar_position: 2
+---
+
+# Best Practices
+
+## Handles
+
+Handles are used to reference internal objects such as nodes. If you request a handle using any API function that returns one (`::VRGetScenesNode`, etc.), you must close it when you are finished, using `::VRCloseNodeHandle`.
+
+Handles passed into plugin API functions (e.g. `::VRPImportProc`) and callback functions (e.g. those registered with `::VRAddCallbackUpdate`) are managed by the host application and do not need to be closed. They are closed when the callback function returns. If you require a given handle to persist beyond the end of the callback function, use `::VRCopyNodeHandle` to create a new handle to the same node, remembering to close the copy yourself when you are done with it.

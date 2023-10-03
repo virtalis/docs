@@ -1,0 +1,42 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Implement an Update Function
+
+A plugin may wish to be notified regularly of updates. To do this it should register a callback using ::VRAddCallbackUpdate.
+
+Lua plugins may use `__registerCallback` to register themselves with the timestep function which is called every frame.
+
+<Tabs>
+<TabItem value="cpp" label="C++">
+
+```cpp
+static void myUpdate(double deltaTime, void* userData)
+{
+  //perform an operation regularly  
+}
+
+PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPInit()
+{
+  VRPLUGIN_LOADVRTREE;
+  VRAddCallbackUpdate(&myUpdate, NULL);
+}
+```
+
+</TabItem>
+<TabItem value="lua" label="Lua">
+
+```lua
+local function myTimestep()
+  
+end
+
+local function init()
+  -- existing initialisation code...
+
+  __registerCallback("onTimestepEvent", myTimestep)
+end
+```
+
+</TabItem>
+</Tabs>

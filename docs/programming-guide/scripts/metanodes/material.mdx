@@ -1,0 +1,145 @@
+# Material
+
+Materials describe the appearance of models in the scene.
+
+## Properties
+
+| Property          | Type      | Description                              |
+| ----------------- | --------- | ---------------------------------------- |
+| Diffuse           | vrvec3    | Main material colour, RGB values (0.0 - 1.0) |
+| Reflectivity      | number    | How reflective the material is (0.0 - 1.0) |
+| Smoothness        | number    | How smooth the material is (0.0 - 1.0)   |
+| Metalness         | number    | How metallic the material is (0.0 - 1.0) |
+| Ambient           | number    | How much ambient light the material reflects (0.0 - 1.0) |
+| Emissive          | vrvec3    | The colour emitted by the material, RGB values (0.0 - 1.0) |
+| EmissiveIntensity | number    | Emissive multiplier (0.0 - 10000.0)      |
+| Opacity           | number    | How opaque the material is (0.0 - 1.0). Values other than 1 require BlendMode to be set to something other than None. |
+| DiffuseMap        | vrnode    | Link to colour texture in the tree       |
+| SmoothnessMap     | vrnode    | Link to monochrome texture in the tree   |
+| ReflectivityMap   | vrnode    | Link to monochrome texture in the tree   |
+| AmbientMap        | vrnode    | Link to monochrome texture in the tree   |
+| EmissiveMap       | vrnode    | Link to colour texture in the tree       |
+| OpacityMap        | vrnode    | Link to monochrome texture in the tree   |
+| EnvironmentMap    | vrnode    | Link to colour texture in the tree       |
+| NormalMap         | vrnode    | Link to colour texture in the tree       |
+| BumpMap           | vrnode    | Link to colour texture in the tree       |
+| Enabled           | boolean   | Enabled or disabled (when disabled, any objects using this material are not rendered) |
+| BlendMode         | number    | Which blend mode to use. See the blend mode table below. |
+| AlphaTest         | boolean   | Whether to enable alpha testing          |
+| AlphaTestRef      | number    | The opacity value below which the fragment is discarded |
+| AlphaToCoverage   | boolean   | Whether to enable screendoor transparency |
+| BumpScale         | number    | Scales the bump or normal map (0.0 - 20.0) |
+| ReliefMapping     | boolean   | Whether to enable relief mapping         |
+| TwoSidedLighting  | boolean   | Whether to enable two sided lighting for objects using this material |
+| MapMatrix         | vrmatrix4 | Transform to apply to texture coordinates on objects that this material is applied to |
+| LineWidth         | number    | Specify the width of lines drawn with this material (0.0 - 20.0) |
+| LinePattern       | number    | The pattern to use to draw lines. See the line pattern table below. |
+| Lit               | boolean   | Specify whether this material is affected by scene lighting |
+| NightEmissive     | boolean   | Specify whether this material is affected by night time |
+| HalfLambert       | boolean   | Specify whether to use half lambert diffuse lighting mode |
+| PreviewShape      | vrnode    | Specify a custom shape (Model node) to use to preview this material, instead of the default sphere |
+
+### Blend Modes
+
+| Type                                | Description                              |
+| ----------------------------------- | ---------------------------------------- |
+| `__StdMaterial_BlendNone`           | No alpha blending at all (Opacity property changes have no effect) |
+| `__StdMaterial_BlendAlpha`          | Alpha blending                           |
+| `__StdMaterial_BlendAdditive`       | Additive blending                        |
+| `__StdMaterial_BlendMultiplicative` | Multiplicative blending                  |
+
+### Line Patterns
+
+| Type                                    | Description               |
+| --------------------------------------- | ------------------------- |
+| `__StdMaterial_LinePatternFullLine`     | Draws solid lines         |
+| `__StdMaterial_LinePatternNoLine`       | Doesn't draw lines at all |
+| `__StdMaterial_LinePatternDoubleDashed` | Draws double-dashed lines |
+| `__StdMaterial_LinePatternDashedLine`   | Draws dashed lines        |
+
+## Examples
+
+### Example 1
+
+This script will change the opacity value (0.0 to 1.0) of the material pointed to by the variable HighLight. The HighLight variable points at the Material assembly within the Library tree view. When the opacty level if greater than or equal to 1.0 it then begins to decrement the opacity level. If the opacity level is less than or equal to 0.0 it then increments the opacity level.
+
+```lua
+-- Drag/Drop section BEGINS - Do not edit between BEGINS and ENDS.
+local Highlight = __Script.dragdrop.Highlight
+local Delta = __Script.dragdrop.Direction
+-- Drag/Drop section ENDS
+
+-- Highlight is a StdMaterial node
+-- Delta is a MetaDataFloat node
+
+print("Material ", Highlight)
+print("Colour ", Highlight.Diffuse)
+print("Ambient ", Highlight.Ambient)
+print("Opacity ", Highlight.Opacity)
+print("Smoothness ", Highlight.Smoothness)
+print("Metalicness ", Highlight.Metalness)
+print("Reflectivity ", Highlight.Reflectivity)
+
+-- initialise the delta variable
+if Delta.Value == 0 then
+   Delta.Value = 0.1
+end
+
+-- get the material opacity
+local opacity = Highlight.Opacity
+
+-- update the opacity depending on direction
+opacity = opacity + Delta.Value
+
+-- check the opacity value is not beyond the limits
+if opacity <= 0.0 then
+   Delta.Value = 0.1
+   opacity = 0.0
+elseif opacity >= 1.0 then
+   Delta.Value = -0.1
+   opacity = 1.0
+end
+
+-- set the new opacity value
+Highlight.Opacity = opacity
+```
+
+### Example 2
+
+Simple script which changes the Emissive value of the material pointed to by the Chess_table variable. The Emissive value is defined in an array of 3 floating point number between 0.0 and .0 for the red, green and blue components.
+
+```lua
+-- Drag/Drop section BEGINS - Do not edit between BEGINS and ENDS.
+local table = __Script.dragdrop.table
+-- Drag/Drop section ENDS
+
+-- get Emissive colour
+local emissive = table.Emissive
+
+-- set material Diffuse to same as emissive
+table.Diffuse = emissive
+
+-- set emissive RGB values
+emissive[1] = 0.0
+emissive[2] = 1.0
+emissive[3] = 0.0
+
+-- print the DiffuseMap link
+print(table.DiffuseMap)
+
+-- print the DiffuseMap filename
+print(table.DiffuseMap.Filename)
+```
+
+### Example 3
+
+This example demonstrates how to change how a texture is mapped onto a surface by modifying the MapMatrix. The MapMatrix is a 3x3 matrix which is applied to the texture coordinates of the assembly it is applied to. This is accessed using the same method as the Assembly Transform.
+
+```lua
+-- Drag/Drop section BEGINS - Do not edit between BEGINS and ENDS.
+local table = __Script.dragdrop.table
+-- Drag/Drop section ENDS
+
+-- increment the Y offset position by 0.01
+table.MapMatrix.Position.Y = table.MapMatrix.Position.Y + 0.01
+```

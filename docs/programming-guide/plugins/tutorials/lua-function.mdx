@@ -1,0 +1,30 @@
+# Provide a Lua Function
+
+## Registration
+
+Native plugins can register functions to be called from Lua. Currently these can only be registered in the global table, and cannot replace existing functions of the same name.
+
+This is done using ::VRFFIRegister.
+
+```cpp
+static HFFIVar multiply(int argc, HFFIVar* argv, void*) {
+  return VRFFIMakeDouble(VRFFIGetDouble(argv[0]) * VRFFIGetDouble(argv[1]));
+}
+
+PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPInit()
+{
+  VRPLUGIN_LOADVRTREE;
+
+  VRFFIRegister("SpecialMultiply", &multiply, 2, nullptr);
+
+  return 0;
+}
+```
+
+In the above example, our new multiply function can be used directly in the Lua console or in any script event:
+
+```lua
+print(SpecialMultiply(5, 5)) -- prints 25
+```
+
+Lua plugins do not need to perform any registration - any non-local functions implemented in a plugin module are automatically available.

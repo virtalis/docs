@@ -1,0 +1,54 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Write to the Application Log
+
+## Introduction
+
+Sometimes it is useful for a plugin to be able to log messages and errors to the application log (which appears in the tools window as well as the support log file).
+
+## Registration
+
+Native plugins are given the log function when they are initialised, if they export a ::VRPRegisterLogProc called `VRPRegisterLog`. This function receives a ::VRPLogProc which should be stored for the lifetime of the plugin.
+
+Native plugins using the `vrtree-linker` library and its `VRPLUGIN_API_STDIMPL` macro may check the validity of `s_logFunc`, which has automatically been connected to the log function provided to the registration function.
+
+Lua plugins do not need to perform any registration and may call `print` to write to the application log.
+
+## Logging
+
+With the exception of Lua plugins (which are limited to `print`), plugins may log messages of varying severity.
+
+::VRPLogProc takes two parameters, a type and a message. All log messages are written to the log file regardless of their type. Only some types are displayed in the application itself.
+
+The type corresponds to the following
+
+| Log Type | `vrtree-linker` Type | Description                              |
+| -------- | -------------------- | ---------------------------------------- |
+| 0        | `LOG_INFO`           | The lowest priority log message, for informational purposes. Does not appear in the in-app log display unless the `Verbose Log` setting is enabled. |
+| 1        | `LOG_WARN`           | A warning to the user that an operation had issues but they may continue their work. Always appears in the in-app log display. |
+| 2        | `LOG_ERROR`          | An error message indicating a serious problem. Always appears in the in-app log display. |
+| 3        | `LOG_DEBUG`          | Debug messages, usually for developers, containing advanced diagnostic information. Does not appear in the in-app log display unless the `Verbose Log` setting is enabled. |
+
+<Tabs>
+<TabItem value="cpp" label="C++">
+
+```cpp
+PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPInit()
+{
+  if(s_logFunc)
+    s_logFunc(LOG_INFO, "Initialising My Plugin");
+}
+```
+
+</TabItem>
+<TabItem value="lua" label="Lua">
+
+```lua
+local function init()
+  print("Initialising " .. name())
+end
+```
+
+</TabItem>
+</Tabs>

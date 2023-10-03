@@ -1,0 +1,147 @@
+# Tools
+
+## PRS Manipulator
+
+The PRS manipulator is a 3D widget that enables you to change the position, rotation, and scale of the selected object. It can be enabled from the Toolbar or by pressing **F9**.
+
+![](/img/user-manual/chapter11/1.jpg)
+
+Once you have enabled the PRS manipulator, any selected assembly will be overlaid with the PRS widget. The image above shows a selected assembly and the PRS widget positioned at the centre of the Visual geometry. The alignment of the axes will default to the parent's coordinate system but can also be changed to world coordinates using the floating controls above the manipulator.
+
+The red, green, and blue elements are associated with the X, Y, and Z axes. The cyan, magenta, and yellow elements refer to actions which are associated with two axes at once, as on a plane.
+
+- **Red** represents the X axis.
+- **Green** represents the Y axis.
+- **Blue** represents the Z axis.
+- **Cyan** represents the YZ plane.
+- **Magenta** represents the YX plane.
+- **Yellow** represents the XZ plane.
+
+As the mouse moves over the PRS widget the different parts are highlighted in bright yellow. The two floating buttons above the PRS control the mode (Position only, Rotation only, Scale only), and coordinate system (World, Local, Parent).
+
+| --- | --- |
+| ![](/img/user-manual/chapter11/2.jpg) | Position - The image shows the elements of the PRS widget which represent the position manipulation. By left-clicking and dragging on the elements you can: 
+                                          - Translate the assembly in the Y axis using the green arrow. 
+                                          - Translate in the assembly in the X axis using the red arrow. 
+                                          - Translate in the assembly in the Z axis using the blue arrow. 
+                                          - Translate in the YZ plane using the cyan triangle. 
+                                          - Translate in the YX plane using the magenta triangle. 
+                                          - Translate in the XZ plane using the yellow triangle. |
+| ![](/img/user-manual/chapter11/3.jpg) | Rotation - The image shows the rotation circles for each of the 3 axes. By left-clicking and dragging on the elements you can: 
+                                          - Rotate in the X axis using the red circle. 
+                                          - Rotate in the Y axis using the green circle. 
+                                          - Rotate in the Z axis using the blue circle. |
+| ![](/img/user-manual/chapter11/4.jpg) | Scale - The image shows the elements of the PRS widget which represent the scale manipulation. By left-clicking and dragging on the element you can: 
+                                          - Uniformly scale the assembly using the white triangle. |
+
+### Grid
+
+| ![](/img/user-manual/chapter11/5.jpg) | When you click on part of the PRS widget Visionary Render can display a snap grid helper. If you click on a position or scale element, then you get a white grid appearing. This grid is created at a set spacing and restricts you to translating or scaling to that grid spacing. The setting for this grid can be changed in the Settings window under Tools > PRS Manipulator. This feature can be disabled by unchecking the Snapping checkbox. |
+| --- | --- |
+| ![](/img/user-manual/chapter11/6.jpg) | If you clicked on a rotation element of the PRS then a set of radial snap points are created. The angle for these snap points is set in the Settings window under Tools > PRS Manipulator. This feature can be disabled by unchecking the Snapping checkbox. Using the mouse wheel while holding the left mouse button down over elements of the PRS manipulator will alter the snap size. |
+
+### Coordinate System
+
+The coordinate system can be changed from the right-hand button above the PRS manipulator. There are 3 coordinate systems:
+
+| Icon | Description |
+| --- | --- |
+| ![](/img/user-manual/chapter11/7.jpg) | **Local** - Transforms the object along its own local coordinate axis. |
+| ![](/img/user-manual/chapter11/8.jpg) | **World** - Transforms the object in the world coordinate axis. |
+| ![](/img/user-manual/chapter11/9.jpg) | **Parent** - Transforms the object in its parent’s world coordinate axis. |
+
+### Settings
+
+You can configure the PRS manipulator by opening the Settings window (**F6**) and navigating to **Tools** > **PRS Manipulator**.
+
+![](/img/user-manual/chapter11/10.jpg)
+
+| Setting                     | Description                                                                                                                      |
+|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| Mode                        | Whether to move, rotate and scale objects at the same time. *\[default: Full Mode\]*                                             |
+| Snapping                    | Enable snapping to a grid during movement. *\[default: true\]*                                                                   |
+| Snapping > Show Grid        | Render the snap grid and rotation lines. *\[default: true\]*                                                                     |
+| Snapping > Translation Step | The step size of the translation snapping grid. *\[default: 0.1\]*                                                               |
+| Snapping > Rotation Step    | The step size of the rotation snapping grid. *\[default: 5.0\]*                                                                  |
+| Snapping > Scale Step       | The step size of the scale snapping grid. *\[default: 0.1\]*                                                                     |
+| Size > Mode                 | The method used to size the PRS manipulator. *\[default: Static\]*                                                               |
+| Size > Mode > Scale Step    | The distance the camera needs to move from the PRS manipulator before it is scaled in partially dynamic mode. *\[default: 0.5\]* |
+| Size > Scale                | The scale of the PRS manipulator. *\[default: 1.0\]*                                                                             |
+
+## Mouse Manipulator
+
+The mouse manipulator permits you to move and rotate Assemblies using a combination of mouse movement and key presses. It can be enabled or disabled from the Toolbar (it is enabled by default). The behaviour of the manipulator varies depending on whether the Assemblies are inside a circle at the centre of the screen, as in the image below.
+
+![](/img/user-manual/chapter11/11.jpg)
+
+| Action                                                                    | Description                                                                                                                                                                                                                                  |
+|---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![](/img/user-manual/chapter11/12.jpg) | Right-click and drag an Assembly in the 3D scene to translate it. If the Assembly is inside the circle, it will translate up, down, left or right. If the Assembly is outside the circle, it will translate towards or away from the camera. |
+| ![](/img/user-manual/chapter11/13.jpg) | Right-click and drag an Assembly in the 3D scene with **Shift** held down to rotate it. If the Assembly is inside the circle, it will rotate about all 3 axes. If the Assembly is outside the circle, it will rotate about a single axis.    |
+
+## SpaceMouse Manipulator
+
+If you have a 3D mouse product installed, it can be used to manipulate assemblies. The SpaceMouse manipulator can be enabled or disabled from the Toolbar. With assemblies selected in the 3D scene, hold **Ctrl** to transform the selection. All transforms are relative to the assembly's original transform.
+
+- Push the 3D mouse forward and the assembly will move away from the view.
+- Pull the 3D mouse backwards and the assembly will move towards from the view.
+- Lift the 3D mouse up and the assembly will move up -- in the screen coordinate system.
+- Press the 3D mouse down and the assembly will move down -- in the screen coordinate system.
+- Push the 3D mouse left and the assembly will move left in the view.
+- Push the 3D mouse right and the assembly will move right in the view.
+- Tilt the 3D mouse forwards/backwards to rotate the assembly forwards and backwards.
+- Rotate the 3D mouse to rotate the assembly in the Y axis -- of the view coordinate.
+- Roll the 3D mouse left and right to roll the assembly left and right in the view coordinate system.
+
+You can then quickly release **Ctrl** and re-orient the view to a better position and orientation and begin to manipulate the selected assemblies again.
+
+![](/img/user-manual/chapter11/14.jpg)
+
+:::note
+This works for multiple selected assemblies – the transform will still be relative to their original transform.
+:::
+
+## Snap Home
+
+The Snap Home option is a manipulation aid that returns an Assembly back to its original position and orientation when it is moved near its original position.
+
+It can be enabled from the ![](/img/user-manual/chapter11/14.jpg) button in the Toolbar or by pressing **F4** (it is disabled by default).
+
+| ![](/img/user-manual/chapter11/15.jpg) | The snap home tool works with an assembly which is moved either with the mouse, SpaceMouse or tracked device. |
+| --- | --- |
+| ![](/img/user-manual/chapter11/16.jpg) | As it moves from its original location, a green ghost version is left in its place. If you release the assembly – either with the right mouse button or tracker device – the assembly will snap back to its original location. |
+| ![](/img/user-manual/chapter11/17.jpg) | If the distance between original location and current location is greater than Snap Home distance, then the ghost version turns red. If you release the assembly while the ghost version is red, then it remains at that location and the ghost version is removed.
+If the assembly is moved back to within the Snap Home distance, then a green ghost version appears, and you can release it to have it snap back to its original location. This can be configured from the Settings window under Tools > Snap Home. |
+
+### Settings
+
+The Snap Home settings can be found under **Settings** \> **Tools** \> **Snap Home**.
+
+![](/img/user-manual/chapter11/18.jpg)
+
+| Setting | Description |
+| --- | --- |
+| Translation Type | There are 2 options: Screen Percentage – sets the Translation Snap value to a percentage of the screen. [default] World Space – sets the Translation Snap value to the world scale units. |
+| Translation Snap | Sets the value for the Snap Home distance. [default: 10] |
+| Rotation Snap | Sets the value for the Snap Home rotation in degrees. Note: if a value is set to 180 or above then any rotation will snap home. [default: 20.0] |
+| Scale Snap | Sets the value for the Snap Home Scale as a percentage. [default: 0.25] |
+| Ghost Mode | Full Visuals – shows a ghost of all visuals of the selected hierarchy when using the Snap Home tool.Selected Visual Only – shows a ghost of the visual of only the parent of the selected hierarchy when using the Snap Home tool. [default]Bounding Box – shows a ghost of the selected items bounding box when using the Snap Home tool. |
+| Highlight Ghost | Whether to highlight the ghost when the object is in or out of range. [default: true] |
+| In-range Ghost | Whether to show a ghost when the object is in-range. [default: true] |
+| In-range Colour | The colour of the in-range ghost. [default: green] |
+| Out-of-range Ghost | Whether to show a ghost when the object is out-of-range. [default: true] |
+| Out-of-range Colour | The colour of the out-of-range ghost. [default: red] |
+
+## Automatic Change Recorder
+
+The automatic change recorder can be enabled from the ![](/img/user-manual/chapter11/19.jpg) button in the Toolbar. It permits you to save any property changes that you make to a scene without having a developer license on your machine. First open the scene that you wish to edit and ensure that the tool is enabled in the Toolbar. Now change the property value of a node in the Scenes tree, such as an Assembly -- the modified node will be added to a new Group, as shown in the image below.
+
+![](/img/user-manual/chapter11/20.jpg)
+
+You can now save your scene as an overlay, and a Snapshot will be automatically taken of the current state of the Group members. To reload your property changes in future, open the original scene, then open the overlay.
+
+:::note
+The tool must be enabled when the overlay is opened for the Snapshot to be applied.
+:::
+
+If you have a developer license on your machine, then you can save scenes out as normal and leave this tool disabled.

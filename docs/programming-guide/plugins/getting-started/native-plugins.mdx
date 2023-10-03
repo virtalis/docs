@@ -1,0 +1,199 @@
+# Native Plugins
+
+## Environment Setup
+
+The instructions here are tailored for Visual Studio 2017 onwards, for C/C++ development using the SDK library. There may be some differences in earlier versions of Visual Studio (specifically around project generation). There is also an example CMake script, which can be used as a convenient alternative to manual Visual Studio project setup, if desired.
+
+Start a new DLL project
+![](/img/programming-guide/vs_new_dll.png)
+
+Open the Configuration Manager
+![](/img/programming-guide/vs_config_mgr.png)
+
+Edit the Active Solution Platforms
+![](/img/programming-guide/vs_edit_platform.png)
+
+Remove the x86 platform
+![](/img/programming-guide/vs_del_x86.png)
+
+Open the project properties
+![](/img/programming-guide/vs_project_props.png)
+
+Add C++ Include directory for installed SDK
+e.g. `C:\Virtalis\Visionary Render 2.1\data\vrtreesdk\include`
+or `C:\Virtalis\GeoVisionary 3.1.1\data\vrtreesdk\include`
+
+![](/img/programming-guide/vs_cpp_incdir.png)
+
+Add Additional Library Directory for installed SDK
+e.g. `C:\Virtalis\Visionary Render 2.1\data\vrtreesdk\lib\x64`
+or `C:\Virtalis\GeoVisionary 3.1.1\data\vrtreesdk\lib\x64`
+
+![](/img/programming-guide/vs_link_dir.png)
+
+Add `vrtree-linker.lib`
+For Debug configuration:
+* `Debug\vrtree-linker.lib`
+
+For Release configuration:
+* `Release\vrtree-linker.lib`
+
+![](/img/programming-guide/vs_link_deps.png)
+
+Add a cpp file (e.g. main.cpp)
+![](/img/programming-guide/vs_add_main.png)
+
+### CMake
+
+For CMake users, this project setup can be automated with the following:
+
+```cmake title="CMakeLists.txt"
+# Set the minimum required version of CMake for this project and update the policy settings.
+cmake_minimum_required(VERSION 2.8.11)
+
+# Store the path to the VRTree SDK in the VRTREE_SDK_DIR variable.
+set(VRTREE_SDK_DIR "" CACHE STRING "Location of the VRTree SDK")
+
+# Set the name of this project and store it in the PROJECT_NAME variable.
+project(my_plugin)
+
+# Search the VRTree SDK for include files and libraries.
+include_directories(${VRTREE_SDK_DIR}/include)
+link_directories(${VRTREE_SDK_DIR}/lib/x64)
+
+# Add a library using the specified source files.
+add_library(my_plugin SHARED main.cpp)
+
+# Add the vrtree-linker library as a dependency.
+target_link_libraries(my_plugin vrtree-linker)
+```
+
+:::note
+See the <a href="https://cmake.org/cmake/help/latest/">CMake Docs</a> for further information.
+:::
+
+## Plugin Interface
+
+A native plugin requires a minimum set of entry points in order to be loadable by the plugin manager:
+
+* A ::VRPGetAPIVersionProc called `VRPGetAPIVersionMajor`
+  * This should return the current plugin API major version (currently 1)
+* A ::VRPGetAPIVersionProc called `VRPGetAPIVersionMinor`
+  * This should return the current plugin API minor version (currently 1)
+* A ::VRPInitProc called `VRPInit`
+* A ::VRPNameProc called `VRPName`
+* A ::VRPVersionProc called `VRPVersion`
+* (optionally) A ::VRPCleanupProc called `VRPCleanup`
+
+All of these exports should use the `cdecl` calling convention.
+
+### C and C++ Plugins
+
+The helper library is called `vrtree-linker` and also provides helper macros for implementing plugin entry points.
+
+The following boilerplate code can be used to compile a native plugin starting point. This example makes use of the @ref VRPLUGIN_API_IMPL macro, which handles the boilerplate for hooking into the application log functions and other utilities detailed @ref api_plugin_utils "here".
+
+```cpp title="main.cpp"
+#include <vrtree_api.h>
+
+// Implement all of the standard API functions for api versioning, 
+// and other hooks such as logging and progress displays.
+VRPLUGIN_API_IMPL;
+
+PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPName()
+{
+  // Return the name of the plugin.
+  return "My Plugin";
+}
+
+PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPVersion()
+{
+  // Return the version number of the plugin.
+  return "1.0.0";
+}
+
+// Implement VRPInit to respond to application startup.
+PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPInit()
+{
+  // Query the vrtree DLL for API entry points and load them. Note that a valid API license is required (see licensing section below).
+  VRPLUGIN_LOADVRTREE;
+
+  // Before using any of the hooks such as s_logFunc, check that they were loaded.
+  if (s_logFunc) {
+    s_logFunc(LOG_INFO, "Hello World!");
+  }
+  return 0;
+}
+
+// Implement VRPCleanup to respond to unloading of the plugin.
+PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPCleanup()
+{
+  return 0;
+}
+```
+
+The `VRInit` function is called when the plugin is loaded. The `VRPCleanup` function is called when the plugin is unloaded. It is important that the cleanup function correctly removes things added by the plugin. For more information see @ref dynamic_loading.
+
+### Loading a Plugin
+
+To instruct the application to load this plugin, do the following:
+
+* Find your documents directory. For normal Visionary Render installations, this will usually be `Documents/VisionaryRender`. For side-by-side installations, it will include the version (e.g. `Documents/VisionaryRender-2.1.0`);
+* Inside this directory, create a `plugins` directory if it does not already exist;
+* Inside the `plugins` directory, create a directory named after your plugin. For the above example, call it `My_Plugin`;
+* Copy your compiled plugin (e.g. `My_Plugin.dll`) into this new directory;
+* In the same directory, next to the dll, create a `plugin.txt` file;
+* Open this file in a text editor, and enter your plugin dll file name (e.g. `My_Plugin.dll`) and save the file.
+
+For the above example, the final directory structure should look something like this:
+* Directory `Documents/VisionaryRender/plugins/My_Plugin`
+  * `My_Plugin.dll`
+  * `plugin.txt` containing the text `My_Plugin.dll`
+
+For more information about other locations where plugins may be located, see @ref plugin_directories.
+
+### Verifying a plugin has loaded
+
+Once the plugin is in this location, launch Visionary Render. 
+
+Open the settings window (F6), and select the "Plugins" category. 
+
+![](/img/programming-guide/plugin_settings.png)
+
+The table displays all loaded plugins and the "My Plugin" plugin should be visible here.
+
+![](/img/programming-guide/sample_plugin.png)
+
+You may also open the Diagnostics window and go to the Log tab. You should also be able to see the "Hello World" log message here.
+
+![](/img/programming-guide/hello_diagnostics.png)
+
+## Licensing
+
+While Visionary Render can load native plugins freely, in order to perform useful operations in the application, it must be granted access to the VRTree API. To do this, it must export a `VRPSignature` function, providing a license string to unlock the API.
+
+The licenses are issued by Virtalis in the same way as a regular application license, except the contents of the text file are compiled into the plugin.
+
+There are multiple licensing options.
+
+### Options
+
+1. **Local Machine** - Tied to a MAC address, this license allows the plugin to access the API only when running on the specific machine it is licensed for. This is generally used for plugin development.
+2. **Site Wide** - Tied to a site license server, this license allows the plugin to access the API when running on any machine connected to a license server providing the site license.
+
+To get your API licenses, please contact licensing@virtalis.com
+
+### Implementation
+
+Once you are given a license text file, it needs to be compiled into the plugin in order to be detected by the plugin loader. Copy the entire contents of the text file into the source code, including the trailing signature (not shown below due to size).
+
+```cpp
+PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPSignature()
+{
+  return "<VRTREE_API><company>Virtalis</company><user>j.barrett</user><feature>Development</feature></VRTREE_API>";
+}
+```
+
+## Other Languages
+
+It is possible to develop a plugin for Visionary Render using any language that allows you to compile to a dynamically-loadable DLL exporting these entry points. In this case there are no helpers available so you will have to have your plugin dynamically load `vrtree.dll` and query the entry points specifically. This is covered by @ref plugin_wrangle_api

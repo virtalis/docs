@@ -1,0 +1,25 @@
+# Nodes
+
+Every node is an instance of a @ref metanodes "metanode", giving it a descriptor for its @ref properties "property values and data structure".
+
+Nodes represent the main data structure in the VRTree. Instances of nodes are arranged into a tree structure, with each instance referencing the following other nodes (if present)
+
+| Relative | API Function  | Description                              |
+| -------- | ------------- | ---------------------------------------- |
+| Parent   | ::VRGetParent | The parent node. Every node in the tree is expected to be a child of something else, except the root node (::VRGetRootNode) |
+| Child    | ::VRGetChild  | The first child node                     |
+| Sibling  | ::VRGetNext   | The next sibling node (sharing the same parent) |
+
+## Paths
+
+All nodes have a name. They cannot have an empty string for a name. (The GUI prevents this, but it is not enforced by the API. Technically you *can* create nameless nodes, you just won't be able to find them again, or save files with link properties pointing at them).
+
+The tree structure allows every node to have a path composed of the names of all ascending nodes up to the root node.
+
+Starting at the root node, a node's absolute path starts with a `/` (signifying the root), followed by node names separated with a `/` (e.g. `/Scenes/MyAssembly` is the path to the `MyAssembly` node under the `Scenes` node).
+
+If there are multiple children of a node with the same name, an array index suffix is added to their name in the path (e.g. `/Scenes/MyAssembly[1]` finds the second node called `MyAssembly` under the `Scenes` node).
+
+Paths can also be relative to the node being searched from (::VRFind) - e.g. `VRFind(VRGetScenesNode(), "MyAssembly")` finds the first `MyAssembly` node under the `Scenes` node.
+
+Link properties are serialized to paths when saved to a file, and they use this mechanism to resolve to the target node when the file is loaded again.

@@ -1,0 +1,48 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Use the Foreign Function Interface (FFI)
+
+## Introduction
+
+The FFI is an interface to the internal scripting engine used by Events in Visionary Render. This is a Lua environment.
+
+The FFI allows a native plugin to call Lua functions directly by preparing arguments and invoking the function by name.
+
+Any function available to an Event Script in Visionary Render, or to a Lua plugin, is also available to native plugins.
+
+<Tabs>
+<TabItem value="c" label="C">
+
+```c
+// construct an array of arguments
+HFFIVar args[] = {
+  VRFFIMakeString("Hello")
+};
+
+// prints "Hello" to the Lua console
+HFFIVar retVal = VRFFIInvoke("print", args, 1);
+
+// must clean up all var handles
+VRFFIFree(retVal);
+VRFFIFree(args[0]);
+```
+
+</TabItem>
+<TabItem value="cpp" label="C++">
+
+```cpp
+HFFIVarR args[] = {
+  VRFFIMakeString("Hello")
+};
+
+// prints "Hello" to the Lua console
+HFFIVarR retVal = VRFFIInvoke("print", HFFIVarR::raw(args), 1);
+```
+
+</TabItem>
+</Tabs>
+
+## Limitations
+
+The FFI is limited to returning one value from an invoked function. If the invoked function returns more than one value, all but the first are ignored.

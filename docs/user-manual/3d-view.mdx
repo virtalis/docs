@@ -1,0 +1,306 @@
+# 3D View
+
+The most important window in Visionary Render is the 3D view of your data. The other windows in the application float above this.
+
+![](/img/user-manual/chapter8/1.jpg)
+
+:::note
+To hide the GUI so that only the 3D View is shown, press `Alt` + `Z`.
+:::
+
+## Stereo Cursor
+
+![](/img/user-manual/chapter8/2.jpg)
+
+Visionary Render provides a 3D cursor called the "stereo cursor". This is a set of axes drawn at the point in which the mouse collides with geometry in the scene. The position and orientation of the cursor is determined by the geometry directly beneath it. The orientation is equivalent to the normal of the surface that the cursor is intersecting with. When viewed in stereo, the cursor will appear at the correct depth in the scene.
+
+The stereo cursor can be enabled or disabled from the Settings window under `User Interface` > `Mouse`. When disabled, the standard Windows mouse cursor will be shown instead.
+
+## Selection
+
+Left-click on an item in the tree view or scene to select it (it will be selected in both). When clicking in the scene, the object directly beneath the cursor will be selected. Hold `Ctrl` to select multiple objects or `Shift` to region select in the tree view.
+
+| ![](/img/user-manual/chapter8/3.jpg) | ![](/img/user-manual/chapter8/4.jpg) |
+|-------------------------|-------------------------|
+| Tree View Selection     | 3D Selection            |
+
+There are 3 ways to clear the current selection:
+
+-   Click on the background of the tree view.
+-   Click in empty space in the 3D view.
+-   Press `Esc`.
+
+Right-click on an object to select it and show the context menu. The appearance of highlighting in the 3D scene can be configured from the Settings window under `Renderer` > `Selection`.
+
+### Region Select
+
+Region selection can be enabled or disabled from the Toolbar (or with `Ctrl` + `1`). Left-click and drag over the scene to create a selection box. There are two types of region selection:
+
+| ![](/img/user-manual/chapter8/5.jpg)                                                                                                         | ![](/img/user-manual/chapter8/6.jpg)                                                                                               |
+|---------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| **Encapsulate** - Drag from left-to-right to select encapsulated objects (i.e. any object with all its pixels in the selection box). | **Intersect** - Drag from right-to-left to select intersected objects (i.e. any object with a pixel in the selection box). |
+
+:::note
+If you select a parent node and all its children, only the parent will be highlighted in the scene.
+:::
+
+## Camera
+
+The camera is your window into the 3D world. It is synonymous to a physical camera in a movie or television program, except that you can control it.
+
+### User Input
+
+You can control the camera with the mouse, keyboard, SpaceMouse, or a tracking device such as the Oculus Rift or HTC Vive. The camera can be configured from the Settings window under `User Interface` > `Navigation`.
+
+#### Mouse
+
+| Action                   | Description                                                                                                                                                                                                                                                                                       |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![](/img/user-manual/chapter8/7.jpg)  | Hold down Middle button and move the mouse forward or backward to move in to or out from the current view, or left and right to swivel the view.                                                                                                                                                  |
+| ![](/img/user-manual/chapter8/8.jpg)  | Hold down Middle + Right button and move the mouse to pan the view up or down, left or right.                                                                                                                                                                                                     |
+| ![](/img/user-manual/chapter8/9.jpg)  | Hold down Shift + Middle button and move the mouse forward or backward to tilt the view, or left and right to swivel.                                                                                                                                                                             |
+| ![](/img/user-manual/chapter8/10.jpg) | Hold down Ctrl + Middle button and move the mouse to orbit selected Assemblies left or right, up or down.                                                                                                                                                                                         |
+| ![](/img/user-manual/chapter8/11.jpg) | Scroll the Mouse wheel to zoom in to or out from the cursor. Hold down Ctrl to increase the zoom speed or Shift to change the field of view instead (if the viewport supports this). Zooming can be enabled or disabled from the Settings window under `User Interface` > `Mouse` > `Scroll Wheel Zoom`. |
+
+#### Keyboard
+
+| Action        | Keys                                                          | Action     | Keys                                                          |
+|---------------|---------------------------------------------------------------|------------|---------------------------------------------------------------|
+| Move Forward  | ![](/img/user-manual/chapter8/12.jpg)                                | Turn Left  | ![](/img/user-manual/chapter8/13.jpg)                                |
+| Move Backward | ![](/img/user-manual/chapter8/14.jpg)                                | Turn Right | ![](/img/user-manual/chapter8/15.jpg)                                |
+| Move Up       | ![](/img/user-manual/chapter8/16.jpg)                                | Move Left  | ![](/img/user-manual/chapter8/17.jpg) ![](/img/user-manual/chapter8/18.jpg) |
+| Move Down     | ![](/img/user-manual/chapter8/19.jpg)                                | Move Right | ![](/img/user-manual/chapter8/20.jpg) ![](/img/user-manual/chapter8/21.jpg) |
+| Look Up       | ![](/img/user-manual/chapter8/22.jpg) ![](/img/user-manual/chapter8/23.jpg) | Look Down  | ![](/img/user-manual/chapter8/24.jpg) ![](/img/user-manual/chapter8/25.jpg) |
+
+#### SpaceMouse
+
+The view can also be manipulated with the puck of the SpaceMouse if you have one connected to your machine.
+
+| Action                   | Response                                        |
+|--------------------------|-------------------------------------------------|
+| ![](/img/user-manual/chapter8/24.jpg) | Move the view forward or backward in the scene. |
+| ![](/img/user-manual/chapter8/25.jpg) | Pan the view left or right in the scene.        |
+| ![](/img/user-manual/chapter8/26.jpg) | Pan the view up or down in the scene.           |
+| ![](/img/user-manual/chapter8/27.jpg) | Tilt the view to look up or down.               |
+| ![](/img/user-manual/chapter8/28.jpg) | Swivel the view to look left or right.          |
+| ![](/img/user-manual/chapter8/29.jpg) | Unassigned.                                     |
+
+The sensitivity of these movements can be configured from the SpaceMouse Properties page. To open this, ensure that the Visionary Render window is in focus, then right-click on the SpaceMouse start menu icon and select **Open 3Dconnexion Properties** from the context menu. Alternatively, press the **Menu** button on your SpaceMouse (if it has one).
+
+You should see a window like the one below. From here, you can configure the overall sensitivity of your SpaceMouse in Visionary Render. To configure the sensitivity of individual puck movements, click on the **Advanced Settings** button.
+
+![](/img/user-manual/chapter8/30.jpg)
+
+### Context Menu
+
+The context menu for Assemblies contains some navigation options. Right-click on an Assembly in the Tree View or scene to show the context menu.
+
+![](/img/user-manual/chapter8/31.jpg)
+
+#### Fly To
+
+Select the **Fly to** option to fly the camera to a position that fills the screen with the selection. The orientation of the camera won't be changed.
+
+| ![](/img/user-manual/chapter8/32.jpg) | ![](/img/user-manual/chapter8/33.jpg) |
+|--------------------------|--------------------------|
+| Before                   | After                    |
+
+You can also fly to an object by holding `Alt` and clicking on it in the scene. Camera Fly To operations can be configured in the Settings window under `User Interface` > `Navigation`.
+
+#### Look At
+
+Select the Look at option to rotate the camera to look directly at the selection. The position of the camera won't be changed.
+
+| ![](/img/user-manual/chapter8/34.jpg) | ![](/img/user-manual/chapter8/35.jpg) |
+|--------------------------|--------------------------|
+| Before                   | After                    |
+
+## Viewpoints
+
+Visionary Render can save and recall present view positions in the scene. They can be used to display key aspects of the scene being displayed. Viewpoints are a type of Assembly used to store an interesting or important view in the scene. They are identified in the Scenes tree by the ![](/img/user-manual/chapter8/36.jpg) icon.
+
+### Create
+
+Viewpoints can be created anywhere in the scene and attached to any other Assembly. Creating a viewpoint is a simple process that can be accomplished in a few ways. The first method utilises the context menu within the scenes or developer tree.
+
+![](/img/user-manual/chapter8/37.jpg)
+
+The second method uses the Browser window to create a new viewpoint using the context menu.
+
+![](/img/user-manual/chapter8/38.jpg)
+
+The viewpoint created will appear where selected in the scene tree and will be the 3D view at the time of creation. If created using the Browser method, the viewpoint will appear in the root of the Scenes tree.
+
+Each viewpoint has a position and rotation and can be copied and pasted like any other Assembly. When creating viewpoints, it's important to know that the viewpoint position and rotation is relative to its parent. If that parent object is moved, the viewpoint moves with it.
+
+A rule of thumb would be to create a scene Assembly called Viewpoints and create all static viewpoints within that assembly group.
+
+![](/img/user-manual/chapter8/39.jpg)
+
+By default, a created viewpoint's visual is disabled within the scene. If a visual is required, it can be enabled in the viewpoint properties and will be visible within the 3D scene.
+
+![](/img/user-manual/chapter8/40.jpg)
+
+It is advisable to rename to a sensible and relevant name. When creating viewpoints, the created view generates a screenshot image. When viewed in the Browser window with large or small icons, this image is a visual representation of the captured view.
+
+![](/img/user-manual/chapter8/41.jpg)
+
+### Edit
+
+To modify the position or rotation of the viewpoint, select the viewpoint in the scenes tree. Fly to the new position in the scene and use the Position at Body option on the context menu.
+
+![](/img/user-manual/chapter8/42.jpg)
+
+The second method uses the Connect View option to connect the viewpoint to the camera. Once connected, fly to the required position and then Disconnect View.
+
+![](/img/user-manual/chapter8/43.jpg)
+
+As the viewpoint is an assembly object with its own transformation information, the camera viewpoint can also be positioned using the local or world transform properties. If the PRS tool is enabled, you can also use that to move the camera as with any other assembly.
+
+![](/img/user-manual/chapter8/44.jpg)
+
+### Activate
+
+A viewpoint can be activated in multiple ways. When a Viewpoint is activated the current view is moved to the new location over 2 seconds. Whilst technically not activating the viewpoint, the first method is to select the viewpoint in the tree and use the Fly to context menu option.
+
+![](/img/user-manual/chapter8/45.jpg)
+
+The more commonly used method requires a double click on the viewpoint within the browser window.
+
+![](/img/user-manual/chapter8/46.jpg)
+
+## Geometric Shapes
+
+Visionary Render enables you to create some common geometric shapes. Right-click on a node (such as an Assembly) in the tree view or scene and select **Create** > **Geometric Shape** from the context menu.
+
+When created on the Scenes node, the shapes appear directly in front of the camera and can be positioned, oriented, and scaled as with any other geometry. When created on an Assembly, their transform will be relative to it. A material is automatically created to go with the geometric shape. Both the Model and Material are accessible from the Libraries tree.
+
+|                                |                                                                                                                                                                                      |
+|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![](/img/user-manual/chapter8/46.jpg) | Plane - A plane in the XZ axis (i.e. facing the sky). ~1m x 1m.                                                                                                                      |
+| ![](/img/user-manual/chapter8/47.jpg) | Cube - An axis-aligned cube. ~1m x 1m x 1m.                                                                                                                                          |
+| ![](/img/user-manual/chapter8/48.jpg) | Sphere - A sphere composed of 1482 triangles. ~1m in diameter.                                                                                                                       |
+| ![](/img/user-manual/chapter8/49.jpg) | Cubic Sphere - A sphere with a flat surface projected onto it. ~1m in diameter.                                                                                                      |
+| ![](/img/user-manual/chapter8/50.jpg) | Disc - A disc in the XZ axis (i.e. facing the sky). ~1m in diameter.                                                                                                                 |
+| ![](/img/user-manual/chapter8/51.jpg) | Cone - A cone with its tip pointing to the sky. ~1m x 1m x 1m.                                                                                                                       |
+| ![](/img/user-manual/chapter8/52.jpg) | Cylinder - A cylinder with its faces pointing to the sky and ground. ~1m x 1m x 1m.                                                                                                  |
+| ![](/img/user-manual/chapter8/53.jpg) | Torus - A surface of revolution generated by revolving a circle in three-dimensional space about an axis coplanar to it (or, more intuitively, a “doughnut” shape). ~1m x 0.3m x 1m. |
+| ![](/img/user-manual/chapter8/54.jpg) | Torus Knot - A special kind of knot that lies on the surface of an unknotted torus in three-dimensional space. ~1.6m x 1.2m x 1.7m.                                                  |
+| ![](/img/user-manual/chapter8/55.jpg) | Arrow - A composite shape made up of a cuboid and pyramid. It points along the negative Z axis by default. ~0.25m x 0.25m x 1m.                                                      |
+| ![](/img/user-manual/chapter8/56.jpg) | Room - A room composed of 6 individual plane assemblies. ~1m x 1m x 1m.                                                                                                              |
+| ![](/img/user-manual/chapter8/57.jpg) | Axis - A 4-part assembly that can be used to visually represent a coordinate system. ~0.23m x 0.23m x 0.23m.                                                                         |
+
+### Super-Quadrics
+
+There's also a sub-menu with options for creating various super-quadrics (i.e. 3D parametric objects).
+
+![](/img/user-manual/chapter8/58.jpg)
+
+## Scene Tooltips
+
+Tooltips can be shown in the scene when the cursor is hovered over geometry. These can be enabled or disabled from the Settings window under `User Interface` > `Mouse` > `Scene Tooltips`.
+
+| ![](/img/user-manual/chapter8/59.jpg) | ![](/img/user-manual/chapter8/60.jpg) |
+|--------------------------|--------------------------|
+| Tree View Enabled        | Tree View Disabled       |
+
+There is also a **Use Tree View** setting that controls whether a graphical tree view with icons is shown or just simple text.
+
+## Stereo 3D
+
+Visionary Render supports stereo 3D. It can be enabled from the ![](/img/user-manual/chapter8/61.jpg) button in the Toolbar or by pressing **F10**. Stereo is achieved by rendering the 3D view twice, once into each eye, at different camera angles.
+
+### Settings
+
+Stereo can be configured for the Settings window under `Renderer` > `General`.
+
+![](/img/user-manual/chapter8/62.jpg)
+
+The **Stereo 3D** setting can be used to enable or disable stereo and shares its state with the Toolbar button.
+
+#### Mode
+
+Various types of stereo are supported -- the **Mode** setting determines which type to use when stereo is enabled. It has the following options:
+
+| Option                     | Description                                                                                                                                                                                                    |
+|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Quad Buffered              | This is the standard OpenGL stereo mode. It renders to back left and back right buffers if available. It requires an NVIDIA Quadro card with quad buffering support and a 3D-compatible display. *\[default\]* |
+| Side by Side: Square       | Left half of window is left eye, right half is right eye. Pixels are square.                                                                                                                                   |
+| Side by Side: Anamorphic   | Left half of window is left eye, right half is right eye. Pixels are 2:1 ratio.                                                                                                                                |
+| Top and Bottom: Square     | Top half of window is left eye, bottom half is right eye. Pixels are square.                                                                                                                                   |
+| Top and Bottom: Anamorphic | Top half of window is left eye, bottom half is right eye. Pixels are 2:1 ratio.                                                                                                                                |
+| HDMI Frame Packing (720p)  | Top-and-bottom 1280 x 720 mode with a 30-line gap, as per HDMI specification.                                                                                                                                  |
+| HDMI Frame Packing (1080p) | Top-and-bottom 1920 x 1080 mode with a 45-line gap, as per HDMI specification.                                                                                                                                 |
+| Left Only                  | Left channel only.                                                                                                                                                                                             |
+| Right Only                 | Right channel only.                                                                                                                                                                                            |
+| Mono                       | Stereo disabled.                                                                                                                                                                                               |
+
+#### Optimisation
+
+Rendering the scene twice potentially halves performance, so there are some optimisations in place to try to mitigate that. These can be enabled from the Stereo Optimisation combo box.
+
+| Option              | Description                                                                                                                          |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| None                | Don't apply any optimisation – i.e. just render each eye in sequence on the primary GPU. This is the slowest option.                 |
+| Single GPU Parallel | Single-pass stereo - render both eyes in parallel on the primary GPU. This requires an NVIDIA Pascal+ GPU.                           |
+| Dual GPU Parallel   | GPU multicast - render both eyes in parallel on two GPUs. This is the fastest option but requires two identical NVIDIA Pascal+ GPUs. |
+
+#### Interpupillary Distance (IPD)
+
+IPD is the distance between the centres of the pupils in your eyes. The value of this setting affects how well the stereo effect is perceived.
+
+![](/img/user-manual/chapter8/63.jpg) ![](/img/user-manual/chapter8/64.jpg)
+
+It is normally defined by a loaded ViewConfig, and can be configured from **Users** > **Computer** > **ViewConfig** > **Camera** > **Eyes** as in the image above.
+
+## Drag-and-drop
+
+The Visionary Render interface allows you to drag and drop data. This follows some simple guidelines:
+
+-   Drag from 3D world, drop onto user interface.
+
+-   Drag from user interface, drop onto the 3D world.
+
+-   Drag from 3D world, drop onto the 3D world.
+
+-   Drag from user interface, drop onto user interface.
+
+Dragging and dropping with a key held down yields different results.
+
+| FROM / TO                            | 3D World               | Property – Visual – Model | Property – Visual – Material | Library – Material – Maps | Script Editor |
+|--------------------------------------|------------------------|---------------------------|------------------------------|---------------------------|---------------|
+| 3D World                             | Set Visual Material    | Model                     | Material                     | NA                        | Assembly      |
+| 3D World + Ctrl                      | Copy Visual Material   | Model                     | Material                     | NA                        | Model         |
+| 3D World + Shift                     | Snap Assembly          | Model                     | Material                     | NA                        | GeoGroup      |
+| 3D World + Alt                       | Set GeoGroup Material  | NA                        | NA                           | NA                        | NA            |
+| 3D World + Ctrl + Shift              | Copy Assembly and Snap | Model                     | Material                     | NA                        | Material      |
+| Library – Material                   | Material               | NA                        | Material                     | NA                        | Variable      |
+| Library – Model                      | Model                  | Model                     | NA                           | NA                        | Variable      |
+| Browser – Material                   | Material               | NA                        | Material                     | NA                        | Variable      |
+| Browser – Model                      | Model                  | Model                     | NA                           | NA                        | Variable      |
+| Browser – Texture                    | NA                     | NA                        | NA                           | Texture                   | Variable      |
+| Scenes/Library/Users/Developers View | NA                     | NA                        | NA                           | Texture                   | Variable      |
+
+All Model and Material controls will accept drag and drop elements. These are identified by their colour.
+
+### Tree Views
+
+You can drag from the Scenes or Developer tree view to move and orient the dragged assembly onto whichever assembly it is dropped on. It does not change the parent of the dragged assembly, simply its position and orientation.
+
+1.  Select the Assembly in the Scenes tree view.
+2.  Drag it onto the 3D view and it should produce a transparent version that follows the cursor as in the image below.
+
+![](/img/user-manual/chapter8/65.jpg)
+
+It is also possible to drag Materials and Models from the Libraries tree or Browser onto the 3D scene window.
+
+Dragging a material onto the 3D scene can:
+
+-   Apply it to the Visual as an override Material - changing that instance of the model to use the dragged material.
+-   Apply it to the Visual as an override Material and make a copy of the material alongside the original - by pressing `Ctrl` while dragging.
+-   Apply it to the GeoGroup of the Model reference in the Visual - so all instances of that Model now use that Material for that GeoGroup -- by pressing the `Alt` key while dragging.
+
+Dragging a model onto the 3D scene can:
+
+-   Create a new Assembly with the dragged Model as a Visual which is made a child of the Assembly it is dropped on.
+-   Change the Model used in the Scene for the Model being dropped - by pressing the `Alt` key when dragging.

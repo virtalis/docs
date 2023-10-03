@@ -1,0 +1,32 @@
+# Define a Custom MetaNode
+
+## Introduction
+
+A plugin may wish to define its own metanodes if it wants to store data in the tree in a structure not accommodated by any other metanodes.
+
+For this is should use the function from the @ref api_metanodes section of the API.
+
+## Example
+
+For our example we will define a metanode to describe the location of a PDF file and a page number. On its own this will not do anything other than provide a way of storing this data. The section on @ref observer_howto "implementing observers" will follow on from this section to suggest ways of responding to instances of this metanode.
+
+```cpp
+HMeta m = VRCreateMetaNode("PDF");
+VRAddPropertyFile(m, "File", "PDF Files|*.pdf");
+VRAddPropertyInt(m, "Page", 1);
+VRFinishMetaNode(m);
+```
+
+## Creating the node in Visionary Render
+
+In order to keep this simple, we will create an instance of this node using the Lua console in Visionary Render.
+
+Enter the following into the console and press `CTRL + E` to run it.
+
+```lua
+vrCreateNode(vrTreeRoot().Libraries, "PDF", "PDF")
+```
+
+The node will appear in the Libraries tree. Notice how its properties are immediately editable using the automatically generated properties display. The appearance of the properties is customizable using @ref advanced_semantics.
+
+![](/img/programming-guide/pdf_default_props.png)

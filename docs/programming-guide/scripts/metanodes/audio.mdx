@@ -1,0 +1,97 @@
+# Audio
+
+Audio is managed using a buffer for the file and numerous instances of that buffer in the scene providing positional audio.
+
+## AudioBuffer 
+
+### Properties
+
+| Property | Type   | Description                              |
+| -------- | ------ | ---------------------------------------- |
+| File     | string | File path to the audio file. Once loaded, this data is saved in the VR scene. |
+
+### Example
+
+```lua
+-- Drag/Drop section BEGINS - Do not edit between BEGINS and ENDS.
+local Crash = __Script.dragdrop.Crash
+-- Drag/Drop section ENDS
+
+print("File = ", Crash.File)
+```
+
+## AudioSound 
+
+### Properties
+
+| Property | Type    | Description                              |
+| -------- | ------- | ---------------------------------------- |
+| Activate | boolean | When enabled, activates playback of the sound. Value is automatically returned to false, so the sound can be activated multiple times between frames to create overlapping sounds. |
+| AudioBuffer | vrnode  | Link to the AudioBuffer node to play     |
+| Gain        | number  | Volume of the sound (0.0 - 2.0) - 1.0 is normal volume |
+| Relative    | boolean | Audio is positional in the scene         |
+| RelativeTo  | number  | Relative to world (0) or local (0) transform of its Assembly parent |
+| Directional | boolean | Whether audio is directional (the rotation of the assembly affects perception) |
+
+## Example
+
+```lua
+-- Drag/Drop section BEGINS - Do not edit between BEGINS and ENDS.
+local CarHorn = __Script.dragdrop.CarHorn
+-- Drag/Drop section ENDS
+
+print(CarHorn.AudioBuffer)
+print(CarHorn.Gain)
+print(CarHorn.Relative)
+print(CarHorn.RelativeTo)
+
+-- Set the audio to be positioned relatively to the listener
+CarHorn.Relative = true
+
+-- Set Gain to be 0.75
+CarHorn.Gain = 0.75
+
+-- Set it to be RelativeTo world
+CarHorn.RelativeTo = 0
+
+-- now trigger the audio sound playback
+CarHorn.Activate = true
+```
+
+## AudioTrack
+
+### Properties
+
+| Property | Type    | Description                              |
+| -------- | ------- | ---------------------------------------- |
+| State    | number  | Playback state: stopped (0), playing (1), or paused (2) |
+| Loop     | boolean | Whether to repeat the playback when it ends |
+| AudioBuffer | vrnode  | Link to the AudioBuffer node to play     |
+| Gain        | number  | Volume of the sound (0.0 - 2.0) - 1.0 is normal volume |
+| Relative    | boolean | Audio is positional in the scene         |
+| RelativeTo  | number  | Relative to world (0) or local (0) transform of its Assembly parent |
+| Directional | boolean | Whether audio is directional (the rotation of the assembly affects perception) |
+
+### Example
+
+```lua
+-- Drag/Drop section BEGINS - Do not edit between BEGINS and ENDS.
+local Audio = __Script.dragdrop.Audio
+-- Drag/Drop section ENDS
+
+-- the Audio Assembly has the AudioTrack as a child, called GlassSmash
+print(Audio.GlassSmash.AudioBuffer)
+print(Audio.GlassSmash.State)
+
+-- Set the audio to be positioned relatively to the listener
+Audio.GlassSmash.Relative = true
+
+-- Set Gain to be 0.75
+Audio.GlassSmash.Gain = 0.75
+
+-- Set it to be RelativeTo world
+Audio.GlassSmash.RelativeTo = 0
+
+-- now trigger the audio track playback
+Audio.GlassSmash.State = 1
+```

@@ -1,0 +1,76 @@
+# Light
+
+This node describes controls of a light attached to an assembly.
+
+## Properties
+
+| Property         | Type    | Description                              |
+| ---------------- | ------- | ---------------------------------------- |
+| Enabled          | boolean | Enabled or disabled (whether any light is emitted) |
+| Type             | number  | The type of light. See the light type table below |
+| Colour           | vrvec3  | Table of 3 floats, for red, green, and blue in the range of 0.0 to 1.0 |
+| Radius           | number  | Specifies the radius after which the light falls off to 100% black –only applicable to Point and Spot lights. A value of 0 specifies no attenuation. |
+| SpotCone         | vrvec2  | Parameters for the spotlight cone. `x` = cone cut-off angle (0-90), `y` = cone intensity distribution exponent (0-128) |
+| ShadowMap        | boolean | Specifies that this light casts shadows  |
+| ShadowMapSize    | number  | Resolution of shadow map in pixels       |
+| ShadowClipOffset | number  | Distance offset of shadowmap to the near clip plane |
+| Intensity        | number  | Scalar to apply to the light colour to control the brightness |
+| ShadowBlur       | number  | Number of times to blur the shadow map   |
+| ShadowOverdarken | number  | How much to over-darken the shadow to compensate for light bleeding |
+
+### Types
+
+| Type                      | Description                        |
+| ------------------------- | ---------------------------------- |
+| `__Light_TypeDirectional` | A directional light (e.g. the sun) |
+| `__Light_TypeAmbient`     | Ambient light                      |
+| `__Light_TypePoint`       | A point light                      |
+| `__Light_TypeSpot`        | A spotlight                        |
+
+## Examples
+
+### Example 1
+
+An example of how a script can change the colour of a light, in this instance incrementing the Red component of the light colour each time this script is called. This script might be linked to a key press.
+
+```lua
+-- Drag/Drop section BEGINS - Do not edit between BEGINS and ENDS.
+local Light = __Script.dragdrop.Light
+-- Drag/Drop section ENDS
+
+-- Toggle the Enabled state of the Light
+Light.Enabled = not Light.Enabled
+
+-- print the colour to the log window
+print(Light.Colour)
+
+-- increase the red value every keypress
+Light.Colour.X = Light.Colour.X + 0.01
+```
+
+### Example 2
+
+```lua
+-- Drag/Drop section BEGINS - Do not edit between BEGINS and ENDS.
+local Light = __Script.dragdrop.Light
+-- Drag/Drop section ENDS
+
+-- Make sure light is on first
+Light.Enabled = true
+
+-- Check current light and change it to next
+-- light in the sequence and print a message
+if Light.Type == __Light_TypeDirectional then
+   print("__Light_TypeDirectional")
+   Light.Type = __Light_TypeAmbient
+elseif Light.Type == __Light_TypeAmbient then
+   print("__Light_TypeAmbient")
+   Light.Type = __Light_TypePoint
+elseif Light.Type == __Light_TypePoint then
+   print("__Light_TypePoint")
+   Light.Type = __Light_TypeSpot
+elseif Light.Type == __Light_TypeSpot then
+   print("__Light_TypeSpot")
+   Light.Type = __Light_TypeDirectional
+end
+```

@@ -1,0 +1,73 @@
+# Merging
+
+Visionary Render permits you to merge an existing `VRNative` or `VRText` file into the current scene. There are two types of merge: basic and advanced. A basic merge simply merges a chosen scene into the root node with the current merge settings, whereas an advanced merge presents you with a Merge Settings dialog that can be used to analyse and configure the merge before it is performed.
+
+## Basic Merge
+
+To merge a file into your current scene, click on the Virtalis button at the top-left of the Toolbar and select **Import** > **Visionary Render Scene**.
+
+![](/img/user-manual/chapter37/1.jpg)
+
+A file browser will be shown to enable you to select a `VRNative` or `VRText` file to merge into the current scene. Select a file and press the **OK** button to perform the merge.
+
+![](/img/user-manual/chapter37/2.jpg)
+
+## Advanced Merge
+
+To perform an advanced merge, follow the same steps as above but click the **Show Settings** checkbox before pressing the **OK** button. The Merge Settings dialog will now be shown to permit the merge to be configured.
+
+### Analyse
+
+The Analyse page permits the location of the merge to be configured and shows a preview of how the Libraries and Scenes trees will look following the merge.
+
+![](/img/user-manual/chapter37/3.jpg)
+
+The Existing Root and Incoming Root properties are optional and can be used to specify where the merge should start from in the scene. An item in the tree view can also be dragged onto any node in the scene to automatically populate the roots from which to perform the merge. These properties can typically be left blank - in which case the merge uses the root of the current scene and the root of the incoming scene, respectively.
+
+When done, press the **Analyse** button to analyse the merge. This performs a search on the tree, attempting to match parts of the incoming scene with objects in the current scene.
+
+### Configure
+
+The Configure page is displayed once the analysis is complete. It shows the results of the analysis and permits preset or custom merge options to be selected.
+
+![](/img/user-manual/chapter37/4.jpg)
+
+#### Preset
+
+The Preset drop-down can be used to apply settings for some common merging tasks. It has 5 options:
+
+| Option                   | Description                                                                                                                                                                                                                                                                                                                                                                                  |
+|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| None                     | Don’t apply a preset. *\[default\]*                                                                                                                                                                                                                                                                                                                                                          |
+| Merge Alongside Existing | Copy all the incoming data into the current scene without doing any checking for existing data. Nothing is overwritten, but this may result in duplicate data if some geometry or material exists in both the current scene and the incoming scene.                                                                                                                                          |
+| Library Merge            | Merge the Libraries tree only. This can be useful to apply updates to geometry and materials without touching the transforms of any assemblies or otherwise affecting the PLM tree layout. This option will replace any existing library objects it finds when matching. Any libraries not in the existing scene will be added too. Libraries not in the incoming scene will not be deleted. |
+| Existing Update Only     | Only update the values of existing objects in the scene. If there are new objects in the scene, they will be ignored. The Analysis results will indicate the number of affected objects, where it specifies the number of existing nodes and the number of new branches. In this mode, the new branches will not be merged.                                                                  |
+| Full Merge               | Perform a full merge, updating all existing values and adding all new branches.                                                                                                                                                                                                                                                                                                              |
+
+#### Settings
+
+If necessary, you can customise the merge with the following settings.
+
+| Setting | Description |
+| --- | --- |
+| Consolidate | Bypasses most of the merging logic to insert the incoming data alongside any existing data in the scene. No existing nodes are updated, all data is added under a new Assembly and corresponding Library. If enabled, it does not duplicate the Scene node. [default: false] |
+| Archive | (for Consolidate only) Enables the Archive property of the Library node created because of the consolidated merge. This means that all the merged data is saved out in a file specified by Archive Name. [default: false] |
+| Archive Name | (for Consolidate only) The file name to use for the library archive. [default: false] |
+| Merge Libraries Only | Merges only the contents of the Libraries tree in the incoming file. Does not touch the Scenes tree. [default: false] |
+| Merge Additions Only | Ignores any property changes to existing nodes, and merges only those that do not already exist. [default: false] |
+| Ignore Additions | Ignores any new nodes and only updates the properties of existing ones. This is ignored if Merge Additions Only is enabled. [default: false] |
+| Add to Parent | Any new nodes are added as children of the existing one that is currently being updated – e.g. if existing Assembly has a child called Engine, and the incoming Assembly has a child called Wheels, Wheels will become a sibling of Engine. [default: false] |
+| Add to Branch | Any new nodes are added as children of a new node, named after the incoming scene. This is like the behaviour of Consolidate except that it only applies to new nodes. [default: false] |
+| Pull Link Dependencies | This should almost always be turned on, except when merging very specific parts of a scene, such as a user interface with script events on it.When merging non-root nodes (specified during analysis), any link properties that point to other nodes that may not be part of the selected incoming data tree have their targets merged into the scene too. Any links on those nodes have their targets merged recursively until all the dependencies are present in the main tree. This respects any types specified in the ignore list. [default: false] |
+| Ignore Nodes | These options ignore specific node types during the merge. Any other types can be specified in the Ignore Additional Types box, separated by commas.The names specified must match what is displayed in a node’s properties window (e.g. “Assembly”).Note: during the update of existing nodes, ignoring a node type does not prevent the merge traversal continuing down its children. When the merge will result in property updates only, ignoring a node type will only prevent properties of that type from being updated. It will continue to update any descendants with same filter. |
+| Create Merge Groups | Any merged nodes, be they existing or new, will get added to a group named after the input file. This provides an easy way to select all the nodes affected by a merge operation after it is complete. [default: false] |
+| Disable Removed | After merging, walk down the tree and disable any nodes that were not affected by this merge. Unaffected nodes are marked as such because they did not exist in the incoming merge tree. Note that a node much have an enabled property for this to do anything to it. [default: false] |
+| Delete Removed | Does the same as disable, except that it deletes the nodes instead of disabling them. [default: false] |
+
+:::note
+The Merge Settings dialog removes DocumentOnLoad events if a merge would result in them being somewhere other than a child of the Scenes node.
+:::
+
+The default values for most of these settings can be edited from the Settings window under the Merging category. When you change a setting in the Merge Settings dialog, the default value for that setting will also be updated in the Settings window. The Settings window can be used to configure basic merges without having to open the Merge Settings dialog.
+
+![](/img/user-manual/chapter37/5.jpg)

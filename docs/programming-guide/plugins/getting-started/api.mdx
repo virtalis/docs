@@ -1,0 +1,71 @@
+# API
+
+The API functions can be accessed from the following DLLs:
+
+| Name                  | Description           |
+| --------------------- | --------------------- |
+| `vrtree.dll`          | This DLL contains the core VR API functions, such as `VRConnect` and `VRUpdate`. |
+| `vrtree-exchange.dll` | This DLL contains the VR Exchange API functions, such as `VRXImport` and `VRXExport`. These are used to directly interact with other installed importer and exporter plugins. |
+
+## Using the Wrangler
+
+The API includes a C/C++ wrangler (`vrtree-linker`) for all of the functions provided by VRTree. It also includes fall-back dummy implementations for cases where the version of `vrtree.dll` differs from the version expected by the plugin. These don't perform any operation and exist to prevent your plugins from crashing by calling a null function pointer.
+
+### Example Code
+
+When using the wrangler with C/C++, the `VRPLUGIN_LOADVRTREE` macro will take care of all the work for you. It is usually best to call this from the `VRPInit` function. The following example shows how to do this:
+
+```cpp
+#include <vrtree_api.h>
+
+using namespace vrtree_cpp;
+
+PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPInit()
+{
+  // Query the vrtree DLL for API entry points and load them.
+  VRPLUGIN_LOADVRTREE;
+
+  // Get a handle to this user's node.
+  HNodeR user = VRGetThisUser();
+
+  if (user) {
+    // Do something with the node...
+  }
+  return 0;
+}
+```
+
+## Loading a DLL Manually
+
+The wrangler can be unsuitable if you are using a language other than C/C++ or want to selectively probe for API functions. In this case, you can use the [LoadLibrary](https://docs.microsoft.com/en-us/cpp/build/loadlibrary-and-afxloadlibrary?view=vs-2019) and [GetProcAddress](https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-getprocaddress) functions on Windows.
+
+### Example Code
+
+The VR Exchange API doesn't have a wrangler yet so has to be loaded manually. The following example shows how to do this:
+
+```cpp
+#include <vrtree_api.h>
+
+using namespace vrtree_cpp;
+
+PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPInit()
+{
+  // Map the VRTree Exchange DLL into the address space of this process and get a handle to it.
+  HMODULE hExchangeDLL = LoadLibrary("vrtree-exchange.dll");
+
+  if (hExchangeDLL) {
+    // Typedef a pointer to the VRXImportFunc function. It accepts 4 arguments and returns a uint32_t.
+    typedef uint32_t(*VRXImportFunc)(const char*, HNode, HNode, const char*);
+
+    // Get the address of VRXImportFunc from the __vrexport_VRXImport DLL and store it in a pointer.
+    // Note that we have to add "__vrexport_" to the function name.
+    VRXImportFunc importFunc = (VRXImportFunc)GetProcAddress(hExchangeDLL, "__vrexport_VRXImport");
+
+    if (importFunc) {
+      // Use the pointer to call the function as normal with some relevant arguments.
+      importFunc("path/to/file/to/import", ...);
+    }
+  }
+  return 0;
+}
+```

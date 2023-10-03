@@ -1,0 +1,13 @@
+.red {
+  color: red;
+}
+.red[aria-selected='true'] {
+  border-bottom-color: red;
+}
+
+.green {
+  color: green;
+}
+.green[aria-selected='true'] {
+  border-bottom-color: green;
+}
