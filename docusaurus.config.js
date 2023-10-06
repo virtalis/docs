@@ -1,6 +1,5 @@
 // @ts-check
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
@@ -37,6 +36,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          breadcrumbs: true,
           sidebarPath: require.resolve('./sidebars.js'),
         },
         theme: {
@@ -49,12 +49,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      colorMode: {
+        respectPrefersColorScheme: true,
+      },
       navbar: {
         title: '',
         logo: {
-          alt: 'Visionary Render Logo',
           src: 'img/visren-logo.png',
         },
         items: [
@@ -74,10 +74,10 @@ const config = {
       },
       footer: {
         style: 'dark',
-        copyright: `Copyright © ${new Date().getFullYear()} Virtalis. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Virtalis. All rights reserved.`,
       },
       prism: {
-        theme: lightCodeTheme,
+        theme: darkCodeTheme,
         darkTheme: darkCodeTheme,
         additionalLanguages: ['c', 'cmake', 'glsl', 'lua', 'xml-doc'],
       },
