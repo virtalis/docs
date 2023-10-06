@@ -1,5 +1,9 @@
-/* Light Mode */
 :root {
+  --visren-color-light-purple: rgb(76, 63, 170);
+  --visren-color-dark-purple: rgb(54, 45, 123);
+  --visren-color-light-purple-highlight: rgba(100, 90, 207, 0.9);
+  --visren-color-dark-purple-highlight: rgba(76, 63, 170, 0.9);
+
   --ifm-color-primary: #0675f8;
   --ifm-color-primary-dark: #0569df;
   --ifm-color-primary-darker: #0563d3;
@@ -7,12 +11,14 @@
   --ifm-color-primary-light: #1e83fa;
   --ifm-color-primary-lighter: #2a89fa;
   --ifm-color-primary-lightest: #4f9efb;
+
   --ifm-font-size-base: 18px;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-table-cell-padding: 0.5rem;
+  --ifm-footer-padding-vertical: calc(var(--ifm-spacing-vertical));
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-/* Dark Mode */
 [data-theme='dark'] {
   --ifm-color-primary: #3995fe;
   --ifm-color-primary-dark: #1a84fe;
@@ -21,7 +27,6 @@
   --ifm-color-primary-light: #58a6fe;
   --ifm-color-primary-lighter: #67aefe;
   --ifm-color-primary-lightest: #96c7fe;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
 /*a {
@@ -48,4 +53,46 @@ tr:nth-child(even){background-color: #f2f2f2}
 th {
   background-color: #0062ff;
   color: white;
+}
+
+/* Navbar */
+
+[data-theme='light'] {
+  --ifm-navbar-background-color: var(--visren-color-light-purple);
+
+  .navbar__item {
+    color: var(--ifm-color-gray-200);
+    margin-right: 0.5rem;
+  }
+  .navbar__link:hover,
+  .navbar__link--active {
+    color: var(--ifm-color-white);
+    background-color: var(--visren-color-light-purple-highlight);
+    border-radius: 0.2rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    text-decoration: none;
+  }
+}
+
+[data-theme='dark'] {
+  --ifm-navbar-background-color: var(--visren-color-dark-purple);
+
+  .navbar__item {
+    color: var(--ifm-color-gray-300);
+    margin-right: 0.5rem;
+  }
+  .navbar__link:hover,
+  .navbar__link--active {
+    color: var(--ifm-color-gray-100);
+    background-color: var(--visren-color-dark-purple-highlight);
+    border-radius: 0.2rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    text-decoration: none;
+  }
 }
