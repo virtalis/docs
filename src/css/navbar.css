@@ -1,0 +1,60 @@
+/*
+Prevent hyperlinks from appearing at the origin when the page is 
+refreshed due to the logo not being cached. The logo itself still 
+flickers but it's an improvement
+*/
+.navbar__logo {
+  width: 156px;
+}
+
+.navbar__link--active {
+  border-radius: 5rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+}
+
+[data-theme='light'] {
+  --ifm-navbar-background-color: var(--visren-color-light-purple);
+
+  .navbar__item {
+    color: var(--visren-color-light-navbar-text);
+    margin-right: 0.5rem;
+  }
+  .navbar__link:hover {
+    color: var(--ifm-color-white);
+  }
+  .navbar__link--active {
+    color: var(--ifm-color-white);
+    background-color: var(--visren-color-light-purple-highlight);
+  }
+  .navbar-sidebar {
+    background-color: var(--ifm-color-white);
+    
+    .navbar-sidebar__brand {
+      background-color: var(--visren-color-light-purple);
+    }
+  }
+}
+
+[data-theme='dark'] {
+  --ifm-navbar-background-color: var(--visren-color-dark-purple);
+
+  .navbar__item {
+    color: var(--visren-color-dark-navbar-text);
+    margin-right: 0.5rem;
+  }
+  .navbar__link:hover {
+    color: var(--visren-color-off-white);
+  }
+  .navbar__link--active {
+    color: var(--visren-color-off-white);
+    background-color: var(--visren-color-dark-purple-highlight);
+  }
+  .navbar-sidebar {
+    background-color: var(--ifm-color-gray-900);
+    
+    .navbar-sidebar__brand {
+      background-color: var(--visren-color-dark-purple);
+    }
+  }
+}
