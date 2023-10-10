@@ -1,6 +1,7 @@
 :root {
   --visren-color-light-purple: rgb(76, 63, 170);
   --visren-color-dark-purple: rgb(54, 45, 123);
+  --visren-color-darker-purple: rgb(43, 36, 96);
   --visren-color-light-purple-highlight: rgba(100, 90, 207, 0.9);
   --visren-color-dark-purple-highlight: rgba(76, 63, 170, 0.9);
   --visren-color-light-navbar-text: rgb(210, 204, 252);
@@ -16,10 +17,11 @@
 
   --ifm-font-size-base: 18px;
   --ifm-font-color-base: var(--ifm-color-black);
-
   --ifm-code-font-size: 95%;
   --ifm-table-cell-padding: 0.5rem;
   --ifm-footer-padding-vertical: calc(var(--ifm-spacing-vertical));
+  --ifm-navbar-search-input-background-color: var(--visren-color-light-purple-highlight);
+  --ifm-navbar-search-input-color: var(--ifm-color-gray-500);
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
@@ -33,6 +35,8 @@
   --ifm-color-primary-lightest: #96c7fe;
 
   --ifm-font-color-base: var(--ifm-color-white);
+  --ifm-navbar-search-input-background-color: var(--visren-color-darker-purple);
+  --ifm-navbar-search-input-color: var(--ifm-color-gray-700);
 }
 
 /*a {

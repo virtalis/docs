@@ -49,6 +49,14 @@ const config = {
     ],
   ],
 
+  plugins: [
+    [
+      require.resolve("docusaurus-plugin-search-local"), {
+        hashed: true,
+      },
+    ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
