@@ -13,48 +13,48 @@ flickers but it's an improvement
   padding-bottom: 0.3rem;
 }
 
+/* Light Mode */
+
 [data-theme='light'] {
   --ifm-navbar-background-color: var(--visren-color-light-purple);
-
-  .navbar__item {
-    color: var(--visren-color-light-navbar-text);
-    margin-right: 0.5rem;
-  }
-  .navbar__link:hover {
-    color: var(--ifm-color-white);
-  }
-  .navbar__link--active {
-    color: var(--ifm-color-white);
-    background-color: var(--visren-color-light-purple-highlight);
-  }
-  .navbar-sidebar {
-    background-color: var(--ifm-color-white);
-    
-    .navbar-sidebar__brand {
-      background-color: var(--visren-color-light-purple);
-    }
-  }
 }
+[data-theme='light'] .navbar__item {
+  color: var(--visren-color-light-navbar-text);
+  margin-right: 0.5rem;
+}
+[data-theme='light'] .navbar__link:hover {
+  color: var(--ifm-color-white);
+}
+[data-theme='light'] .navbar__link--active {
+  color: var(--ifm-color-white);
+  background-color: var(--visren-color-light-purple-highlight);
+}
+[data-theme='light'] .navbar-sidebar {
+  background-color: var(--ifm-color-white);
+}
+[data-theme='light'] .navbar-sidebar__brand {
+  background-color: var(--visren-color-light-purple);
+}
+
+/* Dark Mode */
 
 [data-theme='dark'] {
   --ifm-navbar-background-color: var(--visren-color-dark-purple);
-
-  .navbar__item {
-    color: var(--visren-color-dark-navbar-text);
-    margin-right: 0.5rem;
-  }
-  .navbar__link:hover {
-    color: var(--visren-color-off-white);
-  }
-  .navbar__link--active {
-    color: var(--visren-color-off-white);
-    background-color: var(--visren-color-dark-purple-highlight);
-  }
-  .navbar-sidebar {
-    background-color: var(--ifm-color-gray-900);
-    
-    .navbar-sidebar__brand {
-      background-color: var(--visren-color-dark-purple);
-    }
-  }
+}
+[data-theme='dark'] .navbar__item {
+  color: var(--visren-color-dark-navbar-text);
+  margin-right: 0.5rem;
+}
+[data-theme='dark'] .navbar__link:hover {
+  color: var(--visren-color-off-white);
+}
+[data-theme='dark'] .navbar__link--active {
+  color: var(--visren-color-off-white);
+  background-color: var(--visren-color-dark-purple-highlight);
+}
+[data-theme='dark'] .navbar-sidebar {
+  background-color: var(--ifm-color-gray-900);
+}
+[data-theme='dark'] .navbar-sidebar__brand {
+  background-color: var(--visren-color-dark-purple);
 }

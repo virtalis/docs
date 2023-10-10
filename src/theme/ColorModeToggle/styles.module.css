@@ -14,24 +14,20 @@
   transition: background var(--ifm-transition-fast);
 }
 
-[data-theme='light'] {
-  .darkToggleIcon {
-    display: none;
-  }
-  .toggleButton:hover {
-    background: var(--visren-color-light-purple-highlight);
-  }
-}
-
-[data-theme='dark'] {
-  .lightToggleIcon {
-    display: none;
-  }
-  .toggleButton:hover {
-    background: var(--visren-color-dark-purple-highlight);
-  }
-}
-
 .toggleButtonDisabled {
   cursor: not-allowed;
+}
+
+[data-theme='light'] .darkToggleIcon {
+  display: none;
+}
+[data-theme='light'] .toggleButton:hover {
+  background: var(--visren-color-light-purple-highlight);
+}
+
+[data-theme='dark'] .lightToggleIcon {
+  display: none;
+}
+[data-theme='dark'] .toggleButton:hover {
+  background: var(--visren-color-dark-purple-highlight);
 }
