@@ -1,0 +1,72 @@
+---
+title: Meta_TransformLink
+summary: A TransformLink synchronises the transform of the source node onto the target node (and optionally the other way) 
+
+---
+
+# Meta_TransformLink
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A TransformLink synchronises the transform of the source node onto the target node (and optionally the other way)  [More...](#detailed-description)
+
+
+`#include <meta_tracking.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[Idx](../Classes/struct_meta___transform_link.mdx#enum-idx)** { Idx_Enabled, Idx_Source, Idx_Target, Idx_OverrideMode, Idx_PositionOverride, Idx_RotationOverride, Idx_ScaleOverride, Idx_TwoWay, Idx_UpdateOrder, Idx_LocalTransforms}<br />Property index.  |
+| enum| **[OverrideMode](../Classes/struct_meta___transform_link.mdx#enum-overridemode)** { Override_None = 0, Override_P = 1, Override_R = 2, Override_PR = 3, Override_S = 4, Override_PS = 5, Override_RS = 6, Override_PRS = 7}<br />Values for Idx_OverrideMode.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_TransformLink;
+```
+
+A TransformLink synchronises the transform of the source node onto the target node (and optionally the other way) 
+
+This is usually used to connect assemblies from the scene to some part of the view or avatar. 
+
+## Public Types Documentation
+
+### enum Idx
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - When enabled, the link is active   |
+| Idx_Source | | link - The source node, whose transform will be applied to the target   |
+| Idx_Target | | link - The target node, which receives the transform   |
+| Idx_OverrideMode | | [OverrideMode (int) - Which parts of the transform are overridden   |
+| Idx_PositionOverride | | vec3w - The position value to apply instead of the source position   |
+| Idx_RotationOverride | | vec3w - The rotation value to apply instead of the source rotation   |
+| Idx_ScaleOverride | | vec3w - The scale value to apply instead of the source scale   |
+| Idx_TwoWay | | bool - Whether the link goes both ways (movement of Target affects Source)   |
+| Idx_UpdateOrder | | int - Determines the order in which all TransformLinks are updated. A lower number means this transform link is applied before any with higher numbers.   |
+| Idx_LocalTransforms | | bool - Whether the transform link applies its transforms to the world position or its local position   |
+
+
+
+Property index. 
+
+### enum OverrideMode
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Override_None | 0| Don't override any part of the transform (Symbols - C: `"OverrideNone"`, Lua: `__TransformLink_OverrideNone`)   |
+| Override_P | 1| Override the position (Symbols - C: `"OverridePosition"`, Lua: `__TransformLink_OverridePosition`)   |
+| Override_R | 2| Override the rotation (Symbols - C: `"OverrideRotation"`, Lua: `__TransformLink_OverrideRotation`)   |
+| Override_PR | 3| Override the position and rotation (Symbols - C: `"OverridePositionRotation"`, Lua: `__TransformLink_OverridePositionRotation`)   |
+| Override_S | 4| Override the scale (Symbols - C: `"OverrideScale"`, Lua: `__TransformLink_OverrideScale`)   |
+| Override_PS | 5| Override the position and scale (Symbols - C: `"OverridePositionScale"`, Lua: `__TransformLink_OverridePositionScale`)   |
+| Override_RS | 6| Override the rotation and scale (Symbols - C: `"OverrideRotationScale"`, Lua: `__TransformLink_OverrideRotationScale`)   |
+| Override_PRS | 7| Override the position, rotation, and scale (Symbols - C: `"OverridePositionRotationScale"`, Lua: `__TransformLink_OverridePositionRotationScale`)   |
+
+
+
+Values for Idx_OverrideMode. 
+

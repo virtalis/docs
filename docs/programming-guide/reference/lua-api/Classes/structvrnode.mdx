@@ -1,0 +1,520 @@
+---
+title: vrnode
+summary: A node in the tree. 
+
+---
+
+# vrnode
+
+**Module:** **[Lua API](../Modules/group__api__lua.mdx)**
+
+
+
+A node in the tree. 
+
+
+`#include <lua_api.h>`
+
+## Public Functions
+
+|                | Name           |
+| -------------- | -------------- |
+| [vrnode](../Classes/structvrnode.mdx) | **[ancestor](../Classes/structvrnode.mdx#ancestor)**(string metaName)<br />([vrNodeGetAncestor) Gets the first ancestor of the specified type  |
+| [vrnode](../Classes/structvrnode.mdx) | **[child](../Classes/structvrnode.mdx#child)**(string metaType =0, string name =0)<br />([vrNodeGetChild) Gets the first child of a node.  |
+| [vrnode](../Classes/structvrnode.mdx) | **[childbyindex](../Classes/structvrnode.mdx#childbyindex)**(number idx)<br />([vrNodeGetChildByIndex) Gets a nodes child by its zero-based index. Note: this function may result in poor performance when iterating over lots of nodes - use [vrNodeGetChild() and [vrNodeGetSibling() instead (see the Best Practices section of the Programming Guide for more info).  |
+| number | **[count](../Classes/structvrnode.mdx#count)**()<br />([vrNodeGetChildCount) Counts the children of a node. Note: this function may result in poor performance when iterating over lots of nodes - use [vrNodeGetChild() and [vrNodeGetSibling() instead (see the Best Practices section of the Programming Guide for more info).  |
+| [vrnode](../Classes/structvrnode.mdx) | **[find](../Classes/structvrnode.mdx#find)**(string path, boolean caseSensitive =true)<br />([vrNodeFindChild) Finds a descendant of a node by path  |
+| void | **[forEachChild](../Classes/structvrnode.mdx#foreachchild)**(Any function)<br />([vrNodeForEachChild) Calls a function for each child of a node  |
+| void | **[forEachChildOfType](../Classes/structvrnode.mdx#foreachchildoftype)**(string metaType, Any function)<br />([vrNodeForEachChildOfType) Calls a function for each child of a node that matches a specified type  |
+| void | **[getLocal](../Classes/structvrnode.mdx#getlocal)**(string propName)<br />([vrNodeGetLocalTransform) DEPRECATED  |
+| void | **[getLocalMatrix](../Classes/structvrnode.mdx#getlocalmatrix)**(string propName)<br />([vrNodeGetLocalMatrix) DEPRECATED  |
+| void | **[getLocalPRS](../Classes/structvrnode.mdx#getlocalprs)**()<br />([vrNodeGetLocal) DEPRECATED  |
+| string | **[getName](../Classes/structvrnode.mdx#getname)**()<br />([vrNodeGetName) Gets the name of a node.  |
+| [vrnode](../Classes/structvrnode.mdx) | **[getParent](../Classes/structvrnode.mdx#getparent)**()<br />([vrNodeGetParent) Gets the parent of a node.  |
+| [MULTI](../Classes/struct_m_u_l_t_i.mdx)< [vrvec3](../Classes/structvrvec3.mdx), [vrvec3](../Classes/structvrvec3.mdx), [vrvec3](../Classes/structvrvec3.mdx) > | **[getRelative](../Classes/structvrnode.mdx#getrelative)**(string propName, [vrnode](../Classes/structvrnode.mdx) otherNode)<br />([vrNodeGetRelativeTransform) Gets the position, rotation and scale of the world transform of one node relative to another.  |
+| void | **[getWorld](../Classes/structvrnode.mdx#getworld)**(string propName)<br />([vrNodeGetWorldTransform) DEPRECATED  |
+| void | **[getWorldPRS](../Classes/structvrnode.mdx#getworldprs)**()<br />([vrNodeGetWorld) DEPRECATED  |
+| boolean | **[hasTrait](../Classes/structvrnode.mdx#hastrait)**(string traitName)<br />([vrNodeHasTrait) Checks if the node is of a type with a specific trait. This is a lot faster than vrNodeGetTraits  |
+| [vrnode](../Classes/structvrnode.mdx) | **[next](../Classes/structvrnode.mdx#next)**(string metaType =0, string name =0)<br />([vrNodeGetSibling) Gets the sibling (adjacent) node to a node.  |
+| [vrnode](../Classes/structvrnode.mdx) | **[parent](../Classes/structvrnode.mdx#parent)**()<br />([vrNodeGetParent) Gets the parent of a node.  |
+| string | **[path](../Classes/structvrnode.mdx#path)**()<br />([vrNodeGetPath) Gets the encoded path to a node relative to the tree root  |
+| [vrnode](../Classes/structvrnode.mdx) | **[previous](../Classes/structvrnode.mdx#previous)**(string metaType =0, string name =0)<br />([vrNodeGetPreviousSibling) Gets the previous sibling (adjacent) node to a node.  |
+| string | **[relpath](../Classes/structvrnode.mdx#relpath)**([vrnode](../Classes/structvrnode.mdx) relativeTo)<br />([vrNodeGetRelativePath) Gets the encoded path to a node, relative to another node.  |
+| void | **[setLocal](../Classes/structvrnode.mdx#setlocal)**(string propName, Any vpos, Any vrot, Any vscale)<br />([vrNodeSetLocalTransform) DEPRECATED  |
+| void | **[setLocalMatrix](../Classes/structvrnode.mdx#setlocalmatrix)**(string propName, [vrmatrix4](../Classes/structvrmatrix4.mdx) matrix)<br />([vrNodeSetLocalMatrix) DEPRECATED  |
+| void | **[setLocalPRS](../Classes/structvrnode.mdx#setlocalprs)**()<br />([vrNodeSetLocal) DEPRECATED  |
+| void | **[setName](../Classes/structvrnode.mdx#setname)**(string newName)<br />([vrNodeSetName) Sets the name of a node.  |
+| void | **[setParent](../Classes/structvrnode.mdx#setparent)**([vrnode](../Classes/structvrnode.mdx) parent =nil, [vrnode](../Classes/structvrnode.mdx) beforeSibling =nil, boolean preserveWorldTransform =false)<br />([vrNodeSetParent) Sets the parent of a node.  |
+| void | **[setRelative](../Classes/structvrnode.mdx#setrelative)**(string propName, [vrnode](../Classes/structvrnode.mdx) otherNode, Any vpos, Any vrot, Any vscale)<br />([vrNodeSetRelativeTransform) Sets the position, rotation and scale of the world transform of a node relative to another.  |
+| void | **[setWorld](../Classes/structvrnode.mdx#setworld)**(string propName, Any vpos, Any vrot, Any vscale)<br />([vrNodeSetWorldTransform) DEPRECATED  |
+| void | **[setWorldPRS](../Classes/structvrnode.mdx#setworldprs)**()<br />([vrNodeSetWorld) DEPRECATED  |
+| [vrnode](../Classes/structvrnode.mdx) | **[sibling](../Classes/structvrnode.mdx#sibling)**(string metaType =0, string name =0)<br />([vrNodeGetSibling) Gets the sibling (adjacent) node to a node.  |
+| [vrnode](../Classes/structvrnode.mdx) | **[tail](../Classes/structvrnode.mdx#tail)**(string metaType =0, string name =0)<br />([vrNodeGetTail) Gets the last child of a node.  |
+| table | **[traits](../Classes/structvrnode.mdx#traits)**()<br />([vrNodeGetTraits) Gets the list of traits that this node has. Can also be thought of as the base class of a node (e.g. Texture, Viewport, etc). This function is expensive and can affect performance. To check a specific trait use vrNodeHasTrait  |
+| string | **[type](../Classes/structvrnode.mdx#type)**(boolean versioned =false)<br />([vrNodeGetMetaNode) Gets the name of the MetaNode that a node is an instance of. This can also be referred to as the node type.  |
+
+## Public Functions Documentation
+
+### ancestor
+
+```cpp
+vrnode ancestor(
+    string metaName
+)
+```
+
+([vrNodeGetAncestor) Gets the first ancestor of the specified type 
+
+**Parameters**: 
+
+  * **metaName** The type of ancestor to look for 
+
+
+**Return**: Ancestor node of the specified type, or false if there isn't one 
+
+### child
+
+```cpp
+vrnode child(
+    string metaType =0,
+    string name =0
+)
+```
+
+([vrNodeGetChild) Gets the first child of a node. 
+
+**Parameters**: 
+
+  * **metaType** The type of child to get 
+  * **name** The name of the child to get 
+
+
+**Return**: The first child node, of the type in the metaType parameter, if specified, or false if there are no suitable child nodes 
+
+### childbyindex
+
+```cpp
+vrnode childbyindex(
+    number idx
+)
+```
+
+([vrNodeGetChildByIndex) Gets a nodes child by its zero-based index. Note: this function may result in poor performance when iterating over lots of nodes - use [vrNodeGetChild() and [vrNodeGetSibling() instead (see the Best Practices section of the Programming Guide for more info). 
+
+**Parameters**: 
+
+  * **idx** The index of the child (zero based) 
+
+
+**Return**: The specified child node, or false if out of range 
+
+### count
+
+```cpp
+number count()
+```
+
+([vrNodeGetChildCount) Counts the children of a node. Note: this function may result in poor performance when iterating over lots of nodes - use [vrNodeGetChild() and [vrNodeGetSibling() instead (see the Best Practices section of the Programming Guide for more info). 
+
+**Return**: The number of direct child nodes 
+
+### find
+
+```cpp
+vrnode find(
+    string path,
+    boolean caseSensitive =true
+)
+```
+
+([vrNodeFindChild) Finds a descendant of a node by path 
+
+**Parameters**: 
+
+  * **path** The path or name of the node to search from 
+  * **caseSensitive** Whether to match case in the path 
+
+
+**Return**: The node at the specified path, or false if not found 
+
+### forEachChild
+
+```cpp
+void forEachChild(
+    Any function
+)
+```
+
+([vrNodeForEachChild) Calls a function for each child of a node 
+
+**Parameters**: 
+
+  * **function** The function to call for each child node. This function should have a signature of function(node). This can be a string name of a global function, or a lua function object. If the function returns a value other than nil, the function will not be called for further children and the value will be returned to the caller 
+
+
+### forEachChildOfType
+
+```cpp
+void forEachChildOfType(
+    string metaType,
+    Any function
+)
+```
+
+([vrNodeForEachChildOfType) Calls a function for each child of a node that matches a specified type 
+
+**Parameters**: 
+
+  * **metaType** The type of child nodes to find 
+  * **function** The function to call for each child node. This function should have a signature of function(node). This can be a string name of a global function, or a lua function object. If the function returns a value other than nil, the function will not be called for further children and the value will be returned to the caller 
+
+
+### getLocal
+
+```cpp
+void getLocal(
+    string propName
+)
+```
+
+([vrNodeGetLocalTransform) DEPRECATED 
+
+### getLocalMatrix
+
+```cpp
+void getLocalMatrix(
+    string propName
+)
+```
+
+([vrNodeGetLocalMatrix) DEPRECATED 
+
+### getLocalPRS
+
+```cpp
+void getLocalPRS()
+```
+
+([vrNodeGetLocal) DEPRECATED 
+
+### getName
+
+```cpp
+string getName()
+```
+
+([vrNodeGetName) Gets the name of a node. 
+
+**Return**: The name of the node 
+
+### getParent
+
+```cpp
+vrnode getParent()
+```
+
+([vrNodeGetParent) Gets the parent of a node. 
+
+**Return**: The parent node 
+
+### getRelative
+
+```cpp
+MULTI< vrvec3, vrvec3, vrvec3 > getRelative(
+    string propName,
+    vrnode otherNode
+)
+```
+
+([vrNodeGetRelativeTransform) Gets the position, rotation and scale of the world transform of one node relative to another. 
+
+**Return**: 
+
+  * The relative world position 
+  * The relative world rotation 
+  * The relative world scale 
+
+
+### getWorld
+
+```cpp
+void getWorld(
+    string propName
+)
+```
+
+([vrNodeGetWorldTransform) DEPRECATED 
+
+### getWorldPRS
+
+```cpp
+void getWorldPRS()
+```
+
+([vrNodeGetWorld) DEPRECATED 
+
+### hasTrait
+
+```cpp
+boolean hasTrait(
+    string traitName
+)
+```
+
+([vrNodeHasTrait) Checks if the node is of a type with a specific trait. This is a lot faster than vrNodeGetTraits 
+
+**Parameters**: 
+
+  * **traitName** The name of the trait to check 
+
+
+**Return**: true if the node has the specified trait 
+
+### next
+
+```cpp
+vrnode next(
+    string metaType =0,
+    string name =0
+)
+```
+
+([vrNodeGetSibling) Gets the sibling (adjacent) node to a node. 
+
+**Parameters**: 
+
+  * **metaType** The type of sibling to get 
+  * **name** The name of the child to get 
+
+
+**Return**: The next sibling node, of the type in the metaType parameter, if specified, or false if there are no suitable siblings 
+
+### parent
+
+```cpp
+vrnode parent()
+```
+
+([vrNodeGetParent) Gets the parent of a node. 
+
+**Return**: The parent node 
+
+### path
+
+```cpp
+string path()
+```
+
+([vrNodeGetPath) Gets the encoded path to a node relative to the tree root 
+
+**Return**: The encoded path (special characters are encoded, e.g. space = %20 
+
+### previous
+
+```cpp
+vrnode previous(
+    string metaType =0,
+    string name =0
+)
+```
+
+([vrNodeGetPreviousSibling) Gets the previous sibling (adjacent) node to a node. 
+
+**Parameters**: 
+
+  * **metaType** The type of sibling to get 
+  * **name** The name of the child to get 
+
+
+**Return**: The previous sibling node, of the type in the metaType parameter, if specified, or false if there are no suitable siblings 
+
+### relpath
+
+```cpp
+string relpath(
+    vrnode relativeTo
+)
+```
+
+([vrNodeGetRelativePath) Gets the encoded path to a node, relative to another node. 
+
+**Parameters**: 
+
+  * **relativeTo** The node to get the path relative to 
+
+
+**Return**: The encoded relative path (special characters are encoded, e.g. space = %20 
+
+### setLocal
+
+```cpp
+void setLocal(
+    string propName,
+    Any vpos,
+    Any vrot,
+    Any vscale
+)
+```
+
+([vrNodeSetLocalTransform) DEPRECATED 
+
+### setLocalMatrix
+
+```cpp
+void setLocalMatrix(
+    string propName,
+    vrmatrix4 matrix
+)
+```
+
+([vrNodeSetLocalMatrix) DEPRECATED 
+
+### setLocalPRS
+
+```cpp
+void setLocalPRS()
+```
+
+([vrNodeSetLocal) DEPRECATED 
+
+### setName
+
+```cpp
+void setName(
+    string newName
+)
+```
+
+([vrNodeSetName) Sets the name of a node. 
+
+**Parameters**: 
+
+  * **newName** The new name for the node 
+
+
+### setParent
+
+```cpp
+void setParent(
+    vrnode parent =nil,
+    vrnode beforeSibling =nil,
+    boolean preserveWorldTransform =false
+)
+```
+
+([vrNodeSetParent) Sets the parent of a node. 
+
+**Parameters**: 
+
+  * **parent** New parent. If this is nil, the parent is cleared, effectively deleting the node from the tree. 
+  * **beforeSibling** Specifies where to add the node in the parent's list of children, or nil to add it at the end of the list. 
+  * **preserveWorldTransform** If true, the node's position, rotation and scale in the world will be maintained. 
+
+
+### setRelative
+
+```cpp
+void setRelative(
+    string propName,
+    vrnode otherNode,
+    Any vpos,
+    Any vrot,
+    Any vscale
+)
+```
+
+([vrNodeSetRelativeTransform) Sets the position, rotation and scale of the world transform of a node relative to another. 
+
+**Parameters**: 
+
+  * **vpos** XYZ Position specified in a table {x, y, z}. 
+  * **vrot** Euler Rotation specified in a table {x, y, z}. 
+  * **vscale** XYZ Scale specified in a table {x, y, z}. 
+
+
+### setWorld
+
+```cpp
+void setWorld(
+    string propName,
+    Any vpos,
+    Any vrot,
+    Any vscale
+)
+```
+
+([vrNodeSetWorldTransform) DEPRECATED 
+
+### setWorldPRS
+
+```cpp
+void setWorldPRS()
+```
+
+([vrNodeSetWorld) DEPRECATED 
+
+### sibling
+
+```cpp
+vrnode sibling(
+    string metaType =0,
+    string name =0
+)
+```
+
+([vrNodeGetSibling) Gets the sibling (adjacent) node to a node. 
+
+**Parameters**: 
+
+  * **metaType** The type of sibling to get 
+  * **name** The name of the child to get 
+
+
+**Return**: The next sibling node, of the type in the metaType parameter, if specified, or false if there are no suitable siblings 
+
+### tail
+
+```cpp
+vrnode tail(
+    string metaType =0,
+    string name =0
+)
+```
+
+([vrNodeGetTail) Gets the last child of a node. 
+
+**Parameters**: 
+
+  * **metaType** The type of child to get 
+  * **name** The name of the child to get 
+
+
+**Return**: The last child node, of the type in the metaType parameter, if specified, or false if there are no suitable child nodes 
+
+### traits
+
+```cpp
+table traits()
+```
+
+([vrNodeGetTraits) Gets the list of traits that this node has. Can also be thought of as the base class of a node (e.g. Texture, Viewport, etc). This function is expensive and can affect performance. To check a specific trait use vrNodeHasTrait 
+
+**Return**: Array of traits that this node has 
+
+### type
+
+```cpp
+string type(
+    boolean versioned =false
+)
+```
+
+([vrNodeGetMetaNode) Gets the name of the MetaNode that a node is an instance of. This can also be referred to as the node type. 
+
+**Parameters**: 
+
+  * **versioned** Whether to get the full versioned metanode name rather than the unversioned name 
+
+
+**Return**: The node type 
+

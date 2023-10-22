@@ -1,0 +1,134 @@
+---
+title: VR Exchange
+summary: VR Exchange API functions. 
+
+---
+
+# VR Exchange
+
+VR Exchange API functions.  [More...](#detailed-description)
+
+## Functions
+
+|                | Name           |
+| -------------- | -------------- |
+| uint32_t | **[VRXExport](../Modules/group__api__exchange.mdx#vrxexport)**(const char * file, [HNode](../Modules/group__api__types.mdx#typedef-hnode) scenes, [HNode](../Modules/group__api__types.mdx#typedef-hnode) libs, const char * exporterName)<br />Saves the specified scenes and libraries nodes to the specified file.  |
+| int | **[VRXGetAPIVersionMajor](../Modules/group__api__exchange.mdx#vrxgetapiversionmajor)**(void )<br />Gets the VRExchange API Major version.  |
+| int | **[VRXGetAPIVersionMinor](../Modules/group__api__exchange.mdx#vrxgetapiversionminor)**(void )<br />Gets the VRExchange API Minor version.  |
+| uint32_t | **[VRXImport](../Modules/group__api__exchange.mdx#vrximport)**(const char * file, [HNode](../Modules/group__api__types.mdx#typedef-hnode) scenes, [HNode](../Modules/group__api__types.mdx#typedef-hnode) libs, const char * importerName)<br />Imports the specified file onto the specified scenes and libraries nodes.  |
+| uint32_t | **[VRXImportAndMerge](../Modules/group__api__exchange.mdx#vrximportandmerge)**(const char * file, [HNode](../Modules/group__api__types.mdx#typedef-hnode) scenes, [HNode](../Modules/group__api__types.mdx#typedef-hnode) libs, [HNode](../Modules/group__api__types.mdx#typedef-hnode) mergeOptions, const char * importerName)<br />Imports and merges the specified file onto the specified scenes and libraries nodes utilising the merge options to append the import data.  |
+
+## Detailed Description
+
+VR Exchange API functions. 
+
+This API is used to directly interact with other installed importer and exporter plugins. 
+
+
+## Functions Documentation
+
+### VRXExport
+
+```
+uint32_t VRXExport(
+    const char * file,
+    HNode scenes,
+    HNode libs,
+    const char * exporterName
+)
+```
+
+Saves the specified scenes and libraries nodes to the specified file. 
+
+**Parameters**: 
+
+  * **file** The file to export to 
+  * **scenes** The root node containing assemblies (e.g. scenes root) 
+  * **libs** The root node containing library assets (e.g. libraries root) 
+  * **exporterName** Hint to specify the name of the exporter plugin to use. If not specified (null), attempts to determine a suitable exporter using the file parameter's file extension 
+
+
+**Return**: 1 if the export is successful, otherwise 0 
+
+### VRXGetAPIVersionMajor
+
+```
+int VRXGetAPIVersionMajor(
+    void 
+)
+```
+
+Gets the VRExchange API Major version. 
+
+**Return**: major version 
+
+This version represents backward compatibility. It should be checked when loading the library, against an expected value. If it is not what is expected, the API may not function according to the expectations of the program using it. 
+
+
+### VRXGetAPIVersionMinor
+
+```
+int VRXGetAPIVersionMinor(
+    void 
+)
+```
+
+Gets the VRExchange API Minor version. 
+
+**Return**: minor version 
+
+This version number represents additions to the API and does not affect backward compatibility. 
+
+
+### VRXImport
+
+```
+uint32_t VRXImport(
+    const char * file,
+    HNode scenes,
+    HNode libs,
+    const char * importerName
+)
+```
+
+Imports the specified file onto the specified scenes and libraries nodes. 
+
+**Parameters**: 
+
+  * **file** The file to import 
+  * **scenes** The root node to create assemblies on (e.g. scenes root) 
+  * **libs** The root node to create library assets on (e.g. libraries root) 
+  * **importerName** Hint to specify the name of the importer plugin to use. If not specified (null), attempts to determine a suitable importer using the file parameter's file extension 
+
+
+**Return**: 1 if the import is successful, otherwise 0 
+
+### VRXImportAndMerge
+
+```
+uint32_t VRXImportAndMerge(
+    const char * file,
+    HNode scenes,
+    HNode libs,
+    HNode mergeOptions,
+    const char * importerName
+)
+```
+
+Imports and merges the specified file onto the specified scenes and libraries nodes utilising the merge options to append the import data. 
+
+**Parameters**: 
+
+  * **file** The file to import 
+  * **scenes** The root node to create assemblies on (e.g. scenes root) 
+  * **libs** The root node to create library assets on (e.g. libraries root) 
+  * **mergeOptions** If this node is set then the import merges results to existing nodes. This node contains the merge settings. If not specified (null), then imports as normal 
+  * **importerName** Hint to specify the name of the importer plugin to use. If not specified (null), attempts to determine a suitable importer using the file parameter's file extension 
+
+
+**Return**: 1 if the import is successful, otherwise 0 
+
+
+
+
+

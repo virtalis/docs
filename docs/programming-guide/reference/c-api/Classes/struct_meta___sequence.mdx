@@ -1,0 +1,74 @@
+---
+title: Meta_Sequence
+summary: A sequence is a collection of tracks that animate target nodes. Valid child types - Meta_AssemblyTrack, Meta_PropertyTrack, Meta_SequenceTrack. 
+
+---
+
+# Meta_Sequence
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A sequence is a collection of tracks that animate target nodes Valid child types: [Meta_AssemblyTrack](../Classes/struct_meta___assembly_track.mdx), [Meta_PropertyTrack](../Classes/struct_meta___property_track.mdx), [Meta_SequenceTrack. 
+
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](../Classes/struct_meta___sequence.mdx#enum-idx)** { Idx_Enabled, Idx_Position, Idx_Length, Idx_PlayMode, Idx_PlayCount, Idx_PlaySpeed, Idx_FixedPlaySpeed, Idx_PlayUser, Idx_InitialState, Idx_InitialPosition, Idx_DisableSceneVisuals, Idx_DisableActions, Idx_Looped, Idx_LoopStart, Idx_LoopEnd}<br />Property index.  |
+| enum| **[InitialState](../Classes/struct_meta___sequence.mdx#enum-initialstate)** { STATE_PAUSE, STATE_PLAY_FORWARDS, STATE_PLAY_BACKWARDS}<br />Values for Idx_InitialState.  |
+| enum| **[PlayMode](../Classes/struct_meta___sequence.mdx#enum-playmode)** { PLAY_FORWARDS, PLAY_BACKWARDS}<br />Values for Idx_PlayMode.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - If true, the animation actor will timestep this sequence's Idx_Position each frame until it reaches Idx_Length, at which point the sequence will be looped or disabled   |
+| Idx_Position | | float - The current time in seconds that the sequence is set to   |
+| Idx_Length | | float - The length of the sequence in seconds (as calculated by the animation actor)   |
+| Idx_PlayMode | | [PlayMode (int) - Whether to play the sequence forwards or backwards when it is enabled   |
+| Idx_PlayCount | | int - The number of times to play the sequence (or part of it, as defined by Idx_LoopStart and Idx_LoopEnd). If < 0, the sequence will loop forever   |
+| Idx_PlaySpeed | | float - Playback rate (0.5 = half speed, 2.0 = double speed, etc.)   |
+| Idx_FixedPlaySpeed | | bool - If true, this sequence will ignore the global play speed setting   |
+| Idx_PlayUser | | link - The last user to interact with this sequence. This is used when collaborating to make camera tracks affect the user who triggered the sequence   |
+| Idx_InitialState | | [InitialState (int) - The state of the sequence when the scene is loaded   |
+| Idx_InitialPosition | | float - The start time in seconds of the sequence when the scene is loaded   |
+| Idx_DisableSceneVisuals | | bool - If true, don't draw visuals in the 3D scene for this sequence. This can improve performance in sequences with lots of keyframes (such as mocap data)   |
+| Idx_DisableActions | | bool - If true, ignore any action frames in this sequence. This can improve performance slightly in sequences without action frames   |
+| Idx_Looped | | bool - If true, the sequence just looped around at the previous timestep. This value will be reset at the next timestep, and can be queried to prevent actions from being executed whilst looping, etc.   |
+| Idx_LoopStart | | float - The start time in seconds of the looped part of the sequence   |
+| Idx_LoopEnd | | float - The end time in seconds of the looped part of the sequence. If zero, loop the whole sequence   |
+
+
+
+Property index. 
+
+### enum InitialState
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| STATE_PAUSE | | Sequence is paused when initially loaded from file (Symbols - C: `"StatePause"`, Lua: `__Sequence_StatePause`)   |
+| STATE_PLAY_FORWARDS | | Sequence is playing fowards when initially loaded from file (Symbols - C: `"StatePlayForwards"`, Lua: `__Sequence_StatePlayForwards`)   |
+| STATE_PLAY_BACKWARDS | | Sequence is playing backwards when initially loaded from file (Symbols - C: `"StatePlayBackwards"`, Lua: `__Sequence_StatePlayBackwards`)   |
+
+
+
+Values for Idx_InitialState. 
+
+### enum PlayMode
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| PLAY_FORWARDS | | Sequence plays forwards when enabled (Symbols - C: `"PlayForwards"`, Lua: `__Sequence_PlayForwards`)   |
+| PLAY_BACKWARDS | | Sequence plays backwards when enabled (Symbols - C: `"PlayBackwards"`, Lua: `__Sequence_PlayBackwards`)   |
+
+
+
+Values for Idx_PlayMode. 
+

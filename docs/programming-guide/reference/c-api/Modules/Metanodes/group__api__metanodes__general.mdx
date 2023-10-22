@@ -1,0 +1,260 @@
+---
+title: General
+summary: General functions such as creation and deletion. 
+
+---
+
+# General
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)**
+
+General functions such as creation and deletion. 
+
+## Functions
+
+|                | Name           |
+| -------------- | -------------- |
+| char | **[VRCheckMetaHandleValid](../Modules/group__api__metanodes__general.mdx#vrcheckmetahandlevalid)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode)<br />Checks if a metanode handle is valid (that is, pointing at a metanode and not closed)  |
+| void | **[VRCloseMetaHandle](../Modules/group__api__metanodes__general.mdx#vrclosemetahandle)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode)<br />Closes a handle to a metanode.  |
+| [HMeta](../Modules/group__api__types.mdx#typedef-hmeta) | **[VRCopyMetaNode](../Modules/group__api__metanodes__general.mdx#vrcopymetanode)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) other, int versionIncrement)<br />Copies a metanode internally in the API (that is, makes a new one with the same properties but doesn't give it to vrtree) It does this so that a migration can then modify it before VRFinishMetaNode is called as usual to instantiate it properly.  |
+| int | **[VRCreateIntermediateMetaNodes](../Modules/group__api__metanodes__general.mdx#vrcreateintermediatemetanodes)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) start, [HMeta](../Modules/group__api__types.mdx#typedef-hmeta) end)<br />Performs migrations of a metanode to create all known versions between start and end.  |
+| [HMeta](../Modules/group__api__types.mdx#typedef-hmeta) | **[VRCreateMetaNode](../Modules/group__api__metanodes__general.mdx#vrcreatemetanode)**(const char * metaName)<br />Creates a metanode (a description of a node structure).  |
+| [HMeta](../Modules/group__api__types.mdx#typedef-hmeta) | **[VRCreateMetaNodeEx](../Modules/group__api__metanodes__general.mdx#vrcreatemetanodeex)**(const char * metaName, uint32_t flags)<br />Creates a metanode (a description of a node structure) with additional flags.  |
+| size_t | **[VRCurrentMetaNodeVersion](../Modules/group__api__metanodes__general.mdx#vrcurrentmetanodeversion)**(const char * metaName, char * buffer, size_t bufferSize)<br />Gets the name of the current version of the specified metanode.  |
+| int | **[VRDeleteMetaNode](../Modules/group__api__metanodes__general.mdx#vrdeletemetanode)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode)<br />Deletes a metanode. Can only be done if there are no instances of the metanode and the metanode structure has not been passed to vrtree.  |
+| int | **[VRFinishMetaNode](../Modules/group__api__metanodes__general.mdx#vrfinishmetanode)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode)<br />Finishes a metanode definition by passing it to VRTree.  |
+| [HMeta](../Modules/group__api__types.mdx#typedef-hmeta) | **[VRFinishMetaNodeEx](../Modules/group__api__metanodes__general.mdx#vrfinishmetanodeex)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode)<br />Finishes a metanode definition by passing it to VRTree.  |
+| size_t | **[VRGetMetaNodeName](../Modules/group__api__metanodes__general.mdx#vrgetmetanodename)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, char * buffer, size_t bufferLength)<br />Gets the name of a metanode.  |
+| size_t | **[VRGetMetaNodeNameLength](../Modules/group__api__metanodes__general.mdx#vrgetmetanodenamelength)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode)<br />Gets the length of a metanode's name, plus 1 for the trailing null terminator.  |
+
+
+## Functions Documentation
+
+### VRCheckMetaHandleValid
+
+```
+char VRCheckMetaHandleValid(
+    HMeta metaNode
+)
+```
+
+Checks if a metanode handle is valid (that is, pointing at a metanode and not closed) 
+
+**Parameters**: 
+
+  * **metaNode** handle to check 
+
+
+**Return**: 0 if invalid, 1 if valid 
+
+### VRCloseMetaHandle
+
+```
+void VRCloseMetaHandle(
+    HMeta metaNode
+)
+```
+
+Closes a handle to a metanode. 
+
+### VRCopyMetaNode
+
+```
+HMeta VRCopyMetaNode(
+    HMeta other,
+    int versionIncrement
+)
+```
+
+Copies a metanode internally in the API (that is, makes a new one with the same properties but doesn't give it to vrtree) It does this so that a migration can then modify it before VRFinishMetaNode is called as usual to instantiate it properly. 
+
+**Parameters**: 
+
+  * **other** handle to the metanode to copy 
+  * **versionIncrement** automatically increments the version number by this much (negative for decrement) 
+
+
+**Return**: new metanode 
+
+### VRCreateIntermediateMetaNodes
+
+```
+int VRCreateIntermediateMetaNodes(
+    HMeta start,
+    HMeta end
+)
+```
+
+Performs migrations of a metanode to create all known versions between start and end. 
+
+**Parameters**: 
+
+  * **start** handle to the metanode to use as the starting point for migrations 
+  * **end** handle to the metanode to migrate to (versions are created until this version, but does not create this version) 
+
+
+**Return**: int the number of intermediate metanodes that exist between the requested versions, or -1 on failure 
+
+**Note**: Uses the version of start to begin - if end is > start, up migrations are used, otherwise down migrations are used. 
+
+### VRCreateMetaNode
+
+```
+HMeta VRCreateMetaNode(
+    const char * metaName
+)
+```
+
+Creates a metanode (a description of a node structure). 
+
+**Parameters**: 
+
+  * **metaName** the name of the new metanode 
+
+
+**Return**: a handle to the metanode, for use with other metanode functions 
+
+Metanodes start at version 0, and their version is incremented by VRAddMigration.
+
+Once a metanode has been instantiated (by creating a Node of this type), no further modifications are allowed to its structure.
+
+
+### VRCreateMetaNodeEx
+
+```
+HMeta VRCreateMetaNodeEx(
+    const char * metaName,
+    uint32_t flags
+)
+```
+
+Creates a metanode (a description of a node structure) with additional flags. 
+
+**Parameters**: 
+
+  * **metaName** the name of the new metanode 
+  * **flags** the flags to apply 
+
+
+**Return**: a handle to the metanode, for use with other metanode functions 
+
+### VRCurrentMetaNodeVersion
+
+```
+size_t VRCurrentMetaNodeVersion(
+    const char * metaName,
+    char * buffer,
+    size_t bufferSize
+)
+```
+
+Gets the name of the current version of the specified metanode. 
+
+**Parameters**: 
+
+  * **metaName** the name of the metanode (no version suffix) 
+  * **buffer** the variable to recieve the name of the current version of this metanode 
+  * **bufferSize** size of the output buffer 
+
+
+**Return**: number of bytes written to outputBuffer 
+
+**Note**: if buffer is null, function returns the required size of the buffer 
+
+### VRDeleteMetaNode
+
+```
+int VRDeleteMetaNode(
+    HMeta metaNode
+)
+```
+
+Deletes a metanode. Can only be done if there are no instances of the metanode and the metanode structure has not been passed to vrtree. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to delete 
+
+
+**Return**: 0 on success. If successful, the handle is closed automatically 
+
+### VRFinishMetaNode
+
+```
+int VRFinishMetaNode(
+    HMeta metaNode
+)
+```
+
+Finishes a metanode definition by passing it to VRTree. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to finish. this handle is closed by this function 
+
+
+**Return**: 0 on success 
+
+At this point, modifications to the metanode can no longer be made because the total number of migrations is used to set the metanode version. 
+
+
+### VRFinishMetaNodeEx
+
+```
+HMeta VRFinishMetaNodeEx(
+    HMeta metaNode
+)
+```
+
+Finishes a metanode definition by passing it to VRTree. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to finish. this handle is closed by this function 
+
+
+**Return**: a new handle to the real metanode 
+
+At this point, modifications to the metanode can no longer be made because the total number of migrations is used to set the metanode version. 
+
+
+### VRGetMetaNodeName
+
+```
+size_t VRGetMetaNodeName(
+    HMeta metaNode,
+    char * buffer,
+    size_t bufferLength
+)
+```
+
+Gets the name of a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode 
+  * **buffer** a buffer to receive the node name as a null terminated string 
+  * **size** size of the buffer 
+
+
+**Return**: the number of characters written to the buffer (including trailing null) 
+
+### VRGetMetaNodeNameLength
+
+```
+size_t VRGetMetaNodeNameLength(
+    HMeta metaNode
+)
+```
+
+Gets the length of a metanode's name, plus 1 for the trailing null terminator. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode 
+
+
+
+
+
+

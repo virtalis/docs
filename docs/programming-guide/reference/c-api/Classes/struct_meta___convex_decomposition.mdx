@@ -1,0 +1,61 @@
+---
+title: Meta_ConvexDecomposition
+summary: A ConvexDecomposition is used to store pre-computed convex decomposition data as part of the scene. 
+
+---
+
+# Meta_ConvexDecomposition
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A ConvexDecomposition is used to store pre-computed convex decomposition data as part of the scene.  [More...](#detailed-description)
+
+
+`#include <meta_division.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](../Classes/struct_meta___convex_decomposition.mdx#enum-idx)** { Idx_Data} |
+
+## Public Functions
+
+|                | Name           |
+| -------------- | -------------- |
+| | **[Meta_ConvexDecomposition](../Classes/struct_meta___convex_decomposition.mdx#meta-convexdecomposition)**() |
+
+## Detailed Description
+
+```cpp
+struct Meta_ConvexDecomposition;
+```
+
+A ConvexDecomposition is used to store pre-computed convex decomposition data as part of the scene. 
+
+When a [Meta_Collision](../Classes/struct_meta___collision.mdx) is set to Geometry mode, the specified model is used to generate a convex decomposition, to be used by the collision system. This can be a slow process so this data is cached to avoid unnecessary re-processing every time the scene is loaded.
+
+The contents of this data are not intended to be modified by external APIs. 
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Data | |   |
+
+
+
+
+## Public Functions Documentation
+
+### Meta_ConvexDecomposition
+
+```cpp
+inline Meta_ConvexDecomposition()
+```
+
+

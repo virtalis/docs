@@ -1,0 +1,1872 @@
+---
+title: Properties
+summary: Functions for managing Properties on metanodes. 
+
+---
+
+# Properties
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)**
+
+Functions for managing properties on metanodes. 
+
+## Functions
+
+|                | Name           |
+| -------------- | -------------- |
+| int | **[VRAddPropertyArrayBool](../Modules/group__api__metanodes__properties.mdx#vraddpropertyarraybool)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, int num, char defaultValue)<br />Adds an arbitrarily sized boolean array property to a metanode.  |
+| int | **[VRAddPropertyArrayChar](../Modules/group__api__metanodes__properties.mdx#vraddpropertyarraychar)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, int num, char defaultValue)<br />Adds an arbitrarily sized character array property to a metanode.  |
+| int | **[VRAddPropertyArrayDouble](../Modules/group__api__metanodes__properties.mdx#vraddpropertyarraydouble)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, int num, double defaultValue)<br />Adds an arbitrarily sized double array property to a metanode.  |
+| int | **[VRAddPropertyArrayFloat](../Modules/group__api__metanodes__properties.mdx#vraddpropertyarrayfloat)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, int num, float defaultValue)<br />Adds an arbitrarily sized float array property to a metanode.  |
+| int | **[VRAddPropertyArrayInt](../Modules/group__api__metanodes__properties.mdx#vraddpropertyarrayint)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, int num, int defaultValue)<br />Adds an arbitrarily sized integer array property to a metanode.  |
+| int | **[VRAddPropertyArrayWorldFloat](../Modules/group__api__metanodes__properties.mdx#vraddpropertyarrayworldfloat)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, int num, double defaultValue)<br />Adds an arbitrarily sized world float array property to a metanode.  |
+| int | **[VRAddPropertyBool](../Modules/group__api__metanodes__properties.mdx#vraddpropertybool)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, char defaultValue)<br />Adds a boolean property to a metanode.  |
+| int | **[VRAddPropertyChar](../Modules/group__api__metanodes__properties.mdx#vraddpropertychar)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, char defaultValue)<br />Adds a char property to a metanode.  |
+| int | **[VRAddPropertyCharRange](../Modules/group__api__metanodes__properties.mdx#vraddpropertycharrange)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, char defaultValue, char minValue, char maxValue)<br />Adds a char property to a metanode with min/max range hints.  |
+| int | **[VRAddPropertyDouble](../Modules/group__api__metanodes__properties.mdx#vraddpropertydouble)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, double defaultValue)<br />Adds a double property to a metanode.  |
+| int | **[VRAddPropertyDoubleRange](../Modules/group__api__metanodes__properties.mdx#vraddpropertydoublerange)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, double defaultValue, double minValue, double maxValue)<br />Adds a double property to a metanode, with min/max range hints.  |
+| int | **[VRAddPropertyFile](../Modules/group__api__metanodes__properties.mdx#vraddpropertyfile)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, const char * fileFilter)<br />Adds a file property to a metanode with a file filter of allowed types.  |
+| int | **[VRAddPropertyFloat](../Modules/group__api__metanodes__properties.mdx#vraddpropertyfloat)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, float defaultValue)<br />Adds a float property to a metanode.  |
+| int | **[VRAddPropertyFloatRange](../Modules/group__api__metanodes__properties.mdx#vraddpropertyfloatrange)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, float defaultValue, float minValue, float maxValue)<br />Adds a float property to a metanode, with min/max range hints.  |
+| int | **[VRAddPropertyInt](../Modules/group__api__metanodes__properties.mdx#vraddpropertyint)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, int defaultValue)<br />Adds an integer property to a metanode.  |
+| int | **[VRAddPropertyIntRange](../Modules/group__api__metanodes__properties.mdx#vraddpropertyintrange)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, int defaultValue, int minValue, int maxValue)<br />Adds an integer property to a metanode, with min/max range hints.  |
+| int | **[VRAddPropertyIntType](../Modules/group__api__metanodes__properties.mdx#vraddpropertyinttype)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, int defaultValue, const char * type)<br />Adds an integer property to a metanode, with min/max range hints.  |
+| int | **[VRAddPropertyLink](../Modules/group__api__metanodes__properties.mdx#vraddpropertylink)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName)<br />Adds a link property to a metanode.  |
+| int | **[VRAddPropertyLinkFilter](../Modules/group__api__metanodes__properties.mdx#vraddpropertylinkfilter)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, const char * linkFilter)<br />Adds a link property to a metanode with a filter on allowed types.  |
+| int | **[VRAddPropertyMat3d](../Modules/group__api__metanodes__properties.mdx#vraddpropertymat3d)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName)<br />Adds a 3x3 double matrix property to a metanode. Default value is an identity matrix.  |
+| int | **[VRAddPropertyMat3f](../Modules/group__api__metanodes__properties.mdx#vraddpropertymat3f)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName)<br />Adds a 3x3 float matrix property to a metanode. Default value is an identity matrix.  |
+| int | **[VRAddPropertyMat3w](../Modules/group__api__metanodes__properties.mdx#vraddpropertymat3w)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName)<br />Adds a 3x3 world float matrix property to a metanode. Default value is an identity matrix.  |
+| int | **[VRAddPropertyMat4d](../Modules/group__api__metanodes__properties.mdx#vraddpropertymat4d)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName)<br />Adds a 4x4 double matrix property to a metanode. Default value is an identity matrix.  |
+| int | **[VRAddPropertyMat4f](../Modules/group__api__metanodes__properties.mdx#vraddpropertymat4f)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName)<br />Adds a 4x4 float matrix property to a metanode. Default value is an identity matrix.  |
+| int | **[VRAddPropertyMat4w](../Modules/group__api__metanodes__properties.mdx#vraddpropertymat4w)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName)<br />Adds a 4x4 world float matrix property to a metanode. Default value is an identity matrix.  |
+| int | **[VRAddPropertyMat4w2D](../Modules/group__api__metanodes__properties.mdx#vraddpropertymat4w2d)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName)<br />Adds a 4x4 world float matrix property to a metanode, with a prop semantic specifying that a 2D matrix editing control should be used for it (e.g. a texture map matrix). Default value is an identity matrix.  |
+| int | **[VRAddPropertyRGB](../Modules/group__api__metanodes__properties.mdx#vraddpropertyrgb)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, float defaultR, float defaultG, float defaultB)<br />Adds an RGB colour property to a metanode.  |
+| int | **[VRAddPropertyRGBA](../Modules/group__api__metanodes__properties.mdx#vraddpropertyrgba)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, float defaultR, float defaultG, float defaultB, float defaultA)<br />Adds an RGBA colour property to a metanode.  |
+| int | **[VRAddPropertySphere](../Modules/group__api__metanodes__properties.mdx#vraddpropertysphere)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, double defaultX, double defaultY, double defaultZ, double defaultR)<br />Adds a sphere property to a metanode. Defaults are specified as double and truncated to float if the world float type is single precision.  |
+| int | **[VRAddPropertyStream](../Modules/group__api__metanodes__properties.mdx#vraddpropertystream)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, const char * fileFilter)<br />Adds a stream property to a metanode with a file filter of allowed types.  |
+| int | **[VRAddPropertyString](../Modules/group__api__metanodes__properties.mdx#vraddpropertystring)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName)<br />Adds a string property to a metanode.  |
+| int | **[VRAddPropertyStringEx](../Modules/group__api__metanodes__properties.mdx#vraddpropertystringex)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, const char * defaultValue)<br />Adds a string property to a metanode with a default string value.  |
+| int | **[VRAddPropertyStringType](../Modules/group__api__metanodes__properties.mdx#vraddpropertystringtype)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, const char * type)<br />Adds a string property to a metanode with a default string value.  |
+| int | **[VRAddPropertyVec2d](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec2d)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, double defaultX, double defaultY)<br />Adds a double vec2 property to a metanode.  |
+| int | **[VRAddPropertyVec2dRange](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec2drange)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, double defaultX, double defaultY, double minX, double minY, double maxX, double maxY)<br />Adds a double vec2 property to a metanode with range hints.  |
+| int | **[VRAddPropertyVec2f](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec2f)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, float defaultX, float defaultY)<br />Adds a float vec2 property to a metanode.  |
+| int | **[VRAddPropertyVec2fRange](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec2frange)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, float defaultX, float defaultY, float minX, float minY, float maxX, float maxY)<br />Adds a float vec2 property to a metanode with range hints.  |
+| int | **[VRAddPropertyVec2i](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec2i)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, int defaultX, int defaultY)<br />Adds an integer vec2 property to a metanode.  |
+| int | **[VRAddPropertyVec2iRange](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec2irange)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, int defaultX, int defaultY, int minX, int minY, int maxX, int maxY)<br />Adds an integer vec2 property to a metanode with range hints.  |
+| int | **[VRAddPropertyVec2w](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec2w)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, double defaultX, double defaultY)<br />Adds a world float vec2 property to a metanode.  |
+| int | **[VRAddPropertyVec2wRange](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec2wrange)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, double defaultX, double defaultY, double minX, double minY, double maxX, double maxY)<br />Adds a world float vec2 property to a metanode with range hints.  |
+| int | **[VRAddPropertyVec3d](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec3d)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, double defaultX, double defaultY, double defaultZ)<br />Adds a double vec3 property to a metanode.  |
+| int | **[VRAddPropertyVec3dRange](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec3drange)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, double defaultX, double defaultY, double defaultZ, double minX, double minY, double minZ, double maxX, double maxY, double maxZ)<br />Adds a double vec3 property to a metanode with range hints.  |
+| int | **[VRAddPropertyVec3f](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec3f)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, float defaultX, float defaultY, float defaultZ)<br />Adds a float vec3 property to a metanode.  |
+| int | **[VRAddPropertyVec3fRange](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec3frange)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, float defaultX, float defaultY, float defaultZ, float minX, float minY, float minZ, float maxX, float maxY, float maxZ)<br />Adds a float vec3 property to a metanode with range hints.  |
+| int | **[VRAddPropertyVec3i](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec3i)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, int defaultX, int defaultY, int defaultZ)<br />Adds an integer vec3 property to a metanode.  |
+| int | **[VRAddPropertyVec3iRange](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec3irange)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, int defaultX, int defaultY, int defaultZ, int minX, int minY, int minZ, int maxX, int maxY, int maxZ)<br />Adds an integer vec3 property to a metanode with range hints.  |
+| int | **[VRAddPropertyVec3w](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec3w)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, double defaultX, double defaultY, double defaultZ)<br />Adds a world float vec3 property to a metanode. Defaults are specified as double and truncated to float if the world float type is single precision.  |
+| int | **[VRAddPropertyVec3wRange](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec3wrange)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, double defaultX, double defaultY, double defaultZ, double minX, double minY, double minZ, double maxX, double maxY, double maxZ)<br />Adds a world float vec3 property to a metanode with range hints Defaults and range are specified as double and truncated to float if the world float type is single precision.  |
+| int | **[VRAddPropertyVec4d](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec4d)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, double defaultX, double defaultY, double defaultZ, double defaultW)<br />Adds a double vec4 property to a metanode.  |
+| int | **[VRAddPropertyVec4dRange](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec4drange)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, double defaultX, double defaultY, double defaultZ, double defaultW, double minX, double minY, double minZ, double minW, double maxX, double maxY, double maxZ, double maxW)<br />Adds a double vec4 property to a metanode with range hints.  |
+| int | **[VRAddPropertyVec4f](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec4f)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, float defaultX, float defaultY, float defaultZ, float defaultW)<br />Adds a float vec4 property to a metanode.  |
+| int | **[VRAddPropertyVec4fRange](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec4frange)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, float defaultX, float defaultY, float defaultZ, float defaultW, float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW)<br />Adds a float vec4 property to a metanode with range hints.  |
+| int | **[VRAddPropertyVec4i](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec4i)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, int defaultX, int defaultY, int defaultZ, int defaultW)<br />Adds an integer vec4 property to a metanode.  |
+| int | **[VRAddPropertyVec4iRange](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec4irange)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, int defaultX, int defaultY, int defaultZ, int defaultW, int minX, int minY, int minZ, int minW, int maxX, int maxY, int maxZ, int maxW)<br />Adds an integer vec4 property to a metanode with range hints.  |
+| int | **[VRAddPropertyVec4w](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec4w)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, double defaultX, double defaultY, double defaultZ, double defaultW)<br />Adds a world float vec4 property to a metanode. Defaults are specified as double and truncated to float if the world float type is single precision.  |
+| int | **[VRAddPropertyVec4wRange](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvec4wrange)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, double defaultX, double defaultY, double defaultZ, double defaultW, double minX, double minY, double minZ, double minW, double maxX, double maxY, double maxZ, double maxW)<br />Adds a world float vec4 property to a metanode with range hints.  |
+| int | **[VRAddPropertyVectorBool](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvectorbool)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName)<br />Adds a boolean vector property to a metanode (resizable container)  |
+| int | **[VRAddPropertyVectorChar](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvectorchar)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName)<br />Adds a character vector property to a metanode (resizable container)  |
+| int | **[VRAddPropertyVectorDouble](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvectordouble)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName)<br />Adds a double vector property to a metanode (resizable container)  |
+| int | **[VRAddPropertyVectorFloat](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvectorfloat)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName)<br />Adds a float vector property to a metanode (resizable container)  |
+| int | **[VRAddPropertyVectorInt](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvectorint)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName)<br />Adds an integer vector property to a metanode (resizable container)  |
+| int | **[VRAddPropertyVectorString](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvectorstring)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName)<br />Adds a string vector property to a metanode (resizable container)  |
+| int | **[VRAddPropertyVectorWorldFloat](../Modules/group__api__metanodes__properties.mdx#vraddpropertyvectorworldfloat)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName)<br />Adds a world float vector property to a metanode (resizable container)  |
+| int | **[VRAddPropertyWorldFloat](../Modules/group__api__metanodes__properties.mdx#vraddpropertyworldfloat)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, double defaultValue)<br />Adds a world float property to a metanode.  |
+| int | **[VRAddPropertyWorldFloatRange](../Modules/group__api__metanodes__properties.mdx#vraddpropertyworldfloatrange)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, double defaultValue, double minValue, double maxValue)<br />Adds a world float property to a metanode, with min/max range hints.  |
+| int | **[VRGetPropertiesCount](../Modules/group__api__metanodes__properties.mdx#vrgetpropertiescount)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode)<br />Gets the number of properties on a metanode.  |
+| int | **[VRSetPropertyCached](../Modules/group__api__metanodes__properties.mdx#vrsetpropertycached)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, char cached)<br />Sets a property as cached (contents are replicated in the disk cache)  |
+| int | **[VRSetPropertyCloned](../Modules/group__api__metanodes__properties.mdx#vrsetpropertycloned)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, char saved)<br />Sets a property as cloned (whether the property value should be copied when cloning a node)  |
+| int | **[VRSetPropertyInternal](../Modules/group__api__metanodes__properties.mdx#vrsetpropertyinternal)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, char internal)<br />Sets a property as internal (provides a hint to node property user interface to not display the property editor)  |
+| int | **[VRSetPropertyPurged](../Modules/group__api__metanodes__properties.mdx#vrsetpropertypurged)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, char purged)<br />Sets a property as purged (contents are ejected from memory and cached to disk)  |
+| int | **[VRSetPropertyReadOnly](../Modules/group__api__metanodes__properties.mdx#vrsetpropertyreadonly)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, char readOnly)<br />Sets a property as read-only (provides a hint to node property user interface to make the editor read only)  |
+| int | **[VRSetPropertySaved](../Modules/group__api__metanodes__properties.mdx#vrsetpropertysaved)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, char saved)<br />Sets a property as saved (whether or not the value is saved to VRText/VRNative documents)  |
+
+
+## Functions Documentation
+
+### VRAddPropertyArrayBool
+
+```
+int VRAddPropertyArrayBool(
+    HMeta metaNode,
+    const char * propertyName,
+    int num,
+    char defaultValue
+)
+```
+
+Adds an arbitrarily sized boolean array property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **num** number of elements in the array 
+  * **defaultValue** default value to use in each element on new nodes 
+
+
+### VRAddPropertyArrayChar
+
+```
+int VRAddPropertyArrayChar(
+    HMeta metaNode,
+    const char * propertyName,
+    int num,
+    char defaultValue
+)
+```
+
+Adds an arbitrarily sized character array property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **num** number of elements in the array 
+  * **defaultValue** default value to use in each element on new nodes 
+
+
+### VRAddPropertyArrayDouble
+
+```
+int VRAddPropertyArrayDouble(
+    HMeta metaNode,
+    const char * propertyName,
+    int num,
+    double defaultValue
+)
+```
+
+Adds an arbitrarily sized double array property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **num** number of elements in the array 
+  * **defaultValue** default value to use in each element on new nodes 
+
+
+### VRAddPropertyArrayFloat
+
+```
+int VRAddPropertyArrayFloat(
+    HMeta metaNode,
+    const char * propertyName,
+    int num,
+    float defaultValue
+)
+```
+
+Adds an arbitrarily sized float array property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **num** number of elements in the array 
+  * **defaultValue** default value to use in each element on new nodes 
+
+
+### VRAddPropertyArrayInt
+
+```
+int VRAddPropertyArrayInt(
+    HMeta metaNode,
+    const char * propertyName,
+    int num,
+    int defaultValue
+)
+```
+
+Adds an arbitrarily sized integer array property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **num** number of elements in the array 
+  * **defaultValue** default value to use in each element on new nodes 
+
+
+### VRAddPropertyArrayWorldFloat
+
+```
+int VRAddPropertyArrayWorldFloat(
+    HMeta metaNode,
+    const char * propertyName,
+    int num,
+    double defaultValue
+)
+```
+
+Adds an arbitrarily sized world float array property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **num** number of elements in the array 
+  * **defaultValue** default value to use in each element on new nodes 
+
+
+### VRAddPropertyBool
+
+```
+int VRAddPropertyBool(
+    HMeta metaNode,
+    const char * propertyName,
+    char defaultValue
+)
+```
+
+Adds a boolean property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultValue** the default value on new nodes (truncated to 0 or 1) 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyChar
+
+```
+int VRAddPropertyChar(
+    HMeta metaNode,
+    const char * propertyName,
+    char defaultValue
+)
+```
+
+Adds a char property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultValue** the default value on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyCharRange
+
+```
+int VRAddPropertyCharRange(
+    HMeta metaNode,
+    const char * propertyName,
+    char defaultValue,
+    char minValue,
+    char maxValue
+)
+```
+
+Adds a char property to a metanode with min/max range hints. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultValue** the default value on new nodes 
+  * **minValue** the minimum value hint 
+  * **maxValue** the maximum value hint 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyDouble
+
+```
+int VRAddPropertyDouble(
+    HMeta metaNode,
+    const char * propertyName,
+    double defaultValue
+)
+```
+
+Adds a double property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultValue** the default value on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyDoubleRange
+
+```
+int VRAddPropertyDoubleRange(
+    HMeta metaNode,
+    const char * propertyName,
+    double defaultValue,
+    double minValue,
+    double maxValue
+)
+```
+
+Adds a double property to a metanode, with min/max range hints. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultValue** the default value on new nodes 
+  * **minValue** the minimum value hint 
+  * **maxValue** the maximum value hint 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyFile
+
+```
+int VRAddPropertyFile(
+    HMeta metaNode,
+    const char * propertyName,
+    const char * fileFilter
+)
+```
+
+Adds a file property to a metanode with a file filter of allowed types. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **fileFilter** adds a filter semantic to the property allowing file dialogs to filter files 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyFloat
+
+```
+int VRAddPropertyFloat(
+    HMeta metaNode,
+    const char * propertyName,
+    float defaultValue
+)
+```
+
+Adds a float property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultValue** the default value on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyFloatRange
+
+```
+int VRAddPropertyFloatRange(
+    HMeta metaNode,
+    const char * propertyName,
+    float defaultValue,
+    float minValue,
+    float maxValue
+)
+```
+
+Adds a float property to a metanode, with min/max range hints. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultValue** the default value on new nodes 
+  * **minValue** the minimum value hint 
+  * **maxValue** the maximum value hint 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyInt
+
+```
+int VRAddPropertyInt(
+    HMeta metaNode,
+    const char * propertyName,
+    int defaultValue
+)
+```
+
+Adds an integer property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultValue** the default value on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyIntRange
+
+```
+int VRAddPropertyIntRange(
+    HMeta metaNode,
+    const char * propertyName,
+    int defaultValue,
+    int minValue,
+    int maxValue
+)
+```
+
+Adds an integer property to a metanode, with min/max range hints. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultValue** the default value on new nodes 
+  * **minValue** the minimum value hint 
+  * **maxValue** the maximum value hint 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyIntType
+
+```
+int VRAddPropertyIntType(
+    HMeta metaNode,
+    const char * propertyName,
+    int defaultValue,
+    const char * type
+)
+```
+
+Adds an integer property to a metanode, with min/max range hints. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultValue** the default value on new nodes 
+  * **type** the Meta_PropSemantics::PropType to set 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyLink
+
+```
+int VRAddPropertyLink(
+    HMeta metaNode,
+    const char * propertyName
+)
+```
+
+Adds a link property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyLinkFilter
+
+```
+int VRAddPropertyLinkFilter(
+    HMeta metaNode,
+    const char * propertyName,
+    const char * linkFilter
+)
+```
+
+Adds a link property to a metanode with a filter on allowed types. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **linkFilter** comma separated list of metanodes or traits that are allowed to be linked to 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyMat3d
+
+```
+int VRAddPropertyMat3d(
+    HMeta metaNode,
+    const char * propertyName
+)
+```
+
+Adds a 3x3 double matrix property to a metanode. Default value is an identity matrix. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyMat3f
+
+```
+int VRAddPropertyMat3f(
+    HMeta metaNode,
+    const char * propertyName
+)
+```
+
+Adds a 3x3 float matrix property to a metanode. Default value is an identity matrix. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyMat3w
+
+```
+int VRAddPropertyMat3w(
+    HMeta metaNode,
+    const char * propertyName
+)
+```
+
+Adds a 3x3 world float matrix property to a metanode. Default value is an identity matrix. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyMat4d
+
+```
+int VRAddPropertyMat4d(
+    HMeta metaNode,
+    const char * propertyName
+)
+```
+
+Adds a 4x4 double matrix property to a metanode. Default value is an identity matrix. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyMat4f
+
+```
+int VRAddPropertyMat4f(
+    HMeta metaNode,
+    const char * propertyName
+)
+```
+
+Adds a 4x4 float matrix property to a metanode. Default value is an identity matrix. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyMat4w
+
+```
+int VRAddPropertyMat4w(
+    HMeta metaNode,
+    const char * propertyName
+)
+```
+
+Adds a 4x4 world float matrix property to a metanode. Default value is an identity matrix. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyMat4w2D
+
+```
+int VRAddPropertyMat4w2D(
+    HMeta metaNode,
+    const char * propertyName
+)
+```
+
+Adds a 4x4 world float matrix property to a metanode, with a prop semantic specifying that a 2D matrix editing control should be used for it (e.g. a texture map matrix). Default value is an identity matrix. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyRGB
+
+```
+int VRAddPropertyRGB(
+    HMeta metaNode,
+    const char * propertyName,
+    float defaultR,
+    float defaultG,
+    float defaultB
+)
+```
+
+Adds an RGB colour property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultR** the default value of the red element on new nodes 
+  * **defaultG** the default value of the green element on new nodes 
+  * **defaultB** the default value of the blue element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyRGBA
+
+```
+int VRAddPropertyRGBA(
+    HMeta metaNode,
+    const char * propertyName,
+    float defaultR,
+    float defaultG,
+    float defaultB,
+    float defaultA
+)
+```
+
+Adds an RGBA colour property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultR** the default value of the red element on new nodes 
+  * **defaultG** the default value of the green element on new nodes 
+  * **defaultB** the default value of the blue element on new nodes 
+  * **defaultA** the default value of the alpha element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertySphere
+
+```
+int VRAddPropertySphere(
+    HMeta metaNode,
+    const char * propertyName,
+    double defaultX,
+    double defaultY,
+    double defaultZ,
+    double defaultR
+)
+```
+
+Adds a sphere property to a metanode. Defaults are specified as double and truncated to float if the world float type is single precision. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the position element's x value on new nodes 
+  * **defaultY** the default value of the position element's y value on new nodes 
+  * **defaultZ** the default value of the position element's z value on new nodes 
+  * **defaultR** the default value of the radius element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyStream
+
+```
+int VRAddPropertyStream(
+    HMeta metaNode,
+    const char * propertyName,
+    const char * fileFilter
+)
+```
+
+Adds a stream property to a metanode with a file filter of allowed types. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **fileFilter** adds a filter semantic to the property allowing file dialogs to filter files 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyString
+
+```
+int VRAddPropertyString(
+    HMeta metaNode,
+    const char * propertyName
+)
+```
+
+Adds a string property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyStringEx
+
+```
+int VRAddPropertyStringEx(
+    HMeta metaNode,
+    const char * propertyName,
+    const char * defaultValue
+)
+```
+
+Adds a string property to a metanode with a default string value. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultValue** the string to use as the default on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyStringType
+
+```
+int VRAddPropertyStringType(
+    HMeta metaNode,
+    const char * propertyName,
+    const char * type
+)
+```
+
+Adds a string property to a metanode with a default string value. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **type** the Meta_PropSemantics::PropType to set 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec2d
+
+```
+int VRAddPropertyVec2d(
+    HMeta metaNode,
+    const char * propertyName,
+    double defaultX,
+    double defaultY
+)
+```
+
+Adds a double vec2 property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec2dRange
+
+```
+int VRAddPropertyVec2dRange(
+    HMeta metaNode,
+    const char * propertyName,
+    double defaultX,
+    double defaultY,
+    double minX,
+    double minY,
+    double maxX,
+    double maxY
+)
+```
+
+Adds a double vec2 property to a metanode with range hints. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **minX** the min value of the x element on new nodes 
+  * **minY** the min value of the y element on new nodes 
+  * **maxX** the max value of the x element on new nodes 
+  * **maxY** the max value of the y element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec2f
+
+```
+int VRAddPropertyVec2f(
+    HMeta metaNode,
+    const char * propertyName,
+    float defaultX,
+    float defaultY
+)
+```
+
+Adds a float vec2 property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec2fRange
+
+```
+int VRAddPropertyVec2fRange(
+    HMeta metaNode,
+    const char * propertyName,
+    float defaultX,
+    float defaultY,
+    float minX,
+    float minY,
+    float maxX,
+    float maxY
+)
+```
+
+Adds a float vec2 property to a metanode with range hints. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **minX** the min value of the x element on new nodes 
+  * **minY** the min value of the y element on new nodes 
+  * **maxX** the max value of the x element on new nodes 
+  * **maxY** the max value of the y element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec2i
+
+```
+int VRAddPropertyVec2i(
+    HMeta metaNode,
+    const char * propertyName,
+    int defaultX,
+    int defaultY
+)
+```
+
+Adds an integer vec2 property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec2iRange
+
+```
+int VRAddPropertyVec2iRange(
+    HMeta metaNode,
+    const char * propertyName,
+    int defaultX,
+    int defaultY,
+    int minX,
+    int minY,
+    int maxX,
+    int maxY
+)
+```
+
+Adds an integer vec2 property to a metanode with range hints. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **minX** the min value of the x element on new nodes 
+  * **minY** the min value of the y element on new nodes 
+  * **maxX** the max value of the x element on new nodes 
+  * **maxY** the max value of the y element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec2w
+
+```
+int VRAddPropertyVec2w(
+    HMeta metaNode,
+    const char * propertyName,
+    double defaultX,
+    double defaultY
+)
+```
+
+Adds a world float vec2 property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec2wRange
+
+```
+int VRAddPropertyVec2wRange(
+    HMeta metaNode,
+    const char * propertyName,
+    double defaultX,
+    double defaultY,
+    double minX,
+    double minY,
+    double maxX,
+    double maxY
+)
+```
+
+Adds a world float vec2 property to a metanode with range hints. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **minX** the min value of the x element on new nodes 
+  * **minY** the min value of the y element on new nodes 
+  * **maxX** the max value of the x element on new nodes 
+  * **maxY** the max value of the y element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec3d
+
+```
+int VRAddPropertyVec3d(
+    HMeta metaNode,
+    const char * propertyName,
+    double defaultX,
+    double defaultY,
+    double defaultZ
+)
+```
+
+Adds a double vec3 property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **defaultZ** the default value of the z element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec3dRange
+
+```
+int VRAddPropertyVec3dRange(
+    HMeta metaNode,
+    const char * propertyName,
+    double defaultX,
+    double defaultY,
+    double defaultZ,
+    double minX,
+    double minY,
+    double minZ,
+    double maxX,
+    double maxY,
+    double maxZ
+)
+```
+
+Adds a double vec3 property to a metanode with range hints. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **defaultZ** the default value of the z element on new nodes 
+  * **minX** the min value of the x element on new nodes 
+  * **minY** the min value of the y element on new nodes 
+  * **minZ** the min value of the z element on new nodes 
+  * **maxX** the max value of the x element on new nodes 
+  * **maxY** the max value of the y element on new nodes 
+  * **maxZ** the max value of the z element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec3f
+
+```
+int VRAddPropertyVec3f(
+    HMeta metaNode,
+    const char * propertyName,
+    float defaultX,
+    float defaultY,
+    float defaultZ
+)
+```
+
+Adds a float vec3 property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **defaultZ** the default value of the z element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec3fRange
+
+```
+int VRAddPropertyVec3fRange(
+    HMeta metaNode,
+    const char * propertyName,
+    float defaultX,
+    float defaultY,
+    float defaultZ,
+    float minX,
+    float minY,
+    float minZ,
+    float maxX,
+    float maxY,
+    float maxZ
+)
+```
+
+Adds a float vec3 property to a metanode with range hints. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **defaultZ** the default value of the z element on new nodes 
+  * **minX** the min value of the x element on new nodes 
+  * **minY** the min value of the y element on new nodes 
+  * **minZ** the min value of the z element on new nodes 
+  * **maxX** the max value of the x element on new nodes 
+  * **maxY** the max value of the y element on new nodes 
+  * **maxZ** the max value of the z element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec3i
+
+```
+int VRAddPropertyVec3i(
+    HMeta metaNode,
+    const char * propertyName,
+    int defaultX,
+    int defaultY,
+    int defaultZ
+)
+```
+
+Adds an integer vec3 property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **defaultZ** the default value of the z element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec3iRange
+
+```
+int VRAddPropertyVec3iRange(
+    HMeta metaNode,
+    const char * propertyName,
+    int defaultX,
+    int defaultY,
+    int defaultZ,
+    int minX,
+    int minY,
+    int minZ,
+    int maxX,
+    int maxY,
+    int maxZ
+)
+```
+
+Adds an integer vec3 property to a metanode with range hints. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **defaultZ** the default value of the z element on new nodes 
+  * **minX** the min value of the x element on new nodes 
+  * **minY** the min value of the y element on new nodes 
+  * **minZ** the min value of the z element on new nodes 
+  * **maxX** the max value of the x element on new nodes 
+  * **maxY** the max value of the y element on new nodes 
+  * **maxZ** the max value of the z element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec3w
+
+```
+int VRAddPropertyVec3w(
+    HMeta metaNode,
+    const char * propertyName,
+    double defaultX,
+    double defaultY,
+    double defaultZ
+)
+```
+
+Adds a world float vec3 property to a metanode. Defaults are specified as double and truncated to float if the world float type is single precision. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **defaultZ** the default value of the z element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec3wRange
+
+```
+int VRAddPropertyVec3wRange(
+    HMeta metaNode,
+    const char * propertyName,
+    double defaultX,
+    double defaultY,
+    double defaultZ,
+    double minX,
+    double minY,
+    double minZ,
+    double maxX,
+    double maxY,
+    double maxZ
+)
+```
+
+Adds a world float vec3 property to a metanode with range hints Defaults and range are specified as double and truncated to float if the world float type is single precision. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **defaultZ** the default value of the z element on new nodes 
+  * **minX** the min value of the x element on new nodes 
+  * **minY** the min value of the y element on new nodes 
+  * **minZ** the min value of the z element on new nodes 
+  * **maxX** the max value of the x element on new nodes 
+  * **maxY** the max value of the y element on new nodes 
+  * **maxZ** the max value of the z element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec4d
+
+```
+int VRAddPropertyVec4d(
+    HMeta metaNode,
+    const char * propertyName,
+    double defaultX,
+    double defaultY,
+    double defaultZ,
+    double defaultW
+)
+```
+
+Adds a double vec4 property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **defaultZ** the default value of the z element on new nodes 
+  * **defaultW** the default value of the w element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec4dRange
+
+```
+int VRAddPropertyVec4dRange(
+    HMeta metaNode,
+    const char * propertyName,
+    double defaultX,
+    double defaultY,
+    double defaultZ,
+    double defaultW,
+    double minX,
+    double minY,
+    double minZ,
+    double minW,
+    double maxX,
+    double maxY,
+    double maxZ,
+    double maxW
+)
+```
+
+Adds a double vec4 property to a metanode with range hints. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **defaultZ** the default value of the z element on new nodes 
+  * **defaultW** the default value of the w element on new nodes 
+  * **minX** the min value of the x element on new nodes 
+  * **minY** the min value of the y element on new nodes 
+  * **minZ** the min value of the z element on new nodes 
+  * **minW** the min value of the w element on new nodes 
+  * **maxX** the max value of the x element on new nodes 
+  * **maxY** the max value of the y element on new nodes 
+  * **maxZ** the max value of the z element on new nodes 
+  * **maxW** the max value of the w element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec4f
+
+```
+int VRAddPropertyVec4f(
+    HMeta metaNode,
+    const char * propertyName,
+    float defaultX,
+    float defaultY,
+    float defaultZ,
+    float defaultW
+)
+```
+
+Adds a float vec4 property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **defaultZ** the default value of the z element on new nodes 
+  * **defaultW** the default value of the w element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec4fRange
+
+```
+int VRAddPropertyVec4fRange(
+    HMeta metaNode,
+    const char * propertyName,
+    float defaultX,
+    float defaultY,
+    float defaultZ,
+    float defaultW,
+    float minX,
+    float minY,
+    float minZ,
+    float minW,
+    float maxX,
+    float maxY,
+    float maxZ,
+    float maxW
+)
+```
+
+Adds a float vec4 property to a metanode with range hints. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **defaultZ** the default value of the z element on new nodes 
+  * **defaultW** the default value of the w element on new nodes 
+  * **minX** the min value of the x element on new nodes 
+  * **minY** the min value of the y element on new nodes 
+  * **minZ** the min value of the z element on new nodes 
+  * **minW** the min value of the w element on new nodes 
+  * **maxX** the max value of the x element on new nodes 
+  * **maxY** the max value of the y element on new nodes 
+  * **maxZ** the max value of the z element on new nodes 
+  * **maxW** the max value of the w element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec4i
+
+```
+int VRAddPropertyVec4i(
+    HMeta metaNode,
+    const char * propertyName,
+    int defaultX,
+    int defaultY,
+    int defaultZ,
+    int defaultW
+)
+```
+
+Adds an integer vec4 property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **defaultZ** the default value of the z element on new nodes 
+  * **defaultW** the default value of the w element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec4iRange
+
+```
+int VRAddPropertyVec4iRange(
+    HMeta metaNode,
+    const char * propertyName,
+    int defaultX,
+    int defaultY,
+    int defaultZ,
+    int defaultW,
+    int minX,
+    int minY,
+    int minZ,
+    int minW,
+    int maxX,
+    int maxY,
+    int maxZ,
+    int maxW
+)
+```
+
+Adds an integer vec4 property to a metanode with range hints. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **defaultZ** the default value of the z element on new nodes 
+  * **defaultW** the default value of the w element on new nodes 
+  * **minX** the min value of the x element on new nodes 
+  * **minY** the min value of the y element on new nodes 
+  * **minZ** the min value of the z element on new nodes 
+  * **minW** the min value of the w element on new nodes 
+  * **maxX** the max value of the x element on new nodes 
+  * **maxY** the max value of the y element on new nodes 
+  * **maxZ** the max value of the z element on new nodes 
+  * **maxW** the max value of the w element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec4w
+
+```
+int VRAddPropertyVec4w(
+    HMeta metaNode,
+    const char * propertyName,
+    double defaultX,
+    double defaultY,
+    double defaultZ,
+    double defaultW
+)
+```
+
+Adds a world float vec4 property to a metanode. Defaults are specified as double and truncated to float if the world float type is single precision. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **defaultZ** the default value of the z element on new nodes 
+  * **defaultW** the default value of the w element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVec4wRange
+
+```
+int VRAddPropertyVec4wRange(
+    HMeta metaNode,
+    const char * propertyName,
+    double defaultX,
+    double defaultY,
+    double defaultZ,
+    double defaultW,
+    double minX,
+    double minY,
+    double minZ,
+    double minW,
+    double maxX,
+    double maxY,
+    double maxZ,
+    double maxW
+)
+```
+
+Adds a world float vec4 property to a metanode with range hints. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultX** the default value of the x element on new nodes 
+  * **defaultY** the default value of the y element on new nodes 
+  * **defaultZ** the default value of the z element on new nodes 
+  * **defaultW** the default value of the w element on new nodes 
+  * **minX** the min value of the x element on new nodes 
+  * **minY** the min value of the y element on new nodes 
+  * **minZ** the min value of the z element on new nodes 
+  * **minW** the min value of the w element on new nodes 
+  * **maxX** the max value of the x element on new nodes 
+  * **maxY** the max value of the y element on new nodes 
+  * **maxZ** the max value of the z element on new nodes 
+  * **maxW** the max value of the w element on new nodes 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVectorBool
+
+```
+int VRAddPropertyVectorBool(
+    HMeta metaNode,
+    const char * propertyName
+)
+```
+
+Adds a boolean vector property to a metanode (resizable container) 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVectorChar
+
+```
+int VRAddPropertyVectorChar(
+    HMeta metaNode,
+    const char * propertyName
+)
+```
+
+Adds a character vector property to a metanode (resizable container) 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVectorDouble
+
+```
+int VRAddPropertyVectorDouble(
+    HMeta metaNode,
+    const char * propertyName
+)
+```
+
+Adds a double vector property to a metanode (resizable container) 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVectorFloat
+
+```
+int VRAddPropertyVectorFloat(
+    HMeta metaNode,
+    const char * propertyName
+)
+```
+
+Adds a float vector property to a metanode (resizable container) 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVectorInt
+
+```
+int VRAddPropertyVectorInt(
+    HMeta metaNode,
+    const char * propertyName
+)
+```
+
+Adds an integer vector property to a metanode (resizable container) 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVectorString
+
+```
+int VRAddPropertyVectorString(
+    HMeta metaNode,
+    const char * propertyName
+)
+```
+
+Adds a string vector property to a metanode (resizable container) 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyVectorWorldFloat
+
+```
+int VRAddPropertyVectorWorldFloat(
+    HMeta metaNode,
+    const char * propertyName
+)
+```
+
+Adds a world float vector property to a metanode (resizable container) 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyWorldFloat
+
+```
+int VRAddPropertyWorldFloat(
+    HMeta metaNode,
+    const char * propertyName,
+    double defaultValue
+)
+```
+
+Adds a world float property to a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultValue** the default value on new nodes. Truncated according to world precision. 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRAddPropertyWorldFloatRange
+
+```
+int VRAddPropertyWorldFloatRange(
+    HMeta metaNode,
+    const char * propertyName,
+    double defaultValue,
+    double minValue,
+    double maxValue
+)
+```
+
+Adds a world float property to a metanode, with min/max range hints. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to add 
+  * **defaultValue** the default value on new nodes. Truncated according to world precision. 
+  * **minValue** the minimum value hint, truncated according to world precision 
+  * **maxValue** the maximum value hint, truncated according to world precision 
+
+
+**Return**: 0 if the property is added successfully 
+
+### VRGetPropertiesCount
+
+```
+int VRGetPropertiesCount(
+    HMeta metaNode
+)
+```
+
+Gets the number of properties on a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to query 
+
+
+**Return**: the number of properties on the metanode, or -1 on error (0 is a valid number of properties) 
+
+### VRSetPropertyCached
+
+```
+int VRSetPropertyCached(
+    HMeta metaNode,
+    const char * propertyName,
+    char cached
+)
+```
+
+Sets a property as cached (contents are replicated in the disk cache) 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to modify 
+  * **cached** any value greater than 0 makes the property cached 
+
+
+**Return**: 0 if property is successfully changed 
+
+### VRSetPropertyCloned
+
+```
+int VRSetPropertyCloned(
+    HMeta metaNode,
+    const char * propertyName,
+    char saved
+)
+```
+
+Sets a property as cloned (whether the property value should be copied when cloning a node) 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to modify 
+  * **saved** any value greater than 0 makes the property saved 
+
+
+**Return**: 0 if property is successfully changed 
+
+### VRSetPropertyInternal
+
+```
+int VRSetPropertyInternal(
+    HMeta metaNode,
+    const char * propertyName,
+    char internal
+)
+```
+
+Sets a property as internal (provides a hint to node property user interface to not display the property editor) 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to modify 
+  * **internal** any value greater than 0 makes the property internal 
+
+
+**Return**: 0 if property is successfully changed 
+
+### VRSetPropertyPurged
+
+```
+int VRSetPropertyPurged(
+    HMeta metaNode,
+    const char * propertyName,
+    char purged
+)
+```
+
+Sets a property as purged (contents are ejected from memory and cached to disk) 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to modify 
+  * **purged** any value greater than 0 makes the property purged 
+
+
+**Return**: 0 if property is successfully changed 
+
+### VRSetPropertyReadOnly
+
+```
+int VRSetPropertyReadOnly(
+    HMeta metaNode,
+    const char * propertyName,
+    char readOnly
+)
+```
+
+Sets a property as read-only (provides a hint to node property user interface to make the editor read only) 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to modify 
+  * **readOnly** any value greater than 0 makes the property read only 
+
+
+**Return**: 0 if property is successfully changed 
+
+### VRSetPropertySaved
+
+```
+int VRSetPropertySaved(
+    HMeta metaNode,
+    const char * propertyName,
+    char saved
+)
+```
+
+Sets a property as saved (whether or not the value is saved to VRText/VRNative documents) 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to modify 
+  * **saved** any value greater than 0 makes the property saved 
+
+
+**Return**: 0 if property is successfully changed 
+
+
+
+
+

@@ -1,0 +1,65 @@
+---
+title: Meta_AudioStreamBuffer
+summary: A packet of audio data. 
+
+---
+
+# Meta_AudioStreamBuffer
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A packet of audio data. 
+
+
+`#include <meta_audio.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[@0](../Classes/struct_meta___audio_stream_buffer.mdx#enum-@0)** { Format_PCM_8, Format_PCM_16, Format_Opus} |
+| enum| **[IDX](../Classes/struct_meta___audio_stream_buffer.mdx#enum-idx)** { Idx_Format, Idx_Channels, Idx_SampleRate, Idx_RemoteOnly, Idx_Data} |
+
+## Public Functions
+
+|                | Name           |
+| -------------- | -------------- |
+| | **[Meta_AudioStreamBuffer](../Classes/struct_meta___audio_stream_buffer.mdx#meta-audiostreambuffer)**() |
+
+## Public Types Documentation
+
+### enum @0
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Format_PCM_8 | | 8-bit mono uncompressed PCM   |
+| Format_PCM_16 | | 16-bit mono uncompressed PCM   |
+| Format_Opus | | Opus compressed.   |
+
+
+
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Format | |   |
+| Idx_Channels | |   |
+| Idx_SampleRate | |   |
+| Idx_RemoteOnly | |   |
+| Idx_Data | |   |
+
+
+
+
+## Public Functions Documentation
+
+### Meta_AudioStreamBuffer
+
+```cpp
+inline Meta_AudioStreamBuffer()
+```
+
+

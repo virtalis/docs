@@ -1,0 +1,67 @@
+---
+title: Logging Flags
+summary: Flags that control the level of API error reporting. These can be combined. 
+
+---
+
+# Logging Flags
+
+Flags that control the level of API error reporting. These can be combined. 
+
+## Attributes
+
+|                | Name           |
+| -------------- | -------------- |
+| const uint32_t | **[VRTREE_ERRORLEVEL_DEBUG](../definitions/group__api__loggingmask.mdx#vrtree-errorlevel-debug)** <br />Record debug messages.  |
+| const uint32_t | **[VRTREE_ERRORLEVEL_ERRORS](../definitions/group__api__loggingmask.mdx#vrtree-errorlevel-errors)** <br />Record critial errors.  |
+| const uint32_t | **[VRTREE_ERRORLEVEL_INFO](../definitions/group__api__loggingmask.mdx#vrtree-errorlevel-info)** <br />Record info messages.  |
+| const uint32_t | **[VRTREE_ERRORLEVEL_NONE](../definitions/group__api__loggingmask.mdx#vrtree-errorlevel-none)** <br />Do not set any internal error codes nor generate any messages.  |
+| const uint32_t | **[VRTREE_ERRORLEVEL_WARNINGS](../definitions/group__api__loggingmask.mdx#vrtree-errorlevel-warnings)** <br />Record warnings.  |
+
+
+
+## Attributes Documentation
+
+### VRTREE_ERRORLEVEL_DEBUG
+
+```
+const uint32_t VRTREE_ERRORLEVEL_DEBUG = (1 << 2);
+```
+
+Record debug messages. 
+
+### VRTREE_ERRORLEVEL_ERRORS
+
+```
+const uint32_t VRTREE_ERRORLEVEL_ERRORS = (1 << 0);
+```
+
+Record critial errors. 
+
+### VRTREE_ERRORLEVEL_INFO
+
+```
+const uint32_t VRTREE_ERRORLEVEL_INFO = (1 << 3);
+```
+
+Record info messages. 
+
+### VRTREE_ERRORLEVEL_NONE
+
+```
+const uint32_t VRTREE_ERRORLEVEL_NONE = 0;
+```
+
+Do not set any internal error codes nor generate any messages. 
+
+### VRTREE_ERRORLEVEL_WARNINGS
+
+```
+const uint32_t VRTREE_ERRORLEVEL_WARNINGS = (1 << 1);
+```
+
+Record warnings. 
+
+
+
+

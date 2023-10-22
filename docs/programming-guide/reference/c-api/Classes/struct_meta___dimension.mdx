@@ -1,0 +1,44 @@
+---
+title: Meta_Dimension
+summary: A Dimension references two Meta_MeasuringPoint nodes and calculates the distances between them. It also provides scene visuals depicting the dimensions. 
+
+---
+
+# Meta_Dimension
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A Dimension references two [Meta_MeasuringPoint nodes and calculates the distances between them. It also provides scene visuals depicting the dimensions. 
+
+
+`#include <meta_measure.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[@8](../Classes/struct_meta___dimension.mdx#enum-@8)** { Idx_Enabled, Idx_MeasuringPoint1, Idx_MeasuringPoint2, Idx_Length, Idx_MinLength, Idx_MaxLength, Idx_Labels, Idx_Bounds, Idx_Lock, Idx_Display}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum @8
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - Enables the dimension display   |
+| Idx_MeasuringPoint1 | | link - Link to the first measuring point   |
+| Idx_MeasuringPoint2 | | link - Link to the second measuring point   |
+| Idx_Length | | vec4w - The calculated current distance between the two points (XYZ for each axis, W for diagonal, direct distance)   |
+| Idx_MinLength | | vec4w - The calculated smallest distance the two points have ever been from each other   |
+| Idx_MaxLength | | vec4w - The calculated largest distance the two points have ever been from each other   |
+| Idx_Labels | | bool - Whether to display text labels showing the measurements in the scene   |
+| Idx_Bounds | | bool - Whether to draw lines depicting the bounds of the dimension   |
+| Idx_Lock | | Internal.   |
+| Idx_Display | | Internal.   |
+
+
+
+Property index. 
+

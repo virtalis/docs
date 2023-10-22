@@ -1,0 +1,111 @@
+---
+title: vrtree_cpp::ObserverWrapper
+summary: Wraps a class implementing static observer functions accepting refcounted handles. 
+
+---
+
+# vrtree_cpp::ObserverWrapper
+
+
+
+Wraps a class implementing static observer functions accepting refcounted handles.  [More...](#detailed-description)
+
+
+`#include <interface_helpers.hpp>`
+
+## Public Functions
+
+|                | Name           |
+| -------------- | -------------- |
+| void | **[NodeChildAdded](../Classes/structvrtree__cpp_1_1_observer_wrapper.mdx#nodechildadded)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) vrParent, [HNode](../Modules/group__api__types.mdx#typedef-hnode) vrChild, void * ) |
+| void | **[NodeChildRemoved](../Classes/structvrtree__cpp_1_1_observer_wrapper.mdx#nodechildremoved)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) vrParent, [HNode](../Modules/group__api__types.mdx#typedef-hnode) vrChild, void * ) |
+| void | **[NodeCreated](../Classes/structvrtree__cpp_1_1_observer_wrapper.mdx#nodecreated)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) vrNode, void * ) |
+| void | **[NodeDestroying](../Classes/structvrtree__cpp_1_1_observer_wrapper.mdx#nodedestroying)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) vrNode, void * ) |
+| void | **[NodeParentChanged](../Classes/structvrtree__cpp_1_1_observer_wrapper.mdx#nodeparentchanged)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) vrNode, [HNode](../Modules/group__api__types.mdx#typedef-hnode) vrNewParent, [HNode](../Modules/group__api__types.mdx#typedef-hnode) vrOldParent, void * ) |
+| void | **[NodeRenamed](../Classes/structvrtree__cpp_1_1_observer_wrapper.mdx#noderenamed)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) vrNode, void * ) |
+| void | **[NodeValuesChanged](../Classes/structvrtree__cpp_1_1_observer_wrapper.mdx#nodevalueschanged)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) vrNode, void * ) |
+
+## Detailed Description
+
+```cpp
+template <typename T >
+struct vrtree_cpp::ObserverWrapper;
+```
+
+Wraps a class implementing static observer functions accepting refcounted handles. 
+## Public Functions Documentation
+
+### NodeChildAdded
+
+```cpp
+static inline void NodeChildAdded(
+    HNode vrParent,
+    HNode vrChild,
+    void * 
+)
+```
+
+
+### NodeChildRemoved
+
+```cpp
+static inline void NodeChildRemoved(
+    HNode vrParent,
+    HNode vrChild,
+    void * 
+)
+```
+
+
+### NodeCreated
+
+```cpp
+static inline void NodeCreated(
+    HNode vrNode,
+    void * 
+)
+```
+
+
+### NodeDestroying
+
+```cpp
+static inline void NodeDestroying(
+    HNode vrNode,
+    void * 
+)
+```
+
+
+### NodeParentChanged
+
+```cpp
+static inline void NodeParentChanged(
+    HNode vrNode,
+    HNode vrNewParent,
+    HNode vrOldParent,
+    void * 
+)
+```
+
+
+### NodeRenamed
+
+```cpp
+static inline void NodeRenamed(
+    HNode vrNode,
+    void * 
+)
+```
+
+
+### NodeValuesChanged
+
+```cpp
+static inline void NodeValuesChanged(
+    HNode vrNode,
+    void * 
+)
+```
+
+

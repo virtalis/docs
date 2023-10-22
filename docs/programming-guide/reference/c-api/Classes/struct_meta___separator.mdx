@@ -1,0 +1,49 @@
+---
+title: Meta_Separator
+summary: A Separator delineates GUI objects. 
+
+---
+
+# Meta_Separator
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A Separator delineates GUI objects. 
+
+
+`#include <meta_gui.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](../Classes/struct_meta___separator.mdx#enum-idx)** { Idx_Enabled, Idx_Type, Idx_Style}<br />Property index.  |
+| enum| **[SeparatorType](../Classes/struct_meta___separator.mdx#enum-separatortype)** { SEPARATORTYPE_HORIZONTAL, SEPARATORTYPE_VERTICAL}<br />Values for Idx_Type.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - When enabled, separator is visible   |
+| Idx_Type | | [SeparatorType (int) - Indicates vertical or horizontal   |
+| Idx_Style | | link - Style to apply to the separator ([Meta_ColouredSeparatorStyle](../Classes/struct_meta___coloured_separator_style.mdx))   |
+
+
+
+Property index. 
+
+### enum SeparatorType
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| SEPARATORTYPE_HORIZONTAL | | Horizontal separator (Symbols - C: `"Horizontal"`, Lua: `__Separator_Horizontal`)   |
+| SEPARATORTYPE_VERTICAL | | Vertical separator (Symbols - C: `"Vertical"`, Lua: `__Separator_Vertical`)   |
+
+
+
+Values for Idx_Type. 
+

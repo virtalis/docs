@@ -1,0 +1,46 @@
+---
+title: Meta_EventHandler
+summary: An EventHandler can be attached to any other node to trigger script execution. 
+
+---
+
+# Meta_EventHandler
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+An EventHandler can be attached to any other node to trigger script execution.  [More...](#detailed-description)
+
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](../Classes/struct_meta___event_handler.mdx#enum-idx)** { Idx_Enabled, Idx_Event}<br />Property index.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_EventHandler;
+```
+
+An EventHandler can be attached to any other node to trigger script execution. 
+
+For a full description of event types see [Events](../../scripts/getting-started/events.mdx)
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - When enabled, the event can be triggered   |
+| Idx_Event | | string - The name of the event, prefixed with `Event_` (e.g. `Event_Touch`, `Event_KeyPress`)   |
+
+
+
+Property index. 
+

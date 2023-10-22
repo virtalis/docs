@@ -1,0 +1,59 @@
+---
+title: Meta_MaterialArgument
+summary: A MaterialArgument defines an argument for a Meta_MaterialParameter. 
+
+---
+
+# Meta_MaterialArgument
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A MaterialArgument defines an argument for a [Meta_MaterialParameter.  [More...](#detailed-description)
+
+
+`#include <meta_division.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](../Classes/struct_meta___material_argument.mdx#enum-idx)** { Idx_Source, Idx_PropertyName}<br />Property index.  |
+| enum| **[Source](../Classes/struct_meta___material_argument.mdx#enum-source)** { Source_Default, Source_Value, Source_Property}<br />Values for Idx_Source.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_MaterialArgument;
+```
+
+A MaterialArgument defines an argument for a [Meta_MaterialParameter. 
+
+The actual argument value is added as a Meta_MetaDataNNN child, or indirectly references a property of a StdMaterial parent. NOTE: PropertyName is meaningless until used under a StdMaterial node pair. 
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Source | | [Source (int) - where the value of the argument should come from.   |
+| Idx_PropertyName | | string - the name of the StdMaterial property to use if `Source==Source_Property`  |
+
+
+
+Property index. 
+
+### enum Source
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Source_Default | | From the definition default argument.   |
+| Source_Value | | From a constant stored as a Meta_MetaDataNNN child of this node.   |
+| Source_Property | | From a property of a StdMaterial parent. Which property to use is specified in the "PropertyName" property of this node.   |
+
+
+
+Values for Idx_Source. 
+

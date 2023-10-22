@@ -1,0 +1,62 @@
+---
+title: Meta_ARMarker
+
+---
+
+# Meta_ARMarker
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[HelperType](../Classes/struct_meta___a_r_marker.mdx#enum-helpertype)** { HelperType_Point, HelperType_QRCode} |
+| enum| **[IDX](../Classes/struct_meta___a_r_marker.mdx#enum-idx)** { Idx_Enabled, Idx_Transform, Idx_ID, Idx_Mode, Idx_Target, Idx_CurrentUser, Idx_CurrentUserLocked, Idx_HelperType, Idx_Size, Idx_MatchTrackedMarker}<br />Property index.  |
+| enum| **[Mode](../Classes/struct_meta___a_r_marker.mdx#enum-mode)** { Mode_World, Mode_Object} |
+
+## Public Types Documentation
+
+### enum HelperType
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| HelperType_Point | |   |
+| HelperType_QRCode | |   |
+
+
+
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | |   |
+| Idx_Transform | |   |
+| Idx_ID | |   |
+| Idx_Mode | |   |
+| Idx_Target | | In object mode, the root assembly that owns this marker. Can be null, in which case the ARMarker is treated as the root.   |
+| Idx_CurrentUser | | In object mode, the user currently controlling the target object.   |
+| Idx_CurrentUserLocked | |   |
+| Idx_HelperType | | The type of helper to display.   |
+| Idx_Size | | The size of the helper.   |
+| Idx_MatchTrackedMarker | | Whether to update the helper type and size to match the corresponding TrackedARMarker when detected.   |
+
+
+
+Property index. 
+
+### enum Mode
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Mode_World | |   |
+| Mode_Object | |   |
+
+
+
+

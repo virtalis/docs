@@ -1,0 +1,46 @@
+---
+title: Meta_ShadowBoundsOverride
+summary: A ShadowBoundsOverride allows a directional light's shadow bounds to be overridden depending on the camera position. 
+
+---
+
+# Meta_ShadowBoundsOverride
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A ShadowBoundsOverride allows a directional light's shadow bounds to be overridden depending on the camera position.  [More...](#detailed-description)
+
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](../Classes/struct_meta___shadow_bounds_override.mdx#enum-idx)** { Idx_ViewBoundsNode, Idx_ShadowBoundsNode}<br />Property index.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_ShadowBoundsOverride;
+```
+
+A ShadowBoundsOverride allows a directional light's shadow bounds to be overridden depending on the camera position. 
+
+One or more of these nodes should be added as children of the light node. 
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_ViewBoundsNode | | link - Defines the bounding box of the region where the shadow map will be used.   |
+| Idx_ShadowBoundsNode | | link - Defines the bounding box of the shadow map.   |
+
+
+
+Property index. 
+

@@ -1,0 +1,75 @@
+---
+title: Meta_SurfaceShaderDefinition
+summary: A SurfaceShaderDefinition represents a shader object, expected to be used by a Meta_SurfaceShaderInstance. 
+
+---
+
+# Meta_SurfaceShaderDefinition
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A SurfaceShaderDefinition represents a shader object, expected to be used by a [Meta_SurfaceShaderInstance.  [More...](#detailed-description)
+
+
+`#include <meta_division.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[@2](../Classes/struct_meta___surface_shader_definition.mdx#enum-@2)** { CurrentVersion =1} |
+| enum| **[IDX](../Classes/struct_meta___surface_shader_definition.mdx#enum-idx)** { Idx_Version, Idx_Filename, Idx_SourceCode} |
+
+## Public Functions
+
+|                | Name           |
+| -------------- | -------------- |
+| | **[Meta_SurfaceShaderDefinition](../Classes/struct_meta___surface_shader_definition.mdx#meta-surfaceshaderdefinition)**() |
+
+## Detailed Description
+
+```cpp
+struct Meta_SurfaceShaderDefinition;
+```
+
+A SurfaceShaderDefinition represents a shader object, expected to be used by a [Meta_SurfaceShaderInstance. 
+
+The inputs to the shader will be set by this nodes [Meta_MaterialParameter](../Classes/struct_meta___material_parameter.mdx) children.
+
+Expected Implementation Details:-
+
+When the SourceCode property changes a search for `<params>` defined within it is initiated, which in turn will extract the expected inputs for the shader. [Meta_MaterialParameter](../Classes/struct_meta___material_parameter.mdx) nodes corresponding to these parameters will be created as children of the [Meta_SurfaceShaderDefinition](../Classes/struct_meta___surface_shader_definition.mdx) with their defined default values, allowing the user to easily configure the shader from the property panel or a script. If these #pragma's are missing in the source the user will have to manually create the child [Meta_MaterialParameter](../Classes/struct_meta___material_parameter.mdx) nodes and set their values. 
+
+## Public Types Documentation
+
+### enum @2
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| CurrentVersion | =1|   |
+
+
+
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Version | | version number of this metanode, for potential future upgrade hooks   |
+| Idx_Filename | | path to a ".surf" shader file on disk   |
+| Idx_SourceCode | | source code, populated by the GUI or loaded from a file using the Filename property   |
+
+
+
+
+## Public Functions Documentation
+
+### Meta_SurfaceShaderDefinition
+
+```cpp
+inline Meta_SurfaceShaderDefinition()
+```
+
+

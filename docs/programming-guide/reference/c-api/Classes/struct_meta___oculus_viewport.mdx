@@ -1,0 +1,40 @@
+---
+title: Meta_OculusViewport
+summary: An OculusViewport represents a viewport occupying a specified rectangle of a window (range 0 to 1) which renders the 3D scene using the projection and distortion calculated by the Oculus SDK. 
+
+---
+
+# Meta_OculusViewport
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+An OculusViewport represents a viewport occupying a specified rectangle of a window (range 0 to 1) which renders the 3D scene using the projection and distortion calculated by the Oculus SDK. 
+
+
+`#include <meta_view.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](../Classes/struct_meta___oculus_viewport.mdx#enum-idx)** { Idx_Enabled, Idx_Rectangle, Idx_Camera, Idx_ClipRange, Idx_MirrorFillWindow, Idx_DrawMirror}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - When enabled, viewport is drawn to the screen   |
+| Idx_Rectangle | | vec4f - The viewport bounds, scaled on the screen by the ViewportLayout size. (e.g. layout size `2.0, 1.0`, and child viewport width `1.0` will fill half the screen with the viewport)   |
+| Idx_Camera | | link - The camera from which the scene is rendered   |
+| Idx_ClipRange | | vec2w - Specifies the default near and far clip planes for this viewport   |
+| Idx_MirrorFillWindow | | bool - if true some of the image seen in the rift will be cropped when displayed in the main window.   |
+| Idx_DrawMirror | | bool - whether or not to draw the mirror viewport to the main window   |
+
+
+
+Property index. 
+

@@ -1,0 +1,130 @@
+---
+title: Flags
+summary: Flags that can be applied to some API operations. 
+
+---
+
+# Flags
+
+Flags that can be applied to some API operations. 
+
+## Attributes
+
+|                | Name           |
+| -------------- | -------------- |
+| const uint32_t | **[FLAG_VALUE_BY_POST](../definitions/group__api__flags.mdx#flag-value-by-post)** <br />Specifies that the value being set should not be applied to the node until the next frame update. This is useful when trying to set properties in response to observer functions which would otherwise violate the observer pattern.  |
+| const uint32_t | **[METANODE_ADMIN](../definitions/group__api__flags.mdx#metanode-admin)** <br />Indicates that the metanode should only be represented in the 2D drawing system when in developer admin mode.  |
+| const uint32_t | **[METANODE_CHILD_MAP](../definitions/group__api__flags.mdx#metanode-child-map)** <br />Specifies that a metanode or specific node instance should use a map for its children (performance optimization for nodes with large numbers of children)  |
+| const uint32_t | **[METANODE_DEVELOPER_NO_SAVE](../definitions/group__api__flags.mdx#metanode-developer-no-save)** <br />Specifies that a metanode or specific node instance should not be saved anywhere, including special system-save operations.  |
+| const uint32_t | **[METANODE_NO_CLONE](../definitions/group__api__flags.mdx#metanode-no-clone)** <br />Specifies that a metanode or specific node instance should not be copy-able by the application.  |
+| const uint32_t | **[METANODE_NO_GUI](../definitions/group__api__flags.mdx#metanode-no-gui)** <br />Indicates that an application should not attempt to represent this node in whatever 2D drawing system it is using.  |
+| const uint32_t | **[METANODE_NO_HISTORY](../definitions/group__api__flags.mdx#metanode-no-history)** <br />Specifies that a metanode or specific node instance should not be inserted into the undo/redo history.  |
+| const uint32_t | **[METANODE_NO_SAVE](../definitions/group__api__flags.mdx#metanode-no-save)** <br />Specifies that a metanode or specific node instance should not be saved into a scene.  |
+| const uint32_t | **[METANODE_NODE_SPY](../definitions/group__api__flags.mdx#metanode-node-spy)** <br />Specifies that a metanode or specific node instance should be treated as node-spy, which triggers its dirty flags when any of its descendants are modified.  |
+| const uint32_t | **[METANODE_PROTECTED](../definitions/group__api__flags.mdx#metanode-protected)** <br />Specifies that a metanode or specific node instance is protected from all user and script operations that would affect its position in the tree (deleting, parenting, etc)  |
+| const uint32_t | **[METANODE_TRANSIENT](../definitions/group__api__flags.mdx#metanode-transient)** <br />Used for event MetaNodes and similar. Nodes of this MetaNode can be expected to be deleted shortly after their creation.  |
+| const uint32_t | **[PROPERTY_INVALID_INDEX](../definitions/group__api__flags.mdx#property-invalid-index)** <br />Identifier of an invalid property index.  |
+
+
+
+## Attributes Documentation
+
+### FLAG_VALUE_BY_POST
+
+```
+const uint32_t FLAG_VALUE_BY_POST = 1;
+```
+
+Specifies that the value being set should not be applied to the node until the next frame update. This is useful when trying to set properties in response to observer functions which would otherwise violate the observer pattern. 
+
+### METANODE_ADMIN
+
+```
+const uint32_t METANODE_ADMIN = (1 << 12);
+```
+
+Indicates that the metanode should only be represented in the 2D drawing system when in developer admin mode. 
+
+### METANODE_CHILD_MAP
+
+```
+const uint32_t METANODE_CHILD_MAP = (1 << 11);
+```
+
+Specifies that a metanode or specific node instance should use a map for its children (performance optimization for nodes with large numbers of children) 
+
+### METANODE_DEVELOPER_NO_SAVE
+
+```
+const uint32_t METANODE_DEVELOPER_NO_SAVE = (1 << 2);
+```
+
+Specifies that a metanode or specific node instance should not be saved anywhere, including special system-save operations. 
+
+### METANODE_NO_CLONE
+
+```
+const uint32_t METANODE_NO_CLONE = (1 << 0);
+```
+
+Specifies that a metanode or specific node instance should not be copy-able by the application. 
+
+### METANODE_NO_GUI
+
+```
+const uint32_t METANODE_NO_GUI = (1 << 10);
+```
+
+Indicates that an application should not attempt to represent this node in whatever 2D drawing system it is using. 
+
+### METANODE_NO_HISTORY
+
+```
+const uint32_t METANODE_NO_HISTORY = (1 << 5);
+```
+
+Specifies that a metanode or specific node instance should not be inserted into the undo/redo history. 
+
+### METANODE_NO_SAVE
+
+```
+const uint32_t METANODE_NO_SAVE = (1 << 1);
+```
+
+Specifies that a metanode or specific node instance should not be saved into a scene. 
+
+### METANODE_NODE_SPY
+
+```
+const uint32_t METANODE_NODE_SPY = (1 << 3);
+```
+
+Specifies that a metanode or specific node instance should be treated as node-spy, which triggers its dirty flags when any of its descendants are modified. 
+
+### METANODE_PROTECTED
+
+```
+const uint32_t METANODE_PROTECTED = (1 << 4);
+```
+
+Specifies that a metanode or specific node instance is protected from all user and script operations that would affect its position in the tree (deleting, parenting, etc) 
+
+### METANODE_TRANSIENT
+
+```
+const uint32_t METANODE_TRANSIENT = (1 << 6);
+```
+
+Used for event MetaNodes and similar. Nodes of this MetaNode can be expected to be deleted shortly after their creation. 
+
+### PROPERTY_INVALID_INDEX
+
+```
+const uint32_t PROPERTY_INVALID_INDEX = 0xFFFFFFFF;
+```
+
+Identifier of an invalid property index. 
+
+
+
+

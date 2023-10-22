@@ -1,0 +1,261 @@
+---
+title: Meta_PropSemantics::PropType
+
+---
+
+# Meta_PropSemantics::PropType
+
+
+
+
+
+## Public Attributes
+
+|                | Name           |
+| -------------- | -------------- |
+| vrtree_API Base::PooledStringPtr | **[_2DMatrix](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#-2dmatrix)** <br />Represents a 2d matrix (shows only the components of a matrix relevant to 2d transformations - see vr2DTransformMatrixEdit)  |
+| vrtree_API Base::PooledStringPtr | **[Attribute](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#attribute)** <br />Represents a property's attribute.  |
+| vrtree_API Base::PooledStringPtr | **[CollisionGroupMask](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#collisiongroupmask)** <br />Represents a collision mask.  |
+| vrtree_API Base::PooledStringPtr | **[Colour](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#colour)** <br />Represents a colour as opposed to a regular vec3 or vec4.  |
+| vrtree_API Base::PooledStringPtr | **[CompositeControl](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#compositecontrol)** <br />Represents a composite control formed of multiple items.  |
+| vrtree_API Base::PooledStringPtr | **[Custom](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#custom)** <br />Represents a custom type (implementation dependent) - use if your GuiHints specify two captions (e.g. Lod In/Out)  |
+| vrtree_API Base::PooledStringPtr | **[Dir](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#dir)** <br />Represents a path to a directory.  |
+| vrtree_API Base::PooledStringPtr | **[File](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#file)** <br />Represents a path to a file to open.  |
+| vrtree_API Base::PooledStringPtr | **[FileList](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#filelist)** <br />Represents a path to a file drop down with a file select button.  |
+| vrtree_API Base::PooledStringPtr | **[FileSave](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#filesave)** <br />Represents a path to save a file.  |
+| vrtree_API Base::PooledStringPtr | **[Font](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#font)** <br />Represents a font.  |
+| vrtree_API Base::PooledStringPtr | **[GLSLSourceCode](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#glslsourcecode)** <br />Represents a string containing GLSL source code.  |
+| vrtree_API Base::PooledStringPtr | **[Image](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#image)** <br />Represents a path to an image file (Gui should use appropriate image browser/previews)  |
+| vrtree_API Base::PooledStringPtr | **[Log2Slider](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#log2slider)** <br />Represents a slider control with a logarithmic scale (base 2)  |
+| vrtree_API Base::PooledStringPtr | **[LogSlider](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#logslider)** <br />Represents a slider control with a logarithmic scale (base 10)  |
+| vrtree_API Base::PooledStringPtr | **[LUASourceCode](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#luasourcecode)** <br />Represents a string containing LUA source code.  |
+| vrtree_API Base::PooledStringPtr | **[None](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#none)** <br />No special type.  |
+| vrtree_API Base::PooledStringPtr | **[Password](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#password)** <br />Repesents a password text edit that obscures its contents.  |
+| vrtree_API Base::PooledStringPtr | **[Property](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#property)** <br />Represents a property.  |
+| vrtree_API Base::PooledStringPtr | **[RawMatrix](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#rawmatrix)** <br />Represents a raw matrix (the default representation of a 4x4 matrix should be a transformation matrix)  |
+| vrtree_API Base::PooledStringPtr | **[Rect](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#rect)** <br />Represents a rectangle instead of a regular vec4 (left, top, right, bottom)  |
+| vrtree_API Base::PooledStringPtr | **[RestrictedFileList](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#restrictedfilelist)** <br />Represents a path to a file drop down.  |
+| vrtree_API Base::PooledStringPtr | **[SingleLineText](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#singlelinetext)** <br />Represents a single-line text edit.  |
+| vrtree_API Base::PooledStringPtr | **[Slider](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#slider)** <br />Represents a slider control instead of a regular number editor.  |
+| vrtree_API Base::PooledStringPtr | **[Sphere](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#sphere)** <br />Represents a sphere instead of a regular vec4 (position, radius)  |
+| vrtree_API Base::PooledStringPtr | **[Stream](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#stream)** <br />Represents a file path that doesn't have to exist on disk.  |
+| vrtree_API Base::PooledStringPtr | **[ToggleButton](../Classes/struct_meta___prop_semantics_1_1_prop_type.mdx#togglebutton)** <br />Represents a toggle button control for bool values instead of a checkbox.  |
+
+## Public Attributes Documentation
+
+### _2DMatrix
+
+```cpp
+static vrtree_API Base::PooledStringPtr _2DMatrix;
+```
+
+Represents a 2d matrix (shows only the components of a matrix relevant to 2d transformations - see vr2DTransformMatrixEdit) 
+
+### Attribute
+
+```cpp
+static vrtree_API Base::PooledStringPtr Attribute;
+```
+
+Represents a property's attribute. 
+
+### CollisionGroupMask
+
+```cpp
+static vrtree_API Base::PooledStringPtr CollisionGroupMask;
+```
+
+Represents a collision mask. 
+
+### Colour
+
+```cpp
+static vrtree_API Base::PooledStringPtr Colour;
+```
+
+Represents a colour as opposed to a regular vec3 or vec4. 
+
+### CompositeControl
+
+```cpp
+static vrtree_API Base::PooledStringPtr CompositeControl;
+```
+
+Represents a composite control formed of multiple items. 
+
+### Custom
+
+```cpp
+static vrtree_API Base::PooledStringPtr Custom;
+```
+
+Represents a custom type (implementation dependent) - use if your GuiHints specify two captions (e.g. Lod In/Out) 
+
+### Dir
+
+```cpp
+static vrtree_API Base::PooledStringPtr Dir;
+```
+
+Represents a path to a directory. 
+
+### File
+
+```cpp
+static vrtree_API Base::PooledStringPtr File;
+```
+
+Represents a path to a file to open. 
+
+### FileList
+
+```cpp
+static vrtree_API Base::PooledStringPtr FileList;
+```
+
+Represents a path to a file drop down with a file select button. 
+
+### FileSave
+
+```cpp
+static vrtree_API Base::PooledStringPtr FileSave;
+```
+
+Represents a path to save a file. 
+
+### Font
+
+```cpp
+static vrtree_API Base::PooledStringPtr Font;
+```
+
+Represents a font. 
+
+### GLSLSourceCode
+
+```cpp
+static vrtree_API Base::PooledStringPtr GLSLSourceCode;
+```
+
+Represents a string containing GLSL source code. 
+
+### Image
+
+```cpp
+static vrtree_API Base::PooledStringPtr Image;
+```
+
+Represents a path to an image file (Gui should use appropriate image browser/previews) 
+
+### Log2Slider
+
+```cpp
+static vrtree_API Base::PooledStringPtr Log2Slider;
+```
+
+Represents a slider control with a logarithmic scale (base 2) 
+
+### LogSlider
+
+```cpp
+static vrtree_API Base::PooledStringPtr LogSlider;
+```
+
+Represents a slider control with a logarithmic scale (base 10) 
+
+### LUASourceCode
+
+```cpp
+static vrtree_API Base::PooledStringPtr LUASourceCode;
+```
+
+Represents a string containing LUA source code. 
+
+### None
+
+```cpp
+static vrtree_API Base::PooledStringPtr None;
+```
+
+No special type. 
+
+### Password
+
+```cpp
+static vrtree_API Base::PooledStringPtr Password;
+```
+
+Repesents a password text edit that obscures its contents. 
+
+### Property
+
+```cpp
+static vrtree_API Base::PooledStringPtr Property;
+```
+
+Represents a property. 
+
+### RawMatrix
+
+```cpp
+static vrtree_API Base::PooledStringPtr RawMatrix;
+```
+
+Represents a raw matrix (the default representation of a 4x4 matrix should be a transformation matrix) 
+
+### Rect
+
+```cpp
+static vrtree_API Base::PooledStringPtr Rect;
+```
+
+Represents a rectangle instead of a regular vec4 (left, top, right, bottom) 
+
+### RestrictedFileList
+
+```cpp
+static vrtree_API Base::PooledStringPtr RestrictedFileList;
+```
+
+Represents a path to a file drop down. 
+
+### SingleLineText
+
+```cpp
+static vrtree_API Base::PooledStringPtr SingleLineText;
+```
+
+Represents a single-line text edit. 
+
+### Slider
+
+```cpp
+static vrtree_API Base::PooledStringPtr Slider;
+```
+
+Represents a slider control instead of a regular number editor. 
+
+### Sphere
+
+```cpp
+static vrtree_API Base::PooledStringPtr Sphere;
+```
+
+Represents a sphere instead of a regular vec4 (position, radius) 
+
+### Stream
+
+```cpp
+static vrtree_API Base::PooledStringPtr Stream;
+```
+
+Represents a file path that doesn't have to exist on disk. 
+
+### ToggleButton
+
+```cpp
+static vrtree_API Base::PooledStringPtr ToggleButton;
+```
+
+Represents a toggle button control for bool values instead of a checkbox. 
+

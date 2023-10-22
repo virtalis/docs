@@ -1,0 +1,84 @@
+---
+title: vrtree_cpp::HRefCount
+summary: Helper structure that provides a reference count that persists between refcounted handle copies. 
+
+---
+
+# vrtree_cpp::HRefCount
+
+
+
+Helper structure that provides a reference count that persists between refcounted handle copies. 
+
+
+`#include <interface_helpers.hpp>`
+
+## Public Functions
+
+|                | Name           |
+| -------------- | -------------- |
+| bool | **[dec](../Classes/structvrtree__cpp_1_1_h_ref_count.mdx#dec)**()<br />Decrements the reference counter. If the reference counter hits zero, this instance is deleted.  |
+| | **[HRefCount](../Classes/structvrtree__cpp_1_1_h_ref_count.mdx#hrefcount)**() |
+| | **[HRefCount](../Classes/structvrtree__cpp_1_1_h_ref_count.mdx#hrefcount)**(const [HRefCount](../Classes/structvrtree__cpp_1_1_h_ref_count.mdx) & ) |
+| void | **[inc](../Classes/structvrtree__cpp_1_1_h_ref_count.mdx#inc)**()<br />Increments the reference counter.  |
+| [HRefCount](../Classes/structvrtree__cpp_1_1_h_ref_count.mdx) & | **[operator=](../Classes/structvrtree__cpp_1_1_h_ref_count.mdx#operator=)**(const [HRefCount](../Classes/structvrtree__cpp_1_1_h_ref_count.mdx) & ) |
+
+## Public Attributes
+
+|                | Name           |
+| -------------- | -------------- |
+| unsigned int | **[rc](../Classes/structvrtree__cpp_1_1_h_ref_count.mdx#rc)** <br />Reference counter.  |
+
+## Public Functions Documentation
+
+### dec
+
+```cpp
+inline bool dec()
+```
+
+Decrements the reference counter. If the reference counter hits zero, this instance is deleted. 
+
+### HRefCount
+
+```cpp
+inline HRefCount()
+```
+
+
+### HRefCount
+
+```cpp
+inline HRefCount(
+    const HRefCount & 
+)
+```
+
+
+### inc
+
+```cpp
+inline void inc()
+```
+
+Increments the reference counter. 
+
+### operator=
+
+```cpp
+inline HRefCount & operator=(
+    const HRefCount & 
+)
+```
+
+
+## Public Attributes Documentation
+
+### rc
+
+```cpp
+unsigned int rc;
+```
+
+Reference counter. 
+

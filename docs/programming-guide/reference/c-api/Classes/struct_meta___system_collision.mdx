@@ -1,0 +1,46 @@
+---
+title: Meta_SystemCollision
+summary: A SystemCollision node is used to override Meta_Visual system collision. 
+
+---
+
+# Meta_SystemCollision
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A SystemCollision node is used to override [Meta_Visual system collision.  [More...](#detailed-description)
+
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](../Classes/struct_meta___system_collision.mdx#enum-idx)** { Idx_Enabled, Idx_Collider}<br />Property index.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_SystemCollision;
+```
+
+A SystemCollision node is used to override [Meta_Visual system collision. 
+
+Should be a child of a [Meta_Visual](../Classes/struct_meta___visual.mdx). 
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | If false, the parent Visual's system collision is disabled and it is not pickable by the cursor.   |
+| Idx_Collider | | If true, forces the body to act as a concave collider.   |
+
+
+
+Property index. 
+

@@ -1,0 +1,78 @@
+---
+title: Meta_ViewShader
+summary: A ViewShader represents a shader object, expected to be used by a Meta_ViewFilter. 
+
+---
+
+# Meta_ViewShader
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A ViewShader represents a shader object, expected to be used by a [Meta_ViewFilter](../Classes/struct_meta___view_filter.mdx).  [More...](#detailed-description)
+
+
+`#include <meta_division.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](../Classes/struct_meta___view_shader.mdx#enum-idx)** { Idx_SourceCode, Idx_Description, Idx_Target, Idx_StereoMode}<br />Property Index.  |
+| enum| **[StereoMode](../Classes/struct_meta___view_shader.mdx#enum-stereomode)** { StereoMode_Any, StereoMode_MonoOnly, StereoMode_StereoOnly}<br />Values for Idx_StereoMode.  |
+| enum| **[Target](../Classes/struct_meta___view_shader.mdx#enum-target)** { Target_Viewport, Target_ViewportAfterHDR, Target_Window}<br />Values for Idx_Target.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_ViewShader;
+```
+
+A ViewShader represents a shader object, expected to be used by a [Meta_ViewFilter](../Classes/struct_meta___view_filter.mdx). 
+
+The inputs to the shader will be set by this nodes children, each of which are expected to be one of the Meta_ShaderABC metanodes (e.g. Meta_ShaderVec3f, [Meta_ShaderSampler](../Classes/struct_meta___shader_sampler.mdx) etc.).
+
+Expected Implementation Details:-
+
+When the SourceCode property changes a search for "#pragma rex <param ..." statements within it is initiated, which in turn will extract the expected inputs for the shader. Meta_MaterialPrameter nodes corresponding to these parameters will be created as children of the [Meta_ViewShader](../Classes/struct_meta___view_shader.mdx) with their defined default values, allowing the user to easily configure the shader from the property panel or a script. If these #pragma's are missing in the source the user will have to manually create the child [Meta_MaterialParameter](../Classes/struct_meta___material_parameter.mdx) nodes and set their values. 
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_SourceCode | | string - the source code of the shader. Usually a full GLSL shader but could be just a GLSL function used by a bigger shader.   |
+| Idx_Description | | string - friendly description of what the shader does, for presenting to the user.   |
+| Idx_Target | | [Target (int)- determines when the shader runs and which buffers it has access to.   |
+| Idx_StereoMode | | [StereoMode (int) - specifies whether the shader applies to mono or stereo views, or both.   |
+
+
+
+Property Index. 
+
+### enum StereoMode
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| StereoMode_Any | | The filter is applied regardless of whether stereo is enabled. (Symbols - C: `"StereoModeAny"`, Lua: `__ViewShader_StereoModeAny`)   |
+| StereoMode_MonoOnly | | The filter is applied only when rendering in mono. (Symbols - C: `"StereoModeMonoOnly"`, Lua: `__ViewShader_StereoModeMonoOnly`)   |
+| StereoMode_StereoOnly | | The filter is applied only when rendering in stereo. (Symbols - C: `"StereoModeStereoOnly"`, Lua: `__ViewShader_StereoModeStereoOnly`)   |
+
+
+
+Values for Idx_StereoMode. 
+
+### enum Target
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Target_Viewport | | The filter is applied to each viewport immediately after it is drawn, and can use all buffers. (Symbols - C: `"TargetViewport"`, Lua: `__ViewShader_TargetViewport`)   |
+| Target_ViewportAfterHDR | | The filter is applied to each viewport after the HDR pass (Symbols - C: `"TargetViewportAfterHDR"`, Lua: `__ViewShader_TargetViewportAfterHDR`)   |
+| Target_Window | | The filter is applied to the entire window after everything including the GUI is drawn, but can use only the colour buffer. (Symbols - C: `"TargetWindow"`, Lua: `__ViewShader_TargetWindow`)   |
+
+
+
+Values for Idx_Target. 
+

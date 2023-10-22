@@ -1,0 +1,703 @@
+---
+title: Migrations
+summary: Functions for defining metanode migrations. 
+
+---
+
+# Migrations
+
+Functions for defining metanode migrations. 
+
+## Functions
+
+|                | Name           |
+| -------------- | -------------- |
+| int | **[VRAddInstanceMigration](../Modules/group__api__migrations.mdx#vraddinstancemigration)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, [MigrationFunc](../Modules/group__api__proto.mdx#typedef-migrationfunc) func, void * userData) |
+| int | **[VRAddMigration](../Modules/group__api__migrations.mdx#vraddmigration)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, [MigrationAddFunc](../Modules/group__api__proto.mdx#typedef-migrationaddfunc) func)<br />Adds a migration to the ordered list of migrations applied to the metanode.  |
+| int | **[VRChangePropertyArrayBool](../Modules/group__api__migrations.mdx#vrchangepropertyarraybool)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName, int numElements)<br />Changes the specified property to a VR_BOOL array type.  |
+| int | **[VRChangePropertyArrayChar](../Modules/group__api__migrations.mdx#vrchangepropertyarraychar)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName, int numElements)<br />Changes the specified property to a VR_CHAR array type.  |
+| int | **[VRChangePropertyArrayDouble](../Modules/group__api__migrations.mdx#vrchangepropertyarraydouble)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName, int numElements)<br />Changes the specified property to a VR_DOUBLE array type.  |
+| int | **[VRChangePropertyArrayFloat](../Modules/group__api__migrations.mdx#vrchangepropertyarrayfloat)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName, int numElements)<br />Changes the specified property to a VR_FLOAT array type.  |
+| int | **[VRChangePropertyArrayInt](../Modules/group__api__migrations.mdx#vrchangepropertyarrayint)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName, int numElements)<br />Changes the specified property to a VR_INT array type.  |
+| int | **[VRChangePropertyArrayWorldFloat](../Modules/group__api__migrations.mdx#vrchangepropertyarrayworldfloat)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName, int numElements)<br />Changes the specified property to a VR_WORLD_FLOAT array type.  |
+| int | **[VRChangePropertyBool](../Modules/group__api__migrations.mdx#vrchangepropertybool)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName)<br />Changes the specified property to single element VR_BOOL type.  |
+| int | **[VRChangePropertyChar](../Modules/group__api__migrations.mdx#vrchangepropertychar)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName)<br />Changes the specified property to single element VR_CHAR type.  |
+| int | **[VRChangePropertyDouble](../Modules/group__api__migrations.mdx#vrchangepropertydouble)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName)<br />Changes the specified property to single element VR_DOUBLE type.  |
+| int | **[VRChangePropertyFloat](../Modules/group__api__migrations.mdx#vrchangepropertyfloat)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName)<br />Changes the specified property to single element VR_FLOAT type.  |
+| int | **[VRChangePropertyInt](../Modules/group__api__migrations.mdx#vrchangepropertyint)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName)<br />Changes the specified property to single element VR_INT type.  |
+| int | **[VRChangePropertyLink](../Modules/group__api__migrations.mdx#vrchangepropertylink)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName)<br />Changes the specified property to single element VR_LINK type.  |
+| int | **[VRChangePropertyName](../Modules/group__api__migrations.mdx#vrchangepropertyname)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName, const char * newPropName)<br />Renames a property.  |
+| int | **[VRChangePropertyString](../Modules/group__api__migrations.mdx#vrchangepropertystring)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName)<br />Changes the specified property to single element VR_STRING type.  |
+| int | **[VRChangePropertyVectorChar](../Modules/group__api__migrations.mdx#vrchangepropertyvectorchar)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName)<br />Changes the specified property to a VR_VEC_CHAR type.  |
+| int | **[VRChangePropertyVectorFloat](../Modules/group__api__migrations.mdx#vrchangepropertyvectorfloat)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName)<br />Changes the specified property to a VR_VEC_FLOAT type.  |
+| int | **[VRChangePropertyVectorInt](../Modules/group__api__migrations.mdx#vrchangepropertyvectorint)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName)<br />Changes the specified property to a VR_VEC_INT type.  |
+| int | **[VRChangePropertyVectorString](../Modules/group__api__migrations.mdx#vrchangepropertyvectorstring)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName)<br />Changes the specified property to a VR_VEC_STRING type.  |
+| int | **[VRChangePropertyVectorWorldFloat](../Modules/group__api__migrations.mdx#vrchangepropertyvectorworldfloat)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName)<br />Changes the specified property to a VR_VEC_WORLD_FLOAT type.  |
+| int | **[VRChangePropertyWorldFloat](../Modules/group__api__migrations.mdx#vrchangepropertyworldfloat)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propName)<br />Changes the specified property to single element VR_WORLD_FLOAT type.  |
+| void | **[VRCloseMigrationHandle](../Modules/group__api__migrations.mdx#vrclosemigrationhandle)**([HMigration](../Modules/group__api__types.mdx#typedef-hmigration) migration)<br />Closes a migration handle.  |
+| int | **[VRMigrationCopyKnownProperties](../Modules/group__api__migrations.mdx#vrmigrationcopyknownproperties)**([HMigration](../Modules/group__api__types.mdx#typedef-hmigration) migration, [HNode](../Modules/group__api__types.mdx#typedef-hnode) old, [HNode](../Modules/group__api__types.mdx#typedef-hnode) newNode)<br />Copies values of all properties that exist on both new and old node versions of the nodes. The nodes must be the same basic type, but may be different versions of that type. Properties that do not match in name or type between the versions are left for the migration implementation to handle.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRMigrationCreateCurrentNode](../Modules/group__api__migrations.mdx#vrmigrationcreatecurrentnode)**([HMigration](../Modules/group__api__types.mdx#typedef-hmigration) migration, [HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Creates an instance of a node using the metanode version defined by this migration.  |
+| int | **[VRMigrationFinish](../Modules/group__api__migrations.mdx#vrmigrationfinish)**([HMigration](../Modules/group__api__types.mdx#typedef-hmigration) migration, [HNode](../Modules/group__api__types.mdx#typedef-hnode) old, [HNode](../Modules/group__api__types.mdx#typedef-hnode) newNode)<br />Helper function for completing a migration step. This function moves all children of old to newNode, deletes old, and closes its handle.  |
+| [HMigration](../Modules/group__api__types.mdx#typedef-hmigration) | **[VRMigrationNext](../Modules/group__api__migrations.mdx#vrmigrationnext)**([HMigration](../Modules/group__api__types.mdx#typedef-hmigration) migration)<br />Gets the next migration in the chain (the one for the version after this one)  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRMigrationPrepareNode](../Modules/group__api__migrations.mdx#vrmigrationpreparenode)**([HMigration](../Modules/group__api__types.mdx#typedef-hmigration) migration, [HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Calls the registered upgrade node function of the migration previous or next to this one (depending on whether node is older or newer than migration). This effectively brings node up to date, ready for this migration to perform its upgrade.  |
+| [HMigration](../Modules/group__api__types.mdx#typedef-hmigration) | **[VRMigrationPrev](../Modules/group__api__migrations.mdx#vrmigrationprev)**([HMigration](../Modules/group__api__types.mdx#typedef-hmigration) migration)<br />Gets the previous migration in the chain (the one for the version before this one)  |
+| int | **[VRRemoveProperty](../Modules/group__api__migrations.mdx#vrremoveproperty)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName)<br />Removes a property from a metanode.  |
+| int | **[VRSetMigrationDown](../Modules/group__api__migrations.mdx#vrsetmigrationdown)**([HMigration](../Modules/group__api__types.mdx#typedef-hmigration) migration, [MigrationDownFunc](../Modules/group__api__proto.mdx#typedef-migrationdownfunc) func)<br />Adds a downgrade function to a migration.  |
+| int | **[VRSetMigrationDowngradeNode](../Modules/group__api__migrations.mdx#vrsetmigrationdowngradenode)**([HMigration](../Modules/group__api__types.mdx#typedef-hmigration) migration, [MigrationDowngradeFunc](../Modules/group__api__proto.mdx#typedef-migrationdowngradefunc) func)<br />Adds a node downgrade function to a migration.  |
+| int | **[VRSetMigrationUp](../Modules/group__api__migrations.mdx#vrsetmigrationup)**([HMigration](../Modules/group__api__types.mdx#typedef-hmigration) migration, [MigrationUpFunc](../Modules/group__api__proto.mdx#typedef-migrationupfunc) func)<br />Adds an upgrade function to a migration.  |
+| int | **[VRSetMigrationUpgradeNode](../Modules/group__api__migrations.mdx#vrsetmigrationupgradenode)**([HMigration](../Modules/group__api__types.mdx#typedef-hmigration) migration, [MigrationUpgradeFunc](../Modules/group__api__proto.mdx#typedef-migrationupgradefunc) func)<br />Adds a node upgrade function to a migration.  |
+
+
+## Functions Documentation
+
+### VRAddInstanceMigration
+
+```
+int VRAddInstanceMigration(
+    HNode node,
+    MigrationFunc func,
+    void * userData
+)
+```
+
+
+### VRAddMigration
+
+```
+int VRAddMigration(
+    HMeta metaNode,
+    MigrationAddFunc func
+)
+```
+
+Adds a migration to the ordered list of migrations applied to the metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **func** function to call to register the migration specifics. This function is called immediately. 
+
+
+**Return**: 0 if the migration is added successfully. 
+
+The function provided is expected to be implemented to call VRSetMigration functions. ([VRSetMigrationUp](../Modules/group__api__migrations.mdx#vrsetmigrationup), [VRSetMigrationDown](../Modules/group__api__migrations.mdx#vrsetmigrationdown), [VRSetMigrationUpgradeNode](../Modules/group__api__migrations.mdx#vrsetmigrationupgradenode), [VRSetMigrationDowngradeNode](../Modules/group__api__migrations.mdx#vrsetmigrationdowngradenode))
+
+The number of calls to this function during metanode creation defines the version number of the metanode.
+
+Migrations can only be added to uninstantiated metanodes.
+
+
+### VRChangePropertyArrayBool
+
+```
+int VRChangePropertyArrayBool(
+    HMeta metaNode,
+    const char * propName,
+    int numElements
+)
+```
+
+Changes the specified property to a VR_BOOL array type. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** name of the property to change 
+  * **numElements** number of elements in the new array property 
+
+
+**Return**: 0 on success 
+
+### VRChangePropertyArrayChar
+
+```
+int VRChangePropertyArrayChar(
+    HMeta metaNode,
+    const char * propName,
+    int numElements
+)
+```
+
+Changes the specified property to a VR_CHAR array type. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** name of the property to change 
+  * **numElements** number of elements in the new array property 
+
+
+**Return**: 0 on success 
+
+### VRChangePropertyArrayDouble
+
+```
+int VRChangePropertyArrayDouble(
+    HMeta metaNode,
+    const char * propName,
+    int numElements
+)
+```
+
+Changes the specified property to a VR_DOUBLE array type. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** name of the property to change 
+  * **numElements** number of elements in the new array property 
+
+
+**Return**: 0 on success 
+
+### VRChangePropertyArrayFloat
+
+```
+int VRChangePropertyArrayFloat(
+    HMeta metaNode,
+    const char * propName,
+    int numElements
+)
+```
+
+Changes the specified property to a VR_FLOAT array type. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** name of the property to change 
+  * **numElements** number of elements in the new array property 
+
+
+**Return**: 0 on success 
+
+### VRChangePropertyArrayInt
+
+```
+int VRChangePropertyArrayInt(
+    HMeta metaNode,
+    const char * propName,
+    int numElements
+)
+```
+
+Changes the specified property to a VR_INT array type. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** name of the property to change 
+  * **numElements** number of elements in the new array property 
+
+
+**Return**: 0 on success 
+
+### VRChangePropertyArrayWorldFloat
+
+```
+int VRChangePropertyArrayWorldFloat(
+    HMeta metaNode,
+    const char * propName,
+    int numElements
+)
+```
+
+Changes the specified property to a VR_WORLD_FLOAT array type. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** name of the property to change 
+  * **numElements** number of elements in the new array property 
+
+
+**Return**: 0 on success 
+
+### VRChangePropertyBool
+
+```
+int VRChangePropertyBool(
+    HMeta metaNode,
+    const char * propName
+)
+```
+
+Changes the specified property to single element VR_BOOL type. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** name of the property to change 
+
+
+**Return**: 0 on success 
+
+### VRChangePropertyChar
+
+```
+int VRChangePropertyChar(
+    HMeta metaNode,
+    const char * propName
+)
+```
+
+Changes the specified property to single element VR_CHAR type. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** name of the property to change 
+
+
+**Return**: 0 on success 
+
+### VRChangePropertyDouble
+
+```
+int VRChangePropertyDouble(
+    HMeta metaNode,
+    const char * propName
+)
+```
+
+Changes the specified property to single element VR_DOUBLE type. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** name of the property to change 
+
+
+**Return**: 0 on success 
+
+### VRChangePropertyFloat
+
+```
+int VRChangePropertyFloat(
+    HMeta metaNode,
+    const char * propName
+)
+```
+
+Changes the specified property to single element VR_FLOAT type. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** name of the property to change 
+
+
+**Return**: 0 on success 
+
+### VRChangePropertyInt
+
+```
+int VRChangePropertyInt(
+    HMeta metaNode,
+    const char * propName
+)
+```
+
+Changes the specified property to single element VR_INT type. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** name of the property to change 
+
+
+**Return**: 0 on success 
+
+### VRChangePropertyLink
+
+```
+int VRChangePropertyLink(
+    HMeta metaNode,
+    const char * propName
+)
+```
+
+Changes the specified property to single element VR_LINK type. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** name of the property to change 
+
+
+**Return**: 0 on success 
+
+### VRChangePropertyName
+
+```
+int VRChangePropertyName(
+    HMeta metaNode,
+    const char * propName,
+    const char * newPropName
+)
+```
+
+Renames a property. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** the name of the property to rename 
+  * **newPropName** the new name of the property 
+
+
+**Return**: 0 on success 
+
+### VRChangePropertyString
+
+```
+int VRChangePropertyString(
+    HMeta metaNode,
+    const char * propName
+)
+```
+
+Changes the specified property to single element VR_STRING type. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** name of the property to change 
+
+
+**Return**: 0 on success 
+
+### VRChangePropertyVectorChar
+
+```
+int VRChangePropertyVectorChar(
+    HMeta metaNode,
+    const char * propName
+)
+```
+
+Changes the specified property to a VR_VEC_CHAR type. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** name of the property to change 
+
+
+**Return**: 0 on success 
+
+### VRChangePropertyVectorFloat
+
+```
+int VRChangePropertyVectorFloat(
+    HMeta metaNode,
+    const char * propName
+)
+```
+
+Changes the specified property to a VR_VEC_FLOAT type. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** name of the property to change 
+
+
+**Return**: 0 on success 
+
+### VRChangePropertyVectorInt
+
+```
+int VRChangePropertyVectorInt(
+    HMeta metaNode,
+    const char * propName
+)
+```
+
+Changes the specified property to a VR_VEC_INT type. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** name of the property to change 
+
+
+**Return**: 0 on success 
+
+### VRChangePropertyVectorString
+
+```
+int VRChangePropertyVectorString(
+    HMeta metaNode,
+    const char * propName
+)
+```
+
+Changes the specified property to a VR_VEC_STRING type. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** name of the property to change 
+
+
+**Return**: 0 on success 
+
+### VRChangePropertyVectorWorldFloat
+
+```
+int VRChangePropertyVectorWorldFloat(
+    HMeta metaNode,
+    const char * propName
+)
+```
+
+Changes the specified property to a VR_VEC_WORLD_FLOAT type. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** name of the property to change 
+
+
+**Return**: 0 on success 
+
+### VRChangePropertyWorldFloat
+
+```
+int VRChangePropertyWorldFloat(
+    HMeta metaNode,
+    const char * propName
+)
+```
+
+Changes the specified property to single element VR_WORLD_FLOAT type. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to change 
+  * **propName** name of the property to change 
+
+
+**Return**: 0 on success 
+
+### VRCloseMigrationHandle
+
+```
+void VRCloseMigrationHandle(
+    HMigration migration
+)
+```
+
+Closes a migration handle. 
+
+**Parameters**: 
+
+  * **migration** the handle to close 
+
+
+### VRMigrationCopyKnownProperties
+
+```
+int VRMigrationCopyKnownProperties(
+    HMigration migration,
+    HNode old,
+    HNode newNode
+)
+```
+
+Copies values of all properties that exist on both new and old node versions of the nodes. The nodes must be the same basic type, but may be different versions of that type. Properties that do not match in name or type between the versions are left for the migration implementation to handle. 
+
+**Parameters**: 
+
+  * **migration** migration handle 
+  * **old** the old version of the node (source) 
+  * **newNode** the new node to copy into (dest) 
+
+
+**Return**: 0 on success 
+
+### VRMigrationCreateCurrentNode
+
+```
+HNode VRMigrationCreateCurrentNode(
+    HMigration migration,
+    HNode node
+)
+```
+
+Creates an instance of a node using the metanode version defined by this migration. 
+
+### VRMigrationFinish
+
+```
+int VRMigrationFinish(
+    HMigration migration,
+    HNode old,
+    HNode newNode
+)
+```
+
+Helper function for completing a migration step. This function moves all children of old to newNode, deletes old, and closes its handle. 
+
+**Parameters**: 
+
+  * **migration** the migration being completed 
+  * **old** the node to clear and delete 
+  * **newNode** the new parent of the children being moved 
+
+
+**Return**: 0 on success 
+
+### VRMigrationNext
+
+```
+HMigration VRMigrationNext(
+    HMigration migration
+)
+```
+
+Gets the next migration in the chain (the one for the version after this one) 
+
+**Parameters**: 
+
+  * **migration** handle to the migration 
+
+
+**Return**: the next migration or NULL if this is the newest one 
+
+### VRMigrationPrepareNode
+
+```
+HNode VRMigrationPrepareNode(
+    HMigration migration,
+    HNode node
+)
+```
+
+Calls the registered upgrade node function of the migration previous or next to this one (depending on whether node is older or newer than migration). This effectively brings node up to date, ready for this migration to perform its upgrade. 
+
+**Parameters**: 
+
+  * **migration** handle to the migration 
+  * **node** the node to transform to the version of this migration 
+
+
+**Return**: handle to the node at the requested version. 
+
+### VRMigrationPrev
+
+```
+HMigration VRMigrationPrev(
+    HMigration migration
+)
+```
+
+Gets the previous migration in the chain (the one for the version before this one) 
+
+**Parameters**: 
+
+  * **migration** handle to the migration 
+
+
+**Return**: the previous migration or NULL if this is the oldest one 
+
+### VRRemoveProperty
+
+```
+int VRRemoveProperty(
+    HMeta metaNode,
+    const char * propertyName
+)
+```
+
+Removes a property from a metanode. 
+
+**Parameters**: 
+
+  * **metaNode** handle to the metanode to modify 
+  * **propertyName** name of the property to remove 
+
+
+**Return**: 0 if property is removed 
+
+### VRSetMigrationDown
+
+```
+int VRSetMigrationDown(
+    HMigration migration,
+    MigrationDownFunc func
+)
+```
+
+Adds a downgrade function to a migration. 
+
+**Parameters**: 
+
+  * **migration** handle to migration to modify 
+  * **func** function implementing the downgrade. the implementation need not close the handle parameters. 
+
+
+**Return**: 0 if the function is added successfully 
+
+### VRSetMigrationDowngradeNode
+
+```
+int VRSetMigrationDowngradeNode(
+    HMigration migration,
+    MigrationDowngradeFunc func
+)
+```
+
+Adds a node downgrade function to a migration. 
+
+**Parameters**: 
+
+  * **migration** handle to migration to modify 
+  * **func** function implementing the downgrade. the implementation need not close the handle parameters. 
+
+
+**Return**: 0 if the function is added successfully 
+
+### VRSetMigrationUp
+
+```
+int VRSetMigrationUp(
+    HMigration migration,
+    MigrationUpFunc func
+)
+```
+
+Adds an upgrade function to a migration. 
+
+**Parameters**: 
+
+  * **migration** handle to migration to modify 
+  * **func** function implementing the upgrade. the implementation need not close the handle parameters. 
+
+
+**Return**: 0 if the function is added successfully 
+
+### VRSetMigrationUpgradeNode
+
+```
+int VRSetMigrationUpgradeNode(
+    HMigration migration,
+    MigrationUpgradeFunc func
+)
+```
+
+Adds a node upgrade function to a migration. 
+
+**Parameters**: 
+
+  * **migration** handle to migration to modify 
+  * **func** function implementing the upgrade. the implementation need not close the handle parameters. 
+
+
+**Return**: 0 if the function is added successfully 
+
+
+
+
+

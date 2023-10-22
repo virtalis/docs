@@ -1,0 +1,312 @@
+---
+title: vrvec3
+summary: A vector. 
+
+---
+
+# vrvec3
+
+**Module:** **[Lua API](../Modules/group__api__lua.mdx)**
+
+
+
+A vector. 
+
+
+`#include <lua_api.h>`
+
+## Public Functions
+
+|                | Name           |
+| -------------- | -------------- |
+| Any | **[copy](../Classes/structvrvec3.mdx#copy)**()<br />([vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[cross](../Classes/structvrvec3.mdx#cross)**(Any vec2)<br />([vrCross) Returns the cross product of two vectors. Both vectors must be the same type  |
+| number | **[dot](../Classes/structvrvec3.mdx#dot)**(Any vec2)<br />([vrDot) Returns the dot product of two vectors. Both vectors must be the same type  |
+| number | **[getLength](../Classes/structvrvec3.mdx#getlength)**()<br />([vrLength) Returns the length of a vector.  |
+| number | **[getLengthSq](../Classes/structvrvec3.mdx#getlengthsq)**()<br />([vrLengthSquared) Returns the squared length of a vector.  |
+| Any | **[normalise](../Classes/structvrvec3.mdx#normalise)**()<br />([vrNormalise) Returns normalised vector/matrix.  |
+| Any | **[operator*](../Classes/structvrvec3.mdx#operator*)**() |
+| Any | **[operator+](../Classes/structvrvec3.mdx#operator+)**() |
+| Any | **[operator-](../Classes/structvrvec3.mdx#operator-)**() |
+| Any | **[operator/](../Classes/structvrvec3.mdx#operator/)**() |
+| Any | **[operator=](../Classes/structvrvec3.mdx#operator=)**() |
+
+## Public Attributes
+
+|                | Name           |
+| -------------- | -------------- |
+| number | **[length](../Classes/structvrvec3.mdx#length)** <br />DEPRECATED since version 2.0.0. Please use [vrvec3](../Classes/structvrvec3.mdx):[getLength() instead.  |
+| number | **[pitch](../Classes/structvrvec3.mdx#pitch)** <br />Rotation around X axis (if this is a vector of Euler angles).  |
+| number | **[roll](../Classes/structvrvec3.mdx#roll)** <br />Rotation around Z axis (if this is a vector of Euler angles).  |
+| number | **[x](../Classes/structvrvec3.mdx#x)** <br />x element  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[xy](../Classes/structvrvec3.mdx#xy)** <br />xy elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[xyz](../Classes/structvrvec3.mdx#xyz)** <br />xyz elements  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[xz](../Classes/structvrvec3.mdx#xz)** <br />xz elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[xzy](../Classes/structvrvec3.mdx#xzy)** <br />xzy elements  |
+| number | **[y](../Classes/structvrvec3.mdx#y)** <br />y element  |
+| number | **[yaw](../Classes/structvrvec3.mdx#yaw)** <br />Rotation around Y axis (if this is a vector of Euler angles).  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[yx](../Classes/structvrvec3.mdx#yx)** <br />yx elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[yxz](../Classes/structvrvec3.mdx#yxz)** <br />yxz elements  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[yz](../Classes/structvrvec3.mdx#yz)** <br />yz elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[yzx](../Classes/structvrvec3.mdx#yzx)** <br />yzx elements  |
+| number | **[z](../Classes/structvrvec3.mdx#z)** <br />z element  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[zx](../Classes/structvrvec3.mdx#zx)** <br />zx elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[zxy](../Classes/structvrvec3.mdx#zxy)** <br />zxy elements  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[zy](../Classes/structvrvec3.mdx#zy)** <br />zy elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[zyx](../Classes/structvrvec3.mdx#zyx)** <br />zyx elements  |
+
+## Public Functions Documentation
+
+### copy
+
+```cpp
+Any copy()
+```
+
+([vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane 
+
+### cross
+
+```cpp
+vrvec3 cross(
+    Any vec2
+)
+```
+
+([vrCross) Returns the cross product of two vectors. Both vectors must be the same type 
+
+**Parameters**: 
+
+  * **vec2** Vector 2 {x, y} or {x, y, z}. 
+
+
+### dot
+
+```cpp
+number dot(
+    Any vec2
+)
+```
+
+([vrDot) Returns the dot product of two vectors. Both vectors must be the same type 
+
+**Parameters**: 
+
+  * **vec2** Vector 2 {x, y} or {x, y, z}. 
+
+
+### getLength
+
+```cpp
+number getLength()
+```
+
+([vrLength) Returns the length of a vector. 
+
+### getLengthSq
+
+```cpp
+number getLengthSq()
+```
+
+([vrLengthSquared) Returns the squared length of a vector. 
+
+### normalise
+
+```cpp
+Any normalise()
+```
+
+([vrNormalise) Returns normalised vector/matrix. 
+
+**Return**: Normalised vector or matrix depending on the type passed in 
+
+### operator*
+
+```cpp
+Any operator*()
+```
+
+
+### operator+
+
+```cpp
+Any operator+()
+```
+
+
+### operator-
+
+```cpp
+Any operator-()
+```
+
+
+### operator/
+
+```cpp
+Any operator/()
+```
+
+
+### operator=
+
+```cpp
+Any operator=()
+```
+
+
+## Public Attributes Documentation
+
+### length
+
+```cpp
+number length;
+```
+
+DEPRECATED since version 2.0.0. Please use [vrvec3](../Classes/structvrvec3.mdx):[getLength() instead. 
+
+### pitch
+
+```cpp
+number pitch;
+```
+
+Rotation around X axis (if this is a vector of Euler angles). 
+
+### roll
+
+```cpp
+number roll;
+```
+
+Rotation around Z axis (if this is a vector of Euler angles). 
+
+### x
+
+```cpp
+number x;
+```
+
+x element 
+
+### xy
+
+```cpp
+vrvec2 xy;
+```
+
+xy elements 
+
+### xyz
+
+```cpp
+vrvec3 xyz;
+```
+
+xyz elements 
+
+### xz
+
+```cpp
+vrvec2 xz;
+```
+
+xz elements 
+
+### xzy
+
+```cpp
+vrvec3 xzy;
+```
+
+xzy elements 
+
+### y
+
+```cpp
+number y;
+```
+
+y element 
+
+### yaw
+
+```cpp
+number yaw;
+```
+
+Rotation around Y axis (if this is a vector of Euler angles). 
+
+### yx
+
+```cpp
+vrvec2 yx;
+```
+
+yx elements 
+
+### yxz
+
+```cpp
+vrvec3 yxz;
+```
+
+yxz elements 
+
+### yz
+
+```cpp
+vrvec2 yz;
+```
+
+yz elements 
+
+### yzx
+
+```cpp
+vrvec3 yzx;
+```
+
+yzx elements 
+
+### z
+
+```cpp
+number z;
+```
+
+z element 
+
+### zx
+
+```cpp
+vrvec2 zx;
+```
+
+zx elements 
+
+### zxy
+
+```cpp
+vrvec3 zxy;
+```
+
+zxy elements 
+
+### zy
+
+```cpp
+vrvec2 zy;
+```
+
+zy elements 
+
+### zyx
+
+```cpp
+vrvec3 zyx;
+```
+
+zyx elements 
+

@@ -1,0 +1,186 @@
+---
+title: vrvec2
+summary: A vector. 
+
+---
+
+# vrvec2
+
+**Module:** **[Lua API](../Modules/group__api__lua.mdx)**
+
+
+
+A vector. 
+
+
+`#include <lua_api.h>`
+
+## Public Functions
+
+|                | Name           |
+| -------------- | -------------- |
+| Any | **[copy](../Classes/structvrvec2.mdx#copy)**()<br />([vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[cross](../Classes/structvrvec2.mdx#cross)**(Any vec2)<br />([vrCross) Returns the cross product of two vectors. Both vectors must be the same type  |
+| number | **[dot](../Classes/structvrvec2.mdx#dot)**(Any vec2)<br />([vrDot) Returns the dot product of two vectors. Both vectors must be the same type  |
+| number | **[getLength](../Classes/structvrvec2.mdx#getlength)**()<br />([vrLength) Returns the length of a vector.  |
+| number | **[getLengthSq](../Classes/structvrvec2.mdx#getlengthsq)**()<br />([vrLengthSquared) Returns the squared length of a vector.  |
+| Any | **[normalise](../Classes/structvrvec2.mdx#normalise)**()<br />([vrNormalise) Returns normalised vector/matrix.  |
+| Any | **[operator*](../Classes/structvrvec2.mdx#operator*)**() |
+| Any | **[operator+](../Classes/structvrvec2.mdx#operator+)**() |
+| Any | **[operator-](../Classes/structvrvec2.mdx#operator-)**() |
+| Any | **[operator/](../Classes/structvrvec2.mdx#operator/)**() |
+| Any | **[operator=](../Classes/structvrvec2.mdx#operator=)**() |
+
+## Public Attributes
+
+|                | Name           |
+| -------------- | -------------- |
+| number | **[length](../Classes/structvrvec2.mdx#length)** <br />DEPRECATED since version 2.0.0. Please use [vrvec2](../Classes/structvrvec2.mdx):[getLength() instead.  |
+| number | **[x](../Classes/structvrvec2.mdx#x)** <br />x element  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[xy](../Classes/structvrvec2.mdx#xy)** <br />xy elements  |
+| number | **[y](../Classes/structvrvec2.mdx#y)** <br />y element  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[yx](../Classes/structvrvec2.mdx#yx)** <br />yx elements  |
+
+## Public Functions Documentation
+
+### copy
+
+```cpp
+Any copy()
+```
+
+([vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane 
+
+### cross
+
+```cpp
+vrvec3 cross(
+    Any vec2
+)
+```
+
+([vrCross) Returns the cross product of two vectors. Both vectors must be the same type 
+
+**Parameters**: 
+
+  * **vec2** Vector 2 {x, y} or {x, y, z}. 
+
+
+### dot
+
+```cpp
+number dot(
+    Any vec2
+)
+```
+
+([vrDot) Returns the dot product of two vectors. Both vectors must be the same type 
+
+**Parameters**: 
+
+  * **vec2** Vector 2 {x, y} or {x, y, z}. 
+
+
+### getLength
+
+```cpp
+number getLength()
+```
+
+([vrLength) Returns the length of a vector. 
+
+### getLengthSq
+
+```cpp
+number getLengthSq()
+```
+
+([vrLengthSquared) Returns the squared length of a vector. 
+
+### normalise
+
+```cpp
+Any normalise()
+```
+
+([vrNormalise) Returns normalised vector/matrix. 
+
+**Return**: Normalised vector or matrix depending on the type passed in 
+
+### operator*
+
+```cpp
+Any operator*()
+```
+
+
+### operator+
+
+```cpp
+Any operator+()
+```
+
+
+### operator-
+
+```cpp
+Any operator-()
+```
+
+
+### operator/
+
+```cpp
+Any operator/()
+```
+
+
+### operator=
+
+```cpp
+Any operator=()
+```
+
+
+## Public Attributes Documentation
+
+### length
+
+```cpp
+number length;
+```
+
+DEPRECATED since version 2.0.0. Please use [vrvec2](../Classes/structvrvec2.mdx):[getLength() instead. 
+
+### x
+
+```cpp
+number x;
+```
+
+x element 
+
+### xy
+
+```cpp
+vrvec2 xy;
+```
+
+xy elements 
+
+### y
+
+```cpp
+number y;
+```
+
+y element 
+
+### yx
+
+```cpp
+vrvec2 yx;
+```
+
+yx elements 
+

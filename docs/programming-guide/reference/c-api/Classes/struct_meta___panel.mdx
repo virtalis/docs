@@ -1,0 +1,57 @@
+---
+title: Meta_Panel
+summary: A Panel is a fixed size container for GUI items. 
+
+---
+
+# Meta_Panel
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A Panel is a fixed size container for GUI items. 
+
+
+`#include <meta_gui.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](../Classes/struct_meta___panel.mdx#enum-idx)** { Idx_Enabled, Idx_Position, Idx_Size, Idx_Style, Idx_AnimLength}<br />Property index.  |
+| enum| **[SizingMode](../Classes/struct_meta___panel.mdx#enum-sizingmode)** { SizingMode_Fixed = 0, SizingMode_FitX = VTBIT(0), SizingMode_FitY = VTBIT(1), SizingMode_FitZ = VTBIT(2), SizingMode_FitXY = SizingMode_FitX | SizingMode_FitY, SizingMode_FitXZ = SizingMode_FitX | SizingMode_FitZ, SizingMode_FitYZ = SizingMode_FitY | SizingMode_FitZ, SizingMode_FitXYZ = SizingMode_FitX | SizingMode_FitY | SizingMode_FitZ}<br />Values for Idx_SizingMode properties on most panel-like controls ([Meta_Stack, [Meta_Button](../Classes/struct_meta___button.mdx), etc)  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - When enabled, this panel and its children are drawn   |
+| Idx_Position | | vec3f - Position of the panel relative to its parent   |
+| Idx_Size | | vec2f - Size of the panel   |
+| Idx_Style | | link - A Panel style ([Meta_ColouredPanelStyle](../Classes/struct_meta___coloured_panel_style.mdx), [Meta_GradientPanelStyle](../Classes/struct_meta___gradient_panel_style.mdx), [Meta_TexturedPanelStyle)   |
+| Idx_AnimLength | | float - Overrides the number of seconds that position and size change animations take   |
+
+
+
+Property index. 
+
+### enum SizingMode
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| SizingMode_Fixed | 0| Size is controlled by a Size property (Symbols - C: `"SizingMode_Fixed"`, Lua: `__Panel_SizingMode_Fixed`)   |
+| SizingMode_FitX | VTBIT(0)| Horizontal size is modified to fit the contents (Symbols - C: `"SizingMode_FitX"`, Lua: `__Panel_SizingMode_FitX`)   |
+| SizingMode_FitY | VTBIT(1)| Vertical size is modified to fit the contents (Symbols - C: `"SizingMode_FitY"`, Lua: `__Panel_SizingMode_FitY`)   |
+| SizingMode_FitZ | VTBIT(2)| Z size is modified to fit the contents (Symbols - C: `"SizingMode_FitZ"`, Lua: `__Panel_SizingMode_FitZ`)   |
+| SizingMode_FitXY | SizingMode_FitX \| SizingMode_FitY| Fits both X and Y (Symbols - C: `"SizingMode_FitXY"`, Lua: `__Panel_SizingMode_FitXY`)   |
+| SizingMode_FitXZ | SizingMode_FitX \| SizingMode_FitZ| Fits both X and Z (Symbols - C: `"SizingMode_FitXZ"`, Lua: `__Panel_SizingMode_FitXZ`)   |
+| SizingMode_FitYZ | SizingMode_FitY \| SizingMode_FitZ| Fits both Y and Z (Symbols - C: `"SizingMode_FitYZ"`, Lua: `__Panel_SizingMode_FitYZ`)   |
+| SizingMode_FitXYZ | SizingMode_FitX \| SizingMode_FitY \| SizingMode_FitZ| Fits all axes (Symbols - C: `"SizingMode_FitXYZ"`, Lua: `__Panel_SizingMode_FitXYZ`)   |
+
+
+
+Values for Idx_SizingMode properties on most panel-like controls ([Meta_Stack, [Meta_Button](../Classes/struct_meta___button.mdx), etc) 
+

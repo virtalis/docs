@@ -1,0 +1,139 @@
+---
+title: Meta_PropSemantics::Range
+summary: Helper object for constructing a range of two vector objects. 
+
+---
+
+# Meta_PropSemantics::Range
+
+
+
+Helper object for constructing a range of two vector objects. 
+
+
+`#include <meta_semantics.hpp>`
+
+## Public Functions
+
+|                | Name           |
+| -------------- | -------------- |
+| template <typename T \> <br />T | **[maxVal](../Classes/struct_meta___prop_semantics_1_1_range.mdx#maxval)**() const<br />casts the single maximum value to `T` and returns it  |
+| template <template< typename > class C,typename T \> <br />C< T > | **[maxVal](../Classes/struct_meta___prop_semantics_1_1_range.mdx#maxval)**() const<br />casts the maximum value to vector type `C<T>` and returns it.  |
+| template <typename T \> <br />T | **[minVal](../Classes/struct_meta___prop_semantics_1_1_range.mdx#minval)**() const<br />casts the single minimum value to `T` and returns it  |
+| template <template< typename > class C,typename T \> <br />C< T > | **[minVal](../Classes/struct_meta___prop_semantics_1_1_range.mdx#minval)**() const<br />casts the minimum value to vector type `C<T>` and returns it  |
+| | **[operator double *](../Classes/struct_meta___prop_semantics_1_1_range.mdx#operator-double-*)**() |
+| | **[Range](../Classes/struct_meta___prop_semantics_1_1_range.mdx#range)**() |
+| | **[Range](../Classes/struct_meta___prop_semantics_1_1_range.mdx#range)**(double min, double max) |
+| | **[Range](../Classes/struct_meta___prop_semantics_1_1_range.mdx#range)**(const vtCore::vec2d & min, const vtCore::vec2d & max) |
+| | **[Range](../Classes/struct_meta___prop_semantics_1_1_range.mdx#range)**(const vtCore::vec3d & min, const vtCore::vec3d & max) |
+| | **[Range](../Classes/struct_meta___prop_semantics_1_1_range.mdx#range)**(const vtCore::vec4d & min, const vtCore::vec4d & max) |
+
+## Public Attributes
+
+|                | Name           |
+| -------------- | -------------- |
+| double[8] | **[d8](../Classes/struct_meta___prop_semantics_1_1_range.mdx#d8)**  |
+
+## Public Functions Documentation
+
+### maxVal
+
+```cpp
+template <typename T >
+inline T maxVal() const
+```
+
+casts the single maximum value to `T` and returns it 
+
+### maxVal
+
+```cpp
+template <template< typename > class C,
+typename T >
+inline C< T > maxVal() const
+```
+
+casts the maximum value to vector type `C<T>` and returns it. 
+
+### minVal
+
+```cpp
+template <typename T >
+inline T minVal() const
+```
+
+casts the single minimum value to `T` and returns it 
+
+### minVal
+
+```cpp
+template <template< typename > class C,
+typename T >
+inline C< T > minVal() const
+```
+
+casts the minimum value to vector type `C<T>` and returns it 
+
+### operator double *
+
+```cpp
+inline operator double *()
+```
+
+
+### Range
+
+```cpp
+inline Range()
+```
+
+
+### Range
+
+```cpp
+inline Range(
+    double min,
+    double max
+)
+```
+
+
+### Range
+
+```cpp
+inline Range(
+    const vtCore::vec2d & min,
+    const vtCore::vec2d & max
+)
+```
+
+
+### Range
+
+```cpp
+inline Range(
+    const vtCore::vec3d & min,
+    const vtCore::vec3d & max
+)
+```
+
+
+### Range
+
+```cpp
+inline Range(
+    const vtCore::vec4d & min,
+    const vtCore::vec4d & max
+)
+```
+
+
+## Public Attributes Documentation
+
+### d8
+
+```cpp
+double[8] d8;
+```
+
+

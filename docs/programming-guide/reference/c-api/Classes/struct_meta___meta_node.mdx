@@ -1,0 +1,47 @@
+---
+title: Meta_MetaNode
+summary: A MetaNode provides a description of other metanodes. 
+
+---
+
+# Meta_MetaNode
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A MetaNode provides a description of other metanodes.  [More...](#detailed-description)
+
+
+`#include <meta_root.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](../Classes/struct_meta___meta_node.mdx#enum-idx)** { Idx_PropSaveMask, Idx_PropStorageMask, Idx_Flags}<br />Property index.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_MetaNode;
+```
+
+A MetaNode provides a description of other metanodes. 
+
+It is possible to determine the data structure of all types of nodes by inspecting these nodes in the system tree 
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_PropSaveMask | | int[8] - Reserved   |
+| Idx_PropStorageMask | | int[8] - Reserved   |
+| Idx_Flags | | int - Metanode flags (e.g. METANODE_NO_CLONE)   |
+
+
+
+Property index. 
+

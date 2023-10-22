@@ -1,0 +1,141 @@
+---
+title: Meta_Texture
+summary: A Texture contains image data that is referenced by materials. 
+
+---
+
+# Meta_Texture
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A Texture contains image data that is referenced by materials.  [More...](#detailed-description)
+
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[ColourSpace](../Classes/struct_meta___texture.mdx#enum-colourspace)** { ColourSpace_Default, ColourSpace_sRGB, ColourSpace_LinearRGB}<br />Values for Idx_ColourSpace.  |
+| enum| **[Content](../Classes/struct_meta___texture.mdx#enum-content)** { Content_Colours, Content_BumpMap, Content_NormalMap, Content_AlphaTest}<br />Values for Idx_Content.  |
+| enum| **[Encoding](../Classes/struct_meta___texture.mdx#enum-encoding)** { Encoding_RGB_XYZ, Encoding_RGB_XZY}<br />Values for Idx_Encoding.  |
+| enum| **[IDX](../Classes/struct_meta___texture.mdx#enum-idx)** { Idx_Filename, Idx_Minify, Idx_Magnify, Idx_WrapU, Idx_WrapV, Idx_ColourSpace, Idx_DDSData, Idx_DDSModifiedTime, Idx_Content, Idx_Encoding, Idx_AnisotropicDegree, Idx_Transform, Idx_MapChannel, Idx_LODBias, Idx_AlphaRef} |
+| enum| **[Magnify](../Classes/struct_meta___texture.mdx#enum-magnify)** { Magnify_None = 9728, Magnify_Bilinear = 9729}<br />Values for Idx_Magnify.  |
+| enum| **[Minify](../Classes/struct_meta___texture.mdx#enum-minify)** { Minify_None = 9728, Minify_Bilinear = 9729, Minify_Trilinear = 9987}<br />Values for Idx_Minify.  |
+| enum| **[Wrap](../Classes/struct_meta___texture.mdx#enum-wrap)** { Wrap_ClampWhite = 33069, Wrap_ClampEdge = 33071, Wrap_Repeat = 10497, Wrap_Mirrored = 33648}<br />Values for Idx_WrapU and Idx_WrapV.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_Texture;
+```
+
+A Texture contains image data that is referenced by materials. 
+
+The texture data is expected to be provided in DDS format. Alternatively a script or plugin may use the following API functions to populate the DDSData automatically from an image file:
+
+* Lua: [vrReloadTextures](../Modules/group__api__lua.mdx#vrreloadtextures)
+* C: [VRFileToDDSProperty](../Modules/group__api__utils.mdx#vrfiletoddsproperty)
+
+The C API may also convert an arbitrary blob of pixel data to DDS using [VRBlobToDDSProperty](../Modules/group__api__utils.mdx#vrblobtoddsproperty)
+
+## Public Types Documentation
+
+### enum ColourSpace
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| ColourSpace_Default | | Colours assumed to be in whichever colour space currently defined by the application (Symbols - C: `"ColourSpaceDefault"`, Lua: `__Texture_ColourSpaceDefault`)   |
+| ColourSpace_sRGB | | Colours are in the sRGB gamma-corrected colour space (Symbols - C: `"ColourSpacesRGB"`, Lua: `__Texture_ColourSpacesRGB`)   |
+| ColourSpace_LinearRGB | | Colours are in the linear colour space (Symbols - C: `"ColourSpaceLinearRGB"`, Lua: `__Texture_ColourSpaceLinearRGB`)   |
+
+
+
+Values for Idx_ColourSpace. 
+
+### enum Content
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Content_Colours | | Texture contains colours (Symbols - C: `"ContentColours"`, Lua: `__Texture_ContentColours`)   |
+| Content_BumpMap | | Texture contains either a greyscale height map, or RGB encoded tangent-space normals (Symbols - C: `"ContentBumpMap"`, Lua: `__Texture_ContentBumpMap`)   |
+| Content_NormalMap | | Texture contains RGB encoded object-space normals (Symbols - C: `"ContentNormalMap"`, Lua: `__Texture_ContentNormalMap`)   |
+| Content_AlphaTest | | Texture contains large transparent regions and will be alpha tested (Symbols - C: `"ContentAlphaTest"`, Lua: `__Texture_ContentAlphaTest`)   |
+
+
+
+Values for Idx_Content. 
+
+### enum Encoding
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Encoding_RGB_XYZ | | Green is the up vector (Symbols - C: `"EncodingRGBXYZ"`, Lua: `__Texture_EncodingRGBXYZ`)   |
+| Encoding_RGB_XZY | | Blue is the up vector (Symbols - C: `"EncodingRGBXZY"`, Lua: `__Texture_EncodingRGBXZY`)   |
+
+
+
+Values for Idx_Encoding. 
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Filename | | string - File name of the texture. See main description for information about how this property is used.   |
+| Idx_Minify | | [Minify (int) - The minify filter to apply to texels that when viewed are smaller than a pixel   |
+| Idx_Magnify | | [Magnify (int) - The magnify filter to apply to texels that when viewed are larger than a pixel   |
+| Idx_WrapU | | [Wrap (int) - The wrapping mode to use when the U coordinate is outside of the 0.0 - 1.0 range   |
+| Idx_WrapV | | [Wrap (int) - The wrapping mode to use when the V coordinate is outside of the 0.0 - 1.0 range   |
+| Idx_ColourSpace | | [ColourSpace](../Classes/struct_meta___texture.mdx#enum-colourspace) (int) - The colour space of the texture. A non-default value may involve automatic internal conversion to the colour space used by the application.   |
+| Idx_DDSData | | `vector<char>` - Raw DDS data (including DDS headers)   |
+| Idx_DDSModifiedTime | | int64 - The time the DDSData was last modified. Unix epoch (seconds since Jan 1 1970), stored as two 32-bit ints (LO,HI)   |
+| Idx_Content | | [Content](../Classes/struct_meta___texture.mdx#enum-content) (int) - The usage that this data is intended for   |
+| Idx_Encoding | | [Encoding](../Classes/struct_meta___texture.mdx#enum-encoding) (int) - The encoding of the data when it is intended to be used for normal mapping   |
+| Idx_AnisotropicDegree | | int - The degree of anisotropy to use when sampling the texture. A value of 1 means isotropic (fastest)   |
+| Idx_Transform | | mat4w - Transform to apply to texture coordinates   |
+| Idx_MapChannel | | int - The texture channel to use from the mesh (see [Meta_VertexAttrib)   |
+| Idx_LODBias | | float - Adjust the mipmap level to make the texture appear sharper or smoother when viewed from a distance when in Trilinear filtering mode   |
+| Idx_AlphaRef | | float - The alpha reference for mipmap generation when Content=AlphaTested   |
+
+
+
+
+### enum Magnify
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Magnify_None | 9728| No texture filtering (Symbols - C: `"MagnifyNone"`, Lua: `__Texture_MagnifyNone`)   |
+| Magnify_Bilinear | 9729| Bilinear texture filtering (Symbols - C: `"MagnifyBilinear"`, Lua: `__Texture_MagnifyBilinear`)   |
+
+
+
+Values for Idx_Magnify. 
+
+### enum Minify
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Minify_None | 9728| No texture filtering (Symbols - C: `"MinifyNone"`, Lua: `__Texture_MinifyNone`)   |
+| Minify_Bilinear | 9729| Bilinear texture filtering (Symbols - C: `"MinifyBilinear"`, Lua: `__Texture_MinifyBilinear`)   |
+| Minify_Trilinear | 9987| Triliniear texture filtering (Symbols - C: `"MinifyTrilinear"`, Lua: `__Texture_MinifyTrilinear`)   |
+
+
+
+Values for Idx_Minify. 
+
+### enum Wrap
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Wrap_ClampWhite | 33069| Returns a white texel when texture coordinate outside texture area (Symbols - C: `"WrapClampWhite"`, Lua: `__Texture_WrapClampWhite`)   |
+| Wrap_ClampEdge | 33071| Return the texel from the nearest edge when texture coordinate outside texture area (Symbols - C: `"WrapClampEdge"`, Lua: `__Texture_WrapClampEdge`)   |
+| Wrap_Repeat | 10497| Wrap texture coordinate around when outside texture area, so the texture is tiled in this direction (Symbols - C: `"WrapRepeat"`, Lua: `__Texture_WrapRepeat`)   |
+| Wrap_Mirrored | 33648| Wrap texture coordinate around when outside texture area, mirroring the texture across boundaries (Symbols - C: `"WrapMirrored"`, Lua: `__Texture_WrapMirrored`)   |
+
+
+
+Values for Idx_WrapU and Idx_WrapV. 
+

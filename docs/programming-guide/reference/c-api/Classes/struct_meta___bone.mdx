@@ -1,0 +1,61 @@
+---
+title: Meta_Bone
+summary: A Bone is a component of an inverse kinematics (IK) system. 
+
+---
+
+# Meta_Bone
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A Bone is a component of an inverse kinematics (IK) system. 
+
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[Axis](../Classes/struct_meta___bone.mdx#enum-axis)** { AxisX, AxisY, AxisZ, AxisXNeg, AxisYNeg, AxisZNeg}<br />Values for the Axis property.  |
+| enum| **[IDX](../Classes/struct_meta___bone.mdx#enum-idx)** { Idx_Enabled, Idx_Transform, Idx_IKEnabled, Idx_Axis, Idx_Offset, Idx_ResetBeforeSolving, Idx_DefaultRotation, Idx_Depth, Idx_LinkedAssembly, Idx_Target, Idx_TargetTranslationOnly, Idx_Request} |
+
+## Public Types Documentation
+
+### enum Axis
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| AxisX | |   |
+| AxisY | |   |
+| AxisZ | |   |
+| AxisXNeg | |   |
+| AxisYNeg | |   |
+| AxisZNeg | |   |
+
+
+
+Values for the Axis property. 
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | Controls visibility of this bone and its descendant nodes. (IK solving is disabled for bones that aren't visible.) (bool).   |
+| Idx_Transform | | The local transform of this bone (mat4w).   |
+| Idx_IKEnabled | | Controls whether IK solving is enabled for this bone without affecting descendant nodes or visibility.   |
+| Idx_Axis | | The alignment of the main axis of this bone (int).   |
+| Idx_Offset | | The attachment point of this bone relative to its parent (vec3f).   |
+| Idx_ResetBeforeSolving | | Reset the rotation of this bone before solving it (bool).   |
+| Idx_DefaultRotation | | The default rotation to reset this bone to (vec3f).   |
+| Idx_Depth | | The maximum number of parent bones that can be affected when this bone is moved, or 0 for no limit (int).   |
+| Idx_LinkedAssembly | | An assembly or other node to attach to this bone (link).   |
+| Idx_Target | | A node that provides the target position and orientation for this bone (link).   |
+| Idx_TargetTranslationOnly | | Ignore the rotation and scale of Target (bool).   |
+| Idx_Request | | The target transform when a bone is manipulated directly.   |
+
+
+
+

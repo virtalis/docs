@@ -1,0 +1,83 @@
+---
+title: Meta_Visual
+summary: A Visual provides an instance of a Meta_Model, and is attached as a child of a Meta_Assembly to position it in the scene. 
+
+---
+
+# Meta_Visual
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A Visual provides an instance of a [Meta_Model](../Classes/struct_meta___model.mdx), and is attached as a child of a [Meta_Assembly](../Classes/struct_meta___assembly.mdx) to position it in the scene. 
+
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[CullFace](../Classes/struct_meta___visual.mdx#enum-cullface)** { CullFace_Default = 0, CullFace_None = 1, CullFace_Front = 1028, CullFace_Back = 1029}<br />Values for Idx_CullFace.  |
+| enum| **[DrawMode](../Classes/struct_meta___visual.mdx#enum-drawmode)** { DrawMode_Default = 0, DrawMode_Points = 6912, DrawMode_Lines = 6913, DrawMode_Solid = 6914}<br />Values for Idx_DrawMode.  |
+| enum| **[IDX](../Classes/struct_meta___visual.mdx#enum-idx)** { Idx_Enabled, Idx_Model, Idx_Material, Idx_CullFace, Idx_DrawMode, Idx_ShadowCaster, Idx_RenderToCamera, Idx_Invert}<br />Property index.  |
+| enum| **[ShadowCaster](../Classes/struct_meta___visual.mdx#enum-shadowcaster)** { ShadowCaster_PerGeoGroup, ShadowCaster_All, ShadowCaster_None}<br />Values for Idx_ShadowCaster.  |
+
+## Public Types Documentation
+
+### enum CullFace
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| CullFace_Default | 0| No override - use whatever CullFace is specified by the model's [Meta_GeoGroup](../Classes/struct_meta___geo_group.mdx) nodes (Symbols - C: `"CullFaceNoOverride"`, Lua: `__Visual_CullFaceNoOverride`)   |
+| CullFace_None | 1| Disable face culling (Symbols - C: `"CullFaceNone"`, Lua: `__Visual_CullFaceNone`)   |
+| CullFace_Front | 1028| Cull front faces (Symbols - C: `"CullFaceFront"`, Lua: `__Visual_CullFaceFront`)   |
+| CullFace_Back | 1029| Cull back faces (Symbols - C: `"CullFaceBack"`, Lua: `__Visual_CullFaceBack`)   |
+
+
+
+Values for Idx_CullFace. 
+
+### enum DrawMode
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| DrawMode_Default | 0| No override - use whatever DrawMode is specified by the model's [Meta_GeoGroup](../Classes/struct_meta___geo_group.mdx) nodes (Symbols - C: `"DrawModeNoOverride"`, Lua: `__Visual_DrawModeNoOverride`)   |
+| DrawMode_Points | 6912| Draw as points (Symbols - C: `"DrawModePoints"`, Lua: `__Visual_DrawModePoints`)   |
+| DrawMode_Lines | 6913| Draw as lines (Symbols - C: `"DrawModeLines"`, Lua: `__Visual_DrawModeLines`)   |
+| DrawMode_Solid | 6914| Draw as triangles (Symbols - C: `"DrawModeSolid"`, Lua: `__Visual_DrawModeSolid`)   |
+
+
+
+Values for Idx_DrawMode. 
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - If true, model is drawn.   |
+| Idx_Model | | link - The [Meta_Model](../Classes/struct_meta___model.mdx) to draw if this is enabled.   |
+| Idx_Material | | link - The override material to pass to the models geogroups, which will use this material unless theirs is 'locked'. ([Meta_StdMaterial](../Classes/struct_meta___std_material.mdx), [Meta_GUIMaterial](../Classes/struct_meta___g_u_i_material.mdx), [Meta_WaterMaterial)   |
+| Idx_CullFace | | [CullFace](../Classes/struct_meta___visual.mdx#enum-cullface) (int) - The cull face mode to pass to the models geogroups.   |
+| Idx_DrawMode | | [DrawMode](../Classes/struct_meta___visual.mdx#enum-drawmode) (int) - the polygon mode to pass to the models geogroups.   |
+| Idx_ShadowCaster | | [ShadowCaster (int) - indicates to the model whether it should be drawn into shadowmaps or not.   |
+| Idx_RenderToCamera | | bool - indicates to the model whether it should be drawn into cameras or not.   |
+| Idx_Invert | | bool - indicates to the models geogroups whether the polygon winding order should be reversed or not.   |
+
+
+
+Property index. 
+
+### enum ShadowCaster
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| ShadowCaster_PerGeoGroup | | No override - use whatever ShadowCaster mode is specified by the model's [Meta_GeoGroup](../Classes/struct_meta___geo_group.mdx) nodes (Symbols - C: `"ShadowCasterPerGeoGroup"`, Lua: `__Visual_ShadowCasterPerGeoGroup`)   |
+| ShadowCaster_All | | Force the model to cast shadows (Symbols - C: `"ShadowCasterAll"`, Lua: `__Visual_ShadowCasterAll`)   |
+| ShadowCaster_None | | Do not cast any shadows (Symbols - C: `"ShadowCasterNone"`, Lua: `__Visual_ShadowCasterNone`)   |
+
+
+
+Values for Idx_ShadowCaster. 
+

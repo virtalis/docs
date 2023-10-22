@@ -1,0 +1,46 @@
+---
+title: Meta_Transform
+summary: A Transform is a special node that when parented to a Meta_Visual overrides its local transform (distinctly from the Assembly). 
+
+---
+
+# Meta_Transform
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A Transform is a special node that when parented to a [Meta_Visual overrides its local transform (distinctly from the Assembly).  [More...](#detailed-description)
+
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](../Classes/struct_meta___transform.mdx#enum-idx)** { Idx_Enabled, Idx_Transform}<br />Property index.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_Transform;
+```
+
+A Transform is a special node that when parented to a [Meta_Visual overrides its local transform (distinctly from the Assembly). 
+
+This primarily exists to handle data import from formats like FBX, where a model instance may have transforms applied that are distinct from the assembly transform. 
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - Enabled state of this node in the hierarchy   |
+| Idx_Transform | | mat4w - Local transformation matrix   |
+
+
+
+Property index. 
+

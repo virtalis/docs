@@ -1,0 +1,47 @@
+---
+title: Meta_SimulationTerrain
+summary: A SimulationTerrain controls the display of preprocessed height and image data. 
+
+---
+
+# Meta_SimulationTerrain
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A SimulationTerrain controls the display of preprocessed height and image data. 
+
+
+`#include <meta_terrain2.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](../Classes/struct_meta___simulation_terrain.mdx#enum-idx)** { Idx_Enabled, Idx_ElevationPath, Idx_MainImageryPath, Idx_AuxImageryPath, Idx_ImageryEnabled, Idx_ImageryBlend, Idx_Lighting, Idx_Reflectivity, Idx_Shininess, Idx_Metalness, Idx_Ambient, Idx_Grid, Idx_TileLODThreshold}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - Whether to draw the terrain   |
+| Idx_ElevationPath | | string - Path to directory containing height data files (.vsi or .vs3)   |
+| Idx_MainImageryPath | | string - Path to directory containing image data files (.vsi or .vs3)   |
+| Idx_AuxImageryPath | | string - Path to directory containing image data files (.vsi or .vs3)   |
+| Idx_ImageryEnabled | | bool - When enabled, imagery layer is drawn over the elevation   |
+| Idx_ImageryBlend | | float - Alpha value to apply to the imagery   |
+| Idx_Lighting | | bool - Whether the terrain is affected by lighting   |
+| Idx_Reflectivity | | float - Constant which modulates the colour sampled from the reflection map before adding to result.   |
+| Idx_Shininess | | float - How shiny is the terrain   |
+| Idx_Metalness | | float - Constant metalness value (0=not metal, 1=metal).   |
+| Idx_Ambient | | float - Ambient scalar.   |
+| Idx_Grid | | bool - Whether to display the tile grid   |
+| Idx_TileLODThreshold | | float - LOD threshold for switching between mipmap layers   |
+
+
+
+Property index. 
+

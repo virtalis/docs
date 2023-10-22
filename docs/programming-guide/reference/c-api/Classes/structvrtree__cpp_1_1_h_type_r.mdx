@@ -1,0 +1,166 @@
+---
+title: vrtree_cpp::HTypeR
+summary: Reference counted wrapper around a handle. Automatically closes the handle when there are no references left. 
+
+---
+
+# vrtree_cpp::HTypeR
+
+
+
+Reference counted wrapper around a handle. Automatically closes the handle when there are no references left.  [More...](#detailed-description)
+
+
+`#include <interface_helpers.hpp>`
+
+## Public Functions
+
+|                | Name           |
+| -------------- | -------------- |
+| void | **[dec](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#dec)**()<br />Manually decrement the refcount. If recount hits zero, handle is closed.  |
+| | **[HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#htyper)**()<br />Construct a null handle.  |
+| | **[HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#htyper)**(T handle)<br />Construct from a raw node handle and make it refcounted.  |
+| | **[HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#htyper)**(const [HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx)< T > & other)<br />Copy an existing handle, incrementing its refcount.  |
+| void | **[inc](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#inc)**()<br />Manually increment the refcount (effectively makes the handle permanent until manually closed)  |
+| | **[operator T](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#operator-t)**() const<br />Access the raw node handle.  |
+| bool | **[operator<](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#operator<)**(T other) const<br />Compare the raw node handle for storage in ordered containers.  |
+| [HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx)< T > & | **[operator=](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#operator=)**(const [HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx)< T > & other)<br />Assign an existing handle.  |
+| [HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx)< T > & | **[operator=](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#operator=)**(T handle)<br />Assign a raw handle and make it refcounted.  |
+| | **[~HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#~htyper)**()<br />Decrements refcount, closing the node handle if this is the last reference.  |
+| T * | **[raw](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#raw)**(const [HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx)< T > arr[])<br />Converts an array of reference counted handles to an array of raw handles for passing to an api function that expects an array of handles. Return value is only valid until the next call to this function.  |
+
+## Public Attributes
+
+|                | Name           |
+| -------------- | -------------- |
+| T | **[m_handle](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#m-handle)** <br />The handle to wrap.  |
+| [HRefCount](../Classes/structvrtree__cpp_1_1_h_ref_count.mdx) * | **[ptr](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#ptr)** <br />Reference counter. Automatically deletes itself when the refcount is zero.  |
+
+## Detailed Description
+
+```cpp
+template <typename T >
+struct vrtree_cpp::HTypeR;
+```
+
+Reference counted wrapper around a handle. Automatically closes the handle when there are no references left. 
+## Public Functions Documentation
+
+### dec
+
+```cpp
+inline void dec()
+```
+
+Manually decrement the refcount. If recount hits zero, handle is closed. 
+
+### HTypeR
+
+```cpp
+inline HTypeR()
+```
+
+Construct a null handle. 
+
+### HTypeR
+
+```cpp
+inline HTypeR(
+    T handle
+)
+```
+
+Construct from a raw node handle and make it refcounted. 
+
+### HTypeR
+
+```cpp
+inline HTypeR(
+    const HTypeR< T > & other
+)
+```
+
+Copy an existing handle, incrementing its refcount. 
+
+### inc
+
+```cpp
+inline void inc()
+```
+
+Manually increment the refcount (effectively makes the handle permanent until manually closed) 
+
+### operator T
+
+```cpp
+inline operator T() const
+```
+
+Access the raw node handle. 
+
+### operator<
+
+```cpp
+inline bool operator<(
+    T other
+) const
+```
+
+Compare the raw node handle for storage in ordered containers. 
+
+### operator=
+
+```cpp
+inline HTypeR< T > & operator=(
+    const HTypeR< T > & other
+)
+```
+
+Assign an existing handle. 
+
+### operator=
+
+```cpp
+inline HTypeR< T > & operator=(
+    T handle
+)
+```
+
+Assign a raw handle and make it refcounted. 
+
+### ~HTypeR
+
+```cpp
+inline ~HTypeR()
+```
+
+Decrements refcount, closing the node handle if this is the last reference. 
+
+### raw
+
+```cpp
+static inline T * raw(
+    const HTypeR< T > arr[]
+)
+```
+
+Converts an array of reference counted handles to an array of raw handles for passing to an api function that expects an array of handles. Return value is only valid until the next call to this function. 
+
+## Public Attributes Documentation
+
+### m_handle
+
+```cpp
+T m_handle;
+```
+
+The handle to wrap. 
+
+### ptr
+
+```cpp
+HRefCount * ptr;
+```
+
+Reference counter. Automatically deletes itself when the refcount is zero. 
+

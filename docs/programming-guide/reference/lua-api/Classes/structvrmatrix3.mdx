@@ -1,0 +1,375 @@
+---
+title: vrmatrix3
+summary: A matrix. 
+
+---
+
+# vrmatrix3
+
+**Module:** **[Lua API](../Modules/group__api__lua.mdx)**
+
+
+
+A matrix. 
+
+
+`#include <lua_api.h>`
+
+## Public Functions
+
+|                | Name           |
+| -------------- | -------------- |
+| [vrmatrix4](../Classes/structvrmatrix4.mdx) | **[applyScale](../Classes/structvrmatrix3.mdx#applyscale)**(Any v)<br />([vrMatScale) Return M scaled by vector V. If V is a scalar then a vector in which x=v, y=v, z=v will be used.  |
+| Any | **[copy](../Classes/structvrmatrix3.mdx#copy)**()<br />([vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane  |
+| number | **[determinant](../Classes/structvrmatrix3.mdx#determinant)**()<br />([vrMatDeterminant) Returns the determinant of the matrix  |
+| number | **[get](../Classes/structvrmatrix3.mdx#get)**(number x, number y)<br />([vrMatGetValue) Get the value of an element of a matrix.  |
+| Any | **[getTranspose](../Classes/structvrmatrix3.mdx#gettranspose)**()<br />([vrMatTranspose) Returns the tranpose of a 3x3 matrix, or a 4x4 matrix with the 3x3 component transposed.  |
+| Any | **[normalise](../Classes/structvrmatrix3.mdx#normalise)**()<br />([vrNormalise) Returns normalised vector/matrix.  |
+| Any | **[operator*](../Classes/structvrmatrix3.mdx#operator*)**() |
+| Any | **[operator+](../Classes/structvrmatrix3.mdx#operator+)**() |
+| Any | **[operator-](../Classes/structvrmatrix3.mdx#operator-)**() |
+| Any | **[operator/](../Classes/structvrmatrix3.mdx#operator/)**() |
+| Any | **[operator=](../Classes/structvrmatrix3.mdx#operator=)**() |
+| Any | **[orthoNormalise](../Classes/structvrmatrix3.mdx#orthonormalise)**()<br />([vrMatOrthoNormalise) Returns an orthogonal matrix.  |
+| [vrmatrix4](../Classes/structvrmatrix4.mdx) | **[rotateX](../Classes/structvrmatrix3.mdx#rotatex)**(number v)<br />([vrMatRotateEulerX) Return M rotated on the X axis by angle V.  |
+| [vrmatrix4](../Classes/structvrmatrix4.mdx) | **[rotateY](../Classes/structvrmatrix3.mdx#rotatey)**(number v)<br />([vrMatRotateEulerY) Return M rotated on the Y axis by angle V.  |
+| [vrmatrix4](../Classes/structvrmatrix4.mdx) | **[rotateZ](../Classes/structvrmatrix3.mdx#rotatez)**(number v)<br />([vrMatRotateEulerZ) Return M rotated on the Z axis by angle V.  |
+| void | **[set](../Classes/structvrmatrix3.mdx#set)**(number x, number y, number v)<br />([vrMatSetValue) Set the value of an element of a matrix.  |
+| string | **[toString](../Classes/structvrmatrix3.mdx#tostring)**()<br />([vrMatToString) Get a string representation of a matrix.  |
+| [vrmatrix4](../Classes/structvrmatrix4.mdx) | **[translate](../Classes/structvrmatrix3.mdx#translate)**([vrvec3](../Classes/structvrvec3.mdx) v)<br />([vrMatTranslate) Return M translated by the vector V.  |
+
+## Public Attributes
+
+|                | Name           |
+| -------------- | -------------- |
+| number | **[det](../Classes/structvrmatrix3.mdx#det)** <br />DEPRECATED since version 2.0.0. Please use vrmat3:[determinant() instead.  |
+| number | **[e00](../Classes/structvrmatrix3.mdx#e00)** <br />DEPRECATED since version 2.0.0. Please use [vrmatrix3](../Classes/structvrmatrix3.mdx):get(0, 0)/set(0, 0, _) instead.  |
+| number | **[e01](../Classes/structvrmatrix3.mdx#e01)** <br />DEPRECATED since version 2.0.0. Please use [vrmatrix3](../Classes/structvrmatrix3.mdx):get(0, 1)/set(0, 1, _) instead.  |
+| number | **[e02](../Classes/structvrmatrix3.mdx#e02)** <br />DEPRECATED since version 2.0.0. Please use [vrmatrix3](../Classes/structvrmatrix3.mdx):get(0, 2)/set(0, 2, _) instead.  |
+| number | **[e10](../Classes/structvrmatrix3.mdx#e10)** <br />DEPRECATED since version 2.0.0. Please use [vrmatrix3](../Classes/structvrmatrix3.mdx):get(1, 0)/set(1, 0, _) instead.  |
+| number | **[e11](../Classes/structvrmatrix3.mdx#e11)** <br />DEPRECATED since version 2.0.0. Please use [vrmatrix3](../Classes/structvrmatrix3.mdx):get(1, 1)/set(1, 1, _) instead.  |
+| number | **[e12](../Classes/structvrmatrix3.mdx#e12)** <br />DEPRECATED since version 2.0.0. Please use [vrmatrix3](../Classes/structvrmatrix3.mdx):get(1, 2)/set(1, 2, _) instead.  |
+| number | **[e20](../Classes/structvrmatrix3.mdx#e20)** <br />DEPRECATED since version 2.0.0. Please use [vrmatrix3](../Classes/structvrmatrix3.mdx):get(2, 0)/set(2, 0, _) instead.  |
+| number | **[e21](../Classes/structvrmatrix3.mdx#e21)** <br />DEPRECATED since version 2.0.0. Please use [vrmatrix3](../Classes/structvrmatrix3.mdx):get(2, 1)/set(2, 1, _) instead.  |
+| number | **[e22](../Classes/structvrmatrix3.mdx#e22)** <br />DEPRECATED since version 2.0.0. Please use [vrmatrix3](../Classes/structvrmatrix3.mdx):get(2, 2)/set(2, 2, _) instead.  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[forward](../Classes/structvrmatrix3.mdx#forward)** <br />Forward vector.  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[right](../Classes/structvrmatrix3.mdx#right)** <br />Right vector.  |
+| vrmat3 | **[transpose](../Classes/structvrmatrix3.mdx#transpose)** <br />DEPRECATED since version 2.0.0. Please use vrmat3:[getTranspose() instead.  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[up](../Classes/structvrmatrix3.mdx#up)** <br />Up vector.  |
+
+## Public Functions Documentation
+
+### applyScale
+
+```cpp
+vrmatrix4 applyScale(
+    Any v
+)
+```
+
+([vrMatScale) Return M scaled by vector V. If V is a scalar then a vector in which x=v, y=v, z=v will be used. 
+
+**Parameters**: 
+
+  * **v** The vector or scalar to scale M by. 
+
+
+### copy
+
+```cpp
+Any copy()
+```
+
+([vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane 
+
+### determinant
+
+```cpp
+number determinant()
+```
+
+([vrMatDeterminant) Returns the determinant of the matrix 
+
+### get
+
+```cpp
+number get(
+    number x,
+    number y
+)
+```
+
+([vrMatGetValue) Get the value of an element of a matrix. 
+
+**Parameters**: 
+
+  * **x** The column of the element to select. 
+  * **y** The row of the element to select. 
+
+
+### getTranspose
+
+```cpp
+Any getTranspose()
+```
+
+([vrMatTranspose) Returns the tranpose of a 3x3 matrix, or a 4x4 matrix with the 3x3 component transposed. 
+
+**Return**: vrmat3 or vrmat4 depending on the type passed in 
+
+### normalise
+
+```cpp
+Any normalise()
+```
+
+([vrNormalise) Returns normalised vector/matrix. 
+
+**Return**: Normalised vector or matrix depending on the type passed in 
+
+### operator*
+
+```cpp
+Any operator*()
+```
+
+
+### operator+
+
+```cpp
+Any operator+()
+```
+
+
+### operator-
+
+```cpp
+Any operator-()
+```
+
+
+### operator/
+
+```cpp
+Any operator/()
+```
+
+
+### operator=
+
+```cpp
+Any operator=()
+```
+
+
+### orthoNormalise
+
+```cpp
+Any orthoNormalise()
+```
+
+([vrMatOrthoNormalise) Returns an orthogonal matrix. 
+
+**Return**: Orthogonal mat3 or mat4 depending on the type passed in 
+
+### rotateX
+
+```cpp
+vrmatrix4 rotateX(
+    number v
+)
+```
+
+([vrMatRotateEulerX) Return M rotated on the X axis by angle V. 
+
+**Parameters**: 
+
+  * **v** The angle to rotate M by. 
+
+
+### rotateY
+
+```cpp
+vrmatrix4 rotateY(
+    number v
+)
+```
+
+([vrMatRotateEulerY) Return M rotated on the Y axis by angle V. 
+
+**Parameters**: 
+
+  * **v** The angle to rotate M by. 
+
+
+### rotateZ
+
+```cpp
+vrmatrix4 rotateZ(
+    number v
+)
+```
+
+([vrMatRotateEulerZ) Return M rotated on the Z axis by angle V. 
+
+**Parameters**: 
+
+  * **v** The angle to rotate M by. 
+
+
+### set
+
+```cpp
+void set(
+    number x,
+    number y,
+    number v
+)
+```
+
+([vrMatSetValue) Set the value of an element of a matrix. 
+
+**Parameters**: 
+
+  * **x** The column of the element to select. 
+  * **y** The row of the element to select. 
+  * **v** The value to set the element. 
+
+
+### toString
+
+```cpp
+string toString()
+```
+
+([vrMatToString) Get a string representation of a matrix. 
+
+### translate
+
+```cpp
+vrmatrix4 translate(
+    vrvec3 v
+)
+```
+
+([vrMatTranslate) Return M translated by the vector V. 
+
+**Parameters**: 
+
+  * **v** The vector to translate the matrix by. 
+
+
+## Public Attributes Documentation
+
+### det
+
+```cpp
+number det;
+```
+
+DEPRECATED since version 2.0.0. Please use vrmat3:[determinant() instead. 
+
+### e00
+
+```cpp
+number e00;
+```
+
+DEPRECATED since version 2.0.0. Please use [vrmatrix3](../Classes/structvrmatrix3.mdx):get(0, 0)/set(0, 0, _) instead. 
+
+### e01
+
+```cpp
+number e01;
+```
+
+DEPRECATED since version 2.0.0. Please use [vrmatrix3](../Classes/structvrmatrix3.mdx):get(0, 1)/set(0, 1, _) instead. 
+
+### e02
+
+```cpp
+number e02;
+```
+
+DEPRECATED since version 2.0.0. Please use [vrmatrix3](../Classes/structvrmatrix3.mdx):get(0, 2)/set(0, 2, _) instead. 
+
+### e10
+
+```cpp
+number e10;
+```
+
+DEPRECATED since version 2.0.0. Please use [vrmatrix3](../Classes/structvrmatrix3.mdx):get(1, 0)/set(1, 0, _) instead. 
+
+### e11
+
+```cpp
+number e11;
+```
+
+DEPRECATED since version 2.0.0. Please use [vrmatrix3](../Classes/structvrmatrix3.mdx):get(1, 1)/set(1, 1, _) instead. 
+
+### e12
+
+```cpp
+number e12;
+```
+
+DEPRECATED since version 2.0.0. Please use [vrmatrix3](../Classes/structvrmatrix3.mdx):get(1, 2)/set(1, 2, _) instead. 
+
+### e20
+
+```cpp
+number e20;
+```
+
+DEPRECATED since version 2.0.0. Please use [vrmatrix3](../Classes/structvrmatrix3.mdx):get(2, 0)/set(2, 0, _) instead. 
+
+### e21
+
+```cpp
+number e21;
+```
+
+DEPRECATED since version 2.0.0. Please use [vrmatrix3](../Classes/structvrmatrix3.mdx):get(2, 1)/set(2, 1, _) instead. 
+
+### e22
+
+```cpp
+number e22;
+```
+
+DEPRECATED since version 2.0.0. Please use [vrmatrix3](../Classes/structvrmatrix3.mdx):get(2, 2)/set(2, 2, _) instead. 
+
+### forward
+
+```cpp
+vrvec3 forward;
+```
+
+Forward vector. 
+
+### right
+
+```cpp
+vrvec3 right;
+```
+
+Right vector. 
+
+### transpose
+
+```cpp
+vrmat3 transpose;
+```
+
+DEPRECATED since version 2.0.0. Please use vrmat3:[getTranspose() instead. 
+
+### up
+
+```cpp
+vrvec3 up;
+```
+
+Up vector. 
+

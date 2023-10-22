@@ -1,0 +1,39 @@
+---
+title: Meta_AnimationFramePRS
+summary: A PRS frame is a keyframe with a position, rotation and scale at a specified time. 
+
+---
+
+# Meta_AnimationFramePRS
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A PRS frame is a keyframe with a position, rotation and scale at a specified time. 
+
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](../Classes/struct_meta___animation_frame_p_r_s.mdx#enum-idx)** { Idx_RelTime, Idx_Position, Idx_Rotation, Idx_Scale, Idx_Marker}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_RelTime | | float - The time in seconds of this frame relative to its parent animation   |
+| Idx_Position | | vec3w - The position of the animation target   |
+| Idx_Rotation | | vec3w - The rotation of the animation target   |
+| Idx_Scale | | vec3w - The scale of the animation target   |
+| Idx_Marker | | link - A temporary solution to keep scene visual highlighting in sync on a cluster   |
+
+
+
+Property index. 
+

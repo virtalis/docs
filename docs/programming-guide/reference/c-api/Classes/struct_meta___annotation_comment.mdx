@@ -1,0 +1,38 @@
+---
+title: Meta_AnnotationComment
+summary: An AnnotationComment contains a text comment made on an Annotation. 
+
+---
+
+# Meta_AnnotationComment
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+An AnnotationComment contains a text comment made on an Annotation. 
+
+
+`#include <meta_annotation.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](../Classes/struct_meta___annotation_comment.mdx#enum-idx)** { Idx_Enabled, Idx_CreatedBy, Idx_CreatedByVisible, Idx_Comment, Idx_Billboard} |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - Enabled state of the comment (visibility)   |
+| Idx_CreatedBy | | string - Name of the user who created the comment (same rules as [Meta_Annotation::Idx_CreatedBy](../Classes/struct_meta___annotation.mdx#enumvalue-idx-createdby))   |
+| Idx_CreatedByVisible | | bool - Whether to display the comment author names on comment headers in the scene   |
+| Idx_Comment | | string - Text content of the comment   |
+| Idx_Billboard | | Unused.   |
+
+
+
+

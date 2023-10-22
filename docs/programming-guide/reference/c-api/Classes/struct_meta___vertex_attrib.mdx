@@ -1,0 +1,61 @@
+---
+title: Meta_VertexAttrib
+summary: A VertexAttrib node contains raw data describing a collection of vertices. 
+
+---
+
+# Meta_VertexAttrib
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A VertexAttrib node contains raw data describing a collection of vertices.  [More...](#detailed-description)
+
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](../Classes/struct_meta___vertex_attrib.mdx#enum-idx)** { Idx_Enabled, Idx_Size, Idx_Content}<br />Property index.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_VertexAttrib;
+```
+
+A VertexAttrib node contains raw data describing a collection of vertices. 
+
+The name of the node describes its usage:
+
+* `pos` - Positions, 3 floats per vertex
+* `nrm` - Normals, 2 floats per vertex
+* `tan` - Tangents, 4 floats per vertex (xyz=tangent, w=handedness (+1 or -1)
+* `col` - (Deprecated - use `diffuse`)
+* `diffuse` - Diffuse vertex colour, 4 floats per vertex
+* `ambient` - Ambient vertex colour, 4 floats per vertex
+* `emissive` - Emissive vertex colour, 4 floats per vertex
+* `tex0` - Texture coordinates (sampler 0), 2 floats per vertex
+* `tex1` - Texture coordinates (sampler 1), 2 floats per vertex
+* `tex2` - Texture coordinates (sampler 2), 2 floats per vertex
+* `tex3` - Texture coordinates (sampler 3), 2 floats per vertex
+
+The number of vertices specified in each sibling VertexAttrib should be the same (e.g. if there are 100 vertices in `pos`, there should be 100 vertices in any other `nrm`, `tex0` etc). 
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | `bool` - When enabled, these vertices are available to the mesh   |
+| Idx_Size | | `int` - Number of floats per vertex (should be set according to the list of types above)   |
+| Idx_Content | | `vector<float>` - The vertex data (e.g. for positions: `x0,y0,z0,x1,y1,z1,x2...etc`)   |
+
+
+
+Property index. 
+

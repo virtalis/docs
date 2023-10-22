@@ -1,0 +1,48 @@
+---
+title: Meta_KeyCodeGuard
+summary: A KeyCodeGuard prevents script event dispatch unless the specified key is pressed. 
+
+---
+
+# Meta_KeyCodeGuard
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A KeyCodeGuard prevents script event dispatch unless the specified key is pressed. 
+
+
+`#include <meta_script.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](../Classes/struct_meta___key_code_guard.mdx#enum-idx)** { Idx_KeyCode, Idx_User}<br />Property index.  |
+| enum| **[SpecialKey](../Classes/struct_meta___key_code_guard.mdx#enum-specialkey)** { Unbound = -1, Any = 0}<br />Special values for KeyCode.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_KeyCode | | [SpecialKey or int - Key code condition for this guard   |
+| Idx_User | | link - (optional) Link to a user, who is the only user whose key presses are considered by this guard   |
+
+
+
+Property index. 
+
+### enum SpecialKey
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Unbound | -1| Key is unbound.   |
+| Any | 0| Any key (equivalent to no guard node at all)   |
+
+
+
+Special values for KeyCode. 
+

@@ -1,0 +1,63 @@
+---
+title: Meta_Ocean
+summary: An Ocean draws water. 
+
+---
+
+# Meta_Ocean
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+An Ocean draws water. 
+
+
+`#include <meta_ocean.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](../Classes/struct_meta___ocean.mdx#enum-idx)** { Idx_Enabled, Idx_SeaState, Idx_Reflectivity, Idx_Ambient, Idx_Extinction, Idx_ExtinctionColour, Idx_Scattering, Idx_ScatterColour, Idx_SeaLevel, Idx_Animate, Idx_FixedTime, Idx_DisplacementScale, Idx_Spray, Idx_WindDir, Idx_WindBias, Idx_WindLanesEnabled, Idx_WindLanesWaveAmplitude, Idx_WindLanesWaveWavelength, Idx_WindLanesWaveSpeed, Idx_WindLanesWaveSteepness, Idx_LocalReflection, Idx_LocalReflectionQuality, Idx_DistanceScale, Idx_DepthScale, Idx_SurfaceLightingDepth, Idx_CausticsSize, Idx_CausticsStrength, Idx_CausticsExtinction, Idx_UnderwaterEffects}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - Enables the ocean   |
+| Idx_SeaState | | float - Overall roughness of the ocean   |
+| Idx_Reflectivity | | float - How much incoming light should be reflected in the water   |
+| Idx_Ambient | | float - How much ambient light is picked up in the water colour   |
+| Idx_Extinction | | float - Amount of light penetration in the water   |
+| Idx_ExtinctionColour | | vec3f - Filtered light colour; RGB 0.0f to 1.0f   |
+| Idx_Scattering | | float - How many particles are in the water to reflect light   |
+| Idx_ScatterColour | | vec3f - The colour of light reflected from the scattering particles   |
+| Idx_SeaLevel | | float - Base height of the ocean in metres   |
+| Idx_Animate | | bool - When enabled, the ocean waves are animated   |
+| Idx_FixedTime | | float - Fixed time value which the oceans state is based off   |
+| Idx_DisplacementScale | | float - Scale of wave displacement   |
+| Idx_Spray | | bool - Whether to enable spray particle effects on cresting waves   |
+| Idx_WindDir | | vec3f - Direction of the wind   |
+| Idx_WindBias | | float - Bias of the wind   |
+| Idx_WindLanesEnabled | | Internal / reserved.   |
+| Idx_WindLanesWaveAmplitude | | Internal / reserved.   |
+| Idx_WindLanesWaveWavelength | | Internal / reserved.   |
+| Idx_WindLanesWaveSpeed | | Internal / reserved.   |
+| Idx_WindLanesWaveSteepness | | Internal / reserved.   |
+| Idx_LocalReflection | | bool - enable reflections on the ocean surface   |
+| Idx_LocalReflectionQuality | | float - resolution of the ocean surface reflections   |
+| Idx_DistanceScale | |   |
+| Idx_DepthScale | |   |
+| Idx_SurfaceLightingDepth | | float - Controls how much of the scattered light is affected by local lights and shadows when rendering the water surface   |
+| Idx_CausticsSize | | float - size of the caustic pattern that appears underwater   |
+| Idx_CausticsStrength | | float - intensity of the caustic outlines   |
+| Idx_CausticsExtinction | | bool - whether or not caustic patterns are affected by extinction   |
+| Idx_UnderwaterEffects | | bool - when enabled show underwater extinction and scattering effects   |
+
+
+
+Property index. 
+

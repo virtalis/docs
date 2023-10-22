@@ -1,0 +1,37 @@
+---
+title: Meta_Pivot
+summary: A Pivot modifies the origin point of an assembly. 
+
+---
+
+# Meta_Pivot
+
+**Module:** **[Metanodes](../Modules/group__api__metanodes.mdx)** **/** **[Metanode Structure Definitions](../Modules/group__api__metadefs.mdx)**
+
+
+
+A Pivot modifies the origin point of an assembly. 
+
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+|                | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](../Classes/struct_meta___pivot.mdx#enum-idx)** { Idx_Enabled, Idx_Transform, Idx_LegacyTransform}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - Is the pivot enabled.   |
+| Idx_Transform | | bool - Store the pivot matrix.   |
+| Idx_LegacyTransform | | mat4w - Pivot transform for pivots created pre-2.0, to ensure animation compatibility; see #14237/DEV-199.   |
+
+
+
+Property index. 
+

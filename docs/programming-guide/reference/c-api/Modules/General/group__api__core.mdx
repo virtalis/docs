@@ -1,0 +1,429 @@
+---
+title: Core
+summary: Core API functions. 
+
+---
+
+# Core
+
+Core API functions. 
+
+## Functions
+
+|                | Name           |
+| -------------- | -------------- |
+| int | **[VRBulkData](../Modules/group__api__core.mdx#vrbulkdata)**(void )<br />Specifies if there a large amount of data pending transfer between vrtree instances.  |
+| void | **[VRClearLastError](../Modules/group__api__core.mdx#vrclearlasterror)**(void )<br />Manually clear the last error code.  |
+| void | **[VRCloseNodeHandle](../Modules/group__api__core.mdx#vrclosenodehandle)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Closes a node handle, clearing its connection to VRTree.  |
+| int | **[VRCloseSecurityContext](../Modules/group__api__core.mdx#vrclosesecuritycontext)**([HAuth](../Modules/group__api__types.mdx#typedef-hauth) context)<br />Releases a previously requested security context.  |
+| void | **[VRCloseUserSlotHandle](../Modules/group__api__core.mdx#vrcloseuserslothandle)**([HUserSlot](../Modules/group__api__types.mdx#typedef-huserslot) slot)<br />Releases a unique userdata slot handle.  |
+| int | **[VRConnect](../Modules/group__api__core.mdx#vrconnect)**(const char * addr, int port)<br />Connect to another instance of VRTree (e.g. Visionary Render) and synchronise trees.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRCopyNodeHandle](../Modules/group__api__core.mdx#vrcopynodehandle)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Creates a new node handle based off the old one.  |
+| size_t | **[VRCountOpenNodeHandles](../Modules/group__api__core.mdx#vrcountopennodehandles)**(void )<br />Diagnostic function.  |
+| int | **[VRGetAPIVersionMajor](../Modules/group__api__core.mdx#vrgetapiversionmajor)**(void )<br />Gets the VRTree API Major version.  |
+| int | **[VRGetAPIVersionMinor](../Modules/group__api__core.mdx#vrgetapiversionminor)**(void )<br />Gets the VRTree API Minor version.  |
+| uint32_t | **[VRGetLastError](../Modules/group__api__core.mdx#vrgetlasterror)**(void )<br />Gets the last error code.  |
+| const char * | **[VRGetLastErrorString](../Modules/group__api__core.mdx#vrgetlasterrorstring)**(void )<br />Gets the last error string.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRGetNodeFromUUID](../Modules/group__api__core.mdx#vrgetnodefromuuid)**(uint64_t lo, uint64_t hi)<br />Gets the node with the specified UUID.  |
+| int | **[VRGetNodeVersion](../Modules/group__api__core.mdx#vrgetnodeversion)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Gets the metanode version of the specified node.  |
+| uint64_t | **[VRGetUUIDHigh](../Modules/group__api__core.mdx#vrgetuuidhigh)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Gets the high 64-bits of a node's unique ID.  |
+| uint64_t | **[VRGetUUIDLow](../Modules/group__api__core.mdx#vrgetuuidlow)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Gets the low 64-bits of a node's unique ID.  |
+| int | **[VRInit](../Modules/group__api__core.mdx#vrinit)**(int port)<br />Initialise VRTree.  |
+| int | **[VRIsNodeHandleValid](../Modules/group__api__core.mdx#vrisnodehandlevalid)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Checks if a node handle is valid.  |
+| [HUserSlot](../Modules/group__api__types.mdx#typedef-huserslot) | **[VRNewUserSlotHandle](../Modules/group__api__core.mdx#vrnewuserslothandle)**(void )<br />Requests a unique userdata slot identifier.  |
+| [HAuth](../Modules/group__api__types.mdx#typedef-hauth) | **[VRRequestSecurityContext](../Modules/group__api__core.mdx#vrrequestsecuritycontext)**(const char * auth, const char * name)<br />Requests a change in the API security context to grant access to API functions by categories specified in the auth string.  |
+| void | **[VRSetAPIErrorLevel](../Modules/group__api__core.mdx#vrsetapierrorlevel)**(uint32_t flags)<br />Sets the API error level, which controls which types of errors are reported and logged.  |
+| void | **[VRSetImmediateErrorLog](../Modules/group__api__core.mdx#vrsetimmediateerrorlog)**(char enabled)<br />Specifies that errors tracked by [VRSetAPIErrorLevel](../Modules/group__api__core.mdx#vrsetapierrorlevel) are also logged the the application log immediately rather than only being stored for [VRGetLastErrorString](../Modules/group__api__core.mdx#vrgetlasterrorstring).  |
+| void | **[VRShutdown](../Modules/group__api__core.mdx#vrshutdown)**(void )<br />Disconnect from the network and shut down.  |
+| void | **[VRUpdate](../Modules/group__api__core.mdx#vrupdate)**(double deltaTime)<br />Perform a full update, notifying observers and updating actors.  |
+
+
+## Functions Documentation
+
+### VRBulkData
+
+```
+int VRBulkData(
+    void 
+)
+```
+
+Specifies if there a large amount of data pending transfer between vrtree instances. 
+
+**Return**: 1 on success 
+
+**Par**: Permission: SC_NETWORK 
+
+### VRClearLastError
+
+```
+void VRClearLastError(
+    void 
+)
+```
+
+Manually clear the last error code. 
+
+### VRCloseNodeHandle
+
+```
+void VRCloseNodeHandle(
+    HNode node
+)
+```
+
+Closes a node handle, clearing its connection to VRTree. 
+
+**Parameters**: 
+
+  * **node** handle to close. Becomes unusable. 
+
+
+### VRCloseSecurityContext
+
+```
+int VRCloseSecurityContext(
+    HAuth context
+)
+```
+
+Releases a previously requested security context. 
+
+### VRCloseUserSlotHandle
+
+```
+void VRCloseUserSlotHandle(
+    HUserSlot slot
+)
+```
+
+Releases a unique userdata slot handle. 
+
+**Parameters**: 
+
+  * **slot** an open slot handle 
+
+
+This does not remove userdata stored on nodes using this slot handle. That data must be cleaned up before closing the slot handle to avoid data leaks. 
+
+
+### VRConnect
+
+```
+int VRConnect(
+    const char * addr,
+    int port
+)
+```
+
+Connect to another instance of VRTree (e.g. Visionary Render) and synchronise trees. 
+
+**Parameters**: 
+
+  * **addr** address of the remote instance 
+  * **port** TCP port that the remote instance is listening on 
+
+
+**Return**: 1 on success 
+
+**Par**: Permission: SC_NETWORK 
+
+### VRCopyNodeHandle
+
+```
+HNode VRCopyNodeHandle(
+    HNode node
+)
+```
+
+Creates a new node handle based off the old one. 
+
+**Parameters**: 
+
+  * **node** handle stays open. 
+
+
+**Return**: new node handle, VRCloseNodeHandle when you are done with it 
+
+### VRCountOpenNodeHandles
+
+```
+size_t VRCountOpenNodeHandles(
+    void 
+)
+```
+
+Diagnostic function. 
+
+**Return**: the number of open node handles 
+
+### VRGetAPIVersionMajor
+
+```
+int VRGetAPIVersionMajor(
+    void 
+)
+```
+
+Gets the VRTree API Major version. 
+
+This version represents backward compatibility. It should be checked when loading the library, against an expected value. If it is not what is expected, the API may not function according to the expectations of the program using it. 
+
+
+### VRGetAPIVersionMinor
+
+```
+int VRGetAPIVersionMinor(
+    void 
+)
+```
+
+Gets the VRTree API Minor version. 
+
+This version number represents additions to the API and does not affect backward compatibility. 
+
+
+### VRGetLastError
+
+```
+uint32_t VRGetLastError(
+    void 
+)
+```
+
+Gets the last error code. 
+
+**Return**: [The last error code](../Modules/group__api__errors.mdx)
+
+This function does not clear the error. 
+
+
+### VRGetLastErrorString
+
+```
+const char * VRGetLastErrorString(
+    void 
+)
+```
+
+Gets the last error string. 
+
+**Return**: the error string, or NULL if there is no error string to return. 
+
+This function DOES clear the error using VRClearLastError. The returned string is only valid until the next operation that sets a new error string. 
+
+
+### VRGetNodeFromUUID
+
+```
+HNode VRGetNodeFromUUID(
+    uint64_t lo,
+    uint64_t hi
+)
+```
+
+Gets the node with the specified UUID. 
+
+**Parameters**: 
+
+  * **lo** low 64-bits of the UUID 
+  * **hi** high 64-bits of the UUID 
+
+
+**Return**: node handle, or 0 on error / non-existant 
+
+**Par**: Permission: SC_READ 
+
+### VRGetNodeVersion
+
+```
+int VRGetNodeVersion(
+    HNode node
+)
+```
+
+Gets the metanode version of the specified node. 
+
+**Parameters**: 
+
+  * **node** node to query 
+
+
+**Return**: version, or -1 on error / non-existant 
+
+**Par**: Permission: SC_READ 
+
+### VRGetUUIDHigh
+
+```
+uint64_t VRGetUUIDHigh(
+    HNode node
+)
+```
+
+Gets the high 64-bits of a node's unique ID. 
+
+**Return**: high 64-bits or 0 on error 
+
+**Par**: Permission: SC_READ 
+
+### VRGetUUIDLow
+
+```
+uint64_t VRGetUUIDLow(
+    HNode node
+)
+```
+
+Gets the low 64-bits of a node's unique ID. 
+
+**Return**: low 64-bits or 0 on error 
+
+**Par**: Permission: SC_READ 
+
+### VRInit
+
+```
+int VRInit(
+    int port
+)
+```
+
+Initialise VRTree. 
+
+**Parameters**: 
+
+  * **port** the TCP port on which to listen for collaboration connection requests 
+
+
+**Return**: 0 on success 
+
+**Par**: Permission: SC_INIT 
+
+### VRIsNodeHandleValid
+
+```
+int VRIsNodeHandleValid(
+    HNode node
+)
+```
+
+Checks if a node handle is valid. 
+
+**Parameters**: 
+
+  * **node** handle to check 
+
+
+**Return**: 1 if the handle is valid, 0 if it is invalid (i.e. if it was closed already) 
+
+**Par**: Permission: SC_READ 
+
+### VRNewUserSlotHandle
+
+```
+HUserSlot VRNewUserSlotHandle(
+    void 
+)
+```
+
+Requests a unique userdata slot identifier. 
+
+**Return**: slot handle, or 0 on error 
+
+**Par**: Permission: SC_MODIFY 
+
+The userdata slot system can be used by plugins to attach plugin-specific data to a specific node and retrieve it again later.
+
+Generally a plugin should request one or more unique data slots on initialization and keep them open for the lifetime of the plugin. It does not need one per node - the userdata slot handle should be considered the unique slot identifier for plugin data on ALL nodes. Using more than one is only necessary if the plugin needs to store more than one piece of data on a single node, and even then only in the case where storing it in a struct in the first slot is not appropriate.
+
+This data is not managed by the application, so it is up to the plugin to make sure it removes any userdata it adds before closing its user slot handle. 
+
+
+### VRRequestSecurityContext
+
+```
+HAuth VRRequestSecurityContext(
+    const char * auth,
+    const char * name
+)
+```
+
+Requests a change in the API security context to grant access to API functions by categories specified in the auth string. 
+
+**Parameters**: 
+
+  * **auth** full contents of an API license (signed xml) 
+  * **name** the name of the application requesting the context 
+
+
+**Return**: a new auth handle indicating successful context switch, or 0 on error / invalid auth 
+
+**Note**: New contexts are pushed onto a stack, meaning that when the returned context is closed, access controls revert to the level provided by the previous security context. 
+
+Most plugins should let the plugin manager deal with this automatically by exporting their signature string as a [VRPSignatureProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpsignatureproc). This API exists for programs that load vrtree.dll independently of Visionary Render, in which case the auth string is likely to be required to specify SC_INIT permissions in order to be able to do anything useful.
+
+
+### VRSetAPIErrorLevel
+
+```
+void VRSetAPIErrorLevel(
+    uint32_t flags
+)
+```
+
+Sets the API error level, which controls which types of errors are reported and logged. 
+
+**Parameters**: 
+
+  * **flags** one or more [Logging masks](../Modules/group__api__loggingmask.mdx) which enable error reporting by type 
+
+
+### VRSetImmediateErrorLog
+
+```
+void VRSetImmediateErrorLog(
+    char enabled
+)
+```
+
+Specifies that errors tracked by [VRSetAPIErrorLevel](../Modules/group__api__core.mdx#vrsetapierrorlevel) are also logged the the application log immediately rather than only being stored for [VRGetLastErrorString](../Modules/group__api__core.mdx#vrgetlasterrorstring). 
+
+**Parameters**: 
+
+  * **enabled** 1 or above to enable immediate error logging 
+
+
+### VRShutdown
+
+```
+void VRShutdown(
+    void 
+)
+```
+
+Disconnect from the network and shut down. 
+
+**Par**: Permission: SC_NETWORK 
+
+### VRUpdate
+
+```
+void VRUpdate(
+    double deltaTime
+)
+```
+
+Perform a full update, notifying observers and updating actors. 
+
+**Parameters**: 
+
+  * **deltaTime** the time since the last frame (or any other value that will affect the step size of any actors) 
+
+
+**Par**: Permission: SC_OBSERVE 
+
+
+
+
+

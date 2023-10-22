@@ -1,0 +1,726 @@
+---
+title: vrvec4
+summary: A vector. 
+
+---
+
+# vrvec4
+
+**Module:** **[Lua API](../Modules/group__api__lua.mdx)**
+
+
+
+A vector. 
+
+
+`#include <lua_api.h>`
+
+## Public Functions
+
+|                | Name           |
+| -------------- | -------------- |
+| Any | **[copy](../Classes/structvrvec4.mdx#copy)**()<br />([vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[cross](../Classes/structvrvec4.mdx#cross)**(Any vec2)<br />([vrCross) Returns the cross product of two vectors. Both vectors must be the same type  |
+| number | **[dot](../Classes/structvrvec4.mdx#dot)**(Any vec2)<br />([vrDot) Returns the dot product of two vectors. Both vectors must be the same type  |
+| number | **[getLength](../Classes/structvrvec4.mdx#getlength)**()<br />([vrLength) Returns the length of a vector.  |
+| number | **[getLengthSq](../Classes/structvrvec4.mdx#getlengthsq)**()<br />([vrLengthSquared) Returns the squared length of a vector.  |
+| Any | **[normalise](../Classes/structvrvec4.mdx#normalise)**()<br />([vrNormalise) Returns normalised vector/matrix.  |
+| Any | **[operator*](../Classes/structvrvec4.mdx#operator*)**() |
+| Any | **[operator+](../Classes/structvrvec4.mdx#operator+)**() |
+| Any | **[operator-](../Classes/structvrvec4.mdx#operator-)**() |
+| Any | **[operator/](../Classes/structvrvec4.mdx#operator/)**() |
+| Any | **[operator=](../Classes/structvrvec4.mdx#operator=)**() |
+
+## Public Attributes
+
+|                | Name           |
+| -------------- | -------------- |
+| number | **[length](../Classes/structvrvec4.mdx#length)** <br />DEPRECATED since version 2.0.0. Please use [vrvec4](../Classes/structvrvec4.mdx):[getLength() instead.  |
+| number | **[w](../Classes/structvrvec4.mdx#w)** <br />w element  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[wx](../Classes/structvrvec4.mdx#wx)** <br />wx elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[wxy](../Classes/structvrvec4.mdx#wxy)** <br />wxy elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[wxyz](../Classes/structvrvec4.mdx#wxyz)** <br />wxyz elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[wxz](../Classes/structvrvec4.mdx#wxz)** <br />wxz elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[wxzy](../Classes/structvrvec4.mdx#wxzy)** <br />wxzy elements  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[wy](../Classes/structvrvec4.mdx#wy)** <br />wy elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[wyx](../Classes/structvrvec4.mdx#wyx)** <br />wyx elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[wyxz](../Classes/structvrvec4.mdx#wyxz)** <br />wyxz elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[wyz](../Classes/structvrvec4.mdx#wyz)** <br />wyz elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[wyzx](../Classes/structvrvec4.mdx#wyzx)** <br />wyzx elements  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[wz](../Classes/structvrvec4.mdx#wz)** <br />wz elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[wzx](../Classes/structvrvec4.mdx#wzx)** <br />wzx elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[wzxy](../Classes/structvrvec4.mdx#wzxy)** <br />wzxy elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[wzy](../Classes/structvrvec4.mdx#wzy)** <br />wzy elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[wzyx](../Classes/structvrvec4.mdx#wzyx)** <br />wzyx elements  |
+| number | **[x](../Classes/structvrvec4.mdx#x)** <br />x element  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[xw](../Classes/structvrvec4.mdx#xw)** <br />xw elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[xwy](../Classes/structvrvec4.mdx#xwy)** <br />xwy elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[xwyz](../Classes/structvrvec4.mdx#xwyz)** <br />xwyz elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[xwz](../Classes/structvrvec4.mdx#xwz)** <br />xwz elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[xwzy](../Classes/structvrvec4.mdx#xwzy)** <br />xwzy elements  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[xy](../Classes/structvrvec4.mdx#xy)** <br />xy elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[xyw](../Classes/structvrvec4.mdx#xyw)** <br />xyw elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[xywz](../Classes/structvrvec4.mdx#xywz)** <br />xywz elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[xyz](../Classes/structvrvec4.mdx#xyz)** <br />xyz elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[xyzw](../Classes/structvrvec4.mdx#xyzw)** <br />xyzw elements  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[xz](../Classes/structvrvec4.mdx#xz)** <br />xz elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[xzw](../Classes/structvrvec4.mdx#xzw)** <br />xzw elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[xzwy](../Classes/structvrvec4.mdx#xzwy)** <br />xzwy elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[xzy](../Classes/structvrvec4.mdx#xzy)** <br />xzy elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[xzyw](../Classes/structvrvec4.mdx#xzyw)** <br />xzyw elements  |
+| number | **[y](../Classes/structvrvec4.mdx#y)** <br />y element  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[yw](../Classes/structvrvec4.mdx#yw)** <br />yw elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[ywx](../Classes/structvrvec4.mdx#ywx)** <br />ywx elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[ywxz](../Classes/structvrvec4.mdx#ywxz)** <br />ywxz elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[ywz](../Classes/structvrvec4.mdx#ywz)** <br />ywz elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[ywzx](../Classes/structvrvec4.mdx#ywzx)** <br />ywzx elements  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[yx](../Classes/structvrvec4.mdx#yx)** <br />yx elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[yxw](../Classes/structvrvec4.mdx#yxw)** <br />yxw elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[yxwz](../Classes/structvrvec4.mdx#yxwz)** <br />yxwz elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[yxz](../Classes/structvrvec4.mdx#yxz)** <br />yxz elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[yxzw](../Classes/structvrvec4.mdx#yxzw)** <br />yxzw elements  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[yz](../Classes/structvrvec4.mdx#yz)** <br />yz elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[yzw](../Classes/structvrvec4.mdx#yzw)** <br />yzw elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[yzwx](../Classes/structvrvec4.mdx#yzwx)** <br />yzwx elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[yzx](../Classes/structvrvec4.mdx#yzx)** <br />yzx elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[yzxw](../Classes/structvrvec4.mdx#yzxw)** <br />yzxw elements  |
+| number | **[z](../Classes/structvrvec4.mdx#z)** <br />z element  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[zw](../Classes/structvrvec4.mdx#zw)** <br />zw elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[zwx](../Classes/structvrvec4.mdx#zwx)** <br />zwx elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[zwxy](../Classes/structvrvec4.mdx#zwxy)** <br />zwxy elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[zwy](../Classes/structvrvec4.mdx#zwy)** <br />zwy elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[zwyx](../Classes/structvrvec4.mdx#zwyx)** <br />zwyx elements  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[zx](../Classes/structvrvec4.mdx#zx)** <br />zx elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[zxw](../Classes/structvrvec4.mdx#zxw)** <br />zxw elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[zxwy](../Classes/structvrvec4.mdx#zxwy)** <br />zxwy elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[zxy](../Classes/structvrvec4.mdx#zxy)** <br />zxy elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[zxyw](../Classes/structvrvec4.mdx#zxyw)** <br />zxyw elements  |
+| [vrvec2](../Classes/structvrvec2.mdx) | **[zy](../Classes/structvrvec4.mdx#zy)** <br />zy elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[zyw](../Classes/structvrvec4.mdx#zyw)** <br />zyw elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[zywx](../Classes/structvrvec4.mdx#zywx)** <br />zywx elements  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[zyx](../Classes/structvrvec4.mdx#zyx)** <br />zyx elements  |
+| [vrvec4](../Classes/structvrvec4.mdx) | **[zyxw](../Classes/structvrvec4.mdx#zyxw)** <br />zyxw elements  |
+
+## Public Functions Documentation
+
+### copy
+
+```cpp
+Any copy()
+```
+
+([vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane 
+
+### cross
+
+```cpp
+vrvec3 cross(
+    Any vec2
+)
+```
+
+([vrCross) Returns the cross product of two vectors. Both vectors must be the same type 
+
+**Parameters**: 
+
+  * **vec2** Vector 2 {x, y} or {x, y, z}. 
+
+
+### dot
+
+```cpp
+number dot(
+    Any vec2
+)
+```
+
+([vrDot) Returns the dot product of two vectors. Both vectors must be the same type 
+
+**Parameters**: 
+
+  * **vec2** Vector 2 {x, y} or {x, y, z}. 
+
+
+### getLength
+
+```cpp
+number getLength()
+```
+
+([vrLength) Returns the length of a vector. 
+
+### getLengthSq
+
+```cpp
+number getLengthSq()
+```
+
+([vrLengthSquared) Returns the squared length of a vector. 
+
+### normalise
+
+```cpp
+Any normalise()
+```
+
+([vrNormalise) Returns normalised vector/matrix. 
+
+**Return**: Normalised vector or matrix depending on the type passed in 
+
+### operator*
+
+```cpp
+Any operator*()
+```
+
+
+### operator+
+
+```cpp
+Any operator+()
+```
+
+
+### operator-
+
+```cpp
+Any operator-()
+```
+
+
+### operator/
+
+```cpp
+Any operator/()
+```
+
+
+### operator=
+
+```cpp
+Any operator=()
+```
+
+
+## Public Attributes Documentation
+
+### length
+
+```cpp
+number length;
+```
+
+DEPRECATED since version 2.0.0. Please use [vrvec4](../Classes/structvrvec4.mdx):[getLength() instead. 
+
+### w
+
+```cpp
+number w;
+```
+
+w element 
+
+### wx
+
+```cpp
+vrvec2 wx;
+```
+
+wx elements 
+
+### wxy
+
+```cpp
+vrvec3 wxy;
+```
+
+wxy elements 
+
+### wxyz
+
+```cpp
+vrvec4 wxyz;
+```
+
+wxyz elements 
+
+### wxz
+
+```cpp
+vrvec3 wxz;
+```
+
+wxz elements 
+
+### wxzy
+
+```cpp
+vrvec4 wxzy;
+```
+
+wxzy elements 
+
+### wy
+
+```cpp
+vrvec2 wy;
+```
+
+wy elements 
+
+### wyx
+
+```cpp
+vrvec3 wyx;
+```
+
+wyx elements 
+
+### wyxz
+
+```cpp
+vrvec4 wyxz;
+```
+
+wyxz elements 
+
+### wyz
+
+```cpp
+vrvec3 wyz;
+```
+
+wyz elements 
+
+### wyzx
+
+```cpp
+vrvec4 wyzx;
+```
+
+wyzx elements 
+
+### wz
+
+```cpp
+vrvec2 wz;
+```
+
+wz elements 
+
+### wzx
+
+```cpp
+vrvec3 wzx;
+```
+
+wzx elements 
+
+### wzxy
+
+```cpp
+vrvec4 wzxy;
+```
+
+wzxy elements 
+
+### wzy
+
+```cpp
+vrvec3 wzy;
+```
+
+wzy elements 
+
+### wzyx
+
+```cpp
+vrvec4 wzyx;
+```
+
+wzyx elements 
+
+### x
+
+```cpp
+number x;
+```
+
+x element 
+
+### xw
+
+```cpp
+vrvec2 xw;
+```
+
+xw elements 
+
+### xwy
+
+```cpp
+vrvec3 xwy;
+```
+
+xwy elements 
+
+### xwyz
+
+```cpp
+vrvec4 xwyz;
+```
+
+xwyz elements 
+
+### xwz
+
+```cpp
+vrvec3 xwz;
+```
+
+xwz elements 
+
+### xwzy
+
+```cpp
+vrvec4 xwzy;
+```
+
+xwzy elements 
+
+### xy
+
+```cpp
+vrvec2 xy;
+```
+
+xy elements 
+
+### xyw
+
+```cpp
+vrvec3 xyw;
+```
+
+xyw elements 
+
+### xywz
+
+```cpp
+vrvec4 xywz;
+```
+
+xywz elements 
+
+### xyz
+
+```cpp
+vrvec3 xyz;
+```
+
+xyz elements 
+
+### xyzw
+
+```cpp
+vrvec4 xyzw;
+```
+
+xyzw elements 
+
+### xz
+
+```cpp
+vrvec2 xz;
+```
+
+xz elements 
+
+### xzw
+
+```cpp
+vrvec3 xzw;
+```
+
+xzw elements 
+
+### xzwy
+
+```cpp
+vrvec4 xzwy;
+```
+
+xzwy elements 
+
+### xzy
+
+```cpp
+vrvec3 xzy;
+```
+
+xzy elements 
+
+### xzyw
+
+```cpp
+vrvec4 xzyw;
+```
+
+xzyw elements 
+
+### y
+
+```cpp
+number y;
+```
+
+y element 
+
+### yw
+
+```cpp
+vrvec2 yw;
+```
+
+yw elements 
+
+### ywx
+
+```cpp
+vrvec3 ywx;
+```
+
+ywx elements 
+
+### ywxz
+
+```cpp
+vrvec4 ywxz;
+```
+
+ywxz elements 
+
+### ywz
+
+```cpp
+vrvec3 ywz;
+```
+
+ywz elements 
+
+### ywzx
+
+```cpp
+vrvec4 ywzx;
+```
+
+ywzx elements 
+
+### yx
+
+```cpp
+vrvec2 yx;
+```
+
+yx elements 
+
+### yxw
+
+```cpp
+vrvec3 yxw;
+```
+
+yxw elements 
+
+### yxwz
+
+```cpp
+vrvec4 yxwz;
+```
+
+yxwz elements 
+
+### yxz
+
+```cpp
+vrvec3 yxz;
+```
+
+yxz elements 
+
+### yxzw
+
+```cpp
+vrvec4 yxzw;
+```
+
+yxzw elements 
+
+### yz
+
+```cpp
+vrvec2 yz;
+```
+
+yz elements 
+
+### yzw
+
+```cpp
+vrvec3 yzw;
+```
+
+yzw elements 
+
+### yzwx
+
+```cpp
+vrvec4 yzwx;
+```
+
+yzwx elements 
+
+### yzx
+
+```cpp
+vrvec3 yzx;
+```
+
+yzx elements 
+
+### yzxw
+
+```cpp
+vrvec4 yzxw;
+```
+
+yzxw elements 
+
+### z
+
+```cpp
+number z;
+```
+
+z element 
+
+### zw
+
+```cpp
+vrvec2 zw;
+```
+
+zw elements 
+
+### zwx
+
+```cpp
+vrvec3 zwx;
+```
+
+zwx elements 
+
+### zwxy
+
+```cpp
+vrvec4 zwxy;
+```
+
+zwxy elements 
+
+### zwy
+
+```cpp
+vrvec3 zwy;
+```
+
+zwy elements 
+
+### zwyx
+
+```cpp
+vrvec4 zwyx;
+```
+
+zwyx elements 
+
+### zx
+
+```cpp
+vrvec2 zx;
+```
+
+zx elements 
+
+### zxw
+
+```cpp
+vrvec3 zxw;
+```
+
+zxw elements 
+
+### zxwy
+
+```cpp
+vrvec4 zxwy;
+```
+
+zxwy elements 
+
+### zxy
+
+```cpp
+vrvec3 zxy;
+```
+
+zxy elements 
+
+### zxyw
+
+```cpp
+vrvec4 zxyw;
+```
+
+zxyw elements 
+
+### zy
+
+```cpp
+vrvec2 zy;
+```
+
+zy elements 
+
+### zyw
+
+```cpp
+vrvec3 zyw;
+```
+
+zyw elements 
+
+### zywx
+
+```cpp
+vrvec4 zywx;
+```
+
+zywx elements 
+
+### zyx
+
+```cpp
+vrvec3 zyx;
+```
+
+zyx elements 
+
+### zyxw
+
+```cpp
+vrvec4 zyxw;
+```
+
+zyxw elements 
+

@@ -1,0 +1,253 @@
+---
+title: Structure Definitions
+summary: Listing of metanode structures, describing their purpose and listing their property index and any other supplementary enumerations. 
+
+---
+
+# Structure Definitions
+
+**Module:** **[Metanodes](../Metanodes/index.mdx)**
+
+Listing of metanode structures, describing their purpose and listing their property index and any other supplementary enumerations.  [More...](#detailed-description)
+
+## Classes
+
+|                | Name           |
+| -------------- | -------------- |
+| struct | **[Meta_Animation](../../Classes/struct_meta___animation.mdx)** <br />An animation is a collection of keyframes and/or actions to apply to a target node.  |
+| struct | **[Meta_AnimationAction](../../Classes/struct_meta___animation_action.mdx)** <br />Animation keyframes for bool, int, float, double and world float properties.  |
+| struct | **[Meta_AnimationFramePRS](../../Classes/struct_meta___animation_frame_p_r_s.mdx)** <br />A PRS frame is a keyframe with a position, rotation and scale at a specified time.  |
+| struct | **[Meta_AnimationLink](../../Classes/struct_meta___animation_link.mdx)** <br />An animation link permits a [Meta_Animation](../../Classes/struct_meta___animation.mdx) node to be inserted into a track at a specified time. This level of indirection is necessary in order to reuse a single animation in multiple places.  |
+| struct | **[Meta_Annotation](../../Classes/struct_meta___annotation.mdx)** <br />An Annotation node is a method of associating information with an object in the scene.  |
+| struct | **[Meta_AnnotationComment](../../Classes/struct_meta___annotation_comment.mdx)** <br />An AnnotationComment contains a text comment made on an Annotation.  |
+| struct | **[Meta_AnnotationList](../../Classes/struct_meta___annotation_list.mdx)** <br />An AnnotationList node is a container for multiple Annotation nodes.  |
+| struct | **[Meta_AnnotationStyles](../../Classes/struct_meta___annotation_styles.mdx)** <br />AnnotationStyles is a container for GUI style nodes, applied to annotations. These are usually [Meta_ModelMarkerStyle or similar and are saved with the scene so are customisable.  |
+| struct | **[Meta_ApplicationMenuContainer](../../Classes/struct_meta___application_menu_container.mdx)** <br />ApplicationMenuContainer is a container of [Meta_ApplicationMenuEntry nodes.  |
+| struct | **[Meta_ApplicationMenuCustom](../../Classes/struct_meta___application_menu_custom.mdx)** <br />An ApplicationMenuCustom is used by context menus to populate the menu with dynamic data (for example, a list of nodes in the tree)  |
+| struct | **[Meta_ApplicationMenuEntry](../../Classes/struct_meta___application_menu_entry.mdx)** <br />An ApplicationMenuEntry is a menu entry that can appear in the context menu or main file menu.  |
+| struct | **[Meta_ApplicationMenuHeader](../../Classes/struct_meta___application_menu_header.mdx)** <br />An ApplicationMenuHeader inserts a header before its sibling items, using the name of the node as the caption.  |
+| struct | **[Meta_ApplicationMenuSeparator](../../Classes/struct_meta___application_menu_separator.mdx)** <br />An ApplicationMenuSeparator inserts a separator into a context menu or main menu.  |
+| struct | **[Meta_ARMarker](../../Classes/struct_meta___a_r_marker.mdx)**  |
+| struct | **[Meta_Assembly](../../Classes/struct_meta___assembly.mdx)** <br />An Assembly is the main node type in the scenegraph, used to build the transform hierarchy of the scene.  |
+| struct | **[Meta_AssemblyPRS](../../Classes/struct_meta___assembly_p_r_s.mdx)** <br />An AssemblyPRS node is used to store hints for matrix edit gui controls.  |
+| struct | **[Meta_AssemblyTrack](../../Classes/struct_meta___assembly_track.mdx)** <br />An assembly track is a collection of animations to apply to the transform of a specified node Valid child types: [Meta_Animation](../../Classes/struct_meta___animation.mdx), [Meta_AnimationLink](../../Classes/struct_meta___animation_link.mdx).  |
+| struct | **[Meta_AudioBuffer](../../Classes/struct_meta___audio_buffer.mdx)** <br />An AudioBuffer represents sound data that can be played by multiple sources.  |
+| struct | **[Meta_AudioSound](../../Classes/struct_meta___audio_sound.mdx)** <br />An AudioSound represents a "one-shot" playback method for [Meta_AudioBuffer](../../Classes/struct_meta___audio_buffer.mdx) nodes.  |
+| struct | **[Meta_AudioStream](../../Classes/struct_meta___audio_stream.mdx)** <br />A container for AudioStreamBuffer nodes.  |
+| struct | **[Meta_AudioStreamBuffer](../../Classes/struct_meta___audio_stream_buffer.mdx)** <br />A packet of audio data.  |
+| struct | **[Meta_AudioTrack](../../Classes/struct_meta___audio_track.mdx)** <br />An AudioTrack provides full control over playback and looping of data in a [Meta_AudioBuffer](../../Classes/struct_meta___audio_buffer.mdx).  |
+| struct | **[Meta_Billboard](../../Classes/struct_meta___billboard.mdx)** <br />A Billboard allows its children to be rendered in various alignment and sizing modes.  |
+| struct | **[Meta_Bone](../../Classes/struct_meta___bone.mdx)** <br />A Bone is a component of an inverse kinematics (IK) system.  |
+| struct | **[Meta_BufferedStack](../../Classes/struct_meta___buffered_stack.mdx)** <br />A BufferedStack is a stack that renders its contents into a texture internally to improve performance.  |
+| struct | **[Meta_Button](../../Classes/struct_meta___button.mdx)** <br />A Button is a clickable GUI object which can trigger actions via [Meta_EventHandler children, or a [Meta_GUIPropertyLink.  |
+| struct | **[Meta_ButtonGroup](../../Classes/struct_meta___button_group.mdx)** <br />A ButtonGroup is an invisible object referenced by [Meta_Button](../../Classes/struct_meta___button.mdx) to specify radio groups (mutually exclusive toggles)  |
+| struct | **[Meta_Camera](../../Classes/struct_meta___camera.mdx)** <br />A Camera represents a body position in the world, which viewports can render from.  |
+| struct | **[Meta_CameraCollisionGuard](../../Classes/struct_meta___camera_collision_guard.mdx)** <br />A CameraCollisionGuard prevents script event dispatch unless the camera is within Radius metres of the parent assembly.  |
+| struct | **[Meta_ChromaKeyTexture](../../Classes/struct_meta___chroma_key_texture.mdx)** <br />A ChromaKey texture can beused to change a colour in a [Meta_Movie or [Meta_Texture to some other colour (which can be transparent).  |
+| struct | **[Meta_Collision](../../Classes/struct_meta___collision.mdx)** <br />A Collision node adds greater control over object collisions in the scene and allows the dispatching of script events in response to collisions.  |
+| struct | **[Meta_CollisionGuard](../../Classes/struct_meta___collision_guard.mdx)** <br />A CollisionGuard prevents script event dispatch unless the specified assembly is the one being collided with.  |
+| struct | **[Meta_ColouredButtonStyle](../../Classes/struct_meta___coloured_button_style.mdx)** <br />A ColouredButtonStyle provides flat [Meta_Button](../../Classes/struct_meta___button.mdx) colours as well as button content layout controls.  |
+| struct | **[Meta_ColouredLabelStyle](../../Classes/struct_meta___coloured_label_style.mdx)**  |
+| struct | **[Meta_ColouredPanelStyle](../../Classes/struct_meta___coloured_panel_style.mdx)** <br />A ColouredPanelStyle provides a background colour for a panel or stack.  |
+| struct | **[Meta_ColouredSeparatorStyle](../../Classes/struct_meta___coloured_separator_style.mdx)** <br />A ColouredSeparatorStyle provides styling options for [Meta_Separator.  |
+| struct | **[Meta_ComponentTrack](../../Classes/struct_meta___component_track.mdx)** <br />A component track is a collection of animations to apply to a component of a vector property.  |
+| struct | **[Meta_Container](../../Classes/struct_meta___container.mdx)** <br />A Container is a generic container for other nodes.  |
+| struct | **[Meta_ConvexDecomposition](../../Classes/struct_meta___convex_decomposition.mdx)** <br />A ConvexDecomposition is used to store pre-computed convex decomposition data as part of the scene.  |
+| struct | **[Meta_Deformable](../../Classes/struct_meta___deformable.mdx)**  |
+| struct | **[Meta_Dimension](../../Classes/struct_meta___dimension.mdx)** <br />A Dimension references two [Meta_MeasuringPoint nodes and calculates the distances between them. It also provides scene visuals depicting the dimensions.  |
+| struct | **[Meta_DummyHMDViewport](../../Classes/struct_meta___dummy_h_m_d_viewport.mdx)** <br />A dummy viewport type that passes through the image for testing.  |
+| struct | **[Meta_DynamicSection](../../Classes/struct_meta___dynamic_section.mdx)** <br />A DynamicSection is a cutting plane that can be placed in the scene.  |
+| struct | **[Meta_DynamicSectionList](../../Classes/struct_meta___dynamic_section_list.mdx)** <br />A container of Dynamic Sections.  |
+| struct | **[Meta_Environment](../../Classes/struct_meta___environment.mdx)** <br />[Meta_Environment contains a background scene and separates it from the rest of the data, so that an imported CAD model can be dropped into a variety of ready-made environments.  |
+| struct | **[Meta_EventFunction](../../Classes/struct_meta___event_function.mdx)** <br />An EventFunction is attached to a [Meta_EventHandler, and refers to a named function registered via the C API.  |
+| struct | **[Meta_EventHandler](../../Classes/struct_meta___event_handler.mdx)** <br />An EventHandler can be attached to any other node to trigger script execution.  |
+| struct | **[Meta_EventScript](../../Classes/struct_meta___event_script.mdx)** <br />An EventScript is attached to a [Meta_EventHandler](../../Classes/struct_meta___event_handler.mdx), and contains Lua script to execute when the event is triggered.  |
+| struct | **[Meta_Eyes](../../Classes/struct_meta___eyes.mdx)** <br />An Eyes node allows tweaks to tracked setups to improve the viewing experience.  |
+| struct | **[Meta_Filter](../../Classes/struct_meta___filter.mdx)** <br />A Filter prevents itself and any descendants from appearing in the Scenes tree view.  |
+| struct | **[Meta_Font](../../Classes/struct_meta___font.mdx)** <br />A Font provides text rendering for Buttons and other UI elements that display text.  |
+| struct | **[Meta_FontList](../../Classes/struct_meta___font_list.mdx)** <br />A FontList is automatically populated with instances of [Meta_Typeface for every font detected on the system.  |
+| struct | **[Meta_GeoGroup](../../Classes/struct_meta___geo_group.mdx)** <br />A GeoGroup contains a collection of polygons which share a single material. It may contain multiple [Meta_Mesh nodes.  |
+| struct | **[Meta_Gesture](../../Classes/struct_meta___gesture.mdx)** <br />A Gesture contains data for matching a gesture or pose.  |
+| struct | **[Meta_GestureGuard](../../Classes/struct_meta___gesture_guard.mdx)** <br />A GestureGuard prevents script event dispatch unless the specified gesture is matched.  |
+| struct | **[Meta_Gradient](../../Classes/struct_meta___gradient.mdx)** <br />A Gradient is a type of 2D texture that is automatically generated by adding [Meta_GradientPoint children.  |
+| struct | **[Meta_GradientPanelStyle](../../Classes/struct_meta___gradient_panel_style.mdx)** <br />A GradientPanelStyle provides a simple background gradient for a panel or stack.  |
+| struct | **[Meta_GradientPoint](../../Classes/struct_meta___gradient_point.mdx)** <br />A GradientPoint is used to describe a colour point in a [Meta_Gradient](../../Classes/struct_meta___gradient.mdx).  |
+| struct | **[Meta_Group](../../Classes/struct_meta___group.mdx)** <br />A Group can contain any number of child [Meta_GroupMember or [Meta_Snapshot nodes, and a [Meta_MetaDataInt for every metanode represented by one or more group members.  |
+| struct | **[Meta_GroupList](../../Classes/struct_meta___group_list.mdx)** <br />A GroupList is a container intended to be a direct child of the Scenes node. It contains [Meta_Group](../../Classes/struct_meta___group.mdx) nodes.  |
+| struct | **[Meta_GroupMember](../../Classes/struct_meta___group_member.mdx)** <br />A GroupMember is a child of a [Meta_Group](../../Classes/struct_meta___group.mdx) and links to a node that is a member of the group.  |
+| struct | **[Meta_GUI](../../Classes/struct_meta___g_u_i.mdx)** <br />A GUI is a container for other GUI elements such as buttons and stacks. It controls how the GUI is drawn.  |
+| struct | **[Meta_GuiGroupHint](../../Classes/struct_meta___gui_group_hint.mdx)** <br />Contains the description of a Gui layout group - that is, a collection of controls whose interfaces should display based on a value condition or a rollout button. If a property is to be a member of the group, it should be linked to by the GuiHints group property. Groups can be linked to other groups, in which case they are sub-groups.  |
+| struct | **[Meta_GuiHints](../../Classes/struct_meta___gui_hints.mdx)** <br />Extra GUI hints, if further hints for a user interface are desired. e.g. its caption, help topic, tooltip, group layout, etc. Not specifically related to the usage of the property, but hints as to how it is intended to be seen by a user. A UI implementation is free to ignore this if it wants...  |
+| struct | **[Meta_GuiHintsLink](../../Classes/struct_meta___gui_hints_link.mdx)** <br />Contains a link to a gui hints node. This can be placed on a node or property to specify that it should use the hints of another node/property to avoid the need to copy large amounts of hints.  |
+| struct | **[Meta_GUIMaterial](../../Classes/struct_meta___g_u_i_material.mdx)** <br />A GUIMaterial is a material that can specify its draw layer, so it may appear above or below other types of object.  |
+| struct | **[Meta_GuiOptionHint](../../Classes/struct_meta___gui_option_hint.mdx)** <br />Contains the description of an "option" - a value that can be used in an int property. This effectively describes the contents of multiple choice controls (e.g. dropdown boxes) when the value of the property would only make sense as one of a number of preset values. These should be placed under a [Meta_GuiHints](../../Classes/struct_meta___gui_hints.mdx) node.  |
+| struct | **[Meta_GuiOrderHint](../../Classes/struct_meta___gui_order_hint.mdx)** <br />Contains a link to a child node of the owner of the GuiHints. There may be many of these under a [Meta_GuiHints](../../Classes/struct_meta___gui_hints.mdx) node, a UI should prioritise its display so that properties of the linked item are displayed in the order that the GuiOrderHints appear in the tree, followed by any other properties not referenced by GuiOrderHints. For example, if Assembly::Enabled should be first, followed by Assembly::Transform, there would be two GuiOrderHints, the first linking to the Enabled MetaValue, the second to the Transform MetaValue. Node semantics specifying these nodes should override any ordering in the metanode semantics.  |
+| struct | **[Meta_GUIPropertyLink](../../Classes/struct_meta___g_u_i_property_link.mdx)** <br />A GUIPropertyLink is a simple way of connecting [Meta_Button](../../Classes/struct_meta___button.mdx), [Meta_Slider, and [Meta_ScrollBar toggle / change events to other node properties without using a [Meta_EventHandler](../../Classes/struct_meta___event_handler.mdx). This is a two-way link.  |
+| struct | **[Meta_HapticDevice](../../Classes/struct_meta___haptic_device.mdx)** <br />A HapticDevice represents a connection to a device such as a Phantom Omni. Only one instance is required in a scene.  |
+| struct | **[Meta_HapticNode](../../Classes/struct_meta___haptic_node.mdx)** <br />A HapticNode is added to [Meta_Assembly](../../Classes/struct_meta___assembly.mdx) much the same way as [Meta_Collision](../../Classes/struct_meta___collision.mdx), and allows the assembly to be felt by haptic devices.  |
+| struct | **[Meta_HololensRemotingViewport](../../Classes/struct_meta___hololens_remoting_viewport.mdx)**  |
+| struct | **[Meta_ImageMarkerStyle](../../Classes/struct_meta___image_marker_style.mdx)** <br />An ImageMarkerStyle provides styling for a marker, using a custom texture instead of the default sphere.  |
+| struct | **[Meta_ImagePanel](../../Classes/struct_meta___image_panel.mdx)** <br />An ImagePanel displays an image on a GUI in the scene.  |
+| struct | **[Meta_IndexPrim](../../Classes/struct_meta___index_prim.mdx)** <br />An IndexPrim indexes vertices from [Meta_VertexAttrib siblings.  |
+| struct | **[Meta_KeyCodeGuard](../../Classes/struct_meta___key_code_guard.mdx)** <br />A KeyCodeGuard prevents script event dispatch unless the specified key is pressed.  |
+| struct | **[Meta_KeyStateGuard](../../Classes/struct_meta___key_state_guard.mdx)** <br />A KeyStateGuard prevents script event dispatch unless the key is currently being pressed.  |
+| struct | **[Meta_Label](../../Classes/struct_meta___label.mdx)** <br />A Label is a GUI object that displays some text.  |
+| struct | **[Meta_Library](../../Classes/struct_meta___library.mdx)** <br />A Library provides an organisational structure for assets such as models and materials in a scene.  |
+| struct | **[Meta_LibraryList](../../Classes/struct_meta___library_list.mdx)** <br />The LibraryList represents the Libraries node in the tree.  |
+| struct | **[Meta_Light](../../Classes/struct_meta___light.mdx)** <br />A Light lights the scene. It is intended to be a child of a [Meta_Assembly](../../Classes/struct_meta___assembly.mdx) so it can be positioned in the scene.  |
+| struct | **[Meta_LightList](../../Classes/struct_meta___light_list.mdx)** <br />A LightList contains [Meta_Light](../../Classes/struct_meta___light.mdx) nodes and is intended to exist on the Scenes root node for the purposes of being saved into scene overlay files.  |
+| struct | **[Meta_LightProbe](../../Classes/struct_meta___light_probe.mdx)** <br />A LightProbe represents a local skybox providing dynamic reflections of the surrounding environment.  |
+| struct | **[Meta_LOD](../../Classes/struct_meta___l_o_d.mdx)** <br />A LOD represents one level of detail of a model, rendered based on its distance from the viewer. It contains [Meta_GeoGroup](../../Classes/struct_meta___geo_group.mdx) children.  |
+| struct | **[Meta_LookAt](../../Classes/struct_meta___look_at.mdx)** <br />A LookAt node contains settings and child [Meta_LookAtTarget nodes, required when a [Meta_Assembly](../../Classes/struct_meta___assembly.mdx) contraint type is set to LookAt.  |
+| struct | **[Meta_LookAtTarget](../../Classes/struct_meta___look_at_target.mdx)** <br />A LookAtTarget specifies a node for LookAt to look at.  |
+| struct | **[Meta_Marker](../../Classes/struct_meta___marker.mdx)** <br />A Marker is a 3D icon used to represent a clickable / draggable object in the scene - defaults to a sphere.  |
+| struct | **[Meta_MaterialArgument](../../Classes/struct_meta___material_argument.mdx)** <br />A MaterialArgument defines an argument for a [Meta_MaterialParameter.  |
+| struct | **[Meta_MaterialParameter](../../Classes/struct_meta___material_parameter.mdx)** <br />A MaterialParameter defines a single MDL function input.  |
+| struct | **[Meta_MaterialSelector](../../Classes/struct_meta___material_selector.mdx)** <br />A MaterialSelector gathers all materials in the scene and presents them in a list.  |
+| struct | **[Meta_MeasuringPoint](../../Classes/struct_meta___measuring_point.mdx)** <br />A MeasuringPoint is a point in space, used by a [Meta_Dimension](../../Classes/struct_meta___dimension.mdx) to perform measurements.  |
+| struct | **[Meta_Mesh](../../Classes/struct_meta___mesh.mdx)** <br />A Mesh is a collection of vertices and lists which can be rendered as a polyhedral object.  |
+| struct | **[Meta_MessageQueue](../../Classes/struct_meta___message_queue.mdx)**  |
+| struct | **[Meta_MetaBase](../../Classes/struct_meta___meta_base.mdx)** <br />If a MetaNode has a MetaBase child, the name of that child is the name of another metanode that this one is a clone of.  |
+| struct | **[Meta_MetaDataBool](../../Classes/struct_meta___meta_data_bool.mdx)** <br />A MetaDataBool stores a boolean value.  |
+| struct | **[Meta_MetaDataColour](../../Classes/struct_meta___meta_data_colour.mdx)** <br />A MetaDataColour stores a colour (like a [Meta_MetaDataFloat3, but with colour semantics on the value property)  |
+| struct | **[Meta_MetaDataDouble](../../Classes/struct_meta___meta_data_double.mdx)** <br />A MetaDataDouble stores a double-precision floating point value.  |
+| struct | **[Meta_MetaDataDouble3](../../Classes/struct_meta___meta_data_double3.mdx)** <br />A MetaDataDouble3 stores three double-precision floating point values.  |
+| struct | **[Meta_MetaDataDouble4](../../Classes/struct_meta___meta_data_double4.mdx)** <br />A MetaDataDouble4 stores four double-precision floating point values.  |
+| struct | **[Meta_MetaDataFloat](../../Classes/struct_meta___meta_data_float.mdx)** <br />A MetaDataFloat stores a single floating point value.  |
+| struct | **[Meta_MetaDataFloat2](../../Classes/struct_meta___meta_data_float2.mdx)** <br />A MetaDataFloat2 stores two floating point values.  |
+| struct | **[Meta_MetaDataFloat3](../../Classes/struct_meta___meta_data_float3.mdx)** <br />A MetaDataFloat3 stores three floating point values.  |
+| struct | **[Meta_MetaDataFloat4](../../Classes/struct_meta___meta_data_float4.mdx)** <br />A MetaDataFloat4 stores four floating point values.  |
+| struct | **[Meta_MetaDataInt](../../Classes/struct_meta___meta_data_int.mdx)** <br />A MetaDataInt stores a single integer value.  |
+| struct | **[Meta_MetaDataInt2](../../Classes/struct_meta___meta_data_int2.mdx)** <br />A MetaDataInt2 stores two integer values.  |
+| struct | **[Meta_MetaDataLink](../../Classes/struct_meta___meta_data_link.mdx)** <br />A MetaDataLink stores a direct link to another node anywhere in the tree.  |
+| struct | **[Meta_MetaDataPropertyMask](../../Classes/struct_meta___meta_data_property_mask.mdx)** <br />A MetaDataPropertyMask contains is a 256-bit value to store bits corresponding to up to 256 properties of a node.  |
+| struct | **[Meta_MetaDataString](../../Classes/struct_meta___meta_data_string.mdx)** <br />A MetaDataString stores a string.  |
+| struct | **[Meta_MetaGroup](../../Classes/struct_meta___meta_group.mdx)** <br />A MetaGroup defines a group of metadata and associated metadata types.  |
+| struct | **[Meta_MetaNode](../../Classes/struct_meta___meta_node.mdx)** <br />A MetaNode provides a description of other metanodes.  |
+| struct | **[Meta_MetaRoot](../../Classes/struct_meta___meta_root.mdx)** <br />The MetaRoot node contains all the metanode definition nodes.  |
+| struct | **[Meta_MetaValue](../../Classes/struct_meta___meta_value.mdx)** <br />A MetaValue provides a description of a property on a metanode.  |
+| struct | **[Meta_Model](../../Classes/struct_meta___model.mdx)** <br />A Model represents instancable geometry, and is a container for collections of [Meta_LOD](../../Classes/struct_meta___l_o_d.mdx) or [Meta_GeoGroup](../../Classes/struct_meta___geo_group.mdx) nodes.  |
+| struct | **[Meta_ModelMarkerStyle](../../Classes/struct_meta___model_marker_style.mdx)** <br />A ModelMarkerStyle provides styling for a marker, using a custom model instead of the default sphere.  |
+| struct | **[Meta_Movie](../../Classes/struct_meta___movie.mdx)** <br />A Movie represents a video playback controller, which can be used like a [Meta_Texture for display on materials and other surfaces.  |
+| struct | **[Meta_MovieScreen](../../Classes/struct_meta___movie_screen.mdx)** <br />Deprecated. Will be removed in a future version. Use a [Meta_ImagePanel](../../Classes/struct_meta___image_panel.mdx) instead, or assign a movie to a [Meta_StdMaterial texture slot.  |
+| struct | **[Meta_NetPlayerTexture](../../Classes/struct_meta___net_player_texture.mdx)** <br />A NetPlayerTexture is video streaming player from a remote Visionary Render application.  |
+| struct | **[Meta_NodeSelector](../../Classes/struct_meta___node_selector.mdx)**  |
+| struct | **[Meta_Ocean](../../Classes/struct_meta___ocean.mdx)** <br />An Ocean draws water.  |
+| struct | **[Meta_OceanRotorWash](../../Classes/struct_meta___ocean_rotor_wash.mdx)** <br />An OceanRotorWash node draws rotor wash when an assembly hovers above the ocean surface.  |
+| struct | **[Meta_OceanWake](../../Classes/struct_meta___ocean_wake.mdx)** <br />An OceanWake draws wakes behind vessels moving across the ocean surface.  |
+| struct | **[Meta_OculusViewport](../../Classes/struct_meta___oculus_viewport.mdx)** <br />An OculusViewport represents a viewport occupying a specified rectangle of a window (range 0 to 1) which renders the 3D scene using the projection and distortion calculated by the Oculus SDK.  |
+| struct | **[Meta_OpenVRViewport](../../Classes/struct_meta___open_v_r_viewport.mdx)** <br />An OpenVRViewport represents a viewport occupying a specified rectangle of a window (range 0 to 1) which renders the 3D scene using the projection and distortion calculated by the OpenVR SDK.  |
+| struct | **[Meta_OpenXRViewport](../../Classes/struct_meta___open_x_r_viewport.mdx)** <br />An OpenXRViewport represents a viewport occupying a specified rectangle of a window (range 0 to 1) which renders the 3D scene using the projection and distortion calculated by the OpenXR SDK.  |
+| struct | **[Meta_OpProgress](../../Classes/struct_meta___op_progress.mdx)**  |
+| struct | **[Meta_OpProgressYield](../../Classes/struct_meta___op_progress_yield.mdx)**  |
+| struct | **[Meta_Panel](../../Classes/struct_meta___panel.mdx)** <br />A Panel is a fixed size container for GUI items.  |
+| struct | **[Meta_ParticleSystem](../../Classes/struct_meta___particle_system.mdx)** <br />A ParticleSystem emits particles. It gets its transform from a parent [Meta_Assembly](../../Classes/struct_meta___assembly.mdx).  |
+| struct | **[Meta_Permission](../../Classes/struct_meta___permission.mdx)** <br />A Permission represents the user's ability to perform a restricted task.  |
+| struct | **[Meta_PhysicalScreen](../../Classes/struct_meta___physical_screen.mdx)** <br />A PhysicalScreen describes the physical location of a projection screen as part of a view configuration.  |
+| struct | **[Meta_Pivot](../../Classes/struct_meta___pivot.mdx)** <br />A Pivot modifies the origin point of an assembly.  |
+| struct | **[Meta_PointCloud](../../Classes/struct_meta___point_cloud.mdx)** <br />A PointCloud renders a file containing points, generated using the point cloud converter utility.  |
+| struct | **[Meta_PointerController](../../Classes/struct_meta___pointer_controller.mdx)** <br />A PointerController casts a ray to collide with scene and gui objects. It is used to provide lasers on tracked controllers.  |
+| struct | **[Meta_PoseGuard](../../Classes/struct_meta___pose_guard.mdx)** <br />A PoseGuard prevents script event dispatch unless the specified pose is matched.  |
+| struct | **[Meta_PoseStateGuard](../../Classes/struct_meta___pose_state_guard.mdx)** <br />A PoseStateGuard prevents script event dispatch unless the specified pose is maintained.  |
+| struct | **[Meta_Precision](../../Classes/struct_meta___precision.mdx)** <br />A Precision represents the tolerance value used by importer formats to tessellate a surface. Use validitymask to check which values are set.  |
+| struct | **[Meta_PropertyTrack](../../Classes/struct_meta___property_track.mdx)** <br />A property track is a collection of animations to apply to a property of a specified node.  |
+| struct | **[Meta_PropSemantics](../../Classes/struct_meta___prop_semantics.mdx)** <br />Metanode that contains a basic description of what a property is intended to be used for. e.g. Is it a colour (for a vec4f property), or a file (for a string property). This can be used as the node which is attached to the meta-metanodes with the semantics macros, or attached to anything else that needs some hints for a user interface.  |
+| struct | **[Meta_PropSemanticsLink](../../Classes/struct_meta___prop_semantics_link.mdx)** <br />Contains a link to a prop semantics node. This can be placed on a node or property to specify that it should use the semantics of another node/property to avoid the need to copy large amounts of semantics.  |
+| struct | **[Meta_RecycleBin](../../Classes/struct_meta___recycle_bin.mdx)** <br />The RecycleBin is where deleted nodes are stored so they can be undone by the history stack.  |
+| struct | **[Meta_ReflectionProbe](../../Classes/struct_meta___reflection_probe.mdx)** <br />A ReflectionProbe represents a local skybox providing dynamic reflections of the surrounding environment.  |
+| struct | **[Meta_RenderScene](../../Classes/struct_meta___render_scene.mdx)** <br />A RenderScene is a container for SceneLink nodes.  |
+| struct | **[Meta_RenderTarget](../../Classes/struct_meta___render_target.mdx)**  |
+| struct | **[Meta_RenderToTexture](../../Classes/struct_meta___render_to_texture.mdx)** <br />A RenderToTexture is a texture that is rendered into by a Viewport which should be a child node.  |
+| struct | **[Meta_RolloutStack](../../Classes/struct_meta___rollout_stack.mdx)** <br />A [Meta_RolloutStack is a [Meta_Stack with a button that rolls/unrolls the stack contents.  |
+| struct | **[Meta_Root](../../Classes/struct_meta___root.mdx)** <br />The Root node is the owner of all other nodes in the tree, which are added as descendants.  |
+| struct | **[Meta_RSBlend](../../Classes/struct_meta___r_s_blend.mdx)** <br />RenderState Blend allows you to override the blend mode for descendants.  |
+| struct | **[Meta_SceneLink](../../Classes/struct_meta___scene_link.mdx)** <br />A SceneLink specifies a link to a branch of the tree to render.  |
+| struct | **[Meta_SceneList](../../Classes/struct_meta___scene_list.mdx)** <br />The SceneList represents the Scenes node in the tree.  |
+| struct | **[Meta_SceneLOD](../../Classes/struct_meta___scene_l_o_d.mdx)** <br />A SceneLOD is a LOD that can be applied to Assembly hierarchies rather than individual models.  |
+| struct | **[Meta_ScrollBar](../../Classes/struct_meta___scroll_bar.mdx)** <br />A ScrollBar is a [Meta_Slider wrapped in arrow button controls.  |
+| struct | **[Meta_ScrollBarStyle](../../Classes/struct_meta___scroll_bar_style.mdx)** <br />A ScrollBarStyle provides styling options for the various parts of a [Meta_ScrollBar](../../Classes/struct_meta___scroll_bar.mdx).  |
+| struct | **[Meta_ScrollingStack](../../Classes/struct_meta___scrolling_stack.mdx)** <br />A ScrollingStack is a stack that adds scrollbars if its contents are larger than its size. It renders its contents to a texture like [Meta_BufferedStack](../../Classes/struct_meta___buffered_stack.mdx).  |
+| struct | **[Meta_ScrollingStackStyle](../../Classes/struct_meta___scrolling_stack_style.mdx)** <br />A ScrollingStackStyle provides styling options for a [Meta_ScrollingStack](../../Classes/struct_meta___scrolling_stack.mdx).  |
+| struct | **[Meta_Separator](../../Classes/struct_meta___separator.mdx)** <br />A Separator delineates GUI objects.  |
+| struct | **[Meta_Sequence](../../Classes/struct_meta___sequence.mdx)** <br />A sequence is a collection of tracks that animate target nodes Valid child types: [Meta_AssemblyTrack](../../Classes/struct_meta___assembly_track.mdx), [Meta_PropertyTrack](../../Classes/struct_meta___property_track.mdx), [Meta_SequenceTrack.  |
+| struct | **[Meta_SequenceTrack](../../Classes/struct_meta___sequence_track.mdx)** <br />A sequence track permits a sequence to be played at a specified time in another sequence.  |
+| struct | **[Meta_ShaderSampler](../../Classes/struct_meta___shader_sampler.mdx)** <br />define special metanode for sampler uniform type. Sampler contains a reference to a texture node, along with offset and scale to apply to texture coordinates before sampling.  |
+| struct | **[Meta_ShadowBoundsOverride](../../Classes/struct_meta___shadow_bounds_override.mdx)** <br />A ShadowBoundsOverride allows a directional light's shadow bounds to be overridden depending on the camera position.  |
+| struct | **[Meta_SimulationTerrain](../../Classes/struct_meta___simulation_terrain.mdx)** <br />A SimulationTerrain controls the display of preprocessed height and image data.  |
+| struct | **[Meta_Slider](../../Classes/struct_meta___slider.mdx)** <br />A Slider is a GUI control that can be moved with a cursor by clicking the handle and dragging it.  |
+| struct | **[Meta_Snapshot](../../Classes/struct_meta___snapshot.mdx)** <br />A Group is a method of grouping other nodes together.  |
+| struct | **[Meta_SphericalMarkerStyle](../../Classes/struct_meta___spherical_marker_style.mdx)** <br />A SphericalMarkerStyle provides styling for the default [Meta_Marker](../../Classes/struct_meta___marker.mdx) sphere model.  |
+| struct | **[Meta_Stack](../../Classes/struct_meta___stack.mdx)** <br />A Stack is a container that provides layout controls for its child objects.  |
+| struct | **[Meta_StdMaterial](../../Classes/struct_meta___std_material.mdx)** <br />A StdMaterial describes a standard material that can be applied to numerous 3D objects (geogroups, visuals, etc)  |
+| struct | **[Meta_SurfaceShaderDefinition](../../Classes/struct_meta___surface_shader_definition.mdx)** <br />A SurfaceShaderDefinition represents a shader object, expected to be used by a [Meta_SurfaceShaderInstance.  |
+| struct | **[Meta_SurfaceShaderInstance](../../Classes/struct_meta___surface_shader_instance.mdx)** <br />Meta_SurfaceShaderInstances are associated with Materials, when attached as a child of a material they will effect the vertex and/or fragment shaders of any visuals rendered with said material.  |
+| struct | **[Meta_System](../../Classes/struct_meta___system.mdx)** <br />The System node contains protected nodes required for the application to function.  |
+| struct | **[Meta_SystemCollision](../../Classes/struct_meta___system_collision.mdx)** <br />A SystemCollision node is used to override [Meta_Visual system collision.  |
+| struct | **[Meta_TextBox](../../Classes/struct_meta___text_box.mdx)**  |
+| struct | **[Meta_Texture](../../Classes/struct_meta___texture.mdx)** <br />A Texture contains image data that is referenced by materials.  |
+| struct | **[Meta_TexturedButtonStyle](../../Classes/struct_meta___textured_button_style.mdx)** <br />A TexturedButtonStyle provides controls for texturing a [Meta_Button](../../Classes/struct_meta___button.mdx) as well as content layout controls.  |
+| struct | **[Meta_TexturedLabelStyle](../../Classes/struct_meta___textured_label_style.mdx)**  |
+| struct | **[Meta_TexturedPanelStyle](../../Classes/struct_meta___textured_panel_style.mdx)** <br />A TexturedPanelStyle provides an image background for a panel or stack.  |
+| struct | **[Meta_TimeIntervalGuard](../../Classes/struct_meta___time_interval_guard.mdx)** <br />A TimeIntervalGuard prevents script event dispatch unless the specified interval has passed since the last time.  |
+| struct | **[Meta_TrackedARMarker](../../Classes/struct_meta___tracked_a_r_marker.mdx)** <br />Represents an AR marker that is currently being tracked by a headset, for example.  |
+| struct | **[Meta_TrackerInput](../../Classes/struct_meta___tracker_input.mdx)** <br />A TrackerInput represents a link to a particular part of a device, and can read data from it and feed it to a [Meta_TrackerPRSLink.  |
+| struct | **[Meta_TrackerOutput](../../Classes/struct_meta___tracker_output.mdx)** <br />A TrackerOutput represents a link to a particular part of a device, and can send data to it directly.  |
+| struct | **[Meta_TrackerPRSLink](../../Classes/struct_meta___tracker_p_r_s_link.mdx)** <br />A TrackerPRSLink connects to [Meta_TrackerInput](../../Classes/struct_meta___tracker_input.mdx) nodes and translates their input data into a transformation matrix.  |
+| struct | **[Meta_Transform](../../Classes/struct_meta___transform.mdx)** <br />A Transform is a special node that when parented to a [Meta_Visual overrides its local transform (distinctly from the Assembly).  |
+| struct | **[Meta_TransformLimits](../../Classes/struct_meta___transform_limits.mdx)** <br />Defines limits that can be applied to constrain an Assembly's transform values.  |
+| struct | **[Meta_TransformLink](../../Classes/struct_meta___transform_link.mdx)** <br />A TransformLink synchronises the transform of the source node onto the target node (and optionally the other way)  |
+| struct | **[Meta_TreeViewItem](../../Classes/struct_meta___tree_view_item.mdx)** <br />A TreeViewItem is a simple base element for constructing tree-view style UIs.  |
+| struct | **[Meta_Typeface](../../Classes/struct_meta___typeface.mdx)** <br />A Typeface appears under a [Meta_FontList](../../Classes/struct_meta___font_list.mdx), containing the Typeface name of a font on the system.  |
+| struct | **[Meta_UntargettedViewport](../../Classes/struct_meta___untargetted_viewport.mdx)** <br />An UntargettedViewport represents a viewport occupying a specified rectangle of a window (range 0 to 1) which renders the 3D scene using the specified view and projection matrices.  |
+| struct | **[Meta_User](../../Classes/struct_meta___user.mdx)** <br />A User node represents a user, either the local user, or a member of a collaborative session.  |
+| struct | **[Meta_UserLink](../../Classes/struct_meta___user_link.mdx)** <br />A pointer type metanode that is not cleaned up by the group manager...  |
+| struct | **[Meta_UsersList](../../Classes/struct_meta___users_list.mdx)** <br />The UsersList represents the Users node in the tree.  |
+| struct | **[Meta_VertexAttrib](../../Classes/struct_meta___vertex_attrib.mdx)** <br />A VertexAttrib node contains raw data describing a collection of vertices.  |
+| struct | **[Meta_VertexPrim](../../Classes/struct_meta___vertex_prim.mdx)** <br />A VertexPrim specifies a range of vertices in [Meta_VertexAttrib](../../Classes/struct_meta___vertex_attrib.mdx) siblings to render from, requiring this data to be in primitive order (and possibly duplicated)  |
+| struct | **[Meta_View](../../Classes/struct_meta___view.mdx)** <br />a View can be inserted at any point in the scene, and will be rendered into either the framebuffer or any child RenderTarget's there may be.  |
+| struct | **[Meta_ViewFilter](../../Classes/struct_meta___view_filter.mdx)** <br />[Meta_ViewFilter's are associated with Views, and correspond to a full-screen quad being drawn over the View executing a fragment shader function.  |
+| struct | **[Meta_Viewpoint](../../Classes/struct_meta___viewpoint.mdx)** <br />[Meta_Viewpoint represents camera settings for a specific view on the scene. It should be a child of a [Meta_Assembly](../../Classes/struct_meta___assembly.mdx).  |
+| struct | **[Meta_ViewpointList](../../Classes/struct_meta___viewpoint_list.mdx)** <br />A ViewpointList is a container for saved Viewpoints.  |
+| struct | **[Meta_ViewpointSelector](../../Classes/struct_meta___viewpoint_selector.mdx)** <br />A ViewpointSelector displays all viewpoints in the scene.  |
+| struct | **[Meta_Viewport](../../Classes/struct_meta___viewport.mdx)** <br />A Viewport occupies a specified rectangle of a window (range 0 to 1) which renders the 3D scene from the specified eye points looking at the specified screen rectangles.  |
+| struct | **[Meta_ViewportLayout](../../Classes/struct_meta___viewport_layout.mdx)** <br />A ViewportLayout is displayed by a Window and contains one or more Viewports.  |
+| struct | **[Meta_ViewShader](../../Classes/struct_meta___view_shader.mdx)** <br />A ViewShader represents a shader object, expected to be used by a [Meta_ViewFilter](../../Classes/struct_meta___view_filter.mdx).  |
+| struct | **[Meta_Visual](../../Classes/struct_meta___visual.mdx)** <br />A Visual provides an instance of a [Meta_Model](../../Classes/struct_meta___model.mdx), and is attached as a child of a [Meta_Assembly](../../Classes/struct_meta___assembly.mdx) to position it in the scene.  |
+| struct | **[Meta_WaterMaterial](../../Classes/struct_meta___water_material.mdx)** <br />A WaterMaterial provies [Meta_Ocean](../../Classes/struct_meta___ocean.mdx) rendering on an object.  |
+| struct | **[Meta_Window](../../Classes/struct_meta___window.mdx)** <br />A Window represents an actual application window displaying some viewports.  |
+| struct | **[Meta_ZSpaceViewport](../../Classes/struct_meta___z_space_viewport.mdx)** <br />A ZSpaceViewport is a derivative of Viewport that specifically handles interaction with a zSpace device.  |
+| struct | **[Trait_AbstractTrait](../../Classes/struct_trait___abstract_trait.mdx)** <br />Trait used to identify other traits, allowing all registered traits to be identified by Trait_AbstractTrait::IsType to distinguish them from regular metanodes for code that needs to know that.  |
+
+## Defines
+
+|                | Name           |
+| -------------- | -------------- |
+|  | **[vrtree_API](../Metanodes/group__api__metadefs.mdx#define-vrtree-api)**  |
+
+## Detailed Description
+
+Listing of metanode structures, describing their purpose and listing their property index and any other supplementary enumerations. 
+
+**Note**: 
+
+  * This documentation is generated from the application headers, where, conventionally, a `Meta_` prefix is used, and an `IDX` enum lists the properties in order, with an `Idx_` prefix. So [Meta_Animation::Idx_Interpolation](../../Classes/struct_meta___animation.mdx#enumvalue-idx-interpolation) refers to the `Interpolation` property on the `Animation` metanode.
+  * When applying this information to scripts and plugins, which operate on node and property names, omit the `Meta_` and `Idx_` prefixes
+
+
+
+Enum values that specify "symbols" are for int properties that expect a particular internal value. Since this value may change over time, in order to allow plugins to remain compatible between versions, it is recommended to use these symbols to set these values, rather than the raw integer values. The Lua symbol can be used as-is, as it is global in the Lua state. The C symbols can be used with [VRSetPropertyEnum](../Metanodes/group__api__metanodes__properties.mdx#vrsetpropertyenum) and related functions. 
+
+
+
+
+## Macros Documentation
+
+### define vrtree_API
+
+```
+#define vrtree_API 
+```
+
+
+
+

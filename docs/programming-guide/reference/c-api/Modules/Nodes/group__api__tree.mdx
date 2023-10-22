@@ -1,0 +1,848 @@
+---
+title: Tree
+summary: Functions for operating on the node structure of the VR Tree. 
+
+---
+
+# Tree
+
+Functions for operating on the node structure of the VR Tree. 
+
+## Functions
+
+|                | Name           |
+| -------------- | -------------- |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRCloneNode](../Modules/group__api__tree.mdx#vrclonenode)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) parentNode, [HNode](../Modules/group__api__types.mdx#typedef-hnode) nodeToClone, int recursive)<br />Clones an existing node.  |
+| int | **[VRCompareNode](../Modules/group__api__tree.mdx#vrcomparenode)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) lhs, [HNode](../Modules/group__api__types.mdx#typedef-hnode) rhs, int checkNameMatches)<br />Compares all the properties on both nodes to make sure they are equal.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRCreateNode](../Modules/group__api__tree.mdx#vrcreatenode)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) parentNode, const char * metaName, const char * nodeName)<br />Creates a node.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRCreateNodeEx](../Modules/group__api__tree.mdx#vrcreatenodeex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) parentNode, const char * metaName, const char * nodeName, uint64_t flags, uint64_t idLO, uint64_t idHI, int userChange)<br />Creates a node.  |
+| int | **[VRDeleteNode](../Modules/group__api__tree.mdx#vrdeletenode)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Deletes a node and all its children.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRFind](../Modules/group__api__tree.mdx#vrfind)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) startNode, const char * path)<br />Finds a descendant of startNode using its path.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRFindChild](../Modules/group__api__tree.mdx#vrfindchild)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) startNode, const char * childName, uint32_t index)<br />Finds a direct child of startNode. Index is used to specify n'th child if multiple children have the same name.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRFindChildPooled](../Modules/group__api__tree.mdx#vrfindchildpooled)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) startNode, const char * metaNode, const char * childName)<br />Finds a direct child of startNode by specifying name and type.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRFindOrCreateChild](../Modules/group__api__tree.mdx#vrfindorcreatechild)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) parentNode, const char * metaName, const char * nodeName)<br />Gets or creates a node matching metanode and name.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRFindOrCreateChildEx](../Modules/group__api__tree.mdx#vrfindorcreatechildex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) parentNode, const char * metaName, const char * nodeName, uint64_t flags, uint64_t idLO, uint64_t idHI, int userChange)<br />Gets or creates a node matching metanode and name.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRGetChild](../Modules/group__api__tree.mdx#vrgetchild)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Gets the first child of node.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRGetChildOfType](../Modules/group__api__tree.mdx#vrgetchildoftype)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * childMetaNode)<br />Gets the first child of a specific type.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRGetLibrariesNode](../Modules/group__api__tree.mdx#vrgetlibrariesnode)**(void )<br />Gets the VRTree libraries node.  |
+| [HMeta](../Modules/group__api__types.mdx#typedef-hmeta) | **[VRGetMetaNode](../Modules/group__api__tree.mdx#vrgetmetanode)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Gets the metanode of a node.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRGetNext](../Modules/group__api__tree.mdx#vrgetnext)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Gets the next sibling of a node.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRGetNextOfType](../Modules/group__api__tree.mdx#vrgetnextoftype)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * nextMetaNode)<br />Gets the next sibling of a specific type.  |
+| size_t | **[VRGetNodeName](../Modules/group__api__tree.mdx#vrgetnodename)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, char * buffer, size_t bufferLength)<br />Gets the name of a node.  |
+| size_t | **[VRGetNodeNameLength](../Modules/group__api__tree.mdx#vrgetnodenamelength)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Gets the length of a node's name, plus 1 for the trailing null terminator.  |
+| size_t | **[VRGetNodePath](../Modules/group__api__tree.mdx#vrgetnodepath)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, char * buffer, size_t bufferLength)<br />Gets the path of a node.  |
+| size_t | **[VRGetNodePathLength](../Modules/group__api__tree.mdx#vrgetnodepathlength)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Gets the length of a node's path.  |
+| void * | **[VRGetNodeUserData](../Modules/group__api__tree.mdx#vrgetnodeuserdata)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, [HUserSlot](../Modules/group__api__types.mdx#typedef-huserslot) slot)<br />Stores a pointer on the node.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRGetParent](../Modules/group__api__tree.mdx#vrgetparent)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Gets the parent of a node.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRGetPrev](../Modules/group__api__tree.mdx#vrgetprev)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Gets the previous sibling of a node.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRGetPrevOfType](../Modules/group__api__tree.mdx#vrgetprevoftype)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * prevMetaNode)<br />Gets the previous sibling of a specific type.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRGetRootNode](../Modules/group__api__tree.mdx#vrgetrootnode)**(void )<br />Gets the VRTree root node.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRGetScenesNode](../Modules/group__api__tree.mdx#vrgetscenesnode)**(void )<br />Gets the VRTree scenes node.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRGetSystemLibraryNode](../Modules/group__api__tree.mdx#vrgetsystemlibrarynode)**(void )<br />Gets the VRTree system library node.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRGetThisUser](../Modules/group__api__tree.mdx#vrgetthisuser)**(void )<br />Gets the VRTree user node.  |
+| size_t | **[VRGetType](../Modules/group__api__tree.mdx#vrgettype)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, char * buffer, size_t bufferLength)<br />Gets the type of a node.  |
+| size_t | **[VRGetTypeLength](../Modules/group__api__tree.mdx#vrgettypelength)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Gets the length of the type name of a node.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRGetUsersNode](../Modules/group__api__tree.mdx#vrgetusersnode)**(void )<br />Gets the VRTree users node.  |
+| int | **[VRIsAncestor](../Modules/group__api__tree.mdx#vrisancestor)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) a, [HNode](../Modules/group__api__types.mdx#typedef-hnode) b)<br />Checks if node a is an ancestor of node b.  |
+| int | **[VRIsDirty](../Modules/group__api__tree.mdx#vrisdirty)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName)<br />Determines if a node value has been changed/dirtied.  |
+| int | **[VRIsDirtyEx](../Modules/group__api__tree.mdx#vrisdirtyex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop)<br />Determines if a node value has been changed/dirtied.  |
+| int | **[VRIsNodeName](../Modules/group__api__tree.mdx#vrisnodename)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * name)<br />Checks if the name of the node is equal to parameter.  |
+| int | **[VRIsSameNode](../Modules/group__api__tree.mdx#vrissamenode)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) a, [HNode](../Modules/group__api__types.mdx#typedef-hnode) b)<br />Checks if two node handles are pointing at the same node.  |
+| int | **[VRIsType](../Modules/group__api__tree.mdx#vristype)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * metaName)<br />Determines if a node is of a particular type.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRLoadTree](../Modules/group__api__tree.mdx#vrloadtree)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) targetNode, const char * fileName)<br />Loads a VRText or VRNative format file from disk.  |
+| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRLoadTreeEx](../Modules/group__api__tree.mdx#vrloadtreeex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) targetNode, const char * fileName, uint64_t ioFlags, uint32_t builderFlags, uint32_t builderMetaFlags)<br />Loads a VRText or VRNative format file from disk.  |
+| int | **[VRSaveTree](../Modules/group__api__tree.mdx#vrsavetree)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) rootNode, const char * fileName)<br />Saves the tree to a VRText or VRNative format file on disk.  |
+| int | **[VRSaveTreeEx](../Modules/group__api__tree.mdx#vrsavetreeex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) rootNode, const char * fileName, uint64_t ioFlags)<br />Saves the tree to a VRText or VRNative format file on disk.  |
+| int | **[VRSetNodeName](../Modules/group__api__tree.mdx#vrsetnodename)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * name)<br />Sets the name of a node.  |
+| void * | **[VRSetNodeUserData](../Modules/group__api__tree.mdx#vrsetnodeuserdata)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, [HUserSlot](../Modules/group__api__types.mdx#typedef-huserslot) slot, void * data)<br />Stores a pointer on the node.  |
+| int | **[VRSetParent](../Modules/group__api__tree.mdx#vrsetparent)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, [HNode](../Modules/group__api__types.mdx#typedef-hnode) parent)<br />Sets the parent of a node, adding it as the last child.  |
+| int | **[VRSetParentEx](../Modules/group__api__tree.mdx#vrsetparentex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, [HNode](../Modules/group__api__types.mdx#typedef-hnode) parent, [HNode](../Modules/group__api__types.mdx#typedef-hnode) afterSibling)<br />Sets the parent of a node, specifying a sibling to insert after.  |
+
+
+## Functions Documentation
+
+### VRCloneNode
+
+```
+HNode VRCloneNode(
+    HNode parentNode,
+    HNode nodeToClone,
+    int recursive
+)
+```
+
+Clones an existing node. 
+
+**Parameters**: 
+
+  * **parentNode** Handle to the parent of the new node 
+  * **nodeToClone** the node to copy 
+  * **recursive** if not 0, also copies descendants 
+
+
+**Return**: the copy of nodeToClone 
+
+### VRCompareNode
+
+```
+int VRCompareNode(
+    HNode lhs,
+    HNode rhs,
+    int checkNameMatches
+)
+```
+
+Compares all the properties on both nodes to make sure they are equal. 
+
+**Parameters**: 
+
+  * **lhs** first node to compare 
+  * **rhs** second node to compare 
+  * **checkNameMatches** whether to compare the node name as well as the properties (non-zero to enable) 
+
+
+**Return**: 1 if the nodes are the same, 0 if they are not 
+
+### VRCreateNode
+
+```
+HNode VRCreateNode(
+    HNode parentNode,
+    const char * metaName,
+    const char * nodeName
+)
+```
+
+Creates a node. 
+
+**Parameters**: 
+
+  * **parentNode** Handle to the parent of the new node 
+  * **metaName** type of node to create 
+  * **nodeName** name of the new node 
+
+
+**Return**: node handle 
+
+### VRCreateNodeEx
+
+```
+HNode VRCreateNodeEx(
+    HNode parentNode,
+    const char * metaName,
+    const char * nodeName,
+    uint64_t flags,
+    uint64_t idLO,
+    uint64_t idHI,
+    int userChange
+)
+```
+
+Creates a node. 
+
+**Parameters**: 
+
+  * **parentNode** Handle to the parent of the new node 
+  * **metaName** type of node to create 
+  * **nodeName** name of the new node 
+  * **flags** creation flags (bits) to provide to the new node 
+  * **idLO** low 64bits of a unique id (or 0 for auto ID) 
+  * **idHI** high 64bits of a unique id (or 0 for auto ID) 
+  * **userChange** whether the change is a response to a user action 
+
+
+**Note**: Flags larger than 16bits will be truncated. 
+
+### VRDeleteNode
+
+```
+int VRDeleteNode(
+    HNode node
+)
+```
+
+Deletes a node and all its children. 
+
+**Parameters**: 
+
+  * **node** the node to delete 
+
+
+**Return**: 0 if deletion successful 
+
+### VRFind
+
+```
+HNode VRFind(
+    HNode startNode,
+    const char * path
+)
+```
+
+Finds a descendant of startNode using its path. 
+
+**Parameters**: 
+
+  * **startNode** node to search from 
+  * **path** path from start node to requested node 
+
+
+**Return**: handle to requested node or NULL if not found 
+
+### VRFindChild
+
+```
+HNode VRFindChild(
+    HNode startNode,
+    const char * childName,
+    uint32_t index
+)
+```
+
+Finds a direct child of startNode. Index is used to specify n'th child if multiple children have the same name. 
+
+**Parameters**: 
+
+  * **startNode** node to get the child from 
+  * **childName** name of the child 
+  * **index** index of child with non-unique name 
+
+
+**Return**: handle to requested node or NULL if not found 
+
+### VRFindChildPooled
+
+```
+HNode VRFindChildPooled(
+    HNode startNode,
+    const char * metaNode,
+    const char * childName
+)
+```
+
+Finds a direct child of startNode by specifying name and type. 
+
+**Parameters**: 
+
+  * **startNode** node to get child from 
+  * **metaNode** type of child node to get 
+  * **childName** name of the child node to return 
+
+
+**Return**: handle to found node or NULL if not found 
+
+### VRFindOrCreateChild
+
+```
+HNode VRFindOrCreateChild(
+    HNode parentNode,
+    const char * metaName,
+    const char * nodeName
+)
+```
+
+Gets or creates a node matching metanode and name. 
+
+**Parameters**: 
+
+  * **parentNode** Handle to the parent of the node 
+  * **metaName** type of node to create 
+  * **nodeName** name of the new node 
+
+
+**Return**: node handle 
+
+### VRFindOrCreateChildEx
+
+```
+HNode VRFindOrCreateChildEx(
+    HNode parentNode,
+    const char * metaName,
+    const char * nodeName,
+    uint64_t flags,
+    uint64_t idLO,
+    uint64_t idHI,
+    int userChange
+)
+```
+
+Gets or creates a node matching metanode and name. 
+
+**Parameters**: 
+
+  * **parentNode** Handle to the parent of the node 
+  * **metaName** type of node to create 
+  * **nodeName** name of the new node 
+
+
+**Return**: node handle 
+
+### VRGetChild
+
+```
+HNode VRGetChild(
+    HNode node
+)
+```
+
+Gets the first child of node. 
+
+**Return**: first child or NULL if no children 
+
+### VRGetChildOfType
+
+```
+HNode VRGetChildOfType(
+    HNode node,
+    const char * childMetaNode
+)
+```
+
+Gets the first child of a specific type. 
+
+**Parameters**: 
+
+  * **childMetaNode** the type of child to get 
+
+
+**Return**: first child of requested type, or NULL if no children/no children of this type 
+
+### VRGetLibrariesNode
+
+```
+HNode VRGetLibrariesNode(
+    void 
+)
+```
+
+Gets the VRTree libraries node. 
+
+### VRGetMetaNode
+
+```
+HMeta VRGetMetaNode(
+    HNode node
+)
+```
+
+Gets the metanode of a node. 
+
+**Return**: metanode or NULL if no metanode 
+
+### VRGetNext
+
+```
+HNode VRGetNext(
+    HNode node
+)
+```
+
+Gets the next sibling of a node. 
+
+**Return**: sibling or NULL if no siblings 
+
+### VRGetNextOfType
+
+```
+HNode VRGetNextOfType(
+    HNode node,
+    const char * nextMetaNode
+)
+```
+
+Gets the next sibling of a specific type. 
+
+**Parameters**: 
+
+  * **nextMetaNode** the type of sibling to get 
+
+
+**Return**: next sibling of requested type, or NULL if no siblings/no siblings of this type 
+
+### VRGetNodeName
+
+```
+size_t VRGetNodeName(
+    HNode node,
+    char * buffer,
+    size_t bufferLength
+)
+```
+
+Gets the name of a node. 
+
+**Parameters**: 
+
+  * **node** handle to the node 
+  * **buffer** a buffer to receive the node name as a null terminated string 
+  * **size** size of the buffer 
+
+
+**Return**: the number of characters written to the buffer (including trailing null) 
+
+### VRGetNodeNameLength
+
+```
+size_t VRGetNodeNameLength(
+    HNode node
+)
+```
+
+Gets the length of a node's name, plus 1 for the trailing null terminator. 
+
+**Parameters**: 
+
+  * **node** handle to the node 
+
+
+### VRGetNodePath
+
+```
+size_t VRGetNodePath(
+    HNode node,
+    char * buffer,
+    size_t bufferLength
+)
+```
+
+Gets the path of a node. 
+
+**Parameters**: 
+
+  * **node** handle to the node 
+  * **buffer** a buffer to recieve the node path as a null terminated string 
+  * **size** size of the buffer 
+
+
+**Return**: the number of characters written to the buffer (including trailing null) 
+
+**Note**: if buffer is null, function returns the required size of the buffer 
+
+### VRGetNodePathLength
+
+```
+size_t VRGetNodePathLength(
+    HNode node
+)
+```
+
+Gets the length of a node's path. 
+
+**Parameters**: 
+
+  * **node** handle to the node 
+
+
+### VRGetNodeUserData
+
+```
+void * VRGetNodeUserData(
+    HNode node,
+    HUserSlot slot
+)
+```
+
+Stores a pointer on the node. 
+
+**Parameters**: 
+
+  * **node** handle to the node 
+
+
+**Return**: user data bound to slot 
+
+### VRGetParent
+
+```
+HNode VRGetParent(
+    HNode node
+)
+```
+
+Gets the parent of a node. 
+
+**Return**: parent node or NULL if no parent (root node) 
+
+### VRGetPrev
+
+```
+HNode VRGetPrev(
+    HNode node
+)
+```
+
+Gets the previous sibling of a node. 
+
+**Return**: sibling or NULL if no siblings 
+
+### VRGetPrevOfType
+
+```
+HNode VRGetPrevOfType(
+    HNode node,
+    const char * prevMetaNode
+)
+```
+
+Gets the previous sibling of a specific type. 
+
+**Parameters**: 
+
+  * **prevMetaNode** the type of sibling to get 
+
+
+**Return**: previous sibling of requested type, or NULL if no siblings/no siblings of this type 
+
+### VRGetRootNode
+
+```
+HNode VRGetRootNode(
+    void 
+)
+```
+
+Gets the VRTree root node. 
+
+### VRGetScenesNode
+
+```
+HNode VRGetScenesNode(
+    void 
+)
+```
+
+Gets the VRTree scenes node. 
+
+### VRGetSystemLibraryNode
+
+```
+HNode VRGetSystemLibraryNode(
+    void 
+)
+```
+
+Gets the VRTree system library node. 
+
+### VRGetThisUser
+
+```
+HNode VRGetThisUser(
+    void 
+)
+```
+
+Gets the VRTree user node. 
+
+### VRGetType
+
+```
+size_t VRGetType(
+    HNode node,
+    char * buffer,
+    size_t bufferLength
+)
+```
+
+Gets the type of a node. 
+
+**Parameters**: 
+
+  * **node** handle to the node 
+  * **buffer** a buffer to recieve the node type name as a null terminated string 
+  * **size** size of the buffer 
+
+
+**Return**: the number of characters written to the buffer (including trailing null) 
+
+### VRGetTypeLength
+
+```
+size_t VRGetTypeLength(
+    HNode node
+)
+```
+
+Gets the length of the type name of a node. 
+
+### VRGetUsersNode
+
+```
+HNode VRGetUsersNode(
+    void 
+)
+```
+
+Gets the VRTree users node. 
+
+### VRIsAncestor
+
+```
+int VRIsAncestor(
+    HNode a,
+    HNode b
+)
+```
+
+Checks if node a is an ancestor of node b. 
+
+**Parameters**: 
+
+  * **a** first node 
+  * **b** second node 
+
+
+**Return**: 1 if a is an ancestor of b 
+
+### VRIsDirty
+
+```
+int VRIsDirty(
+    HNode node,
+    const char * propName
+)
+```
+
+Determines if a node value has been changed/dirtied. 
+
+**Parameters**: 
+
+  * **node** handle to the node 
+  * **propName** name of the property on this node 
+
+
+**Return**: 1 if node property is dirty, 0 if it is not 
+
+### VRIsDirtyEx
+
+```
+int VRIsDirtyEx(
+    HNode node,
+    uint32_t prop
+)
+```
+
+Determines if a node value has been changed/dirtied. 
+
+**Parameters**: 
+
+  * **node** handle to the node 
+  * **prop** the index of the property to set 
+
+
+**Return**: 1 if node property is dirty, 0 if it is not 
+
+### VRIsNodeName
+
+```
+int VRIsNodeName(
+    HNode node,
+    const char * name
+)
+```
+
+Checks if the name of the node is equal to parameter. 
+
+**Parameters**: 
+
+  * **node** handle to the node 
+  * **name** to check against 
+
+
+**Return**: 1 if name is equal -1 if node invalid 0 if not equal 
+
+### VRIsSameNode
+
+```
+int VRIsSameNode(
+    HNode a,
+    HNode b
+)
+```
+
+Checks if two node handles are pointing at the same node. 
+
+**Parameters**: 
+
+  * **a** first node 
+  * **b** second node 
+
+
+**Return**: 1 if the nodes are the same 
+
+### VRIsType
+
+```
+int VRIsType(
+    HNode node,
+    const char * metaName
+)
+```
+
+Determines if a node is of a particular type. 
+
+**Parameters**: 
+
+  * **node** handle to the node 
+  * **metaName** name of the node type to match 
+
+
+**Return**: 1 if node is of type metaName, 0 if it is not 
+
+### VRLoadTree
+
+```
+HNode VRLoadTree(
+    HNode targetNode,
+    const char * fileName
+)
+```
+
+Loads a VRText or VRNative format file from disk. 
+
+**Parameters**: 
+
+  * **targetNode** the node to load the file onto (usually root) 
+  * **fileName** the full path to the file to load 
+
+
+**Return**: The first new child of targetNode, or NULL if load failed 
+
+### VRLoadTreeEx
+
+```
+HNode VRLoadTreeEx(
+    HNode targetNode,
+    const char * fileName,
+    uint64_t ioFlags,
+    uint32_t builderFlags,
+    uint32_t builderMetaFlags
+)
+```
+
+Loads a VRText or VRNative format file from disk. 
+
+**Parameters**: 
+
+  * **targetNode** the node to load the file onto (usually root) 
+  * **fileName** the full path to the file to load 
+  * **ioFlags** Input flags to apply while loading the tree 
+  * **builderFlags** flags which adjust the behaviour of the builder 
+  * **builderMetaFlags** additional MetaNode flags applied to nodes created by the tree builder 
+
+
+**Return**: The first new child of targetNode, or NULL if load failed 
+
+### VRSaveTree
+
+```
+int VRSaveTree(
+    HNode rootNode,
+    const char * fileName
+)
+```
+
+Saves the tree to a VRText or VRNative format file on disk. 
+
+**Parameters**: 
+
+  * **rootNode** the node to start saving from (usually root) 
+  * **fileName** the full path to the file to save to 
+
+
+**Return**: 0 if the save was successful 
+
+### VRSaveTreeEx
+
+```
+int VRSaveTreeEx(
+    HNode rootNode,
+    const char * fileName,
+    uint64_t ioFlags
+)
+```
+
+Saves the tree to a VRText or VRNative format file on disk. 
+
+**Parameters**: 
+
+  * **rootNode** the node to start saving from (usually root). 
+  * **fileName** the full path to the file to save to. 
+
+
+**Return**: 0 if the save was successful. 
+
+### VRSetNodeName
+
+```
+int VRSetNodeName(
+    HNode node,
+    const char * name
+)
+```
+
+Sets the name of a node. 
+
+**Parameters**: 
+
+  * **node** handle to the node 
+  * **name** the new node name 
+
+
+**Return**: 0 on success 
+
+### VRSetNodeUserData
+
+```
+void * VRSetNodeUserData(
+    HNode node,
+    HUserSlot slot,
+    void * data
+)
+```
+
+Stores a pointer on the node. 
+
+**Parameters**: 
+
+  * **node** handle to the node 
+  * **data** which you wish to store in slot, can be null to remove data 
+
+
+**Return**: previously bound data, if any 
+
+### VRSetParent
+
+```
+int VRSetParent(
+    HNode node,
+    HNode parent
+)
+```
+
+Sets the parent of a node, adding it as the last child. 
+
+**Return**: 0 on success 
+
+### VRSetParentEx
+
+```
+int VRSetParentEx(
+    HNode node,
+    HNode parent,
+    HNode afterSibling
+)
+```
+
+Sets the parent of a node, specifying a sibling to insert after. 
+
+**Parameters**: 
+
+  * **afterSibling** the node after which to insert this node. If null, inserts as first child of parent 
+
+
+**Return**: 0 on success 
+
+
+
+
+
