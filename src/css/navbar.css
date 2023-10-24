@@ -16,7 +16,10 @@ flickers but it's an improvement
 /* Light Mode */
 
 [data-theme='light'] {
+  --ifm-navbar-height: 3.75rem;
   --ifm-navbar-background-color: var(--visren-color-light-purple);
+  --ifm-navbar-search-input-background-color: var(--visren-color-light-purple-highlight);
+  --ifm-navbar-search-input-color: var(--ifm-color-gray-500);
 }
 [data-theme='light'] .navbar__item {
   color: var(--visren-color-light-navbar-text);
@@ -39,7 +42,10 @@ flickers but it's an improvement
 /* Dark Mode */
 
 [data-theme='dark'] {
+  --ifm-navbar-height: 3.75rem;
   --ifm-navbar-background-color: var(--visren-color-dark-purple);
+  --ifm-navbar-search-input-background-color: var(--visren-color-darker-purple);
+  --ifm-navbar-search-input-color: var(--ifm-color-gray-700);
 }
 [data-theme='dark'] .navbar__item {
   color: var(--visren-color-dark-navbar-text);
