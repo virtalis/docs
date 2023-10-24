@@ -1,7 +1,6 @@
 ---
 title: Semantics and Hints
 summary: Functions for adding semantics and hints. 
-
 ---
 
 # Semantics and Hints
@@ -12,7 +11,7 @@ Functions for adding semantics and hints.
 
 ## Functions
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | int | **[VRAddGuiHintBool](../Modules/group__api__metanodes__semantics.mdx#vraddguihintbool)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, const char * hintName, char value)<br />Adds a bool gui hint to the metanode. Used to provide hints about how to display the property in a gui.  |
 | int | **[VRAddGuiHintDouble](../Modules/group__api__metanodes__semantics.mdx#vraddguihintdouble)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * propertyName, const char * hintName, double value)<br />Adds a double gui hint to the metanode. Used to provide hints about how to display the property in a gui.  |
@@ -22,12 +21,11 @@ Functions for adding semantics and hints.
 | int | **[VRAddTrait](../Modules/group__api__metanodes__semantics.mdx#vraddtrait)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * traitName)<br />Adds a trait to a metanode (a description of its purpose).  |
 | int | **[VRAddTraitEx](../Modules/group__api__metanodes__semantics.mdx#vraddtraitex)**([HMeta](../Modules/group__api__types.mdx#typedef-hmeta) metaNode, const char * traitName, int primaryIdx)<br />Adds a trait to a metanode (a description of its purpose).  |
 
-
 ## Functions Documentation
 
 ### VRAddGuiHintBool
 
-```
+```cpp
 int VRAddGuiHintBool(
     HMeta metaNode,
     const char * propertyName,
@@ -45,10 +43,9 @@ Adds a bool gui hint to the metanode. Used to provide hints about how to display
   * **hintName** the name of the hint to add 
   * **value** the value 
 
-
 ### VRAddGuiHintDouble
 
-```
+```cpp
 int VRAddGuiHintDouble(
     HMeta metaNode,
     const char * propertyName,
@@ -66,10 +63,9 @@ Adds a double gui hint to the metanode. Used to provide hints about how to displ
   * **hintName** the name of the hint to add 
   * **value** the value 
 
-
 ### VRAddGuiHintInt
 
-```
+```cpp
 int VRAddGuiHintInt(
     HMeta metaNode,
     const char * propertyName,
@@ -87,10 +83,9 @@ Adds an int gui hint to the metanode. Used to provide hints about how to display
   * **hintName** the name of the hint to add 
   * **value** the value 
 
-
 ### VRAddGuiHintString
 
-```
+```cpp
 int VRAddGuiHintString(
     HMeta metaNode,
     const char * propertyName,
@@ -108,10 +103,9 @@ Adds a string gui hint to the metanode. Used to provide hints about how to displ
   * **hintName** the name of the hint to add 
   * **value** the value 
 
-
 ### VRAddSymbol
 
-```
+```cpp
 int VRAddSymbol(
     HMeta metaNode,
     const char * symName,
@@ -127,12 +121,11 @@ Adds a symbol to the metanode. Used to provide string representations of enum va
   * **symName** name of the symbol to add 
   * **symValue** value of the symbol 
 
-
 **Return**: 0 on success 
 
 ### VRAddTrait
 
-```
+```cpp
 int VRAddTrait(
     HMeta metaNode,
     const char * traitName
@@ -146,12 +139,11 @@ Adds a trait to a metanode (a description of its purpose).
   * **metaNode** handle to the metanode to modify 
   * **traitName** name of the trait to add 
 
-
 **Return**: 0 if trait was added successfully 
 
 ### VRAddTraitEx
 
-```
+```cpp
 int VRAddTraitEx(
     HMeta metaNode,
     const char * traitName,
@@ -167,10 +159,4 @@ Adds a trait to a metanode (a description of its purpose).
   * **traitName** name of the trait to add 
   * **primaryIdx** index of the primary property that can be associated with the trait 
 
-
 **Return**: 0 if trait was added successfully 
-
-
-
-
-

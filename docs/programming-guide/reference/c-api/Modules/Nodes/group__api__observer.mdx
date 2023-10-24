@@ -1,7 +1,6 @@
 ---
 title: Observers
 summary: Callback registration functions for observed node events. 
-
 ---
 
 # Observers
@@ -10,7 +9,7 @@ Callback registration functions for observed node events.
 
 ## Functions
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | void | **[VRAddCallbackActivate](../Modules/group__api__observer.mdx#vraddcallbackactivate)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, [EventTwoNodesUserFunc](../Modules/group__api__proto.mdx#typedef-eventtwonodesuserfunc) callback, void * userData, int flags)<br />Event callbacks. Some already exist : VRAddCallbackUpdate for Event::TimeStep VRAddCallbackNodeCreation for Event::Create VRAddCallbackNodeDestruction for Event::Delete VRAddCallbackNodeRenamed for Event::Rename.  |
 | void | **[VRAddCallbackBreak](../Modules/group__api__observer.mdx#vraddcallbackbreak)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, [EventTwoNodesFunc](../Modules/group__api__proto.mdx#typedef-eventtwonodesfunc) callback, void * userData, int flags)<br />Add Break callback (assembly has ceased colliding)  |
@@ -69,12 +68,11 @@ Callback registration functions for observed node events.
 | void | **[VRRemoveCallbackUpdate](../Modules/group__api__observer.mdx#vrremovecallbackupdate)**([UpdateFunc](../Modules/group__api__proto.mdx#typedef-updatefunc) callback)<br />Unregisters an update function.  |
 | void | **[VRRemoveCallbackUpdateEx](../Modules/group__api__observer.mdx#vrremovecallbackupdateex)**([UpdateFunc](../Modules/group__api__proto.mdx#typedef-updatefunc) callback, void * userData)<br />Unregisters an update function.  |
 
-
 ## Functions Documentation
 
 ### VRAddCallbackActivate
 
-```
+```cpp
 void VRAddCallbackActivate(
     HNode node,
     EventTwoNodesUserFunc callback,
@@ -92,13 +90,11 @@ Event callbacks. Some already exist : VRAddCallbackUpdate for Event::TimeStep VR
   * **userData** arbitrary data to pass to the callback 
   * **flags** additional flags for future use (must be zero) 
 
-
 View select and View deselect are added despite they are missing in the Event list in vrscript.hpp, 57 Add callback for Activate event of a node and the other node deactivated 
-
 
 ### VRAddCallbackBreak
 
-```
+```cpp
 void VRAddCallbackBreak(
     HNode node,
     EventTwoNodesFunc callback,
@@ -116,10 +112,9 @@ Add Break callback (assembly has ceased colliding)
   * **userData** arbitrary data to pass to the callback 
   * **flags** additional flags for future use (must be zero) 
 
-
 ### VRAddCallbackClick
 
-```
+```cpp
 void VRAddCallbackClick(
     HNode node,
     EventNodeFunc callback,
@@ -137,10 +132,9 @@ Add Click callback (button or similar node clicked)
   * **userData** arbitrary data to pass to the callback 
   * **flags** additional flags for future use (must be zero) 
 
-
 ### VRAddCallbackDoubleClick
 
-```
+```cpp
 void VRAddCallbackDoubleClick(
     HNode node,
     EventNodeFunc callback,
@@ -158,10 +152,9 @@ Add Double click callback (button or similar node double-clicked)
   * **userData** arbitrary data to pass to the callback 
   * **flags** additional flags for future use (must be zero) 
 
-
 ### VRAddCallbackEnter
 
-```
+```cpp
 void VRAddCallbackEnter(
     HNode node,
     EventNodeFunc callback,
@@ -179,10 +172,9 @@ Add Enter callback (a generic state was entered)
   * **userData** arbitrary data to pass to the callback 
   * **flags** additional flags for future use (must be zero) 
 
-
 ### VRAddCallbackGesture
 
-```
+```cpp
 void VRAddCallbackGesture(
     EventGestureFunc callback,
     void * userData,
@@ -198,10 +190,9 @@ Add Gesture callback (a hand activated a gesture)
   * **userData** arbitrary data to pass to the callback 
   * **flags** additional flags for future use (must be zero) 
 
-
 ### VRAddCallbackKeyPress
 
-```
+```cpp
 void VRAddCallbackKeyPress(
     EventKeyFunc callback,
     void * userData,
@@ -217,10 +208,9 @@ Add Key press callback (key was pressed)
   * **userData** arbitrary data to pass to the callback 
   * **flags** additional flags for future use (must be zero) 
 
-
 ### VRAddCallbackKeyRelease
 
-```
+```cpp
 void VRAddCallbackKeyRelease(
     EventKeyFunc callback,
     void * userData,
@@ -236,10 +226,9 @@ Add Key release callback (key was released)
   * **userData** arbitrary data to pass to the callback 
   * **flags** additional flags for future use (must be zero) 
 
-
 ### VRAddCallbackLeave
 
-```
+```cpp
 void VRAddCallbackLeave(
     HNode node,
     EventNodeFunc callback,
@@ -257,10 +246,9 @@ Add Leave callback (a generic state was left)
   * **userData** arbitrary data to pass to the callback 
   * **flags** additional flags for future use (must be zero) 
 
-
 ### VRAddCallbackMove
 
-```
+```cpp
 void VRAddCallbackMove(
     HNode node,
     EventNodeFunc callback,
@@ -278,10 +266,9 @@ Add Move callback. The �move� event applies to sliders, scrollbars and marke
   * **userData** arbitrary data to pass to the callback 
   * **flags** additional flags for future use (must be zero) 
 
-
 ### VRAddCallbackNodeChildAdded
 
-```
+```cpp
 void VRAddCallbackNodeChildAdded(
     const char * metaName,
     NodeChildAddedFunc callback,
@@ -297,10 +284,9 @@ Registers a function to be called whenever a node has a child added to it.
   * **callback** the function to call on creation 
   * **userData** arbitrary data to pass to the callback 
 
-
 ### VRAddCallbackNodeChildRemoved
 
-```
+```cpp
 void VRAddCallbackNodeChildRemoved(
     const char * metaName,
     NodeChildRemovedFunc callback,
@@ -316,10 +302,9 @@ Registers a function to be called whenever a node has a child removed from it.
   * **callback** the function to call on creation 
   * **userData** arbitrary data to pass to the callback 
 
-
 ### VRAddCallbackNodeCreation
 
-```
+```cpp
 void VRAddCallbackNodeCreation(
     const char * metaName,
     NodeCreatedFunc callback,
@@ -335,10 +320,9 @@ Registers a function to be called whenever a node is created.
   * **callback** the function to call on creation 
   * **userData** arbitrary data to pass to the callback 
 
-
 ### VRAddCallbackNodeDestruction
 
-```
+```cpp
 void VRAddCallbackNodeDestruction(
     const char * metaName,
     NodeDestroyingFunc callback,
@@ -354,10 +338,9 @@ Registers a function to be called whenever a node is deleted.
   * **callback** the function to call on deletion 
   * **userData** arbitrary data to pass to the callback 
 
-
 ### VRAddCallbackNodeParentChanged
 
-```
+```cpp
 void VRAddCallbackNodeParentChanged(
     const char * metaName,
     NodeParentChangedFunc callback,
@@ -373,10 +356,9 @@ Registers a function to be called whenever a node is moved to a new parent.
   * **callback** the function to call on creation 
   * **userData** arbitrary data to pass to the callback 
 
-
 ### VRAddCallbackNodeRenamed
 
-```
+```cpp
 void VRAddCallbackNodeRenamed(
     const char * metaName,
     NodeRenamedFunc callback,
@@ -392,10 +374,9 @@ Registers a function to be called whenever a node is renamed.
   * **callback** the function to call on creation 
   * **userData** arbitrary data to pass to the callback 
 
-
 ### VRAddCallbackNodeValuesChanged
 
-```
+```cpp
 void VRAddCallbackNodeValuesChanged(
     const char * metaName,
     NodeValuesChangedFunc callback,
@@ -411,10 +392,9 @@ Registers a function to be called whenever a node is modified.
   * **callback** the function to call on creation 
   * **userData** arbitrary data to pass to the callback 
 
-
 ### VRAddCallbackPoseEntered
 
-```
+```cpp
 void VRAddCallbackPoseEntered(
     EventKeyFunc callback,
     void * userData,
@@ -430,10 +410,9 @@ Add Pose entered callback (a hand switched to a pose)
   * **userData** arbitrary data to pass to the callback 
   * **flags** additional flags for future use (must be zero) 
 
-
 ### VRAddCallbackPoseLeft
 
-```
+```cpp
 void VRAddCallbackPoseLeft(
     EventKeyFunc callback,
     void * userData,
@@ -449,10 +428,9 @@ Add Pose left callback (a hand left a pose)
   * **userData** arbitrary data to pass to the callback 
   * **flags** additional flags for future use (must be zero) 
 
-
 ### VRAddCallbackPress
 
-```
+```cpp
 void VRAddCallbackPress(
     HNode node,
     EventNodeFunc callback,
@@ -470,10 +448,9 @@ Add Press callback (button or similar node pressed)
   * **userData** arbitrary data to pass to the callback 
   * **flags** additional flags for future use (must be zero) 
 
-
 ### VRAddCallbackRelease
 
-```
+```cpp
 void VRAddCallbackRelease(
     HNode node,
     EventNodeFunc callback,
@@ -491,10 +468,9 @@ Add Release callback (button or similar node released)
   * **userData** arbitrary data to pass to the callback 
   * **flags** additional flags for future use (must be zero) 
 
-
 ### VRAddCallbackToggle
 
-```
+```cpp
 void VRAddCallbackToggle(
     HNode node,
     EventNodeFunc callback,
@@ -512,10 +488,9 @@ Add Toggle callback (button or similar node toggled)
   * **userData** arbitrary data to pass to the callback 
   * **flags** additional flags for future use (must be zero) 
 
-
 ### VRAddCallbackTouch
 
-```
+```cpp
 void VRAddCallbackTouch(
     HNode node,
     EventTwoNodesFunc callback,
@@ -533,10 +508,9 @@ Add Touch callback (assembly has collided)
   * **userData** arbitrary data to pass to the callback 
   * **flags** additional flags for future use (must be zero) 
 
-
 ### VRAddCallbackUpdate
 
-```
+```cpp
 void VRAddCallbackUpdate(
     UpdateFunc callback,
     void * userData
@@ -551,10 +525,9 @@ Registers a function to be called whenever VRTree updates (either by the host ap
   * **callback** the function to call on creation 
   * **userData** arbitrary data to pass to the callback 
 
-
 ### VRRemoveCallbackActivate
 
-```
+```cpp
 void VRRemoveCallbackActivate(
     HNode node,
     EventTwoNodesUserFunc callback
@@ -568,10 +541,9 @@ Remove callback for Activate event of a node and the other node deactivated.
   * **node** node handle 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackBreak
 
-```
+```cpp
 void VRRemoveCallbackBreak(
     HNode node,
     EventTwoNodesFunc callback
@@ -585,10 +557,9 @@ Remove Break callback (assembly has ceased colliding)
   * **node** node handle 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackClick
 
-```
+```cpp
 void VRRemoveCallbackClick(
     HNode node,
     EventNodeFunc callback
@@ -602,10 +573,9 @@ Remove Click callback (button or similar node clicked)
   * **node** node handle 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackDoubleClick
 
-```
+```cpp
 void VRRemoveCallbackDoubleClick(
     HNode node,
     EventNodeFunc callback
@@ -619,10 +589,9 @@ Remove Double click callback (button or similar node double-clicked)
   * **node** node handle 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackEnter
 
-```
+```cpp
 void VRRemoveCallbackEnter(
     HNode node,
     EventNodeFunc callback
@@ -636,10 +605,9 @@ Remove Enter callback (a generic state was entered)
   * **node** node handle 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackGesture
 
-```
+```cpp
 void VRRemoveCallbackGesture(
     EventGestureFunc callback
 )
@@ -651,10 +619,9 @@ Remove Gesture callback (a hand activated a gesture)
 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackKeyPress
 
-```
+```cpp
 void VRRemoveCallbackKeyPress(
     EventKeyFunc callback
 )
@@ -666,10 +633,9 @@ Remove Key press callback (key was pressed)
 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackKeyRelease
 
-```
+```cpp
 void VRRemoveCallbackKeyRelease(
     EventKeyFunc callback
 )
@@ -681,10 +647,9 @@ Remove Key release callback (key was released)
 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackLeave
 
-```
+```cpp
 void VRRemoveCallbackLeave(
     HNode node,
     EventNodeFunc callback
@@ -698,10 +663,9 @@ Remove Leave callback (a generic state was left)
   * **node** node handle 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackMove
 
-```
+```cpp
 void VRRemoveCallbackMove(
     HNode node,
     EventNodeFunc callback
@@ -715,10 +679,9 @@ Remove Move callback (the transform property has changed)
   * **node** node handle 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackNodeChildAdded
 
-```
+```cpp
 void VRRemoveCallbackNodeChildAdded(
     const char * metaName,
     NodeChildAddedFunc callback
@@ -732,10 +695,9 @@ Unregisters a function called whenever a node has children added to it.
   * **metaName** the name of the metanode (type of node) to stop observing 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackNodeChildAddedEx
 
-```
+```cpp
 void VRRemoveCallbackNodeChildAddedEx(
     const char * metaName,
     NodeChildAddedFunc callback,
@@ -751,10 +713,9 @@ Unregisters a function called whenever a node has children added to it.
   * **callback** the previously added function to remove 
   * **userData** arbitrary data to passed to the callback 
 
-
 ### VRRemoveCallbackNodeChildRemoved
 
-```
+```cpp
 void VRRemoveCallbackNodeChildRemoved(
     const char * metaName,
     NodeChildRemovedFunc callback
@@ -768,10 +729,9 @@ Unregisters a function called whenever a node has children removed from it.
   * **metaName** the name of the metanode (type of node) to stop observing 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackNodeChildRemovedEx
 
-```
+```cpp
 void VRRemoveCallbackNodeChildRemovedEx(
     const char * metaName,
     NodeChildRemovedFunc callback,
@@ -787,10 +747,9 @@ Unregisters a function called whenever a node has children removed from it.
   * **callback** the previously added function to remove 
   * **userData** arbitrary data to passed to the callback 
 
-
 ### VRRemoveCallbackNodeCreation
 
-```
+```cpp
 void VRRemoveCallbackNodeCreation(
     const char * metaName,
     NodeCreatedFunc callback
@@ -804,10 +763,9 @@ Unregisters a function called whenever a node is created.
   * **metaName** the name of the metanode (type of node) to stop observing 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackNodeCreationEx
 
-```
+```cpp
 void VRRemoveCallbackNodeCreationEx(
     const char * metaName,
     NodeCreatedFunc callback,
@@ -823,10 +781,9 @@ Unregisters a function called whenever a node is created.
   * **callback** the previously added function to remove 
   * **userData** arbitrary data to passed to the callback 
 
-
 ### VRRemoveCallbackNodeDestruction
 
-```
+```cpp
 void VRRemoveCallbackNodeDestruction(
     const char * metaName,
     NodeDestroyingFunc callback
@@ -840,10 +797,9 @@ Unregisters a function called whenever a node is destroyed.
   * **metaName** the name of the metanode (type of node) to stop observing 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackNodeDestructionEx
 
-```
+```cpp
 void VRRemoveCallbackNodeDestructionEx(
     const char * metaName,
     NodeDestroyingFunc callback,
@@ -859,10 +815,9 @@ Unregisters a function called whenever a node is destroyed.
   * **callback** the previously added function to remove 
   * **userData** arbitrary data to passed to the callback 
 
-
 ### VRRemoveCallbackNodeParentChanged
 
-```
+```cpp
 void VRRemoveCallbackNodeParentChanged(
     const char * metaName,
     NodeParentChangedFunc callback
@@ -876,10 +831,9 @@ Unregisters a function called whenever a node is moved somewhere else in the tre
   * **metaName** the name of the metanode (type of node) to stop observing 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackNodeParentChangedEx
 
-```
+```cpp
 void VRRemoveCallbackNodeParentChangedEx(
     const char * metaName,
     NodeParentChangedFunc callback,
@@ -895,10 +849,9 @@ Unregisters a function called whenever a node is moved somewhere else in the tre
   * **callback** the previously added function to remove 
   * **userData** arbitrary data to passed to the callback 
 
-
 ### VRRemoveCallbackNodeRenamed
 
-```
+```cpp
 void VRRemoveCallbackNodeRenamed(
     const char * metaName,
     NodeRenamedFunc callback
@@ -912,10 +865,9 @@ Unregisters a function called whenever a node is renamed.
   * **metaName** the name of the metanode (type of node) to stop observing 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackNodeRenamedEx
 
-```
+```cpp
 void VRRemoveCallbackNodeRenamedEx(
     const char * metaName,
     NodeRenamedFunc callback,
@@ -931,10 +883,9 @@ Unregisters a function called whenever a node is renamed.
   * **callback** the previously added function to remove 
   * **userData** arbitrary data to passed to the callback 
 
-
 ### VRRemoveCallbackNodeValuesChanged
 
-```
+```cpp
 void VRRemoveCallbackNodeValuesChanged(
     const char * metaName,
     NodeValuesChangedFunc callback
@@ -948,10 +899,9 @@ Unregisters a function called whenever a node is modified.
   * **metaName** the name of the metanode (type of node) to stop observing 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackNodeValuesChangedEx
 
-```
+```cpp
 void VRRemoveCallbackNodeValuesChangedEx(
     const char * metaName,
     NodeValuesChangedFunc callback,
@@ -967,10 +917,9 @@ Unregisters a function called whenever a node is modified.
   * **callback** the previously added function to remove 
   * **userData** arbitrary data to passed to the callback 
 
-
 ### VRRemoveCallbackPoseEntered
 
-```
+```cpp
 void VRRemoveCallbackPoseEntered(
     EventKeyFunc callback
 )
@@ -982,10 +931,9 @@ Remove Pose entered callback (a hand switched to a pose)
 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackPoseLeft
 
-```
+```cpp
 void VRRemoveCallbackPoseLeft(
     EventKeyFunc callback
 )
@@ -997,10 +945,9 @@ Remove Pose left callback (a hand left a pose)
 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackPress
 
-```
+```cpp
 void VRRemoveCallbackPress(
     HNode node,
     EventNodeFunc callback
@@ -1014,10 +961,9 @@ Remove Press callback (button or similar node pressed)
   * **node** node handle 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackRelease
 
-```
+```cpp
 void VRRemoveCallbackRelease(
     HNode node,
     EventNodeFunc callback
@@ -1031,10 +977,9 @@ Remove Release callback (button or similar node released)
   * **node** node handle 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackToggle
 
-```
+```cpp
 void VRRemoveCallbackToggle(
     HNode node,
     EventNodeFunc callback
@@ -1048,10 +993,9 @@ Remove Toggle callback (button or similar node toggled)
   * **node** node handle 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackTouch
 
-```
+```cpp
 void VRRemoveCallbackTouch(
     HNode node,
     EventTwoNodesFunc callback
@@ -1068,7 +1012,7 @@ Remove Touch callback (assembly has collided)
 
 ### VRRemoveCallbackUpdate
 
-```
+```cpp
 void VRRemoveCallbackUpdate(
     UpdateFunc callback
 )
@@ -1080,10 +1024,9 @@ Unregisters an update function.
 
   * **callback** the previously added function to remove 
 
-
 ### VRRemoveCallbackUpdateEx
 
-```
+```cpp
 void VRRemoveCallbackUpdateEx(
     UpdateFunc callback,
     void * userData
@@ -1096,9 +1039,3 @@ Unregisters an update function.
 
   * **callback** the previously added function to remove 
   * **userData** arbitrary data to passed to the callback 
-
-
-
-
-
-

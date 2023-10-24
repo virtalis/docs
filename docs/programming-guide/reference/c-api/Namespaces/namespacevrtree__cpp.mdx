@@ -1,7 +1,6 @@
 ---
 title: vrtree_cpp
 summary: Namespace containing a collection of helper functions for simplifying reading of C++ objects out of the C API (e.g. strings, etc) 
-
 ---
 
 # vrtree_cpp
@@ -10,7 +9,7 @@ Namespace containing a collection of helper functions for simplifying reading of
 
 ## Classes
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | struct | **[vrtree_cpp::Handle](../Classes/structvrtree__cpp_1_1_handle.mdx)** <br />Helper struct to take any handle and close it appropriately.  |
 | struct | **[vrtree_cpp::HRefCount](../Classes/structvrtree__cpp_1_1_h_ref_count.mdx)** <br />Helper structure that provides a reference count that persists between refcounted handle copies.  |
@@ -20,7 +19,7 @@ Namespace containing a collection of helper functions for simplifying reading of
 
 ## Types
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | typedef [HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx)< [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) > | **[HFFIVarR](../Namespaces/namespacevrtree__cpp.mdx#typedef-hffivarr)** <br />Reference counted FFI handle.  |
 | typedef [HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx)< [HMeta](../Modules/group__api__types.mdx#typedef-hmeta) > | **[HMetaR](../Namespaces/namespacevrtree__cpp.mdx#typedef-hmetar)** <br />Reference counted metanode handle.  |
@@ -29,14 +28,14 @@ Namespace containing a collection of helper functions for simplifying reading of
 
 ## Functions
 
-|                | Name           |
+|  Type          | Name           |
 | -------------- | -------------- |
 | std::string | **[getNodeName](../Namespaces/namespacevrtree__cpp.mdx#getnodename)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Utility function for getting the name of a node.  |
 | std::string | **[getNodePath](../Namespaces/namespacevrtree__cpp.mdx#getnodepath)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Utility function for getting the path of a node.  |
 | std::string | **[readStringProp](../Namespaces/namespacevrtree__cpp.mdx#readstringprop)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName)<br />Utility function for reading a string property.  |
 | std::string | **[readStringProp](../Namespaces/namespacevrtree__cpp.mdx#readstringprop)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop)<br />Utility function for reading a string property.  |
-| template <typename T \> <br />void | **[RegisterObserver](../Namespaces/namespacevrtree__cpp.mdx#registerobserver)**(const char * metaName)<br />Registers a class implementing static observer functions as an observer of the specified metanode.  |
-| template <typename T \> <br />void | **[UnRegisterObserver](../Namespaces/namespacevrtree__cpp.mdx#unregisterobserver)**(const char * metaName)<br />Unregisters a class implementing static observer functions as an observer of the specified metanode.  |
+| template <typename T\> <br />void | **[RegisterObserver](../Namespaces/namespacevrtree__cpp.mdx#registerobserver)**(const char * metaName)<br />Registers a class implementing static observer functions as an observer of the specified metanode.  |
+| template <typename T\> <br />void | **[UnRegisterObserver](../Namespaces/namespacevrtree__cpp.mdx#unregisterobserver)**(const char * metaName)<br />Unregisters a class implementing static observer functions as an observer of the specified metanode.  |
 
 ## Types Documentation
 
@@ -72,7 +71,6 @@ typedef HTypeR<HNode> vrtree_cpp::HNodeR;
 
 Reference counted node handle. 
 
-
 ## Functions Documentation
 
 ### getNodeName
@@ -87,7 +85,6 @@ Utility function for getting the name of a node.
 
 Uses an internal buffer to provide to the C API, and copies it into the returned std::string object. 
 
-
 ### getNodePath
 
 ```cpp
@@ -99,7 +96,6 @@ static std::string getNodePath(
 Utility function for getting the path of a node. 
 
 Uses an internal buffer to provide to the C API, and copies it into the returned std::string object. 
-
 
 ### readStringProp
 
@@ -114,7 +110,6 @@ Utility function for reading a string property.
 
 Uses an internal buffer to provide to the C API, and copies it into the returned std::string object. 
 
-
 ### readStringProp
 
 ```cpp
@@ -128,11 +123,10 @@ Utility function for reading a string property.
 
 Uses an internal buffer to provide to the C API, and copies it into the returned std::string object. 
 
-
 ### RegisterObserver
 
 ```cpp
-template <typename T >
+template <typename T>
 void RegisterObserver(
     const char * metaName
 )
@@ -143,15 +137,10 @@ Registers a class implementing static observer functions as an observer of the s
 ### UnRegisterObserver
 
 ```cpp
-template <typename T >
+template <typename T>
 void UnRegisterObserver(
     const char * metaName
 )
 ```
 
 Unregisters a class implementing static observer functions as an observer of the specified metanode. 
-
-
-
-
-

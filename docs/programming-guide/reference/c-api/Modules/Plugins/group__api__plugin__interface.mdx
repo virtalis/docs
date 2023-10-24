@@ -1,8 +1,10 @@
 ---
 title: Plugin Interface
 summary: Defines an interface for plugins to implement in order to be loadable by VRTree. 
-
 ---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Plugin Interface
 
@@ -12,7 +14,7 @@ Defines an interface for plugins to implement in order to be loadable by VRTree.
 
 ## Types
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | typedef int([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(void) | **[VRPCleanupProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpcleanupproc)** <br />Function prototype for the plugin cleanup function.  |
 | typedef const char *([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(void) | **[VRPDefaultRecipeProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpdefaultrecipeproc)** <br />Function prototype for getting the name of the default recipe file used by the importer.  |
@@ -49,7 +51,7 @@ Defines an interface for plugins to implement in order to be loadable by VRTree.
 
 ## Attributes
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | const int | **[PLUGIN_API_VERSION_MAJOR](../Modules/group__api__plugin__interface.mdx#plugin-api-version-major)** <br />incremented if backward compatibility is broken  |
 | const int | **[PLUGIN_API_VERSION_MINOR](../Modules/group__api__plugin__interface.mdx#plugin-api-version-minor)** <br />incremented if new exports are added  |
@@ -58,7 +60,7 @@ Defines an interface for plugins to implement in order to be loadable by VRTree.
 
 ### typedef VRPCleanupProc
 
-```
+```cpp
 typedef int(VRTREE_APIENTRY * VRPCleanupProc) (void);
 ```
 
@@ -66,7 +68,7 @@ Function prototype for the plugin cleanup function.
 
 **Return**: 0 for success (not currently used) 
 
-**Precondition**: groupedcode C / C++ 
+**Example**:
 
 ```cpp
 PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPCleanup()
@@ -75,16 +77,13 @@ PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPCleanup()
 }
 ```
 
-**Par**: Example
-
 This function is called by the loader, before unloading the plugin.
 
 The plugin should implement this to remove any state added to VRTree during any other plugin functions. 
 
-
 ### typedef VRPDefaultRecipeProc
 
-```
+```cpp
 typedef const char*(VRTREE_APIENTRY * VRPDefaultRecipeProc) (void);
 ```
 
@@ -94,24 +93,23 @@ Function prototype for getting the name of the default recipe file used by the i
 
 **Note**: Any plugin implementing import or export functionality must provide this function as `VRPDefaultRecipe` for importers, and `VRPExportDefaultRecipe` for exporters 
 
-**Precondition**: groupedcode C / C++ 
+**Example**:
 
 ```cpp
 PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPDefaultRecipe()
 {
   return "myRecipe.vrcp";
 }
+
 PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPExportDefaultRecipe()
 {
   return "myExportRecipe.vrcp";
 }
 ```
 
-**Par**: Example
-
 ### typedef VRPDependsProc
 
-```
+```cpp
 typedef const char*(VRTREE_APIENTRY * VRPDependsProc) (void);
 ```
 
@@ -119,7 +117,7 @@ Function prototype for getting the plugin dependencies.
 
 **Return**: Comma separated list of plugin names (either names reported by plugins, or their filenames without extension) 
 
-**Precondition**: groupedcode C / C++ 
+**Example**:
 
 ```cpp
 PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPDepends()
@@ -128,14 +126,11 @@ PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPDepends()
 } 
 ```
 
-**Par**: Example
-
 This defines the order which plugins are loaded, ensuring that any plugins that this one depends on are loaded first. 
-
 
 ### typedef VRPExportProc
 
-```
+```cpp
 typedef int(VRTREE_APIENTRY * VRPExportProc) (const char *outFile, HNode fromRoot, HNode fromScenes, HNode fromLibs, const char *recipePath);
 ```
 
@@ -149,10 +144,9 @@ Function prototype for an export function.
   * **fromLibs** the node in the libs tree to start export from 
   * **recipePath** absolute path to a recipe file describing advanced configuration 
 
-
 **Return**: 0 on success 
 
-**Precondition**: groupedcode C / C++ 
+**Example**:
 
 ```cpp
 PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPExport(const char* outFile, HNode fromRoot, HNode fromScenes, HNode fromLibs, const char* recipe)
@@ -162,14 +156,11 @@ PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPExport(const char* outFile, HNode from
 }
 ```
 
-**Par**: Example
-
 This function is passed a path to a file and some nodes and is expected to write data from the nodes to the file. The implementation should respect the callers requests to export the specified nodes rather than the whole tree. 
-
 
 ### typedef VRPFFINamespaceProc
 
-```
+```cpp
 typedef const char*(VRTREE_APIENTRY * VRPFFINamespaceProc) (void);
 ```
 
@@ -177,7 +168,7 @@ Function prototype for getting the FFI namespace/module name to use for this plu
 
 **Return**: Lua-safe ffi module name (letters, numbers and underscores, not beginning with a digit) 
 
-**Precondition**: groupedcode C / C++ 
+**Example**:
 
 ```cpp
 PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPFFINamespace()
@@ -186,14 +177,11 @@ PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPFFINamespace()
 } 
 ```
 
-**Par**: Example
-
 This specifies the namespace to use for registered FFI functions. For a plugin with ffi namespace "MyPlugin" and a registered FFI function "foo", it will be accessible in lua as MyPlugin.foo() If the specified namespace is already in use by another loaded plugin it will be ignored. If this is blank, the namespace will be inferred from VRPName() or the module name. 
-
 
 ### typedef VRPFormatsProc
 
-```
+```cpp
 typedef const char*(VRTREE_APIENTRY * VRPFormatsProc) (void);
 ```
 
@@ -201,7 +189,10 @@ Function prototype for getting the XML description of formats accepted by [VRPIm
 
 **Return**: XML document describing the accepted formats 
 
-**Precondition**: groupedcode C / C++{cpp} 
+**Example**:
+
+<Tabs>
+<TabItem value="c" label="C">
 
 ```cpp
 PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPFormats()
@@ -212,21 +203,21 @@ PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPFormats()
 }
 ```
 
- XML{xml} 
+</TabItem>
+<TabItem value="xml" label="XML">
 
-```cpp
+```xml
 <filetypes>
   <type ext="txt" desc="Text File" />
 </filetypes>
 ```
 
-**Par**: 
+</TabItem>
+</Tabs>
 
-  * Schema
+**Schema**: 
 
-
-
-```cpp
+```xml
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="filetypes">
     <xs:complexType>
@@ -246,12 +237,10 @@ PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPFormats()
   </xs:element>
 </xs:schema>
 ```
-  * Example
-
 
 ### typedef VRPGetAPIVersionProc
 
-```
+```cpp
 typedef int(VRTREE_APIENTRY * VRPGetAPIVersionProc) (void);
 ```
 
@@ -261,7 +250,7 @@ Function prototype for the API version functions.
 
 **Note**: `vrtree-linker` provides [VRPLUGIN_API_STDIMPL](../Modules/group__api__plugin__utils.mdx#define-vrplugin-api-stdimpl) to implement these automatically 
 
-**Precondition**: groupedcode C / C++ 
+**Example**:
 
 ```cpp
 PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPGetAPIVersionMajor()
@@ -275,14 +264,11 @@ PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPGetAPIVersionMinor()
 }
 ```
 
-**Par**: Example
-
 Plugins should implement both `VRPGetAPIVersionMajor` and `VRPGetAPIVersionMinor` with this function signature. 
-
 
 ### typedef VRPHasPermissionProc
 
-```
+```cpp
 typedef int(VRTREE_APIENTRY * VRPHasPermissionProc) (const char *permissions);
 ```
 
@@ -292,15 +278,13 @@ Function prototype for checking permission to do something. Plugin will be passe
 
   * **permissions** comma-separated list of permission names to request. When specifying more than one, all are required for the check to pass. 
 
-
 **Return**: 1 if the check is successful 
 
 This mainly corresponds to VRTree permissions - the plugin may check for permissions (such as EditScript), and it may request permissions be obtained from the licensing mechanism. 
 
-
 ### typedef VRPImportProc
 
-```
+```cpp
 typedef int(VRTREE_APIENTRY * VRPImportProc) (const char *file, HNode root, HNode scenes, HNode libs, uint64_t flags, const char *recipePath);
 ```
 
@@ -315,10 +299,9 @@ Function prototype for an import function.
   * **flags** any additional flags that should be applied to nodes 
   * **recipePath** absolute path to a recipe file describing advanced configuration 
 
-
 **Return**: 0 on success 
 
-**Precondition**: groupedcode C / C++ 
+**Example**:
 
 ```cpp
 PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPImport(const char* file, HNode root, HNode scenes, HNode libs, uint64_t flags, const char* recipe)
@@ -328,14 +311,11 @@ PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPImport(const char* file, HNode root, H
 }
 ```
 
-**Par**: Example
-
 This function is passed a path to a file, and is expected to do some work with it The implementation should respect the callers requests to import onto nodes that are not the default scenes/libs nodes 
-
 
 ### typedef VRPInitProc
 
-```
+```cpp
 typedef int(VRTREE_APIENTRY * VRPInitProc) (void);
 ```
 
@@ -343,7 +323,7 @@ Function prototype for the plugin init function.
 
 **Return**: 0 for success, any positive integer to fail and abort the plugin init 
 
-**Precondition**: groupedcode C / C++ 
+**Example**:
 
 ```cpp
 PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPInit()
@@ -352,14 +332,11 @@ PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPInit()
 }
 ```
 
-**Par**: Example
-
 This function is called by the loader, after checking the major version and performing any other registration requested by the plugin. This means that `VRPInit` may check permissions or write to the log, or do whatever else was registered. 
-
 
 ### typedef VRPLockedProc
 
-```
+```cpp
 typedef const char*(VRTREE_APIENTRY * VRPLockedProc) (void);
 ```
 
@@ -367,7 +344,7 @@ Function prototype for getting the plugin lock condition.
 
 **Return**: The lock condition. 
 
-**Precondition**: groupedcode C / C++ 
+**Example**:
 
 ```cpp
 PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPLocked()
@@ -376,11 +353,9 @@ PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPLocked()
 }
 ```
 
-**Par**: Example
-
 ### typedef VRPLogIndentProc
 
-```
+```cpp
 typedef void(VRTREE_APIENTRY * VRPLogIndentProc) (char indent);
 ```
 
@@ -390,13 +365,11 @@ Function prototype for the log indent function.
 
   * **indent** boolean for increasing or decreasing indent. Pass 0 to decrease indent, any positive value to increase indent. 
 
-
 Some log messages need to have more complex formatting, so plugins can use this function to indent all further log messages. Plugin will be passed a log indent function to use for logging, if it exports [VRPRegisterLogIndentProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisterlogindentproc). 
-
 
 ### typedef VRPLogProc
 
-```
+```cpp
 typedef void(VRTREE_APIENTRY * VRPLogProc) (int type, const char *message);
 ```
 
@@ -412,13 +385,11 @@ Function prototype for the log function.
 * 3 = Debug 
   * **message** the text to write to the log 
 
-
 Plugin will be passed a log function to use for logging, if it exports [VRPRegisterLogProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisterlogproc). 
-
 
 ### typedef VRPNameProc
 
-```
+```cpp
 typedef const char*(VRTREE_APIENTRY * VRPNameProc) (void);
 ```
 
@@ -428,7 +399,7 @@ Function prototype for getting the plugin full name.
 
 **Note**: All plugins are required to implement this function. 
 
-**Precondition**: groupedcode C / C++ 
+**Example**:
 
 ```cpp
 PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPName()
@@ -437,11 +408,9 @@ PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPName()
 }
 ```
 
-**Par**: Example
-
 ### typedef VRPProgressYieldProc
 
-```
+```cpp
 typedef void(VRTREE_APIENTRY * VRPProgressYieldProc) (int currentValue, int maxValue, const char *message);
 ```
 
@@ -453,15 +422,13 @@ Function prototypes for a progress yield function.
   * **maxValue** the maximum progress value, if greater than zero will be represented by the end of the progress bar 
   * **message** the message to set on the progress display. If 0, the message does not change from whatever is already there. 
 
-
 **Note**: The plugin execution will be blocked by calls to yield, until the application returns control to it. 
 
 Plugin will be passed a yield function to call during long operations, if it exports the [VRPRegisterProgressYieldProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisterprogressyieldproc) function. 
 
-
 ### typedef VRPRegisterHasPermissionProc
 
-```
+```cpp
 typedef void(VRTREE_APIENTRY * VRPRegisterHasPermissionProc) (VRPHasPermissionProc);
 ```
 
@@ -471,10 +438,9 @@ Function prototype for registering a permission check function.
 
 Plugin should implement this and store the pointer it is given, if it wants to do license checks 
 
-
 ### typedef VRPRegisterLogIndentProc
 
-```
+```cpp
 typedef void(VRTREE_APIENTRY * VRPRegisterLogIndentProc) (VRPLogIndentProc);
 ```
 
@@ -482,7 +448,7 @@ Function prototype for being given a log indent function.
 
 **Note**: `vrtree-linker` provides [VRPLUGIN_API_LOGIMPL](../Modules/group__api__plugin__utils.mdx#define-vrplugin-api-logimpl) to provide `s_logFunc` and `s_logIndentFunc`
 
-**Precondition**: groupedcode C / C++ 
+**Example**:
 
 ```cpp
 static VRPLogProc s_logFunc = 0;
@@ -511,16 +477,13 @@ PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPInit()
 }
 ```
 
-**Par**: Example
-
 Plugin should implement this and store the pointer it is given, if it wishes to make use of the log indent functionality.
 
 The indent levels should match (e.g. if you indent twice, you should unindent twice, too) 
 
-
 ### typedef VRPRegisterLogProc
 
-```
+```cpp
 typedef void(VRTREE_APIENTRY * VRPRegisterLogProc) (VRPLogProc);
 ```
 
@@ -528,7 +491,7 @@ Function prototype for being given a log function.
 
 **Note**: `vrtree-linker` provides [VRPLUGIN_API_LOGIMPL](../Modules/group__api__plugin__utils.mdx#define-vrplugin-api-logimpl) to provide `s_logFunc` and `s_logIndentFunc`
 
-**Precondition**: groupedcode C / C++ 
+**Example**:
 
 ```cpp
 static VRPLogProc s_logFunc = 0;
@@ -545,14 +508,11 @@ PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPInit()
 }
 ```
 
-**Par**: Example
-
 Plugin should implement this and store the pointer it is given, if it wishes to log to the application log. To write a log message, the plugin should call the provided log function directly 
-
 
 ### typedef VRPRegisterProgressYieldProc
 
-```
+```cpp
 typedef void(VRTREE_APIENTRY * VRPRegisterProgressYieldProc) (VRPProgressYieldProc);
 ```
 
@@ -560,7 +520,7 @@ Function prototype for registering a progress yield function.
 
 **Note**: `vrtree-linker` provides [VRPLUGIN_API_YIELDIMPL](../Modules/group__api__plugin__utils.mdx#define-vrplugin-api-yieldimpl) to provide progress_yield 
 
-**Precondition**: groupedcode C / C++ 
+**Example**:
 
 ```cpp
 static VRPProgressYieldProc s_progress = 0;
@@ -582,14 +542,11 @@ PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPImport(const char* file, HNode root, H
 }
 ```
 
-**Par**: Example
-
 Plugin should implement this and store the pointer it is given, if it wishes to yield to the application during long operations. 
-
 
 ### typedef VRPRegisterRequestPermissionProc
 
-```
+```cpp
 typedef void(VRTREE_APIENTRY * VRPRegisterRequestPermissionProc) (VRPRequestPermissionProc);
 ```
 
@@ -599,16 +556,15 @@ Function prototype for registering a permission request function.
 
 Plugin should implement this and store the pointer it is given, if it wants to do license requests 
 
-
 ### typedef VRPRegisterUserMessageProc
 
-```
+```cpp
 typedef void(VRTREE_APIENTRY * VRPRegisterUserMessageProc) (VRPUserMessageProc);
 ```
 
 Function prototype for registering a message function. 
 
-**Precondition**: groupedcode C / C++ 
+**Example**:
 
 ```cpp
 //This example registers a Lua function which, when called from Lua, summons a message box
@@ -633,14 +589,11 @@ PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPInit()
 }
 ```
 
-**Par**: Example
-
 Plugin should implement this and store the pointer it is given, if it wishes to summon message boxes. 
-
 
 ### typedef VRPRegisterUserQuestionCallbackProc
 
-```
+```cpp
 typedef void(VRTREE_APIENTRY * VRPRegisterUserQuestionCallbackProc) (VRPUserQuestionCallbackRegisterProc);
 ```
 
@@ -650,16 +603,15 @@ Plugin should implement this and use the pointer it is given to register a callb
 
 This is not useful without also implementing [VRPRegisterUserQuestionCallbackProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisteruserquestioncallbackproc)
 
-
 ### typedef VRPRegisterUserQuestionProc
 
-```
+```cpp
 typedef void(VRTREE_APIENTRY * VRPRegisterUserQuestionProc) (VRPUserQuestionProc);
 ```
 
 Function prototype for registering a question function. 
 
-**Precondition**: groupedcode C / C++ 
+**Example**:
 
 ```cpp
 //This example registers a Lua function which, when called from Lua, summons a question box
@@ -686,7 +638,6 @@ static HFFIVar question_func(int argc, HFFIVar* argv, void*) {
   return 0;
 }
 
-
 PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPInit()
 {
   //...
@@ -695,14 +646,11 @@ PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPInit()
 }
 ```
 
-**Par**: Example
-
 Plugin should implement this and store the pointer it is given, if it wishes to summon question boxes. 
-
 
 ### typedef VRPRequestPermissionProc
 
-```
+```cpp
 typedef int(VRTREE_APIENTRY * VRPRequestPermissionProc) (const char *permissions, const char *cancelCaption);
 ```
 
@@ -713,15 +661,13 @@ Function prototype for requesting permission to do something.
   * **permissions** comma-separated list of permission names to request. When specifying more than one, all are required for the check to pass. 
   * **cancelCaption** optional caption to display on the cancel button of any license request dialog presented by the application to fulfil the request. 
 
-
 **Return**: 1 if the request is successful 
 
 Plugin will be passed a request function if it exports [VRPRegisterRequestPermissionProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisterrequestpermissionproc)
 
-
 ### typedef VRPSettingsInterfaceProc
 
-```
+```cpp
 typedef const char*(VRTREE_APIENTRY * VRPSettingsInterfaceProc) (void);
 ```
 
@@ -729,7 +675,10 @@ Function prototype for getting the XML description of the settings that should b
 
 **Return**: XML document describing the settings 
 
-**Precondition**: groupedcode C / C++{cpp} 
+**Example**:
+
+<Tabs>
+<TabItem value="c" label="C">
 
 ```cpp
 PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPSettingsInterface()
@@ -743,9 +692,10 @@ PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPSettingsInterface()
 }
 ```
 
- XML{xml} 
+</TabItem>
+<TabItem value="xml" label="XML">
 
-```cpp
+```xml
 <recipe>
   <Page name="Basic">
     <IntBox label="Log Level" name="loglevel" value="0" min="0" max="4" desc="Set log level"/> 
@@ -754,13 +704,12 @@ PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPSettingsInterface()
 </recipe>
 ```
 
-**Par**: 
+</TabItem>
+</Tabs>
 
-  * Schema
+**Schema**: 
 
-
-
-```cpp
+```xml
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:element name="recipe">
     <xs:complexType>
@@ -843,12 +792,10 @@ PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPSettingsInterface()
   </xs:element>
 </xs:schema>
 ```
-  * Example
-
 
 ### typedef VRPShortNameProc
 
-```
+```cpp
 typedef const char*(VRTREE_APIENTRY * VRPShortNameProc) (void);
 ```
 
@@ -856,7 +803,7 @@ Function prototype for getting the plugin short name (-import shortcut)
 
 ### typedef VRPSignatureProc
 
-```
+```cpp
 typedef const char*(VRTREE_APIENTRY * VRPSignatureProc) (void);
 ```
 
@@ -866,7 +813,7 @@ Function prototype for getting the plugin signature (license)
 
 **Note**: Plugins that require access to the VRTree C API must implement this function. 
 
-**Precondition**: groupedcode C / C++ 
+**Example**:
 
 ```cpp
 PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPSignature()
@@ -875,11 +822,9 @@ PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPSignature()
 }
 ```
 
-**Par**: Example
-
 ### typedef VRPUserMessageProc
 
-```
+```cpp
 typedef void(VRTREE_APIENTRY * VRPUserMessageProc) (const char *message);
 ```
 
@@ -889,15 +834,13 @@ Function prototype for triggering an application dialog containing a message to 
 
   * **message** the message to display to the user 
 
-
 **Note**: Since this is a modal dialog, execution of the calling thread may be blocked until the box is dismissed. This does not happen when running on a cluster, so blocking behaviour should not be depended on. Plugins should avoid calling this during `VRPInit` and `VRPCleanup`. 
 
 Plugin will be passed a message function to use if it exports [VRPRegisterUserMessageProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisterusermessageproc)
 
-
 ### typedef VRPUserQuestionCallbackProc
 
-```
+```cpp
 typedef void(VRTREE_APIENTRY * VRPUserQuestionCallbackProc) (int result, void *userData);
 ```
 
@@ -907,10 +850,9 @@ Function prototype for a callback to call when a user chooses an option presente
 
   * **result** the index of the option selected 
 
-
 ### typedef VRPUserQuestionCallbackRegisterProc
 
-```
+```cpp
 typedef void(VRTREE_APIENTRY * VRPUserQuestionCallbackRegisterProc) (VRPUserQuestionCallbackProc proc, void *userData);
 ```
 
@@ -918,10 +860,9 @@ Function prototype for registering a [VRPUserQuestionCallbackProc](../Modules/gr
 
 Plugin will be passed a register function if it exports [VRPRegisterUserQuestionCallbackProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisteruserquestioncallbackproc)
 
-
 ### typedef VRPUserQuestionProc
 
-```
+```cpp
 typedef int(VRTREE_APIENTRY * VRPUserQuestionProc) (const char *message);
 ```
 
@@ -931,17 +872,15 @@ Function prototype for triggering an application dialog containing a question to
 
   * **message** the message to display to the user (phrased as a question) 
 
-
 **Return**: 0 if question is submitted, 1 if there is no registered question callback to receive the user's answer 
 
 **Note**: Since this is a modal dialog, execution of the calling thread may be blocked until the box is dismissed. This does not happen when running on a cluster, so blocking behaviour should not be depended on. Plugins should avoid calling this during `VRPInit` and `VRPCleanup`
 
 Plugin will be passed a question function to use if it exports [VRPRegisterUserQuestionProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisteruserquestionproc)
 
-
 ### typedef VRPVersionProc
 
-```
+```cpp
 typedef const char*(VRTREE_APIENTRY * VRPVersionProc) (void);
 ```
 
@@ -951,7 +890,7 @@ Function prototype for getting the plugin version (human readable, not API versi
 
 **Note**: All plugins are required to implement this function. 
 
-**Precondition**: groupedcode C / C++ 
+**Example**:
 
 ```cpp
 PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPVersion()
@@ -960,28 +899,20 @@ PLUGIN_ENTRY_POINT const char* VRTREE_APIENTRY VRPVersion()
 }
 ```
 
-**Par**: Example
-
-
-
 ## Attributes Documentation
 
 ### PLUGIN_API_VERSION_MAJOR
 
-```
+```cpp
 const int PLUGIN_API_VERSION_MAJOR = 1;
 ```
 
-incremented if backward compatibility is broken 
+Incremented if backward compatibility is broken 
 
 ### PLUGIN_API_VERSION_MINOR
 
-```
+```cpp
 const int PLUGIN_API_VERSION_MINOR = 3;
 ```
 
-incremented if new exports are added 
-
-
-
-
+Incremented if new exports are added 

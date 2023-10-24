@@ -1,7 +1,6 @@
 ---
 title: Foreign Function Interface
 summary: Functions for interacting with the scripting engine inside VRTree. 
-
 ---
 
 # Foreign Function Interface
@@ -10,7 +9,7 @@ Functions for interacting with the scripting engine inside VRTree.
 
 ## Functions
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | void | **[VRFFIFree](../Modules/group__api__ffi.mdx#vrffifree)**([HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) var)<br />Deletes the memory allocated for this FFI variable and closes the handle.  |
 | const double * | **[VRFFIGetAABB](../Modules/group__api__ffi.mdx#vrffigetaabb)**([HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) var)<br />Reads the AABB contained in the FFI variable and returns it.  |
@@ -51,12 +50,11 @@ Functions for interacting with the scripting engine inside VRTree.
 | void | **[VRRegisterEventFunction](../Modules/group__api__ffi.mdx#vrregistereventfunction)**(const char * name, [ScriptEventFunc](../Modules/group__api__proto.mdx#typedef-scripteventfunc) func, void * userData)<br />Registers a C function with a name which can then be used to call the function in direct response to an Event (e.g. Create, Activate, Timestep, etc)  |
 | void | **[VRUnregisterEventFunction](../Modules/group__api__ffi.mdx#vrunregistereventfunction)**(const char * name)<br />Unregisters a previously registered event function.  |
 
-
 ## Functions Documentation
 
 ### VRFFIFree
 
-```
+```cpp
 void VRFFIFree(
     HFFIVar var
 )
@@ -66,7 +64,7 @@ Deletes the memory allocated for this FFI variable and closes the handle.
 
 ### VRFFIGetAABB
 
-```
+```cpp
 const double * VRFFIGetAABB(
     HFFIVar var
 )
@@ -78,14 +76,13 @@ Reads the AABB contained in the FFI variable and returns it.
 
   * **var** FFI variant handle, must be of type AABB 
 
-
 **Return**: pointer to array of 6 doubles containing the values (min xyz, max xyz) 
 
 **Warning**: the return value is only valid until the next call to [VRFFIGetAABB](../Modules/group__api__ffi.mdx#vrffigetaabb) with ANY HFFIVar. 
 
 ### VRFFIGetBool
 
-```
+```cpp
 char VRFFIGetBool(
     HFFIVar var
 )
@@ -97,12 +94,11 @@ Reads the boolean value contained in the FFI variable and returns it.
 
   * **var** FFI variant handle, must be of type Bool 
 
-
 **Return**: 0 if false, 1 if true 
 
 ### VRFFIGetDouble
 
-```
+```cpp
 double VRFFIGetDouble(
     HFFIVar var
 )
@@ -114,12 +110,11 @@ Reads the double value contained in the FFI variable and returns it.
 
   * **var** FFI variant handle, must be of type Double 
 
-
 **Return**: double value 
 
 ### VRFFIGetEventRegister
 
-```
+```cpp
 HFFIVar VRFFIGetEventRegister(
     const char * registerName
 )
@@ -131,12 +126,11 @@ Reads the value from an event register during a call to a registered event funct
 
   * **registerName** the register to get the value from 
 
-
 **Return**: a new FFI variant handle representing the value 
 
 ### VRFFIGetInt
 
-```
+```cpp
 int VRFFIGetInt(
     HFFIVar var
 )
@@ -148,12 +142,11 @@ Reads the integer value contained in the FFI variable and returns it.
 
   * **var** FFI variant handle, must be of type Int 
 
-
 **Return**: integer value 
 
 ### VRFFIGetMat3
 
-```
+```cpp
 const double * VRFFIGetMat3(
     HFFIVar var
 )
@@ -165,14 +158,13 @@ Reads the mat3 contained in the FFI variable and returns it.
 
   * **var** FFI variant handle, must be of type Mat3 
 
-
 **Return**: pointer to array of 9 doubles containing the values. 
 
 **Warning**: the return value is only valid until the next call to [VRFFIGetMat3](../Modules/group__api__ffi.mdx#vrffigetmat3) with ANY HFFIVar. 
 
 ### VRFFIGetMat4
 
-```
+```cpp
 const double * VRFFIGetMat4(
     HFFIVar var
 )
@@ -184,14 +176,13 @@ Reads the mat4 contained in the FFI variable and returns it.
 
   * **var** FFI variant handle, must be of type Mat4 
 
-
 **Return**: pointer to array of 16 doubles containing the values. 
 
 **Warning**: the return value is only valid until the next call to [VRFFIGetMat4](../Modules/group__api__ffi.mdx#vrffigetmat4) with ANY HFFIVar. 
 
 ### VRFFIGetNode
 
-```
+```cpp
 HNode VRFFIGetNode(
     HFFIVar var
 )
@@ -203,7 +194,6 @@ Reads the node contained in the FFI variable and returns a new handle to it.
 
   * **var** FFI variant handle, must be of type Node 
 
-
 **See**: [VRCloseNodeHandle](../Modules/group__api__core.mdx#vrclosenodehandle)
 
 **Return**: new node handle to the node contained in the var 
@@ -212,7 +202,7 @@ Reads the node contained in the FFI variable and returns a new handle to it.
 
 ### VRFFIGetPlane
 
-```
+```cpp
 const double * VRFFIGetPlane(
     HFFIVar var
 )
@@ -224,14 +214,13 @@ Reads the plane contained in the FFI variable and returns it.
 
   * **var** FFI variant handle, must be of type Plane 
 
-
 **Return**: pointer to array of 4 doubles containing the values (normal xyz, distance) 
 
 **Warning**: the return value is only valid until the next call to [VRFFIGetPlane](../Modules/group__api__ffi.mdx#vrffigetplane) with ANY HFFIVar. 
 
 ### VRFFIGetQuat
 
-```
+```cpp
 const double * VRFFIGetQuat(
     HFFIVar var
 )
@@ -243,14 +232,13 @@ Reads the quaternion contained in the FFI variable and returns it.
 
   * **var** FFI variant handle, must be of type Quat 
 
-
 **Return**: pointer to array of 4 doubles containing the values (vector xyz, angle) 
 
 **Warning**: the return value is only valid until the next call to [VRFFIGetQuat](../Modules/group__api__ffi.mdx#vrffigetquat) with ANY HFFIVar. 
 
 ### VRFFIGetRay
 
-```
+```cpp
 const double * VRFFIGetRay(
     HFFIVar var
 )
@@ -262,14 +250,13 @@ Reads the ray contained in the FFI variable and returns it.
 
   * **var** FFI variant handle, must be of type Ray 
 
-
 **Return**: pointer to array of 6 doubles containing the values (origin xyz, direction xyz) 
 
 **Warning**: the return value is only valid until the next call to [VRFFIGetRay](../Modules/group__api__ffi.mdx#vrffigetray) with ANY HFFIVar. 
 
 ### VRFFIGetSphere
 
-```
+```cpp
 const double * VRFFIGetSphere(
     HFFIVar var
 )
@@ -281,14 +268,13 @@ Reads the sphere contained in the FFI variable and returns it.
 
   * **var** FFI variant handle, must be of type Sphere 
 
-
 **Return**: pointer to array of 4 doubles containing the values (centre xyz, radius) 
 
 **Warning**: the return value is only valid until the next call to [VRFFIGetSphere](../Modules/group__api__ffi.mdx#vrffigetsphere) with ANY HFFIVar. 
 
 ### VRFFIGetString
 
-```
+```cpp
 const char * VRFFIGetString(
     HFFIVar var
 )
@@ -300,14 +286,13 @@ Reads the string value contained in the FFI variable and returns it.
 
   * **var** FFI variant handle, must be of type String 
 
-
 **Return**: null terminated string, may be UTF-8 encoded. 
 
 **Warning**: the return value is only valid for the lifetime of the FFI variant. Using this string pointer after calling [VRFFIFree](../Modules/group__api__ffi.mdx#vrffifree) on this var, without first copying it, will result in undefined behaviour. 
 
 ### VRFFIGetType
 
-```
+```cpp
 int VRFFIGetType(
     HFFIVar var
 )
@@ -319,14 +304,13 @@ Identifies the type of variable.
 
   * **var** FFI variant handle 
 
-
 **Return**: the type of the variable (direct enum conversion) 
 
 **Note**: due to the return value being based on an enum, the representation may change between API versions. Thus, it is recommended to only use this compare types against other variants. 
 
 ### VRFFIGetVec2
 
-```
+```cpp
 const double * VRFFIGetVec2(
     HFFIVar var
 )
@@ -338,14 +322,13 @@ Reads the vec2 contained in the FFI variable and returns it.
 
   * **var** FFI variant handle, must be of type Vec2 
 
-
 **Return**: pointer to array of 2 doubles containing the values. 
 
 **Warning**: the return value is only valid until the next call to [VRFFIGetVec2](../Modules/group__api__ffi.mdx#vrffigetvec2) with ANY HFFIVar. 
 
 ### VRFFIGetVec3
 
-```
+```cpp
 const double * VRFFIGetVec3(
     HFFIVar var
 )
@@ -357,14 +340,13 @@ Reads the vec3 contained in the FFI variable and returns it.
 
   * **var** FFI variant handle, must be of type Vec3 
 
-
 **Return**: pointer to array of 3 doubles containing the values. 
 
 **Warning**: the return value is only valid until the next call to [VRFFIGetVec3](../Modules/group__api__ffi.mdx#vrffigetvec3) with ANY HFFIVar. 
 
 ### VRFFIGetVec4
 
-```
+```cpp
 const double * VRFFIGetVec4(
     HFFIVar var
 )
@@ -376,14 +358,13 @@ Reads the vec4 contained in the FFI variable and returns it.
 
   * **var** FFI variant handle, must be of type Vec4 
 
-
 **Return**: pointer to array of 4 doubles containing the values. 
 
 **Warning**: the return value is only valid until the next call to [VRFFIGetVec4](../Modules/group__api__ffi.mdx#vrffigetvec4) with ANY HFFIVar. 
 
 ### VRFFIInvoke
 
-```
+```cpp
 HFFIVar VRFFIInvoke(
     const char * func,
     HFFIVar * args,
@@ -399,14 +380,13 @@ Calls a named function in the scripting environment.
   * **args** Array of HFFIVar handles representing the function parameters (pushed in array order). The array may contain null entries, in which case a nil variant will be substituted for the call. 
   * **nArgs** number of arguments in the args array 
 
-
 **Return**: a new variant handle containing the return value from the function. This will need to be [VRFFIFree](../Modules/group__api__ffi.mdx#vrffifree)'d after use. 
 
 **Note**: this function, being C, is limited to returning only one value, so calling a FFI function that returns multiple values will only return the first value returned by the FFI function. The rest of the return values are currently discarded. 
 
 ### VRFFIMakeAABB
 
-```
+```cpp
 HFFIVar VRFFIMakeAABB(
     const double * values
 )
@@ -418,14 +398,13 @@ Creates an AABB (6 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 6 doubles (min xyz, max xyz) 
 
-
 **See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
 ### VRFFIMakeBool
 
-```
+```cpp
 HFFIVar VRFFIMakeBool(
     char value
 )
@@ -437,14 +416,13 @@ Creates a boolean FFI variable and returns it.
 
   * **value** the value to wrap in the variant. any value other than zero results in a true boolean value. 
 
-
 **See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
 ### VRFFIMakeDouble
 
-```
+```cpp
 HFFIVar VRFFIMakeDouble(
     double value
 )
@@ -456,14 +434,13 @@ Creates a number FFI variable and returns it.
 
   * **value** the value to wrap in the variant. 
 
-
 **See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
 ### VRFFIMakeInt
 
-```
+```cpp
 HFFIVar VRFFIMakeInt(
     int value
 )
@@ -475,14 +452,13 @@ Creates a number FFI variable and returns it.
 
   * **value** the value to wrap in the variant. 
 
-
 **See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
 ### VRFFIMakeMat3
 
-```
+```cpp
 HFFIVar VRFFIMakeMat3(
     const double * values
 )
@@ -494,14 +470,13 @@ Creates a mat3 (9 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 9 doubles. 
 
-
 **See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
 ### VRFFIMakeMat4
 
-```
+```cpp
 HFFIVar VRFFIMakeMat4(
     const double * values
 )
@@ -513,14 +488,13 @@ Creates a mat4 (16 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 16 doubles. 
 
-
 **See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
 ### VRFFIMakeNode
 
-```
+```cpp
 HFFIVar VRFFIMakeNode(
     HNode handle
 )
@@ -532,7 +506,6 @@ Wraps a node handle in an FFI variable.
 
   * **handle** valid node handle 
 
-
 **See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
 
 **Return**: a new FFI variant handle representing the node 
@@ -541,7 +514,7 @@ Wraps a node handle in an FFI variable.
 
 ### VRFFIMakePlane
 
-```
+```cpp
 HFFIVar VRFFIMakePlane(
     const double * values
 )
@@ -553,14 +526,13 @@ Creates a plane (4 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 4 doubles (normal xyz, distance) 
 
-
 **See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
 ### VRFFIMakeQuat
 
-```
+```cpp
 HFFIVar VRFFIMakeQuat(
     const double * values
 )
@@ -572,14 +544,13 @@ Creates a quaternion (4 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 4 doubles (vector xyz, angle) 
 
-
 **See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
 ### VRFFIMakeRay
 
-```
+```cpp
 HFFIVar VRFFIMakeRay(
     const double * values
 )
@@ -591,14 +562,13 @@ Creates a ray (6 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 6 doubles (origin xyz, direction xyz) 
 
-
 **See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
 ### VRFFIMakeSphere
 
-```
+```cpp
 HFFIVar VRFFIMakeSphere(
     const double * values
 )
@@ -610,14 +580,13 @@ Creates a sphere (4 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 4 doubles (centre xyz, radius) 
 
-
 **See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
 ### VRFFIMakeString
 
-```
+```cpp
 HFFIVar VRFFIMakeString(
     const char * value
 )
@@ -629,14 +598,13 @@ Creates a string FFI variable and returns it.
 
   * **value** the value to wrap in the variant. 
 
-
 **See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
 ### VRFFIMakeVec2
 
-```
+```cpp
 HFFIVar VRFFIMakeVec2(
     const double * values
 )
@@ -648,14 +616,13 @@ Creates a vec2 (2 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 2 doubles. 
 
-
 **See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
 ### VRFFIMakeVec3
 
-```
+```cpp
 HFFIVar VRFFIMakeVec3(
     const double * values
 )
@@ -667,14 +634,13 @@ Creates a vec3 (3 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 3 doubles. 
 
-
 **See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
 ### VRFFIMakeVec4
 
-```
+```cpp
 HFFIVar VRFFIMakeVec4(
     const double * values
 )
@@ -686,14 +652,13 @@ Creates a vec4 (4 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 4 doubles. 
 
-
 **See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
 ### VRFFIRegister
 
-```
+```cpp
 int VRFFIRegister(
     const char * funcName,
     FFIFunc func,
@@ -711,14 +676,13 @@ Registers a function as a global Lua function in the main script environment. Th
   * **minArgc** minimuim number of arguments expected 
   * **userData** Userdata which is passed back to func when it is invoked. 
 
-
 **Return**: 0 if successful, non-zero if a function with this name already exists. 
 
 **Note**: currently you can only register functions in the global scope, and only if they don't already exist. 
 
 ### VRFFIUnregister
 
-```
+```cpp
 int VRFFIUnregister(
     const char * funcName,
     FFIFunc func
@@ -731,7 +695,7 @@ Unregisters a previously registered FFIFunc.
 
 ### VRRegisterEventFunction
 
-```
+```cpp
 void VRRegisterEventFunction(
     const char * name,
     ScriptEventFunc func,
@@ -747,12 +711,11 @@ Registers a C function with a name which can then be used to call the function i
   * **func** The function to register 
   * **userData** arbitrary data to pass to the callback 
 
-
 **See**: [VRUnregisterEventFunction(const char*)](../Modules/group__api__ffi.mdx#vrunregistereventfunction)
 
 ### VRUnregisterEventFunction
 
-```
+```cpp
 void VRUnregisterEventFunction(
     const char * name
 )
@@ -763,9 +726,3 @@ Unregisters a previously registered event function.
 **Parameters**: 
 
   * **name** the name of the function to unregister (as it was registered). 
-
-
-
-
-
-

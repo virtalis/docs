@@ -91,7 +91,7 @@ const config = {
       prism: {
         theme: darkCodeTheme,
         darkTheme: darkCodeTheme,
-        additionalLanguages: ['c', 'cmake', 'glsl', 'lua', 'xml-doc'],
+        additionalLanguages: ['c', 'cmake', 'glsl', 'lua'],
       },
     }),
 };

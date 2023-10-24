@@ -1,7 +1,6 @@
 ---
 title: Structure Definitions
 summary: Listing of metanode structures, describing their purpose and listing their property index and any other supplementary enumerations. 
-
 ---
 
 # Structure Definitions
@@ -12,7 +11,7 @@ Listing of metanode structures, describing their purpose and listing their prope
 
 ## Classes
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | struct | **[Meta_Animation](../../Classes/struct_meta___animation.mdx)** <br />An animation is a collection of keyframes and/or actions to apply to a target node.  |
 | struct | **[Meta_AnimationAction](../../Classes/struct_meta___animation_action.mdx)** <br />Animation keyframes for bool, int, float, double and world float properties.  |
@@ -220,7 +219,7 @@ Listing of metanode structures, describing their purpose and listing their prope
 
 ## Defines
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 |  | **[vrtree_API](../Metanodes/group__api__metadefs.mdx#define-vrtree-api)**  |
 
@@ -233,21 +232,12 @@ Listing of metanode structures, describing their purpose and listing their prope
   * This documentation is generated from the application headers, where, conventionally, a `Meta_` prefix is used, and an `IDX` enum lists the properties in order, with an `Idx_` prefix. So [Meta_Animation::Idx_Interpolation](../../Classes/struct_meta___animation.mdx#enumvalue-idx-interpolation) refers to the `Interpolation` property on the `Animation` metanode.
   * When applying this information to scripts and plugins, which operate on node and property names, omit the `Meta_` and `Idx_` prefixes
 
-
-
 Enum values that specify "symbols" are for int properties that expect a particular internal value. Since this value may change over time, in order to allow plugins to remain compatible between versions, it is recommended to use these symbols to set these values, rather than the raw integer values. The Lua symbol can be used as-is, as it is global in the Lua state. The C symbols can be used with [VRSetPropertyEnum](../Metanodes/group__api__metanodes__properties.mdx#vrsetpropertyenum) and related functions. 
-
-
-
 
 ## Macros Documentation
 
 ### define vrtree_API
 
-```
+```cpp
 #define vrtree_API 
 ```
-
-
-
-

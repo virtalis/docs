@@ -1,7 +1,6 @@
 ---
 title: Types
 summary: Defines the data types used for object handle parameters to API functions. 
-
 ---
 
 # Types
@@ -10,13 +9,13 @@ Defines the data types used for object handle parameters to API functions.
 
 ## Classes
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | struct | **[_TextureInfo](../Classes/struct___texture_info.mdx)**  |
 
 ## Types
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | typedef struct SecurityContextHandle * | **[HAuth](../definitions/group__api__types.mdx#typedef-hauth)** <br />A handle to a security context.  |
 | typedef struct FFIVarHandle * | **[HFFIVar](../definitions/group__api__types.mdx#typedef-hffivar)** <br />A handle to a variable passed through the foreign function interface (FFI)  |
@@ -30,7 +29,7 @@ Defines the data types used for object handle parameters to API functions.
 
 ### typedef HAuth
 
-```
+```cpp
 typedef struct SecurityContextHandle* HAuth;
 ```
 
@@ -38,7 +37,7 @@ A handle to a security context.
 
 ### typedef HFFIVar
 
-```
+```cpp
 typedef struct FFIVarHandle* HFFIVar;
 ```
 
@@ -46,7 +45,7 @@ A handle to a variable passed through the foreign function interface (FFI)
 
 ### typedef HMeta
 
-```
+```cpp
 typedef struct MetaHandle* HMeta;
 ```
 
@@ -54,7 +53,7 @@ A handle to a VRTree metanode.
 
 ### typedef HMigration
 
-```
+```cpp
 typedef struct MigrationHandle* HMigration;
 ```
 
@@ -62,7 +61,7 @@ A handle to a migration description.
 
 ### typedef HNode
 
-```
+```cpp
 typedef struct NodeHandle* HNode;
 ```
 
@@ -70,7 +69,7 @@ A handle to a VRTree node.
 
 ### typedef HUserSlot
 
-```
+```cpp
 typedef struct UserDataHandle* HUserSlot;
 ```
 
@@ -78,13 +77,6 @@ A handle to a userdata slot on a VRTree node.
 
 ### typedef TextureInfo
 
-```
+```cpp
 typedef struct _TextureInfo  TextureInfo;
 ```
-
-
-
-
-
-
-

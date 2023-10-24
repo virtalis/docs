@@ -1,7 +1,6 @@
 ---
 title: Tree
 summary: Functions for operating on the node structure of the VR Tree. 
-
 ---
 
 # Tree
@@ -10,7 +9,7 @@ Functions for operating on the node structure of the VR Tree.
 
 ## Functions
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRCloneNode](../Modules/group__api__tree.mdx#vrclonenode)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) parentNode, [HNode](../Modules/group__api__types.mdx#typedef-hnode) nodeToClone, int recursive)<br />Clones an existing node.  |
 | int | **[VRCompareNode](../Modules/group__api__tree.mdx#vrcomparenode)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) lhs, [HNode](../Modules/group__api__types.mdx#typedef-hnode) rhs, int checkNameMatches)<br />Compares all the properties on both nodes to make sure they are equal.  |
@@ -58,12 +57,11 @@ Functions for operating on the node structure of the VR Tree.
 | int | **[VRSetParent](../Modules/group__api__tree.mdx#vrsetparent)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, [HNode](../Modules/group__api__types.mdx#typedef-hnode) parent)<br />Sets the parent of a node, adding it as the last child.  |
 | int | **[VRSetParentEx](../Modules/group__api__tree.mdx#vrsetparentex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, [HNode](../Modules/group__api__types.mdx#typedef-hnode) parent, [HNode](../Modules/group__api__types.mdx#typedef-hnode) afterSibling)<br />Sets the parent of a node, specifying a sibling to insert after.  |
 
-
 ## Functions Documentation
 
 ### VRCloneNode
 
-```
+```cpp
 HNode VRCloneNode(
     HNode parentNode,
     HNode nodeToClone,
@@ -79,12 +77,11 @@ Clones an existing node.
   * **nodeToClone** the node to copy 
   * **recursive** if not 0, also copies descendants 
 
-
 **Return**: the copy of nodeToClone 
 
 ### VRCompareNode
 
-```
+```cpp
 int VRCompareNode(
     HNode lhs,
     HNode rhs,
@@ -100,12 +97,11 @@ Compares all the properties on both nodes to make sure they are equal.
   * **rhs** second node to compare 
   * **checkNameMatches** whether to compare the node name as well as the properties (non-zero to enable) 
 
-
 **Return**: 1 if the nodes are the same, 0 if they are not 
 
 ### VRCreateNode
 
-```
+```cpp
 HNode VRCreateNode(
     HNode parentNode,
     const char * metaName,
@@ -121,12 +117,11 @@ Creates a node.
   * **metaName** type of node to create 
   * **nodeName** name of the new node 
 
-
 **Return**: node handle 
 
 ### VRCreateNodeEx
 
-```
+```cpp
 HNode VRCreateNodeEx(
     HNode parentNode,
     const char * metaName,
@@ -150,12 +145,11 @@ Creates a node.
   * **idHI** high 64bits of a unique id (or 0 for auto ID) 
   * **userChange** whether the change is a response to a user action 
 
-
 **Note**: Flags larger than 16bits will be truncated. 
 
 ### VRDeleteNode
 
-```
+```cpp
 int VRDeleteNode(
     HNode node
 )
@@ -167,12 +161,11 @@ Deletes a node and all its children.
 
   * **node** the node to delete 
 
-
 **Return**: 0 if deletion successful 
 
 ### VRFind
 
-```
+```cpp
 HNode VRFind(
     HNode startNode,
     const char * path
@@ -186,12 +179,11 @@ Finds a descendant of startNode using its path.
   * **startNode** node to search from 
   * **path** path from start node to requested node 
 
-
 **Return**: handle to requested node or NULL if not found 
 
 ### VRFindChild
 
-```
+```cpp
 HNode VRFindChild(
     HNode startNode,
     const char * childName,
@@ -207,12 +199,11 @@ Finds a direct child of startNode. Index is used to specify n'th child if multip
   * **childName** name of the child 
   * **index** index of child with non-unique name 
 
-
 **Return**: handle to requested node or NULL if not found 
 
 ### VRFindChildPooled
 
-```
+```cpp
 HNode VRFindChildPooled(
     HNode startNode,
     const char * metaNode,
@@ -228,12 +219,11 @@ Finds a direct child of startNode by specifying name and type.
   * **metaNode** type of child node to get 
   * **childName** name of the child node to return 
 
-
 **Return**: handle to found node or NULL if not found 
 
 ### VRFindOrCreateChild
 
-```
+```cpp
 HNode VRFindOrCreateChild(
     HNode parentNode,
     const char * metaName,
@@ -249,12 +239,11 @@ Gets or creates a node matching metanode and name.
   * **metaName** type of node to create 
   * **nodeName** name of the new node 
 
-
 **Return**: node handle 
 
 ### VRFindOrCreateChildEx
 
-```
+```cpp
 HNode VRFindOrCreateChildEx(
     HNode parentNode,
     const char * metaName,
@@ -274,12 +263,11 @@ Gets or creates a node matching metanode and name.
   * **metaName** type of node to create 
   * **nodeName** name of the new node 
 
-
 **Return**: node handle 
 
 ### VRGetChild
 
-```
+```cpp
 HNode VRGetChild(
     HNode node
 )
@@ -291,7 +279,7 @@ Gets the first child of node.
 
 ### VRGetChildOfType
 
-```
+```cpp
 HNode VRGetChildOfType(
     HNode node,
     const char * childMetaNode
@@ -304,12 +292,11 @@ Gets the first child of a specific type.
 
   * **childMetaNode** the type of child to get 
 
-
 **Return**: first child of requested type, or NULL if no children/no children of this type 
 
 ### VRGetLibrariesNode
 
-```
+```cpp
 HNode VRGetLibrariesNode(
     void 
 )
@@ -319,7 +306,7 @@ Gets the VRTree libraries node.
 
 ### VRGetMetaNode
 
-```
+```cpp
 HMeta VRGetMetaNode(
     HNode node
 )
@@ -331,7 +318,7 @@ Gets the metanode of a node.
 
 ### VRGetNext
 
-```
+```cpp
 HNode VRGetNext(
     HNode node
 )
@@ -343,7 +330,7 @@ Gets the next sibling of a node.
 
 ### VRGetNextOfType
 
-```
+```cpp
 HNode VRGetNextOfType(
     HNode node,
     const char * nextMetaNode
@@ -356,12 +343,11 @@ Gets the next sibling of a specific type.
 
   * **nextMetaNode** the type of sibling to get 
 
-
 **Return**: next sibling of requested type, or NULL if no siblings/no siblings of this type 
 
 ### VRGetNodeName
 
-```
+```cpp
 size_t VRGetNodeName(
     HNode node,
     char * buffer,
@@ -377,12 +363,11 @@ Gets the name of a node.
   * **buffer** a buffer to receive the node name as a null terminated string 
   * **size** size of the buffer 
 
-
 **Return**: the number of characters written to the buffer (including trailing null) 
 
 ### VRGetNodeNameLength
 
-```
+```cpp
 size_t VRGetNodeNameLength(
     HNode node
 )
@@ -394,10 +379,9 @@ Gets the length of a node's name, plus 1 for the trailing null terminator.
 
   * **node** handle to the node 
 
-
 ### VRGetNodePath
 
-```
+```cpp
 size_t VRGetNodePath(
     HNode node,
     char * buffer,
@@ -413,14 +397,13 @@ Gets the path of a node.
   * **buffer** a buffer to recieve the node path as a null terminated string 
   * **size** size of the buffer 
 
-
 **Return**: the number of characters written to the buffer (including trailing null) 
 
 **Note**: if buffer is null, function returns the required size of the buffer 
 
 ### VRGetNodePathLength
 
-```
+```cpp
 size_t VRGetNodePathLength(
     HNode node
 )
@@ -432,10 +415,9 @@ Gets the length of a node's path.
 
   * **node** handle to the node 
 
-
 ### VRGetNodeUserData
 
-```
+```cpp
 void * VRGetNodeUserData(
     HNode node,
     HUserSlot slot
@@ -448,12 +430,11 @@ Stores a pointer on the node.
 
   * **node** handle to the node 
 
-
 **Return**: user data bound to slot 
 
 ### VRGetParent
 
-```
+```cpp
 HNode VRGetParent(
     HNode node
 )
@@ -465,7 +446,7 @@ Gets the parent of a node.
 
 ### VRGetPrev
 
-```
+```cpp
 HNode VRGetPrev(
     HNode node
 )
@@ -477,7 +458,7 @@ Gets the previous sibling of a node.
 
 ### VRGetPrevOfType
 
-```
+```cpp
 HNode VRGetPrevOfType(
     HNode node,
     const char * prevMetaNode
@@ -490,12 +471,11 @@ Gets the previous sibling of a specific type.
 
   * **prevMetaNode** the type of sibling to get 
 
-
 **Return**: previous sibling of requested type, or NULL if no siblings/no siblings of this type 
 
 ### VRGetRootNode
 
-```
+```cpp
 HNode VRGetRootNode(
     void 
 )
@@ -505,7 +485,7 @@ Gets the VRTree root node.
 
 ### VRGetScenesNode
 
-```
+```cpp
 HNode VRGetScenesNode(
     void 
 )
@@ -515,7 +495,7 @@ Gets the VRTree scenes node.
 
 ### VRGetSystemLibraryNode
 
-```
+```cpp
 HNode VRGetSystemLibraryNode(
     void 
 )
@@ -525,7 +505,7 @@ Gets the VRTree system library node.
 
 ### VRGetThisUser
 
-```
+```cpp
 HNode VRGetThisUser(
     void 
 )
@@ -535,7 +515,7 @@ Gets the VRTree user node.
 
 ### VRGetType
 
-```
+```cpp
 size_t VRGetType(
     HNode node,
     char * buffer,
@@ -551,12 +531,11 @@ Gets the type of a node.
   * **buffer** a buffer to recieve the node type name as a null terminated string 
   * **size** size of the buffer 
 
-
 **Return**: the number of characters written to the buffer (including trailing null) 
 
 ### VRGetTypeLength
 
-```
+```cpp
 size_t VRGetTypeLength(
     HNode node
 )
@@ -566,7 +545,7 @@ Gets the length of the type name of a node.
 
 ### VRGetUsersNode
 
-```
+```cpp
 HNode VRGetUsersNode(
     void 
 )
@@ -576,7 +555,7 @@ Gets the VRTree users node.
 
 ### VRIsAncestor
 
-```
+```cpp
 int VRIsAncestor(
     HNode a,
     HNode b
@@ -590,12 +569,11 @@ Checks if node a is an ancestor of node b.
   * **a** first node 
   * **b** second node 
 
-
 **Return**: 1 if a is an ancestor of b 
 
 ### VRIsDirty
 
-```
+```cpp
 int VRIsDirty(
     HNode node,
     const char * propName
@@ -609,12 +587,11 @@ Determines if a node value has been changed/dirtied.
   * **node** handle to the node 
   * **propName** name of the property on this node 
 
-
 **Return**: 1 if node property is dirty, 0 if it is not 
 
 ### VRIsDirtyEx
 
-```
+```cpp
 int VRIsDirtyEx(
     HNode node,
     uint32_t prop
@@ -628,12 +605,11 @@ Determines if a node value has been changed/dirtied.
   * **node** handle to the node 
   * **prop** the index of the property to set 
 
-
 **Return**: 1 if node property is dirty, 0 if it is not 
 
 ### VRIsNodeName
 
-```
+```cpp
 int VRIsNodeName(
     HNode node,
     const char * name
@@ -647,12 +623,11 @@ Checks if the name of the node is equal to parameter.
   * **node** handle to the node 
   * **name** to check against 
 
-
 **Return**: 1 if name is equal -1 if node invalid 0 if not equal 
 
 ### VRIsSameNode
 
-```
+```cpp
 int VRIsSameNode(
     HNode a,
     HNode b
@@ -666,12 +641,11 @@ Checks if two node handles are pointing at the same node.
   * **a** first node 
   * **b** second node 
 
-
 **Return**: 1 if the nodes are the same 
 
 ### VRIsType
 
-```
+```cpp
 int VRIsType(
     HNode node,
     const char * metaName
@@ -685,12 +659,11 @@ Determines if a node is of a particular type.
   * **node** handle to the node 
   * **metaName** name of the node type to match 
 
-
 **Return**: 1 if node is of type metaName, 0 if it is not 
 
 ### VRLoadTree
 
-```
+```cpp
 HNode VRLoadTree(
     HNode targetNode,
     const char * fileName
@@ -704,12 +677,11 @@ Loads a VRText or VRNative format file from disk.
   * **targetNode** the node to load the file onto (usually root) 
   * **fileName** the full path to the file to load 
 
-
 **Return**: The first new child of targetNode, or NULL if load failed 
 
 ### VRLoadTreeEx
 
-```
+```cpp
 HNode VRLoadTreeEx(
     HNode targetNode,
     const char * fileName,
@@ -729,12 +701,11 @@ Loads a VRText or VRNative format file from disk.
   * **builderFlags** flags which adjust the behaviour of the builder 
   * **builderMetaFlags** additional MetaNode flags applied to nodes created by the tree builder 
 
-
 **Return**: The first new child of targetNode, or NULL if load failed 
 
 ### VRSaveTree
 
-```
+```cpp
 int VRSaveTree(
     HNode rootNode,
     const char * fileName
@@ -748,12 +719,11 @@ Saves the tree to a VRText or VRNative format file on disk.
   * **rootNode** the node to start saving from (usually root) 
   * **fileName** the full path to the file to save to 
 
-
 **Return**: 0 if the save was successful 
 
 ### VRSaveTreeEx
 
-```
+```cpp
 int VRSaveTreeEx(
     HNode rootNode,
     const char * fileName,
@@ -768,12 +738,11 @@ Saves the tree to a VRText or VRNative format file on disk.
   * **rootNode** the node to start saving from (usually root). 
   * **fileName** the full path to the file to save to. 
 
-
 **Return**: 0 if the save was successful. 
 
 ### VRSetNodeName
 
-```
+```cpp
 int VRSetNodeName(
     HNode node,
     const char * name
@@ -787,12 +756,11 @@ Sets the name of a node.
   * **node** handle to the node 
   * **name** the new node name 
 
-
 **Return**: 0 on success 
 
 ### VRSetNodeUserData
 
-```
+```cpp
 void * VRSetNodeUserData(
     HNode node,
     HUserSlot slot,
@@ -807,12 +775,11 @@ Stores a pointer on the node.
   * **node** handle to the node 
   * **data** which you wish to store in slot, can be null to remove data 
 
-
 **Return**: previously bound data, if any 
 
 ### VRSetParent
 
-```
+```cpp
 int VRSetParent(
     HNode node,
     HNode parent
@@ -825,7 +792,7 @@ Sets the parent of a node, adding it as the last child.
 
 ### VRSetParentEx
 
-```
+```cpp
 int VRSetParentEx(
     HNode node,
     HNode parent,
@@ -839,10 +806,4 @@ Sets the parent of a node, specifying a sibling to insert after.
 
   * **afterSibling** the node after which to insert this node. If null, inserts as first child of parent 
 
-
 **Return**: 0 on success 
-
-
-
-
-

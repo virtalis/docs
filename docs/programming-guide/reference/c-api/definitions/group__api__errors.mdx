@@ -1,7 +1,6 @@
 ---
 title: Error Codes
 summary: Error codes that might be set if an API function fails, assuming the log level is something other than VRTREE_ERRORLEVEL_NONE. 
-
 ---
 
 # Error Codes
@@ -10,7 +9,7 @@ Error codes that might be set if an API function fails, assuming the log level i
 
 ## Attributes
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | const uint32_t | **[VRTREE_API_INVALID_HANDLE](../definitions/group__api__errors.mdx#vrtree-api-invalid-handle)** <br />API function expected a valid object handle.  |
 | const uint32_t | **[VRTREE_API_INVALID_METANODE](../definitions/group__api__errors.mdx#vrtree-api-invalid-metanode)** <br />API function expected a valid metanode name/handle.  |
@@ -21,13 +20,11 @@ Error codes that might be set if an API function fails, assuming the log level i
 | const uint32_t | **[VRTREE_API_NOT_ALLOWED](../definitions/group__api__errors.mdx#vrtree-api-not-allowed)** <br />API function attempted to do something inherently forbidden.  |
 | const uint32_t | **[VRTREE_API_OK](../definitions/group__api__errors.mdx#vrtree-api-ok)** <br />No error - operation succeeded.  |
 
-
-
 ## Attributes Documentation
 
 ### VRTREE_API_INVALID_HANDLE
 
-```
+```cpp
 const uint32_t VRTREE_API_INVALID_HANDLE = 1;
 ```
 
@@ -35,7 +32,7 @@ API function expected a valid object handle.
 
 ### VRTREE_API_INVALID_METANODE
 
-```
+```cpp
 const uint32_t VRTREE_API_INVALID_METANODE = 4;
 ```
 
@@ -43,7 +40,7 @@ API function expected a valid metanode name/handle.
 
 ### VRTREE_API_INVALID_PARAMETER
 
-```
+```cpp
 const uint32_t VRTREE_API_INVALID_PARAMETER = 2;
 ```
 
@@ -51,7 +48,7 @@ API function expected a valid parameter (buffer, string, etc)
 
 ### VRTREE_API_INVALID_PROPERTY
 
-```
+```cpp
 const uint32_t VRTREE_API_INVALID_PROPERTY = 3;
 ```
 
@@ -59,7 +56,7 @@ API function expected a valid property name/index.
 
 ### VRTREE_API_INVALID_SECURITYCONTEXT
 
-```
+```cpp
 const uint32_t VRTREE_API_INVALID_SECURITYCONTEXT = 6;
 ```
 
@@ -67,7 +64,7 @@ API function was called without adequate permissions.
 
 ### VRTREE_API_MISSING_MIGRATIONS
 
-```
+```cpp
 const uint32_t VRTREE_API_MISSING_MIGRATIONS = 5;
 ```
 
@@ -75,7 +72,7 @@ API function attempted to perform migrations but some are missing.
 
 ### VRTREE_API_NOT_ALLOWED
 
-```
+```cpp
 const uint32_t VRTREE_API_NOT_ALLOWED = 7;
 ```
 
@@ -83,12 +80,8 @@ API function attempted to do something inherently forbidden.
 
 ### VRTREE_API_OK
 
-```
+```cpp
 const uint32_t VRTREE_API_OK = 0;
 ```
 
 No error - operation succeeded. 
-
-
-
-

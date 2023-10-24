@@ -1,7 +1,6 @@
 ---
 title: Utilities
 summary: Assorted utility functions. 
-
 ---
 
 # Utilities
@@ -10,7 +9,7 @@ Assorted utility functions.
 
 ## Functions
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | int | **[VRBlobToDDSProperty](../Modules/group__api__utils.mdx#vrblobtoddsproperty)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, const void * data, uint32_t glFormat, uint32_t glType, uint32_t width, uint32_t height, char compress)<br />Helper function for converting it to DDS, and storing it in the specified char vector property.  |
 | int | **[VRBlobToDDSPropertyEx](../Modules/group__api__utils.mdx#vrblobtoddspropertyex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, const void * data, uint32_t glFormat, uint32_t glType, uint32_t width, uint32_t height, char compress)<br />Helper function for converting it to DDS, and storing it in the specified char vector property.  |
@@ -21,12 +20,11 @@ Assorted utility functions.
 | uint32_t | **[VRGetTextureFormat](../Modules/group__api__utils.mdx#vrgettextureformat)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) textureNode)<br />Helper function for getting the OpenGL texture format out of a texture node.  |
 | TextureInfo | **[VRGetTextureInfo](../Modules/group__api__utils.mdx#vrgettextureinfo)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) textureNode)<br />Helper function for getting the OpenGL texture information out of a texture node.  |
 
-
 ## Functions Documentation
 
 ### VRBlobToDDSProperty
 
-```
+```cpp
 int VRBlobToDDSProperty(
     HNode node,
     const char * propName,
@@ -52,12 +50,11 @@ Helper function for converting it to DDS, and storing it in the specified char v
   * **height** the pixel height of the buffer data 
   * **compress** whether to compress the texture using DXT1 
 
-
 **Return**: 0 if property is successfully populated with DDS data 
 
 ### VRBlobToDDSPropertyEx
 
-```
+```cpp
 int VRBlobToDDSPropertyEx(
     HNode node,
     uint32_t prop,
@@ -83,12 +80,11 @@ Helper function for converting it to DDS, and storing it in the specified char v
   * **height** the pixel height of the buffer data 
   * **compress** whether to compress the texture using DXT1 
 
-
 **Return**: 0 if property is successfully populated with DDS data 
 
 ### VRBlobToDDSPropertyV2
 
-```
+```cpp
 int VRBlobToDDSPropertyV2(
     HNode node,
     const char * propName,
@@ -119,12 +115,11 @@ Helper function for converting it to DDS, and storing it in the specified char v
   * **compress** whether to compress the texture using DXT1 
   * **number** of mipMap levels 
 
-
 **Return**: 0 if property is successfully populated with DDS data 
 
 ### VRBlobToDDSPropertyV2Ex
 
-```
+```cpp
 int VRBlobToDDSPropertyV2Ex(
     HNode node,
     uint32_t prop,
@@ -155,12 +150,11 @@ Helper function for converting it to DDS, and storing it in the specified char v
   * **compress** whether to compress the texture using DXT1 
   * **number** of mipMap levels 
 
-
 **Return**: 0 if property is successfully populated with DDS data 
 
 ### VRFileToDDSProperty
 
-```
+```cpp
 int VRFileToDDSProperty(
     HNode node,
     const char * propName,
@@ -178,12 +172,11 @@ Helper function for loading an image file from disk, converting it to DDS, and s
   * **file** path to the file to read, if not found, an error pattern is set instead 
   * **compress** whether to compress the texture using DXT1 
 
-
 **Return**: 0 if property is successfully populated with data from the file in DDS format 
 
 ### VRFileToDDSPropertyEx
 
-```
+```cpp
 int VRFileToDDSPropertyEx(
     HNode node,
     uint32_t prop,
@@ -201,12 +194,11 @@ Helper function for loading an image file from disk, converting it to DDS, and s
   * **file** path to the file to read, if not found, an error pattern is set instead 
   * **compress** whether to compress the texture using DXT1 
 
-
 **Return**: 0 if property is successfully populated with data from the file in DDS format 
 
 ### VRGetTextureFormat
 
-```
+```cpp
 uint32_t VRGetTextureFormat(
     HNode textureNode
 )
@@ -218,12 +210,11 @@ Helper function for getting the OpenGL texture format out of a texture node.
 
   * **textureNode** handle to the texture node 
 
-
 **Return**: 0 if node has no DDSData property, otherwise the GLenum value representing the texture format 
 
 ### VRGetTextureInfo
 
-```
+```cpp
 TextureInfo VRGetTextureInfo(
     HNode textureNode
 )
@@ -235,10 +226,4 @@ Helper function for getting the OpenGL texture information out of a texture node
 
   * **textureNode** handle to the texture node 
 
-
 **Return**: information reguarding texture paramaters, values will be 0 on faliure 
-
-
-
-
-

@@ -1,11 +1,8 @@
 ---
 title: Plugins
-
 ---
 
 # Plugins
-
-
 
 ## Modules
 
@@ -16,23 +13,22 @@ title: Plugins
 
 ## Functions
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | void | **[progress_yield](../Modules/group__api__plugins.mdx#progress-yield)**(int min, int max, const char * msg)<br />(vrtree-linker based plugins) wrapper around plugin API yield function. the helper macro `VRPLUGIN_API_YIELDIMPL` will define the plugin registration function and implement it to provide the function pointer to this helper.  |
 
 ## Defines
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 |  | **[PLUGIN_ENTRY_POINT](../Modules/group__api__plugins.mdx#define-plugin-entry-point)** <br />Plugin function exports macro.  |
 |  | **[VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry)** <br />Plugin function calling convention.  |
-
 
 ## Functions Documentation
 
 ### progress_yield
 
-```
+```cpp
 void progress_yield(
     int min,
     int max,
@@ -42,13 +38,11 @@ void progress_yield(
 
 (vrtree-linker based plugins) wrapper around plugin API yield function. the helper macro `VRPLUGIN_API_YIELDIMPL` will define the plugin registration function and implement it to provide the function pointer to this helper. 
 
-
-
 ## Macros Documentation
 
 ### define PLUGIN_ENTRY_POINT
 
-```
+```cpp
 #define PLUGIN_ENTRY_POINT extern "C" __attribute__ ((__visibility__("default")))
 ```
 
@@ -56,11 +50,8 @@ Plugin function exports macro.
 
 ### define VRTREE_APIENTRY
 
-```
+```cpp
 #define VRTREE_APIENTRY 
 ```
 
 Plugin function calling convention. 
-
-
-

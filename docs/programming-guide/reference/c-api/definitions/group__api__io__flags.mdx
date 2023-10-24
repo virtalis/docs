@@ -1,7 +1,6 @@
 ---
 title: Save/Load Tree I/O Flags
 summary: Input and output operation flags that can be passed to the ioFlags parameter on VRLoadTreeEx and VRSaveTreeEx. 
-
 ---
 
 # Save/Load Tree I/O Flags
@@ -10,7 +9,7 @@ Input and output operation flags that can be passed to the `ioFlags` parameter o
 
 ## Attributes
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | const uint64_t | **[FILEIO_CHANGED_ONLY](../definitions/group__api__io__flags.mdx#fileio-changed-only)** <br />Signals the file IO to only output Libraries that are changed.  |
 | const uint64_t | **[FILEIO_FILE_FORMAT_GUESS](../definitions/group__api__io__flags.mdx#fileio-file-format-guess)** <br />Signals that the save/load operation should determine the file format from the file extension.  |
@@ -27,13 +26,11 @@ Input and output operation flags that can be passed to the `ioFlags` parameter o
 | const uint64_t | **[FILEIO_SYSTEM_DOCUMENT](../definitions/group__api__io__flags.mdx#fileio-system-document)** <br />Signals that the document should be saved as a system document.  |
 | const uint64_t | **[FILEIO_UUIDS_MUST_EXIST](../definitions/group__api__io__flags.mdx#fileio-uuids-must-exist)** <br />Signals that the file IO should throw an exception if the file being loaded does not have UUID's.  |
 
-
-
 ## Attributes Documentation
 
 ### FILEIO_CHANGED_ONLY
 
-```
+```cpp
 const uint64_t FILEIO_CHANGED_ONLY = ((uint64_t)1 << 0);
 ```
 
@@ -41,7 +38,7 @@ Signals the file IO to only output Libraries that are changed.
 
 ### FILEIO_FILE_FORMAT_GUESS
 
-```
+```cpp
 const uint64_t FILEIO_FILE_FORMAT_GUESS = ((uint64_t)1 << 35);
 ```
 
@@ -49,7 +46,7 @@ Signals that the save/load operation should determine the file format from the f
 
 ### FILEIO_FILE_FORMAT_HUMAN
 
-```
+```cpp
 const uint64_t FILEIO_FILE_FORMAT_HUMAN = ((uint64_t)1 << 34);
 ```
 
@@ -57,7 +54,7 @@ Signals that the file should be saved/loaded as a VRText file.
 
 ### FILEIO_FILE_FORMAT_MACHINE
 
-```
+```cpp
 const uint64_t FILEIO_FILE_FORMAT_MACHINE = ((uint64_t)1 << 33);
 ```
 
@@ -65,7 +62,7 @@ Signals that the files should be saved/loaded as a VRNative file.
 
 ### FILEIO_FORCE_SAVE
 
-```
+```cpp
 const uint64_t FILEIO_FORCE_SAVE = ((uint64_t)1 << 3);
 ```
 
@@ -73,7 +70,7 @@ Signals the file IO that we should override the NO_SAVE flag and save anyways.
 
 ### FILEIO_IGNORE_UNSAVED_PROPERTIES
 
-```
+```cpp
 const uint64_t FILEIO_IGNORE_UNSAVED_PROPERTIES = ((uint64_t)1 << 7);
 ```
 
@@ -81,7 +78,7 @@ Signals that values of properties that aren't saved should be ignored when loadi
 
 ### FILEIO_MERGE
 
-```
+```cpp
 const uint64_t FILEIO_MERGE = ((uint64_t)1 << 2);
 ```
 
@@ -89,7 +86,7 @@ Signals the file IO that this call to loadTree() is merging files into the curre
 
 ### FILEIO_MONOLITHIC
 
-```
+```cpp
 const uint64_t FILEIO_MONOLITHIC = ((uint64_t)1 << 6);
 ```
 
@@ -97,7 +94,7 @@ Signals that Library nodes' archive flag should be ignored.
 
 ### FILEIO_NESTED
 
-```
+```cpp
 const uint64_t FILEIO_NESTED = ((uint64_t)1 << 1);
 ```
 
@@ -105,7 +102,7 @@ Signals the file IO that this call to loadTree() is nested inside another.
 
 ### FILEIO_NEW_UUIDS
 
-```
+```cpp
 const uint64_t FILEIO_NEW_UUIDS = ((uint64_t)1 << 4);
 ```
 
@@ -113,7 +110,7 @@ Signals that the file IO should not preserve the Node UUID's.
 
 ### FILEIO_OVERLAY_DOCUMENT
 
-```
+```cpp
 const uint64_t FILEIO_OVERLAY_DOCUMENT = ((uint64_t)1 << 9);
 ```
 
@@ -121,7 +118,7 @@ Signals that the document should be saved as a system document.
 
 ### FILEIO_SAVE_SIBLINGS_TOO
 
-```
+```cpp
 const uint64_t FILEIO_SAVE_SIBLINGS_TOO = ((uint64_t)1 << 32);
 ```
 
@@ -129,7 +126,7 @@ Signals that the nodes siblings should be saved.
 
 ### FILEIO_SYSTEM_DOCUMENT
 
-```
+```cpp
 const uint64_t FILEIO_SYSTEM_DOCUMENT = ((uint64_t)1 << 8);
 ```
 
@@ -137,12 +134,8 @@ Signals that the document should be saved as a system document.
 
 ### FILEIO_UUIDS_MUST_EXIST
 
-```
+```cpp
 const uint64_t FILEIO_UUIDS_MUST_EXIST = ((uint64_t)1 << 5);
 ```
 
 Signals that the file IO should throw an exception if the file being loaded does not have UUID's. 
-
-
-
-

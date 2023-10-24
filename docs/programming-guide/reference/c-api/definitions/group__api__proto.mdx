@@ -1,7 +1,6 @@
 ---
 title: Function Prototypes
 summary: Defines the function prototypes used for registering callbacks with the API. 
-
 ---
 
 # Function Prototypes
@@ -10,7 +9,7 @@ Defines the function prototypes used for registering callbacks with the API.
 
 ## Types
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | typedef void(*)(int code, HNode user, void *userData) | **[EventGestureFunc](../definitions/group__api__proto.mdx#typedef-eventgesturefunc)** <br />Signature of a function that is called when a key code is changed (for event observers)  |
 | typedef void(*)(int code, int state, HNode user, void *userData) | **[EventKeyFunc](../definitions/group__api__proto.mdx#typedef-eventkeyfunc)** <br />Signature of a function that is called when a key state is changed (for event observers)  |
@@ -39,7 +38,7 @@ Defines the function prototypes used for registering callbacks with the API.
 
 ### typedef EventGestureFunc
 
-```
+```cpp
 typedef void(* EventGestureFunc) (int code, HNode user, void *userData);
 ```
 
@@ -51,10 +50,9 @@ Signature of a function that is called when a key code is changed (for event obs
   * **user** user node copied from the __User LUA register 
   * **userData** arbitrary user data that was provided when registering the callback 
 
-
 ### typedef EventKeyFunc
 
-```
+```cpp
 typedef void(* EventKeyFunc) (int code, int state, HNode user, void *userData);
 ```
 
@@ -67,10 +65,9 @@ Signature of a function that is called when a key state is changed (for event ob
   * **user** user node copied from the __User LUA register 
   * **userData** arbitrary user data that was provided when registering the callback 
 
-
 ### typedef EventNodeFunc
 
-```
+```cpp
 typedef void(* EventNodeFunc) (HNode node, HNode user, void *userData);
 ```
 
@@ -82,10 +79,9 @@ Signature of a function that is called when a node state is changed (for event o
   * **user** user node copied from the __User LUA register 
   * **userData** arbitrary user data that was provided when registering the callback 
 
-
 ### typedef EventTwoNodesFunc
 
-```
+```cpp
 typedef void(* EventTwoNodesFunc) (HNode node, HNode other, void *userData);
 ```
 
@@ -97,10 +93,9 @@ Signature of a function that is called when two nodes interact (for event observ
   * **other** interacting node copied from the __Other LUA register 
   * **userData** arbitrary user data that was provided when registering the callback 
 
-
 ### typedef EventTwoNodesUserFunc
 
-```
+```cpp
 typedef void(* EventTwoNodesUserFunc) (HNode node, HNode other, HNode user, void *userData);
 ```
 
@@ -113,10 +108,9 @@ Signature of a function that is called when two nodes interact (for event observ
   * **user** user node copied from the __User LUA register 
   * **userData** arbitrary user data that was provided when registering the callback 
 
-
 ### typedef FFIFunc
 
-```
+```cpp
 typedef HFFIVar(* FFIFunc) (int argc, HFFIVar *argv, void *userData);
 ```
 
@@ -124,7 +118,7 @@ Signature of a function that is exposed to the Lua environment.
 
 ### typedef MigrationAddFunc
 
-```
+```cpp
 typedef void(* MigrationAddFunc) (HMigration m);
 ```
 
@@ -134,10 +128,9 @@ Signature of a function that receives a new migration handle and should use it t
 
   * **m** handle to a migration 
 
-
 ### typedef MigrationDownFunc
 
-```
+```cpp
 typedef int(* MigrationDownFunc) (HMigration m, HMeta meta);
 ```
 
@@ -148,12 +141,11 @@ Signature of a function that should perform a downgrade on a metanode.
   * **m** the migration that owns this downgradfe function 
   * **meta** the metanode that should be modified as part of the downgrade 
 
-
 **Return**: should return zero on success 
 
 ### typedef MigrationDowngradeFunc
 
-```
+```cpp
 typedef HNode(* MigrationDowngradeFunc) (HMigration m, HNode node);
 ```
 
@@ -164,12 +156,11 @@ Signature of a function that should perform a downgrade on a node instance.
   * **m** the migration that owns this upgrade function 
   * **node** the node instance to downgrade 
 
-
 **Return**: a node handle representing the new, downgraded node instance 
 
 ### typedef MigrationFunc
 
-```
+```cpp
 typedef void(* MigrationFunc) (HNode node, void *userData);
 ```
 
@@ -180,10 +171,9 @@ Signature of a function that is called at the end of a nodes migration calls.
   * **node** the node that you are migrating 
   * **userData** arbitrary user data that was provided when registering the callback 
 
-
 ### typedef MigrationUpFunc
 
-```
+```cpp
 typedef int(* MigrationUpFunc) (HMigration m, HMeta meta);
 ```
 
@@ -194,12 +184,11 @@ Signature of a function that should perform an upgrade on a metanode.
   * **m** the migration that owns this upgrade function 
   * **meta** the metanode that should be modified as part of the upgrade 
 
-
 **Return**: should return zero on success 
 
 ### typedef MigrationUpgradeFunc
 
-```
+```cpp
 typedef HNode(* MigrationUpgradeFunc) (HMigration m, HNode node);
 ```
 
@@ -210,12 +199,11 @@ Signature of a function that should perform an upgrade on a node instance, e.g. 
   * **m** the migration that owns this upgrade function 
   * **node** the node instance to upgrade 
 
-
 **Return**: a node handle representing the new, upgraded node instance 
 
 ### typedef NodeChildAddedFunc
 
-```
+```cpp
 typedef void(* NodeChildAddedFunc) (HNode parent, HNode child, void *userData);
 ```
 
@@ -227,10 +215,9 @@ Signature of a function that is called when a child is added to a node.
   * **child** the child that is being added to the parent 
   * **userData** arbitrary user data that was provided when registering the callback 
 
-
 ### typedef NodeChildRemovedFunc
 
-```
+```cpp
 typedef void(* NodeChildRemovedFunc) (HNode parent, HNode child, void *userData);
 ```
 
@@ -242,10 +229,9 @@ Signature of a function that is called when a child is removed from a node.
   * **child** the child that was removed from the parent 
   * **userData** arbitrary user data that was provided when registering the callback 
 
-
 ### typedef NodeCreatedFunc
 
-```
+```cpp
 typedef void(* NodeCreatedFunc) (HNode node, void *userData);
 ```
 
@@ -256,10 +242,9 @@ Signature of a function that is called when a node is created.
   * **node** the node that was created 
   * **userData** arbitrary user data that was provided when registering the callback 
 
-
 ### typedef NodeDestroyingFunc
 
-```
+```cpp
 typedef void(* NodeDestroyingFunc) (HNode node, void *userData);
 ```
 
@@ -270,10 +255,9 @@ Signature of a function that is called when a node is about to be deleted.
   * **node** the node that is about the be deleted 
   * **userData** arbitrary user data that was provided when registering the callback 
 
-
 ### typedef NodeParentChangedFunc
 
-```
+```cpp
 typedef void(* NodeParentChangedFunc) (HNode node, HNode newParent, HNode oldParent, void *userData);
 ```
 
@@ -286,10 +270,9 @@ Signature of a function that is called when a node is moved to a new parent.
   * **oldParent** the old parent that the node was moved from 
   * **userData** arbitrary user data that was provided when registering the callback 
 
-
 ### typedef NodeRenamedFunc
 
-```
+```cpp
 typedef void(* NodeRenamedFunc) (HNode node, void *userData);
 ```
 
@@ -300,10 +283,9 @@ Signature of a function that is called when a node is renamed.
   * **node** the node that was created 
   * **userData** arbitrary user data that was provided when registering the callback 
 
-
 ### typedef NodeValuesChangedFunc
 
-```
+```cpp
 typedef void(* NodeValuesChangedFunc) (HNode node, void *userData);
 ```
 
@@ -314,10 +296,9 @@ Signature of a function that is called when properties on a node are changed.
   * **node** the node that was modified 
   * **userData** arbitrary user data that was provided when registering the callback 
 
-
 ### typedef ScriptEventFunc
 
-```
+```cpp
 typedef void(* ScriptEventFunc) (void *userData);
 ```
 
@@ -327,10 +308,9 @@ Signature of a function that is called in response to a registered script event.
 
   * **userData** arbitrary user data that was provided when registering the callback 
 
-
 ### typedef SettingChangedFunc
 
-```
+```cpp
 typedef void(* SettingChangedFunc) (const char *path, void *userData);
 ```
 
@@ -341,10 +321,9 @@ Signature of a function that is called when a setting is changed.
   * **path** the path to the setting from the root of the settings hierarchy 
   * **userData** arbitrary user data that was provided when registering the callback 
 
-
 ### typedef UpdateFunc
 
-```
+```cpp
 typedef void(* UpdateFunc) (double deltaTime, void *userData);
 ```
 
@@ -354,10 +333,3 @@ Signature of a function that is called every frame.
 
   * **deltaTime** the time (in seconds) since the last frame 
   * **userData** arbitrary user data that was provided when registering the callback 
-
-
-
-
-
-
-
