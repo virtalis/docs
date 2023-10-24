@@ -11,6 +11,10 @@ Core API functions.
 
 | Type           | Name           |
 | -------------- | -------------- |
+| int | **[VRBlobToDDSProperty](../Modules/group__api__utils.mdx#vrblobtoddsproperty)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, const void * data, uint32_t glFormat, uint32_t glType, uint32_t width, uint32_t height, char compress)<br />Helper function for converting it to DDS, and storing it in the specified char vector property.  |
+| int | **[VRBlobToDDSPropertyEx](../Modules/group__api__utils.mdx#vrblobtoddspropertyex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, const void * data, uint32_t glFormat, uint32_t glType, uint32_t width, uint32_t height, char compress)<br />Helper function for converting it to DDS, and storing it in the specified char vector property.  |
+| int | **[VRBlobToDDSPropertyV2](../Modules/group__api__utils.mdx#vrblobtoddspropertyv2)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, const void * data, uint32_t glFormat, uint32_t glType, uint32_t transparency, uint32_t width, uint32_t height, uint32_t depth, char compress, uint32_t mipLevels)<br />Helper function for converting it to DDS, and storing it in the specified char vector property.  |
+| int | **[VRBlobToDDSPropertyV2Ex](../Modules/group__api__utils.mdx#vrblobtoddspropertyv2ex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, const void * data, uint32_t glFormat, uint32_t glType, uint32_t transparency, uint32_t width, uint32_t height, uint32_t depth, char compress, uint32_t mipLevels)<br />Helper function for converting it to DDS, and storing it in the specified char vector property.  |
 | int | **[VRBulkData](../Modules/group__api__core.mdx#vrbulkdata)**(void )<br />Specifies if there a large amount of data pending transfer between vrtree instances.  |
 | void | **[VRClearLastError](../Modules/group__api__core.mdx#vrclearlasterror)**(void )<br />Manually clear the last error code.  |
 | void | **[VRCloseNodeHandle](../Modules/group__api__core.mdx#vrclosenodehandle)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Closes a node handle, clearing its connection to VRTree.  |
@@ -19,12 +23,16 @@ Core API functions.
 | int | **[VRConnect](../Modules/group__api__core.mdx#vrconnect)**(const char * addr, int port)<br />Connect to another instance of VRTree (e.g. Visionary Render) and synchronise trees.  |
 | [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRCopyNodeHandle](../Modules/group__api__core.mdx#vrcopynodehandle)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Creates a new node handle based off the old one.  |
 | size_t | **[VRCountOpenNodeHandles](../Modules/group__api__core.mdx#vrcountopennodehandles)**(void )<br />Diagnostic function.  |
+| int | **[VRFileToDDSProperty](../Modules/group__api__utils.mdx#vrfiletoddsproperty)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, const char * file, char compress)<br />Helper function for loading an image file from disk, converting it to DDS, and storing it in the specified char vector property.  |
+| int | **[VRFileToDDSPropertyEx](../Modules/group__api__utils.mdx#vrfiletoddspropertyex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, const char * file, char compress)<br />Helper function for loading an image file from disk, converting it to DDS, and storing it in the specified char vector property.  |
 | int | **[VRGetAPIVersionMajor](../Modules/group__api__core.mdx#vrgetapiversionmajor)**(void )<br />Gets the VRTree API Major version.  |
 | int | **[VRGetAPIVersionMinor](../Modules/group__api__core.mdx#vrgetapiversionminor)**(void )<br />Gets the VRTree API Minor version.  |
 | uint32_t | **[VRGetLastError](../Modules/group__api__core.mdx#vrgetlasterror)**(void )<br />Gets the last error code.  |
 | const char * | **[VRGetLastErrorString](../Modules/group__api__core.mdx#vrgetlasterrorstring)**(void )<br />Gets the last error string.  |
 | [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRGetNodeFromUUID](../Modules/group__api__core.mdx#vrgetnodefromuuid)**(uint64_t lo, uint64_t hi)<br />Gets the node with the specified UUID.  |
 | int | **[VRGetNodeVersion](../Modules/group__api__core.mdx#vrgetnodeversion)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Gets the metanode version of the specified node.  |
+| uint32_t | **[VRGetTextureFormat](../Modules/group__api__utils.mdx#vrgettextureformat)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) textureNode)<br />Helper function for getting the OpenGL texture format out of a texture node.  |
+| TextureInfo | **[VRGetTextureInfo](../Modules/group__api__utils.mdx#vrgettextureinfo)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) textureNode)<br />Helper function for getting the OpenGL texture information out of a texture node.  |
 | uint64_t | **[VRGetUUIDHigh](../Modules/group__api__core.mdx#vrgetuuidhigh)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Gets the high 64-bits of a node's unique ID.  |
 | uint64_t | **[VRGetUUIDLow](../Modules/group__api__core.mdx#vrgetuuidlow)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Gets the low 64-bits of a node's unique ID.  |
 | int | **[VRInit](../Modules/group__api__core.mdx#vrinit)**(int port)<br />Initialise VRTree.  |
@@ -37,6 +45,137 @@ Core API functions.
 | void | **[VRUpdate](../Modules/group__api__core.mdx#vrupdate)**(double deltaTime)<br />Perform a full update, notifying observers and updating actors.  |
 
 ## Functions Documentation
+
+
+### VRBlobToDDSProperty
+
+```cpp
+int VRBlobToDDSProperty(
+    HNode node,
+    const char * propName,
+    const void * data,
+    uint32_t glFormat,
+    uint32_t glType,
+    uint32_t width,
+    uint32_t height,
+    char compress
+)
+```
+
+Helper function for converting it to DDS, and storing it in the specified char vector property. 
+
+**Parameters**: 
+
+  * **node** handle to the node to set the property on 
+  * **propName** name of the property 
+  * **data** buffer containing the image data to convert to DDS 
+  * **glFormat** the opengl format of the buffer data 
+  * **glType** the opengl type of the buffer data 
+  * **width** the pixel width of the buffer data 
+  * **height** the pixel height of the buffer data 
+  * **compress** whether to compress the texture using DXT1 
+
+**Return**: 0 if property is successfully populated with DDS data 
+
+### VRBlobToDDSPropertyEx
+
+```cpp
+int VRBlobToDDSPropertyEx(
+    HNode node,
+    uint32_t prop,
+    const void * data,
+    uint32_t glFormat,
+    uint32_t glType,
+    uint32_t width,
+    uint32_t height,
+    char compress
+)
+```
+
+Helper function for converting it to DDS, and storing it in the specified char vector property. 
+
+**Parameters**: 
+
+  * **node** handle to the node to set the property on 
+  * **propName** name of the property 
+  * **data** buffer containing the image data to convert to DDS 
+  * **glFormat** the opengl format of the buffer data 
+  * **glType** the opengl type of the buffer data 
+  * **width** the pixel width of the buffer data 
+  * **height** the pixel height of the buffer data 
+  * **compress** whether to compress the texture using DXT1 
+
+**Return**: 0 if property is successfully populated with DDS data 
+
+### VRBlobToDDSPropertyV2
+
+```cpp
+int VRBlobToDDSPropertyV2(
+    HNode node,
+    const char * propName,
+    const void * data,
+    uint32_t glFormat,
+    uint32_t glType,
+    uint32_t transparency,
+    uint32_t width,
+    uint32_t height,
+    uint32_t depth,
+    char compress,
+    uint32_t mipLevels
+)
+```
+
+Helper function for converting it to DDS, and storing it in the specified char vector property. 
+
+**Parameters**: 
+
+  * **node** handle to the node to set the property on 
+  * **propName** name of the property 
+  * **data** buffer containing the image data to convert to DDS 
+  * **glFormat** the opengl format of the buffer data 
+  * **glType** the opengl type of the buffer data 
+  * **transparency** ( 0 = completely opaque, 1 = transarency mask, 2 = translucent ) 
+  * **width** the pixel width of the buffer data 
+  * **height** the pixel height of the buffer data 
+  * **compress** whether to compress the texture using DXT1 
+  * **number** of mipMap levels 
+
+**Return**: 0 if property is successfully populated with DDS data 
+
+### VRBlobToDDSPropertyV2Ex
+
+```cpp
+int VRBlobToDDSPropertyV2Ex(
+    HNode node,
+    uint32_t prop,
+    const void * data,
+    uint32_t glFormat,
+    uint32_t glType,
+    uint32_t transparency,
+    uint32_t width,
+    uint32_t height,
+    uint32_t depth,
+    char compress,
+    uint32_t mipLevels
+)
+```
+
+Helper function for converting it to DDS, and storing it in the specified char vector property. 
+
+**Parameters**: 
+
+  * **node** handle to the node to set the property on 
+  * **propName** name of the property 
+  * **data** buffer containing the image data to convert to DDS 
+  * **glFormat** the opengl format of the buffer data 
+  * **glType** the opengl type of the buffer data 
+  * **transparency** ( 0 = completely opaque, 1 = transarency mask, 2 = translucent ) 
+  * **width** the pixel width of the buffer data 
+  * **height** the pixel height of the buffer data 
+  * **compress** whether to compress the texture using DXT1 
+  * **number** of mipMap levels 
+
+**Return**: 0 if property is successfully populated with DDS data 
 
 ### VRBulkData
 
@@ -150,6 +289,50 @@ Diagnostic function.
 
 **Return**: the number of open node handles 
 
+### VRFileToDDSProperty
+
+```cpp
+int VRFileToDDSProperty(
+    HNode node,
+    const char * propName,
+    const char * file,
+    char compress
+)
+```
+
+Helper function for loading an image file from disk, converting it to DDS, and storing it in the specified char vector property. 
+
+**Parameters**: 
+
+  * **node** handle to the node to set the property on 
+  * **propName** name of the property 
+  * **file** path to the file to read, if not found, an error pattern is set instead 
+  * **compress** whether to compress the texture using DXT1 
+
+**Return**: 0 if property is successfully populated with data from the file in DDS format 
+
+### VRFileToDDSPropertyEx
+
+```cpp
+int VRFileToDDSPropertyEx(
+    HNode node,
+    uint32_t prop,
+    const char * file,
+    char compress
+)
+```
+
+Helper function for loading an image file from disk, converting it to DDS, and storing it in the specified char vector property. 
+
+**Parameters**: 
+
+  * **node** handle to the node to set the property on 
+  * **propName** name of the property 
+  * **file** path to the file to read, if not found, an error pattern is set instead 
+  * **compress** whether to compress the texture using DXT1 
+
+**Return**: 0 if property is successfully populated with data from the file in DDS format 
+
 ### VRGetAPIVersionMajor
 
 ```cpp
@@ -239,6 +422,38 @@ Gets the metanode version of the specified node.
 **Return**: version, or -1 on error / non-existant 
 
 **Par**: Permission: SC_READ 
+
+### VRGetTextureFormat
+
+```cpp
+uint32_t VRGetTextureFormat(
+    HNode textureNode
+)
+```
+
+Helper function for getting the OpenGL texture format out of a texture node. 
+
+**Parameters**: 
+
+  * **textureNode** handle to the texture node 
+
+**Return**: 0 if node has no DDSData property, otherwise the GLenum value representing the texture format 
+
+### VRGetTextureInfo
+
+```cpp
+TextureInfo VRGetTextureInfo(
+    HNode textureNode
+)
+```
+
+Helper function for getting the OpenGL texture information out of a texture node. 
+
+**Parameters**: 
+
+  * **textureNode** handle to the texture node 
+
+**Return**: information reguarding texture paramaters, values will be 0 on faliure 
 
 ### VRGetUUIDHigh
 

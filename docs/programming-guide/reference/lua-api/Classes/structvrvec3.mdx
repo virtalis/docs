@@ -1,30 +1,26 @@
 ---
 title: vrvec3
 summary: A vector. 
-
 ---
 
 # vrvec3
 
 **Module:** **[Lua API](../Modules/group__api__lua.mdx)**
 
-
-
 A vector. 
-
 
 `#include <lua_api.h>`
 
 ## Public Functions
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
-| Any | **[copy](../Classes/structvrvec3.mdx#copy)**()<br />([vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[cross](../Classes/structvrvec3.mdx#cross)**(Any vec2)<br />([vrCross) Returns the cross product of two vectors. Both vectors must be the same type  |
-| number | **[dot](../Classes/structvrvec3.mdx#dot)**(Any vec2)<br />([vrDot) Returns the dot product of two vectors. Both vectors must be the same type  |
-| number | **[getLength](../Classes/structvrvec3.mdx#getlength)**()<br />([vrLength) Returns the length of a vector.  |
-| number | **[getLengthSq](../Classes/structvrvec3.mdx#getlengthsq)**()<br />([vrLengthSquared) Returns the squared length of a vector.  |
-| Any | **[normalise](../Classes/structvrvec3.mdx#normalise)**()<br />([vrNormalise) Returns normalised vector/matrix.  |
+| Any | **[copy](../Classes/structvrvec3.mdx#copy)**()<br />(vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[cross](../Classes/structvrvec3.mdx#cross)**(Any vec2)<br />(vrCross) Returns the cross product of two vectors. Both vectors must be the same type  |
+| number | **[dot](../Classes/structvrvec3.mdx#dot)**(Any vec2)<br />(vrDot) Returns the dot product of two vectors. Both vectors must be the same type  |
+| number | **[getLength](../Classes/structvrvec3.mdx#getlength)**()<br />(vrLength) Returns the length of a vector.  |
+| number | **[getLengthSq](../Classes/structvrvec3.mdx#getlengthsq)**()<br />(vrLengthSquared) Returns the squared length of a vector.  |
+| Any | **[normalise](../Classes/structvrvec3.mdx#normalise)**()<br />(vrNormalise) Returns normalised vector/matrix.  |
 | Any | **[operator*](../Classes/structvrvec3.mdx#operator*)**() |
 | Any | **[operator+](../Classes/structvrvec3.mdx#operator+)**() |
 | Any | **[operator-](../Classes/structvrvec3.mdx#operator-)**() |
@@ -33,9 +29,9 @@ A vector.
 
 ## Public Attributes
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
-| number | **[length](../Classes/structvrvec3.mdx#length)** <br />DEPRECATED since version 2.0.0. Please use [vrvec3](../Classes/structvrvec3.mdx):[getLength() instead.  |
+| number | **[length](../Classes/structvrvec3.mdx#length)** <br />DEPRECATED since version 2.0.0. Please use [vrvec3](../Classes/structvrvec3.mdx):getLength() instead.  |
 | number | **[pitch](../Classes/structvrvec3.mdx#pitch)** <br />Rotation around X axis (if this is a vector of Euler angles).  |
 | number | **[roll](../Classes/structvrvec3.mdx#roll)** <br />Rotation around Z axis (if this is a vector of Euler angles).  |
 | number | **[x](../Classes/structvrvec3.mdx#x)** <br />x element  |
@@ -59,116 +55,109 @@ A vector.
 
 ### copy
 
-```cpp
+```lua
 Any copy()
 ```
 
-([vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane 
+(vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane 
 
 ### cross
 
-```cpp
+```lua
 vrvec3 cross(
     Any vec2
 )
 ```
 
-([vrCross) Returns the cross product of two vectors. Both vectors must be the same type 
+(vrCross) Returns the cross product of two vectors. Both vectors must be the same type 
 
 **Parameters**: 
 
   * **vec2** Vector 2 {x, y} or {x, y, z}. 
 
-
 ### dot
 
-```cpp
+```lua
 number dot(
     Any vec2
 )
 ```
 
-([vrDot) Returns the dot product of two vectors. Both vectors must be the same type 
+(vrDot) Returns the dot product of two vectors. Both vectors must be the same type 
 
 **Parameters**: 
 
   * **vec2** Vector 2 {x, y} or {x, y, z}. 
 
-
 ### getLength
 
-```cpp
+```lua
 number getLength()
 ```
 
-([vrLength) Returns the length of a vector. 
+(vrLength) Returns the length of a vector. 
 
 ### getLengthSq
 
-```cpp
+```lua
 number getLengthSq()
 ```
 
-([vrLengthSquared) Returns the squared length of a vector. 
+(vrLengthSquared) Returns the squared length of a vector. 
 
 ### normalise
 
-```cpp
+```lua
 Any normalise()
 ```
 
-([vrNormalise) Returns normalised vector/matrix. 
+(vrNormalise) Returns normalised vector/matrix. 
 
 **Return**: Normalised vector or matrix depending on the type passed in 
 
 ### operator*
 
-```cpp
+```lua
 Any operator*()
 ```
 
-
 ### operator+
 
-```cpp
+```lua
 Any operator+()
 ```
 
-
 ### operator-
 
-```cpp
+```lua
 Any operator-()
 ```
 
-
 ### operator/
 
-```cpp
+```lua
 Any operator/()
 ```
 
-
 ### operator=
 
-```cpp
+```lua
 Any operator=()
 ```
-
 
 ## Public Attributes Documentation
 
 ### length
 
-```cpp
+```lua
 number length;
 ```
 
-DEPRECATED since version 2.0.0. Please use [vrvec3](../Classes/structvrvec3.mdx):[getLength() instead. 
+DEPRECATED since version 2.0.0. Please use [vrvec3](../Classes/structvrvec3.mdx):getLength() instead. 
 
 ### pitch
 
-```cpp
+```lua
 number pitch;
 ```
 
@@ -176,7 +165,7 @@ Rotation around X axis (if this is a vector of Euler angles).
 
 ### roll
 
-```cpp
+```lua
 number roll;
 ```
 
@@ -184,7 +173,7 @@ Rotation around Z axis (if this is a vector of Euler angles).
 
 ### x
 
-```cpp
+```lua
 number x;
 ```
 
@@ -192,7 +181,7 @@ x element
 
 ### xy
 
-```cpp
+```lua
 vrvec2 xy;
 ```
 
@@ -200,7 +189,7 @@ xy elements
 
 ### xyz
 
-```cpp
+```lua
 vrvec3 xyz;
 ```
 
@@ -208,7 +197,7 @@ xyz elements
 
 ### xz
 
-```cpp
+```lua
 vrvec2 xz;
 ```
 
@@ -216,7 +205,7 @@ xz elements
 
 ### xzy
 
-```cpp
+```lua
 vrvec3 xzy;
 ```
 
@@ -224,7 +213,7 @@ xzy elements
 
 ### y
 
-```cpp
+```lua
 number y;
 ```
 
@@ -232,7 +221,7 @@ y element
 
 ### yaw
 
-```cpp
+```lua
 number yaw;
 ```
 
@@ -240,7 +229,7 @@ Rotation around Y axis (if this is a vector of Euler angles).
 
 ### yx
 
-```cpp
+```lua
 vrvec2 yx;
 ```
 
@@ -248,7 +237,7 @@ yx elements
 
 ### yxz
 
-```cpp
+```lua
 vrvec3 yxz;
 ```
 
@@ -256,7 +245,7 @@ yxz elements
 
 ### yz
 
-```cpp
+```lua
 vrvec2 yz;
 ```
 
@@ -264,7 +253,7 @@ yz elements
 
 ### yzx
 
-```cpp
+```lua
 vrvec3 yzx;
 ```
 
@@ -272,7 +261,7 @@ yzx elements
 
 ### z
 
-```cpp
+```lua
 number z;
 ```
 
@@ -280,7 +269,7 @@ z element
 
 ### zx
 
-```cpp
+```lua
 vrvec2 zx;
 ```
 
@@ -288,7 +277,7 @@ zx elements
 
 ### zxy
 
-```cpp
+```lua
 vrvec3 zxy;
 ```
 
@@ -296,7 +285,7 @@ zxy elements
 
 ### zy
 
-```cpp
+```lua
 vrvec2 zy;
 ```
 
@@ -304,9 +293,8 @@ zy elements
 
 ### zyx
 
-```cpp
+```lua
 vrvec3 zyx;
 ```
 
 zyx elements 
-

@@ -1,30 +1,26 @@
 ---
 title: vrray
 summary: A ray. 
-
 ---
 
 # vrray
 
 **Module:** **[Lua API](../Modules/group__api__lua.mdx)**
 
-
-
 A ray. 
-
 
 `#include <lua_api.h>`
 
 ## Public Functions
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
-| Any | **[copy](../Classes/structvrray.mdx#copy)**()<br />([vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane  |
+| Any | **[copy](../Classes/structvrray.mdx#copy)**()<br />(vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane  |
 | Any | **[operator=](../Classes/structvrray.mdx#operator=)**() |
 
 ## Public Attributes
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | [vrvec3](../Classes/structvrvec3.mdx) | **[direction](../Classes/structvrray.mdx#direction)** <br />Direction of the ray.  |
 | [vrvec3](../Classes/structvrvec3.mdx) | **[origin](../Classes/structvrray.mdx#origin)** <br />Start of the ray.  |
@@ -33,24 +29,23 @@ A ray.
 
 ### copy
 
-```cpp
+```lua
 Any copy()
 ```
 
-([vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane 
+(vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane 
 
 ### operator=
 
-```cpp
+```lua
 Any operator=()
 ```
-
 
 ## Public Attributes Documentation
 
 ### direction
 
-```cpp
+```lua
 vrvec3 direction;
 ```
 
@@ -58,9 +53,8 @@ Direction of the ray.
 
 ### origin
 
-```cpp
+```lua
 vrvec3 origin;
 ```
 
 Start of the ray. 
-

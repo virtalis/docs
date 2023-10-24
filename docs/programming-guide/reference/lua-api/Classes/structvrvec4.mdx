@@ -1,30 +1,26 @@
 ---
 title: vrvec4
 summary: A vector. 
-
 ---
 
 # vrvec4
 
 **Module:** **[Lua API](../Modules/group__api__lua.mdx)**
 
-
-
 A vector. 
-
 
 `#include <lua_api.h>`
 
 ## Public Functions
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
-| Any | **[copy](../Classes/structvrvec4.mdx#copy)**()<br />([vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[cross](../Classes/structvrvec4.mdx#cross)**(Any vec2)<br />([vrCross) Returns the cross product of two vectors. Both vectors must be the same type  |
-| number | **[dot](../Classes/structvrvec4.mdx#dot)**(Any vec2)<br />([vrDot) Returns the dot product of two vectors. Both vectors must be the same type  |
-| number | **[getLength](../Classes/structvrvec4.mdx#getlength)**()<br />([vrLength) Returns the length of a vector.  |
-| number | **[getLengthSq](../Classes/structvrvec4.mdx#getlengthsq)**()<br />([vrLengthSquared) Returns the squared length of a vector.  |
-| Any | **[normalise](../Classes/structvrvec4.mdx#normalise)**()<br />([vrNormalise) Returns normalised vector/matrix.  |
+| Any | **[copy](../Classes/structvrvec4.mdx#copy)**()<br />(vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane  |
+| [vrvec3](../Classes/structvrvec3.mdx) | **[cross](../Classes/structvrvec4.mdx#cross)**(Any vec2)<br />(vrCross) Returns the cross product of two vectors. Both vectors must be the same type  |
+| number | **[dot](../Classes/structvrvec4.mdx#dot)**(Any vec2)<br />(vrDot) Returns the dot product of two vectors. Both vectors must be the same type  |
+| number | **[getLength](../Classes/structvrvec4.mdx#getlength)**()<br />(vrLength) Returns the length of a vector.  |
+| number | **[getLengthSq](../Classes/structvrvec4.mdx#getlengthsq)**()<br />(vrLengthSquared) Returns the squared length of a vector.  |
+| Any | **[normalise](../Classes/structvrvec4.mdx#normalise)**()<br />(vrNormalise) Returns normalised vector/matrix.  |
 | Any | **[operator*](../Classes/structvrvec4.mdx#operator*)**() |
 | Any | **[operator+](../Classes/structvrvec4.mdx#operator+)**() |
 | Any | **[operator-](../Classes/structvrvec4.mdx#operator-)**() |
@@ -33,9 +29,9 @@ A vector.
 
 ## Public Attributes
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
-| number | **[length](../Classes/structvrvec4.mdx#length)** <br />DEPRECATED since version 2.0.0. Please use [vrvec4](../Classes/structvrvec4.mdx):[getLength() instead.  |
+| number | **[length](../Classes/structvrvec4.mdx#length)** <br />DEPRECATED since version 2.0.0. Please use [vrvec4](../Classes/structvrvec4.mdx):getLength() instead.  |
 | number | **[w](../Classes/structvrvec4.mdx#w)** <br />w element  |
 | [vrvec2](../Classes/structvrvec2.mdx) | **[wx](../Classes/structvrvec4.mdx#wx)** <br />wx elements  |
 | [vrvec3](../Classes/structvrvec3.mdx) | **[wxy](../Classes/structvrvec4.mdx#wxy)** <br />wxy elements  |
@@ -105,21 +101,21 @@ A vector.
 
 ### copy
 
-```cpp
+```lua
 Any copy()
 ```
 
-([vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane 
+(vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane 
 
 ### cross
 
-```cpp
+```lua
 vrvec3 cross(
     Any vec2
 )
 ```
 
-([vrCross) Returns the cross product of two vectors. Both vectors must be the same type 
+(vrCross) Returns the cross product of two vectors. Both vectors must be the same type 
 
 **Parameters**: 
 
@@ -128,13 +124,13 @@ vrvec3 cross(
 
 ### dot
 
-```cpp
+```lua
 number dot(
     Any vec2
 )
 ```
 
-([vrDot) Returns the dot product of two vectors. Both vectors must be the same type 
+(vrDot) Returns the dot product of two vectors. Both vectors must be the same type 
 
 **Parameters**: 
 
@@ -143,61 +139,61 @@ number dot(
 
 ### getLength
 
-```cpp
+```lua
 number getLength()
 ```
 
-([vrLength) Returns the length of a vector. 
+(vrLength) Returns the length of a vector. 
 
 ### getLengthSq
 
-```cpp
+```lua
 number getLengthSq()
 ```
 
-([vrLengthSquared) Returns the squared length of a vector. 
+(vrLengthSquared) Returns the squared length of a vector. 
 
 ### normalise
 
-```cpp
+```lua
 Any normalise()
 ```
 
-([vrNormalise) Returns normalised vector/matrix. 
+(vrNormalise) Returns normalised vector/matrix. 
 
 **Return**: Normalised vector or matrix depending on the type passed in 
 
 ### operator*
 
-```cpp
+```lua
 Any operator*()
 ```
 
 
 ### operator+
 
-```cpp
+```lua
 Any operator+()
 ```
 
 
 ### operator-
 
-```cpp
+```lua
 Any operator-()
 ```
 
 
 ### operator/
 
-```cpp
+```lua
 Any operator/()
 ```
 
 
 ### operator=
 
-```cpp
+```lua
 Any operator=()
 ```
 
@@ -206,15 +202,15 @@ Any operator=()
 
 ### length
 
-```cpp
+```lua
 number length;
 ```
 
-DEPRECATED since version 2.0.0. Please use [vrvec4](../Classes/structvrvec4.mdx):[getLength() instead. 
+DEPRECATED since version 2.0.0. Please use [vrvec4](../Classes/structvrvec4.mdx):getLength() instead. 
 
 ### w
 
-```cpp
+```lua
 number w;
 ```
 
@@ -222,7 +218,7 @@ w element
 
 ### wx
 
-```cpp
+```lua
 vrvec2 wx;
 ```
 
@@ -230,7 +226,7 @@ wx elements
 
 ### wxy
 
-```cpp
+```lua
 vrvec3 wxy;
 ```
 
@@ -238,7 +234,7 @@ wxy elements
 
 ### wxyz
 
-```cpp
+```lua
 vrvec4 wxyz;
 ```
 
@@ -246,7 +242,7 @@ wxyz elements
 
 ### wxz
 
-```cpp
+```lua
 vrvec3 wxz;
 ```
 
@@ -254,7 +250,7 @@ wxz elements
 
 ### wxzy
 
-```cpp
+```lua
 vrvec4 wxzy;
 ```
 
@@ -262,7 +258,7 @@ wxzy elements
 
 ### wy
 
-```cpp
+```lua
 vrvec2 wy;
 ```
 
@@ -270,7 +266,7 @@ wy elements
 
 ### wyx
 
-```cpp
+```lua
 vrvec3 wyx;
 ```
 
@@ -278,7 +274,7 @@ wyx elements
 
 ### wyxz
 
-```cpp
+```lua
 vrvec4 wyxz;
 ```
 
@@ -286,7 +282,7 @@ wyxz elements
 
 ### wyz
 
-```cpp
+```lua
 vrvec3 wyz;
 ```
 
@@ -294,7 +290,7 @@ wyz elements
 
 ### wyzx
 
-```cpp
+```lua
 vrvec4 wyzx;
 ```
 
@@ -302,7 +298,7 @@ wyzx elements
 
 ### wz
 
-```cpp
+```lua
 vrvec2 wz;
 ```
 
@@ -310,7 +306,7 @@ wz elements
 
 ### wzx
 
-```cpp
+```lua
 vrvec3 wzx;
 ```
 
@@ -318,7 +314,7 @@ wzx elements
 
 ### wzxy
 
-```cpp
+```lua
 vrvec4 wzxy;
 ```
 
@@ -326,7 +322,7 @@ wzxy elements
 
 ### wzy
 
-```cpp
+```lua
 vrvec3 wzy;
 ```
 
@@ -334,7 +330,7 @@ wzy elements
 
 ### wzyx
 
-```cpp
+```lua
 vrvec4 wzyx;
 ```
 
@@ -342,7 +338,7 @@ wzyx elements
 
 ### x
 
-```cpp
+```lua
 number x;
 ```
 
@@ -350,7 +346,7 @@ x element
 
 ### xw
 
-```cpp
+```lua
 vrvec2 xw;
 ```
 
@@ -358,7 +354,7 @@ xw elements
 
 ### xwy
 
-```cpp
+```lua
 vrvec3 xwy;
 ```
 
@@ -366,7 +362,7 @@ xwy elements
 
 ### xwyz
 
-```cpp
+```lua
 vrvec4 xwyz;
 ```
 
@@ -374,7 +370,7 @@ xwyz elements
 
 ### xwz
 
-```cpp
+```lua
 vrvec3 xwz;
 ```
 
@@ -382,7 +378,7 @@ xwz elements
 
 ### xwzy
 
-```cpp
+```lua
 vrvec4 xwzy;
 ```
 
@@ -390,7 +386,7 @@ xwzy elements
 
 ### xy
 
-```cpp
+```lua
 vrvec2 xy;
 ```
 
@@ -398,7 +394,7 @@ xy elements
 
 ### xyw
 
-```cpp
+```lua
 vrvec3 xyw;
 ```
 
@@ -406,7 +402,7 @@ xyw elements
 
 ### xywz
 
-```cpp
+```lua
 vrvec4 xywz;
 ```
 
@@ -414,7 +410,7 @@ xywz elements
 
 ### xyz
 
-```cpp
+```lua
 vrvec3 xyz;
 ```
 
@@ -422,7 +418,7 @@ xyz elements
 
 ### xyzw
 
-```cpp
+```lua
 vrvec4 xyzw;
 ```
 
@@ -430,7 +426,7 @@ xyzw elements
 
 ### xz
 
-```cpp
+```lua
 vrvec2 xz;
 ```
 
@@ -438,7 +434,7 @@ xz elements
 
 ### xzw
 
-```cpp
+```lua
 vrvec3 xzw;
 ```
 
@@ -446,7 +442,7 @@ xzw elements
 
 ### xzwy
 
-```cpp
+```lua
 vrvec4 xzwy;
 ```
 
@@ -454,7 +450,7 @@ xzwy elements
 
 ### xzy
 
-```cpp
+```lua
 vrvec3 xzy;
 ```
 
@@ -462,7 +458,7 @@ xzy elements
 
 ### xzyw
 
-```cpp
+```lua
 vrvec4 xzyw;
 ```
 
@@ -470,7 +466,7 @@ xzyw elements
 
 ### y
 
-```cpp
+```lua
 number y;
 ```
 
@@ -478,7 +474,7 @@ y element
 
 ### yw
 
-```cpp
+```lua
 vrvec2 yw;
 ```
 
@@ -486,7 +482,7 @@ yw elements
 
 ### ywx
 
-```cpp
+```lua
 vrvec3 ywx;
 ```
 
@@ -494,7 +490,7 @@ ywx elements
 
 ### ywxz
 
-```cpp
+```lua
 vrvec4 ywxz;
 ```
 
@@ -502,7 +498,7 @@ ywxz elements
 
 ### ywz
 
-```cpp
+```lua
 vrvec3 ywz;
 ```
 
@@ -510,7 +506,7 @@ ywz elements
 
 ### ywzx
 
-```cpp
+```lua
 vrvec4 ywzx;
 ```
 
@@ -518,7 +514,7 @@ ywzx elements
 
 ### yx
 
-```cpp
+```lua
 vrvec2 yx;
 ```
 
@@ -526,7 +522,7 @@ yx elements
 
 ### yxw
 
-```cpp
+```lua
 vrvec3 yxw;
 ```
 
@@ -534,7 +530,7 @@ yxw elements
 
 ### yxwz
 
-```cpp
+```lua
 vrvec4 yxwz;
 ```
 
@@ -542,7 +538,7 @@ yxwz elements
 
 ### yxz
 
-```cpp
+```lua
 vrvec3 yxz;
 ```
 
@@ -550,7 +546,7 @@ yxz elements
 
 ### yxzw
 
-```cpp
+```lua
 vrvec4 yxzw;
 ```
 
@@ -558,7 +554,7 @@ yxzw elements
 
 ### yz
 
-```cpp
+```lua
 vrvec2 yz;
 ```
 
@@ -566,7 +562,7 @@ yz elements
 
 ### yzw
 
-```cpp
+```lua
 vrvec3 yzw;
 ```
 
@@ -574,7 +570,7 @@ yzw elements
 
 ### yzwx
 
-```cpp
+```lua
 vrvec4 yzwx;
 ```
 
@@ -582,7 +578,7 @@ yzwx elements
 
 ### yzx
 
-```cpp
+```lua
 vrvec3 yzx;
 ```
 
@@ -590,7 +586,7 @@ yzx elements
 
 ### yzxw
 
-```cpp
+```lua
 vrvec4 yzxw;
 ```
 
@@ -598,7 +594,7 @@ yzxw elements
 
 ### z
 
-```cpp
+```lua
 number z;
 ```
 
@@ -606,7 +602,7 @@ z element
 
 ### zw
 
-```cpp
+```lua
 vrvec2 zw;
 ```
 
@@ -614,7 +610,7 @@ zw elements
 
 ### zwx
 
-```cpp
+```lua
 vrvec3 zwx;
 ```
 
@@ -622,7 +618,7 @@ zwx elements
 
 ### zwxy
 
-```cpp
+```lua
 vrvec4 zwxy;
 ```
 
@@ -630,7 +626,7 @@ zwxy elements
 
 ### zwy
 
-```cpp
+```lua
 vrvec3 zwy;
 ```
 
@@ -638,7 +634,7 @@ zwy elements
 
 ### zwyx
 
-```cpp
+```lua
 vrvec4 zwyx;
 ```
 
@@ -646,7 +642,7 @@ zwyx elements
 
 ### zx
 
-```cpp
+```lua
 vrvec2 zx;
 ```
 
@@ -654,7 +650,7 @@ zx elements
 
 ### zxw
 
-```cpp
+```lua
 vrvec3 zxw;
 ```
 
@@ -662,7 +658,7 @@ zxw elements
 
 ### zxwy
 
-```cpp
+```lua
 vrvec4 zxwy;
 ```
 
@@ -670,7 +666,7 @@ zxwy elements
 
 ### zxy
 
-```cpp
+```lua
 vrvec3 zxy;
 ```
 
@@ -678,7 +674,7 @@ zxy elements
 
 ### zxyw
 
-```cpp
+```lua
 vrvec4 zxyw;
 ```
 
@@ -686,7 +682,7 @@ zxyw elements
 
 ### zy
 
-```cpp
+```lua
 vrvec2 zy;
 ```
 
@@ -694,7 +690,7 @@ zy elements
 
 ### zyw
 
-```cpp
+```lua
 vrvec3 zyw;
 ```
 
@@ -702,7 +698,7 @@ zyw elements
 
 ### zywx
 
-```cpp
+```lua
 vrvec4 zywx;
 ```
 
@@ -710,7 +706,7 @@ zywx elements
 
 ### zyx
 
-```cpp
+```lua
 vrvec3 zyx;
 ```
 
@@ -718,9 +714,8 @@ zyx elements
 
 ### zyxw
 
-```cpp
+```lua
 vrvec4 zyxw;
 ```
 
 zyxw elements 
-

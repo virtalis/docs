@@ -1,34 +1,30 @@
 ---
 title: vrplane
 summary: A plane. 
-
 ---
 
 # vrplane
 
 **Module:** **[Lua API](../Modules/group__api__lua.mdx)**
 
-
-
 A plane. 
-
 
 `#include <lua_api.h>`
 
 ## Public Functions
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
-| Any | **[copy](../Classes/structvrplane.mdx#copy)**()<br />([vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane  |
-| number | **[getDistance](../Classes/structvrplane.mdx#getdistance)**([vrvec3](../Classes/structvrvec3.mdx) point)<br />([vrPlaneGetPointDistance) Returns the distance a point is from the plane. A negative value means that the point is behind the plane. A positive value means the point is in front. A zero means it is on the plane.  |
-| boolean | **[lineIntersect](../Classes/structvrplane.mdx#lineintersect)**([vrvec3](../Classes/structvrvec3.mdx) point1, [vrvec3](../Classes/structvrvec3.mdx) point2)<br />([vrPlaneLineIntersect) Returns whether or not a line made of two points will intersect a plane.  |
+| Any | **[copy](../Classes/structvrplane.mdx#copy)**()<br />(vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane  |
+| number | **[getDistance](../Classes/structvrplane.mdx#getdistance)**(vrvec3](../Classes/structvrvec3.mdx) point)<br />(vrPlaneGetPointDistance) Returns the distance a point is from the plane. A negative value means that the point is behind the plane. A positive value means the point is in front. A zero means it is on the plane.  |
+| boolean | **[lineIntersect](../Classes/structvrplane.mdx#lineintersect)**(vrvec3](../Classes/structvrvec3.mdx) point1, [vrvec3](../Classes/structvrvec3.mdx) point2)<br />(vrPlaneLineIntersect) Returns whether or not a line made of two points will intersect a plane.  |
 | Any | **[operator=](../Classes/structvrplane.mdx#operator=)**() |
-| number | **[rayIntersect](../Classes/structvrplane.mdx#rayintersect)**([vrray](../Classes/structvrray.mdx) ray)<br />([vrPlaneRayIntersect) Returns how far along the ray an intersection point with this plane is.  |
-| [vrplane](../Classes/structvrplane.mdx) | **[transform](../Classes/structvrplane.mdx#transform)**([vrmatrix4](../Classes/structvrmatrix4.mdx) mat)<br />([vrPlaneTransform) Returns a plane transformed by a matrix.  |
+| number | **[rayIntersect](../Classes/structvrplane.mdx#rayintersect)**(vrray](../Classes/structvrray.mdx) ray)<br />(vrPlaneRayIntersect) Returns how far along the ray an intersection point with this plane is.  |
+| [vrplane](../Classes/structvrplane.mdx) | **[transform](../Classes/structvrplane.mdx#transform)**(vrmatrix4](../Classes/structvrmatrix4.mdx) mat)<br />(vrPlaneTransform) Returns a plane transformed by a matrix.  |
 
 ## Public Attributes
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | number | **[distance](../Classes/structvrplane.mdx#distance)** <br />Dot product of any point on the plane with its normal.  |
 | [vrvec3](../Classes/structvrvec3.mdx) | **[normal](../Classes/structvrplane.mdx#normal)** <br />Normal of the plane.  |
@@ -37,67 +33,66 @@ A plane.
 
 ### copy
 
-```cpp
+```lua
 Any copy()
 ```
 
-([vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane 
+(vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane 
 
 ### getDistance
 
-```cpp
+```lua
 number getDistance(
     vrvec3 point
 )
 ```
 
-([vrPlaneGetPointDistance) Returns the distance a point is from the plane. A negative value means that the point is behind the plane. A positive value means the point is in front. A zero means it is on the plane. 
+(vrPlaneGetPointDistance) Returns the distance a point is from the plane. A negative value means that the point is behind the plane. A positive value means the point is in front. A zero means it is on the plane. 
 
 ### lineIntersect
 
-```cpp
+```lua
 boolean lineIntersect(
     vrvec3 point1,
     vrvec3 point2
 )
 ```
 
-([vrPlaneLineIntersect) Returns whether or not a line made of two points will intersect a plane. 
+(vrPlaneLineIntersect) Returns whether or not a line made of two points will intersect a plane. 
 
 **Return**: true if the line intersects the plane 
 
 ### operator=
 
-```cpp
+```lua
 Any operator=()
 ```
 
-
 ### rayIntersect
 
-```cpp
+```lua
 number rayIntersect(
     vrray ray
 )
 ```
 
-([vrPlaneRayIntersect) Returns how far along the ray an intersection point with this plane is. 
+(vrPlaneRayIntersect) Returns how far along the ray an intersection point with this plane is. 
 
 ### transform
 
-```cpp
+```lua
 vrplane transform(
     vrmatrix4 mat
 )
 ```
 
-([vrPlaneTransform) Returns a plane transformed by a matrix. 
+(vrPlaneTransform) Returns a plane transformed by a matrix. 
 
 ## Public Attributes Documentation
 
 ### distance
 
-```cpp
+```lua
 number distance;
 ```
 
@@ -105,9 +100,8 @@ Dot product of any point on the plane with its normal.
 
 ### normal
 
-```cpp
+```lua
 vrvec3 normal;
 ```
 
 Normal of the plane. 
-
