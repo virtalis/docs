@@ -1,21 +1,17 @@
 ---
 title: vrtree_cpp::HTypeR
 summary: Reference counted wrapper around a handle. Automatically closes the handle when there are no references left. 
-
 ---
 
 # vrtree_cpp::HTypeR
 
-
-
 Reference counted wrapper around a handle. Automatically closes the handle when there are no references left.  [More...](#detailed-description)
-
 
 `#include <interface_helpers.hpp>`
 
 ## Public Functions
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | void | **[dec](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#dec)**()<br />Manually decrement the refcount. If recount hits zero, handle is closed.  |
 | | **[HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#htyper)**()<br />Construct a null handle.  |
@@ -31,7 +27,7 @@ Reference counted wrapper around a handle. Automatically closes the handle when 
 
 ## Public Attributes
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | T | **[m_handle](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#m-handle)** <br />The handle to wrap.  |
 | [HRefCount](../Classes/structvrtree__cpp_1_1_h_ref_count.mdx) * | **[ptr](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#ptr)** <br />Reference counter. Automatically deletes itself when the refcount is zero.  |
@@ -44,6 +40,7 @@ struct vrtree_cpp::HTypeR;
 ```
 
 Reference counted wrapper around a handle. Automatically closes the handle when there are no references left. 
+
 ## Public Functions Documentation
 
 ### dec
@@ -163,4 +160,3 @@ HRefCount * ptr;
 ```
 
 Reference counter. Automatically deletes itself when the refcount is zero. 
-

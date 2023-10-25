@@ -1,21 +1,17 @@
 ---
 title: vrtree_cpp::ObserverWrapper
 summary: Wraps a class implementing static observer functions accepting refcounted handles. 
-
 ---
 
 # vrtree_cpp::ObserverWrapper
 
-
-
 Wraps a class implementing static observer functions accepting refcounted handles.  [More...](#detailed-description)
-
 
 `#include <interface_helpers.hpp>`
 
 ## Public Functions
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | void | **[NodeChildAdded](../Classes/structvrtree__cpp_1_1_observer_wrapper.mdx#nodechildadded)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) vrParent, [HNode](../Modules/group__api__types.mdx#typedef-hnode) vrChild, void * ) |
 | void | **[NodeChildRemoved](../Classes/structvrtree__cpp_1_1_observer_wrapper.mdx#nodechildremoved)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) vrParent, [HNode](../Modules/group__api__types.mdx#typedef-hnode) vrChild, void * ) |
@@ -33,6 +29,7 @@ struct vrtree_cpp::ObserverWrapper;
 ```
 
 Wraps a class implementing static observer functions accepting refcounted handles. 
+
 ## Public Functions Documentation
 
 ### NodeChildAdded
@@ -45,7 +42,6 @@ static inline void NodeChildAdded(
 )
 ```
 
-
 ### NodeChildRemoved
 
 ```cpp
@@ -56,7 +52,6 @@ static inline void NodeChildRemoved(
 )
 ```
 
-
 ### NodeCreated
 
 ```cpp
@@ -66,7 +61,6 @@ static inline void NodeCreated(
 )
 ```
 
-
 ### NodeDestroying
 
 ```cpp
@@ -75,7 +69,6 @@ static inline void NodeDestroying(
     void * 
 )
 ```
-
 
 ### NodeParentChanged
 
@@ -88,7 +81,6 @@ static inline void NodeParentChanged(
 )
 ```
 
-
 ### NodeRenamed
 
 ```cpp
@@ -98,7 +90,6 @@ static inline void NodeRenamed(
 )
 ```
 
-
 ### NodeValuesChanged
 
 ```cpp
@@ -107,5 +98,3 @@ static inline void NodeValuesChanged(
     void * 
 )
 ```
-
-

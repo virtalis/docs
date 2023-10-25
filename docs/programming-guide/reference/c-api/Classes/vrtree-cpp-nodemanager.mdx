@@ -1,21 +1,17 @@
 ---
 title: vrtree_cpp::NodeManager
 summary: Utility class providing an interface for responding to changes to specified metanodes; with an additional update function, which will be called every time a frame is drawn. 
-
 ---
 
 # vrtree_cpp::NodeManager
 
-
-
 Utility class providing an interface for responding to changes to specified metanodes; with an additional update function, which will be called every time a frame is drawn. 
-
 
 `#include <interface_helpers.hpp>`
 
 ## Public Functions
 
-|                | Name           |
+| Type           | Name           |
 | -------------- | -------------- |
 | virtual void | **[nodeChildAdded](../Classes/classvrtree__cpp_1_1_node_manager.mdx#nodechildadded)**([HNodeR](../Namespaces/namespacevrtree__cpp.mdx#typedef-hnoder) & vrParent, [HNodeR](../Namespaces/namespacevrtree__cpp.mdx#typedef-hnoder) & vrChild) |
 | virtual void | **[nodeChildRemoved](../Classes/classvrtree__cpp_1_1_node_manager.mdx#nodechildremoved)**([HNodeR](../Namespaces/namespacevrtree__cpp.mdx#typedef-hnoder) & vrParent, [HNodeR](../Namespaces/namespacevrtree__cpp.mdx#typedef-hnoder) & vrChild) |
@@ -41,7 +37,6 @@ inline virtual void nodeChildAdded(
 )
 ```
 
-
 ### nodeChildRemoved
 
 ```cpp
@@ -51,7 +46,6 @@ inline virtual void nodeChildRemoved(
 )
 ```
 
-
 ### nodeCreated
 
 ```cpp
@@ -60,7 +54,6 @@ inline virtual void nodeCreated(
 )
 ```
 
-
 ### nodeDestroying
 
 ```cpp
@@ -68,7 +61,6 @@ inline virtual void nodeDestroying(
     HNodeR & vrNode
 )
 ```
-
 
 ### nodeParentChanged
 
@@ -80,7 +72,6 @@ inline virtual void nodeParentChanged(
 )
 ```
 
-
 ### nodeRenamed
 
 ```cpp
@@ -89,7 +80,6 @@ inline virtual void nodeRenamed(
 )
 ```
 
-
 ### nodeValuesChanged
 
 ```cpp
@@ -97,7 +87,6 @@ inline virtual void nodeValuesChanged(
     HNodeR & vrNode
 )
 ```
-
 
 ### registerObserver
 
@@ -115,7 +104,6 @@ Registers a class implementing static observer functions as an observer of the s
 inline void registerUpdateable()
 ```
 
-
 ### unRegisterObserver
 
 ```cpp
@@ -132,7 +120,6 @@ Unregisters a class implementing static observer functions as an observer of the
 inline void unRegisterUpdateable()
 ```
 
-
 ### update
 
 ```cpp
@@ -140,5 +127,3 @@ inline virtual void update(
     double deltaTime
 )
 ```
-
-
