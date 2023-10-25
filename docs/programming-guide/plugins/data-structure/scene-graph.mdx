@@ -10,9 +10,9 @@ This page provides a basic recap on node structures and locations in the tree, m
 
 This is the model data; vertices, materials, textures, and other supplementary data.
 
-The standard location for assets is under the `Libraries` node (`::VRGetLibrariesNode`). The organisation of nodes in this area of the tree is not subject to any concrete definition, so it is mostly up to the scene author to decide how best to structure the data for their purposes. 
+The standard location for assets is under the Libraries node (`VRGetLibrariesNode`). The organisation of nodes in this area of the tree is not subject to any concrete definition, so it is mostly up to the scene author to decide how best to structure the data for their purposes. 
 
-This might include `Library` child nodes containing specific types of asset (e.g. one for Models, one for Materials, one for Textures, etc). 
+This might include Library child nodes containing specific types of asset (e.g. one for Models, one for Materials, one for Textures, etc). 
 
 ### Materials and Textures
 
@@ -20,24 +20,24 @@ Materials and Textures are usually standalone, single nodes.
 
 A texture alone does not do much - it should be referenced by a material node, in one of the material's map properties.
 
-![](/img/programming-guide/material_texture_ref.png)
+![](/img/programming-guide/material-texture-ref.png)
 
 ### Models 
 
 Models have a more complex structure.
 
-A model node is mostly just a container which does nothing on its own. It can contain any number of `LOD` or `GeoGroup` nodes (each `LOD` node is itself a `GeoGroup` container). Each `GeoGroup` can contain any number of `Mesh` nodes. Each `Mesh` node contains data about the mesh stored in `VertexAttrib` and `IndexPrim` nodes; vertices, indices, normals, texture coordinates, etc.
+A model node is mostly just a container which does nothing on its own. It can contain any number of LOD or GeoGroup nodes (each LOD node is itself a GeoGroup container). Each GeoGroup can contain any number of Mesh nodes. Each Mesh node contains data about the mesh stored in VertexAttrib and IndexPrim nodes; vertices, indices, normals, texture coordinates, etc.
 
-A `GeoGroup` can reference a `Material`, which is applied to all of its meshes. When a `Model` or `LOD` contains multiple `GeoGroup`s, each `GeoGroup` may reference a different material.
+A GeoGroup can reference a Material, which is applied to all of its meshes. When a Model or LOD contains multiple GeoGroups, each GeoGroup may reference a different material.
 
-![](/img/programming-guide/model_structure.png)
+![](/img/programming-guide/model-structure.png)
 
 ## Instances
 
-The existence of assets in the `Libraries` section of the tree does not result in them being drawn. In order to use the assets in the scene, they must be instanced by `Visual` nodes attached to an `Assembly` and placed under the `Scenes` node (::VRGetScenesNode).
+The existence of assets in the Libraries section of the tree does not result in them being drawn. In order to use the assets in the scene, they must be instanced by Visual nodes attached to an Assembly and placed under the Scenes node (`VRGetScenesNode`).
 
-In the `Scenes` tree view, `Visual` nodes are hidden, instead affecting the tree icon of the assembly, and sharing the same property panel. In the developer tree, this is not the case.
+In the Scenes tree view, Visual nodes are hidden, instead affecting the tree icon of the assembly, and sharing the same property panel. In the developer tree, this is not the case.
 
-A `Visual` should reference the `Model` it wishes to use, and it will be rendered at the location specified by the `Assembly` transform, combined with any parent assembly transforms. A `Visual` can also reference a `Material`, which overrides the material selection of *all* `GeoGroup` nodes in the `Model`, unless they are set to **Lock Material**.
+A Visual should reference the Model it wishes to use, and it will be rendered at the location specified by the Assembly transform, combined with any parent assembly transforms. A Visual can also reference a Material, which overrides the material selection of all GeoGroup nodes in the Model, unless they are set to **Lock Material**.
 
-![](/img/programming-guide/visual_model_ref.png)
+![](/img/programming-guide/visual-model-ref.png)

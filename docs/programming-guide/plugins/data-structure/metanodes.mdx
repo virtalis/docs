@@ -4,6 +4,6 @@ A metanode is a description of a data structure instantiated by nodes in the tre
 
 It has a name, which uniquely identifies its type. The name may also contain a numerical suffix, which is its version number. (see @ref advanced_metanode_versioning.)
 
-It also defines a list of @ref properties that comprise the structure of data stored by each instance of this metanode. Each property of a metanode, and even the metanode itself can contain additional @ref advanced_semantics to further describe its purpose.
+It also defines a list of [properties](properties.mdx) that comprise the structure of data stored by each instance of this metanode. Each property of a metanode, and even the metanode itself can contain additional [semantics](../advanced/semantics.mdx) to further describe its purpose.
 
-When a metanode is registered it can be also be given @ref api_flags to affect the behaviour of its instances, for example, the ::METANODE_NO_SAVE flag to prevent instances of this metanode from being written to a file during a save operation.
+When a metanode is registered it can be also be given [flags](../advanced/semantics.mdx) to affect the behaviour of its instances, for example, the `METANODE_NO_SAVE` flag to prevent instances of this metanode from being written to a file during a save operation.

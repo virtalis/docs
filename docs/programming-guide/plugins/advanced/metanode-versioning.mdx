@@ -28,7 +28,7 @@ Metanode versions are suffixed to the end of the name, creating what we refer to
 
 The Lua API functions that accept metanode name parameters can accept either versioned or unversioned names.
 
-The C API functions that accept metanode names expect versioned names, with the exception of ::VRCurrentMetaNodeVersion, which takes an unversioned name and returns the versioned name of the "current" metanode (that is, the version defined outside of any migrations).
+The C API functions that accept metanode names expect versioned names, with the exception of `VRCurrentMetaNodeVersion`, which takes an unversioned name and returns the versioned name of the "current" metanode (that is, the version defined outside of any migrations).
 
 ## Migrations
 
@@ -135,4 +135,4 @@ static HNode upgrade(HMigration m, HNode old)
 }
 ```
 
-This function (and its corresponding downgrade, which uses identical boilerplate) should be registered in the same way as our `Up` and `Down` functions, except using ::VRSetMigrationUpgradeNode and ::VRSetMigrationDowngradeNode
+This function (and its corresponding downgrade, which uses identical boilerplate) should be registered in the same way as our `Up` and `Down` functions, except using `VRSetMigrationUpgradeNode` and `VRSetMigrationDowngradeNode`

@@ -23,7 +23,7 @@ A Lua plugin in Visionary Render has full access to everything that a normal eve
 | `name()`    | This should return a human-readable name for this plugin to be used to display this plugin in the plugin manager settings. |
 | `version()` | This should return the version number, which is also used in the plugin manager settings. |
 | `init()`    | This is called once when the plugin is loaded, and should initialise any necessary objects such as VRTree nodes or menu items, etc. |
-| `cleanup()` | This is called once when the plugin is unloaded, and should delete anything that `init()` added to VRTree. See @ref dynamic_loading for more information. (Optional) |
+| `cleanup()` | This is called once when the plugin is unloaded, and should delete anything that `init()` added to VRTree. See [dynamic loading](../advanced/dynamic-loading.mdx) for more information. (Optional) |
 
 ### Example Code
 

@@ -3,11 +3,11 @@ import TabItem from '@theme/TabItem';
 
 # Dependencies
 
-For plugins that require functionality from another plugin, the dependency system can be used to ensure that all dependencies are initialised before this plugin. They do this by implementing @ref ::VRPDependsProc "VRPDepends" (native) or `depends()` (lua).
+For plugins that require functionality from another plugin, the dependency system can be used to ensure that all dependencies are initialised before this plugin. They do this by implementing `VRPDependsProc` (native) or `depends()` (lua).
 
-Plugin dependencies can be specified simply by naming the plugin that this plugin depends on. This can be in the form of the name reported by the other plugin (from its @ref VRPNameProc "VRPName" function), or in the form of the file name (e.g. `someplugin`(`.lua`)).
+Plugin dependencies can be specified simply by naming the plugin that this plugin depends on. This can be in the form of the name reported by the other plugin (from its `VRPNameProc` function), or in the form of the file name (e.g. `someplugin.lua`).
 
-For Lua plugins, the use of `require` can be used to load external Lua libraries, but **should not** be used to require other Lua plugins loaded into the application. Instead, use the dependency system, which loads and initialises the required plugins in the correct order.
+For Lua plugins, the use of `require` can be used to load external Lua libraries, but should not be used to require other Lua plugins loaded into the application. Instead, use the dependency system, which loads and initialises the required plugins in the correct order.
 
 ## Example
 

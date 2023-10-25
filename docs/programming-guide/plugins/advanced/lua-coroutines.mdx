@@ -81,7 +81,7 @@ Providing the yield function requires a bit of boilerplate and there are two met
 
 Before we write a yield function, we should write a function capable of resuming the coroutine. This function can then be used as the function parameter to `__registerCallback` to automatically resume the Lua execution when the specified event is fired by Visionary Render.
 
-First, define a variable local to your plugin - this can be called anything, but I chose `lu_co`
+First, define a variable local to your plugin:
 
 ```lua
 local lu_co

@@ -17,15 +17,15 @@ A shader definition is the first thing which should be created, and provides the
 
 #### 1. Click and drag a surface shader definition on to an object in the scene. 
 
-![](/img/programming-guide/surface_shader_click_drag_apply.png)
+![](/img/programming-guide/surface-shader-click-drag-apply.png)
 
 This will create a surface shader instance as a child of that object's assigned material, with its Surface Shader property already referencing the definition.
 
-![](/img/programming-guide/surface_shader_instance_applied.png)
+![](/img/programming-guide/surface-shader-instance-applied.png)
 
 #### 2. Right-Click on a Material and select "Create -> Surface Shader Instance". 
 
-![](/img/programming-guide/surface_shader_create.png)
+![](/img/programming-guide/surface-shader-create.png)
 
 Then, ensure the "Surface Shader" property references the desired definition.
 
@@ -225,7 +225,7 @@ That code defines a user value "MyMagnitude" of type floating-point, with a defa
 
 These custom properties can also inherit their value from any material properties where the types match. This can be done by clicking on the button to the right of the input fields.
 
-![](/img/programming-guide/surface_shader_param_inherit.png)
+![](/img/programming-guide/surface-shader-param-inherit.png)
 
 Following is some sample code showing usage of all the types available to the user parameters, along with an example of how they appear in the UI.
 
@@ -253,4 +253,4 @@ uniform sampler3d MyTex3D;
 uniform samplerCube MyTexCube;
 ```
 
-![](/img/programming-guide/surface_shader_param_types.png)
+![](/img/programming-guide/surface-shader-param-types.png)

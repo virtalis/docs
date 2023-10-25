@@ -7,7 +7,7 @@ Plugins can be loaded and unloaded dynamically, by using the Plugins interface i
 
 When attempting to unload plugins, those that do not implement their own cleanup procedures will not unload until the next application restart, in which case they will not be loaded automatically when the application starts up. The plugin manager interface will display a "Restart Required" message if the user attempts to unload a plugin without a cleanup function.
 
-In order to make a plugin support unloading, it must implement @ref VRPCleanupProc "VRPCleanup".
+In order to make a plugin support unloading, it must implement `VRPCleanupProc`.
 
 <Tabs>
 <TabItem value="cpp" label="C++">
@@ -40,7 +40,7 @@ return {
 The presence of this function lets the plugin loader know that the plugin can be unloaded dynamically, so it is important that the implementation correctly cleans up its resources and hooks.
 
 Examples of things that should be cleaned up include:
-* Callback functions such as those given to @ref VRRegisterEventFunction, or any other callback registration mechanism should be unregistered
+* Callback functions such as those given to `VRRegisterEventFunction`, or any other callback registration mechanism should be unregistered
 * Menus created / injected into application menus should be removed and deleted
 * Any internal allocations made by the plugin should be deleted - simply unloading the plugin does not automatically free any memory it allocated
 
