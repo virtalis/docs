@@ -26,8 +26,6 @@ Functions for interacting with the tree views.
 | [vrnode](../Classes/structvrnode.mdx) | **[vrSelectNodes](../Modules/group__api__lua.mdx#vrselectnodes)**([vrnode](../Classes/structvrnode.mdx) [] nodes, string(optional) allowedViews[] =empty, boolean(optional) alsoShowProperties =false)<br />Selects the specified array of nodes in the most appropriate view.  |
 | [vrnode](../Classes/structvrnode.mdx) | **[vrSelectPrevious](../Modules/group__api__lua.mdx#vrselectprevious)**(number distance =1)<br />Navigates to the previous selection.  |
 | void | **[vrSetSelectedTreeFrame](../Modules/group__api__lua.mdx#vrsetselectedtreeframe)**(string name)<br />Sets the currently selected tree view frame by name.  |
-| void | **[vrShowInTree](../Modules/group__api__lua.mdx#vrshowintree)**([vrnode](../Classes/structvrnode.mdx) node)<br />DEPRECATED - use vrSelectNodes.  |
-| void | **[vrShowInTreeViewFrame](../Modules/group__api__lua.mdx#vrshowintreeviewframe)**([vrnode](../Classes/structvrnode.mdx) node, string view)<br />DEPRECATED - use vrSelectNodes.  |
 | [vrnode](../Classes/structvrnode.mdx) | **[vrSystemLibsNode](../Modules/group__api__lua.mdx#vrsystemlibsnode)**()<br />Returns the SystemsLib node from the tree.  |
 | [vrnode](../Classes/structvrnode.mdx) | **[vrTreeControlRangeSelect](../Modules/group__api__lua.mdx#vrtreecontrolrangeselect)**([vrnode](../Classes/structvrnode.mdx) view =nil)<br />Selects or deselects all nodes between the specified node and the last selected node without affecting the rest of the selection.  |
 | [vrnode](../Classes/structvrnode.mdx) | **[vrTreeControlSelect](../Modules/group__api__lua.mdx#vrtreecontrolselect)**([vrnode](../Classes/structvrnode.mdx) view =nil)<br />Selects (or deselects the currently selected) node without affecting the rest of the selection.  |
@@ -131,7 +129,6 @@ Loads a Visionary Render format file.
   * **node** The node on which to load the contents of the file (use vrTreeRoot if loading a full scene) 
   * **file** The full path to the file 
   * **supportOlder** True loads older format files that may have missing information. Default (false) will fail to load older files. 
-  * **neverBroadcast** DEPRECATED - remains for compatibility. 
   * **noSave** True prevents the loaded nodes from being saved. 
   * **noHistory** True prevents the loaded nodes being added to the undo history. 
   * **newUUID** True ignores UUIDs from file. 
@@ -269,27 +266,6 @@ void vrSetSelectedTreeFrame(
 ```
 
 Sets the currently selected tree view frame by name. 
-
-### vrShowInTree
-
-```lua
-void vrShowInTree(
-    vrnode node
-)
-```
-
-DEPRECATED - use vrSelectNodes. 
-
-### vrShowInTreeViewFrame
-
-```lua
-void vrShowInTreeViewFrame(
-    vrnode node,
-    string view
-)
-```
-
-DEPRECATED - use vrSelectNodes. 
 
 ### vrSystemLibsNode
 

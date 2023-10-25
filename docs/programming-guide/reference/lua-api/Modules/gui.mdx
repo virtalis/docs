@@ -24,8 +24,6 @@ Functions for interacting with the Visionary Render GUI.
 | void | **[vrOpenNotebookPane](../Modules/group__api__lua.mdx#vropennotebookpane)**(string notebookName, string paneName)<br />Opens the specified pane of the given notebook.  |
 | void | **[vrPopupGalleryWindow](../Modules/group__api__lua.mdx#vrpopupgallerywindow)**()<br />Pops up the gallery window.  |
 | void | **[vrPopupPropertyWindow](../Modules/group__api__lua.mdx#vrpopuppropertywindow)**([vrnode](../Classes/structvrnode.mdx) view =nil)<br />Pops open the property window.  |
-| void | **[vrPopupScriptWindow](../Modules/group__api__lua.mdx#vrpopupscriptwindow)**()<br />DEPRECATED - use vrShowScriptWindow.  |
-| void | **[vrPopupScriptWindowAndShow](../Modules/group__api__lua.mdx#vrpopupscriptwindowandshow)**()<br />DEPRECATED - use vrShowScriptWindow.  |
 | void | **[vrPopupToolsWindow](../Modules/group__api__lua.mdx#vrpopuptoolswindow)**()<br />Pops up the tools window.  |
 | void | **[vrPresentMessage](../Modules/group__api__lua.mdx#vrpresentmessage)**(string msg)<br />Presents a message box to the user.  |
 | void | **[vrProgressBegin](../Modules/group__api__lua.mdx#vrprogressbegin)**(string/int(optional) msg/ val, int(optional) max, string(optional) msg)<br />Begins showing the progress display.  |
@@ -33,13 +31,11 @@ Functions for interacting with the Visionary Render GUI.
 | void | **[vrProgressEvents](../Modules/group__api__lua.mdx#vrprogressevents)**(boolean enabled =true)<br />Create Nodes under user tree to indicate when progress events are occuring.  |
 | void | **[vrProgressYield](../Modules/group__api__lua.mdx#vrprogressyield)**(string/int(optional) msg/ val, int(optional) max, string(optional) msg)<br />Updates the progress display.  |
 | void | **[vrResetWindows](../Modules/group__api__lua.mdx#vrresetwindows)**()<br />Resets the windows to their initial positions and states that they were when the application was started.  |
-| void | **[vrSelectAndShowProperties](../Modules/group__api__lua.mdx#vrselectandshowproperties)**([vrnode](../Classes/structvrnode.mdx) node)<br />DEPRECATED - use vrSelectNodes.  |
 | void | **[vrSetGUIEnabled](../Modules/group__api__lua.mdx#vrsetguienabled)**(boolean enabled, [vrnode](../Classes/structvrnode.mdx) userNode =nil)<br />Shows or hides the windows over the 3D scene.  |
 | void | **[vrSetIconToCurrentView](../Modules/group__api__lua.mdx#vrseticontocurrentview)**([vrnode](../Classes/structvrnode.mdx) node)<br />Sets the browser icon for a node to the current view.  |
 | void | **[vrSetIconToDefault](../Modules/group__api__lua.mdx#vrseticontodefault)**([vrnode](../Classes/structvrnode.mdx) node)<br />Sets the browser icon for a node to the default icon.  |
 | void | **[vrSetIconToTexture](../Modules/group__api__lua.mdx#vrseticontotexture)**([vrnode](../Classes/structvrnode.mdx) node, [vrnode](../Classes/structvrnode.mdx) texture)<br />Sets the browser icon for a node to a texture.  |
 | void | **[vrSetStatusBar](../Modules/group__api__lua.mdx#vrsetstatusbar)**(string text, number duration =0.0)<br />Set the text and duration of the text in the status bar.  |
-| void | **[vrShouldShowPropertyWindow](../Modules/group__api__lua.mdx#vrshouldshowpropertywindow)**()<br />DEPRECATED.  |
 | void | **[vrShowAnnotationReviewWindow](../Modules/group__api__lua.mdx#vrshowannotationreviewwindow)**([vrnode](../Classes/structvrnode.mdx) annotationNode =nil)<br />Pops up the applicaiton annotation review window for the specified annotation node.  |
 | void | **[vrShowGalleryType](../Modules/group__api__lua.mdx#vrshowgallerytype)**(string typeName)<br />Shows a type in the gallery window.  |
 | void | **[vrShowGradientWindow](../Modules/group__api__lua.mdx#vrshowgradientwindow)**([vrnode](../Classes/structvrnode.mdx) gradientNode)<br />Pops up the application gradient editor for the specified gradient node.  |
@@ -285,22 +281,6 @@ Pops open the property window.
 
   * **view** Selection to display the properties of 
 
-### vrPopupScriptWindow
-
-```lua
-void vrPopupScriptWindow()
-```
-
-DEPRECATED - use vrShowScriptWindow. 
-
-### vrPopupScriptWindowAndShow
-
-```lua
-void vrPopupScriptWindowAndShow()
-```
-
-DEPRECATED - use vrShowScriptWindow. 
-
 ### vrPopupToolsWindow
 
 ```lua
@@ -395,16 +375,6 @@ void vrResetWindows()
 
 Resets the windows to their initial positions and states that they were when the application was started. 
 
-### vrSelectAndShowProperties
-
-```lua
-void vrSelectAndShowProperties(
-    vrnode node
-)
-```
-
-DEPRECATED - use vrSelectNodes. 
-
 ### vrSetGUIEnabled
 
 ```lua
@@ -470,14 +440,6 @@ Set the text and duration of the text in the status bar.
 
   * **text** Text to display 
   * **duration** Number of seconds to display the status message 
-
-### vrShouldShowPropertyWindow
-
-```lua
-void vrShouldShowPropertyWindow()
-```
-
-DEPRECATED. 
 
 ### vrShowAnnotationReviewWindow
 

@@ -67,7 +67,6 @@ Core functions and types that can be used by Lua scripts and plugins.
 | void | **[vrGenLightning](../Modules/group__api__lua.mdx#vrgenlightning)**()<br />Generates a lightning polyline.  |
 | void | **[vrGeometryOp](../Modules/group__api__lua.mdx#vrgeometryop)**(string type, [vrnode](../Classes/structvrnode.mdx) node)<br />Performs a geometry operation.  |
 | [vrnode](../Classes/structvrnode.mdx) | **[vrGetActivatorNode](../Modules/group__api__lua.mdx#vrgetactivatornode)**()<br />Gets the node which activated the event.  |
-| void | **[vrGetAdapterInfo](../Modules/group__api__lua.mdx#vrgetadapterinfo)**(string entry)<br />DEPRECATED.  |
 | [MULTI](../Classes/struct_m_u_l_t_i.mdx)< boolean, string > | **[vrGetAllDocHelp](../Modules/group__api__lua.mdx#vrgetalldochelp)**(boolean doxyFormat =false, string outputPath =0)<br />Gets the entire Lua API reference, either to a string or a file.  |
 |[vrnode](../Classes/structvrnode.mdx) | **[vrGetClipboardNode](../Modules/group__api__lua.mdx#vrgetclipboardnode)**()<br />Returns the node containing the clipboard content, or nil if nothing is on the clipboard.  |
 | boolean | **[vrGetCommandLineSwitch](../Modules/group__api__lua.mdx#vrgetcommandlineswitch)**(string name)<br />Returns whether or not a command line switch was specified.  |
@@ -112,11 +111,9 @@ Core functions and types that can be used by Lua scripts and plugins.
 | boolean | **[vrIsSystemNode](../Modules/group__api__lua.mdx#vrissystemnode)**([vrnode](../Classes/structvrnode.mdx) node)<br />Returns true if the system node is an ancestor of node.  |
 | boolean | **[vrIsToolEnabled](../Modules/group__api__lua.mdx#vristoolenabled)**(string toolName, [vrnode](../Classes/structvrnode.mdx) userNode =nil)<br />Tests whether a named Tool is enabled.  |
 | boolean | **[vrIsTrackingEnabled](../Modules/group__api__lua.mdx#vristrackingenabled)**()<br />Gets the enabled state of the user's tracking.  |
-| boolean | **[vrIsVR4CAD](../Modules/group__api__lua.mdx#vrisvr4cad)**()<br />DEPRECATED.  |
 | boolean | **[vrLaunchProcess](../Modules/group__api__lua.mdx#vrlaunchprocess)**(string cmdline, boolean pipeOutput =false, number timeout =0.0)<br />Launches a command or application asynchronously.  |
 | void | **[vrLinkNetwork](../Modules/group__api__lua.mdx#vrlinknetwork)**(string host, number port)<br />Links to another application instance forming a Peer-To-Peer network.  |
 | string | **[vrListExports](../Modules/group__api__lua.mdx#vrlistexports)**()<br />List all Lua VR extension functions.  |
-| void | **[vrListInstalledAdapters](../Modules/group__api__lua.mdx#vrlistinstalledadapters)**()<br />DEPRECATED.  |
 | table | **[vrListSleepingScripts](../Modules/group__api__lua.mdx#vrlistsleepingscripts)**(boolean details =false)<br />Lists the scripts currently suspended, awaiting resume.  |
 | void | **[vrLoadAvatarFromFile](../Modules/group__api__lua.mdx#vrloadavatarfromfile)**([vrnode](../Classes/structvrnode.mdx) parent, string filename)<br />Loads an avatar from a file and places it as a child to parent node.  |
 | void | **[vrLoadAvatarFromFileToEdit](../Modules/group__api__lua.mdx#vrloadavatarfromfiletoedit)**([vrnode](../Classes/structvrnode.mdx) parent, string filename)<br />Loads an avatar from a file and places it in a scene to edit. Can be saved by using Developer->Save Avatar.  |
@@ -933,16 +930,6 @@ vrnode vrGetActivatorNode()
 
 Gets the node which activated the event. 
 
-### vrGetAdapterInfo
-
-```lua
-void vrGetAdapterInfo(
-    string entry
-)
-```
-
-DEPRECATED. 
-
 ### vrGetAllDocHelp
 
 ```lua
@@ -1493,14 +1480,6 @@ Gets the enabled state of the user's tracking.
 
 **Return**: true if it is enabled 
 
-### vrIsVR4CAD
-
-```lua
-boolean vrIsVR4CAD()
-```
-
-DEPRECATED. 
-
 ### vrLaunchProcess
 
 ```lua
@@ -1546,14 +1525,6 @@ string vrListExports()
 List all Lua VR extension functions. 
 
 **Return**: List of function names separated by new lines 
-
-### vrListInstalledAdapters
-
-```lua
-void vrListInstalledAdapters()
-```
-
-DEPRECATED. 
 
 ### vrListSleepingScripts
 

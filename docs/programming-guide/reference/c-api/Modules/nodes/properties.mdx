@@ -47,7 +47,6 @@ Functions for accessing node properties.
 | size_t | **[VRGetPropertyValueEx](../Modules/group__api__properties.mdx#vrgetpropertyvalueex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, void * valueBuffer, size_t bufferSize)<br />Gets a property from a node.  |
 | size_t | **[VRGetPropertyValueSize](../Modules/group__api__properties.mdx#vrgetpropertyvaluesize)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName)<br />Gets the required size of a buffer to pass to VRGetPropertyValue. In the case of string properties, returns the length of the string including null terminator.  |
 | size_t | **[VRGetPropertyValueSizeEx](../Modules/group__api__properties.mdx#vrgetpropertyvaluesizeex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop)<br />Gets the required size of a buffer to pass to VRGetPropertyValue In the case of string properties, returns the length of the string including null terminator.  |
-| uint32_t | **[VRGetWorldFloatSize](../Modules/group__api__properties.mdx#vrgetworldfloatsize)**(void )<br />(deprecated) Gets the size of a world float value.  |
 | int | **[VRGetWorldTransform](../Modules/group__api__properties.mdx#vrgetworldtransform)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, void * valueBuffer, size_t bufferSize)<br />Gets the world transform of the specified node from the transform hierarchy. Internally calls TransformHierarchy::getWorldTransformSafe unless a propName is specified.  |
 | int | **[VRIsPropertyEnumValue](../Modules/group__api__properties.mdx#vrispropertyenumvalue)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, const char * symbol)<br />Gets the int value of symbol and checks if the specified INT property is currently set to that value.  |
 | int | **[VRIsPropertyEnumValueEx](../Modules/group__api__properties.mdx#vrispropertyenumvalueex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, const char * symbol)<br />Gets the int value of symbol and checks if the specified INT property is currently set to that value.  |
@@ -755,24 +754,6 @@ Gets the required size of a buffer to pass to VRGetPropertyValue In the case of 
   * **prop** property to get the size of 
 
 **Return**: number of bytes required to hold the property data 
-
-### VRGetWorldFloatSize
-
-```cpp
-uint32_t VRGetWorldFloatSize(
-    void 
-)
-```
-
-(deprecated) Gets the size of a world float value. 
-
-**Note**: 32bit support is being phased out, so this function will become unnecessary. 
-
-In 32bit versions of VRTree, this is 4 bytes. On 64bit, it is 8 bytes.
-
-Interaction with world float properties should be done using the native float or double APIs based on the size reported by this function (e.g. if size == 8, use VRSetPropertyDouble to set a world float property value, otherwise use VRSetPropertyFloat)
-
-API functions that take data buffers perform widening or narrowing accordingly, if given the wrong data type. This may result in precision loss if giving doubles to a property expecting floats.
 
 ### VRGetWorldTransform
 
