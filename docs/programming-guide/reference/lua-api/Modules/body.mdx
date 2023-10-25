@@ -11,29 +11,29 @@ Functions for interacting with bodies.
 
 | Type           | Name           |
 | -------------- | -------------- |
-| void | **[vrBodyAddImpulse](../Modules/group__api__lua.mdx#vrbodyaddimpulse)**([vrvec3](../Classes/structvrvec3.mdx) position_vector, [vrvec3](../Classes/structvrvec3.mdx) rotation_vector =vec3d::Zero)<br />Applies delta to the camera as if the mouse was used to move it.  |
-| void | **[vrBodyAddImpulseMouse](../Modules/group__api__lua.mdx#vrbodyaddimpulsemouse)**(number x, number y, string mode =0)<br />Moves the camera by simulating mouse movement.  |
-| void | **[vrBodyClearImpulse](../Modules/group__api__lua.mdx#vrbodyclearimpulse)**(boolean b)<br />Resets the delta of the camera.  |
-| void | **[vrBodyConnectView](../Modules/group__api__lua.mdx#vrbodyconnectview)**([vrnode](../Classes/structvrnode.mdx) user =nil)<br />Connects to a users body.  |
-| void | **[vrBodyFlyTo](../Modules/group__api__lua.mdx#vrbodyflyto)**([vrnode](../Classes/structvrnode.mdx) node, number time, boolean immersive =false, boolean addToStack =false)<br />Flies the body to the world position of node, over time seconds.  |
-| void | **[vrBodyFlyToFit](../Modules/group__api__lua.mdx#vrbodyflytofit)**([vrnode](../Classes/structvrnode.mdx) node, number time, number fillFraction =CameraFlyManager::Fill_Default, boolean immersive =false, boolean addToStack =false)<br />Flies the body to a position where it can see the whole of node from that angle, over time seconds.  |
-| void | **[vrBodyFlyToFitBounds](../Modules/group__api__lua.mdx#vrbodyflytofitbounds)**([vrnode](../Classes/structvrnode.mdx) node, number time, number fillFraction =1.0)<br />Flies the body to a position where it can see the whole of node, over time seconds.  |
-| void | **[vrBodyFlyToFitSphere](../Modules/group__api__lua.mdx#vrbodyflytofitsphere)**([vrvec3](../Classes/structvrvec3.mdx) center, number radius, number time, number fillFraction =1.0)<br />Flies the body to a position where it can see the whole of a bounding sphere, over time seconds.  |
-| void | **[vrBodyFlyToLookAt](../Modules/group__api__lua.mdx#vrbodyflytolookat)**([vrnode](../Classes/structvrnode.mdx) node =nil, number time, [vrvec3](../Classes/structvrvec3.mdx) direction)<br />Flies the body to a position where it is looking at the selected object from the specified direction, over time seconds.  |
-| void | **[vrBodyFlyToWorldPos](../Modules/group__api__lua.mdx#vrbodyflytoworldpos)**([vrvec3](../Classes/structvrvec3.mdx) pos, [vrvec3](../Classes/structvrvec3.mdx) rot, number time, boolean fadeInOut =false, boolean addToStack =false, [vrnode](../Classes/structvrnode.mdx) user =nil)<br />Flies the body to a specific position and rotation, over time seconds.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrBodyGetViewConnection](../Modules/group__api__lua.mdx#vrbodygetviewconnection)**()<br />Returns the object to which the view is currently connected.  |
-| [MULTI](../Classes/struct_m_u_l_t_i.mdx)< [vrvec3](../Classes/structvrvec3.mdx), [vrvec3](../Classes/structvrvec3.mdx) > | **[vrBodyGetWorldPos](../Modules/group__api__lua.mdx#vrbodygetworldpos)**([vrnode](../Classes/structvrnode.mdx) user =nil)<br />Gets the user's body position and rotation.  |
-| void | **[vrBodyLookAt](../Modules/group__api__lua.mdx#vrbodylookat)**([vrnode](../Classes/structvrnode.mdx) subjectNode, number time)<br />Rotates the body so that it is looking at subjectNode, over time seconds.  |
-| void | **[vrBodySetAng](../Modules/group__api__lua.mdx#vrbodysetang)**([vrvec3](../Classes/structvrvec3.mdx) direction)<br />Sets the orientation of the body.  |
-| void | **[vrBodySetOrbitPoint](../Modules/group__api__lua.mdx#vrbodysetorbitpoint)**([vrvec3](../Classes/structvrvec3.mdx) orbit_vector)<br />Sets the camera's orbit point.  |
-| void | **[vrBodySetPitch](../Modules/group__api__lua.mdx#vrbodysetpitch)**(number pitch)<br />Sets the pitch of the body.  |
-| void | **[vrBodySetRoll](../Modules/group__api__lua.mdx#vrbodysetroll)**(number roll)<br />Sets the roll of the body.  |
-| void | **[vrBodySetWorldPos](../Modules/group__api__lua.mdx#vrbodysetworldpos)**([vrvec3](../Classes/structvrvec3.mdx) pos, [vrvec3](../Classes/structvrvec3.mdx) rot, [vrnode](../Classes/structvrnode.mdx) user =nil)<br />Sets the body position and rotation instantly.  |
-| void | **[vrBodyStepBack](../Modules/group__api__lua.mdx#vrbodystepback)**(number time, boolean fadeInOut)<br />Steps back to the previous viewport or camera position.  |
-| void | **[vrBodyStepForward](../Modules/group__api__lua.mdx#vrbodystepforward)**(number time, boolean fadeInOut)<br />Steps forward to the next viewport or camera position.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrGetBody](../Modules/group__api__lua.mdx#vrgetbody)**([vrnode](../Classes/structvrnode.mdx) user =nil)<br />Gets the body currently controlling the user's view.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrGetLocalBody](../Modules/group__api__lua.mdx#vrgetlocalbody)**()<br />Gets the local body, regardless of any remote connections.  |
-| void | **[vrPositionAtBody](../Modules/group__api__lua.mdx#vrpositionatbody)**([vrnode](../Classes/structvrnode.mdx) node)<br />Moves a node to the user's current position and orientation.  |
+| void | **[vrBodyAddImpulse](#vrbodyaddimpulse)**([vrvec3](../classes/vrvec3.mdx) position_vector, [vrvec3](../classes/vrvec3.mdx) rotation_vector =vec3d::Zero)<br />Applies delta to the camera as if the mouse was used to move it.  |
+| void | **[vrBodyAddImpulseMouse](#vrbodyaddimpulsemouse)**(number x, number y, string mode =0)<br />Moves the camera by simulating mouse movement.  |
+| void | **[vrBodyClearImpulse](#vrbodyclearimpulse)**(boolean b)<br />Resets the delta of the camera.  |
+| void | **[vrBodyConnectView](#vrbodyconnectview)**([vrnode](../classes/vrnode.mdx) user =nil)<br />Connects to a users body.  |
+| void | **[vrBodyFlyTo](#vrbodyflyto)**([vrnode](../classes/vrnode.mdx) node, number time, boolean immersive =false, boolean addToStack =false)<br />Flies the body to the world position of node, over time seconds.  |
+| void | **[vrBodyFlyToFit](#vrbodyflytofit)**([vrnode](../classes/vrnode.mdx) node, number time, number fillFraction =CameraFlyManager::Fill_Default, boolean immersive =false, boolean addToStack =false)<br />Flies the body to a position where it can see the whole of node from that angle, over time seconds.  |
+| void | **[vrBodyFlyToFitBounds](#vrbodyflytofitbounds)**([vrnode](../classes/vrnode.mdx) node, number time, number fillFraction =1.0)<br />Flies the body to a position where it can see the whole of node, over time seconds.  |
+| void | **[vrBodyFlyToFitSphere](#vrbodyflytofitsphere)**([vrvec3](../classes/vrvec3.mdx) center, number radius, number time, number fillFraction =1.0)<br />Flies the body to a position where it can see the whole of a bounding sphere, over time seconds.  |
+| void | **[vrBodyFlyToLookAt](#vrbodyflytolookat)**([vrnode](../classes/vrnode.mdx) node =nil, number time, [vrvec3](../classes/vrvec3.mdx) direction)<br />Flies the body to a position where it is looking at the selected object from the specified direction, over time seconds.  |
+| void | **[vrBodyFlyToWorldPos](#vrbodyflytoworldpos)**([vrvec3](../classes/vrvec3.mdx) pos, [vrvec3](../classes/vrvec3.mdx) rot, number time, boolean fadeInOut =false, boolean addToStack =false, [vrnode](../classes/vrnode.mdx) user =nil)<br />Flies the body to a specific position and rotation, over time seconds.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrBodyGetViewConnection](#vrbodygetviewconnection)**()<br />Returns the object to which the view is currently connected.  |
+| [MULTI](../classes/multi.mdx)< [vrvec3](../classes/vrvec3.mdx), [vrvec3](../classes/vrvec3.mdx) > | **[vrBodyGetWorldPos](#vrbodygetworldpos)**([vrnode](../classes/vrnode.mdx) user =nil)<br />Gets the user's body position and rotation.  |
+| void | **[vrBodyLookAt](#vrbodylookat)**([vrnode](../classes/vrnode.mdx) subjectNode, number time)<br />Rotates the body so that it is looking at subjectNode, over time seconds.  |
+| void | **[vrBodySetAng](#vrbodysetang)**([vrvec3](../classes/vrvec3.mdx) direction)<br />Sets the orientation of the body.  |
+| void | **[vrBodySetOrbitPoint](#vrbodysetorbitpoint)**([vrvec3](../classes/vrvec3.mdx) orbit_vector)<br />Sets the camera's orbit point.  |
+| void | **[vrBodySetPitch](#vrbodysetpitch)**(number pitch)<br />Sets the pitch of the body.  |
+| void | **[vrBodySetRoll](#vrbodysetroll)**(number roll)<br />Sets the roll of the body.  |
+| void | **[vrBodySetWorldPos](#vrbodysetworldpos)**([vrvec3](../classes/vrvec3.mdx) pos, [vrvec3](../classes/vrvec3.mdx) rot, [vrnode](../classes/vrnode.mdx) user =nil)<br />Sets the body position and rotation instantly.  |
+| void | **[vrBodyStepBack](#vrbodystepback)**(number time, boolean fadeInOut)<br />Steps back to the previous viewport or camera position.  |
+| void | **[vrBodyStepForward](#vrbodystepforward)**(number time, boolean fadeInOut)<br />Steps forward to the next viewport or camera position.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrGetBody](#vrgetbody)**([vrnode](../classes/vrnode.mdx) user =nil)<br />Gets the body currently controlling the user's view.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrGetLocalBody](#vrgetlocalbody)**()<br />Gets the local body, regardless of any remote connections.  |
+| void | **[vrPositionAtBody](#vrpositionatbody)**([vrnode](../classes/vrnode.mdx) node)<br />Moves a node to the user's current position and orientation.  |
 
 ## Functions Documentation
 

@@ -11,27 +11,27 @@ Functions for accessing settings.
 
 | Type           | Name           |
 | -------------- | -------------- |
-| void | **[vrSettingAddToScene](../Modules/group__api__lua.mdx#vrsettingaddtoscene)**(string path, Any defaultVal, Any slot =nil, Any complete =nil, string typestr =0)<br />Creates a scene setting as an override to an existing setting or a scene-only setting.  |
-| void | **[vrSettingCreateArrayDouble](../Modules/group__api__lua.mdx#vrsettingcreatearraydouble)**(string path, number length, [vrnode](../Classes/structvrnode.mdx) user =nil, number ... )<br />Creates a new double array user setting.  |
-| void | **[vrSettingCreateArrayFloat](../Modules/group__api__lua.mdx#vrsettingcreatearrayfloat)**(string path, number length, [vrnode](../Classes/structvrnode.mdx) user =nil, number ... )<br />Creates a new float array user setting.  |
-| void | **[vrSettingCreateArrayInt](../Modules/group__api__lua.mdx#vrsettingcreatearrayint)**(string path, number length, [vrnode](../Classes/structvrnode.mdx) user =nil, number ... )<br />Creates a new integer array user setting.  |
-| void | **[vrSettingCreateBool](../Modules/group__api__lua.mdx#vrsettingcreatebool)**(string path, boolean defaultVal =false, [vrnode](../Classes/structvrnode.mdx) user =nil)<br />Creates a new boolean user setting.  |
-| void | **[vrSettingCreateDouble](../Modules/group__api__lua.mdx#vrsettingcreatedouble)**(string path, number defaultVal =0.0, [vrnode](../Classes/structvrnode.mdx) user =nil, number minVal =VR_DOUBLE_MIN, number maxVal =VR_DOUBLE_MAX)<br />Creates a new double user setting.  |
-| void | **[vrSettingCreateFloat](../Modules/group__api__lua.mdx#vrsettingcreatefloat)**(string path, number defaultVal =0.0, [vrnode](../Classes/structvrnode.mdx) user =nil, number minVal =VR_FLOAT_MIN, number maxVal =VR_FLOAT_MAX)<br />Creates a new float user setting.  |
-| void | **[vrSettingCreateInt](../Modules/group__api__lua.mdx#vrsettingcreateint)**(string path, number defaultVal =0, [vrnode](../Classes/structvrnode.mdx) user =nil, number minVal =VR_INT_MIN, number maxVal =VR_INT_MAX)<br />Creates a new integer user setting.  |
-| void | **[vrSettingCreateLink](../Modules/group__api__lua.mdx#vrsettingcreatelink)**(string path, string filter =0, [vrnode](../Classes/structvrnode.mdx) user =nil)<br />Creates a new link user setting.  |
-| void | **[vrSettingCreateString](../Modules/group__api__lua.mdx#vrsettingcreatestring)**(string path, string defaultVal =0, [vrnode](../Classes/structvrnode.mdx) user =nil)<br />Creates a new string user setting.  |
-| vrsetting | **[vrSettingGet](../Modules/group__api__lua.mdx#vrsettingget)**(string path, [vrnode](../Classes/structvrnode.mdx) user =nil)<br />Gets an application setting from the user registry, or a scene override if it exists.  |
-| vrsetting | **[vrSettingGetNode](../Modules/group__api__lua.mdx#vrsettinggetnode)**(string path, [vrnode](../Classes/structvrnode.mdx) user =nil)<br />Gets an application setting node from the user registry, or a scene override if it exists.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrSettingGetRoot](../Modules/group__api__lua.mdx#vrsettinggetroot)**()<br />Gets the node associated with the root of the settings hierarchy.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrSettingGetSceneRoot](../Modules/group__api__lua.mdx#vrsettinggetsceneroot)**()<br />Gets the root of the settings overrides in the scenes tree if it exists.  |
-| Any | **[vrSettingRead](../Modules/group__api__lua.mdx#vrsettingread)**(string path, [vrnode](../Classes/structvrnode.mdx) user =nil)<br />Reads the value of a setting.  |
-| boolean | **[vrSettingRemoveFromScene](../Modules/group__api__lua.mdx#vrsettingremovefromscene)**(string path)<br />Removes a scene setting.  |
-| void | **[vrSettingSetCaption](../Modules/group__api__lua.mdx#vrsettingsetcaption)**(string path, string caption)<br />Assigns a custom caption to a setting, allowing the text displayed in user interface to be different from the setting name.  |
-| void | **[vrSettingSetFilter](../Modules/group__api__lua.mdx#vrsettingsetfilter)**(string path, string filter)<br />Assigns a filter to a setting. The meaning of the filter depends on the setting type.  |
-| void | **[vrSettingSetStep](../Modules/group__api__lua.mdx#vrsettingsetstep)**(string path, number step)<br />Assigns a step size to a numerical setting.  |
-| void | **[vrSettingSetType](../Modules/group__api__lua.mdx#vrsettingsettype)**(string path, string type)<br />Assigns a type to a setting, which determines how the setting is presented in the user interface.  |
-| void | **[vrSettingWrite](../Modules/group__api__lua.mdx#vrsettingwrite)**(string path, Any value, [vrnode](../Classes/structvrnode.mdx) user =nil)<br />Writes the value of a setting.  |
+| void | **[vrSettingAddToScene](#vrsettingaddtoscene)**(string path, Any defaultVal, Any slot =nil, Any complete =nil, string typestr =0)<br />Creates a scene setting as an override to an existing setting or a scene-only setting.  |
+| void | **[vrSettingCreateArrayDouble](#vrsettingcreatearraydouble)**(string path, number length, [vrnode](../classes/vrnode.mdx) user =nil, number ... )<br />Creates a new double array user setting.  |
+| void | **[vrSettingCreateArrayFloat](#vrsettingcreatearrayfloat)**(string path, number length, [vrnode](../classes/vrnode.mdx) user =nil, number ... )<br />Creates a new float array user setting.  |
+| void | **[vrSettingCreateArrayInt](#vrsettingcreatearrayint)**(string path, number length, [vrnode](../classes/vrnode.mdx) user =nil, number ... )<br />Creates a new integer array user setting.  |
+| void | **[vrSettingCreateBool](#vrsettingcreatebool)**(string path, boolean defaultVal =false, [vrnode](../classes/vrnode.mdx) user =nil)<br />Creates a new boolean user setting.  |
+| void | **[vrSettingCreateDouble](#vrsettingcreatedouble)**(string path, number defaultVal =0.0, [vrnode](../classes/vrnode.mdx) user =nil, number minVal =VR_DOUBLE_MIN, number maxVal =VR_DOUBLE_MAX)<br />Creates a new double user setting.  |
+| void | **[vrSettingCreateFloat](#vrsettingcreatefloat)**(string path, number defaultVal =0.0, [vrnode](../classes/vrnode.mdx) user =nil, number minVal =VR_FLOAT_MIN, number maxVal =VR_FLOAT_MAX)<br />Creates a new float user setting.  |
+| void | **[vrSettingCreateInt](#vrsettingcreateint)**(string path, number defaultVal =0, [vrnode](../classes/vrnode.mdx) user =nil, number minVal =VR_INT_MIN, number maxVal =VR_INT_MAX)<br />Creates a new integer user setting.  |
+| void | **[vrSettingCreateLink](#vrsettingcreatelink)**(string path, string filter =0, [vrnode](../classes/vrnode.mdx) user =nil)<br />Creates a new link user setting.  |
+| void | **[vrSettingCreateString](#vrsettingcreatestring)**(string path, string defaultVal =0, [vrnode](../classes/vrnode.mdx) user =nil)<br />Creates a new string user setting.  |
+| vrsetting | **[vrSettingGet](#vrsettingget)**(string path, [vrnode](../classes/vrnode.mdx) user =nil)<br />Gets an application setting from the user registry, or a scene override if it exists.  |
+| vrsetting | **[vrSettingGetNode](#vrsettinggetnode)**(string path, [vrnode](../classes/vrnode.mdx) user =nil)<br />Gets an application setting node from the user registry, or a scene override if it exists.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrSettingGetRoot](#vrsettinggetroot)**()<br />Gets the node associated with the root of the settings hierarchy.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrSettingGetSceneRoot](#vrsettinggetsceneroot)**()<br />Gets the root of the settings overrides in the scenes tree if it exists.  |
+| Any | **[vrSettingRead](#vrsettingread)**(string path, [vrnode](../classes/vrnode.mdx) user =nil)<br />Reads the value of a setting.  |
+| boolean | **[vrSettingRemoveFromScene](#vrsettingremovefromscene)**(string path)<br />Removes a scene setting.  |
+| void | **[vrSettingSetCaption](#vrsettingsetcaption)**(string path, string caption)<br />Assigns a custom caption to a setting, allowing the text displayed in user interface to be different from the setting name.  |
+| void | **[vrSettingSetFilter](#vrsettingsetfilter)**(string path, string filter)<br />Assigns a filter to a setting. The meaning of the filter depends on the setting type.  |
+| void | **[vrSettingSetStep](#vrsettingsetstep)**(string path, number step)<br />Assigns a step size to a numerical setting.  |
+| void | **[vrSettingSetType](#vrsettingsettype)**(string path, string type)<br />Assigns a type to a setting, which determines how the setting is presented in the user interface.  |
+| void | **[vrSettingWrite](#vrsettingwrite)**(string path, Any value, [vrnode](../classes/vrnode.mdx) user =nil)<br />Writes the value of a setting.  |
 
 ## Functions Documentation
 

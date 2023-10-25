@@ -11,49 +11,49 @@ Functions for interacting with the Visionary Render GUI.
 
 | Type           | Name           |
 | -------------- | -------------- |
-| void | **[vrAddToolbarButton](../Modules/group__api__lua.mdx#vraddtoolbarbutton)**([vrnode](../Classes/structvrnode.mdx) toolbarNode, [vrnode](../Classes/structvrnode.mdx) groupNode, string name, number type, string caption, string icon, string command, string userString, string clusterScope, string statusTxt)<br />Adds a button to a toolbar dock group.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrAddToolbarButtonGroup](../Modules/group__api__lua.mdx#vraddtoolbarbuttongroup)**([vrnode](../Classes/structvrnode.mdx) toolbarUINode, string groupName, boolean hasScrollBar =true)<br />Adds a new group for toolbar buttons to be attached to.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrAddToolbarDock](../Modules/group__api__lua.mdx#vraddtoolbardock)**([vrnode](../Classes/structvrnode.mdx) notebookNode, string tabName, string tabIcon)<br />Adds a docked window to a notebook that toolbars can be added to.  |
-| void | **[vrCloseNotebookPane](../Modules/group__api__lua.mdx#vrclosenotebookpane)**(string notebookName, string paneName)<br />Closes the specified pane of the given notebook.  |
-| void | **[vrCloseSequence](../Modules/group__api__lua.mdx#vrclosesequence)**([vrnode](../Classes/structvrnode.mdx) selection)<br />Closes the specified sequence in the sequencer window.  |
-| void | **[vrFilterView](../Modules/group__api__lua.mdx#vrfilterview)**(string view, string metaType)<br />Sets the filter for a specified view.  |
-| void | **[vrGalleryRequestImport](../Modules/group__api__lua.mdx#vrgalleryrequestimport)**(string typeName, string importerName, string prompt, [vrnode](../Classes/structvrnode.mdx) destination =nil)<br />Imports a file using an importer registered with the gallery.  |
-| void | **[vrHideModalDialogues](../Modules/group__api__lua.mdx#vrhidemodaldialogues)**(boolean suppressed =false)<br />Suppresses all modal dialogue message boxes.  |
-| void | **[vrLoadGalleryFolders](../Modules/group__api__lua.mdx#vrloadgalleryfolders)**(string path)<br />Add sub-folders of the specified folder to the gallery.  |
-| string | **[vrMessageBox](../Modules/group__api__lua.mdx#vrmessagebox)**(string text, string caption, string flagList)<br />Displays a message box to the user.  |
-| void | **[vrOpenNotebookPane](../Modules/group__api__lua.mdx#vropennotebookpane)**(string notebookName, string paneName)<br />Opens the specified pane of the given notebook.  |
-| void | **[vrPopupGalleryWindow](../Modules/group__api__lua.mdx#vrpopupgallerywindow)**()<br />Pops up the gallery window.  |
-| void | **[vrPopupPropertyWindow](../Modules/group__api__lua.mdx#vrpopuppropertywindow)**([vrnode](../Classes/structvrnode.mdx) view =nil)<br />Pops open the property window.  |
-| void | **[vrPopupToolsWindow](../Modules/group__api__lua.mdx#vrpopuptoolswindow)**()<br />Pops up the tools window.  |
-| void | **[vrPresentMessage](../Modules/group__api__lua.mdx#vrpresentmessage)**(string msg)<br />Presents a message box to the user.  |
-| void | **[vrProgressBegin](../Modules/group__api__lua.mdx#vrprogressbegin)**(string/int(optional) msg/ val, int(optional) max, string(optional) msg)<br />Begins showing the progress display.  |
-| void | **[vrProgressEnd](../Modules/group__api__lua.mdx#vrprogressend)**()<br />Ends the progress display.  |
-| void | **[vrProgressEvents](../Modules/group__api__lua.mdx#vrprogressevents)**(boolean enabled =true)<br />Create Nodes under user tree to indicate when progress events are occuring.  |
-| void | **[vrProgressYield](../Modules/group__api__lua.mdx#vrprogressyield)**(string/int(optional) msg/ val, int(optional) max, string(optional) msg)<br />Updates the progress display.  |
-| void | **[vrResetWindows](../Modules/group__api__lua.mdx#vrresetwindows)**()<br />Resets the windows to their initial positions and states that they were when the application was started.  |
-| void | **[vrSetGUIEnabled](../Modules/group__api__lua.mdx#vrsetguienabled)**(boolean enabled, [vrnode](../Classes/structvrnode.mdx) userNode =nil)<br />Shows or hides the windows over the 3D scene.  |
-| void | **[vrSetIconToCurrentView](../Modules/group__api__lua.mdx#vrseticontocurrentview)**([vrnode](../Classes/structvrnode.mdx) node)<br />Sets the browser icon for a node to the current view.  |
-| void | **[vrSetIconToDefault](../Modules/group__api__lua.mdx#vrseticontodefault)**([vrnode](../Classes/structvrnode.mdx) node)<br />Sets the browser icon for a node to the default icon.  |
-| void | **[vrSetIconToTexture](../Modules/group__api__lua.mdx#vrseticontotexture)**([vrnode](../Classes/structvrnode.mdx) node, [vrnode](../Classes/structvrnode.mdx) texture)<br />Sets the browser icon for a node to a texture.  |
-| void | **[vrSetStatusBar](../Modules/group__api__lua.mdx#vrsetstatusbar)**(string text, number duration =0.0)<br />Set the text and duration of the text in the status bar.  |
-| void | **[vrShowAnnotationReviewWindow](../Modules/group__api__lua.mdx#vrshowannotationreviewwindow)**([vrnode](../Classes/structvrnode.mdx) annotationNode =nil)<br />Pops up the applicaiton annotation review window for the specified annotation node.  |
-| void | **[vrShowGalleryType](../Modules/group__api__lua.mdx#vrshowgallerytype)**(string typeName)<br />Shows a type in the gallery window.  |
-| void | **[vrShowGradientWindow](../Modules/group__api__lua.mdx#vrshowgradientwindow)**([vrnode](../Classes/structvrnode.mdx) gradientNode)<br />Pops up the application gradient editor for the specified gradient node.  |
-| void | **[vrShowGUIFrame](../Modules/group__api__lua.mdx#vrshowguiframe)**([vrnode](../Classes/structvrnode.mdx) uiNode, boolean show)<br />Show or hide a GUI frame.  |
-| void | **[vrShowImporterSettings](../Modules/group__api__lua.mdx#vrshowimportersettings)**([vrnode](../Classes/structvrnode.mdx) importerNode)<br />Invokes a dialog that shows the importer settings for the given node.  |
-| void | **[vrShowNextSelection](../Modules/group__api__lua.mdx#vrshownextselection)**(number distance =1)<br />Navigates to the next selection and shows the properties of the nodes.  |
-| void | **[vrShowNodeProperties](../Modules/group__api__lua.mdx#vrshownodeproperties)**([vrnode](../Classes/structvrnode.mdx) selection, boolean popup =false)<br />Pops up the application property editor for the specified view selection.  |
-| void | **[vrShowPreviousSelection](../Modules/group__api__lua.mdx#vrshowpreviousselection)**(number distance =1)<br />Navigates to the previous selection and shows the properties of the nodes.  |
-| void | **[vrShowPropertyWindow](../Modules/group__api__lua.mdx#vrshowpropertywindow)**([vrnode](../Classes/structvrnode.mdx) selection =nil, boolean popup =false)<br />Pops up the application property editor for the specified view selection.  |
-| void | **[vrShowScriptWindow](../Modules/group__api__lua.mdx#vrshowscriptwindow)**([vrnode](../Classes/structvrnode.mdx) scriptNode =nil)<br />Pops up the application script editor for the specified script node.  |
-| void | **[vrShowSequence](../Modules/group__api__lua.mdx#vrshowsequence)**([vrnode](../Classes/structvrnode.mdx) selection)<br />Shows the specified sequence in the sequencer window.  |
-| void | **[vrShowSequencer](../Modules/group__api__lua.mdx#vrshowsequencer)**([vrnode](../Classes/structvrnode.mdx) selection)<br />Shows the sequencer window.  |
-| void | **[vrShowSettingsWindow](../Modules/group__api__lua.mdx#vrshowsettingswindow)**([vrnode](../Classes/structvrnode.mdx) selection =nil, number tabIndex =-1)<br />Pops up the application settings for the specified settings group.  |
-| void | **[vrToggleGUIEnabled](../Modules/group__api__lua.mdx#vrtoggleguienabled)**([vrnode](../Classes/structvrnode.mdx) userNode =nil)<br />Toggles the visibility of the windows over the 3D scene.  |
-| boolean | **[vrToggleNotebookPane](../Modules/group__api__lua.mdx#vrtogglenotebookpane)**(string notebookName, string paneName)<br />If the current pane is visible it will be hidden, if it's hidden it will be made visible (and selected).  |
-| void | **[vrToggleSubtreeStats](../Modules/group__api__lua.mdx#vrtogglesubtreestats)**()<br />Toggles the subtree stats display in the properties window.  |
-| void | **[vrUpdateMenu](../Modules/group__api__lua.mdx#vrupdatemenu)**([vrnode](../Classes/structvrnode.mdx) uinode)<br />Create menu item frames for children of the menu node.  |
-| void | **[vrUpdateSelectionHistoryMenu](../Modules/group__api__lua.mdx#vrupdateselectionhistorymenu)**([vrnode](../Classes/structvrnode.mdx) menu)<br />Updates a menu to display the current selection history.  |
+| void | **[vrAddToolbarButton](#vraddtoolbarbutton)**([vrnode](../classes/vrnode.mdx) toolbarNode, [vrnode](../classes/vrnode.mdx) groupNode, string name, number type, string caption, string icon, string command, string userString, string clusterScope, string statusTxt)<br />Adds a button to a toolbar dock group.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrAddToolbarButtonGroup](#vraddtoolbarbuttongroup)**([vrnode](../classes/vrnode.mdx) toolbarUINode, string groupName, boolean hasScrollBar =true)<br />Adds a new group for toolbar buttons to be attached to.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrAddToolbarDock](#vraddtoolbardock)**([vrnode](../classes/vrnode.mdx) notebookNode, string tabName, string tabIcon)<br />Adds a docked window to a notebook that toolbars can be added to.  |
+| void | **[vrCloseNotebookPane](#vrclosenotebookpane)**(string notebookName, string paneName)<br />Closes the specified pane of the given notebook.  |
+| void | **[vrCloseSequence](#vrclosesequence)**([vrnode](../classes/vrnode.mdx) selection)<br />Closes the specified sequence in the sequencer window.  |
+| void | **[vrFilterView](#vrfilterview)**(string view, string metaType)<br />Sets the filter for a specified view.  |
+| void | **[vrGalleryRequestImport](#vrgalleryrequestimport)**(string typeName, string importerName, string prompt, [vrnode](../classes/vrnode.mdx) destination =nil)<br />Imports a file using an importer registered with the gallery.  |
+| void | **[vrHideModalDialogues](#vrhidemodaldialogues)**(boolean suppressed =false)<br />Suppresses all modal dialogue message boxes.  |
+| void | **[vrLoadGalleryFolders](#vrloadgalleryfolders)**(string path)<br />Add sub-folders of the specified folder to the gallery.  |
+| string | **[vrMessageBox](#vrmessagebox)**(string text, string caption, string flagList)<br />Displays a message box to the user.  |
+| void | **[vrOpenNotebookPane](#vropennotebookpane)**(string notebookName, string paneName)<br />Opens the specified pane of the given notebook.  |
+| void | **[vrPopupGalleryWindow](#vrpopupgallerywindow)**()<br />Pops up the gallery window.  |
+| void | **[vrPopupPropertyWindow](#vrpopuppropertywindow)**([vrnode](../classes/vrnode.mdx) view =nil)<br />Pops open the property window.  |
+| void | **[vrPopupToolsWindow](#vrpopuptoolswindow)**()<br />Pops up the tools window.  |
+| void | **[vrPresentMessage](#vrpresentmessage)**(string msg)<br />Presents a message box to the user.  |
+| void | **[vrProgressBegin](#vrprogressbegin)**(string/int(optional) msg/ val, int(optional) max, string(optional) msg)<br />Begins showing the progress display.  |
+| void | **[vrProgressEnd](#vrprogressend)**()<br />Ends the progress display.  |
+| void | **[vrProgressEvents](#vrprogressevents)**(boolean enabled =true)<br />Create Nodes under user tree to indicate when progress events are occuring.  |
+| void | **[vrProgressYield](#vrprogressyield)**(string/int(optional) msg/ val, int(optional) max, string(optional) msg)<br />Updates the progress display.  |
+| void | **[vrResetWindows](#vrresetwindows)**()<br />Resets the windows to their initial positions and states that they were when the application was started.  |
+| void | **[vrSetGUIEnabled](#vrsetguienabled)**(boolean enabled, [vrnode](../classes/vrnode.mdx) userNode =nil)<br />Shows or hides the windows over the 3D scene.  |
+| void | **[vrSetIconToCurrentView](#vrseticontocurrentview)**([vrnode](../classes/vrnode.mdx) node)<br />Sets the browser icon for a node to the current view.  |
+| void | **[vrSetIconToDefault](#vrseticontodefault)**([vrnode](../classes/vrnode.mdx) node)<br />Sets the browser icon for a node to the default icon.  |
+| void | **[vrSetIconToTexture](#vrseticontotexture)**([vrnode](../classes/vrnode.mdx) node, [vrnode](../classes/vrnode.mdx) texture)<br />Sets the browser icon for a node to a texture.  |
+| void | **[vrSetStatusBar](#vrsetstatusbar)**(string text, number duration =0.0)<br />Set the text and duration of the text in the status bar.  |
+| void | **[vrShowAnnotationReviewWindow](#vrshowannotationreviewwindow)**([vrnode](../classes/vrnode.mdx) annotationNode =nil)<br />Pops up the applicaiton annotation review window for the specified annotation node.  |
+| void | **[vrShowGalleryType](#vrshowgallerytype)**(string typeName)<br />Shows a type in the gallery window.  |
+| void | **[vrShowGradientWindow](#vrshowgradientwindow)**([vrnode](../classes/vrnode.mdx) gradientNode)<br />Pops up the application gradient editor for the specified gradient node.  |
+| void | **[vrShowGUIFrame](#vrshowguiframe)**([vrnode](../classes/vrnode.mdx) uiNode, boolean show)<br />Show or hide a GUI frame.  |
+| void | **[vrShowImporterSettings](#vrshowimportersettings)**([vrnode](../classes/vrnode.mdx) importerNode)<br />Invokes a dialog that shows the importer settings for the given node.  |
+| void | **[vrShowNextSelection](#vrshownextselection)**(number distance =1)<br />Navigates to the next selection and shows the properties of the nodes.  |
+| void | **[vrShowNodeProperties](#vrshownodeproperties)**([vrnode](../classes/vrnode.mdx) selection, boolean popup =false)<br />Pops up the application property editor for the specified view selection.  |
+| void | **[vrShowPreviousSelection](#vrshowpreviousselection)**(number distance =1)<br />Navigates to the previous selection and shows the properties of the nodes.  |
+| void | **[vrShowPropertyWindow](#vrshowpropertywindow)**([vrnode](../classes/vrnode.mdx) selection =nil, boolean popup =false)<br />Pops up the application property editor for the specified view selection.  |
+| void | **[vrShowScriptWindow](#vrshowscriptwindow)**([vrnode](../classes/vrnode.mdx) scriptNode =nil)<br />Pops up the application script editor for the specified script node.  |
+| void | **[vrShowSequence](#vrshowsequence)**([vrnode](../classes/vrnode.mdx) selection)<br />Shows the specified sequence in the sequencer window.  |
+| void | **[vrShowSequencer](#vrshowsequencer)**([vrnode](../classes/vrnode.mdx) selection)<br />Shows the sequencer window.  |
+| void | **[vrShowSettingsWindow](#vrshowsettingswindow)**([vrnode](../classes/vrnode.mdx) selection =nil, number tabIndex =-1)<br />Pops up the application settings for the specified settings group.  |
+| void | **[vrToggleGUIEnabled](#vrtoggleguienabled)**([vrnode](../classes/vrnode.mdx) userNode =nil)<br />Toggles the visibility of the windows over the 3D scene.  |
+| boolean | **[vrToggleNotebookPane](#vrtogglenotebookpane)**(string notebookName, string paneName)<br />If the current pane is visible it will be hidden, if it's hidden it will be made visible (and selected).  |
+| void | **[vrToggleSubtreeStats](#vrtogglesubtreestats)**()<br />Toggles the subtree stats display in the properties window.  |
+| void | **[vrUpdateMenu](#vrupdatemenu)**([vrnode](../classes/vrnode.mdx) uinode)<br />Create menu item frames for children of the menu node.  |
+| void | **[vrUpdateSelectionHistoryMenu](#vrupdateselectionhistorymenu)**([vrnode](../classes/vrnode.mdx) menu)<br />Updates a menu to display the current selection history.  |
 
 ## Functions Documentation
 

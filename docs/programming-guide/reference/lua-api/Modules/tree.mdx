@@ -11,38 +11,38 @@ Functions for interacting with the tree views.
 
 | Type           | Name           |
 | -------------- | -------------- |
-| void | **[vrDeleteChildren](../Modules/group__api__lua.mdx#vrdeletechildren)**([vrnode](../Classes/structvrnode.mdx) node)<br />Deletes the children of a node.  |
-| void | **[vrDeleteUnreferenced](../Modules/group__api__lua.mdx#vrdeleteunreferenced)**([vrnode](../Classes/structvrnode.mdx) node)<br />Recursively deletes all unreferenced nodes in this branch.  |
-| void | **[vrDeveloperSaveTree](../Modules/group__api__lua.mdx#vrdevelopersavetree)**([vrnode](../Classes/structvrnode.mdx) node, string file, boolean newUUID =false)<br />Saves the tree from a specified node down.  |
-| string | **[vrGetSelectedTreeFrame](../Modules/group__api__lua.mdx#vrgetselectedtreeframe)**()<br />Returns the name of the selected tree frame.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrLibrariesNode](../Modules/group__api__lua.mdx#vrlibrariesnode)**()<br />Returns the Libraries node the tree.  |
-| void | **[vrLoadTree](../Modules/group__api__lua.mdx#vrloadtree)**([vrnode](../Classes/structvrnode.mdx) node, string file, boolean supportOlder =false, boolean neverBroadcast =false, boolean noSave =false, boolean noHistory =false, boolean newUUID =false)<br />Loads a Visionary Render format file.  |
-| void | **[vrMergeTree](../Modules/group__api__lua.mdx#vrmergetree)**(string file, [vrnode](../Classes/structvrnode.mdx) analyzeSettings)<br />Merges a Visionary Render format file with the current scene.  |
-| void | **[vrSaveTree](../Modules/group__api__lua.mdx#vrsavetree)**([vrnode](../Classes/structvrnode.mdx) node, string file, boolean newUUID =false)<br />Saves a Visionary Render format file.  |
-| void | **[vrScenesNode](../Modules/group__api__lua.mdx#vrscenesnode)**()<br />Returns the Scenes node from the tree.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrSelectHistoryEntry](../Modules/group__api__lua.mdx#vrselecthistoryentry)**([vrnode](../Classes/structvrnode.mdx) historyEntry)<br />Navigates to an entry in the selection history.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrSelectNext](../Modules/group__api__lua.mdx#vrselectnext)**(number distance =1)<br />Navigates to the next selection.  |
-| boolean | **[vrSelectNode](../Modules/group__api__lua.mdx#vrselectnode)**([vrnode](../Classes/structvrnode.mdx) selectionGroup, [vrnode](../Classes/structvrnode.mdx) node)<br />Selects a node by adding it to the specified selection group.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrSelectNodes](../Modules/group__api__lua.mdx#vrselectnodes)**([vrnode](../Classes/structvrnode.mdx) [] nodes, string(optional) allowedViews[] =empty, boolean(optional) alsoShowProperties =false)<br />Selects the specified array of nodes in the most appropriate view.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrSelectPrevious](../Modules/group__api__lua.mdx#vrselectprevious)**(number distance =1)<br />Navigates to the previous selection.  |
-| void | **[vrSetSelectedTreeFrame](../Modules/group__api__lua.mdx#vrsetselectedtreeframe)**(string name)<br />Sets the currently selected tree view frame by name.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrSystemLibsNode](../Modules/group__api__lua.mdx#vrsystemlibsnode)**()<br />Returns the SystemsLib node from the tree.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrTreeControlRangeSelect](../Modules/group__api__lua.mdx#vrtreecontrolrangeselect)**([vrnode](../Classes/structvrnode.mdx) view =nil)<br />Selects or deselects all nodes between the specified node and the last selected node without affecting the rest of the selection.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrTreeControlSelect](../Modules/group__api__lua.mdx#vrtreecontrolselect)**([vrnode](../Classes/structvrnode.mdx) view =nil)<br />Selects (or deselects the currently selected) node without affecting the rest of the selection.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrTreeRangeSelect](../Modules/group__api__lua.mdx#vrtreerangeselect)**([vrnode](../Classes/structvrnode.mdx) view =nil)<br />Selects all nodes between the specified node and the last selected node.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrTreeRoot](../Modules/group__api__lua.mdx#vrtreeroot)**()<br />Returns the root node.  |
-| table | **[vrTreeSearch](../Modules/group__api__lua.mdx#vrtreesearch)**([vrnode](../Classes/structvrnode.mdx) startNode, string searchQuery)<br />Searches the tree and returns a table of results matching the query.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrTreeSelect](../Modules/group__api__lua.mdx#vrtreeselect)**([vrnode](../Classes/structvrnode.mdx) view =nil)<br />Selects the specified node in the specified view (or any view if nil).  |
-| void | **[vrTreeViewSelectionCollapse](../Modules/group__api__lua.mdx#vrtreeviewselectioncollapse)**(string view)<br />Collapses the current selection.  |
-| void | **[vrTreeViewSelectionCollapseAll](../Modules/group__api__lua.mdx#vrtreeviewselectioncollapseall)**(string view)<br />Collapses the current selection and its descendants.  |
-| void | **[vrTreeViewSelectionExpand](../Modules/group__api__lua.mdx#vrtreeviewselectionexpand)**(string view)<br />Expands the current selection.  |
-| void | **[vrTreeViewSelectionExpandAll](../Modules/group__api__lua.mdx#vrtreeviewselectionexpandall)**(string view)<br />Expands the current selection and its descendants.  |
-| void | **[vrTreeViewSelectionSelectAllSiblings](../Modules/group__api__lua.mdx#vrtreeviewselectionselectallsiblings)**(string view)<br />Selects all siblings.  |
-| void | **[vrTreeViewSelectionSelectChildren](../Modules/group__api__lua.mdx#vrtreeviewselectionselectchildren)**(string view)<br />Selects children.  |
-| void | **[vrTreeViewSelectionSelectInvert](../Modules/group__api__lua.mdx#vrtreeviewselectionselectinvert)**(string view)<br />Inverts selection.  |
-| void | **[vrTreeViewSelectionSelectParent](../Modules/group__api__lua.mdx#vrtreeviewselectionselectparent)**(string view)<br />Selects parent(s) of the current selection.  |
-| void | **[vrTreeViewSelectionSelectSiblings](../Modules/group__api__lua.mdx#vrtreeviewselectionselectsiblings)**(string view)<br />Selects siblings (of same type).  |
-| void | **[vrTriggerRename](../Modules/group__api__lua.mdx#vrtriggerrename)**(string view, [vrnode](../Classes/structvrnode.mdx) node)<br />Triggers a node rename in the tree view.  |
+| void | **[vrDeleteChildren](#vrdeletechildren)**([vrnode](../classes/vrnode.mdx) node)<br />Deletes the children of a node.  |
+| void | **[vrDeleteUnreferenced](#vrdeleteunreferenced)**([vrnode](../classes/vrnode.mdx) node)<br />Recursively deletes all unreferenced nodes in this branch.  |
+| void | **[vrDeveloperSaveTree](#vrdevelopersavetree)**([vrnode](../classes/vrnode.mdx) node, string file, boolean newUUID =false)<br />Saves the tree from a specified node down.  |
+| string | **[vrGetSelectedTreeFrame](#vrgetselectedtreeframe)**()<br />Returns the name of the selected tree frame.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrLibrariesNode](#vrlibrariesnode)**()<br />Returns the Libraries node the tree.  |
+| void | **[vrLoadTree](#vrloadtree)**([vrnode](../classes/vrnode.mdx) node, string file, boolean supportOlder =false, boolean neverBroadcast =false, boolean noSave =false, boolean noHistory =false, boolean newUUID =false)<br />Loads a Visionary Render format file.  |
+| void | **[vrMergeTree](#vrmergetree)**(string file, [vrnode](../classes/vrnode.mdx) analyzeSettings)<br />Merges a Visionary Render format file with the current scene.  |
+| void | **[vrSaveTree](#vrsavetree)**([vrnode](../classes/vrnode.mdx) node, string file, boolean newUUID =false)<br />Saves a Visionary Render format file.  |
+| void | **[vrScenesNode](#vrscenesnode)**()<br />Returns the Scenes node from the tree.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrSelectHistoryEntry](#vrselecthistoryentry)**([vrnode](../classes/vrnode.mdx) historyEntry)<br />Navigates to an entry in the selection history.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrSelectNext](#vrselectnext)**(number distance =1)<br />Navigates to the next selection.  |
+| boolean | **[vrSelectNode](#vrselectnode)**([vrnode](../classes/vrnode.mdx) selectionGroup, [vrnode](../classes/vrnode.mdx) node)<br />Selects a node by adding it to the specified selection group.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrSelectNodes](#vrselectnodes)**([vrnode](../classes/vrnode.mdx) [] nodes, string(optional) allowedViews[] =empty, boolean(optional) alsoShowProperties =false)<br />Selects the specified array of nodes in the most appropriate view.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrSelectPrevious](#vrselectprevious)**(number distance =1)<br />Navigates to the previous selection.  |
+| void | **[vrSetSelectedTreeFrame](#vrsetselectedtreeframe)**(string name)<br />Sets the currently selected tree view frame by name.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrSystemLibsNode](#vrsystemlibsnode)**()<br />Returns the SystemsLib node from the tree.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrTreeControlRangeSelect](#vrtreecontrolrangeselect)**([vrnode](../classes/vrnode.mdx) view =nil)<br />Selects or deselects all nodes between the specified node and the last selected node without affecting the rest of the selection.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrTreeControlSelect](#vrtreecontrolselect)**([vrnode](../classes/vrnode.mdx) view =nil)<br />Selects (or deselects the currently selected) node without affecting the rest of the selection.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrTreeRangeSelect](#vrtreerangeselect)**([vrnode](../classes/vrnode.mdx) view =nil)<br />Selects all nodes between the specified node and the last selected node.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrTreeRoot](#vrtreeroot)**()<br />Returns the root node.  |
+| table | **[vrTreeSearch](#vrtreesearch)**([vrnode](../classes/vrnode.mdx) startNode, string searchQuery)<br />Searches the tree and returns a table of results matching the query.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrTreeSelect](#vrtreeselect)**([vrnode](../classes/vrnode.mdx) view =nil)<br />Selects the specified node in the specified view (or any view if nil).  |
+| void | **[vrTreeViewSelectionCollapse](#vrtreeviewselectioncollapse)**(string view)<br />Collapses the current selection.  |
+| void | **[vrTreeViewSelectionCollapseAll](#vrtreeviewselectioncollapseall)**(string view)<br />Collapses the current selection and its descendants.  |
+| void | **[vrTreeViewSelectionExpand](#vrtreeviewselectionexpand)**(string view)<br />Expands the current selection.  |
+| void | **[vrTreeViewSelectionExpandAll](#vrtreeviewselectionexpandall)**(string view)<br />Expands the current selection and its descendants.  |
+| void | **[vrTreeViewSelectionSelectAllSiblings](#vrtreeviewselectionselectallsiblings)**(string view)<br />Selects all siblings.  |
+| void | **[vrTreeViewSelectionSelectChildren](#vrtreeviewselectionselectchildren)**(string view)<br />Selects children.  |
+| void | **[vrTreeViewSelectionSelectInvert](#vrtreeviewselectionselectinvert)**(string view)<br />Inverts selection.  |
+| void | **[vrTreeViewSelectionSelectParent](#vrtreeviewselectionselectparent)**(string view)<br />Selects parent(s) of the current selection.  |
+| void | **[vrTreeViewSelectionSelectSiblings](#vrtreeviewselectionselectsiblings)**(string view)<br />Selects siblings (of same type).  |
+| void | **[vrTriggerRename](#vrtriggerrename)**(string view, [vrnode](../classes/vrnode.mdx) node)<br />Triggers a node rename in the tree view.  |
 
 ## Functions Documentation
 

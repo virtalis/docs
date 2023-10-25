@@ -11,124 +11,124 @@ Functions for interacting with nodes.
 
 | Type           | Name           |
 | -------------- | -------------- |
-| struct | **[vrnode](../Classes/structvrnode.mdx)** <br />A node in the tree.  |
+| struct | **[vrnode](../classes/vrnode.mdx)** <br />A node in the tree.  |
 
 ## Functions
 
 | Type           | Name           |
 | -------------- | -------------- |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrCopyNode](../Modules/group__api__lua.mdx#vrcopynode)**([vrnode](../Classes/structvrnode.mdx) fromNode, [vrnode](../Classes/structvrnode.mdx) toNode, boolean recursive =true, boolean ancestors =false, boolean noSave =false, boolean noHistory =false)<br />Copies a node, and optionally its children, and adds that as a child of another node.  |
-| void | **[vrCopyNodeValues](../Modules/group__api__lua.mdx#vrcopynodevalues)**([vrnode](../Classes/structvrnode.mdx) fromNode, [vrnode](../Classes/structvrnode.mdx) toNode, number mask)<br />Copies the property values from one node to another of the same MetaNode type.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrCreateNode](../Modules/group__api__lua.mdx#vrcreatenode)**(string metaName, string nodeName, [vrnode](../Classes/structvrnode.mdx) parent, number flags =0, [vrnode](../Classes/structvrnode.mdx) beforeSibling =nil)<br />Creates a new node and attaches it to a parent node.  |
-| void | **[vrDeleteNode](../Modules/group__api__lua.mdx#vrdeletenode)**([vrnode](../Classes/structvrnode.mdx) node)<br />Deletes a node and, if present, its children.  |
-| void | **[vrDescribeNode](../Modules/group__api__lua.mdx#vrdescribenode)**([vrnode](../Classes/structvrnode.mdx) node)<br />Prints to the log a description of the node, its property names and values.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrGetOrCreateNode](../Modules/group__api__lua.mdx#vrgetorcreatenode)**(string metaName, string nodeName, [vrnode](../Classes/structvrnode.mdx) parent, number flags =0, [vrnode](../Classes/structvrnode.mdx) beforeSibling =nil)<br />Gets an existing node or creates one (creation attaches it to a parent node).  |
-| void | **[vrNodeArrayClear](../Modules/group__api__lua.mdx#vrnodearrayclear)**(node/property nodeOrProp, string propName)<br />Clears an array property.  |
-| Any | **[vrNodeArrayGetElement](../Modules/group__api__lua.mdx#vrnodearraygetelement)**(node/property nodeOrProp, string propName, integer element)<br />Gets the value of an element of an array property.  |
-| number | **[vrNodeArrayGetSize](../Modules/group__api__lua.mdx#vrnodearraygetsize)**(node/property nodeOrProp, string propName)<br />Gets the size of an array property.  |
-| void | **[vrNodeArrayPop](../Modules/group__api__lua.mdx#vrnodearraypop)**(node/property nodeOrProp, string propName, number count)<br />Pops a value from the end of an array property.  |
-| void | **[vrNodeArrayPush](../Modules/group__api__lua.mdx#vrnodearraypush)**(node/property nodeOrProp, string propName, ... )<br />Pushes a new value to the end of an array property.  |
-| void | **[vrNodeArraySet](../Modules/group__api__lua.mdx#vrnodearrayset)**(node/property nodeOrProp, string propName, ... )<br />Sets the values of an array property to a new array.  |
-| void | **[vrNodeArraySetElement](../Modules/group__api__lua.mdx#vrnodearraysetelement)**(node/property nodeOrProp, string propName, integer element, ... )<br />Sets the value of one or more existing element of an array property.  |
-| void | **[vrNodeArraySetSize](../Modules/group__api__lua.mdx#vrnodearraysetsize)**(node/property nodeOrProp, string propName, number newSize)<br />Sets the size of an array property.  |
-| void | **[vrNodeCaptureTransform](../Modules/group__api__lua.mdx#vrnodecapturetransform)**([vrnode](../Classes/structvrnode.mdx) node, boolean recursive, boolean overwrite =false)<br />Captures the transform of a node, overwriting any existing saved transform.  |
-| void | **[vrNodeComposeLocalTransform](../Modules/group__api__lua.mdx#vrnodecomposelocaltransform)**([vrnode](../Classes/structvrnode.mdx) node, [vrvec3](../Classes/structvrvec3.mdx) p, [vrvec3](../Classes/structvrvec3.mdx) r, [vrvec3](../Classes/structvrvec3.mdx) s, string prop =0)<br />Compose the nodes local transform property from seperate position, rotation and scale tables / vectors.  |
-| void | **[vrNodeComposeTransform](../Modules/group__api__lua.mdx#vrnodecomposetransform)**([vrnode](../Classes/structvrnode.mdx) node, [vrvec3](../Classes/structvrvec3.mdx) p, [vrvec3](../Classes/structvrvec3.mdx) r, [vrvec3](../Classes/structvrvec3.mdx) s)<br />Compose the nodes world transform property from seperate position, rotation and scale tables / vectors.  |
-| void | **[vrNodeCopyValue](../Modules/group__api__lua.mdx#vrnodecopyvalue)**([vrnode](../Classes/structvrnode.mdx) fromNode, [vrnode](../Classes/structvrnode.mdx) toNode, string propName)<br />Copies the value of a property from one node to another of the same MetaNode type.  |
-| [MULTI](../Classes/struct_m_u_l_t_i.mdx)< [vrvec3](../Classes/structvrvec3.mdx), [vrvec3](../Classes/structvrvec3.mdx), [vrvec3](../Classes/structvrvec3.mdx) > | **[vrNodeDecomposeLocalTransform](../Modules/group__api__lua.mdx#vrnodedecomposelocaltransform)**([vrnode](../Classes/structvrnode.mdx) node, string prop =0)<br />Decomposes the nodes local transform property into seperate postion, rotation and scale tables / vectors.  |
-| [MULTI](../Classes/struct_m_u_l_t_i.mdx)< [vrvec3](../Classes/structvrvec3.mdx), [vrvec3](../Classes/structvrvec3.mdx), [vrvec3](../Classes/structvrvec3.mdx) > | **[vrNodeDecomposeTransform](../Modules/group__api__lua.mdx#vrnodedecomposetransform)**([vrnode](../Classes/structvrnode.mdx) node)<br />Decomposes the nodes world transform property into seperate postion, rotation and scale tables / vectors.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrNodeFindChild](../Modules/group__api__lua.mdx#vrnodefindchild)**([vrnode](../Classes/structvrnode.mdx) node, string path, boolean caseSensitive =true)<br />Finds a descendant of a node by path.  |
-| void | **[vrNodeForEachChild](../Modules/group__api__lua.mdx#vrnodeforeachchild)**([vrnode](../Classes/structvrnode.mdx) node, Any function)<br />Calls a function for each child of a node.  |
-| void | **[vrNodeForEachChildOfType](../Modules/group__api__lua.mdx#vrnodeforeachchildoftype)**([vrnode](../Classes/structvrnode.mdx) node, string metaType, Any function)<br />Calls a function for each child of a node that matches a specified type.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrNodeGetAncestor](../Modules/group__api__lua.mdx#vrnodegetancestor)**([vrnode](../Classes/structvrnode.mdx) node, string metaName)<br />Gets the first ancestor of the specified type.  |
-| table | **[vrNodeGetBacklinks](../Modules/group__api__lua.mdx#vrnodegetbacklinks)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets all nodes that link to this node.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrNodeGetChild](../Modules/group__api__lua.mdx#vrnodegetchild)**([vrnode](../Classes/structvrnode.mdx) node, string metaType =0, string name =0)<br />Gets the first child of a node.  |
-| [MULTI](../Classes/struct_m_u_l_t_i.mdx)< [vrvec3](../Classes/structvrvec3.mdx), [vrvec3](../Classes/structvrvec3.mdx) > | **[vrNodeGetChildBoundingBox](../Modules/group__api__lua.mdx#vrnodegetchildboundingbox)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the combined bounding box of all a nodes children, relative to that node.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrNodeGetChildByIndex](../Modules/group__api__lua.mdx#vrnodegetchildbyindex)**([vrnode](../Classes/structvrnode.mdx) node, number idx)<br />Gets a nodes child by its zero-based index. Note: this function may result in poor performance when iterating over lots of nodes - use [vrNodeGetChild()](../Modules/group__api__lua.mdx#vrnodegetchild) and [vrNodeGetSibling() instead (see the Best Practices section of the Programming Guide for more info).  |
-| number | **[vrNodeGetChildCount](../Modules/group__api__lua.mdx#vrnodegetchildcount)**([vrnode](../Classes/structvrnode.mdx) node)<br />Counts the children of a node. Note: this function may result in poor performance when iterating over lots of nodes - use [vrNodeGetChild()](../Modules/group__api__lua.mdx#vrnodegetchild) and [vrNodeGetSibling() instead (see the Best Practices section of the Programming Guide for more info).  |
-| [MULTI](../Classes/struct_m_u_l_t_i.mdx)< [vrvec3](../Classes/structvrvec3.mdx), [vrvec3](../Classes/structvrvec3.mdx) > | **[vrNodeGetLocalBoundingBox](../Modules/group__api__lua.mdx#vrnodegetlocalboundingbox)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the local bounding box of a node.  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[vrNodeGetLocalBoundingBoxCentre](../Modules/group__api__lua.mdx#vrnodegetlocalboundingboxcentre)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the centre of the local bounding box of a node.  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[vrNodeGetLocalBoundingSphereCentre](../Modules/group__api__lua.mdx#vrnodegetlocalboundingspherecentre)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the centre of the local bounding sphere of a node.  |
-| [MULTI](../Classes/struct_m_u_l_t_i.mdx)< [vrvec3](../Classes/structvrvec3.mdx), number > | **[vrNodeGetLocalBounds](../Modules/group__api__lua.mdx#vrnodegetlocalbounds)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the local bounding box and sphere of a node.  |
-| void | **[vrNodeGetLocallyModified](../Modules/group__api__lua.mdx#vrnodegetlocallymodified)**([vrnode](../Classes/structvrnode.mdx) node)<br />Queries whether or not this node's last modification was made by the local visionary render instance.  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[vrNodeGetLocalPosition](../Modules/group__api__lua.mdx#vrnodegetlocalposition)**([vrnode](../Classes/structvrnode.mdx) node, string prop =0)<br />Gets the local position of the node.  |
-| number | **[vrNodeGetLocalPositionX](../Modules/group__api__lua.mdx#vrnodegetlocalpositionx)**([vrnode](../Classes/structvrnode.mdx) node, string prop =0)<br />Gets the local x position of the node.  |
-| number | **[vrNodeGetLocalPositionY](../Modules/group__api__lua.mdx#vrnodegetlocalpositiony)**([vrnode](../Classes/structvrnode.mdx) node, string prop =0)<br />Gets the local y position of the node.  |
-| number | **[vrNodeGetLocalPositionZ](../Modules/group__api__lua.mdx#vrnodegetlocalpositionz)**([vrnode](../Classes/structvrnode.mdx) node, string prop =0)<br />Gets the local z position of the node.  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[vrNodeGetLocalRotation](../Modules/group__api__lua.mdx#vrnodegetlocalrotation)**([vrnode](../Classes/structvrnode.mdx) node, string prop =0)<br />Gets the local rotation of the node.  |
-| number | **[vrNodeGetLocalRotationX](../Modules/group__api__lua.mdx#vrnodegetlocalrotationx)**([vrnode](../Classes/structvrnode.mdx) node, string prop =0)<br />Gets the local x rotation of the node.  |
-| number | **[vrNodeGetLocalRotationY](../Modules/group__api__lua.mdx#vrnodegetlocalrotationy)**([vrnode](../Classes/structvrnode.mdx) node, string prop =0)<br />Gets the local y rotation of the node.  |
-| number | **[vrNodeGetLocalRotationZ](../Modules/group__api__lua.mdx#vrnodegetlocalrotationz)**([vrnode](../Classes/structvrnode.mdx) node, string prop =0)<br />Gets the local z rotation of the node.  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[vrNodeGetLocalScale](../Modules/group__api__lua.mdx#vrnodegetlocalscale)**([vrnode](../Classes/structvrnode.mdx) node, string prop =0)<br />Gets the local scale of the node.  |
-| number | **[vrNodeGetLocalScaleX](../Modules/group__api__lua.mdx#vrnodegetlocalscalex)**([vrnode](../Classes/structvrnode.mdx) node, string prop =0)<br />Gets the local x scale of the node.  |
-| number | **[vrNodeGetLocalScaleY](../Modules/group__api__lua.mdx#vrnodegetlocalscaley)**([vrnode](../Classes/structvrnode.mdx) node, string prop =0)<br />Gets the local y scale of the node.  |
-| number | **[vrNodeGetLocalScaleZ](../Modules/group__api__lua.mdx#vrnodegetlocalscalez)**([vrnode](../Classes/structvrnode.mdx) node, string prop =0)<br />Gets the local z scale of the node.  |
-| string | **[vrNodeGetMetaNode](../Modules/group__api__lua.mdx#vrnodegetmetanode)**([vrnode](../Classes/structvrnode.mdx) node, boolean versioned =false)<br />Gets the name of the MetaNode that a node is an instance of. This can also be referred to as the node type.  |
-| string | **[vrNodeGetName](../Modules/group__api__lua.mdx#vrnodegetname)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the name of a node.  |
-| boolean | **[vrNodeGetNoHistory](../Modules/group__api__lua.mdx#vrnodegetnohistory)**([vrnode](../Classes/structvrnode.mdx) node)<br />Queries whether this node can be recorded in the history for undo/redo operations.  |
-| boolean | **[vrNodeGetNoSave](../Modules/group__api__lua.mdx#vrnodegetnosave)**([vrnode](../Classes/structvrnode.mdx) node)<br />Queries whether this node can be saved in a VRText/VRNative file.  |
-| boolean | **[vrNodeGetNoSimulation](../Modules/group__api__lua.mdx#vrnodegetnosimulation)**([vrnode](../Classes/structvrnode.mdx) node)<br />Queries whether this node can be affected by simulations, such as physics and collision.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrNodeGetParent](../Modules/group__api__lua.mdx#vrnodegetparent)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the parent of a node.  |
-| string | **[vrNodeGetPath](../Modules/group__api__lua.mdx#vrnodegetpath)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the encoded path to a node relative to the tree root.  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[vrNodeGetPosition](../Modules/group__api__lua.mdx#vrnodegetposition)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the world position of the node.  |
-| number | **[vrNodeGetPositionX](../Modules/group__api__lua.mdx#vrnodegetpositionx)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the world x position of the node.  |
-| number | **[vrNodeGetPositionY](../Modules/group__api__lua.mdx#vrnodegetpositiony)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the world y position of the node.  |
-| number | **[vrNodeGetPositionZ](../Modules/group__api__lua.mdx#vrnodegetpositionz)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the world z position of the node.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrNodeGetPreviousSibling](../Modules/group__api__lua.mdx#vrnodegetprevioussibling)**([vrnode](../Classes/structvrnode.mdx) node, string metaType =0, string name =0)<br />Gets the previous sibling (adjacent) node to a node.  |
-| string | **[vrNodeGetRelativePath](../Modules/group__api__lua.mdx#vrnodegetrelativepath)**([vrnode](../Classes/structvrnode.mdx) node, [vrnode](../Classes/structvrnode.mdx) relativeTo)<br />Gets the encoded path to a node, relative to another node.  |
-| [MULTI](../Classes/struct_m_u_l_t_i.mdx)< [vrvec3](../Classes/structvrvec3.mdx), [vrvec3](../Classes/structvrvec3.mdx), [vrvec3](../Classes/structvrvec3.mdx) > | **[vrNodeGetRelativeTransform](../Modules/group__api__lua.mdx#vrnodegetrelativetransform)**([vrnode](../Classes/structvrnode.mdx) node, string propName, [vrnode](../Classes/structvrnode.mdx) otherNode)<br />Gets the position, rotation and scale of the world transform of one node relative to another.  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[vrNodeGetRotation](../Modules/group__api__lua.mdx#vrnodegetrotation)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the world rotation of the node.  |
-| number | **[vrNodeGetRotationX](../Modules/group__api__lua.mdx#vrnodegetrotationx)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the world x rotation of the node.  |
-| number | **[vrNodeGetRotationY](../Modules/group__api__lua.mdx#vrnodegetrotationy)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the world y rotation of the node.  |
-| number | **[vrNodeGetRotationZ](../Modules/group__api__lua.mdx#vrnodegetrotationz)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the world z rotation of the node.  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[vrNodeGetScale](../Modules/group__api__lua.mdx#vrnodegetscale)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the world scale of the node.  |
-| number | **[vrNodeGetScaleX](../Modules/group__api__lua.mdx#vrnodegetscalex)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the world x scale of the node.  |
-| number | **[vrNodeGetScaleY](../Modules/group__api__lua.mdx#vrnodegetscaley)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the world y scale of the node.  |
-| number | **[vrNodeGetScaleZ](../Modules/group__api__lua.mdx#vrnodegetscalez)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the world z scale of the node.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrNodeGetSibling](../Modules/group__api__lua.mdx#vrnodegetsibling)**([vrnode](../Classes/structvrnode.mdx) node, string metaType =0, string name =0)<br />Gets the sibling (adjacent) node to a node.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrNodeGetTail](../Modules/group__api__lua.mdx#vrnodegettail)**([vrnode](../Classes/structvrnode.mdx) node, string metaType =0, string name =0)<br />Gets the last child of a node.  |
-| table | **[vrNodeGetTraits](../Modules/group__api__lua.mdx#vrnodegettraits)**([vrnode](../Classes/structvrnode.mdx) node)<br />Gets the list of traits that this node has. Can also be thought of as the base class of a node (e.g. Texture, Viewport, etc). This function is expensive and can affect performance. To check a specific trait use vrNodeHasTrait.  |
-| Any | **[vrNodeGetValue](../Modules/group__api__lua.mdx#vrnodegetvalue)**([vrnode](../Classes/structvrnode.mdx) node, string propName)<br />Gets the value of a property of a node.  |
-| Any | **[vrNodeGetValueByIndex](../Modules/group__api__lua.mdx#vrnodegetvaluebyindex)**([vrnode](../Classes/structvrnode.mdx) node, number idx)<br />Gets the value of a property of a node finding the property by its index.  |
-| boolean | **[vrNodeHasTrait](../Modules/group__api__lua.mdx#vrnodehastrait)**([vrnode](../Classes/structvrnode.mdx) node, string traitName)<br />Checks if the node is of a type with a specific trait. This is a lot faster than vrNodeGetTraits.  |
-| boolean | **[vrNodeIsAncestor](../Modules/group__api__lua.mdx#vrnodeisancestor)**([vrnode](../Classes/structvrnode.mdx) node1, [vrnode](../Classes/structvrnode.mdx) node2)<br />Query whether the first specified node is an ancestor of the second.  |
-| boolean | **[vrNodeIsInGroup](../Modules/group__api__lua.mdx#vrnodeisingroup)**([vrnode](../Classes/structvrnode.mdx) node, [vrnode](../Classes/structvrnode.mdx) groupNode)<br />Returns true is the node is in the group.  |
-| boolean | **[vrNodeIsLocal](../Modules/group__api__lua.mdx#vrnodeislocal)**([vrnode](../Classes/structvrnode.mdx) node)<br />Query whether the specified node belongs to the local network user.  |
-| boolean | **[vrNodeIsMetaFiltered](../Modules/group__api__lua.mdx#vrnodeismetafiltered)**([vrnode](../Classes/structvrnode.mdx) view, [vrnode](../Classes/structvrnode.mdx) node)<br />Returns true if the node's meta type is filtered in the specified view.  |
-| void | **[vrNodeRestoreTransform](../Modules/group__api__lua.mdx#vrnoderestoretransform)**([vrnode](../Classes/structvrnode.mdx) node, boolean recursive)<br />Restores the captured transform of a node.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrNodeRoot](../Modules/group__api__lua.mdx#vrnoderoot)**([vrnode](../Classes/structvrnode.mdx) node)<br />Finds the root tree node. This is almost always equivilent to vrTreeRoot.  |
-| void | **[vrNodeSetLocalPosition](../Modules/group__api__lua.mdx#vrnodesetlocalposition)**([vrnode](../Classes/structvrnode.mdx) node, [vrvec3](../Classes/structvrvec3.mdx) v, string prop =0)<br />Sets the local position of the node.  |
-| void | **[vrNodeSetLocalPositionX](../Modules/group__api__lua.mdx#vrnodesetlocalpositionx)**([vrnode](../Classes/structvrnode.mdx) node, number d, string prop =0)<br />Sets the local x position of the node.  |
-| void | **[vrNodeSetLocalPositionY](../Modules/group__api__lua.mdx#vrnodesetlocalpositiony)**([vrnode](../Classes/structvrnode.mdx) node, number d, string prop =0)<br />Sets the local y position of the node.  |
-| void | **[vrNodeSetLocalPositionZ](../Modules/group__api__lua.mdx#vrnodesetlocalpositionz)**([vrnode](../Classes/structvrnode.mdx) node, number d, string prop =0)<br />Sets the local z position of the node.  |
-| void | **[vrNodeSetLocalRotation](../Modules/group__api__lua.mdx#vrnodesetlocalrotation)**([vrnode](../Classes/structvrnode.mdx) node, [vrvec3](../Classes/structvrvec3.mdx) v, string prop =0)<br />Sets the local rotation of the node.  |
-| void | **[vrNodeSetLocalRotationX](../Modules/group__api__lua.mdx#vrnodesetlocalrotationx)**([vrnode](../Classes/structvrnode.mdx) node, number d, string prop =0)<br />Sets the local x rotation of the node.  |
-| void | **[vrNodeSetLocalRotationY](../Modules/group__api__lua.mdx#vrnodesetlocalrotationy)**([vrnode](../Classes/structvrnode.mdx) node, number d, string prop =0)<br />Sets the local y rotation of the node.  |
-| void | **[vrNodeSetLocalRotationZ](../Modules/group__api__lua.mdx#vrnodesetlocalrotationz)**([vrnode](../Classes/structvrnode.mdx) node, number d, string prop =0)<br />Sets the local z rotation of the node.  |
-| void | **[vrNodeSetLocalScale](../Modules/group__api__lua.mdx#vrnodesetlocalscale)**([vrnode](../Classes/structvrnode.mdx) node, [vrvec3](../Classes/structvrvec3.mdx) v, string prop =0)<br />Sets the local scale of the noed.  |
-| void | **[vrNodeSetLocalScaleX](../Modules/group__api__lua.mdx#vrnodesetlocalscalex)**([vrnode](../Classes/structvrnode.mdx) node, number d, string prop =0)<br />Sets the local x scale of the node.  |
-| void | **[vrNodeSetLocalScaleY](../Modules/group__api__lua.mdx#vrnodesetlocalscaley)**([vrnode](../Classes/structvrnode.mdx) node, number d, string prop =0)<br />Sets the local y scale of the node.  |
-| void | **[vrNodeSetLocalScaleZ](../Modules/group__api__lua.mdx#vrnodesetlocalscalez)**([vrnode](../Classes/structvrnode.mdx) node, number d, string prop =0)<br />Sets the local z scale of the node.  |
-| void | **[vrNodeSetName](../Modules/group__api__lua.mdx#vrnodesetname)**([vrnode](../Classes/structvrnode.mdx) node, string newName)<br />Sets the name of a node.  |
-| void | **[vrNodeSetNoHistory](../Modules/group__api__lua.mdx#vrnodesetnohistory)**([vrnode](../Classes/structvrnode.mdx) node, boolean noHistory)<br />Specifies whether this node can be recorded in the history for undo/redo operations.  |
-| void | **[vrNodeSetNoSave](../Modules/group__api__lua.mdx#vrnodesetnosave)**([vrnode](../Classes/structvrnode.mdx) node, boolean noSave)<br />Specifies whether this node can be saved in a VRText/VRNative file.  |
-| void | **[vrNodeSetNoSimulation](../Modules/group__api__lua.mdx#vrnodesetnosimulation)**([vrnode](../Classes/structvrnode.mdx) node, boolean noSimulation)<br />Specifies whether this node should be affected by simulations, such as physics and collision.  |
-| void | **[vrNodeSetParent](../Modules/group__api__lua.mdx#vrnodesetparent)**([vrnode](../Classes/structvrnode.mdx) node, [vrnode](../Classes/structvrnode.mdx) parent =nil, [vrnode](../Classes/structvrnode.mdx) beforeSibling =nil, boolean preserveWorldTransform =false)<br />Sets the parent of a node.  |
-| void | **[vrNodeSetPosition](../Modules/group__api__lua.mdx#vrnodesetposition)**([vrnode](../Classes/structvrnode.mdx) node, [vrvec3](../Classes/structvrvec3.mdx) v)<br />Sets the world position of the node.  |
-| void | **[vrNodeSetPositionX](../Modules/group__api__lua.mdx#vrnodesetpositionx)**([vrnode](../Classes/structvrnode.mdx) node, number d)<br />Sets the world x position of the node.  |
-| void | **[vrNodeSetPositionY](../Modules/group__api__lua.mdx#vrnodesetpositiony)**([vrnode](../Classes/structvrnode.mdx) node, number d)<br />Sets the world y position of the node.  |
-| void | **[vrNodeSetPositionZ](../Modules/group__api__lua.mdx#vrnodesetpositionz)**([vrnode](../Classes/structvrnode.mdx) node, number d)<br />Sets the world z position of the node.  |
-| void | **[vrNodeSetRelativeTransform](../Modules/group__api__lua.mdx#vrnodesetrelativetransform)**([vrnode](../Classes/structvrnode.mdx) node, string propName, [vrnode](../Classes/structvrnode.mdx) otherNode, Any vpos, Any vrot, Any vscale)<br />Sets the position, rotation and scale of the world transform of a node relative to another.  |
-| void | **[vrNodeSetRotation](../Modules/group__api__lua.mdx#vrnodesetrotation)**([vrnode](../Classes/structvrnode.mdx) node, [vrvec3](../Classes/structvrvec3.mdx) v)<br />Sets the world rotation of the node.  |
-| void | **[vrNodeSetRotationX](../Modules/group__api__lua.mdx#vrnodesetrotationx)**([vrnode](../Classes/structvrnode.mdx) node, number d)<br />Sets the world x rotation of the node.  |
-| void | **[vrNodeSetRotationY](../Modules/group__api__lua.mdx#vrnodesetrotationy)**([vrnode](../Classes/structvrnode.mdx) node, number d)<br />Sets the world y rotation of the node.  |
-| void | **[vrNodeSetRotationZ](../Modules/group__api__lua.mdx#vrnodesetrotationz)**([vrnode](../Classes/structvrnode.mdx) node, number d)<br />Sets the world z rotation of the node.  |
-| void | **[vrNodeSetScale](../Modules/group__api__lua.mdx#vrnodesetscale)**([vrnode](../Classes/structvrnode.mdx) node, [vrvec3](../Classes/structvrvec3.mdx) v)<br />Sets the world scale fo the noed.  |
-| void | **[vrNodeSetScaleX](../Modules/group__api__lua.mdx#vrnodesetscalex)**([vrnode](../Classes/structvrnode.mdx) node, number d)<br />Sets the world x scale of the node.  |
-| void | **[vrNodeSetScaleY](../Modules/group__api__lua.mdx#vrnodesetscaley)**([vrnode](../Classes/structvrnode.mdx) node, number d)<br />Sets the world y scale of the node.  |
-| void | **[vrNodeSetScaleZ](../Modules/group__api__lua.mdx#vrnodesetscalez)**([vrnode](../Classes/structvrnode.mdx) node, number d)<br />Sets the world z scale of the node.  |
-| void | **[vrNodeSetValue](../Modules/group__api__lua.mdx#vrnodesetvalue)**([vrnode](../Classes/structvrnode.mdx) node, string propName, Any value)<br />Sets the value of one of the properties of a node.  |
-| void | **[vrNodeSetValueByIndex](../Modules/group__api__lua.mdx#vrnodesetvaluebyindex)**([vrnode](../Classes/structvrnode.mdx) node, number idx, Any value)<br />Sets the value of one of the properties of a node finding the property by its index.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrCopyNode](#vrcopynode)**([vrnode](../classes/vrnode.mdx) fromNode, [vrnode](../classes/vrnode.mdx) toNode, boolean recursive =true, boolean ancestors =false, boolean noSave =false, boolean noHistory =false)<br />Copies a node, and optionally its children, and adds that as a child of another node.  |
+| void | **[vrCopyNodeValues](#vrcopynodevalues)**([vrnode](../classes/vrnode.mdx) fromNode, [vrnode](../classes/vrnode.mdx) toNode, number mask)<br />Copies the property values from one node to another of the same MetaNode type.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrCreateNode](#vrcreatenode)**(string metaName, string nodeName, [vrnode](../classes/vrnode.mdx) parent, number flags =0, [vrnode](../classes/vrnode.mdx) beforeSibling =nil)<br />Creates a new node and attaches it to a parent node.  |
+| void | **[vrDeleteNode](#vrdeletenode)**([vrnode](../classes/vrnode.mdx) node)<br />Deletes a node and, if present, its children.  |
+| void | **[vrDescribeNode](#vrdescribenode)**([vrnode](../classes/vrnode.mdx) node)<br />Prints to the log a description of the node, its property names and values.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrGetOrCreateNode](#vrgetorcreatenode)**(string metaName, string nodeName, [vrnode](../classes/vrnode.mdx) parent, number flags =0, [vrnode](../classes/vrnode.mdx) beforeSibling =nil)<br />Gets an existing node or creates one (creation attaches it to a parent node).  |
+| void | **[vrNodeArrayClear](#vrnodearrayclear)**(node/property nodeOrProp, string propName)<br />Clears an array property.  |
+| Any | **[vrNodeArrayGetElement](#vrnodearraygetelement)**(node/property nodeOrProp, string propName, integer element)<br />Gets the value of an element of an array property.  |
+| number | **[vrNodeArrayGetSize](#vrnodearraygetsize)**(node/property nodeOrProp, string propName)<br />Gets the size of an array property.  |
+| void | **[vrNodeArrayPop](#vrnodearraypop)**(node/property nodeOrProp, string propName, number count)<br />Pops a value from the end of an array property.  |
+| void | **[vrNodeArrayPush](#vrnodearraypush)**(node/property nodeOrProp, string propName, ... )<br />Pushes a new value to the end of an array property.  |
+| void | **[vrNodeArraySet](#vrnodearrayset)**(node/property nodeOrProp, string propName, ... )<br />Sets the values of an array property to a new array.  |
+| void | **[vrNodeArraySetElement](#vrnodearraysetelement)**(node/property nodeOrProp, string propName, integer element, ... )<br />Sets the value of one or more existing element of an array property.  |
+| void | **[vrNodeArraySetSize](#vrnodearraysetsize)**(node/property nodeOrProp, string propName, number newSize)<br />Sets the size of an array property.  |
+| void | **[vrNodeCaptureTransform](#vrnodecapturetransform)**([vrnode](../classes/vrnode.mdx) node, boolean recursive, boolean overwrite =false)<br />Captures the transform of a node, overwriting any existing saved transform.  |
+| void | **[vrNodeComposeLocalTransform](#vrnodecomposelocaltransform)**([vrnode](../classes/vrnode.mdx) node, [vrvec3](../classes/vrvec3.mdx) p, [vrvec3](../classes/vrvec3.mdx) r, [vrvec3](../classes/vrvec3.mdx) s, string prop =0)<br />Compose the nodes local transform property from seperate position, rotation and scale tables / vectors.  |
+| void | **[vrNodeComposeTransform](#vrnodecomposetransform)**([vrnode](../classes/vrnode.mdx) node, [vrvec3](../classes/vrvec3.mdx) p, [vrvec3](../classes/vrvec3.mdx) r, [vrvec3](../classes/vrvec3.mdx) s)<br />Compose the nodes world transform property from seperate position, rotation and scale tables / vectors.  |
+| void | **[vrNodeCopyValue](#vrnodecopyvalue)**([vrnode](../classes/vrnode.mdx) fromNode, [vrnode](../classes/vrnode.mdx) toNode, string propName)<br />Copies the value of a property from one node to another of the same MetaNode type.  |
+| [MULTI](../classes/multi.mdx)< [vrvec3](../classes/vrvec3.mdx), [vrvec3](../classes/vrvec3.mdx), [vrvec3](../classes/vrvec3.mdx) > | **[vrNodeDecomposeLocalTransform](#vrnodedecomposelocaltransform)**([vrnode](../classes/vrnode.mdx) node, string prop =0)<br />Decomposes the nodes local transform property into seperate postion, rotation and scale tables / vectors.  |
+| [MULTI](../classes/multi.mdx)< [vrvec3](../classes/vrvec3.mdx), [vrvec3](../classes/vrvec3.mdx), [vrvec3](../classes/vrvec3.mdx) > | **[vrNodeDecomposeTransform](#vrnodedecomposetransform)**([vrnode](../classes/vrnode.mdx) node)<br />Decomposes the nodes world transform property into seperate postion, rotation and scale tables / vectors.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrNodeFindChild](#vrnodefindchild)**([vrnode](../classes/vrnode.mdx) node, string path, boolean caseSensitive =true)<br />Finds a descendant of a node by path.  |
+| void | **[vrNodeForEachChild](#vrnodeforeachchild)**([vrnode](../classes/vrnode.mdx) node, Any function)<br />Calls a function for each child of a node.  |
+| void | **[vrNodeForEachChildOfType](#vrnodeforeachchildoftype)**([vrnode](../classes/vrnode.mdx) node, string metaType, Any function)<br />Calls a function for each child of a node that matches a specified type.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrNodeGetAncestor](#vrnodegetancestor)**([vrnode](../classes/vrnode.mdx) node, string metaName)<br />Gets the first ancestor of the specified type.  |
+| table | **[vrNodeGetBacklinks](#vrnodegetbacklinks)**([vrnode](../classes/vrnode.mdx) node)<br />Gets all nodes that link to this node.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrNodeGetChild](#vrnodegetchild)**([vrnode](../classes/vrnode.mdx) node, string metaType =0, string name =0)<br />Gets the first child of a node.  |
+| [MULTI](../classes/multi.mdx)< [vrvec3](../classes/vrvec3.mdx), [vrvec3](../classes/vrvec3.mdx) > | **[vrNodeGetChildBoundingBox](#vrnodegetchildboundingbox)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the combined bounding box of all a nodes children, relative to that node.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrNodeGetChildByIndex](#vrnodegetchildbyindex)**([vrnode](../classes/vrnode.mdx) node, number idx)<br />Gets a nodes child by its zero-based index. Note: this function may result in poor performance when iterating over lots of nodes - use [vrNodeGetChild](#vrnodegetchild) and [vrNodeGetSibling](#vrnodegetsibling) instead (see the Best Practices section of the Programming Guide for more info).  |
+| number | **[vrNodeGetChildCount](#vrnodegetchildcount)**([vrnode](../classes/vrnode.mdx) node)<br />Counts the children of a node. Note: this function may result in poor performance when iterating over lots of nodes - use [vrNodeGetChild](#vrnodegetchild) and [vrNodeGetSibling](#vrnodegetsibling) instead (see the Best Practices section of the Programming Guide for more info).  |
+| [MULTI](../classes/multi.mdx)< [vrvec3](../classes/vrvec3.mdx), [vrvec3](../classes/vrvec3.mdx) > | **[vrNodeGetLocalBoundingBox](#vrnodegetlocalboundingbox)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the local bounding box of a node.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrNodeGetLocalBoundingBoxCentre](#vrnodegetlocalboundingboxcentre)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the centre of the local bounding box of a node.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrNodeGetLocalBoundingSphereCentre](#vrnodegetlocalboundingspherecentre)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the centre of the local bounding sphere of a node.  |
+| [MULTI](../classes/multi.mdx)< [vrvec3](../classes/vrvec3.mdx), number > | **[vrNodeGetLocalBounds](#vrnodegetlocalbounds)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the local bounding box and sphere of a node.  |
+| void | **[vrNodeGetLocallyModified](#vrnodegetlocallymodified)**([vrnode](../classes/vrnode.mdx) node)<br />Queries whether or not this node's last modification was made by the local visionary render instance.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrNodeGetLocalPosition](#vrnodegetlocalposition)**([vrnode](../classes/vrnode.mdx) node, string prop =0)<br />Gets the local position of the node.  |
+| number | **[vrNodeGetLocalPositionX](#vrnodegetlocalpositionx)**([vrnode](../classes/vrnode.mdx) node, string prop =0)<br />Gets the local x position of the node.  |
+| number | **[vrNodeGetLocalPositionY](#vrnodegetlocalpositiony)**([vrnode](../classes/vrnode.mdx) node, string prop =0)<br />Gets the local y position of the node.  |
+| number | **[vrNodeGetLocalPositionZ](#vrnodegetlocalpositionz)**([vrnode](../classes/vrnode.mdx) node, string prop =0)<br />Gets the local z position of the node.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrNodeGetLocalRotation](#vrnodegetlocalrotation)**([vrnode](../classes/vrnode.mdx) node, string prop =0)<br />Gets the local rotation of the node.  |
+| number | **[vrNodeGetLocalRotationX](#vrnodegetlocalrotationx)**([vrnode](../classes/vrnode.mdx) node, string prop =0)<br />Gets the local x rotation of the node.  |
+| number | **[vrNodeGetLocalRotationY](#vrnodegetlocalrotationy)**([vrnode](../classes/vrnode.mdx) node, string prop =0)<br />Gets the local y rotation of the node.  |
+| number | **[vrNodeGetLocalRotationZ](#vrnodegetlocalrotationz)**([vrnode](../classes/vrnode.mdx) node, string prop =0)<br />Gets the local z rotation of the node.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrNodeGetLocalScale](#vrnodegetlocalscale)**([vrnode](../classes/vrnode.mdx) node, string prop =0)<br />Gets the local scale of the node.  |
+| number | **[vrNodeGetLocalScaleX](#vrnodegetlocalscalex)**([vrnode](../classes/vrnode.mdx) node, string prop =0)<br />Gets the local x scale of the node.  |
+| number | **[vrNodeGetLocalScaleY](#vrnodegetlocalscaley)**([vrnode](../classes/vrnode.mdx) node, string prop =0)<br />Gets the local y scale of the node.  |
+| number | **[vrNodeGetLocalScaleZ](#vrnodegetlocalscalez)**([vrnode](../classes/vrnode.mdx) node, string prop =0)<br />Gets the local z scale of the node.  |
+| string | **[vrNodeGetMetaNode](#vrnodegetmetanode)**([vrnode](../classes/vrnode.mdx) node, boolean versioned =false)<br />Gets the name of the MetaNode that a node is an instance of. This can also be referred to as the node type.  |
+| string | **[vrNodeGetName](#vrnodegetname)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the name of a node.  |
+| boolean | **[vrNodeGetNoHistory](#vrnodegetnohistory)**([vrnode](../classes/vrnode.mdx) node)<br />Queries whether this node can be recorded in the history for undo/redo operations.  |
+| boolean | **[vrNodeGetNoSave](#vrnodegetnosave)**([vrnode](../classes/vrnode.mdx) node)<br />Queries whether this node can be saved in a VRText/VRNative file.  |
+| boolean | **[vrNodeGetNoSimulation](#vrnodegetnosimulation)**([vrnode](../classes/vrnode.mdx) node)<br />Queries whether this node can be affected by simulations, such as physics and collision.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrNodeGetParent](#vrnodegetparent)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the parent of a node.  |
+| string | **[vrNodeGetPath](#vrnodegetpath)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the encoded path to a node relative to the tree root.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrNodeGetPosition](#vrnodegetposition)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the world position of the node.  |
+| number | **[vrNodeGetPositionX](#vrnodegetpositionx)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the world x position of the node.  |
+| number | **[vrNodeGetPositionY](#vrnodegetpositiony)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the world y position of the node.  |
+| number | **[vrNodeGetPositionZ](#vrnodegetpositionz)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the world z position of the node.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrNodeGetPreviousSibling](#vrnodegetprevioussibling)**([vrnode](../classes/vrnode.mdx) node, string metaType =0, string name =0)<br />Gets the previous sibling (adjacent) node to a node.  |
+| string | **[vrNodeGetRelativePath](#vrnodegetrelativepath)**([vrnode](../classes/vrnode.mdx) node, [vrnode](../classes/vrnode.mdx) relativeTo)<br />Gets the encoded path to a node, relative to another node.  |
+| [MULTI](../classes/multi.mdx)< [vrvec3](../classes/vrvec3.mdx), [vrvec3](../classes/vrvec3.mdx), [vrvec3](../classes/vrvec3.mdx) > | **[vrNodeGetRelativeTransform](#vrnodegetrelativetransform)**([vrnode](../classes/vrnode.mdx) node, string propName, [vrnode](../classes/vrnode.mdx) otherNode)<br />Gets the position, rotation and scale of the world transform of one node relative to another.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrNodeGetRotation](#vrnodegetrotation)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the world rotation of the node.  |
+| number | **[vrNodeGetRotationX](#vrnodegetrotationx)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the world x rotation of the node.  |
+| number | **[vrNodeGetRotationY](#vrnodegetrotationy)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the world y rotation of the node.  |
+| number | **[vrNodeGetRotationZ](#vrnodegetrotationz)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the world z rotation of the node.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrNodeGetScale](#vrnodegetscale)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the world scale of the node.  |
+| number | **[vrNodeGetScaleX](#vrnodegetscalex)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the world x scale of the node.  |
+| number | **[vrNodeGetScaleY](#vrnodegetscaley)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the world y scale of the node.  |
+| number | **[vrNodeGetScaleZ](#vrnodegetscalez)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the world z scale of the node.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrNodeGetSibling](#vrnodegetsibling)**([vrnode](../classes/vrnode.mdx) node, string metaType =0, string name =0)<br />Gets the sibling (adjacent) node to a node.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrNodeGetTail](#vrnodegettail)**([vrnode](../classes/vrnode.mdx) node, string metaType =0, string name =0)<br />Gets the last child of a node.  |
+| table | **[vrNodeGetTraits](#vrnodegettraits)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the list of traits that this node has. Can also be thought of as the base class of a node (e.g. Texture, Viewport, etc). This function is expensive and can affect performance. To check a specific trait use vrNodeHasTrait.  |
+| Any | **[vrNodeGetValue](#vrnodegetvalue)**([vrnode](../classes/vrnode.mdx) node, string propName)<br />Gets the value of a property of a node.  |
+| Any | **[vrNodeGetValueByIndex](#vrnodegetvaluebyindex)**([vrnode](../classes/vrnode.mdx) node, number idx)<br />Gets the value of a property of a node finding the property by its index.  |
+| boolean | **[vrNodeHasTrait](#vrnodehastrait)**([vrnode](../classes/vrnode.mdx) node, string traitName)<br />Checks if the node is of a type with a specific trait. This is a lot faster than vrNodeGetTraits.  |
+| boolean | **[vrNodeIsAncestor](#vrnodeisancestor)**([vrnode](../classes/vrnode.mdx) node1, [vrnode](../classes/vrnode.mdx) node2)<br />Query whether the first specified node is an ancestor of the second.  |
+| boolean | **[vrNodeIsInGroup](#vrnodeisingroup)**([vrnode](../classes/vrnode.mdx) node, [vrnode](../classes/vrnode.mdx) groupNode)<br />Returns true is the node is in the group.  |
+| boolean | **[vrNodeIsLocal](#vrnodeislocal)**([vrnode](../classes/vrnode.mdx) node)<br />Query whether the specified node belongs to the local network user.  |
+| boolean | **[vrNodeIsMetaFiltered](#vrnodeismetafiltered)**([vrnode](../classes/vrnode.mdx) view, [vrnode](../classes/vrnode.mdx) node)<br />Returns true if the node's meta type is filtered in the specified view.  |
+| void | **[vrNodeRestoreTransform](#vrnoderestoretransform)**([vrnode](../classes/vrnode.mdx) node, boolean recursive)<br />Restores the captured transform of a node.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrNodeRoot](#vrnoderoot)**([vrnode](../classes/vrnode.mdx) node)<br />Finds the root tree node. This is almost always equivilent to vrTreeRoot.  |
+| void | **[vrNodeSetLocalPosition](#vrnodesetlocalposition)**([vrnode](../classes/vrnode.mdx) node, [vrvec3](../classes/vrvec3.mdx) v, string prop =0)<br />Sets the local position of the node.  |
+| void | **[vrNodeSetLocalPositionX](#vrnodesetlocalpositionx)**([vrnode](../classes/vrnode.mdx) node, number d, string prop =0)<br />Sets the local x position of the node.  |
+| void | **[vrNodeSetLocalPositionY](#vrnodesetlocalpositiony)**([vrnode](../classes/vrnode.mdx) node, number d, string prop =0)<br />Sets the local y position of the node.  |
+| void | **[vrNodeSetLocalPositionZ](#vrnodesetlocalpositionz)**([vrnode](../classes/vrnode.mdx) node, number d, string prop =0)<br />Sets the local z position of the node.  |
+| void | **[vrNodeSetLocalRotation](#vrnodesetlocalrotation)**([vrnode](../classes/vrnode.mdx) node, [vrvec3](../classes/vrvec3.mdx) v, string prop =0)<br />Sets the local rotation of the node.  |
+| void | **[vrNodeSetLocalRotationX](#vrnodesetlocalrotationx)**([vrnode](../classes/vrnode.mdx) node, number d, string prop =0)<br />Sets the local x rotation of the node.  |
+| void | **[vrNodeSetLocalRotationY](#vrnodesetlocalrotationy)**([vrnode](../classes/vrnode.mdx) node, number d, string prop =0)<br />Sets the local y rotation of the node.  |
+| void | **[vrNodeSetLocalRotationZ](#vrnodesetlocalrotationz)**([vrnode](../classes/vrnode.mdx) node, number d, string prop =0)<br />Sets the local z rotation of the node.  |
+| void | **[vrNodeSetLocalScale](#vrnodesetlocalscale)**([vrnode](../classes/vrnode.mdx) node, [vrvec3](../classes/vrvec3.mdx) v, string prop =0)<br />Sets the local scale of the noed.  |
+| void | **[vrNodeSetLocalScaleX](#vrnodesetlocalscalex)**([vrnode](../classes/vrnode.mdx) node, number d, string prop =0)<br />Sets the local x scale of the node.  |
+| void | **[vrNodeSetLocalScaleY](#vrnodesetlocalscaley)**([vrnode](../classes/vrnode.mdx) node, number d, string prop =0)<br />Sets the local y scale of the node.  |
+| void | **[vrNodeSetLocalScaleZ](#vrnodesetlocalscalez)**([vrnode](../classes/vrnode.mdx) node, number d, string prop =0)<br />Sets the local z scale of the node.  |
+| void | **[vrNodeSetName](#vrnodesetname)**([vrnode](../classes/vrnode.mdx) node, string newName)<br />Sets the name of a node.  |
+| void | **[vrNodeSetNoHistory](#vrnodesetnohistory)**([vrnode](../classes/vrnode.mdx) node, boolean noHistory)<br />Specifies whether this node can be recorded in the history for undo/redo operations.  |
+| void | **[vrNodeSetNoSave](#vrnodesetnosave)**([vrnode](../classes/vrnode.mdx) node, boolean noSave)<br />Specifies whether this node can be saved in a VRText/VRNative file.  |
+| void | **[vrNodeSetNoSimulation](#vrnodesetnosimulation)**([vrnode](../classes/vrnode.mdx) node, boolean noSimulation)<br />Specifies whether this node should be affected by simulations, such as physics and collision.  |
+| void | **[vrNodeSetParent](#vrnodesetparent)**([vrnode](../classes/vrnode.mdx) node, [vrnode](../classes/vrnode.mdx) parent =nil, [vrnode](../classes/vrnode.mdx) beforeSibling =nil, boolean preserveWorldTransform =false)<br />Sets the parent of a node.  |
+| void | **[vrNodeSetPosition](#vrnodesetposition)**([vrnode](../classes/vrnode.mdx) node, [vrvec3](../classes/vrvec3.mdx) v)<br />Sets the world position of the node.  |
+| void | **[vrNodeSetPositionX](#vrnodesetpositionx)**([vrnode](../classes/vrnode.mdx) node, number d)<br />Sets the world x position of the node.  |
+| void | **[vrNodeSetPositionY](#vrnodesetpositiony)**([vrnode](../classes/vrnode.mdx) node, number d)<br />Sets the world y position of the node.  |
+| void | **[vrNodeSetPositionZ](#vrnodesetpositionz)**([vrnode](../classes/vrnode.mdx) node, number d)<br />Sets the world z position of the node.  |
+| void | **[vrNodeSetRelativeTransform](#vrnodesetrelativetransform)**([vrnode](../classes/vrnode.mdx) node, string propName, [vrnode](../classes/vrnode.mdx) otherNode, Any vpos, Any vrot, Any vscale)<br />Sets the position, rotation and scale of the world transform of a node relative to another.  |
+| void | **[vrNodeSetRotation](#vrnodesetrotation)**([vrnode](../classes/vrnode.mdx) node, [vrvec3](../classes/vrvec3.mdx) v)<br />Sets the world rotation of the node.  |
+| void | **[vrNodeSetRotationX](#vrnodesetrotationx)**([vrnode](../classes/vrnode.mdx) node, number d)<br />Sets the world x rotation of the node.  |
+| void | **[vrNodeSetRotationY](#vrnodesetrotationy)**([vrnode](../classes/vrnode.mdx) node, number d)<br />Sets the world y rotation of the node.  |
+| void | **[vrNodeSetRotationZ](#vrnodesetrotationz)**([vrnode](../classes/vrnode.mdx) node, number d)<br />Sets the world z rotation of the node.  |
+| void | **[vrNodeSetScale](#vrnodesetscale)**([vrnode](../classes/vrnode.mdx) node, [vrvec3](../classes/vrvec3.mdx) v)<br />Sets the world scale fo the noed.  |
+| void | **[vrNodeSetScaleX](#vrnodesetscalex)**([vrnode](../classes/vrnode.mdx) node, number d)<br />Sets the world x scale of the node.  |
+| void | **[vrNodeSetScaleY](#vrnodesetscaley)**([vrnode](../classes/vrnode.mdx) node, number d)<br />Sets the world y scale of the node.  |
+| void | **[vrNodeSetScaleZ](#vrnodesetscalez)**([vrnode](../classes/vrnode.mdx) node, number d)<br />Sets the world z scale of the node.  |
+| void | **[vrNodeSetValue](#vrnodesetvalue)**([vrnode](../classes/vrnode.mdx) node, string propName, Any value)<br />Sets the value of one of the properties of a node.  |
+| void | **[vrNodeSetValueByIndex](#vrnodesetvaluebyindex)**([vrnode](../classes/vrnode.mdx) node, number idx, Any value)<br />Sets the value of one of the properties of a node finding the property by its index.  |
 
 ## Functions Documentation
 
@@ -646,7 +646,7 @@ vrnode vrNodeGetChildByIndex(
 )
 ```
 
-Gets a nodes child by its zero-based index. Note: this function may result in poor performance when iterating over lots of nodes - use [vrNodeGetChild()](../Modules/group__api__lua.mdx#vrnodegetchild) and [vrNodeGetSibling() instead (see the Best Practices section of the Programming Guide for more info). 
+Gets a nodes child by its zero-based index. Note: this function may result in poor performance when iterating over lots of nodes - use [vrNodeGetChild](#vrnodegetchild) and [vrNodeGetSibling](#vrnodegetsibling) instead (see the Best Practices section of the Programming Guide for more info). 
 
 **Parameters**: 
 
@@ -663,7 +663,7 @@ number vrNodeGetChildCount(
 )
 ```
 
-Counts the children of a node. Note: this function may result in poor performance when iterating over lots of nodes - use [vrNodeGetChild()](../Modules/group__api__lua.mdx#vrnodegetchild) and [vrNodeGetSibling() instead (see the Best Practices section of the Programming Guide for more info). 
+Counts the children of a node. Note: this function may result in poor performance when iterating over lots of nodes - use [vrNodeGetChild](#vrnodegetchild) and [vrNodeGetSibling](#vrnodegetsibling) instead (see the Best Practices section of the Programming Guide for more info). 
 
 **Parameters**: 
 

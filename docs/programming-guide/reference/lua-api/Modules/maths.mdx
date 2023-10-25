@@ -11,93 +11,93 @@ Maths functions and types that can be used by Lua scripts and plugins.
 
 | Type           | Name           |
 | -------------- | -------------- |
-| struct | **[vrbox](../Classes/structvrbox.mdx)** <br />A box.  |
-| struct | **[vrmatrix3](../Classes/structvrmatrix3.mdx)** <br />A matrix.  |
-| struct | **[vrmatrix4](../Classes/structvrmatrix4.mdx)** <br />A matrix.  |
-| struct | **[vrplane](../Classes/structvrplane.mdx)** <br />A plane.  |
-| struct | **[vrquaternion](../Classes/structvrquaternion.mdx)** <br />A quaternion.  |
-| struct | **[vrray](../Classes/structvrray.mdx)** <br />A ray.  |
-| struct | **[vrsphere](../Classes/structvrsphere.mdx)** <br />A sphere.  |
-| struct | **[vrvec2](../Classes/structvrvec2.mdx)** <br />A vector.  |
-| struct | **[vrvec3](../Classes/structvrvec3.mdx)** <br />A vector.  |
-| struct | **[vrvec4](../Classes/structvrvec4.mdx)** <br />A vector.  |
+| struct | **[vrbox](../classes/vrbox.mdx)** <br />A box.  |
+| struct | **[vrmatrix3](../classes/vrmatrix3.mdx)** <br />A matrix.  |
+| struct | **[vrmatrix4](../classes/vrmatrix4.mdx)** <br />A matrix.  |
+| struct | **[vrplane](../classes/vrplane.mdx)** <br />A plane.  |
+| struct | **[vrquaternion](../classes/vrquaternion.mdx)** <br />A quaternion.  |
+| struct | **[vrray](../classes/vrray.mdx)** <br />A ray.  |
+| struct | **[vrsphere](../classes/vrsphere.mdx)** <br />A sphere.  |
+| struct | **[vrvec2](../classes/vrvec2.mdx)** <br />A vector.  |
+| struct | **[vrvec3](../classes/vrvec3.mdx)** <br />A vector.  |
+| struct | **[vrvec4](../classes/vrvec4.mdx)** <br />A vector.  |
 
 ## Functions
 
 | Type           | Name           |
 | -------------- | -------------- |
-| [vrbox](../Classes/structvrbox.mdx) | **[vrAABox](../Modules/group__api__lua.mdx#vraabox)**([vrvec3](../Classes/structvrvec3.mdx) min, [vrvec3](../Classes/structvrvec3.mdx) max)<br />Construct an axis aligned bounding box.  |
-| number | **[vrAABoxExtent](../Modules/group__api__lua.mdx#vraaboxextent)**([vrbox](../Classes/structvrbox.mdx) box)<br />Returns the largest dimension of an axis aligned bounding box.  |
-| [vrbox](../Classes/structvrbox.mdx) | **[vrAABoxMerge](../Modules/group__api__lua.mdx#vraaboxmerge)**(Any l, [vrbox](../Classes/structvrbox.mdx) r)<br />Returns an axis aligned bounding box that contains two other bounding boxes.  |
-| [vrbox](../Classes/structvrbox.mdx) | **[vrAABoxPosAndSize](../Modules/group__api__lua.mdx#vraaboxposandsize)**([vrvec3](../Classes/structvrvec3.mdx) pos, [vrvec3](../Classes/structvrvec3.mdx) size)<br />Construct an axis aligned bounding box, using a position and a size.  |
-| [vrbox](../Classes/structvrbox.mdx) | **[vrAABoxTransform](../Modules/group__api__lua.mdx#vraaboxtransform)**(Any box, [vrmatrix4](../Classes/structvrmatrix4.mdx) matrix)<br />Returns an axis aligned bounding box transformed by a matrix.  |
-| number | **[vrAngleRadians](../Modules/group__api__lua.mdx#vrangleradians)**(number arcLength, number radius)<br />Calculates the angle of an arc in radians.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrApplyForce](../Modules/group__api__lua.mdx#vrapplyforce)**([vrnode](../Classes/structvrnode.mdx) node, [vrvec3](../Classes/structvrvec3.mdx) force, [vrvec3](../Classes/structvrvec3.mdx) relPos, number duration)<br />Applies a force to an object causing a dynamics response.  |
-| boolean | **[vrApproxEquals](../Modules/group__api__lua.mdx#vrapproxequals)**(Any left, Any right, number prec =0.0)<br />Returns whether or not two items are approximately equal.  |
-| number | **[vrArcLength](../Modules/group__api__lua.mdx#vrarclength)**(number angleRadians, number radius)<br />Calculates the length of an arc.  |
-| number | **[vrArcRadius](../Modules/group__api__lua.mdx#vrarcradius)**(number arcLength, number angleRadians)<br />Calculates the radius of an arc.  |
-| void | **[vrAssemblyLookAt](../Modules/group__api__lua.mdx#vrassemblylookat)**([vrnode](../Classes/structvrnode.mdx) assembly, [vrvec3](../Classes/structvrvec3.mdx) eyePos, [vrvec3](../Classes/structvrvec3.mdx) lookAtPos, [vrvec3](../Classes/structvrvec3.mdx) upVec)<br />Rotates the assembly so that it is looking at the given position.  |
-| number | **[vrBitsToInteger](../Modules/group__api__lua.mdx#vrbitstointeger)**(boolean ... )<br />Converts boolean values to an integer.  |
-| Any | **[vrCopy](../Modules/group__api__lua.mdx#vrcopy)**(Any c)<br />Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane.  |
- [vrvec3](../Classes/structvrvec3.mdx) | **[vrCross](../Modules/group__api__lua.mdx#vrcross)**(Any vec1, Any vec2)<br />Returns the cross product of two vectors. Both vectors must be the same type.  |
-| number | **[vrDot](../Modules/group__api__lua.mdx#vrdot)**(Any vec1, Any vec2)<br />Returns the dot product of two vectors. Both vectors must be the same type.  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[vrGetForwardVec](../Modules/group__api__lua.mdx#vrgetforwardvec)**([vrnode](../Classes/structvrnode.mdx) viewportNode =nil)<br />Extracts the forward vector from the inverse of the current view matrix.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrGetOwnerNode](../Modules/group__api__lua.mdx#vrgetownernode)**(Any c)<br />Get the node that owns this Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane.  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[vrHSV2RGB](../Modules/group__api__lua.mdx#vrhsv2rgb)**([vrvec3](../Classes/structvrvec3.mdx) hsvColour)<br />Converts a HSV coiour (vec3f) to an RGB colour (vec3f)  |
-| boolean | **[vrIntegerToBits](../Modules/group__api__lua.mdx#vrintegertobits)**(number i)<br />Converts an integer to a boolean value for each bit.  |
-| boolean | **[vrIsDoublePrecision](../Modules/group__api__lua.mdx#vrisdoubleprecision)**()<br />Returns true if the scenegraph uses double precision values for matrices etc.  |
-| number | **[vrLength](../Modules/group__api__lua.mdx#vrlength)**(Any vec)<br />Returns the length of a vector.  |
-| number | **[vrLengthSquared](../Modules/group__api__lua.mdx#vrlengthsquared)**(Any vec)<br />Returns the squared length of a vector.  |
-| [vrmatrix3](../Classes/structvrmatrix3.mdx) | **[vrMat3](../Modules/group__api__lua.mdx#vrmat3)**()<br />Return an identity 3x3 Matrix.  |
-| [vrmatrix4](../Classes/structvrmatrix4.mdx) | **[vrMat4](../Modules/group__api__lua.mdx#vrmat4)**()<br />Return an identity 4x4 Matrix.  |
-| [vrmatrix4](../Classes/structvrmatrix4.mdx) | **[vrMat4Frustum](../Modules/group__api__lua.mdx#vrmat4frustum)**(number left, number right, number bottom, number top, number nearval, number farval, number focalval)<br />Return a frustum projection matrix.  |
-| [vrmatrix4](../Classes/structvrmatrix4.mdx) | **[vrMat4Ortho](../Modules/group__api__lua.mdx#vrmat4ortho)**(number left, number right, number bottom, number top, number nearval, number farval)<br />Return an orthographic projection matrix.  |
-| [vrmatrix4](../Classes/structvrmatrix4.mdx) | **[vrMat4Ortho2D](../Modules/group__api__lua.mdx#vrmat4ortho2d)**(number left, number right, number bottom, number top)<br />Return a 2D orthographic projection matrix.  |
-| number | **[vrMatDeterminant](../Modules/group__api__lua.mdx#vrmatdeterminant)**(Any m)<br />Returns the determinant of the matrix.  |
-| number | **[vrMatGetValue](../Modules/group__api__lua.mdx#vrmatgetvalue)**(Any m, number x, number y)<br />Get the value of an element of a matrix.  |
-| [vrmatrix4](../Classes/structvrmatrix4.mdx) | **[vrMatInverse](../Modules/group__api__lua.mdx#vrmatinverse)**([vrmatrix4](../Classes/structvrmatrix4.mdx) m)<br />Returns the inverse of a 4x4 matrix.  |
-| Any | **[vrMatOrthoNormalise](../Modules/group__api__lua.mdx#vrmatorthonormalise)**(Any m)<br />Returns an orthogonal matrix.  |
-| [vrmatrix4](../Classes/structvrmatrix4.mdx) | **[vrMatRotateEulerX](../Modules/group__api__lua.mdx#vrmatrotateeulerx)**(Any m, number v)<br />Return M rotated on the X axis by angle V.  |
-| [vrmatrix4](../Classes/structvrmatrix4.mdx) | **[vrMatRotateEulerY](../Modules/group__api__lua.mdx#vrmatrotateeulery)**(Any m, number v)<br />Return M rotated on the Y axis by angle V.  |
-| [vrmatrix4](../Classes/structvrmatrix4.mdx) | **[vrMatRotateEulerZ](../Modules/group__api__lua.mdx#vrmatrotateeulerz)**(Any m, number v)<br />Return M rotated on the Z axis by angle V.  |
-| [vrmatrix4](../Classes/structvrmatrix4.mdx) | **[vrMatScale](../Modules/group__api__lua.mdx#vrmatscale)**(Any m, Any v)<br />Return M scaled by vector V. If V is a scalar then a vector in which x=v, y=v, z=v will be used.  |
-| void | **[vrMatSetValue](../Modules/group__api__lua.mdx#vrmatsetvalue)**(Any m, number x, number y, number v)<br />Set the value of an element of a matrix.  |
-| string | **[vrMatToString](../Modules/group__api__lua.mdx#vrmattostring)**(Any m)<br />Get a string representation of a matrix.  |
-| [vrmatrix4](../Classes/structvrmatrix4.mdx) | **[vrMatTranslate](../Modules/group__api__lua.mdx#vrmattranslate)**(Any m, [vrvec3](../Classes/structvrvec3.mdx) v)<br />Return M translated by the vector V.  |
-| Any | **[vrMatTranspose](../Modules/group__api__lua.mdx#vrmattranspose)**(Any m)<br />Returns the tranpose of a 3x3 matrix, or a 4x4 matrix with the 3x3 component transposed.  |
-| Any | **[vrNormalise](../Modules/group__api__lua.mdx#vrnormalise)**(Any c)<br />Returns normalised vector/matrix.  |
-| [vrplane](../Classes/structvrplane.mdx) | **[vrPlane](../Modules/group__api__lua.mdx#vrplane)**([vrvec3](../Classes/structvrvec3.mdx) normal, number distance)<br />Returns a plane.  |
-| [vrplane](../Classes/structvrplane.mdx) | **[vrPlaneFromMatrix](../Modules/group__api__lua.mdx#vrplanefrommatrix)**([vrmatrix4](../Classes/structvrmatrix4.mdx) mat)<br />Returns a plane created from a matrix.  |
-| [vrplane](../Classes/structvrplane.mdx) | **[vrPlaneFromTriangle](../Modules/group__api__lua.mdx#vrplanefromtriangle)**([vrvec3](../Classes/structvrvec3.mdx) point1, [vrvec3](../Classes/structvrvec3.mdx) point2, [vrvec3](../Classes/structvrvec3.mdx) point3)<br />Returns a plane created from a triangle defined by 3 points.  |
-| number | **[vrPlaneGetPointDistance](../Modules/group__api__lua.mdx#vrplanegetpointdistance)**([vrplane](../Classes/structvrplane.mdx) plane, [vrvec3](../Classes/structvrvec3.mdx) point)<br />Returns the distance a point is from the plane. A negative value means that the point is behind the plane. A positive value means the point is in front. A zero means it is on the plane.  |
-| boolean | **[vrPlaneLineIntersect](../Modules/group__api__lua.mdx#vrplanelineintersect)**([vrplane](../Classes/structvrplane.mdx) plane, [vrvec3](../Classes/structvrvec3.mdx) point1, [vrvec3](../Classes/structvrvec3.mdx) point2)<br />Returns whether or not a line made of two points will intersect a plane.  |
-| number | **[vrPlaneRayIntersect](../Modules/group__api__lua.mdx#vrplanerayintersect)**([vrplane](../Classes/structvrplane.mdx) plane, [vrray](../Classes/structvrray.mdx) ray)<br />Returns how far along the ray an intersection point with this plane is.  |
-| [vrplane](../Classes/structvrplane.mdx) | **[vrPlaneTransform](../Modules/group__api__lua.mdx#vrplanetransform)**(Any plane, [vrmatrix4](../Classes/structvrmatrix4.mdx) mat)<br />Returns a plane transformed by a matrix.  |
-| void | **[vrPolarToDegrees](../Modules/group__api__lua.mdx#vrpolartodegrees)**(number degrees, number minutes, number seconds)<br />Convert polar coordinates to degrees.  |
-| number | **[vrPolarToRadians](../Modules/group__api__lua.mdx#vrpolartoradians)**(number degrees, number minutes, number seconds)<br />Convert polar coordinates to radians.  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[vrProjInvTransformVec](../Modules/group__api__lua.mdx#vrprojinvtransformvec)**([vrvec3](../Classes/structvrvec3.mdx) vec, [vrnode](../Classes/structvrnode.mdx) viewportNode =nil)<br />Transforms a vector by the inverse of the current projection matrix.  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[vrProjTransformVec](../Modules/group__api__lua.mdx#vrprojtransformvec)**([vrvec3](../Classes/structvrvec3.mdx) vec, [vrnode](../Classes/structvrnode.mdx) viewportNode =nil)<br />Transforms a vector by the current projection matrix.  |
-| [vrquaternion](../Classes/structvrquaternion.mdx) | **[vrQuaternion](../Modules/group__api__lua.mdx#vrquaternion)**()<br />Return an identity quaternion.  |
-| number | **[vrQuaternionDot](../Modules/group__api__lua.mdx#vrquaterniondot)**([vrquaternion](../Classes/structvrquaternion.mdx) l, [vrquaternion](../Classes/structvrquaternion.mdx) r)<br />Returns the dot product of two quaternions.  |
-| [vrquaternion](../Classes/structvrquaternion.mdx) | **[vrQuaternionFromAxisAngle](../Modules/group__api__lua.mdx#vrquaternionfromaxisangle)**([vrvec3](../Classes/structvrvec3.mdx) axis, number angle)<br />Return a quaternion constructed from a rotation around an axis.  |
-| [vrquaternion](../Classes/structvrquaternion.mdx) | **[vrQuaternionFromEulerAngles](../Modules/group__api__lua.mdx#vrquaternionfromeulerangles)**([vrvec3](../Classes/structvrvec3.mdx) angles)<br />Return a quaternion constructed from euler angles.  |
-| [vrquaternion](../Classes/structvrquaternion.mdx) | **[vrQuaternionFromMat](../Modules/group__api__lua.mdx#vrquaternionfrommat)**(Any m)<br />Returns a quaternion constructed from a 4x4 matrix.  |
-| [vrquaternion](../Classes/structvrquaternion.mdx) | **[vrQuaternionLerp](../Modules/group__api__lua.mdx#vrquaternionlerp)**([vrquaternion](../Classes/structvrquaternion.mdx) l, [vrquaternion](../Classes/structvrquaternion.mdx) r, number d)<br />Returns the linear interpolation between two quaternions.  |
-| [vrquaternion](../Classes/structvrquaternion.mdx) | **[vrQuaternionSlerp](../Modules/group__api__lua.mdx#vrquaternionslerp)**([vrquaternion](../Classes/structvrquaternion.mdx) l, [vrquaternion](../Classes/structvrquaternion.mdx) r, number d)<br />Returns the spherical interpolation between two quaternions.  |
-| [vrray](../Classes/structvrray.mdx) | **[vrRay](../Modules/group__api__lua.mdx#vrray)**([vrvec3](../Classes/structvrvec3.mdx) origin, [vrvec3](../Classes/structvrvec3.mdx) dir)<br />Returns a ray.  |
-| number | **[vrSmoothStep](../Modules/group__api__lua.mdx#vrsmoothstep)**(number a, number b, number x)<br />Return a smoothly interpolated value between A and B.  |
-| [vrsphere](../Classes/structvrsphere.mdx) | **[vrSphere](../Modules/group__api__lua.mdx#vrsphere)**([vrvec3](../Classes/structvrvec3.mdx) position, number radius)<br />Returns a sphere.  |
-| [vrsphere](../Classes/structvrsphere.mdx) | **[vrSphereMerge](../Modules/group__api__lua.mdx#vrspheremerge)**(Any left, [vrsphere](../Classes/structvrsphere.mdx) right)<br />Returns a sphere that encapsulates two spheres.  |
-| [vrsphere](../Classes/structvrsphere.mdx) | **[vrSphereTransform](../Modules/group__api__lua.mdx#vrspheretransform)**(Any sphere, [vrmatrix4](../Classes/structvrmatrix4.mdx) matrix)<br />Returns a sphere transformed by a matrix.  |
-| void | **[vrSuspendDynamics](../Modules/group__api__lua.mdx#vrsuspenddynamics)**([vrnode](../Classes/structvrnode.mdx) node, boolean onOff)<br />Enables or disables dynamics.  |
-| boolean | **[vrTestContain](../Modules/group__api__lua.mdx#vrtestcontain)**(Any a, Any b)<br />Returns whether or object A completly contains object B.  |
-| boolean | **[vrTestIntersection](../Modules/group__api__lua.mdx#vrtestintersection)**(Any a, Any b)<br />Returns whether or not two objects are intersecting one another.  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[vrTransformVecByWorldRotation](../Modules/group__api__lua.mdx#vrtransformvecbyworldrotation)**([vrnode](../Classes/structvrnode.mdx) node, [vrvec3](../Classes/structvrvec3.mdx) vec)<br />Transforms a vector by the world rotation of the node.  |
-| vec2 | **[vrVec2](../Modules/group__api__lua.mdx#vrvec2)**(number x =0.0, number y =0.0)<br />Returns a 2 dimensional vector.  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[vrVec3](../Modules/group__api__lua.mdx#vrvec3)**(number x =0.0, number y =0.0, number z =0.0)<br />Returns a 3 dimensional vector.  |
-| [vrvec4](../Classes/structvrvec4.mdx) | **[vrVec4](../Modules/group__api__lua.mdx#vrvec4)**(number x =0.0, number y =0.0, number z =0.0, number w =0.0)<br />Returns a 4 dimensional vector.  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[vrViewInvTransformVec](../Modules/group__api__lua.mdx#vrviewinvtransformvec)**([vrvec3](../Classes/structvrvec3.mdx) vec, [vrnode](../Classes/structvrnode.mdx) viewportNode =nil)<br />Transforms a vector by the inverse of the current view matrix.  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[vrViewTransformVec](../Modules/group__api__lua.mdx#vrviewtransformvec)**([vrvec3](../Classes/structvrvec3.mdx) vec, [vrnode](../Classes/structvrnode.mdx) viewportNode =nil)<br />Transforms a vector by the current view matrix.  |
+| [vrbox](../classes/vrbox.mdx) | **[vrAABox](#vraabox)**([vrvec3](../classes/vrvec3.mdx) min, [vrvec3](../classes/vrvec3.mdx) max)<br />Construct an axis aligned bounding box.  |
+| number | **[vrAABoxExtent](#vraaboxextent)**([vrbox](../classes/vrbox.mdx) box)<br />Returns the largest dimension of an axis aligned bounding box.  |
+| [vrbox](../classes/vrbox.mdx) | **[vrAABoxMerge](#vraaboxmerge)**(Any l, [vrbox](../classes/vrbox.mdx) r)<br />Returns an axis aligned bounding box that contains two other bounding boxes.  |
+| [vrbox](../classes/vrbox.mdx) | **[vrAABoxPosAndSize](#vraaboxposandsize)**([vrvec3](../classes/vrvec3.mdx) pos, [vrvec3](../classes/vrvec3.mdx) size)<br />Construct an axis aligned bounding box, using a position and a size.  |
+| [vrbox](../classes/vrbox.mdx) | **[vrAABoxTransform](#vraaboxtransform)**(Any box, [vrmatrix4](../classes/vrmatrix4.mdx) matrix)<br />Returns an axis aligned bounding box transformed by a matrix.  |
+| number | **[vrAngleRadians](#vrangleradians)**(number arcLength, number radius)<br />Calculates the angle of an arc in radians.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrApplyForce](#vrapplyforce)**([vrnode](../classes/vrnode.mdx) node, [vrvec3](../classes/vrvec3.mdx) force, [vrvec3](../classes/vrvec3.mdx) relPos, number duration)<br />Applies a force to an object causing a dynamics response.  |
+| boolean | **[vrApproxEquals](#vrapproxequals)**(Any left, Any right, number prec =0.0)<br />Returns whether or not two items are approximately equal.  |
+| number | **[vrArcLength](#vrarclength)**(number angleRadians, number radius)<br />Calculates the length of an arc.  |
+| number | **[vrArcRadius](#vrarcradius)**(number arcLength, number angleRadians)<br />Calculates the radius of an arc.  |
+| void | **[vrAssemblyLookAt](#vrassemblylookat)**([vrnode](../classes/vrnode.mdx) assembly, [vrvec3](../classes/vrvec3.mdx) eyePos, [vrvec3](../classes/vrvec3.mdx) lookAtPos, [vrvec3](../classes/vrvec3.mdx) upVec)<br />Rotates the assembly so that it is looking at the given position.  |
+| number | **[vrBitsToInteger](#vrbitstointeger)**(boolean ... )<br />Converts boolean values to an integer.  |
+| Any | **[vrCopy](#vrcopy)**(Any c)<br />Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane.  |
+ [vrvec3](../classes/vrvec3.mdx) | **[vrCross](#vrcross)**(Any vec1, Any vec2)<br />Returns the cross product of two vectors. Both vectors must be the same type.  |
+| number | **[vrDot](#vrdot)**(Any vec1, Any vec2)<br />Returns the dot product of two vectors. Both vectors must be the same type.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrGetForwardVec](#vrgetforwardvec)**([vrnode](../classes/vrnode.mdx) viewportNode =nil)<br />Extracts the forward vector from the inverse of the current view matrix.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrGetOwnerNode](#vrgetownernode)**(Any c)<br />Get the node that owns this Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrHSV2RGB](#vrhsv2rgb)**([vrvec3](../classes/vrvec3.mdx) hsvColour)<br />Converts a HSV coiour (vec3f) to an RGB colour (vec3f)  |
+| boolean | **[vrIntegerToBits](#vrintegertobits)**(number i)<br />Converts an integer to a boolean value for each bit.  |
+| boolean | **[vrIsDoublePrecision](#vrisdoubleprecision)**()<br />Returns true if the scenegraph uses double precision values for matrices etc.  |
+| number | **[vrLength](#vrlength)**(Any vec)<br />Returns the length of a vector.  |
+| number | **[vrLengthSquared](#vrlengthsquared)**(Any vec)<br />Returns the squared length of a vector.  |
+| [vrmatrix3](../classes/vrmatrix3.mdx) | **[vrMat3](#vrmat3)**()<br />Return an identity 3x3 Matrix.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMat4](#vrmat4)**()<br />Return an identity 4x4 Matrix.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMat4Frustum](#vrmat4frustum)**(number left, number right, number bottom, number top, number nearval, number farval, number focalval)<br />Return a frustum projection matrix.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMat4Ortho](#vrmat4ortho)**(number left, number right, number bottom, number top, number nearval, number farval)<br />Return an orthographic projection matrix.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMat4Ortho2D](#vrmat4ortho2d)**(number left, number right, number bottom, number top)<br />Return a 2D orthographic projection matrix.  |
+| number | **[vrMatDeterminant](#vrmatdeterminant)**(Any m)<br />Returns the determinant of the matrix.  |
+| number | **[vrMatGetValue](#vrmatgetvalue)**(Any m, number x, number y)<br />Get the value of an element of a matrix.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMatInverse](#vrmatinverse)**([vrmatrix4](../classes/vrmatrix4.mdx) m)<br />Returns the inverse of a 4x4 matrix.  |
+| Any | **[vrMatOrthoNormalise](#vrmatorthonormalise)**(Any m)<br />Returns an orthogonal matrix.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMatRotateEulerX](#vrmatrotateeulerx)**(Any m, number v)<br />Return M rotated on the X axis by angle V.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMatRotateEulerY](#vrmatrotateeulery)**(Any m, number v)<br />Return M rotated on the Y axis by angle V.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMatRotateEulerZ](#vrmatrotateeulerz)**(Any m, number v)<br />Return M rotated on the Z axis by angle V.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMatScale](#vrmatscale)**(Any m, Any v)<br />Return M scaled by vector V. If V is a scalar then a vector in which x=v, y=v, z=v will be used.  |
+| void | **[vrMatSetValue](#vrmatsetvalue)**(Any m, number x, number y, number v)<br />Set the value of an element of a matrix.  |
+| string | **[vrMatToString](#vrmattostring)**(Any m)<br />Get a string representation of a matrix.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMatTranslate](#vrmattranslate)**(Any m, [vrvec3](../classes/vrvec3.mdx) v)<br />Return M translated by the vector V.  |
+| Any | **[vrMatTranspose](#vrmattranspose)**(Any m)<br />Returns the tranpose of a 3x3 matrix, or a 4x4 matrix with the 3x3 component transposed.  |
+| Any | **[vrNormalise](#vrnormalise)**(Any c)<br />Returns normalised vector/matrix.  |
+| [vrplane](../classes/vrplane.mdx) | **[vrPlane](#vrplane)**([vrvec3](../classes/vrvec3.mdx) normal, number distance)<br />Returns a plane.  |
+| [vrplane](../classes/vrplane.mdx) | **[vrPlaneFromMatrix](#vrplanefrommatrix)**([vrmatrix4](../classes/vrmatrix4.mdx) mat)<br />Returns a plane created from a matrix.  |
+| [vrplane](../classes/vrplane.mdx) | **[vrPlaneFromTriangle](#vrplanefromtriangle)**([vrvec3](../classes/vrvec3.mdx) point1, [vrvec3](../classes/vrvec3.mdx) point2, [vrvec3](../classes/vrvec3.mdx) point3)<br />Returns a plane created from a triangle defined by 3 points.  |
+| number | **[vrPlaneGetPointDistance](#vrplanegetpointdistance)**([vrplane](../classes/vrplane.mdx) plane, [vrvec3](../classes/vrvec3.mdx) point)<br />Returns the distance a point is from the plane. A negative value means that the point is behind the plane. A positive value means the point is in front. A zero means it is on the plane.  |
+| boolean | **[vrPlaneLineIntersect](#vrplanelineintersect)**([vrplane](../classes/vrplane.mdx) plane, [vrvec3](../classes/vrvec3.mdx) point1, [vrvec3](../classes/vrvec3.mdx) point2)<br />Returns whether or not a line made of two points will intersect a plane.  |
+| number | **[vrPlaneRayIntersect](#vrplanerayintersect)**([vrplane](../classes/vrplane.mdx) plane, [vrray](../classes/vrray.mdx) ray)<br />Returns how far along the ray an intersection point with this plane is.  |
+| [vrplane](../classes/vrplane.mdx) | **[vrPlaneTransform](#vrplanetransform)**(Any plane, [vrmatrix4](../classes/vrmatrix4.mdx) mat)<br />Returns a plane transformed by a matrix.  |
+| void | **[vrPolarToDegrees](#vrpolartodegrees)**(number degrees, number minutes, number seconds)<br />Convert polar coordinates to degrees.  |
+| number | **[vrPolarToRadians](#vrpolartoradians)**(number degrees, number minutes, number seconds)<br />Convert polar coordinates to radians.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrProjInvTransformVec](#vrprojinvtransformvec)**([vrvec3](../classes/vrvec3.mdx) vec, [vrnode](../classes/vrnode.mdx) viewportNode =nil)<br />Transforms a vector by the inverse of the current projection matrix.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrProjTransformVec](#vrprojtransformvec)**([vrvec3](../classes/vrvec3.mdx) vec, [vrnode](../classes/vrnode.mdx) viewportNode =nil)<br />Transforms a vector by the current projection matrix.  |
+| [vrquaternion](../classes/vrquaternion.mdx) | **[vrQuaternion](#vrquaternion)**()<br />Return an identity quaternion.  |
+| number | **[vrQuaternionDot](#vrquaterniondot)**([vrquaternion](../classes/vrquaternion.mdx) l, [vrquaternion](../classes/vrquaternion.mdx) r)<br />Returns the dot product of two quaternions.  |
+| [vrquaternion](../classes/vrquaternion.mdx) | **[vrQuaternionFromAxisAngle](#vrquaternionfromaxisangle)**([vrvec3](../classes/vrvec3.mdx) axis, number angle)<br />Return a quaternion constructed from a rotation around an axis.  |
+| [vrquaternion](../classes/vrquaternion.mdx) | **[vrQuaternionFromEulerAngles](#vrquaternionfromeulerangles)**([vrvec3](../classes/vrvec3.mdx) angles)<br />Return a quaternion constructed from euler angles.  |
+| [vrquaternion](../classes/vrquaternion.mdx) | **[vrQuaternionFromMat](#vrquaternionfrommat)**(Any m)<br />Returns a quaternion constructed from a 4x4 matrix.  |
+| [vrquaternion](../classes/vrquaternion.mdx) | **[vrQuaternionLerp](#vrquaternionlerp)**([vrquaternion](../classes/vrquaternion.mdx) l, [vrquaternion](../classes/vrquaternion.mdx) r, number d)<br />Returns the linear interpolation between two quaternions.  |
+| [vrquaternion](../classes/vrquaternion.mdx) | **[vrQuaternionSlerp](#vrquaternionslerp)**([vrquaternion](../classes/vrquaternion.mdx) l, [vrquaternion](../classes/vrquaternion.mdx) r, number d)<br />Returns the spherical interpolation between two quaternions.  |
+| [vrray](../classes/vrray.mdx) | **[vrRay](#vrray)**([vrvec3](../classes/vrvec3.mdx) origin, [vrvec3](../classes/vrvec3.mdx) dir)<br />Returns a ray.  |
+| number | **[vrSmoothStep](#vrsmoothstep)**(number a, number b, number x)<br />Return a smoothly interpolated value between A and B.  |
+| [vrsphere](../classes/vrsphere.mdx) | **[vrSphere](#vrsphere)**([vrvec3](../classes/vrvec3.mdx) position, number radius)<br />Returns a sphere.  |
+| [vrsphere](../classes/vrsphere.mdx) | **[vrSphereMerge](#vrspheremerge)**(Any left, [vrsphere](../classes/vrsphere.mdx) right)<br />Returns a sphere that encapsulates two spheres.  |
+| [vrsphere](../classes/vrsphere.mdx) | **[vrSphereTransform](#vrspheretransform)**(Any sphere, [vrmatrix4](../classes/vrmatrix4.mdx) matrix)<br />Returns a sphere transformed by a matrix.  |
+| void | **[vrSuspendDynamics](#vrsuspenddynamics)**([vrnode](../classes/vrnode.mdx) node, boolean onOff)<br />Enables or disables dynamics.  |
+| boolean | **[vrTestContain](#vrtestcontain)**(Any a, Any b)<br />Returns whether or object A completly contains object B.  |
+| boolean | **[vrTestIntersection](#vrtestintersection)**(Any a, Any b)<br />Returns whether or not two objects are intersecting one another.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrTransformVecByWorldRotation](#vrtransformvecbyworldrotation)**([vrnode](../classes/vrnode.mdx) node, [vrvec3](../classes/vrvec3.mdx) vec)<br />Transforms a vector by the world rotation of the node.  |
+| vec2 | **[vrVec2](#vrvec2)**(number x =0.0, number y =0.0)<br />Returns a 2 dimensional vector.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrVec3](#vrvec3)**(number x =0.0, number y =0.0, number z =0.0)<br />Returns a 3 dimensional vector.  |
+| [vrvec4](../classes/vrvec4.mdx) | **[vrVec4](#vrvec4)**(number x =0.0, number y =0.0, number z =0.0, number w =0.0)<br />Returns a 4 dimensional vector.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrViewInvTransformVec](#vrviewinvtransformvec)**([vrvec3](../classes/vrvec3.mdx) vec, [vrnode](../classes/vrnode.mdx) viewportNode =nil)<br />Transforms a vector by the inverse of the current view matrix.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrViewTransformVec](#vrviewtransformvec)**([vrvec3](../classes/vrvec3.mdx) vec, [vrnode](../classes/vrnode.mdx) viewportNode =nil)<br />Transforms a vector by the current view matrix.  |
 
 ## Functions Documentation
 

@@ -11,169 +11,169 @@ Core functions and types that can be used by Lua scripts and plugins.
 
 | Type           | Name           |
 | -------------- | -------------- |
-| struct | **[MULTI](../Classes/struct_m_u_l_t_i.mdx)** <br />Documentation helper for multi-return functions. Example usage: `pos, rot, scale = vrNodeDecomposeTransform(node)`  |
+| struct | **[MULTI](../classes/multi.mdx)** <br />Documentation helper for multi-return functions. Example usage: `pos, rot, scale = vrNodeDecomposeTransform(node)`  |
 
 ## Functions
 
 | Type           | Name           |
 | -------------- | -------------- |
-| void | **[vrAbortScript](../Modules/group__api__lua.mdx#vrabortscript)**(string name)<br />Aborts a suspended script.  |
-| void | **[vrActivate](../Modules/group__api__lua.mdx#vractivate)**([vrnode](../Classes/structvrnode.mdx) Self, [vrnode](../Classes/structvrnode.mdx) Other =nil)<br />Invokes the Activate event of a Node optionally setting the __Other register.  |
-| void | **[vrAddEventObserver](../Modules/group__api__lua.mdx#vraddeventobserver)**(string uniqueID, string eventType, [vrnode](../Classes/structvrnode.mdx) node, Any callback)<br />Adds an observer and callback function to execute for events (e.g. 'Activate', 'Touch', 'Break', 'Click', 'DoubleClick', etc.)  |
-| void | **[vrAddGlobalEventObserver](../Modules/group__api__lua.mdx#vraddglobaleventobserver)**(string uniqueID, string eventType, Any callback)<br />Adds an observer and callback function to execute for global events (e.g. 'KeyPress', 'KeyRelease', 'PoseEntered', 'PoseLeft', etc.)  |
-| void | **[vrAddMetaNodeObserver](../Modules/group__api__lua.mdx#vraddmetanodeobserver)**(string uniqueID, string metaNode, table callbacks)<br />Adds an observer of events from a MetaNode. This notifies the script whenever a node of type metaNode is created.  |
-| void | **[vrAddNodeObserver](../Modules/group__api__lua.mdx#vraddnodeobserver)**(string uniqueID, node node, table callbacks)<br />Adds an observer of events from a node. This notifies the script in certain circumstances - see the callbacks parameter.  |
-| void | **[vrAddSettingObserver](../Modules/group__api__lua.mdx#vraddsettingobserver)**(string key, Any callback, string settingPath, [vrnode](../Classes/structvrnode.mdx) user =nil)<br />Adds an observer of a setting. This notifies the script whenever the setting changes.  |
-| void | **[vrAddTransformNodeObserver](../Modules/group__api__lua.mdx#vraddtransformnodeobserver)**(string uniqueID, Any transformCallback, Any enabledCallback, [vrnode](../Classes/structvrnode.mdx) node, [vrnode](../Classes/structvrnode.mdx) user =nil)<br />Add an observer to the SGNode of a vrtree node.  |
-| void | **[vrAppCommandAdd](../Modules/group__api__lua.mdx#vrappcommandadd)**(string commandName)<br />Adds an app command and binds a lua function call to it.  |
-| void | **[vrAppCommandBind](../Modules/group__api__lua.mdx#vrappcommandbind)**(string commandName, Any func)<br />Binds a lua function to an app command.  |
-| string | **[vrAppDir](../Modules/group__api__lua.mdx#vrappdir)**()<br />Gets the Visionary Render application directory.  |
-| void | **[vrArrange](../Modules/group__api__lua.mdx#vrarrange)**([vrnode](../Classes/structvrnode.mdx) targetNode, string type)<br />Arranges assemblies into a grid based on their bounds.  |
-| void | **[vrBuildCurveViewConfig](../Modules/group__api__lua.mdx#vrbuildcurveviewconfig)**(number radius, number angle, number height, number segments, boolean smoothCurve, [vrnode](../Classes/structvrnode.mdx) user =nil, [vrnode](../Classes/structvrnode.mdx) camera, [vrnode](../Classes/structvrnode.mdx) screens =nil, [vrnode](../Classes/structvrnode.mdx) viewportLayout)<br />Creates or updates the PhysicalScreen and Viewport nodes for a curved screen.  |
-| void | **[vrCaptureCleanState](../Modules/group__api__lua.mdx#vrcapturecleanstate)**()<br />Captures the current state of the Lua global environment.  |
-| void | **[vrCaptureViewpoint](../Modules/group__api__lua.mdx#vrcaptureviewpoint)**([vrnode](../Classes/structvrnode.mdx) viewpoint, number size, string captureComplete, string textureCreate =0)<br />Captures the view from a specified viewpoint into a texture.  |
-| boolean | **[vrClearSelection](../Modules/group__api__lua.mdx#vrclearselection)**([vrnode](../Classes/structvrnode.mdx) selectionGroup)<br />Clears the selection in the specified selection group.  |
-| void | **[vrClusterMaster](../Modules/group__api__lua.mdx#vrclustermaster)**()<br />Returns true if the local user is a cluster master.  |
-| void | **[vrClusterSlave](../Modules/group__api__lua.mdx#vrclusterslave)**()<br />Returns true if the local user is a cluster slave.  |
-| boolean | **[vrConfigModeAvailable](../Modules/group__api__lua.mdx#vrconfigmodeavailable)**(number mode =CM_MODE_COUNT)<br />Returns true or false if the specified mode is available.  |
-| void | **[vrConstrainNodeToBounds](../Modules/group__api__lua.mdx#vrconstrainnodetobounds)**([vrnode](../Classes/structvrnode.mdx) node =nil, [vrbox](../Classes/structvrbox.mdx) bbox =nil)<br />Constrains a node with a TransformLimit to a bounding box.  |
-| void | **[vrCopyBitmap](../Modules/group__api__lua.mdx#vrcopybitmap)**([vrnode](../Classes/structvrnode.mdx) node)<br />Copies the texture data from a node onto the Windows clipboard.  |
-| void | **[vrCopySelectionToClipboard](../Modules/group__api__lua.mdx#vrcopyselectiontoclipboard)**([vrnode](../Classes/structvrnode.mdx) selectionToCopy)<br />Copies the specified selection group to the clipboard.  |
-| void | **[vrCopyToClipboard](../Modules/group__api__lua.mdx#vrcopytoclipboard)**([vrnode](../Classes/structvrnode.mdx) nodeToCopy)<br />Copies the specified node to the clipboard.  |
-| void | **[vrCreateGradient](../Modules/group__api__lua.mdx#vrcreategradient)**()<br />Creates a new gradient.  |
-| void | **[vrCreateSequence](../Modules/group__api__lua.mdx#vrcreatesequence)**()<br />Adds a child sequence to a selected node or the Scenes node.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrCreateShape](../Modules/group__api__lua.mdx#vrcreateshape)**(string type, [vrnode](../Classes/structvrnode.mdx) parent)<br />Creates a new shape and attaches it to a parent node.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrCreateShapeData](../Modules/group__api__lua.mdx#vrcreateshapedata)**(string type, [vrnode](../Classes/structvrnode.mdx) parent)<br />Creates vertex and index nodes of a shape and adds them to the Mesh node passed in.  |
-| void | **[vrCreateUserInterface](../Modules/group__api__lua.mdx#vrcreateuserinterface)**([vrnode](../Classes/structvrnode.mdx) uinode)<br />Create the user interface components from the user interface metanode.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrCreateViewpoint](../Modules/group__api__lua.mdx#vrcreateviewpoint)**([vrnode](../Classes/structvrnode.mdx) parent =nil, string name =0)<br />Creates a viewpoint at the current camera position.  |
-| void | **[vrCursorGetTouchedAssembly](../Modules/group__api__lua.mdx#vrcursorgettouchedassembly)**()<br />Gets the first assembly currently under the mouse cursor.  |
-| void | **[vrCursorGetTouchedGeoGroup](../Modules/group__api__lua.mdx#vrcursorgettouchedgeogroup)**()<br />Gets the first geogroup currently under the mouse cursor.  |
-| void | **[vrCursorGetTouchedModel](../Modules/group__api__lua.mdx#vrcursorgettouchedmodel)**()<br />Gets the first model currently under the mouse cursor.  |
-| void | **[vrCursorGetTouchedVisual](../Modules/group__api__lua.mdx#vrcursorgettouchedvisual)**()<br />Gets the first visual currently under the mouse cursor.  |
-| void | **[vrCursorIgnoreNode](../Modules/group__api__lua.mdx#vrcursorignorenode)**([vrnode](../Classes/structvrnode.mdx) node, boolean ignore)<br />Makes the specified node unpickable with the cursor.  |
-| string | **[vrDataFile](../Modules/group__api__lua.mdx#vrdatafile)**(string path)<br />Gets the specified file path from the Visionary Render application data directory, or an empty string if it does not exist.  |
-| void | **[vrEnableNetwork](../Modules/group__api__lua.mdx#vrenablenetwork)**()<br />Enables networking capabilities.  |
-| void | **[vrEnableNodeWhenConfigModeAvailable](../Modules/group__api__lua.mdx#vrenablenodewhenconfigmodeavailable)**([vrnode](../Classes/structvrnode.mdx) node, number mode =CM_MODE_COUNT)<br />Makes a button available when the specified mode is avaliable.  |
-| void | **[vrEnableNodeWhenOculusAvailable](../Modules/group__api__lua.mdx#vrenablenodewhenoculusavailable)**([vrnode](../Classes/structvrnode.mdx) node)<br />Makes a button available when an Oculus Rift is connected. Note: this function is for the legacy Oculus mode without Touch controllers.  |
-| void | **[vrEnableNodeWhenOculusTouchAvailable](../Modules/group__api__lua.mdx#vrenablenodewhenoculustouchavailable)**([vrnode](../Classes/structvrnode.mdx) node)<br />Makes a button available when an Oculus Touch is connected.  |
-| void | **[vrEnableNodeWhenOpenVRAvailable](../Modules/group__api__lua.mdx#vrenablenodewhenopenvravailable)**([vrnode](../Classes/structvrnode.mdx) node)<br />Makes a button available when an OpenVR HMD is connected.  |
-| void | **[vrEnableNodeWhenZSpaceAvailable](../Modules/group__api__lua.mdx#vrenablenodewhenzspaceavailable)**([vrnode](../Classes/structvrnode.mdx) node)<br />Makes a button available when a zSpace device is detected.  |
-| void | **[vrExtractBinaryAssets](../Modules/group__api__lua.mdx#vrextractbinaryassets)**([vrnode](../Classes/structvrnode.mdx) fromNode, string path, boolean overwrite =true)<br />Extracts binary data from texture or audio nodes.  |
-| boolean | **[vrFileExists](../Modules/group__api__lua.mdx#vrfileexists)**(string path)<br />Returns true if the specified file exists.  |
-| void | **[vrFindAndOptimizeModels](../Modules/group__api__lua.mdx#vrfindandoptimizemodels)**([vrnode](../Classes/structvrnode.mdx) node)<br />Finds and optimises model nodes.  |
-| boolean | **[vrFolderExists](../Modules/group__api__lua.mdx#vrfolderexists)**(string path)<br />Returns true if the specified folder exists.  |
-| void | **[vrForkApp](../Modules/group__api__lua.mdx#vrforkapp)**()<br />Forks the application into another process.  |
-| void | **[vrGenerateQRCodeFile](../Modules/group__api__lua.mdx#vrgenerateqrcodefile)**(string content, string filename, number border =4, number pixelsPerModule =32, number errorCorrection =0)<br />Generates a QR code and saves it to a file.  |
-| void | **[vrGenLightning](../Modules/group__api__lua.mdx#vrgenlightning)**()<br />Generates a lightning polyline.  |
-| void | **[vrGeometryOp](../Modules/group__api__lua.mdx#vrgeometryop)**(string type, [vrnode](../Classes/structvrnode.mdx) node)<br />Performs a geometry operation.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrGetActivatorNode](../Modules/group__api__lua.mdx#vrgetactivatornode)**()<br />Gets the node which activated the event.  |
-| [MULTI](../Classes/struct_m_u_l_t_i.mdx)< boolean, string > | **[vrGetAllDocHelp](../Modules/group__api__lua.mdx#vrgetalldochelp)**(boolean doxyFormat =false, string outputPath =0)<br />Gets the entire Lua API reference, either to a string or a file.  |
-|[vrnode](../Classes/structvrnode.mdx) | **[vrGetClipboardNode](../Modules/group__api__lua.mdx#vrgetclipboardnode)**()<br />Returns the node containing the clipboard content, or nil if nothing is on the clipboard.  |
-| boolean | **[vrGetCommandLineSwitch](../Modules/group__api__lua.mdx#vrgetcommandlineswitch)**(string name)<br />Returns whether or not a command line switch was specified.  |
-| string | **[vrGetCommandLineSwitchValue](../Modules/group__api__lua.mdx#vrgetcommandlineswitchvalue)**(string name)<br />Returns the value of a command line switch.  |
-| table | **[vrGetContactPoints](../Modules/group__api__lua.mdx#vrgetcontactpoints)**([vrnode](../Classes/structvrnode.mdx) nodeA, [vrnode](../Classes/structvrnode.mdx) nodeB)<br />Returns a list of contact points and normals between two nodes.  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[vrGetCursorPosition](../Modules/group__api__lua.mdx#vrgetcursorposition)**()<br />Get the mouse cursor's current position.  |
-| void | **[vrGetGradientColourAt](../Modules/group__api__lua.mdx#vrgetgradientcolourat)**([vrnode](../Classes/structvrnode.mdx) gradientNode, number value)<br />Gets the gradient colour (as RGB value) at the specified position.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrGetHoldingUser](../Modules/group__api__lua.mdx#vrgetholdinguser)**([vrnode](../Classes/structvrnode.mdx) node)<br />Return the user that is holding the node.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrGetIconsLibrary](../Modules/group__api__lua.mdx#vrgeticonslibrary)**(boolean create =true)<br />Gets the library in which browser icons are stored.  |
-| table | **[vrGetImporterFileExtensions](../Modules/group__api__lua.mdx#vrgetimporterfileextensions)**(string importerName)<br />Gets the file extensions associated with an importer plugin.  |
-| table | **[vrGetImporterList](../Modules/group__api__lua.mdx#vrgetimporterlist)**()<br />Gets the names of all installed data importer plugins.  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[vrGetLastClickedCursorPosition](../Modules/group__api__lua.mdx#vrgetlastclickedcursorposition)**([vrnode](../Classes/structvrnode.mdx) user =nil)<br />Get the position of the cursor when the mouse was last clicked.  |
-| string | **[vrGetLastOpenDir](../Modules/group__api__lua.mdx#vrgetlastopendir)**()<br />Returns the last directory selected.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrGetLastViewSelectionGroup](../Modules/group__api__lua.mdx#vrgetlastviewselectiongroup)**()<br />Returns the selection group that was added to.  |
-| table | **[vrGetRecentFileList](../Modules/group__api__lua.mdx#vrgetrecentfilelist)**()<br />Returns the list of recent files.  |
-| table | **[vrGetRecentFolderList](../Modules/group__api__lua.mdx#vrgetrecentfolderlist)**()<br />Returns the list of recent folders.  |
-| table | **[vrGetRecentImportFileList](../Modules/group__api__lua.mdx#vrgetrecentimportfilelist)**()<br />Returns the list of recent import files.  |
-| table | **[vrGetRecentImportFolderList](../Modules/group__api__lua.mdx#vrgetrecentimportfolderlist)**()<br />Returns the list of recent import folders.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrGetTrackedEyeNode](../Modules/group__api__lua.mdx#vrgettrackedeyenode)**()<br />Gets the current tracked eye node.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrGetTrackedHandNode](../Modules/group__api__lua.mdx#vrgettrackedhandnode)**(number index =-1)<br />Gets the current tracked hand node.  |
-| [vrvec3](../Classes/structvrvec3.mdx) | **[vrGetUserOffset](../Modules/group__api__lua.mdx#vrgetuseroffset)**(boolean world =true, boolean atHeadHeight =false)<br />Gets the offset from the body to the user's standing position.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrGetViewportLayout](../Modules/group__api__lua.mdx#vrgetviewportlayout)**([vrnode](../Classes/structvrnode.mdx) userNode =nil)<br />Gets the user's current viewport layout.  |
-| string | **[vrGetVisRenRevision](../Modules/group__api__lua.mdx#vrgetvisrenrevision)**()<br />Returns the revision number of Visionary Render being used.  |
-| string | **[vrGetVisRenVersion](../Modules/group__api__lua.mdx#vrgetvisrenversion)**()<br />Returns the version number of Visionary Render being used.  |
-| void | **[vrGrabObjectWithTrackedHand](../Modules/group__api__lua.mdx#vrgrabobjectwithtrackedhand)**([vrnode](../Classes/structvrnode.mdx) target, boolean moveToHand =true, boolean rotateToHand =true, boolean scaleToHand =true, boolean releaseOthers =true, number handIndex =-1, [vrnode](../Classes/structvrnode.mdx) user =nil)<br />Attaches a target node to the hand.  |
-| void | **[vrGroupAddMember](../Modules/group__api__lua.mdx#vrgroupaddmember)**([vrnode](../Classes/structvrnode.mdx) groupNode, [vrnode](../Classes/structvrnode.mdx) memberNode)<br />Adds a node to the specified group.  |
-| void | **[vrGroupHasNodeOfType](../Modules/group__api__lua.mdx#vrgrouphasnodeoftype)**([vrnode](../Classes/structvrnode.mdx) groupNode, string metaType)<br />Checks whether a group contains a node of a specified type.  |
-| void | **[vrGroupRemoveMember](../Modules/group__api__lua.mdx#vrgroupremovemember)**([vrnode](../Classes/structvrnode.mdx) groupNode, [vrnode](../Classes/structvrnode.mdx) memberNode)<br />Removes a node from the specified group.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrGroupSnapshot](../Modules/group__api__lua.mdx#vrgroupsnapshot)**([vrnode](../Classes/structvrnode.mdx) groupNode)<br />Creates a snapshot of the specified group.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrGroupsRoot](../Modules/group__api__lua.mdx#vrgroupsroot)**(boolean noCreate =false)<br />Gets the Groups root node under the Scenes tree.  |
-| boolean | **[vrHasPermission](../Modules/group__api__lua.mdx#vrhaspermission)**(string permission, [vrnode](../Classes/structvrnode.mdx) originatorNode =nil)<br />Queries whether or not we have a named permission.  |
-| void | **[vrHistoryAddMark](../Modules/group__api__lua.mdx#vrhistoryaddmark)**()<br />Adds an undo point in to the History.  |
-| void | **[vrHistoryClear](../Modules/group__api__lua.mdx#vrhistoryclear)**()<br />Erases the undo history.  |
-| void | **[vrHistoryStepBack](../Modules/group__api__lua.mdx#vrhistorystepback)**()<br />Undoes the history to the previous history mark.  |
-| void | **[vrHistoryStepForward](../Modules/group__api__lua.mdx#vrhistorystepforward)**()<br />Redoes the history to the next history mark.  |
-| void | **[vrImportAssetLibrary](../Modules/group__api__lua.mdx#vrimportassetlibrary)**(string file)<br />Imports an asset library.  |
-| boolean | **[vrInCoroutine](../Modules/group__api__lua.mdx#vrincoroutine)**(string script)<br />Executes the specified piece of Lua in a coroutine.  |
-| void | **[vrIsClustered](../Modules/group__api__lua.mdx#vrisclustered)**()<br />Returns true if running in a cluster configuration.  |
-| void | **[vrIsDebugBuild](../Modules/group__api__lua.mdx#vrisdebugbuild)**()<br />Returns true if the DEBUG compilation flag was defined.  |
-| boolean | **[vrIsEditableScriptNode](../Modules/group__api__lua.mdx#vriseditablescriptnode)**([vrnode](../Classes/structvrnode.mdx) node)<br />Returns true if the supplied node contains a script property supported by the script editor.  |
-| boolean | **[vrIsStereoAvailable](../Modules/group__api__lua.mdx#vrisstereoavailable)**(number mode =0)<br />Returns true if stereo 3D is available in the current instance of Visionary Render.  |
-| boolean | **[vrIsSystemNode](../Modules/group__api__lua.mdx#vrissystemnode)**([vrnode](../Classes/structvrnode.mdx) node)<br />Returns true if the system node is an ancestor of node.  |
-| boolean | **[vrIsToolEnabled](../Modules/group__api__lua.mdx#vristoolenabled)**(string toolName, [vrnode](../Classes/structvrnode.mdx) userNode =nil)<br />Tests whether a named Tool is enabled.  |
-| boolean | **[vrIsTrackingEnabled](../Modules/group__api__lua.mdx#vristrackingenabled)**()<br />Gets the enabled state of the user's tracking.  |
-| boolean | **[vrLaunchProcess](../Modules/group__api__lua.mdx#vrlaunchprocess)**(string cmdline, boolean pipeOutput =false, number timeout =0.0)<br />Launches a command or application asynchronously.  |
-| void | **[vrLinkNetwork](../Modules/group__api__lua.mdx#vrlinknetwork)**(string host, number port)<br />Links to another application instance forming a Peer-To-Peer network.  |
-| string | **[vrListExports](../Modules/group__api__lua.mdx#vrlistexports)**()<br />List all Lua VR extension functions.  |
-| table | **[vrListSleepingScripts](../Modules/group__api__lua.mdx#vrlistsleepingscripts)**(boolean details =false)<br />Lists the scripts currently suspended, awaiting resume.  |
-| void | **[vrLoadAvatarFromFile](../Modules/group__api__lua.mdx#vrloadavatarfromfile)**([vrnode](../Classes/structvrnode.mdx) parent, string filename)<br />Loads an avatar from a file and places it as a child to parent node.  |
-| void | **[vrLoadAvatarFromFileToEdit](../Modules/group__api__lua.mdx#vrloadavatarfromfiletoedit)**([vrnode](../Classes/structvrnode.mdx) parent, string filename)<br />Loads an avatar from a file and places it in a scene to edit. Can be saved by using Developer->Save Avatar.  |
-| void | **[vrLoadPlugin](../Modules/group__api__lua.mdx#vrloadplugin)**(string pluginName, string pluginVersion, string pluginInternalName, string pluginDir) |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrLocalUserNode](../Modules/group__api__lua.mdx#vrlocalusernode)**()<br />Returns the local user's node.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrMakeArrow](../Modules/group__api__lua.mdx#vrmakearrow)**([vrnode](../Classes/structvrnode.mdx) parent, string name, number length, number width, number centreBias)<br />Creates an arrow shape.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrMakeBox](../Modules/group__api__lua.mdx#vrmakebox)**([vrnode](../Classes/structvrnode.mdx) parent, string name, number width, number height, number depth)<br />Creates a box shape.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrMakeCylinder](../Modules/group__api__lua.mdx#vrmakecylinder)**([vrnode](../Classes/structvrnode.mdx) parent, string name, number bottomRadius, number topRadius, number height)<br />Creates a cylinder shape.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrMakeEllipsoid](../Modules/group__api__lua.mdx#vrmakeellipsoid)**([vrnode](../Classes/structvrnode.mdx) parent, string name, number radiusX, number radiusY, number radiusZ)<br />Creates an ellipsoid shape.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrMakePlane](../Modules/group__api__lua.mdx#vrmakeplane)**([vrnode](../Classes/structvrnode.mdx) parent, string name, number hsize, number vsize)<br />Creates a plane shape.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrMakeTorus](../Modules/group__api__lua.mdx#vrmaketorus)**([vrnode](../Classes/structvrnode.mdx) parent, string name, number radius, number rez, number ringRadius, number ringRez)<br />Creates a torus shape.  |
-| boolean | **[vrModifierPressed](../Modules/group__api__lua.mdx#vrmodifierpressed)**(number id)<br />Tests whether any modifier keys are pressed.  |
-| void | **[vrNetworkSetRetryConnect](../Modules/group__api__lua.mdx#vrnetworksetretryconnect)**(boolean allowRetry)<br />Sets whether failed calls to vrLinkNetwork should retry until the user manual aborts them.  |
-| table | **[vrParseJSON](../Modules/group__api__lua.mdx#vrparsejson)**(string data)<br />Parse JSON data into a Lua table.  |
-| table | **[vrParseXML](../Modules/group__api__lua.mdx#vrparsexml)**(string xml)<br />Converts an XML string into a hierarchy of nested LUA tables.  |
-| void | **[vrPasteAsChild](../Modules/group__api__lua.mdx#vrpasteaschild)**([vrnode](../Classes/structvrnode.mdx) targetNode)<br />Pastes the contents of the clipboard as a child to the target node.  |
-| void | **[vrPasteAsChildToSelection](../Modules/group__api__lua.mdx#vrpasteaschildtoselection)**([vrnode](../Classes/structvrnode.mdx) viewSelection)<br />Pastes the contents of the clipboard as a child to the selection group.  |
-| void | **[vrPasteAsLinkToSelection](../Modules/group__api__lua.mdx#vrpasteaslinktoselection)**([vrnode](../Classes/structvrnode.mdx) selectionGroup, string targetMetaNodeName, string targetPropertyName)<br />Pastes the nodes on the clipboard as a link into the target property of the specified selection group.  |
-| void | **[vrPasteAsSibling](../Modules/group__api__lua.mdx#vrpasteassibling)**([vrnode](../Classes/structvrnode.mdx) targetNode)<br />Pastes the contents of the clipboard as a sibling to the specified node.  |
-| void | **[vrPasteAsSiblingToSelection](../Modules/group__api__lua.mdx#vrpasteassiblingtoselection)**([vrnode](../Classes/structvrnode.mdx) selectionGroup)<br />Pastes the contents of the clipboard as a sibling to the specified selection group.  |
-| void | **[vrPastePropagateLink](../Modules/group__api__lua.mdx#vrpastepropagatelink)**([vrnode](../Classes/structvrnode.mdx) selectionGroup, string targetMetaNodeName, string targetPropertyName)<br />Pastes the nodes on the clipboard as a link into all matching nodes and target properties.  |
-| string | **[vrPluginsDir](../Modules/group__api__lua.mdx#vrpluginsdir)**()<br />Gets the Visionary Render plugins directory.  |
-| void | **[vrPostCommand](../Modules/group__api__lua.mdx#vrpostcommand)**(string cmd, string param =0, [vrnode](../Classes/structvrnode.mdx) user =nil)<br />Posts a command to be processed by Visionary Render.  |
-| void | **[vrPrimaryUserNode](../Modules/group__api__lua.mdx#vrprimaryusernode)**()<br />Returns the cluster master's user node, or the local user node if unclustered.  |
-| void | **[vrPushRecentFile](../Modules/group__api__lua.mdx#vrpushrecentfile)**(string file)<br />Adds a file to the end of the list of recent files and its folder to the end of the list of recent folders.  |
-| void | **[vrPushRecentImportFile](../Modules/group__api__lua.mdx#vrpushrecentimportfile)**(string file)<br />Adds a file to the end of the list of recent imports and its folder to the end of the list of recent import folders.  |
-| void | **[vrReleaseObjectFromTrackedHand](../Modules/group__api__lua.mdx#vrreleaseobjectfromtrackedhand)**([vrnode](../Classes/structvrnode.mdx) target =nil, number handIndex =-1, [vrnode](../Classes/structvrnode.mdx) user =nil)<br />Releases a node attached to the hand. This works in conjunction with vrGrabObjectWithTrackedHand and the TrackedManipulatorTool.  |
-| void | **[vrReloadAudio](../Modules/group__api__lua.mdx#vrreloadaudio)**([vrnode](../Classes/structvrnode.mdx) node)<br />Finds audio nodes and reloads the audio data from the associated files.  |
-| void | **[vrReloadTextures](../Modules/group__api__lua.mdx#vrreloadtextures)**([vrnode](../Classes/structvrnode.mdx) node)<br />Recursively finds texture nodes and reloads the texture data from the associated files.  |
-| void | **[vrRemoveObserver](../Modules/group__api__lua.mdx#vrremoveobserver)**(string uniqueID)<br />Removes an observer.  |
-| void | **[vrRemoveRecentItem](../Modules/group__api__lua.mdx#vrremoverecentitem)**(string file, string nodeName)<br />Removes a recent file, folder or import from the corresponding list.  |
-| void | **[vrRemoveTransformLimits](../Modules/group__api__lua.mdx#vrremovetransformlimits)**([vrnode](../Classes/structvrnode.mdx) node, string type)<br />Removes the TransformLimits on a node.  |
-| string | **[vrRequestFolder](../Modules/group__api__lua.mdx#vrrequestfolder)**(string caption =0, string initialDir =0)<br />Invokes a dialog to select a folder.  |
-| string | **[vrRequestLoadFile](../Modules/group__api__lua.mdx#vrrequestloadfile)**(string caption =0, string initialDir =0, string filterStr =0, string defaultExt =0)<br />Invokes a dialog to load a file.  |
-| string | **[vrRequestSaveFile](../Modules/group__api__lua.mdx#vrrequestsavefile)**(string caption =0, string initialDir =0, string filterStr =0, string defaultExt =0, string defaultFile =0)<br />Invokes a dialog to save a file.  |
-| void | **[vrRescalePRSManipulator](../Modules/group__api__lua.mdx#vrrescaleprsmanipulator)**()<br />Refreshes the scale of the PRS manipulator.  |
-| void | **[vrRevertToCleanState](../Modules/group__api__lua.mdx#vrreverttocleanstate)**()<br />Restores the captured state of the Lua global environment.  |
-| void | **[vrSearchView](../Modules/group__api__lua.mdx#vrsearchview)**(string view, string searchString)<br />Sets the search query for a specified view.  |
-| void | **[vrSetAppQuitHook](../Modules/group__api__lua.mdx#vrsetappquithook)**(string luaFunc)<br />Specify a lua function to be called when user tries to quit the application.  |
-| void | **[vrSetConfigMode](../Modules/group__api__lua.mdx#vrsetconfigmode)**(number mode =CM_MODE_COUNT)<br />Sets the config to the specified mode, if its available.  |
-| void | **[vrSetScriptIdentifier](../Modules/group__api__lua.mdx#vrsetscriptidentifier)**(string name)<br />Sets an identifier for the Lua execution.  |
-| void | **[vrSetScriptTimeout](../Modules/group__api__lua.mdx#vrsetscripttimeout)**(number time)<br />Overrides the default Lua timeout for scripts, until the next script event is triggered.  |
-| void | **[vrSetToolEnabled](../Modules/group__api__lua.mdx#vrsettoolenabled)**(string toolName, boolean enabled, [vrnode](../Classes/structvrnode.mdx) userNode =nil)<br />Sets the Enabled state of a named Tool.  |
-| void | **[vrSetTrackedEyeNode](../Modules/group__api__lua.mdx#vrsettrackedeyenode)**([vrnode](../Classes/structvrnode.mdx) node =nil)<br />Sets the tracked eye to the specified node.  |
-| void | **[vrSetTrackedHandNode](../Modules/group__api__lua.mdx#vrsettrackedhandnode)**([vrnode](../Classes/structvrnode.mdx) node =nil, number index =1)<br />Sets the tracked hand to the specified node.  |
-| void | **[vrSetTransformLimits](../Modules/group__api__lua.mdx#vrsettransformlimits)**([vrnode](../Classes/structvrnode.mdx) node, string type, string limitType, boolean x, boolean y, boolean z)<br />Adds transform limits onto a node.  |
-| void | **[vrSetViewportLayout](../Modules/group__api__lua.mdx#vrsetviewportlayout)**([vrnode](../Classes/structvrnode.mdx) viewportLayoutNode, [vrnode](../Classes/structvrnode.mdx) userNode =nil)<br />Sets the user's current viewport layout.  |
-| boolean | **[vrShouldSaveCamera](../Modules/group__api__lua.mdx#vrshouldsavecamera)**()<br />Returns true if the camera position should be saved into documents.  |
-| void | **[vrSnapshotApply](../Modules/group__api__lua.mdx#vrsnapshotapply)**([vrnode](../Classes/structvrnode.mdx) snapNode)<br />Applies the specified snapshot.  |
-| [MULTI](../Classes/struct_m_u_l_t_i.mdx)< string, string, string > | **[vrSplitFilePath](../Modules/group__api__lua.mdx#vrsplitfilepath)**(string path)<br />Returns file directory, name, and extension.  |
-| table | **[vrSubDirs](../Modules/group__api__lua.mdx#vrsubdirs)**(string path)<br />Gets the subdirectories of a directory.  |
-| void | **[vrToggleProjection](../Modules/group__api__lua.mdx#vrtoggleprojection)**()<br />Toggles the current viewport between perspective and orthographic views.  |
-| void | **[vrToggleToolEnabled](../Modules/group__api__lua.mdx#vrtoggletoolenabled)**(string toolName, [vrnode](../Classes/structvrnode.mdx) userNode =nil)<br />Toggles the Enabled state of a named Tool.  |
-| void | **[vrTrackedCursorGetTouchedAssembly](../Modules/group__api__lua.mdx#vrtrackedcursorgettouchedassembly)**()<br />Gets the first assembly currently under the tracked cursor.  |
-| void | **[vrUnloadPlugin](../Modules/group__api__lua.mdx#vrunloadplugin)**(string pluginInfo) |
-| string | **[vrUserDocumentsDir](../Modules/group__api__lua.mdx#vruserdocumentsdir)**()<br />Gets the current user's documents directory.  |
-| string | **[vrUserPluginsDir](../Modules/group__api__lua.mdx#vruserpluginsdir)**()<br />Gets the current applications users plug-ins directory.  |
-| [vrnode](../Classes/structvrnode.mdx) | **[vrUsersNode](../Modules/group__api__lua.mdx#vrusersnode)**()<br />Returns the 'Users' node from the tree.  |
-| boolean | **[vrUsingHMD](../Modules/group__api__lua.mdx#vrusinghmd)**()<br />Returns whether or not we are using a HMD.  |
-| void | **[vrYield](../Modules/group__api__lua.mdx#vryield)**(number time =0.0)<br />Yields the Lua execution back to the application for the (approximate) specified time.  |
+| void | **[vrAbortScript](#vrabortscript)**(string name)<br />Aborts a suspended script.  |
+| void | **[vrActivate](#vractivate)**([vrnode](../classes/vrnode.mdx) Self, [vrnode](../classes/vrnode.mdx) Other =nil)<br />Invokes the Activate event of a Node optionally setting the __Other register.  |
+| void | **[vrAddEventObserver](#vraddeventobserver)**(string uniqueID, string eventType, [vrnode](../classes/vrnode.mdx) node, Any callback)<br />Adds an observer and callback function to execute for events (e.g. 'Activate', 'Touch', 'Break', 'Click', 'DoubleClick', etc.)  |
+| void | **[vrAddGlobalEventObserver](#vraddglobaleventobserver)**(string uniqueID, string eventType, Any callback)<br />Adds an observer and callback function to execute for global events (e.g. 'KeyPress', 'KeyRelease', 'PoseEntered', 'PoseLeft', etc.)  |
+| void | **[vrAddMetaNodeObserver](#vraddmetanodeobserver)**(string uniqueID, string metaNode, table callbacks)<br />Adds an observer of events from a MetaNode. This notifies the script whenever a node of type metaNode is created.  |
+| void | **[vrAddNodeObserver](#vraddnodeobserver)**(string uniqueID, node node, table callbacks)<br />Adds an observer of events from a node. This notifies the script in certain circumstances - see the callbacks parameter.  |
+| void | **[vrAddSettingObserver](#vraddsettingobserver)**(string key, Any callback, string settingPath, [vrnode](../classes/vrnode.mdx) user =nil)<br />Adds an observer of a setting. This notifies the script whenever the setting changes.  |
+| void | **[vrAddTransformNodeObserver](#vraddtransformnodeobserver)**(string uniqueID, Any transformCallback, Any enabledCallback, [vrnode](../classes/vrnode.mdx) node, [vrnode](../classes/vrnode.mdx) user =nil)<br />Add an observer to the SGNode of a vrtree node.  |
+| void | **[vrAppCommandAdd](#vrappcommandadd)**(string commandName)<br />Adds an app command and binds a lua function call to it.  |
+| void | **[vrAppCommandBind](#vrappcommandbind)**(string commandName, Any func)<br />Binds a lua function to an app command.  |
+| string | **[vrAppDir](#vrappdir)**()<br />Gets the Visionary Render application directory.  |
+| void | **[vrArrange](#vrarrange)**([vrnode](../classes/vrnode.mdx) targetNode, string type)<br />Arranges assemblies into a grid based on their bounds.  |
+| void | **[vrBuildCurveViewConfig](#vrbuildcurveviewconfig)**(number radius, number angle, number height, number segments, boolean smoothCurve, [vrnode](../classes/vrnode.mdx) user =nil, [vrnode](../classes/vrnode.mdx) camera, [vrnode](../classes/vrnode.mdx) screens =nil, [vrnode](../classes/vrnode.mdx) viewportLayout)<br />Creates or updates the PhysicalScreen and Viewport nodes for a curved screen.  |
+| void | **[vrCaptureCleanState](#vrcapturecleanstate)**()<br />Captures the current state of the Lua global environment.  |
+| void | **[vrCaptureViewpoint](#vrcaptureviewpoint)**([vrnode](../classes/vrnode.mdx) viewpoint, number size, string captureComplete, string textureCreate =0)<br />Captures the view from a specified viewpoint into a texture.  |
+| boolean | **[vrClearSelection](#vrclearselection)**([vrnode](../classes/vrnode.mdx) selectionGroup)<br />Clears the selection in the specified selection group.  |
+| void | **[vrClusterMaster](#vrclustermaster)**()<br />Returns true if the local user is a cluster master.  |
+| void | **[vrClusterSlave](#vrclusterslave)**()<br />Returns true if the local user is a cluster slave.  |
+| boolean | **[vrConfigModeAvailable](#vrconfigmodeavailable)**(number mode =CM_MODE_COUNT)<br />Returns true or false if the specified mode is available.  |
+| void | **[vrConstrainNodeToBounds](#vrconstrainnodetobounds)**([vrnode](../classes/vrnode.mdx) node =nil, [vrbox](../classes/vrbox.mdx) bbox =nil)<br />Constrains a node with a TransformLimit to a bounding box.  |
+| void | **[vrCopyBitmap](#vrcopybitmap)**([vrnode](../classes/vrnode.mdx) node)<br />Copies the texture data from a node onto the Windows clipboard.  |
+| void | **[vrCopySelectionToClipboard](#vrcopyselectiontoclipboard)**([vrnode](../classes/vrnode.mdx) selectionToCopy)<br />Copies the specified selection group to the clipboard.  |
+| void | **[vrCopyToClipboard](#vrcopytoclipboard)**([vrnode](../classes/vrnode.mdx) nodeToCopy)<br />Copies the specified node to the clipboard.  |
+| void | **[vrCreateGradient](#vrcreategradient)**()<br />Creates a new gradient.  |
+| void | **[vrCreateSequence](#vrcreatesequence)**()<br />Adds a child sequence to a selected node or the Scenes node.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrCreateShape](#vrcreateshape)**(string type, [vrnode](../classes/vrnode.mdx) parent)<br />Creates a new shape and attaches it to a parent node.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrCreateShapeData](#vrcreateshapedata)**(string type, [vrnode](../classes/vrnode.mdx) parent)<br />Creates vertex and index nodes of a shape and adds them to the Mesh node passed in.  |
+| void | **[vrCreateUserInterface](#vrcreateuserinterface)**([vrnode](../classes/vrnode.mdx) uinode)<br />Create the user interface components from the user interface metanode.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrCreateViewpoint](#vrcreateviewpoint)**([vrnode](../classes/vrnode.mdx) parent =nil, string name =0)<br />Creates a viewpoint at the current camera position.  |
+| void | **[vrCursorGetTouchedAssembly](#vrcursorgettouchedassembly)**()<br />Gets the first assembly currently under the mouse cursor.  |
+| void | **[vrCursorGetTouchedGeoGroup](#vrcursorgettouchedgeogroup)**()<br />Gets the first geogroup currently under the mouse cursor.  |
+| void | **[vrCursorGetTouchedModel](#vrcursorgettouchedmodel)**()<br />Gets the first model currently under the mouse cursor.  |
+| void | **[vrCursorGetTouchedVisual](#vrcursorgettouchedvisual)**()<br />Gets the first visual currently under the mouse cursor.  |
+| void | **[vrCursorIgnoreNode](#vrcursorignorenode)**([vrnode](../classes/vrnode.mdx) node, boolean ignore)<br />Makes the specified node unpickable with the cursor.  |
+| string | **[vrDataFile](#vrdatafile)**(string path)<br />Gets the specified file path from the Visionary Render application data directory, or an empty string if it does not exist.  |
+| void | **[vrEnableNetwork](#vrenablenetwork)**()<br />Enables networking capabilities.  |
+| void | **[vrEnableNodeWhenConfigModeAvailable](#vrenablenodewhenconfigmodeavailable)**([vrnode](../classes/vrnode.mdx) node, number mode =CM_MODE_COUNT)<br />Makes a button available when the specified mode is avaliable.  |
+| void | **[vrEnableNodeWhenOculusAvailable](#vrenablenodewhenoculusavailable)**([vrnode](../classes/vrnode.mdx) node)<br />Makes a button available when an Oculus Rift is connected. Note: this function is for the legacy Oculus mode without Touch controllers.  |
+| void | **[vrEnableNodeWhenOculusTouchAvailable](#vrenablenodewhenoculustouchavailable)**([vrnode](../classes/vrnode.mdx) node)<br />Makes a button available when an Oculus Touch is connected.  |
+| void | **[vrEnableNodeWhenOpenVRAvailable](#vrenablenodewhenopenvravailable)**([vrnode](../classes/vrnode.mdx) node)<br />Makes a button available when an OpenVR HMD is connected.  |
+| void | **[vrEnableNodeWhenZSpaceAvailable](#vrenablenodewhenzspaceavailable)**([vrnode](../classes/vrnode.mdx) node)<br />Makes a button available when a zSpace device is detected.  |
+| void | **[vrExtractBinaryAssets](#vrextractbinaryassets)**([vrnode](../classes/vrnode.mdx) fromNode, string path, boolean overwrite =true)<br />Extracts binary data from texture or audio nodes.  |
+| boolean | **[vrFileExists](#vrfileexists)**(string path)<br />Returns true if the specified file exists.  |
+| void | **[vrFindAndOptimizeModels](#vrfindandoptimizemodels)**([vrnode](../classes/vrnode.mdx) node)<br />Finds and optimises model nodes.  |
+| boolean | **[vrFolderExists](#vrfolderexists)**(string path)<br />Returns true if the specified folder exists.  |
+| void | **[vrForkApp](#vrforkapp)**()<br />Forks the application into another process.  |
+| void | **[vrGenerateQRCodeFile](#vrgenerateqrcodefile)**(string content, string filename, number border =4, number pixelsPerModule =32, number errorCorrection =0)<br />Generates a QR code and saves it to a file.  |
+| void | **[vrGenLightning](#vrgenlightning)**()<br />Generates a lightning polyline.  |
+| void | **[vrGeometryOp](#vrgeometryop)**(string type, [vrnode](../classes/vrnode.mdx) node)<br />Performs a geometry operation.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrGetActivatorNode](#vrgetactivatornode)**()<br />Gets the node which activated the event.  |
+| [MULTI](../classes/multi.mdx)< boolean, string > | **[vrGetAllDocHelp](#vrgetalldochelp)**(boolean doxyFormat =false, string outputPath =0)<br />Gets the entire Lua API reference, either to a string or a file.  |
+|[vrnode](../classes/vrnode.mdx) | **[vrGetClipboardNode](#vrgetclipboardnode)**()<br />Returns the node containing the clipboard content, or nil if nothing is on the clipboard.  |
+| boolean | **[vrGetCommandLineSwitch](#vrgetcommandlineswitch)**(string name)<br />Returns whether or not a command line switch was specified.  |
+| string | **[vrGetCommandLineSwitchValue](#vrgetcommandlineswitchvalue)**(string name)<br />Returns the value of a command line switch.  |
+| table | **[vrGetContactPoints](#vrgetcontactpoints)**([vrnode](../classes/vrnode.mdx) nodeA, [vrnode](../classes/vrnode.mdx) nodeB)<br />Returns a list of contact points and normals between two nodes.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrGetCursorPosition](#vrgetcursorposition)**()<br />Get the mouse cursor's current position.  |
+| void | **[vrGetGradientColourAt](#vrgetgradientcolourat)**([vrnode](../classes/vrnode.mdx) gradientNode, number value)<br />Gets the gradient colour (as RGB value) at the specified position.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrGetHoldingUser](#vrgetholdinguser)**([vrnode](../classes/vrnode.mdx) node)<br />Return the user that is holding the node.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrGetIconsLibrary](#vrgeticonslibrary)**(boolean create =true)<br />Gets the library in which browser icons are stored.  |
+| table | **[vrGetImporterFileExtensions](#vrgetimporterfileextensions)**(string importerName)<br />Gets the file extensions associated with an importer plugin.  |
+| table | **[vrGetImporterList](#vrgetimporterlist)**()<br />Gets the names of all installed data importer plugins.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrGetLastClickedCursorPosition](#vrgetlastclickedcursorposition)**([vrnode](../classes/vrnode.mdx) user =nil)<br />Get the position of the cursor when the mouse was last clicked.  |
+| string | **[vrGetLastOpenDir](#vrgetlastopendir)**()<br />Returns the last directory selected.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrGetLastViewSelectionGroup](#vrgetlastviewselectiongroup)**()<br />Returns the selection group that was added to.  |
+| table | **[vrGetRecentFileList](#vrgetrecentfilelist)**()<br />Returns the list of recent files.  |
+| table | **[vrGetRecentFolderList](#vrgetrecentfolderlist)**()<br />Returns the list of recent folders.  |
+| table | **[vrGetRecentImportFileList](#vrgetrecentimportfilelist)**()<br />Returns the list of recent import files.  |
+| table | **[vrGetRecentImportFolderList](#vrgetrecentimportfolderlist)**()<br />Returns the list of recent import folders.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrGetTrackedEyeNode](#vrgettrackedeyenode)**()<br />Gets the current tracked eye node.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrGetTrackedHandNode](#vrgettrackedhandnode)**(number index =-1)<br />Gets the current tracked hand node.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrGetUserOffset](#vrgetuseroffset)**(boolean world =true, boolean atHeadHeight =false)<br />Gets the offset from the body to the user's standing position.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrGetViewportLayout](#vrgetviewportlayout)**([vrnode](../classes/vrnode.mdx) userNode =nil)<br />Gets the user's current viewport layout.  |
+| string | **[vrGetVisRenRevision](#vrgetvisrenrevision)**()<br />Returns the revision number of Visionary Render being used.  |
+| string | **[vrGetVisRenVersion](#vrgetvisrenversion)**()<br />Returns the version number of Visionary Render being used.  |
+| void | **[vrGrabObjectWithTrackedHand](#vrgrabobjectwithtrackedhand)**([vrnode](../classes/vrnode.mdx) target, boolean moveToHand =true, boolean rotateToHand =true, boolean scaleToHand =true, boolean releaseOthers =true, number handIndex =-1, [vrnode](../classes/vrnode.mdx) user =nil)<br />Attaches a target node to the hand.  |
+| void | **[vrGroupAddMember](#vrgroupaddmember)**([vrnode](../classes/vrnode.mdx) groupNode, [vrnode](../classes/vrnode.mdx) memberNode)<br />Adds a node to the specified group.  |
+| void | **[vrGroupHasNodeOfType](#vrgrouphasnodeoftype)**([vrnode](../classes/vrnode.mdx) groupNode, string metaType)<br />Checks whether a group contains a node of a specified type.  |
+| void | **[vrGroupRemoveMember](#vrgroupremovemember)**([vrnode](../classes/vrnode.mdx) groupNode, [vrnode](../classes/vrnode.mdx) memberNode)<br />Removes a node from the specified group.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrGroupSnapshot](#vrgroupsnapshot)**([vrnode](../classes/vrnode.mdx) groupNode)<br />Creates a snapshot of the specified group.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrGroupsRoot](#vrgroupsroot)**(boolean noCreate =false)<br />Gets the Groups root node under the Scenes tree.  |
+| boolean | **[vrHasPermission](#vrhaspermission)**(string permission, [vrnode](../classes/vrnode.mdx) originatorNode =nil)<br />Queries whether or not we have a named permission.  |
+| void | **[vrHistoryAddMark](#vrhistoryaddmark)**()<br />Adds an undo point in to the History.  |
+| void | **[vrHistoryClear](#vrhistoryclear)**()<br />Erases the undo history.  |
+| void | **[vrHistoryStepBack](#vrhistorystepback)**()<br />Undoes the history to the previous history mark.  |
+| void | **[vrHistoryStepForward](#vrhistorystepforward)**()<br />Redoes the history to the next history mark.  |
+| void | **[vrImportAssetLibrary](#vrimportassetlibrary)**(string file)<br />Imports an asset library.  |
+| boolean | **[vrInCoroutine](#vrincoroutine)**(string script)<br />Executes the specified piece of Lua in a coroutine.  |
+| void | **[vrIsClustered](#vrisclustered)**()<br />Returns true if running in a cluster configuration.  |
+| void | **[vrIsDebugBuild](#vrisdebugbuild)**()<br />Returns true if the DEBUG compilation flag was defined.  |
+| boolean | **[vrIsEditableScriptNode](#vriseditablescriptnode)**([vrnode](../classes/vrnode.mdx) node)<br />Returns true if the supplied node contains a script property supported by the script editor.  |
+| boolean | **[vrIsStereoAvailable](#vrisstereoavailable)**(number mode =0)<br />Returns true if stereo 3D is available in the current instance of Visionary Render.  |
+| boolean | **[vrIsSystemNode](#vrissystemnode)**([vrnode](../classes/vrnode.mdx) node)<br />Returns true if the system node is an ancestor of node.  |
+| boolean | **[vrIsToolEnabled](#vristoolenabled)**(string toolName, [vrnode](../classes/vrnode.mdx) userNode =nil)<br />Tests whether a named Tool is enabled.  |
+| boolean | **[vrIsTrackingEnabled](#vristrackingenabled)**()<br />Gets the enabled state of the user's tracking.  |
+| boolean | **[vrLaunchProcess](#vrlaunchprocess)**(string cmdline, boolean pipeOutput =false, number timeout =0.0)<br />Launches a command or application asynchronously.  |
+| void | **[vrLinkNetwork](#vrlinknetwork)**(string host, number port)<br />Links to another application instance forming a Peer-To-Peer network.  |
+| string | **[vrListExports](#vrlistexports)**()<br />List all Lua VR extension functions.  |
+| table | **[vrListSleepingScripts](#vrlistsleepingscripts)**(boolean details =false)<br />Lists the scripts currently suspended, awaiting resume.  |
+| void | **[vrLoadAvatarFromFile](#vrloadavatarfromfile)**([vrnode](../classes/vrnode.mdx) parent, string filename)<br />Loads an avatar from a file and places it as a child to parent node.  |
+| void | **[vrLoadAvatarFromFileToEdit](#vrloadavatarfromfiletoedit)**([vrnode](../classes/vrnode.mdx) parent, string filename)<br />Loads an avatar from a file and places it in a scene to edit. Can be saved by using Developer->Save Avatar.  |
+| void | **[vrLoadPlugin](#vrloadplugin)**(string pluginName, string pluginVersion, string pluginInternalName, string pluginDir) |
+| [vrnode](../classes/vrnode.mdx) | **[vrLocalUserNode](#vrlocalusernode)**()<br />Returns the local user's node.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrMakeArrow](#vrmakearrow)**([vrnode](../classes/vrnode.mdx) parent, string name, number length, number width, number centreBias)<br />Creates an arrow shape.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrMakeBox](#vrmakebox)**([vrnode](../classes/vrnode.mdx) parent, string name, number width, number height, number depth)<br />Creates a box shape.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrMakeCylinder](#vrmakecylinder)**([vrnode](../classes/vrnode.mdx) parent, string name, number bottomRadius, number topRadius, number height)<br />Creates a cylinder shape.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrMakeEllipsoid](#vrmakeellipsoid)**([vrnode](../classes/vrnode.mdx) parent, string name, number radiusX, number radiusY, number radiusZ)<br />Creates an ellipsoid shape.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrMakePlane](#vrmakeplane)**([vrnode](../classes/vrnode.mdx) parent, string name, number hsize, number vsize)<br />Creates a plane shape.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrMakeTorus](#vrmaketorus)**([vrnode](../classes/vrnode.mdx) parent, string name, number radius, number rez, number ringRadius, number ringRez)<br />Creates a torus shape.  |
+| boolean | **[vrModifierPressed](#vrmodifierpressed)**(number id)<br />Tests whether any modifier keys are pressed.  |
+| void | **[vrNetworkSetRetryConnect](#vrnetworksetretryconnect)**(boolean allowRetry)<br />Sets whether failed calls to vrLinkNetwork should retry until the user manual aborts them.  |
+| table | **[vrParseJSON](#vrparsejson)**(string data)<br />Parse JSON data into a Lua table.  |
+| table | **[vrParseXML](#vrparsexml)**(string xml)<br />Converts an XML string into a hierarchy of nested LUA tables.  |
+| void | **[vrPasteAsChild](#vrpasteaschild)**([vrnode](../classes/vrnode.mdx) targetNode)<br />Pastes the contents of the clipboard as a child to the target node.  |
+| void | **[vrPasteAsChildToSelection](#vrpasteaschildtoselection)**([vrnode](../classes/vrnode.mdx) viewSelection)<br />Pastes the contents of the clipboard as a child to the selection group.  |
+| void | **[vrPasteAsLinkToSelection](#vrpasteaslinktoselection)**([vrnode](../classes/vrnode.mdx) selectionGroup, string targetMetaNodeName, string targetPropertyName)<br />Pastes the nodes on the clipboard as a link into the target property of the specified selection group.  |
+| void | **[vrPasteAsSibling](#vrpasteassibling)**([vrnode](../classes/vrnode.mdx) targetNode)<br />Pastes the contents of the clipboard as a sibling to the specified node.  |
+| void | **[vrPasteAsSiblingToSelection](#vrpasteassiblingtoselection)**([vrnode](../classes/vrnode.mdx) selectionGroup)<br />Pastes the contents of the clipboard as a sibling to the specified selection group.  |
+| void | **[vrPastePropagateLink](#vrpastepropagatelink)**([vrnode](../classes/vrnode.mdx) selectionGroup, string targetMetaNodeName, string targetPropertyName)<br />Pastes the nodes on the clipboard as a link into all matching nodes and target properties.  |
+| string | **[vrPluginsDir](#vrpluginsdir)**()<br />Gets the Visionary Render plugins directory.  |
+| void | **[vrPostCommand](#vrpostcommand)**(string cmd, string param =0, [vrnode](../classes/vrnode.mdx) user =nil)<br />Posts a command to be processed by Visionary Render.  |
+| void | **[vrPrimaryUserNode](#vrprimaryusernode)**()<br />Returns the cluster master's user node, or the local user node if unclustered.  |
+| void | **[vrPushRecentFile](#vrpushrecentfile)**(string file)<br />Adds a file to the end of the list of recent files and its folder to the end of the list of recent folders.  |
+| void | **[vrPushRecentImportFile](#vrpushrecentimportfile)**(string file)<br />Adds a file to the end of the list of recent imports and its folder to the end of the list of recent import folders.  |
+| void | **[vrReleaseObjectFromTrackedHand](#vrreleaseobjectfromtrackedhand)**([vrnode](../classes/vrnode.mdx) target =nil, number handIndex =-1, [vrnode](../classes/vrnode.mdx) user =nil)<br />Releases a node attached to the hand. This works in conjunction with vrGrabObjectWithTrackedHand and the TrackedManipulatorTool.  |
+| void | **[vrReloadAudio](#vrreloadaudio)**([vrnode](../classes/vrnode.mdx) node)<br />Finds audio nodes and reloads the audio data from the associated files.  |
+| void | **[vrReloadTextures](#vrreloadtextures)**([vrnode](../classes/vrnode.mdx) node)<br />Recursively finds texture nodes and reloads the texture data from the associated files.  |
+| void | **[vrRemoveObserver](#vrremoveobserver)**(string uniqueID)<br />Removes an observer.  |
+| void | **[vrRemoveRecentItem](#vrremoverecentitem)**(string file, string nodeName)<br />Removes a recent file, folder or import from the corresponding list.  |
+| void | **[vrRemoveTransformLimits](#vrremovetransformlimits)**([vrnode](../classes/vrnode.mdx) node, string type)<br />Removes the TransformLimits on a node.  |
+| string | **[vrRequestFolder](#vrrequestfolder)**(string caption =0, string initialDir =0)<br />Invokes a dialog to select a folder.  |
+| string | **[vrRequestLoadFile](#vrrequestloadfile)**(string caption =0, string initialDir =0, string filterStr =0, string defaultExt =0)<br />Invokes a dialog to load a file.  |
+| string | **[vrRequestSaveFile](#vrrequestsavefile)**(string caption =0, string initialDir =0, string filterStr =0, string defaultExt =0, string defaultFile =0)<br />Invokes a dialog to save a file.  |
+| void | **[vrRescalePRSManipulator](#vrrescaleprsmanipulator)**()<br />Refreshes the scale of the PRS manipulator.  |
+| void | **[vrRevertToCleanState](#vrreverttocleanstate)**()<br />Restores the captured state of the Lua global environment.  |
+| void | **[vrSearchView](#vrsearchview)**(string view, string searchString)<br />Sets the search query for a specified view.  |
+| void | **[vrSetAppQuitHook](#vrsetappquithook)**(string luaFunc)<br />Specify a lua function to be called when user tries to quit the application.  |
+| void | **[vrSetConfigMode](#vrsetconfigmode)**(number mode =CM_MODE_COUNT)<br />Sets the config to the specified mode, if its available.  |
+| void | **[vrSetScriptIdentifier](#vrsetscriptidentifier)**(string name)<br />Sets an identifier for the Lua execution.  |
+| void | **[vrSetScriptTimeout](#vrsetscripttimeout)**(number time)<br />Overrides the default Lua timeout for scripts, until the next script event is triggered.  |
+| void | **[vrSetToolEnabled](#vrsettoolenabled)**(string toolName, boolean enabled, [vrnode](../classes/vrnode.mdx) userNode =nil)<br />Sets the Enabled state of a named Tool.  |
+| void | **[vrSetTrackedEyeNode](#vrsettrackedeyenode)**([vrnode](../classes/vrnode.mdx) node =nil)<br />Sets the tracked eye to the specified node.  |
+| void | **[vrSetTrackedHandNode](#vrsettrackedhandnode)**([vrnode](../classes/vrnode.mdx) node =nil, number index =1)<br />Sets the tracked hand to the specified node.  |
+| void | **[vrSetTransformLimits](#vrsettransformlimits)**([vrnode](../classes/vrnode.mdx) node, string type, string limitType, boolean x, boolean y, boolean z)<br />Adds transform limits onto a node.  |
+| void | **[vrSetViewportLayout](#vrsetviewportlayout)**([vrnode](../classes/vrnode.mdx) viewportLayoutNode, [vrnode](../classes/vrnode.mdx) userNode =nil)<br />Sets the user's current viewport layout.  |
+| boolean | **[vrShouldSaveCamera](#vrshouldsavecamera)**()<br />Returns true if the camera position should be saved into documents.  |
+| void | **[vrSnapshotApply](#vrsnapshotapply)**([vrnode](../classes/vrnode.mdx) snapNode)<br />Applies the specified snapshot.  |
+| [MULTI](../classes/multi.mdx)< string, string, string > | **[vrSplitFilePath](#vrsplitfilepath)**(string path)<br />Returns file directory, name, and extension.  |
+| table | **[vrSubDirs](#vrsubdirs)**(string path)<br />Gets the subdirectories of a directory.  |
+| void | **[vrToggleProjection](#vrtoggleprojection)**()<br />Toggles the current viewport between perspective and orthographic views.  |
+| void | **[vrToggleToolEnabled](#vrtoggletoolenabled)**(string toolName, [vrnode](../classes/vrnode.mdx) userNode =nil)<br />Toggles the Enabled state of a named Tool.  |
+| void | **[vrTrackedCursorGetTouchedAssembly](#vrtrackedcursorgettouchedassembly)**()<br />Gets the first assembly currently under the tracked cursor.  |
+| void | **[vrUnloadPlugin](#vrunloadplugin)**(string pluginInfo) |
+| string | **[vrUserDocumentsDir](#vruserdocumentsdir)**()<br />Gets the current user's documents directory.  |
+| string | **[vrUserPluginsDir](#vruserpluginsdir)**()<br />Gets the current applications users plug-ins directory.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrUsersNode](#vrusersnode)**()<br />Returns the 'Users' node from the tree.  |
+| boolean | **[vrUsingHMD](#vrusinghmd)**()<br />Returns whether or not we are using a HMD.  |
+| void | **[vrYield](#vryield)**(number time =0.0)<br />Yields the Lua execution back to the application for the (approximate) specified time.  |
 
 ## Functions Documentation
 
@@ -222,7 +222,7 @@ Adds an observer and callback function to execute for events (e.g. 'Activate', '
 
 **Parameters**: 
 
-  * **uniqueID** A unique ID for use in [vrRemoveObserver()](../Modules/group__api__lua.mdx#vrremoveobserver)
+  * **uniqueID** A unique ID for use in [vrRemoveObserver()](#vrremoveobserver)
   * **eventType** The type of event to observe, such as 'Activate' or 'Touch' 
   * **node** The node to observe for new events 
   * **callback** A Lua function to call when events are activated. This function should have a signature of function(). It can be a string name of a global function or a Lua function object 
@@ -241,7 +241,7 @@ Adds an observer and callback function to execute for global events (e.g. 'KeyPr
 
 **Parameters**: 
 
-  * **uniqueID** A unique ID for use in [vrRemoveObserver()](../Modules/group__api__lua.mdx#vrremoveobserver)
+  * **uniqueID** A unique ID for use in [vrRemoveObserver()](#vrremoveobserver)
   * **eventType** The type of global event to observe, such as 'KeyPress' or 'PoseEntered' 
   * **callback** A Lua function to call when global events are activated. This function should have a signature of function(). It can be a string name of a global function or a Lua function object 
 
