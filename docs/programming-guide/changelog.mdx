@@ -475,7 +475,7 @@ vrSetToolEnabled("MouseNavigatorTool", false)
 #### Changed
 
 - The internal Lua engine has changed from Lua 5.1 to LuaJIT 2.0.5. This is fully compatible with all existing Lua 5.1 code and plugins, and also supports some extensions from Lua 5.2. You can read more about LuaJIT and its extensions and performance benefits at http://luajit.org/luajit.html
-- Updates the function signatures of ::vrAddNodeObserver and ::vrAddMetaNodeObserver. The old versions have been deprecated. See @ref lua_observers_howto for more information.
+- Updates the function signatures of ::vrAddNodeObserver and ::vrAddMetaNodeObserver. The old versions have been deprecated. See [Observers](scripts/metanodes/observers.mdx) for more information.
 
 ---
 
@@ -485,7 +485,7 @@ vrSetToolEnabled("MouseNavigatorTool", false)
 
 #### Added
 
-- Adds the @ref api_exchange "VR Exchange API"
+- Adds the [VR Exchange API](reference/c-api/modules/vrexchange.mdx)
 - Adds some utilities to assist working with reference types in Lua (vectors, matrices, etc)
   - `::vrCopy`
   - `::vrGetOwnerNode`

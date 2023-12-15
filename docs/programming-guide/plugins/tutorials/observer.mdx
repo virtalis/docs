@@ -4,19 +4,19 @@
 
 An observer is a class that is notified in response to a number of node events. The following observer events are exposed by the API as callbacks:
 
-- @ref NodeCreatedFunc "Node Creation"
-- @ref NodeDestroyingFunc "Node Destruction"
-- @ref NodeValuesChangedFunc "Node Property Changes"
-- @ref NodeRenamedFunc "Node Name Changes"
-- @ref NodeChildAddedFunc "Node Children Added"
-- @ref NodeChildRemovedFunc "Node Children Removed"
-- @ref NodeParentChangedFunc "Node Parent Changes"
+- [NodeCreatedFunc](../../reference/c-api/definitions/function-prototypes.mdx#nodecreatedfunc)
+- [NodeDestroyingFunc](../../reference/c-api/definitions/function-prototypes.mdx#nodedestroyingfunc)
+- [NodeValuesChangedFunc](../../reference/c-api/definitions/function-prototypes.mdx#nodevalueschangedfunc)
+- [NodeRenamedFunc](../../reference/c-api/definitions/function-prototypes.mdx#noderenamedfunc)
+- [NodeChildAddedFunc](../../reference/c-api/definitions/function-prototypes.mdx#nodechildaddedfunc)
+- [NodeChildRemovedFunc](../../reference/c-api/definitions/function-prototypes.mdx#nodechildremovedfunc)
+- [NodeParentChangedFunc](../../reference/c-api/definitions/function-prototypes.mdx#nodeparentchangedfunc)
 
 Observer callbacks are registered per-event (listed above), against a particular metanode. The same callback function can be registered for multiple metanodes, however the implementation of the callback must make the effort to distinguish the type of node it is given.
 
 ## Examples
 
-A plugin may wish to implement these functions when it needs to respond to things such as property changes on @ref define_metanode_howto "metanodes it has defined".
+A plugin may wish to implement these functions when it needs to respond to things such as property changes on [metanodes it has defined](../tutorials/custom-metanode.mdx).
 
 ```cpp
 static void myAssemblyValuesChanged(HNode node, void* userData)
@@ -50,18 +50,18 @@ These examples introduce some new concepts.
 
 First of all, the calls to ::VRCurrentMetaNodeVersion are best practice for plugins that wish to operate on metanodes that they have not defined themselves (such as Assembly and any other standard node type). This is to give them more cross compatibility between different versions of Visionary Render which may have changed the structure of the metanode (by adding or removing properties).
 
-This is discussed more fully in @ref advanced_metanode_versioning.
+This is discussed more fully in [Metanode Versioning](../advanced/metanode-versioning.mdx).
 
 ### Observer Pattern
 
 When working with observer callbacks it is important to respect the design pattern; specifically that any observer should not directly modify the tree that it is observing. 
 
-This means, for example, that a ::NodeValuesChangedFunc can read property values, but it should not set them. Instead it should defer those property write operations until the next VRTree Update using an @ref update_howto "Update callback".
+This means, for example, that a ::NodeValuesChangedFunc can read property values, but it should not set them. Instead it should defer those property write operations until the next VRTree Update using an [Update Callback](../tutorials/update-function.mdx).
 
 Failure to do this is not fatal, but it may result in strange behaviour where one observer may want to change a property on a node that has multiple observers. The effect of your observer changing this property immediately would be that observers called before yours saw one value, and observers called afterward will see your new value. Depending on the level of interaction between those other observers, this inconsistency may lead to subtle discrepancies in the application.
 
 ### Node Handle Copying (OO-specific)
 
-The @ref best_practices page describes the difference in handle behaviour between those requested and those provided to callback functions.
+The [Best Practices](../best-practices.mdx) page describes the difference in handle behaviour between those requested and those provided to callback functions.
 
 Simply put, this is done to prevent the chance of our plugin closing the handle given to the callback, in case the API implementation needs to operate on the handle after the call returns.

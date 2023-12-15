@@ -95,7 +95,7 @@ All of these exports should use the `cdecl` calling convention.
 
 The helper library is called `vrtree-linker` and also provides helper macros for implementing plugin entry points.
 
-The following boilerplate code can be used to compile a native plugin starting point. This example makes use of the `VRPLUGIN_API_IMPL` macro, which handles the boilerplate for hooking into the application log functions and other utilities detailed @ref api_plugin_utils.
+The following boilerplate code can be used to compile a native plugin starting point. This example makes use of the `VRPLUGIN_API_IMPL` macro, which handles the boilerplate for hooking into the application log functions and other utilities detailed [here](../../reference/c-api/modules/plugins/utilities.mdx).
 
 ```cpp title="main.cpp"
 #include <vrtree_api.h>
@@ -154,7 +154,7 @@ For the above example, the final directory structure should look something like 
   * `My_Plugin.dll`
   * `plugin.txt` containing the text `My_Plugin.dll`
 
-For more information about other locations where plugins may be located, see @ref plugin_directories.
+For more information about other locations where plugins may be located, see [Directories](../data-structure/directories.mdx).
 
 ### Verifying a plugin has loaded
 

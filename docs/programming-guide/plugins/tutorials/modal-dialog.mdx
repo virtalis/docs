@@ -10,7 +10,7 @@ Simple fire-and-forget message boxes are used to display information to the user
 
 ![](/img/programming-guide/message-dialog.png)
 
-When a plugin is loaded, it is given a @ref VRPUserMessageProc "pointer to a message box function", which should be stored by the plugin and called when it wants to display a message.
+When a plugin is loaded, it is given a [pointer to a message box function](../../reference/c-api/modules/plugins/interface.mdx#vrpusermessageproc), which should be stored by the plugin and called when it wants to display a message.
 
 ```cpp
 static VRPUserMessageProc s_msgProc = 0;
@@ -32,7 +32,7 @@ Question boxes are used to get a yes/no answer from the user.
 
 ![](/img/programming-guide/question-dialog.png)
 
-When a plugin is loaded, it is given a @ref VRPUserQuestionProc "pointer to a question box function", and a @ref VRPUserQuestionCallbackRegisterProc "pointer to a response callback registration function". The plugin is expected to store these, and to use the callback registration function prior to presenting the question in order to register a callback function which is called with the user's answer.
+When a plugin is loaded, it is given a [pointer to a question box function](../../reference/c-api/modules/plugins/interface.mdx#vrpuserquestionproc) and a [pointer to a response callback registration function](../../reference/c-api/modules/plugins/interface.mdx#vrpuserquestioncallbackregisterproc). The plugin is expected to store these, and to use the callback registration function prior to presenting the question in order to register a callback function which is called with the user's answer.
 
 ```cpp
 static VRPUserQuestionProc s_qProc = 0;

@@ -112,7 +112,7 @@ For native plugins, this should be done with the `Function` type. For Lua, it sh
 
 With the exception of Lua, the callback function should be registered using a unique name, with ::VRRegisterEventFunction.
 
-This type of callback function does not receive any parameters. Instead it should read the registers set by the event system. For more details on the FFI, see @ref ffi_howto.
+This type of callback function does not receive any parameters. Instead it should read the registers set by the event system. For more details, see [Foreign Function Interface](ffi.mdx).
 
 Lua callbacks recieve the selected node in their first parameter. Native callbacks should read the selected node out of the `__TargetNode` register.
 
@@ -203,7 +203,7 @@ The `Type` property on the menu item has a few other values which allow more spe
 
 | Type                 | Purpose                                  |
 | -------------------- | ---------------------------------------- |
-| `TypeApp`            | Triggers an @ref advanced_appcommands "application command" specified in the `Command` property of the menu item. It may also pass a parameter specified by the `UserString` property of the menu item, if required. |
+| `TypeApp`            | Triggers an [application command](../../scripts/advanced/app-commands.mdx) specified in the `Command` property of the menu item. It may also pass a parameter specified by the `UserString` property of the menu item, if required. |
 | `TypeLua`            | Triggers a Lua function named in the `Command` property. It may also pass a parameter specified by the `UserString` property, if required. |
 | `TypeLuaBlock`       | Executes a block of Lua code specified in the `Command` property |
 | `TypePropertyToggle` | Toggles the value of the property named in the `Command` property (must be a boolean property), on the node at the path specified in the `UserString` property. The path is relative to this menu node. |

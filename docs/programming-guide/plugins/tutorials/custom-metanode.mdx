@@ -4,11 +4,11 @@
 
 A plugin may wish to define its own metanodes if it wants to store data in the tree in a structure not accommodated by any other metanodes.
 
-For this is should use the function from the @ref api_metanodes section of the API.
+For more information, see the [Metanodes](../../reference/c-api/modules/metanodes/index.mdx) section of the API.
 
 ## Example
 
-For our example we will define a metanode to describe the location of a PDF file and a page number. On its own this will not do anything other than provide a way of storing this data. The section on @ref observer_howto "implementing observers" will follow on from this section to suggest ways of responding to instances of this metanode.
+For our example we will define a metanode to describe the location of a PDF file and a page number. On its own this will not do anything other than provide a way of storing this data. The section on [Observers](../data-structure/observers.mdx) details ways to respond to instances of this metanode.
 
 ```cpp
 HMeta m = VRCreateMetaNode("PDF");
@@ -27,6 +27,6 @@ Enter the following into the console and press `CTRL + E` to run it.
 vrCreateNode(vrTreeRoot().Libraries, "PDF", "PDF")
 ```
 
-The node will appear in the Libraries tree. Notice how its properties are immediately editable using the automatically generated properties display. The appearance of the properties is customizable using @ref advanced_semantics.
+The node will appear in the Libraries tree. Notice how its properties are immediately editable using the automatically generated properties display. The appearance of the properties can be customised with [Semantics](../advanced/semantics.mdx).
 
 ![](/img/programming-guide/pdf-default-props.png)
