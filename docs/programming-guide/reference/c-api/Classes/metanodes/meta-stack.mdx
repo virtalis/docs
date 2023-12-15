@@ -1,0 +1,76 @@
+---
+title: Meta_Stack
+summary: A Stack is a container that provides layout controls for its child objects. 
+---
+
+# Meta_Stack
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A Stack is a container that provides layout controls for its child objects. 
+
+`#include <meta_gui.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[Direction](#enum-direction)** { DIRECTION_LEFTTORIGHT, DIRECTION_RIGHTTOLEFT, DIRECTION_TOPTOBOTTOM, DIRECTION_BOTTOMTOTOP}<br />Values for Idx_Direction.  |
+| enum| **[HAlign](#enum-halign)** { HALIGN_LEFT, HALIGN_CENTRE, HALIGN_RIGHT, HALIGN_FULLWIDTH}<br />Values for Idx_HAlign.  |
+| enum| **[IDX](#enum-idx)** { Idx_Enabled, Idx_Position, Idx_SizingMode, Idx_Size, Idx_Direction, Idx_HAlign, Idx_VAlign, Idx_Gap, Idx_ContentZPosition, Idx_Style, Idx_Popup, Idx_PopupOwner, Idx_DisableAnimation}<br />Property index.  |
+| enum| **[VAlign](#enum-valign)** { VALIGN_TOP, VALIGN_MIDDLE, VALIGN_BOTTOM, VALIGN_FULLHEIGHT}<br />Values for Idx_VAlign.  |
+
+## Public Types Documentation
+
+### enum Direction
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| DIRECTION_LEFTTORIGHT | | Lay out children from left to right (Symbols - C: `"LeftToRight"`, Lua: `__Stack_LeftToRight`)   |
+| DIRECTION_RIGHTTOLEFT | | Lay out children from right to left (Symbols - C: `"RightToLeft"`, Lua: `__Stack_RightToLeft`)   |
+| DIRECTION_TOPTOBOTTOM | | Lay out children from top to bottom (Symbols - C: `"TopToBottom"`, Lua: `__Stack_TopToBottom`)   |
+| DIRECTION_BOTTOMTOTOP | | Lay out children from bottom to top (Symbols - C: `"BottomToTop"`, Lua: `__Stack_BottomToTop`)   |
+
+Values for Idx_Direction. 
+
+### enum HAlign
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| HALIGN_LEFT | | Align left (Symbols - C: `"AlignLeft"`, Lua: `__Stack_AlignLeft`)   |
+| HALIGN_CENTRE | | Align centred (Symbols - C: `"AlignCentre"`, Lua: `__Stack_AlignCentre`)   |
+| HALIGN_RIGHT | | Align right (Symbols - C: `"AlignRight"`, Lua: `__Stack_AlignRight`)   |
+| HALIGN_FULLWIDTH | | Align / stretch children to fit the fill width (Symbols - C: `"AlignFullWidth"`, Lua: `__Stack_AlignFullWidth`)   |
+
+Values for Idx_HAlign. 
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - When enabled, draws itself and its children   |
+| Idx_Position | | vec3f - Position of the panel relative to its parent   |
+| Idx_SizingMode | | [SizingMode](../metanodes/meta-panel.mdx#enum-sizingmode) (int) - How the panel sizes itself in respect to its contents   |
+| Idx_Size | | vec2f - Size of the panel, when `SizingMode==Fixed`  |
+| Idx_Direction | | [Direction](#enum-direction) (int) - The direction to stack the child objects   |
+| Idx_HAlign | | [HAlign](#enum-halign) (int) - How to align the objects horizontally   |
+| Idx_VAlign | | [VAlign (int) - How to align the objects vertically   |
+| Idx_Gap | | float - Specifies the gap size between objects (padding)   |
+| Idx_ContentZPosition | | float - Specifies the Z position (depth) of the contents relative to the stack background   |
+| Idx_Style | | link - A Panel style ([Meta_ColouredPanelStyle](../metanodes/meta-coloured-panel-style.mdx), [Meta_GradientPanelStyle](../metanodes/meta-gradient-panel-style.mdx), [Meta_TexturedPanelStyle)   |
+| Idx_Popup | | bool - Specifies that this stack is a popup   |
+| Idx_PopupOwner | | link - Internal - Specifies the user that owns this stack (if it is a popup)   |
+| Idx_DisableAnimation | | bool - When enabled, layout changes are applied instantly instead of animating to their new position   |
+
+Property index. 
+
+### enum VAlign
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| VALIGN_TOP | | Align top (Symbols - C: `"AlignTop"`, Lua: `__Stack_AlignTop`)   |
+| VALIGN_MIDDLE | | Align middle (Symbols - C: `"AlignMiddle"`, Lua: `__Stack_AlignMiddle`)   |
+| VALIGN_BOTTOM | | Align bottom (Symbols - C: `"AlignBottom"`, Lua: `__Stack_AlignBottom`)   |
+| VALIGN_FULLHEIGHT | | Align / stretch children to fit the full height (Symbols - C: `"AlignFullHeight"`, Lua: `__Stack_AlignFullHeight`)   |
+
+Values for Idx_VAlign. 

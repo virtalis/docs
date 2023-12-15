@@ -5,7 +5,7 @@ summary: A node in the tree.
 
 # vrnode
 
-**Module:** **[Node](../modules/node.mdx)**
+**Module:** **[Node](../modules/nodes.mdx)**
 
 A node in the tree. 
 
@@ -17,8 +17,8 @@ A node in the tree.
 | -------------- | -------------- |
 | [vrnode](../classes/vrnode.mdx) | **[ancestor](#ancestor)**(string metaName)<br />(vrNodeGetAncestor) Gets the first ancestor of the specified type  |
 | [vrnode](../classes/vrnode.mdx) | **[child](#child)**(string metaType =0, string name =0)<br />(vrNodeGetChild) Gets the first child of a node.  |
-| [vrnode](../classes/vrnode.mdx) | **[childbyindex](#childbyindex)**(number idx)<br />(vrNodeGetChildByIndex) Gets a nodes child by its zero-based index. Note: this function may result in poor performance when iterating over lots of nodes - use [vrNodeGetChild() and [vrNodeGetSibling() instead (see the Best Practices section of the Programming Guide for more info).  |
-| number | **[count](#count)**()<br />(vrNodeGetChildCount) Counts the children of a node. Note: this function may result in poor performance when iterating over lots of nodes - use [vrNodeGetChild() and [vrNodeGetSibling() instead (see the Best Practices section of the Programming Guide for more info).  |
+| [vrnode](../classes/vrnode.mdx) | **[childbyindex](#childbyindex)**(number idx)<br />(vrNodeGetChildByIndex) Gets a nodes child by its zero-based index. Note: this function may result in poor performance when iterating over lots of nodes - use vrNodeGetChild() and vrNodeGetSibling() instead (see the Best Practices section of the Programming Guide for more info).  |
+| number | **[count](#count)**()<br />(vrNodeGetChildCount) Counts the children of a node. Note: this function may result in poor performance when iterating over lots of nodes - use vrNodeGetChild() and vrNodeGetSibling() instead (see the Best Practices section of the Programming Guide for more info).  |
 | [vrnode](../classes/vrnode.mdx) | **[find](#find)**(string path, boolean caseSensitive =true)<br />(vrNodeFindChild) Finds a descendant of a node by path  |
 | void | **[forEachChild](#foreachchild)**(Any function)<br />(vrNodeForEachChild) Calls a function for each child of a node  |
 | void | **[forEachChildOfType](#foreachchildoftype)**(string metaType, Any function)<br />(vrNodeForEachChildOfType) Calls a function for each child of a node that matches a specified type  |

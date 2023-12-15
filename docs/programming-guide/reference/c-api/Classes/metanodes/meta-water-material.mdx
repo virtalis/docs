@@ -1,0 +1,49 @@
+---
+title: Meta_WaterMaterial
+summary: A WaterMaterial provies Meta_Ocean rendering on an object. 
+---
+
+# Meta_WaterMaterial
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A WaterMaterial provies [Meta_Ocean](../metanodes/meta-ocean.mdx) rendering on an object. 
+
+`#include <meta_ocean.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** { Idx_Enabled, Idx_Resolution, Idx_SizeInMetres, Idx_Choppiness, Idx_Roughness, Idx_Wind, Idx_Reflectivity, Idx_Ambient, Idx_Extinction, Idx_ExtinctionColour, Idx_Scattering, Idx_ScatterColour, Idx_Animate, Idx_DisplacementScale, Idx_UVScale, Idx_WindBias, Idx_WindLanesEnabled, Idx_WindLanesWaveAmplitude, Idx_WindLanesWaveWavelength, Idx_WindLanesWaveSpeed, Idx_WindLanesWaveSteepness, Idx_DistanceScale}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - Enables the ocean   |
+| Idx_Resolution | | int - Number of vertices to use for one patch of ocean   |
+| Idx_SizeInMetres | | float - Area of a single patch in metres   |
+| Idx_Choppiness | | float - Choppiness of waves   |
+| Idx_Roughness | | float - Roughness of waves   |
+| Idx_Wind | | vec3f - Direction and intensity of the wind   |
+| Idx_Reflectivity | | float - How much incoming light should be reflected in the water   |
+| Idx_Ambient | | float - How much ambient light is picked up in the water colour   |
+| Idx_Extinction | | float - Amount of light penetration in the water   |
+| Idx_ExtinctionColour | | vec3f - Filtered light colour; RGB 0.0f to 1.0f   |
+| Idx_Scattering | | float - How many particles are in the water to reflect light   |
+| Idx_ScatterColour | | vec3f - The colour of light reflected from the scattering particles   |
+| Idx_Animate | | bool - When enabled, the ocean waves are animated   |
+| Idx_DisplacementScale | | float - Scale of wave displacement   |
+| Idx_UVScale | | float - Value by which to multiply the UV coordinates of the mesh the material's applied to before using them to sample the water data   |
+| Idx_WindBias | | float - Bias of the wind   |
+| Idx_WindLanesEnabled | | Internal.   |
+| Idx_WindLanesWaveAmplitude | | Internal.   |
+| Idx_WindLanesWaveWavelength | | Internal.   |
+| Idx_WindLanesWaveSpeed | | Internal.   |
+| Idx_WindLanesWaveSteepness | | Internal.   |
+| Idx_DistanceScale | |   |
+
+Property index. 

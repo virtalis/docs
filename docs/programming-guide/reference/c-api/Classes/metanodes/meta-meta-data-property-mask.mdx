@@ -1,0 +1,38 @@
+---
+title: Meta_MetaDataPropertyMask
+summary: A MetaDataPropertyMask contains is a 256-bit value to store bits corresponding to up to 256 properties of a node. 
+---
+
+# Meta_MetaDataPropertyMask
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A MetaDataPropertyMask contains is a 256-bit value to store bits corresponding to up to 256 properties of a node.  [More...](#detailed-description)
+
+`#include <meta_division.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** { Idx_Val}<br />Property index.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_MetaDataPropertyMask;
+```
+
+A MetaDataPropertyMask contains is a 256-bit value to store bits corresponding to up to 256 properties of a node. 
+
+This is primarily used by groups and snapshots to specify which properties in a snapshot are to be applied. The vrBitsToInteger Lua function can be used to create an integer from up to 32 bit values. 
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Val | | int[8] - Mask contents, stored as an array of 8 integers. Lua can access these using [vrNodeArrayGetElement  |
+
+Property index. 

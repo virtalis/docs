@@ -1,0 +1,75 @@
+---
+title: Meta_ApplicationMenuEntry
+summary: An ApplicationMenuEntry is a menu entry that can appear in the context menu or main file menu. 
+---
+
+# Meta_ApplicationMenuEntry
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+An ApplicationMenuEntry is a menu entry that can appear in the context menu or main file menu.  [More...](#detailed-description)
+
+`#include <meta_gvxfactory.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[AppMenuEntryType](#enum-appmenuentrytype)** { kApp = 0, kLua, kLuaBlock, kPropertyToggle, kAppSettingToggle, kLuaActivate, kFunction, kNotebookToggle, kSizingFrameToggle, kAppSettingIntToggle, kAppSettingIntFlip}<br />Values for Idx_Type.  |
+| enum| **[IDX](#enum-idx)** { Idx_Create, Idx_Type, Idx_Caption, Idx_Command, Idx_Keys, Idx_UserString, Idx_StatusText, Idx_ImageFilename, Idx_OverlayImageFilename, Idx_ShortcutText, Idx_ClusterScope, Idx_ShowInfoLine, Idx_HelpTopic, Idx_SplitButton, Idx_Available, Idx_Permission, Idx_UseAlternateImage, Idx_ImageColour, Idx_Toggled}<br />Property index.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_ApplicationMenuEntry;
+```
+
+An ApplicationMenuEntry is a menu entry that can appear in the context menu or main file menu. 
+
+It should be inserted into the tree somewhere under `<user>/ApplicationMenus/ContextMenu` or `<user>/ApplicationMenus/MainMenu`
+
+## Public Types Documentation
+
+### enum AppMenuEntryType
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| kApp | 0| Triggers an appCommand named by "Command", with parameter in "UserString" (Symbols - C: `"TypeApp"`, Lua: `__ApplicationMenuEntry_TypeApp`)   |
+| kLua | | Triggers a Lua function named in "Command", with parameter in "UserString" if any (Symbols - C: `"TypeLua"`, Lua: `__ApplicationMenuEntry_TypeLua`)   |
+| kLuaBlock | | Triggers the execution of a block of Lua code specified in "Command" (Symbols - C: `"TypeLuaBlock"`, Lua: `__ApplicationMenuEntry_TypeLuaBlock`)   |
+| kPropertyToggle | | Toggles the value of property named in "Command", on node at path in "UserString" (Symbols - C: `"TypePropertyToggle"`, Lua: `__ApplicationMenuEntry_TypePropertyToggle`)   |
+| kAppSettingToggle | | Toggles the value of a setting at path in "UserString" (Symbols - C: `"TypeSettingToggle"`, Lua: `__ApplicationMenuEntry_TypeSettingToggle`)   |
+| kLuaActivate | | Triggers the Activate event if one is present on the menu entry itself (Symbols - C: `"TypeActivate"`, Lua: `__ApplicationMenuEntry_TypeActivate`)   |
+| kFunction | | Triggers a named function registered with the script engine; [VRRegisterEventFunction (Symbols - C: `"TypeFunction"`, Lua: `__ApplicationMenuEntry_TypeFunction`)   |
+| kNotebookToggle | | Displays a notebook frame, command is notebook name userstring is notebook pane. (Symbols - C: `"TypeNotebookToggle"`, Lua: `__ApplicationMenuEntry_TypeNotebookToggle`)   |
+| kSizingFrameToggle | | Toggles the visibility of the frame specified in "UserString";this should be a path (Symbols - C: `"TypeSizingFrameToggle"`, Lua: `__ApplicationMenuEntry_TypeSizingFrameToggle`)   |
+| kAppSettingIntToggle | | Toggles the value of a setting at path in "UserString" between 0 and value specified in "Command" (Symbols - C: `"TypeSettingIntToggle"`, Lua: `__ApplicationMenuEntry_TypeSettingIntToggle`)   |
+| kAppSettingIntFlip | | Sets the value of a setting at path in "UserString", if the setting is already set then flip it. (Symbols - C: `"TypeSettingIntFlip"`, Lua: `__ApplicationMenuEntry_TypeSettingIntFlip`)   |
+
+Values for Idx_Type. 
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Create | | string - Specifies the factory that should create the menu entry. For context menu items this should be empty. For main menu it should be `VRMenuItem`  |
+| Idx_Type | | [AppMenuEntryType](#enum-appmenuentrytype) (int) - Specifies the type of menu entry   |
+| Idx_Caption | | string - Caption that should appear on the item   |
+| Idx_Command | | string - Usage depends on the value of Idx_Type   |
+| Idx_Keys | | string - Key binding that triggers this action. Does not currently parse the string to create the binding - there would have to be a KeyPress event created, too   |
+| Idx_UserString | | string - Usage depends on the value of Idx_type   |
+| Idx_StatusText | | string - Text to display in the menu entry tooltip (previously in the status bar)   |
+| Idx_ImageFilename | | string - Name of an icon file to display on the option, from the `data` folder   |
+| Idx_OverlayImageFilename | | string - Name of an image to overlay over the icon, from somewhere in the `data` folder   |
+| Idx_ShortcutText | | string - Display-friendly representation of the contents of Idx_Keys   |
+| Idx_ClusterScope | | string - Specifies execution behaviour in a cluster; "all" executes on all cluster members, "slave" only on slaves, anything else (including the default value) only executes on the master   |
+| Idx_ShowInfoLine | | bool - (for MainMenu) If enabled, shows the StatusText in a line below the caption, rather than on a tooltip   |
+| Idx_HelpTopic | | string - Specifies the chapter name of relevant documentation in the user manual for context sensitive help   |
+| Idx_SplitButton | | bool - (for MainMenu) If enabled, splits the button into one that triggers the button action, and one that displays the child items   |
+| Idx_Available | | bool - When enabled, button is available to be clicked. Otherwise it is greyed out.   |
+| Idx_Permission | | string - Names of permissions required for the button to be visible   |
+| Idx_UseAlternateImage | | bool - Idx_ImageFilename may be delimited by `;` to contain a second image to display when this is true   |
+| Idx_ImageColour | | string - Name of colour to render the image in. This should reference an entry in theme.xml. Leave empty to render with white and so original image colour is maintained.   |
+| Idx_Toggled | | bool - Whether the button appears toggled, but only when Type is not one of the "...Toggle" types.   |
+
+Property index. 

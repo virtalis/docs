@@ -8,21 +8,21 @@ title: Plugins
 
 | Name           |
 | -------------- |
-| **[Plugin Interface](../Modules/group__api__plugin__interface.mdx)** <br />Defines an interface for plugins to implement in order to be loadable by VRTree.  |
-| **[Plugin Utilities](../Modules/group__api__plugin__utils.mdx)** <br />Utilities to assist in plugin authoring, provided by the `vrtree-linker` library.  |
+| **[Interface](../../modules/plugins/interface.mdx)** <br />Defines an interface for plugins to implement in order to be loadable by VRTree.  |
+| **[Utilities](../../modules/plugins/utilities.mdx)** <br />Utilities to assist in plugin authoring, provided by the `vrtree-linker` library.  |
 
 ## Functions
 
 | Type           | Name           |
 | -------------- | -------------- |
-| void | **[progress_yield](../Modules/group__api__plugins.mdx#progress-yield)**(int min, int max, const char * msg)<br />(vrtree-linker based plugins) wrapper around plugin API yield function. the helper macro `VRPLUGIN_API_YIELDIMPL` will define the plugin registration function and implement it to provide the function pointer to this helper.  |
+| void | **[progress_yield](#progress-yield)**(int min, int max, const char * msg)<br />(vrtree-linker based plugins) wrapper around plugin API yield function. the helper macro `VRPLUGIN_API_YIELDIMPL` will define the plugin registration function and implement it to provide the function pointer to this helper.  |
 
 ## Defines
 
 | Type           | Name           |
 | -------------- | -------------- |
-|  | **[PLUGIN_ENTRY_POINT](../Modules/group__api__plugins.mdx#define-plugin-entry-point)** <br />Plugin function exports macro.  |
-|  | **[VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry)** <br />Plugin function calling convention.  |
+|  | **[PLUGIN_ENTRY_POINT](#define-plugin-entry-point)** <br />Plugin function exports macro.  |
+|  | **[VRTREE_APIENTRY](#define-vrtree-apientry)** <br />Plugin function calling convention.  |
 
 ## Functions Documentation
 

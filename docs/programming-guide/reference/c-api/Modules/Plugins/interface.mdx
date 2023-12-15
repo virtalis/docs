@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # Interface
 
-**Module:** **[Plugins](../Modules/group__api__plugins.mdx)**
+**Module:** **[Plugins](../plugins/index.mdx)**
 
 Defines an interface for plugins to implement in order to be loadable by VRTree. 
 
@@ -16,45 +16,45 @@ Defines an interface for plugins to implement in order to be loadable by VRTree.
 
 | Type           | Name           |
 | -------------- | -------------- |
-| typedef int([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(void) | **[VRPCleanupProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpcleanupproc)** <br />Function prototype for the plugin cleanup function.  |
-| typedef const char *([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(void) | **[VRPDefaultRecipeProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpdefaultrecipeproc)** <br />Function prototype for getting the name of the default recipe file used by the importer.  |
-| typedef const char *([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(void) | **[VRPDependsProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpdependsproc)** <br />Function prototype for getting the plugin dependencies.  |
-| typedef int([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(const char *outFile, HNode fromRoot, HNode fromScenes, HNode fromLibs, const char *recipePath) | **[VRPExportProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpexportproc)** <br />Function prototype for an export function.  |
-| typedef const char *([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(void) | **[VRPFFINamespaceProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpffinamespaceproc)** <br />Function prototype for getting the FFI namespace/module name to use for this plugin.  |
-| typedef const char *([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(void) | **[VRPFormatsProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpformatsproc)** <br />Function prototype for getting the XML description of formats accepted by [VRPImportProc.  |
-| typedef int([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(void) | **[VRPGetAPIVersionProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpgetapiversionproc)** <br />Function prototype for the API version functions.  |
-| typedef int([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(const char *permissions) | **[VRPHasPermissionProc](../Modules/group__api__plugin__interface.mdx#typedef-vrphaspermissionproc)** <br />Function prototype for checking permission to do something. Plugin will be passed a check function if it exports [VRPRegisterHasPermissionProc.  |
-| typedef int([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(const char *file, HNode root, HNode scenes, HNode libs, uint64_t flags, const char *recipePath) | **[VRPImportProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpimportproc)** <br />Function prototype for an import function.  |
-| typedef int([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(void) | **[VRPInitProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpinitproc)** <br />Function prototype for the plugin init function.  |
-| typedef const char *([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(void) | **[VRPLockedProc](../Modules/group__api__plugin__interface.mdx#typedef-vrplockedproc)** <br />Function prototype for getting the plugin lock condition.  |
-| typedef void([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(char indent) | **[VRPLogIndentProc](../Modules/group__api__plugin__interface.mdx#typedef-vrplogindentproc)** <br />Function prototype for the log indent function.  |
-| typedef void([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(int type, const char *message) | **[VRPLogProc](../Modules/group__api__plugin__interface.mdx#typedef-vrplogproc)** <br />Function prototype for the log function.  |
-| typedef const char *([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(void) | **[VRPNameProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpnameproc)** <br />Function prototype for getting the plugin full name.  |
-| typedef void([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(int currentValue, int maxValue, const char *message) | **[VRPProgressYieldProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpprogressyieldproc)** <br />Function prototypes for a progress yield function.  |
-| typedef void([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(VRPHasPermissionProc) | **[VRPRegisterHasPermissionProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisterhaspermissionproc)** <br />Function prototype for registering a permission check function.  |
-| typedef void([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(VRPLogIndentProc) | **[VRPRegisterLogIndentProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisterlogindentproc)** <br />Function prototype for being given a log indent function.  |
-| typedef void([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(VRPLogProc) | **[VRPRegisterLogProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisterlogproc)** <br />Function prototype for being given a log function.  |
-| typedef void([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(VRPProgressYieldProc) | **[VRPRegisterProgressYieldProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisterprogressyieldproc)** <br />Function prototype for registering a progress yield function.  |
-| typedef void([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(VRPRequestPermissionProc) | **[VRPRegisterRequestPermissionProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisterrequestpermissionproc)** <br />Function prototype for registering a permission request function.  |
-| typedef void([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(VRPUserMessageProc) | **[VRPRegisterUserMessageProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisterusermessageproc)** <br />Function prototype for registering a message function.  |
-| typedef void([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(VRPUserQuestionCallbackRegisterProc) | **[VRPRegisterUserQuestionCallbackProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisteruserquestioncallbackproc)** <br />Function prototype for registering a question callback function.  |
-| typedef void([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(VRPUserQuestionProc) | **[VRPRegisterUserQuestionProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisteruserquestionproc)** <br />Function prototype for registering a question function.  |
-| typedef int([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(const char *permissions, const char *cancelCaption) | **[VRPRequestPermissionProc](../Modules/group__api__plugin__interface.mdx#typedef-vrprequestpermissionproc)** <br />Function prototype for requesting permission to do something.  |
-| typedef const char *([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(void) | **[VRPSettingsInterfaceProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpsettingsinterfaceproc)** <br />Function prototype for getting the XML description of the settings that should be presented in a user interface.  |
-| typedef const char *([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(void) | **[VRPShortNameProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpshortnameproc)** <br />Function prototype for getting the plugin short name (-import shortcut)  |
-| typedef const char *([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(void) | **[VRPSignatureProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpsignatureproc)** <br />Function prototype for getting the plugin signature (license)  |
-| typedef void([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(const char *message) | **[VRPUserMessageProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpusermessageproc)** <br />Function prototype for triggering an application dialog containing a message to present directly to the user.  |
-| typedef void([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(int result, void *userData) | **[VRPUserQuestionCallbackProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpuserquestioncallbackproc)** <br />Function prototype for a callback to call when a user chooses an option presented by a UserQuestion.  |
-| typedef void([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(VRPUserQuestionCallbackProc proc, void *userData) | **[VRPUserQuestionCallbackRegisterProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpuserquestioncallbackregisterproc)** <br />Function prototype for registering a [VRPUserQuestionCallbackProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpuserquestioncallbackproc) as the callback for UserQuestion dialogs.  |
-| typedef int([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(const char *message) | **[VRPUserQuestionProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpuserquestionproc)** <br />Function prototype for triggering an application dialog containing a question to ask to the user. This also requires a registered [VRPUserQuestionCallbackProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpuserquestioncallbackproc).  |
-| typedef const char *([VRTREE_APIENTRY](../Modules/group__api__plugins.mdx#define-vrtree-apientry) *)(void) | **[VRPVersionProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpversionproc)** <br />Function prototype for getting the plugin version (human readable, not API version)  |
+| typedef int([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(void) | **[VRPCleanupProc](#typedef-vrpcleanupproc)** <br />Function prototype for the plugin cleanup function.  |
+| typedef const char *([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(void) | **[VRPDefaultRecipeProc](#typedef-vrpdefaultrecipeproc)** <br />Function prototype for getting the name of the default recipe file used by the importer.  |
+| typedef const char *([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(void) | **[VRPDependsProc](#typedef-vrpdependsproc)** <br />Function prototype for getting the plugin dependencies.  |
+| typedef int([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(const char *outFile, HNode fromRoot, HNode fromScenes, HNode fromLibs, const char *recipePath) | **[VRPExportProc](#typedef-vrpexportproc)** <br />Function prototype for an export function.  |
+| typedef const char *([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(void) | **[VRPFFINamespaceProc](#typedef-vrpffinamespaceproc)** <br />Function prototype for getting the FFI namespace/module name to use for this plugin.  |
+| typedef const char *([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(void) | **[VRPFormatsProc](#typedef-vrpformatsproc)** <br />Function prototype for getting the XML description of formats accepted by [VRPImportProc.  |
+| typedef int([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(void) | **[VRPGetAPIVersionProc](#typedef-vrpgetapiversionproc)** <br />Function prototype for the API version functions.  |
+| typedef int([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(const char *permissions) | **[VRPHasPermissionProc](#typedef-vrphaspermissionproc)** <br />Function prototype for checking permission to do something. Plugin will be passed a check function if it exports [VRPRegisterHasPermissionProc.  |
+| typedef int([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(const char *file, HNode root, HNode scenes, HNode libs, uint64_t flags, const char *recipePath) | **[VRPImportProc](#typedef-vrpimportproc)** <br />Function prototype for an import function.  |
+| typedef int([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(void) | **[VRPInitProc](#typedef-vrpinitproc)** <br />Function prototype for the plugin init function.  |
+| typedef const char *([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(void) | **[VRPLockedProc](#typedef-vrplockedproc)** <br />Function prototype for getting the plugin lock condition.  |
+| typedef void([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(char indent) | **[VRPLogIndentProc](#typedef-vrplogindentproc)** <br />Function prototype for the log indent function.  |
+| typedef void([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(int type, const char *message) | **[VRPLogProc](#typedef-vrplogproc)** <br />Function prototype for the log function.  |
+| typedef const char *([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(void) | **[VRPNameProc](#typedef-vrpnameproc)** <br />Function prototype for getting the plugin full name.  |
+| typedef void([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(int currentValue, int maxValue, const char *message) | **[VRPProgressYieldProc](#typedef-vrpprogressyieldproc)** <br />Function prototypes for a progress yield function.  |
+| typedef void([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(VRPHasPermissionProc) | **[VRPRegisterHasPermissionProc](#typedef-vrpregisterhaspermissionproc)** <br />Function prototype for registering a permission check function.  |
+| typedef void([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(VRPLogIndentProc) | **[VRPRegisterLogIndentProc](#typedef-vrpregisterlogindentproc)** <br />Function prototype for being given a log indent function.  |
+| typedef void([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(VRPLogProc) | **[VRPRegisterLogProc](#typedef-vrpregisterlogproc)** <br />Function prototype for being given a log function.  |
+| typedef void([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(VRPProgressYieldProc) | **[VRPRegisterProgressYieldProc](#typedef-vrpregisterprogressyieldproc)** <br />Function prototype for registering a progress yield function.  |
+| typedef void([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(VRPRequestPermissionProc) | **[VRPRegisterRequestPermissionProc](#typedef-vrpregisterrequestpermissionproc)** <br />Function prototype for registering a permission request function.  |
+| typedef void([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(VRPUserMessageProc) | **[VRPRegisterUserMessageProc](#typedef-vrpregisterusermessageproc)** <br />Function prototype for registering a message function.  |
+| typedef void([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(VRPUserQuestionCallbackRegisterProc) | **[VRPRegisterUserQuestionCallbackProc](#typedef-vrpregisteruserquestioncallbackproc)** <br />Function prototype for registering a question callback function.  |
+| typedef void([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(VRPUserQuestionProc) | **[VRPRegisterUserQuestionProc](#typedef-vrpregisteruserquestionproc)** <br />Function prototype for registering a question function.  |
+| typedef int([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(const char *permissions, const char *cancelCaption) | **[VRPRequestPermissionProc](#typedef-vrprequestpermissionproc)** <br />Function prototype for requesting permission to do something.  |
+| typedef const char *([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(void) | **[VRPSettingsInterfaceProc](#typedef-vrpsettingsinterfaceproc)** <br />Function prototype for getting the XML description of the settings that should be presented in a user interface.  |
+| typedef const char *([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(void) | **[VRPShortNameProc](#typedef-vrpshortnameproc)** <br />Function prototype for getting the plugin short name (-import shortcut)  |
+| typedef const char *([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(void) | **[VRPSignatureProc](#typedef-vrpsignatureproc)** <br />Function prototype for getting the plugin signature (license)  |
+| typedef void([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(const char *message) | **[VRPUserMessageProc](#typedef-vrpusermessageproc)** <br />Function prototype for triggering an application dialog containing a message to present directly to the user.  |
+| typedef void([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(int result, void *userData) | **[VRPUserQuestionCallbackProc](#typedef-vrpuserquestioncallbackproc)** <br />Function prototype for a callback to call when a user chooses an option presented by a UserQuestion.  |
+| typedef void([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(VRPUserQuestionCallbackProc proc, void *userData) | **[VRPUserQuestionCallbackRegisterProc](#typedef-vrpuserquestioncallbackregisterproc)** <br />Function prototype for registering a [VRPUserQuestionCallbackProc](#typedef-vrpuserquestioncallbackproc) as the callback for UserQuestion dialogs.  |
+| typedef int([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(const char *message) | **[VRPUserQuestionProc](#typedef-vrpuserquestionproc)** <br />Function prototype for triggering an application dialog containing a question to ask to the user. This also requires a registered [VRPUserQuestionCallbackProc](#typedef-vrpuserquestioncallbackproc).  |
+| typedef const char *([VRTREE_APIENTRY](../plugins/index.mdx#define-vrtree-apientry) *)(void) | **[VRPVersionProc](#typedef-vrpversionproc)** <br />Function prototype for getting the plugin version (human readable, not API version)  |
 
 ## Attributes
 
 | Type           | Name           |
 | -------------- | -------------- |
-| const int | **[PLUGIN_API_VERSION_MAJOR](../Modules/group__api__plugin__interface.mdx#plugin-api-version-major)** <br />incremented if backward compatibility is broken  |
-| const int | **[PLUGIN_API_VERSION_MINOR](../Modules/group__api__plugin__interface.mdx#plugin-api-version-minor)** <br />incremented if new exports are added  |
+| const int | **[PLUGIN_API_VERSION_MAJOR](#plugin-api-version-major)** <br />incremented if backward compatibility is broken  |
+| const int | **[PLUGIN_API_VERSION_MINOR](#plugin-api-version-minor)** <br />incremented if new exports are added  |
 
 ## Types Documentation
 
@@ -246,9 +246,9 @@ typedef int(VRTREE_APIENTRY * VRPGetAPIVersionProc) (void);
 
 Function prototype for the API version functions. 
 
-**Return**: Value of [PLUGIN_API_VERSION_MAJOR](../Modules/group__api__plugin__interface.mdx#plugin-api-version-major) for `VRPGetAPIVersionMajor`, Value of [PLUGIN_API_VERSION_MINOR](../Modules/group__api__plugin__interface.mdx#plugin-api-version-minor) for `VRPGetAPIVersionMinor`
+**Return**: Value of [PLUGIN_API_VERSION_MAJOR](#plugin-api-version-major) for `VRPGetAPIVersionMajor`, Value of [PLUGIN_API_VERSION_MINOR](#plugin-api-version-minor) for `VRPGetAPIVersionMinor`
 
-**Note**: `vrtree-linker` provides [VRPLUGIN_API_STDIMPL](../Modules/group__api__plugin__utils.mdx#define-vrplugin-api-stdimpl) to implement these automatically 
+**Note**: `vrtree-linker` provides [VRPLUGIN_API_STDIMPL](../plugins/utilities.mdx#define-vrplugin-api-stdimpl) to implement these automatically 
 
 **Example**:
 
@@ -365,7 +365,7 @@ Function prototype for the log indent function.
 
   * **indent** boolean for increasing or decreasing indent. Pass 0 to decrease indent, any positive value to increase indent. 
 
-Some log messages need to have more complex formatting, so plugins can use this function to indent all further log messages. Plugin will be passed a log indent function to use for logging, if it exports [VRPRegisterLogIndentProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisterlogindentproc). 
+Some log messages need to have more complex formatting, so plugins can use this function to indent all further log messages. Plugin will be passed a log indent function to use for logging, if it exports [VRPRegisterLogIndentProc](#typedef-vrpregisterlogindentproc). 
 
 ### typedef VRPLogProc
 
@@ -385,7 +385,7 @@ Function prototype for the log function.
 * 3 = Debug 
   * **message** the text to write to the log 
 
-Plugin will be passed a log function to use for logging, if it exports [VRPRegisterLogProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisterlogproc). 
+Plugin will be passed a log function to use for logging, if it exports [VRPRegisterLogProc](#typedef-vrpregisterlogproc). 
 
 ### typedef VRPNameProc
 
@@ -424,7 +424,7 @@ Function prototypes for a progress yield function.
 
 **Note**: The plugin execution will be blocked by calls to yield, until the application returns control to it. 
 
-Plugin will be passed a yield function to call during long operations, if it exports the [VRPRegisterProgressYieldProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisterprogressyieldproc) function. 
+Plugin will be passed a yield function to call during long operations, if it exports the [VRPRegisterProgressYieldProc](#typedef-vrpregisterprogressyieldproc) function. 
 
 ### typedef VRPRegisterHasPermissionProc
 
@@ -434,7 +434,7 @@ typedef void(VRTREE_APIENTRY * VRPRegisterHasPermissionProc) (VRPHasPermissionPr
 
 Function prototype for registering a permission check function. 
 
-**Note**: `vrtree-linker` provides [VRPLUGIN_API_PERMISSIONIMPL](../Modules/group__api__plugin__utils.mdx#define-vrplugin-api-permissionimpl) to provide [VRPLUGIN_INIT_PERMISSION](../Modules/group__api__plugin__utils.mdx#define-vrplugin-init-permission) and [VRPLUGIN_IMPORT_PERMISSION](../Modules/group__api__plugin__utils.mdx#define-vrplugin-import-permission)
+**Note**: `vrtree-linker` provides [VRPLUGIN_API_PERMISSIONIMPL](../plugins/utilities.mdx#define-vrplugin-api-permissionimpl) to provide [VRPLUGIN_INIT_PERMISSION](../plugins/utilities.mdx#define-vrplugin-init-permission) and [VRPLUGIN_IMPORT_PERMISSION](../plugins/utilities.mdx#define-vrplugin-import-permission)
 
 Plugin should implement this and store the pointer it is given, if it wants to do license checks 
 
@@ -446,7 +446,7 @@ typedef void(VRTREE_APIENTRY * VRPRegisterLogIndentProc) (VRPLogIndentProc);
 
 Function prototype for being given a log indent function. 
 
-**Note**: `vrtree-linker` provides [VRPLUGIN_API_LOGIMPL](../Modules/group__api__plugin__utils.mdx#define-vrplugin-api-logimpl) to provide `s_logFunc` and `s_logIndentFunc`
+**Note**: `vrtree-linker` provides [VRPLUGIN_API_LOGIMPL](../plugins/utilities.mdx#define-vrplugin-api-logimpl) to provide `s_logFunc` and `s_logIndentFunc`
 
 **Example**:
 
@@ -489,7 +489,7 @@ typedef void(VRTREE_APIENTRY * VRPRegisterLogProc) (VRPLogProc);
 
 Function prototype for being given a log function. 
 
-**Note**: `vrtree-linker` provides [VRPLUGIN_API_LOGIMPL](../Modules/group__api__plugin__utils.mdx#define-vrplugin-api-logimpl) to provide `s_logFunc` and `s_logIndentFunc`
+**Note**: `vrtree-linker` provides [VRPLUGIN_API_LOGIMPL](../plugins/utilities.mdx#define-vrplugin-api-logimpl) to provide `s_logFunc` and `s_logIndentFunc`
 
 **Example**:
 
@@ -518,7 +518,7 @@ typedef void(VRTREE_APIENTRY * VRPRegisterProgressYieldProc) (VRPProgressYieldPr
 
 Function prototype for registering a progress yield function. 
 
-**Note**: `vrtree-linker` provides [VRPLUGIN_API_YIELDIMPL](../Modules/group__api__plugin__utils.mdx#define-vrplugin-api-yieldimpl) to provide progress_yield 
+**Note**: `vrtree-linker` provides [VRPLUGIN_API_YIELDIMPL](../plugins/utilities.mdx#define-vrplugin-api-yieldimpl) to provide progress_yield 
 
 **Example**:
 
@@ -552,7 +552,7 @@ typedef void(VRTREE_APIENTRY * VRPRegisterRequestPermissionProc) (VRPRequestPerm
 
 Function prototype for registering a permission request function. 
 
-**Note**: `vrtree-linker` provides [VRPLUGIN_API_PERMISSIONIMPL](../Modules/group__api__plugin__utils.mdx#define-vrplugin-api-permissionimpl) to provide [VRPLUGIN_INIT_PERMISSION](../Modules/group__api__plugin__utils.mdx#define-vrplugin-init-permission) and [VRPLUGIN_IMPORT_PERMISSION](../Modules/group__api__plugin__utils.mdx#define-vrplugin-import-permission)
+**Note**: `vrtree-linker` provides [VRPLUGIN_API_PERMISSIONIMPL](../plugins/utilities.mdx#define-vrplugin-api-permissionimpl) to provide [VRPLUGIN_INIT_PERMISSION](../plugins/utilities.mdx#define-vrplugin-init-permission) and [VRPLUGIN_IMPORT_PERMISSION](../plugins/utilities.mdx#define-vrplugin-import-permission)
 
 Plugin should implement this and store the pointer it is given, if it wants to do license requests 
 
@@ -599,9 +599,9 @@ typedef void(VRTREE_APIENTRY * VRPRegisterUserQuestionCallbackProc) (VRPUserQues
 
 Function prototype for registering a question callback function. 
 
-Plugin should implement this and use the pointer it is given to register a callback to be called by question boxes summoned by a [VRPUserQuestionProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpuserquestionproc)
+Plugin should implement this and use the pointer it is given to register a callback to be called by question boxes summoned by a [VRPUserQuestionProc](#typedef-vrpuserquestionproc)
 
-This is not useful without also implementing [VRPRegisterUserQuestionCallbackProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisteruserquestioncallbackproc)
+This is not useful without also implementing [VRPRegisterUserQuestionCallbackProc](#typedef-vrpregisteruserquestioncallbackproc)
 
 ### typedef VRPRegisterUserQuestionProc
 
@@ -663,7 +663,7 @@ Function prototype for requesting permission to do something.
 
 **Return**: 1 if the request is successful 
 
-Plugin will be passed a request function if it exports [VRPRegisterRequestPermissionProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisterrequestpermissionproc)
+Plugin will be passed a request function if it exports [VRPRegisterRequestPermissionProc](#typedef-vrpregisterrequestpermissionproc)
 
 ### typedef VRPSettingsInterfaceProc
 
@@ -836,7 +836,7 @@ Function prototype for triggering an application dialog containing a message to 
 
 **Note**: Since this is a modal dialog, execution of the calling thread may be blocked until the box is dismissed. This does not happen when running on a cluster, so blocking behaviour should not be depended on. Plugins should avoid calling this during `VRPInit` and `VRPCleanup`. 
 
-Plugin will be passed a message function to use if it exports [VRPRegisterUserMessageProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisterusermessageproc)
+Plugin will be passed a message function to use if it exports [VRPRegisterUserMessageProc](#typedef-vrpregisterusermessageproc)
 
 ### typedef VRPUserQuestionCallbackProc
 
@@ -856,9 +856,9 @@ Function prototype for a callback to call when a user chooses an option presente
 typedef void(VRTREE_APIENTRY * VRPUserQuestionCallbackRegisterProc) (VRPUserQuestionCallbackProc proc, void *userData);
 ```
 
-Function prototype for registering a [VRPUserQuestionCallbackProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpuserquestioncallbackproc) as the callback for UserQuestion dialogs. 
+Function prototype for registering a [VRPUserQuestionCallbackProc](#typedef-vrpuserquestioncallbackproc) as the callback for UserQuestion dialogs. 
 
-Plugin will be passed a register function if it exports [VRPRegisterUserQuestionCallbackProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisteruserquestioncallbackproc)
+Plugin will be passed a register function if it exports [VRPRegisterUserQuestionCallbackProc](#typedef-vrpregisteruserquestioncallbackproc)
 
 ### typedef VRPUserQuestionProc
 
@@ -866,7 +866,7 @@ Plugin will be passed a register function if it exports [VRPRegisterUserQuestion
 typedef int(VRTREE_APIENTRY * VRPUserQuestionProc) (const char *message);
 ```
 
-Function prototype for triggering an application dialog containing a question to ask to the user. This also requires a registered [VRPUserQuestionCallbackProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpuserquestioncallbackproc). 
+Function prototype for triggering an application dialog containing a question to ask to the user. This also requires a registered [VRPUserQuestionCallbackProc](#typedef-vrpuserquestioncallbackproc). 
 
 **Parameters**: 
 
@@ -876,7 +876,7 @@ Function prototype for triggering an application dialog containing a question to
 
 **Note**: Since this is a modal dialog, execution of the calling thread may be blocked until the box is dismissed. This does not happen when running on a cluster, so blocking behaviour should not be depended on. Plugins should avoid calling this during `VRPInit` and `VRPCleanup`
 
-Plugin will be passed a question function to use if it exports [VRPRegisterUserQuestionProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpregisteruserquestionproc)
+Plugin will be passed a question function to use if it exports [VRPRegisterUserQuestionProc](#typedef-vrpregisteruserquestionproc)
 
 ### typedef VRPVersionProc
 

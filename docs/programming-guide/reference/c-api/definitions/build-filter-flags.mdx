@@ -5,21 +5,21 @@ summary: Input and output operation flags that can be passed to the builderFlags
 
 # Build Filter Flags
 
-Input and output operation flags that can be passed to the `builderFlags` parameter on [VRLoadTreeEx](../definitions/group__api__tree.mdx#vrloadtreeex). 
+Input and output operation flags that can be passed to the `builderFlags` parameter on [VRLoadTreeEx](../modules/nodes/tree.mdx#vrloadtreeex). 
 
 ## Attributes
 
 | Type           | Name           |
 | -------------- | -------------- |
-| const uint32_t | **[BUILDFILTER_ALLOW_INVALID_ATTRIBS](../definitions/group__api__builder__flags.mdx#buildfilter-allow-invalid-attribs)** <br />Signals that the loader should continue even if it encounters properties that it does not understand.  |
-| const uint32_t | **[BUILDFILTER_ALLOW_MISSING_ATTRIBS](../definitions/group__api__builder__flags.mdx#buildfilter-allow-missing-attribs)** <br />Signals that the load operation should populate property values with defaults when the value does not exist in the file.  |
-| const uint32_t | **[BUILDFILTER_ALLOW_MISSING_METANODES](../definitions/group__api__builder__flags.mdx#buildfilter-allow-missing-metanodes)** <br />Signals that the loader should continue even if it encounters node types that it does not understand.  |
-| const uint32_t | **[BUILDFILTER_MERGE_ALL](../definitions/group__api__builder__flags.mdx#buildfilter-merge-all)** <br />Signals that the load operation should merge all nodes by UUID where possible.  |
-| const uint32_t | **[BUILDFILTER_MERGE_ROOTS](../definitions/group__api__builder__flags.mdx#buildfilter-merge-roots)** <br />Signals that the load operation should merge the standard root nodes (e.g. a file containing a Scenes node will load its contents into the existing Scenes tree)  |
+| const uint32_t | **[BUILDFILTER_ALLOW_INVALID_ATTRIBS](#buildfilter-allow-invalid-attribs)** <br />Signals that the loader should continue even if it encounters properties that it does not understand.  |
+| const uint32_t | **[BUILDFILTER_ALLOW_MISSING_ATTRIBS](#buildfilter-allow-missing-attribs)** <br />Signals that the load operation should populate property values with defaults when the value does not exist in the file.  |
+| const uint32_t | **[BUILDFILTER_ALLOW_MISSING_METANODES](#buildfilter-allow-missing-metanodes)** <br />Signals that the loader should continue even if it encounters node types that it does not understand.  |
+| const uint32_t | **[BUILDFILTER_MERGE_ALL](#buildfilter-merge-all)** <br />Signals that the load operation should merge all nodes by UUID where possible.  |
+| const uint32_t | **[BUILDFILTER_MERGE_ROOTS](#buildfilter-merge-roots)** <br />Signals that the load operation should merge the standard root nodes (e.g. a file containing a Scenes node will load its contents into the existing Scenes tree)  |
 
 ## Attributes Documentation
 
-### BUILDFILTER_ALLOW_INVALID_ATTRIBS
+### BUILDFILTER_ALLOW_INVALID_ATTRIBS {#buildfilter-allow-invalid-attribs}
 
 ```cpp
 const uint32_t BUILDFILTER_ALLOW_INVALID_ATTRIBS = (1 << 4);
@@ -27,7 +27,7 @@ const uint32_t BUILDFILTER_ALLOW_INVALID_ATTRIBS = (1 << 4);
 
 Signals that the loader should continue even if it encounters properties that it does not understand. 
 
-### BUILDFILTER_ALLOW_MISSING_ATTRIBS
+### BUILDFILTER_ALLOW_MISSING_ATTRIBS {#buildfilter-allow-missing-attribs}
 
 ```cpp
 const uint32_t BUILDFILTER_ALLOW_MISSING_ATTRIBS = (1 << 0);
@@ -35,7 +35,7 @@ const uint32_t BUILDFILTER_ALLOW_MISSING_ATTRIBS = (1 << 0);
 
 Signals that the load operation should populate property values with defaults when the value does not exist in the file. 
 
-### BUILDFILTER_ALLOW_MISSING_METANODES
+### BUILDFILTER_ALLOW_MISSING_METANODES {#buildfilter-allow-missing-metanodes}
 
 ```cpp
 const uint32_t BUILDFILTER_ALLOW_MISSING_METANODES = (1 << 3);
@@ -43,7 +43,7 @@ const uint32_t BUILDFILTER_ALLOW_MISSING_METANODES = (1 << 3);
 
 Signals that the loader should continue even if it encounters node types that it does not understand. 
 
-### BUILDFILTER_MERGE_ALL
+### BUILDFILTER_MERGE_ALL {#buildfilter-merge-all}
 
 ```cpp
 const uint32_t BUILDFILTER_MERGE_ALL = (1 << 2);
@@ -51,7 +51,7 @@ const uint32_t BUILDFILTER_MERGE_ALL = (1 << 2);
 
 Signals that the load operation should merge all nodes by UUID where possible. 
 
-### BUILDFILTER_MERGE_ROOTS
+### BUILDFILTER_MERGE_ROOTS {#buildfilter-merge-roots}
 
 ```cpp
 const uint32_t BUILDFILTER_MERGE_ROOTS = (1 << 1);

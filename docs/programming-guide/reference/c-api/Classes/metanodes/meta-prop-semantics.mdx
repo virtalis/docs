@@ -1,0 +1,36 @@
+---
+title: Meta_PropSemantics
+summary: Metanode that contains a basic description of what a property is intended to be used for. e.g. Is it a colour (for a vec4f property), or a file (for a string property). This can be used as the node which is attached to the meta-metanodes with the semantics macros, or attached to anything else that needs some hints for a user interface. 
+---
+
+# Meta_PropSemantics
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+Metanode that contains a basic description of what a property is intended to be used for. e.g. Is it a colour (for a vec4f property), or a file (for a string property). This can be used as the node which is attached to the meta-metanodes with the semantics macros, or attached to anything else that needs some hints for a user interface. 
+
+`#include <meta_semantics.hpp>`
+
+## Public Classes
+
+| Type           | Name           |
+| -------------- | -------------- |
+| struct | **[PropType](../metanodes/meta-prop-semantics-prop-type.mdx)**  |
+| struct | **[Range](../metanodes/meta-prop-semantics-range.mdx)** <br />Helper object for constructing a range of two vector objects.  |
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** { Idx_Type, Idx_Filter, Idx_ReadOnly, Idx_Range} |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Type | | The type of property For Image/File/FileSave - a Windows formatted file filter string with \0 replaced with | For link properties - the names of metanodes that this property is allowed to link to (e.g. Visual::Model can only link to "Model" nodes)   |
+| Idx_Filter | |   |
+| Idx_ReadOnly | | Whether this property should be user-editable The range of values - 8 doubles to accommodate ranges up to vec4 min/max (stored in doubles, even if it's an int property). Use the [Range helper and setPropertyValueData to set this property. It's 8 doubles because that is less overhead than two nodes "min, max" + their respective value properties. If max == min, there is no range (no edit should be done with ReadOnly, not a zero-sized range)   |
+| Idx_Range | |   |

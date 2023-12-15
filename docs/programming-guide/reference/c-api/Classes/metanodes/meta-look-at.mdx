@@ -1,0 +1,55 @@
+---
+title: Meta_LookAt
+summary: A LookAt node contains settings and child Meta_LookAtTarget nodes, required when a Meta_Assembly contraint type is set to LookAt. 
+---
+
+# Meta_LookAt
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A LookAt node contains settings and child [Meta_LookAtTarget nodes, required when a [Meta_Assembly](../metanodes/meta-assembly.mdx) contraint type is set to LookAt.  [More...](#detailed-description)
+
+`#include <meta_division.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[Axis](#enum-axis)** { AxisX, AxisY, AxisZ, AxisXNeg, AxisYNeg, AxisZNeg}<br />Values for Idx_Axis and Idx_UpAxis.  |
+| enum| **[IDX](#enum-idx)** { Idx_Axis, Idx_UpAxis, Idx_UpAxisNode, Idx_UpAxisAligned}<br />Property Index.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_LookAt;
+```
+
+A LookAt node contains settings and child [Meta_LookAtTarget nodes, required when a [Meta_Assembly](../metanodes/meta-assembly.mdx) contraint type is set to LookAt. 
+
+This is expected to be a child of a [Meta_Assembly](../metanodes/meta-assembly.mdx). 
+
+## Public Types Documentation
+
+### enum Axis
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| AxisX | | Symbols - C: `"AxisX"`, Lua: `__LookAt_AxisX`  |
+| AxisY | | Symbols - C: `"AxisY"`, Lua: `__LookAt_AxisY`  |
+| AxisZ | | Symbols - C: `"AxisZ"`, Lua: `__LookAt_AxisZ`  |
+| AxisXNeg | | Symbols - C: `"AxisXNeg"`, Lua: `__LookAt_AxisXNeg`  |
+| AxisYNeg | | Symbols - C: `"AxisYNeg"`, Lua: `__LookAt_AxisYNeg`  |
+| AxisZNeg | | Symbols - C: `"AxisZNeg"`, Lua: `__LookAt_AxisZNeg`  |
+
+Values for Idx_Axis and Idx_UpAxis. 
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Axis | | [Axis](#enum-axis) (int) - The axis it should look down   |
+| Idx_UpAxis | | [Axis](#enum-axis) (int) - The world up axis. Should not be the same as Axis.   |
+| Idx_UpAxisNode | | link - A node, optionally, whose world transform should be used to derive the up axis   |
+| Idx_UpAxisAligned | | Unused.   |
+
+Property Index. 

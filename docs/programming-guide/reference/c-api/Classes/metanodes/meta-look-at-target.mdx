@@ -1,0 +1,39 @@
+---
+title: Meta_LookAtTarget
+summary: A LookAtTarget specifies a node for LookAt to look at. 
+---
+
+# Meta_LookAtTarget
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A LookAtTarget specifies a node for LookAt to look at.  [More...](#detailed-description)
+
+`#include <meta_division.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** { Idx_Target, Idx_Weight}<br />Property Index.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_LookAtTarget;
+```
+
+A LookAtTarget specifies a node for LookAt to look at. 
+
+There may be multiple targets on one LookAt, the priority is controlled by the weight values on the targets. 
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Target | |   |
+| Idx_Weight | | link - A node to look at  float - How strongly to look at it. Divide the range of 0 to 1 between all sibling targets for best results.  |
+
+Property Index. 

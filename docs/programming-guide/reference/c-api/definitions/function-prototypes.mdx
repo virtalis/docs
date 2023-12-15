@@ -11,28 +11,28 @@ Defines the function prototypes used for registering callbacks with the API.
 
 | Type           | Name           |
 | -------------- | -------------- |
-| typedef void(*)(int code, HNode user, void *userData) | **[EventGestureFunc](../definitions/group__api__proto.mdx#typedef-eventgesturefunc)** <br />Signature of a function that is called when a key code is changed (for event observers)  |
-| typedef void(*)(int code, int state, HNode user, void *userData) | **[EventKeyFunc](../definitions/group__api__proto.mdx#typedef-eventkeyfunc)** <br />Signature of a function that is called when a key state is changed (for event observers)  |
-| typedef void(*)(HNode node, HNode user, void *userData) | **[EventNodeFunc](../definitions/group__api__proto.mdx#typedef-eventnodefunc)** <br />Signature of a function that is called when a node state is changed (for event observers)  |
-| typedef void(*)(HNode node, HNode other, void *userData) | **[EventTwoNodesFunc](../definitions/group__api__proto.mdx#typedef-eventtwonodesfunc)** <br />Signature of a function that is called when two nodes interact (for event observers)  |
-| typedef void(*)(HNode node, HNode other, HNode user, void *userData) | **[EventTwoNodesUserFunc](../definitions/group__api__proto.mdx#typedef-eventtwonodesuserfunc)** <br />Signature of a function that is called when two nodes interact (for event observers)  |
-| typedef [HFFIVar](../definitions/group__api__types.mdx#typedef-hffivar)(*)(int argc, HFFIVar *argv, void *userData) | **[FFIFunc](../definitions/group__api__proto.mdx#typedef-ffifunc)** <br />Signature of a function that is exposed to the Lua environment.  |
-| typedef void(*)(HMigration m) | **[MigrationAddFunc](../definitions/group__api__proto.mdx#typedef-migrationaddfunc)** <br />Signature of a function that receives a new migration handle and should use it to register other callbacks.  |
-| typedef int(*)(HMigration m, HMeta meta) | **[MigrationDownFunc](../definitions/group__api__proto.mdx#typedef-migrationdownfunc)** <br />Signature of a function that should perform a downgrade on a metanode.  |
-| typedef [HNode](../definitions/group__api__types.mdx#typedef-hnode)(*)(HMigration m, HNode node) | **[MigrationDowngradeFunc](../definitions/group__api__proto.mdx#typedef-migrationdowngradefunc)** <br />Signature of a function that should perform a downgrade on a node instance.  |
-| typedef void(*)(HNode node, void *userData) | **[MigrationFunc](../definitions/group__api__proto.mdx#typedef-migrationfunc)** <br />Signature of a function that is called at the end of a nodes migration calls.  |
-| typedef int(*)(HMigration m, HMeta meta) | **[MigrationUpFunc](../definitions/group__api__proto.mdx#typedef-migrationupfunc)** <br />Signature of a function that should perform an upgrade on a metanode.  |
-| typedef [HNode](../definitions/group__api__types.mdx#typedef-hnode)(*)(HMigration m, HNode node) | **[MigrationUpgradeFunc](../definitions/group__api__proto.mdx#typedef-migrationupgradefunc)** <br />Signature of a function that should perform an upgrade on a node instance, e.g. by modifying property values.  |
-| typedef void(*)(HNode parent, HNode child, void *userData) | **[NodeChildAddedFunc](../definitions/group__api__proto.mdx#typedef-nodechildaddedfunc)** <br />Signature of a function that is called when a child is added to a node.  |
-| typedef void(*)(HNode parent, HNode child, void *userData) | **[NodeChildRemovedFunc](../definitions/group__api__proto.mdx#typedef-nodechildremovedfunc)** <br />Signature of a function that is called when a child is removed from a node.  |
-| typedef void(*)(HNode node, void *userData) | **[NodeCreatedFunc](../definitions/group__api__proto.mdx#typedef-nodecreatedfunc)** <br />Signature of a function that is called when a node is created.  |
-| typedef void(*)(HNode node, void *userData) | **[NodeDestroyingFunc](../definitions/group__api__proto.mdx#typedef-nodedestroyingfunc)** <br />Signature of a function that is called when a node is about to be deleted.  |
-| typedef void(*)(HNode node, HNode newParent, HNode oldParent, void *userData) | **[NodeParentChangedFunc](../definitions/group__api__proto.mdx#typedef-nodeparentchangedfunc)** <br />Signature of a function that is called when a node is moved to a new parent.  |
-| typedef void(*)(HNode node, void *userData) | **[NodeRenamedFunc](../definitions/group__api__proto.mdx#typedef-noderenamedfunc)** <br />Signature of a function that is called when a node is renamed.  |
-| typedef void(*)(HNode node, void *userData) | **[NodeValuesChangedFunc](../definitions/group__api__proto.mdx#typedef-nodevalueschangedfunc)** <br />Signature of a function that is called when properties on a node are changed.  |
-| typedef void(*)(void *userData) | **[ScriptEventFunc](../definitions/group__api__proto.mdx#typedef-scripteventfunc)** <br />Signature of a function that is called in response to a registered script event.  |
-| typedef void(*)(const char *path, void *userData) | **[SettingChangedFunc](../definitions/group__api__proto.mdx#typedef-settingchangedfunc)** <br />Signature of a function that is called when a setting is changed.  |
-| typedef void(*)(double deltaTime, void *userData) | **[UpdateFunc](../definitions/group__api__proto.mdx#typedef-updatefunc)** <br />Signature of a function that is called every frame.  |
+| typedef void(*)(int code, HNode user, void *userData) | **[EventGestureFunc](#typedef-eventgesturefunc)** <br />Signature of a function that is called when a key code is changed (for event observers)  |
+| typedef void(*)(int code, int state, HNode user, void *userData) | **[EventKeyFunc](#typedef-eventkeyfunc)** <br />Signature of a function that is called when a key state is changed (for event observers)  |
+| typedef void(*)(HNode node, HNode user, void *userData) | **[EventNodeFunc](#typedef-eventnodefunc)** <br />Signature of a function that is called when a node state is changed (for event observers)  |
+| typedef void(*)(HNode node, HNode other, void *userData) | **[EventTwoNodesFunc](#typedef-eventtwonodesfunc)** <br />Signature of a function that is called when two nodes interact (for event observers)  |
+| typedef void(*)(HNode node, HNode other, HNode user, void *userData) | **[EventTwoNodesUserFunc](#typedef-eventtwonodesuserfunc)** <br />Signature of a function that is called when two nodes interact (for event observers)  |
+| typedef [HFFIVar](./types.mdx#typedef-hffivar)(*)(int argc, HFFIVar *argv, void *userData) | **[FFIFunc](#typedef-ffifunc)** <br />Signature of a function that is exposed to the Lua environment.  |
+| typedef void(*)(HMigration m) | **[MigrationAddFunc](#typedef-migrationaddfunc)** <br />Signature of a function that receives a new migration handle and should use it to register other callbacks.  |
+| typedef int(*)(HMigration m, HMeta meta) | **[MigrationDownFunc](#typedef-migrationdownfunc)** <br />Signature of a function that should perform a downgrade on a metanode.  |
+| typedef [HNode](./types.mdx#typedef-hnode)(*)(HMigration m, HNode node) | **[MigrationDowngradeFunc](#typedef-migrationdowngradefunc)** <br />Signature of a function that should perform a downgrade on a node instance.  |
+| typedef void(*)(HNode node, void *userData) | **[MigrationFunc](#typedef-migrationfunc)** <br />Signature of a function that is called at the end of a nodes migration calls.  |
+| typedef int(*)(HMigration m, HMeta meta) | **[MigrationUpFunc](#typedef-migrationupfunc)** <br />Signature of a function that should perform an upgrade on a metanode.  |
+| typedef [HNode](./types.mdx#typedef-hnode)(*)(HMigration m, HNode node) | **[MigrationUpgradeFunc](#typedef-migrationupgradefunc)** <br />Signature of a function that should perform an upgrade on a node instance, e.g. by modifying property values.  |
+| typedef void(*)(HNode parent, HNode child, void *userData) | **[NodeChildAddedFunc](#typedef-nodechildaddedfunc)** <br />Signature of a function that is called when a child is added to a node.  |
+| typedef void(*)(HNode parent, HNode child, void *userData) | **[NodeChildRemovedFunc](#typedef-nodechildremovedfunc)** <br />Signature of a function that is called when a child is removed from a node.  |
+| typedef void(*)(HNode node, void *userData) | **[NodeCreatedFunc](#typedef-nodecreatedfunc)** <br />Signature of a function that is called when a node is created.  |
+| typedef void(*)(HNode node, void *userData) | **[NodeDestroyingFunc](#typedef-nodedestroyingfunc)** <br />Signature of a function that is called when a node is about to be deleted.  |
+| typedef void(*)(HNode node, HNode newParent, HNode oldParent, void *userData) | **[NodeParentChangedFunc](#typedef-nodeparentchangedfunc)** <br />Signature of a function that is called when a node is moved to a new parent.  |
+| typedef void(*)(HNode node, void *userData) | **[NodeRenamedFunc](#typedef-noderenamedfunc)** <br />Signature of a function that is called when a node is renamed.  |
+| typedef void(*)(HNode node, void *userData) | **[NodeValuesChangedFunc](#typedef-nodevalueschangedfunc)** <br />Signature of a function that is called when properties on a node are changed.  |
+| typedef void(*)(void *userData) | **[ScriptEventFunc](#typedef-scripteventfunc)** <br />Signature of a function that is called in response to a registered script event.  |
+| typedef void(*)(const char *path, void *userData) | **[SettingChangedFunc](#typedef-settingchangedfunc)** <br />Signature of a function that is called when a setting is changed.  |
+| typedef void(*)(double deltaTime, void *userData) | **[UpdateFunc](#typedef-updatefunc)** <br />Signature of a function that is called every frame.  |
 
 ## Types Documentation
 

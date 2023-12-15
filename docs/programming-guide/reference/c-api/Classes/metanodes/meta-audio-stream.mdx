@@ -1,0 +1,54 @@
+---
+title: Meta_AudioStream
+summary: A container for AudioStreamBuffer nodes. 
+---
+
+# Meta_AudioStream
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A container for AudioStreamBuffer nodes. 
+
+`#include <meta_audio.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** { Idx_Volume, Idx_MinimumGain, Idx_MaximumGain, Idx_PositionAtCamera, Idx_TransformMode} |
+| enum| **[TransformMode](#enum-transformmode)** { World, Local}<br />Values for Idx_TransformMode.  |
+
+## Public Functions
+
+| Type           | Name           |
+| -------------- | -------------- |
+| | **[Meta_AudioStream](#meta-audiostream)**() |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Volume | | Controls the volume of the sound source.   |
+| Idx_MinimumGain | | The minimum gain after any 3D spatial processing (0 to 1).   |
+| Idx_MaximumGain | | The maximum gain after any 3D spatial processing (0 to 1).   |
+| Idx_PositionAtCamera | | Whether the position is relative to the user's camera or the scene origin.   |
+| Idx_TransformMode | | Whether to use the world or local transform of the parent.   |
+
+### enum TransformMode
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| World | | `0` - Use the parent assembly world transform to position the audio relative to the listener (Symbols - C: `"RelativeToWorld"`, Lua: `__AudioSound_RelativeToWorld`)   |
+| Local | | `1` - Use the parent assembly local transform (Symbols - C: `"RelativeToLocal"`, Lua: `__AudioSound_RelativeToLocal`)   |
+
+Values for Idx_TransformMode. 
+
+## Public Functions Documentation
+
+### Meta_AudioStream
+
+```cpp
+inline Meta_AudioStream()
+```

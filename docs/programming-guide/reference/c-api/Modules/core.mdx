@@ -11,41 +11,40 @@ Core API functions.
 
 | Type           | Name           |
 | -------------- | -------------- |
-| int | **[VRBlobToDDSProperty](../Modules/group__api__utils.mdx#vrblobtoddsproperty)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, const void * data, uint32_t glFormat, uint32_t glType, uint32_t width, uint32_t height, char compress)<br />Helper function for converting it to DDS, and storing it in the specified char vector property.  |
-| int | **[VRBlobToDDSPropertyEx](../Modules/group__api__utils.mdx#vrblobtoddspropertyex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, const void * data, uint32_t glFormat, uint32_t glType, uint32_t width, uint32_t height, char compress)<br />Helper function for converting it to DDS, and storing it in the specified char vector property.  |
-| int | **[VRBlobToDDSPropertyV2](../Modules/group__api__utils.mdx#vrblobtoddspropertyv2)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, const void * data, uint32_t glFormat, uint32_t glType, uint32_t transparency, uint32_t width, uint32_t height, uint32_t depth, char compress, uint32_t mipLevels)<br />Helper function for converting it to DDS, and storing it in the specified char vector property.  |
-| int | **[VRBlobToDDSPropertyV2Ex](../Modules/group__api__utils.mdx#vrblobtoddspropertyv2ex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, const void * data, uint32_t glFormat, uint32_t glType, uint32_t transparency, uint32_t width, uint32_t height, uint32_t depth, char compress, uint32_t mipLevels)<br />Helper function for converting it to DDS, and storing it in the specified char vector property.  |
-| int | **[VRBulkData](../Modules/group__api__core.mdx#vrbulkdata)**(void )<br />Specifies if there a large amount of data pending transfer between vrtree instances.  |
-| void | **[VRClearLastError](../Modules/group__api__core.mdx#vrclearlasterror)**(void )<br />Manually clear the last error code.  |
-| void | **[VRCloseNodeHandle](../Modules/group__api__core.mdx#vrclosenodehandle)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Closes a node handle, clearing its connection to VRTree.  |
-| int | **[VRCloseSecurityContext](../Modules/group__api__core.mdx#vrclosesecuritycontext)**([HAuth](../Modules/group__api__types.mdx#typedef-hauth) context)<br />Releases a previously requested security context.  |
-| void | **[VRCloseUserSlotHandle](../Modules/group__api__core.mdx#vrcloseuserslothandle)**([HUserSlot](../Modules/group__api__types.mdx#typedef-huserslot) slot)<br />Releases a unique userdata slot handle.  |
-| int | **[VRConnect](../Modules/group__api__core.mdx#vrconnect)**(const char * addr, int port)<br />Connect to another instance of VRTree (e.g. Visionary Render) and synchronise trees.  |
-| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRCopyNodeHandle](../Modules/group__api__core.mdx#vrcopynodehandle)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Creates a new node handle based off the old one.  |
-| size_t | **[VRCountOpenNodeHandles](../Modules/group__api__core.mdx#vrcountopennodehandles)**(void )<br />Diagnostic function.  |
-| int | **[VRFileToDDSProperty](../Modules/group__api__utils.mdx#vrfiletoddsproperty)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, const char * file, char compress)<br />Helper function for loading an image file from disk, converting it to DDS, and storing it in the specified char vector property.  |
-| int | **[VRFileToDDSPropertyEx](../Modules/group__api__utils.mdx#vrfiletoddspropertyex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, const char * file, char compress)<br />Helper function for loading an image file from disk, converting it to DDS, and storing it in the specified char vector property.  |
-| int | **[VRGetAPIVersionMajor](../Modules/group__api__core.mdx#vrgetapiversionmajor)**(void )<br />Gets the VRTree API Major version.  |
-| int | **[VRGetAPIVersionMinor](../Modules/group__api__core.mdx#vrgetapiversionminor)**(void )<br />Gets the VRTree API Minor version.  |
-| uint32_t | **[VRGetLastError](../Modules/group__api__core.mdx#vrgetlasterror)**(void )<br />Gets the last error code.  |
-| const char * | **[VRGetLastErrorString](../Modules/group__api__core.mdx#vrgetlasterrorstring)**(void )<br />Gets the last error string.  |
-| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRGetNodeFromUUID](../Modules/group__api__core.mdx#vrgetnodefromuuid)**(uint64_t lo, uint64_t hi)<br />Gets the node with the specified UUID.  |
-| int | **[VRGetNodeVersion](../Modules/group__api__core.mdx#vrgetnodeversion)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Gets the metanode version of the specified node.  |
-| uint32_t | **[VRGetTextureFormat](../Modules/group__api__utils.mdx#vrgettextureformat)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) textureNode)<br />Helper function for getting the OpenGL texture format out of a texture node.  |
-| TextureInfo | **[VRGetTextureInfo](../Modules/group__api__utils.mdx#vrgettextureinfo)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) textureNode)<br />Helper function for getting the OpenGL texture information out of a texture node.  |
-| uint64_t | **[VRGetUUIDHigh](../Modules/group__api__core.mdx#vrgetuuidhigh)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Gets the high 64-bits of a node's unique ID.  |
-| uint64_t | **[VRGetUUIDLow](../Modules/group__api__core.mdx#vrgetuuidlow)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Gets the low 64-bits of a node's unique ID.  |
-| int | **[VRInit](../Modules/group__api__core.mdx#vrinit)**(int port)<br />Initialise VRTree.  |
-| int | **[VRIsNodeHandleValid](../Modules/group__api__core.mdx#vrisnodehandlevalid)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Checks if a node handle is valid.  |
-| [HUserSlot](../Modules/group__api__types.mdx#typedef-huserslot) | **[VRNewUserSlotHandle](../Modules/group__api__core.mdx#vrnewuserslothandle)**(void )<br />Requests a unique userdata slot identifier.  |
-| [HAuth](../Modules/group__api__types.mdx#typedef-hauth) | **[VRRequestSecurityContext](../Modules/group__api__core.mdx#vrrequestsecuritycontext)**(const char * auth, const char * name)<br />Requests a change in the API security context to grant access to API functions by categories specified in the auth string.  |
-| void | **[VRSetAPIErrorLevel](../Modules/group__api__core.mdx#vrsetapierrorlevel)**(uint32_t flags)<br />Sets the API error level, which controls which types of errors are reported and logged.  |
-| void | **[VRSetImmediateErrorLog](../Modules/group__api__core.mdx#vrsetimmediateerrorlog)**(char enabled)<br />Specifies that errors tracked by [VRSetAPIErrorLevel](../Modules/group__api__core.mdx#vrsetapierrorlevel) are also logged the the application log immediately rather than only being stored for [VRGetLastErrorString](../Modules/group__api__core.mdx#vrgetlasterrorstring).  |
-| void | **[VRShutdown](../Modules/group__api__core.mdx#vrshutdown)**(void )<br />Disconnect from the network and shut down.  |
-| void | **[VRUpdate](../Modules/group__api__core.mdx#vrupdate)**(double deltaTime)<br />Perform a full update, notifying observers and updating actors.  |
+| int | **[VRBlobToDDSProperty](#vrblobtoddsproperty)**([HNode](../definitions/types.mdx#typedef-hnode) node, const char * propName, const void * data, uint32_t glFormat, uint32_t glType, uint32_t width, uint32_t height, char compress)<br />Helper function for converting it to DDS, and storing it in the specified char vector property.  |
+| int | **[VRBlobToDDSPropertyEx](#vrblobtoddspropertyex)**([HNode](../definitions/types.mdx#typedef-hnode) node, uint32_t prop, const void * data, uint32_t glFormat, uint32_t glType, uint32_t width, uint32_t height, char compress)<br />Helper function for converting it to DDS, and storing it in the specified char vector property.  |
+| int | **[VRBlobToDDSPropertyV2](#vrblobtoddspropertyv2)**([HNode](../definitions/types.mdx#typedef-hnode) node, const char * propName, const void * data, uint32_t glFormat, uint32_t glType, uint32_t transparency, uint32_t width, uint32_t height, uint32_t depth, char compress, uint32_t mipLevels)<br />Helper function for converting it to DDS, and storing it in the specified char vector property.  |
+| int | **[VRBlobToDDSPropertyV2Ex](#vrblobtoddspropertyv2ex)**([HNode](../definitions/types.mdx#typedef-hnode) node, uint32_t prop, const void * data, uint32_t glFormat, uint32_t glType, uint32_t transparency, uint32_t width, uint32_t height, uint32_t depth, char compress, uint32_t mipLevels)<br />Helper function for converting it to DDS, and storing it in the specified char vector property.  |
+| int | **[VRBulkData](#vrbulkdata)**(void )<br />Specifies if there a large amount of data pending transfer between vrtree instances.  |
+| void | **[VRClearLastError](#vrclearlasterror)**(void )<br />Manually clear the last error code.  |
+| void | **[VRCloseNodeHandle](#vrclosenodehandle)**([HNode](../definitions/types.mdx#typedef-hnode) node)<br />Closes a node handle, clearing its connection to VRTree.  |
+| int | **[VRCloseSecurityContext](#vrclosesecuritycontext)**([HAuth](../definitions/types.mdx#typedef-hauth) context)<br />Releases a previously requested security context.  |
+| void | **[VRCloseUserSlotHandle](#vrcloseuserslothandle)**([HUserSlot](../definitions/types.mdx#typedef-huserslot) slot)<br />Releases a unique userdata slot handle.  |
+| int | **[VRConnect](#vrconnect)**(const char * addr, int port)<br />Connect to another instance of VRTree (e.g. Visionary Render) and synchronise trees.  |
+| [HNode](../definitions/types.mdx#typedef-hnode) | **[VRCopyNodeHandle](#vrcopynodehandle)**([HNode](../definitions/types.mdx#typedef-hnode) node)<br />Creates a new node handle based off the old one.  |
+| size_t | **[VRCountOpenNodeHandles](#vrcountopennodehandles)**(void )<br />Diagnostic function.  |
+| int | **[VRFileToDDSProperty](#vrfiletoddsproperty)**([HNode](../definitions/types.mdx#typedef-hnode) node, const char * propName, const char * file, char compress)<br />Helper function for loading an image file from disk, converting it to DDS, and storing it in the specified char vector property.  |
+| int | **[VRFileToDDSPropertyEx](#vrfiletoddspropertyex)**([HNode](../definitions/types.mdx#typedef-hnode) node, uint32_t prop, const char * file, char compress)<br />Helper function for loading an image file from disk, converting it to DDS, and storing it in the specified char vector property.  |
+| int | **[VRGetAPIVersionMajor](#vrgetapiversionmajor)**(void )<br />Gets the VRTree API Major version.  |
+| int | **[VRGetAPIVersionMinor](#vrgetapiversionminor)**(void )<br />Gets the VRTree API Minor version.  |
+| uint32_t | **[VRGetLastError](#vrgetlasterror)**(void )<br />Gets the last error code.  |
+| const char * | **[VRGetLastErrorString](#vrgetlasterrorstring)**(void )<br />Gets the last error string.  |
+| [HNode](../definitions/types.mdx#typedef-hnode) | **[VRGetNodeFromUUID](#vrgetnodefromuuid)**(uint64_t lo, uint64_t hi)<br />Gets the node with the specified UUID.  |
+| int | **[VRGetNodeVersion](#vrgetnodeversion)**([HNode](../definitions/types.mdx#typedef-hnode) node)<br />Gets the metanode version of the specified node.  |
+| uint32_t | **[VRGetTextureFormat](#vrgettextureformat)**([HNode](../definitions/types.mdx#typedef-hnode) textureNode)<br />Helper function for getting the OpenGL texture format out of a texture node.  |
+| TextureInfo | **[VRGetTextureInfo](#vrgettextureinfo)**([HNode](../definitions/types.mdx#typedef-hnode) textureNode)<br />Helper function for getting the OpenGL texture information out of a texture node.  |
+| uint64_t | **[VRGetUUIDHigh](#vrgetuuidhigh)**([HNode](../definitions/types.mdx#typedef-hnode) node)<br />Gets the high 64-bits of a node's unique ID.  |
+| uint64_t | **[VRGetUUIDLow](#vrgetuuidlow)**([HNode](../definitions/types.mdx#typedef-hnode) node)<br />Gets the low 64-bits of a node's unique ID.  |
+| int | **[VRInit](#vrinit)**(int port)<br />Initialise VRTree.  |
+| int | **[VRIsNodeHandleValid](#vrisnodehandlevalid)**([HNode](../definitions/types.mdx#typedef-hnode) node)<br />Checks if a node handle is valid.  |
+| [HUserSlot](../definitions/types.mdx#typedef-huserslot) | **[VRNewUserSlotHandle](#vrnewuserslothandle)**(void )<br />Requests a unique userdata slot identifier.  |
+| [HAuth](../definitions/types.mdx#typedef-hauth) | **[VRRequestSecurityContext](#vrrequestsecuritycontext)**(const char * auth, const char * name)<br />Requests a change in the API security context to grant access to API functions by categories specified in the auth string.  |
+| void | **[VRSetAPIErrorLevel](#vrsetapierrorlevel)**(uint32_t flags)<br />Sets the API error level, which controls which types of errors are reported and logged.  |
+| void | **[VRSetImmediateErrorLog](#vrsetimmediateerrorlog)**(char enabled)<br />Specifies that errors tracked by [VRSetAPIErrorLevel](#vrsetapierrorlevel) are also logged the the application log immediately rather than only being stored for [VRGetLastErrorString](#vrgetlasterrorstring).  |
+| void | **[VRShutdown](#vrshutdown)**(void )<br />Disconnect from the network and shut down.  |
+| void | **[VRUpdate](#vrupdate)**(double deltaTime)<br />Perform a full update, notifying observers and updating actors.  |
 
 ## Functions Documentation
-
 
 ### VRBlobToDDSProperty
 
@@ -367,7 +366,7 @@ uint32_t VRGetLastError(
 
 Gets the last error code. 
 
-**Return**: [The last error code](../Modules/group__api__errors.mdx)
+**Return**: [The last error code](../definitions/error-codes.mdx)
 
 This function does not clear the error. 
 
@@ -559,7 +558,7 @@ Requests a change in the API security context to grant access to API functions b
 
 **Note**: New contexts are pushed onto a stack, meaning that when the returned context is closed, access controls revert to the level provided by the previous security context. 
 
-Most plugins should let the plugin manager deal with this automatically by exporting their signature string as a [VRPSignatureProc](../Modules/group__api__plugin__interface.mdx#typedef-vrpsignatureproc). This API exists for programs that load vrtree.dll independently of Visionary Render, in which case the auth string is likely to be required to specify SC_INIT permissions in order to be able to do anything useful.
+Most plugins should let the plugin manager deal with this automatically by exporting their signature string as a [VRPSignatureProc](../modules/plugins/interface.mdx#typedef-vrpsignatureproc). This API exists for programs that load vrtree.dll independently of Visionary Render, in which case the auth string is likely to be required to specify SC_INIT permissions in order to be able to do anything useful.
 
 ### VRSetAPIErrorLevel
 
@@ -573,7 +572,7 @@ Sets the API error level, which controls which types of errors are reported and 
 
 **Parameters**: 
 
-  * **flags** one or more [Logging masks](../Modules/group__api__loggingmask.mdx) which enable error reporting by type 
+  * **flags** one or more [Logging masks](../definitions/logging-flags.mdx) which enable error reporting by type 
 
 ### VRSetImmediateErrorLog
 
@@ -583,7 +582,7 @@ void VRSetImmediateErrorLog(
 )
 ```
 
-Specifies that errors tracked by [VRSetAPIErrorLevel](../Modules/group__api__core.mdx#vrsetapierrorlevel) are also logged the the application log immediately rather than only being stored for [VRGetLastErrorString](../Modules/group__api__core.mdx#vrgetlasterrorstring). 
+Specifies that errors tracked by [VRSetAPIErrorLevel](#vrsetapierrorlevel) are also logged the the application log immediately rather than only being stored for [VRGetLastErrorString](#vrgetlasterrorstring). 
 
 **Parameters**: 
 

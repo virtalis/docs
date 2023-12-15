@@ -1,0 +1,26 @@
+---
+title: Meta_GuiOrderHint
+summary: Contains a link to a child node of the owner of the GuiHints. There may be many of these under a Meta_GuiHints node, a UI should prioritise its display so that properties of the linked item are displayed in the order that the GuiOrderHints appear in the tree, followed by any other properties not referenced by GuiOrderHints. For example, if Assembly::Enabled should be first, followed by Assembly::Transform, there would be two GuiOrderHints, the first linking to the Enabled MetaValue, the second to the Transform MetaValue. Node semantics specifying these nodes should override any ordering in the metanode semantics. 
+---
+
+# Meta_GuiOrderHint
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+Contains a link to a child node of the owner of the GuiHints. There may be many of these under a [Meta_GuiHints](../metanodes/meta-gui-hints.mdx) node, a UI should prioritise its display so that properties of the linked item are displayed in the order that the GuiOrderHints appear in the tree, followed by any other properties not referenced by GuiOrderHints. For example, if Assembly::Enabled should be first, followed by Assembly::Transform, there would be two GuiOrderHints, the first linking to the Enabled MetaValue, the second to the Transform MetaValue. Node semantics specifying these nodes should override any ordering in the metanode semantics. 
+
+`#include <meta_semantics.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** { Idx_Item} |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Item | |   |

@@ -1,0 +1,46 @@
+---
+title: Meta_GUIMaterial
+summary: A GUIMaterial is a material that can specify its draw layer, so it may appear above or below other types of object. 
+---
+
+# Meta_GUIMaterial
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A GUIMaterial is a material that can specify its draw layer, so it may appear above or below other types of object. 
+
+`#include <meta_division.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** { Idx_LayerValue, Idx_Colour, Idx_Texture, Idx_DepthWrite, Idx_DepthTest, Idx_SubPixelAntiAlias, Idx_PremultipliedAlpha}<br />Property index.  |
+| enum| **[Layer](#enum-layer)** { Opaque, Transparent, SceneOverlay, ViewOverlay}<br />Values for the X element of Idx_LayerValue.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_LayerValue | | vec2i - Layer to draw in. X = a [Layer, Y = offset within the layer (higher values are drawn later)   |
+| Idx_Colour | | vec4f - Colour of the material (RGBA 0.0f to 1.0f)   |
+| Idx_Texture | | link - Texture to apply   |
+| Idx_DepthWrite | | bool - Whether to write to the depth buffer   |
+| Idx_DepthTest | | bool - Whether to draw with depth testing (false will draw above all previously drawn objects regardless of their depth)   |
+| Idx_SubPixelAntiAlias | | bool - Whether to enable AA   |
+| Idx_PremultipliedAlpha | | bool - Whether to use premultiplied alpha   |
+
+Property index. 
+
+### enum Layer
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Opaque | | Draws in the Opaque layer (Symbols - C: `"LayerOpaque"`, Lua: `__GUIMaterial_LayerOpaque`)   |
+| Transparent | | Draws in the Transparent layer (Symbols - C: `"LayerTransparent"`, Lua: `__GUIMaterial_LayerTransparent`)   |
+| SceneOverlay | | Draws in the Scene Overlay layer (Symbols - C: `"LayerSceneOverlay"`, Lua: `__GUIMaterial_LayerSceneOverlay`)   |
+| ViewOverlay | | Draws in the View Overlay layer (Symbols - C: `"LayerViewOverlay"`, Lua: `__GUIMaterial_LayerViewOverlay`)   |
+
+Values for the X element of Idx_LayerValue. 

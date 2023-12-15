@@ -1,0 +1,47 @@
+---
+title: Meta_HapticNode
+summary: A HapticNode is added to Meta_Assembly much the same way as Meta_Collision, and allows the assembly to be felt by haptic devices. 
+---
+
+# Meta_HapticNode
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A HapticNode is added to [Meta_Assembly](../metanodes/meta-assembly.mdx) much the same way as [Meta_Collision](../metanodes/meta-collision.mdx), and allows the assembly to be felt by haptic devices. 
+
+`#include <meta_haptic.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** { Idx_Collides, Idx_Type, Idx_Enabled, Idx_Limit, Idx_Rule, Idx_Magnetic, Idx_Stiffness, Idx_Damping, Idx_Friction, Idx_Popthrough}<br />Property index.  |
+| enum| **[CollisionNodeType](#enum-collisionnodetype)** { TYPE_TOUCH = 0, TYPE_HOTSPOT = 5}<br />Values for Idx_Type.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Collides | | bool - Is set to true while the haptic device is actively feeling this object, and false when it moves away   |
+| Idx_Type | | [CollisionNodeType (int) - Type of haptic collision   |
+| Idx_Enabled | | bool - Enables haptics on this node   |
+| Idx_Limit | | Internal.   |
+| Idx_Rule | | Internal.   |
+| Idx_Magnetic | | bool - When enabled, this object can cause the haptic cursor to stick to it   |
+| Idx_Stiffness | | floatw - Controls how hard the surface of the object feels   |
+| Idx_Damping | | floatw - Controls the springiness of the surface   |
+| Idx_Friction | | floatw - Controls the resistance against the haptic cursor moving along the surface   |
+| Idx_Popthrough | | floatw - Controls how hard it is to push the cursor through the surface   |
+
+Property index. 
+
+### enum CollisionNodeType
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| TYPE_TOUCH | 0| Node is touchable by the haptic device, providing force feedback (Symbols - C: `"TypeTouch"`, Lua: `__HapticNode_TypeTouch`)   |
+| TYPE_HOTSPOT | 5| Node represents a bounding sphere, activated when the haptic cursor is inside. Triggers Touch and Break events to [Meta_EventHandler](../metanodes/meta-event-handler.mdx) (Symbols - C: `"TypeHotspot"`, Lua: `__HapticNode_TypeHotspot`)   |
+
+Values for Idx_Type. 

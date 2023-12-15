@@ -1,0 +1,31 @@
+---
+title: Meta_SceneList
+summary: The SceneList represents the Scenes node in the tree. 
+---
+
+# Meta_SceneList
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+The SceneList represents the Scenes node in the tree. 
+
+`#include <meta_root.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** { Idx_Modified, Idx_SaveFileName, Idx_LastImportedFile, Idx_LastViewpoint}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Modified | | bool - Gets set to true if anything in the scene has been modified since last saving   |
+| Idx_SaveFileName | | string - Gets set to the path to the file that the scene was last saved as   |
+| Idx_LastImportedFile | | string - Gets set to the path to the last imported file   |
+| Idx_LastViewpoint | | link - Contains a link to the last viewport that was flown to / activated   |
+
+Property index. 

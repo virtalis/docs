@@ -1,0 +1,63 @@
+---
+title: Meta_RenderTarget
+---
+
+# Meta_RenderTarget
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[Attachment](#enum-attachment)** { Depth, Stencil, DepthStencil, Colour} |
+| enum| **[CubeMapFace](#enum-cubemapface)** { PosX, NegX, PosY, NegY, PosZ, NegZ} |
+| enum| **[IDX](#enum-idx)** { Idx_Enabled, Idx_Attachment, Idx_Texture, Idx_MipLevel, Idx_Layer, Idx_Clear, Idx_ClearValue} |
+
+## Public Functions
+
+| Type           | Name           |
+| -------------- | -------------- |
+| | **[Meta_RenderTarget](#meta-rendertarget)**() |
+
+## Public Types Documentation
+
+### enum Attachment
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Depth | | equivalent to GL_DEPTH_ATTACHMENT   |
+| Stencil | | equivalent to GL_STENCIL_ATTACHMENT   |
+| DepthStencil | | equivalent to GL_DEPTH_STENCIL_ATTACHMENT   |
+| Colour | | equivalent to GL_COLOR_ATTACHMENT0. Colour+1 is equivalent to GL_COLOR_ATTACHMENT1 and so on up to GPU's maximum supported colour attachments...   |
+
+### enum CubeMapFace
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| PosX | |   |
+| NegX | |   |
+| PosY | |   |
+| NegY | |   |
+| PosZ | |   |
+| NegZ | |   |
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | |   |
+| Idx_Attachment | | integer attachment number (use Attachment enum for reference)   |
+| Idx_Texture | | link to [Meta_Texture to render into.   |
+| Idx_MipLevel | | integer mipmap level of texture to render into.   |
+| Idx_Layer | | integer texture layer to render into. If Idx_Texture is a cubemap this is the cubemap face to use (use CubeMapFace enum for reference) if Idx_Texture is a 3D texture this is the slice to use. Otherwise ignored.   |
+| Idx_Clear | | boolean indicating whether or not the render target should be cleared before rendering into it.   |
+| Idx_ClearValue | | the value to clear the render target to. For a colour attachment this is 4 floats representing colour and alpha.   |
+
+## Public Functions Documentation
+
+### Meta_RenderTarget
+
+```cpp
+inline Meta_RenderTarget()
+```

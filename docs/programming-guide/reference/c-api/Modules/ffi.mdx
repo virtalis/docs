@@ -11,44 +11,44 @@ Functions for interacting with the scripting engine inside VRTree.
 
 | Type           | Name           |
 | -------------- | -------------- |
-| void | **[VRFFIFree](../Modules/group__api__ffi.mdx#vrffifree)**([HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) var)<br />Deletes the memory allocated for this FFI variable and closes the handle.  |
-| const double * | **[VRFFIGetAABB](../Modules/group__api__ffi.mdx#vrffigetaabb)**([HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) var)<br />Reads the AABB contained in the FFI variable and returns it.  |
-| char | **[VRFFIGetBool](../Modules/group__api__ffi.mdx#vrffigetbool)**([HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) var)<br />Reads the boolean value contained in the FFI variable and returns it.  |
-| double | **[VRFFIGetDouble](../Modules/group__api__ffi.mdx#vrffigetdouble)**([HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) var)<br />Reads the double value contained in the FFI variable and returns it.  |
-| [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) | **[VRFFIGetEventRegister](../Modules/group__api__ffi.mdx#vrffigeteventregister)**(const char * registerName)<br />Reads the value from an event register during a call to a registered event function. These are the equivalent to the values provided to an event script such as __Self and __Other.  |
-| int | **[VRFFIGetInt](../Modules/group__api__ffi.mdx#vrffigetint)**([HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) var)<br />Reads the integer value contained in the FFI variable and returns it.  |
-| const double * | **[VRFFIGetMat3](../Modules/group__api__ffi.mdx#vrffigetmat3)**([HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) var)<br />Reads the mat3 contained in the FFI variable and returns it.  |
-| const double * | **[VRFFIGetMat4](../Modules/group__api__ffi.mdx#vrffigetmat4)**([HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) var)<br />Reads the mat4 contained in the FFI variable and returns it.  |
-| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRFFIGetNode](../Modules/group__api__ffi.mdx#vrffigetnode)**([HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) var)<br />Reads the node contained in the FFI variable and returns a new handle to it.  |
-| const double * | **[VRFFIGetPlane](../Modules/group__api__ffi.mdx#vrffigetplane)**([HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) var)<br />Reads the plane contained in the FFI variable and returns it.  |
-| const double * | **[VRFFIGetQuat](../Modules/group__api__ffi.mdx#vrffigetquat)**([HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) var)<br />Reads the quaternion contained in the FFI variable and returns it.  |
-| const double * | **[VRFFIGetRay](../Modules/group__api__ffi.mdx#vrffigetray)**([HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) var)<br />Reads the ray contained in the FFI variable and returns it.  |
-| const double * | **[VRFFIGetSphere](../Modules/group__api__ffi.mdx#vrffigetsphere)**([HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) var)<br />Reads the sphere contained in the FFI variable and returns it.  |
-| const char * | **[VRFFIGetString](../Modules/group__api__ffi.mdx#vrffigetstring)**([HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) var)<br />Reads the string value contained in the FFI variable and returns it.  |
-| int | **[VRFFIGetType](../Modules/group__api__ffi.mdx#vrffigettype)**([HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) var)<br />Identifies the type of variable.  |
-| const double * | **[VRFFIGetVec2](../Modules/group__api__ffi.mdx#vrffigetvec2)**([HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) var)<br />Reads the vec2 contained in the FFI variable and returns it.  |
-| const double * | **[VRFFIGetVec3](../Modules/group__api__ffi.mdx#vrffigetvec3)**([HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) var)<br />Reads the vec3 contained in the FFI variable and returns it.  |
-| const double * | **[VRFFIGetVec4](../Modules/group__api__ffi.mdx#vrffigetvec4)**([HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) var)<br />Reads the vec4 contained in the FFI variable and returns it.  |
-| [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) | **[VRFFIInvoke](../Modules/group__api__ffi.mdx#vrffiinvoke)**(const char * func, [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) * args, int nArgs)<br />Calls a named function in the scripting environment.  |
-| [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) | **[VRFFIMakeAABB](../Modules/group__api__ffi.mdx#vrffimakeaabb)**(const double * values)<br />Creates an AABB (6 doubles in an array)  |
-| [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) | **[VRFFIMakeBool](../Modules/group__api__ffi.mdx#vrffimakebool)**(char value)<br />Creates a boolean FFI variable and returns it.  |
-| [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) | **[VRFFIMakeDouble](../Modules/group__api__ffi.mdx#vrffimakedouble)**(double value)<br />Creates a number FFI variable and returns it.  |
-| [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) | **[VRFFIMakeInt](../Modules/group__api__ffi.mdx#vrffimakeint)**(int value)<br />Creates a number FFI variable and returns it.  |
-| [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) | **[VRFFIMakeMat3](../Modules/group__api__ffi.mdx#vrffimakemat3)**(const double * values)<br />Creates a mat3 (9 doubles in an array)  |
-| [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) | **[VRFFIMakeMat4](../Modules/group__api__ffi.mdx#vrffimakemat4)**(const double * values)<br />Creates a mat4 (16 doubles in an array)  |
-| [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) | **[VRFFIMakeNode](../Modules/group__api__ffi.mdx#vrffimakenode)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) handle)<br />Wraps a node handle in an FFI variable.  |
-| [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) | **[VRFFIMakePlane](../Modules/group__api__ffi.mdx#vrffimakeplane)**(const double * values)<br />Creates a plane (4 doubles in an array)  |
-| [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) | **[VRFFIMakeQuat](../Modules/group__api__ffi.mdx#vrffimakequat)**(const double * values)<br />Creates a quaternion (4 doubles in an array)  |
-| [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) | **[VRFFIMakeRay](../Modules/group__api__ffi.mdx#vrffimakeray)**(const double * values)<br />Creates a ray (6 doubles in an array)  |
-| [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) | **[VRFFIMakeSphere](../Modules/group__api__ffi.mdx#vrffimakesphere)**(const double * values)<br />Creates a sphere (4 doubles in an array)  |
-| [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) | **[VRFFIMakeString](../Modules/group__api__ffi.mdx#vrffimakestring)**(const char * value)<br />Creates a string FFI variable and returns it.  |
-| [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) | **[VRFFIMakeVec2](../Modules/group__api__ffi.mdx#vrffimakevec2)**(const double * values)<br />Creates a vec2 (2 doubles in an array)  |
-| [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) | **[VRFFIMakeVec3](../Modules/group__api__ffi.mdx#vrffimakevec3)**(const double * values)<br />Creates a vec3 (3 doubles in an array)  |
-| [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) | **[VRFFIMakeVec4](../Modules/group__api__ffi.mdx#vrffimakevec4)**(const double * values)<br />Creates a vec4 (4 doubles in an array)  |
-| int | **[VRFFIRegister](../Modules/group__api__ffi.mdx#vrffiregister)**(const char * funcName, [FFIFunc](../Modules/group__api__proto.mdx#typedef-ffifunc) func, int minArgc, void * userData)<br />Registers a function as a global Lua function in the main script environment. This function becomes a first-class Lua function callable by any Lua code in events or other plugins.  |
-| int | **[VRFFIUnregister](../Modules/group__api__ffi.mdx#vrffiunregister)**(const char * funcName, [FFIFunc](../Modules/group__api__proto.mdx#typedef-ffifunc) func)<br />Unregisters a previously registered FFIFunc.  |
-| void | **[VRRegisterEventFunction](../Modules/group__api__ffi.mdx#vrregistereventfunction)**(const char * name, [ScriptEventFunc](../Modules/group__api__proto.mdx#typedef-scripteventfunc) func, void * userData)<br />Registers a C function with a name which can then be used to call the function in direct response to an Event (e.g. Create, Activate, Timestep, etc)  |
-| void | **[VRUnregisterEventFunction](../Modules/group__api__ffi.mdx#vrunregistereventfunction)**(const char * name)<br />Unregisters a previously registered event function.  |
+| void | **[VRFFIFree](#vrffifree)**([HFFIVar](../definitions/types.mdx#typedef-hffivar) var)<br />Deletes the memory allocated for this FFI variable and closes the handle.  |
+| const double * | **[VRFFIGetAABB](#vrffigetaabb)**([HFFIVar](../definitions/types.mdx#typedef-hffivar) var)<br />Reads the AABB contained in the FFI variable and returns it.  |
+| char | **[VRFFIGetBool](#vrffigetbool)**([HFFIVar](../definitions/types.mdx#typedef-hffivar) var)<br />Reads the boolean value contained in the FFI variable and returns it.  |
+| double | **[VRFFIGetDouble](#vrffigetdouble)**([HFFIVar](../definitions/types.mdx#typedef-hffivar) var)<br />Reads the double value contained in the FFI variable and returns it.  |
+| [HFFIVar](../definitions/types.mdx#typedef-hffivar) | **[VRFFIGetEventRegister](#vrffigeteventregister)**(const char * registerName)<br />Reads the value from an event register during a call to a registered event function. These are the equivalent to the values provided to an event script such as __Self and __Other.  |
+| int | **[VRFFIGetInt](#vrffigetint)**([HFFIVar](../definitions/types.mdx#typedef-hffivar) var)<br />Reads the integer value contained in the FFI variable and returns it.  |
+| const double * | **[VRFFIGetMat3](#vrffigetmat3)**([HFFIVar](../definitions/types.mdx#typedef-hffivar) var)<br />Reads the mat3 contained in the FFI variable and returns it.  |
+| const double * | **[VRFFIGetMat4](#vrffigetmat4)**([HFFIVar](../definitions/types.mdx#typedef-hffivar) var)<br />Reads the mat4 contained in the FFI variable and returns it.  |
+| [HNode](../definitions/types.mdx#typedef-hnode) | **[VRFFIGetNode](#vrffigetnode)**([HFFIVar](../definitions/types.mdx#typedef-hffivar) var)<br />Reads the node contained in the FFI variable and returns a new handle to it.  |
+| const double * | **[VRFFIGetPlane](#vrffigetplane)**([HFFIVar](../definitions/types.mdx#typedef-hffivar) var)<br />Reads the plane contained in the FFI variable and returns it.  |
+| const double * | **[VRFFIGetQuat](#vrffigetquat)**([HFFIVar](../definitions/types.mdx#typedef-hffivar) var)<br />Reads the quaternion contained in the FFI variable and returns it.  |
+| const double * | **[VRFFIGetRay](#vrffigetray)**([HFFIVar](../definitions/types.mdx#typedef-hffivar) var)<br />Reads the ray contained in the FFI variable and returns it.  |
+| const double * | **[VRFFIGetSphere](#vrffigetsphere)**([HFFIVar](../definitions/types.mdx#typedef-hffivar) var)<br />Reads the sphere contained in the FFI variable and returns it.  |
+| const char * | **[VRFFIGetString](#vrffigetstring)**([HFFIVar](../definitions/types.mdx#typedef-hffivar) var)<br />Reads the string value contained in the FFI variable and returns it.  |
+| int | **[VRFFIGetType](#vrffigettype)**([HFFIVar](../definitions/types.mdx#typedef-hffivar) var)<br />Identifies the type of variable.  |
+| const double * | **[VRFFIGetVec2](#vrffigetvec2)**([HFFIVar](../definitions/types.mdx#typedef-hffivar) var)<br />Reads the vec2 contained in the FFI variable and returns it.  |
+| const double * | **[VRFFIGetVec3](#vrffigetvec3)**([HFFIVar](../definitions/types.mdx#typedef-hffivar) var)<br />Reads the vec3 contained in the FFI variable and returns it.  |
+| const double * | **[VRFFIGetVec4](#vrffigetvec4)**([HFFIVar](../definitions/types.mdx#typedef-hffivar) var)<br />Reads the vec4 contained in the FFI variable and returns it.  |
+| [HFFIVar](../definitions/types.mdx#typedef-hffivar) | **[VRFFIInvoke](#vrffiinvoke)**(const char * func, [HFFIVar](../definitions/types.mdx#typedef-hffivar) * args, int nArgs)<br />Calls a named function in the scripting environment.  |
+| [HFFIVar](../definitions/types.mdx#typedef-hffivar) | **[VRFFIMakeAABB](#vrffimakeaabb)**(const double * values)<br />Creates an AABB (6 doubles in an array)  |
+| [HFFIVar](../definitions/types.mdx#typedef-hffivar) | **[VRFFIMakeBool](#vrffimakebool)**(char value)<br />Creates a boolean FFI variable and returns it.  |
+| [HFFIVar](../definitions/types.mdx#typedef-hffivar) | **[VRFFIMakeDouble](#vrffimakedouble)**(double value)<br />Creates a number FFI variable and returns it.  |
+| [HFFIVar](../definitions/types.mdx#typedef-hffivar) | **[VRFFIMakeInt](#vrffimakeint)**(int value)<br />Creates a number FFI variable and returns it.  |
+| [HFFIVar](../definitions/types.mdx#typedef-hffivar) | **[VRFFIMakeMat3](#vrffimakemat3)**(const double * values)<br />Creates a mat3 (9 doubles in an array)  |
+| [HFFIVar](../definitions/types.mdx#typedef-hffivar) | **[VRFFIMakeMat4](#vrffimakemat4)**(const double * values)<br />Creates a mat4 (16 doubles in an array)  |
+| [HFFIVar](../definitions/types.mdx#typedef-hffivar) | **[VRFFIMakeNode](#vrffimakenode)**([HNode](../definitions/types.mdx#typedef-hnode) handle)<br />Wraps a node handle in an FFI variable.  |
+| [HFFIVar](../definitions/types.mdx#typedef-hffivar) | **[VRFFIMakePlane](#vrffimakeplane)**(const double * values)<br />Creates a plane (4 doubles in an array)  |
+| [HFFIVar](../definitions/types.mdx#typedef-hffivar) | **[VRFFIMakeQuat](#vrffimakequat)**(const double * values)<br />Creates a quaternion (4 doubles in an array)  |
+| [HFFIVar](../definitions/types.mdx#typedef-hffivar) | **[VRFFIMakeRay](#vrffimakeray)**(const double * values)<br />Creates a ray (6 doubles in an array)  |
+| [HFFIVar](../definitions/types.mdx#typedef-hffivar) | **[VRFFIMakeSphere](#vrffimakesphere)**(const double * values)<br />Creates a sphere (4 doubles in an array)  |
+| [HFFIVar](../definitions/types.mdx#typedef-hffivar) | **[VRFFIMakeString](#vrffimakestring)**(const char * value)<br />Creates a string FFI variable and returns it.  |
+| [HFFIVar](../definitions/types.mdx#typedef-hffivar) | **[VRFFIMakeVec2](#vrffimakevec2)**(const double * values)<br />Creates a vec2 (2 doubles in an array)  |
+| [HFFIVar](../definitions/types.mdx#typedef-hffivar) | **[VRFFIMakeVec3](#vrffimakevec3)**(const double * values)<br />Creates a vec3 (3 doubles in an array)  |
+| [HFFIVar](../definitions/types.mdx#typedef-hffivar) | **[VRFFIMakeVec4](#vrffimakevec4)**(const double * values)<br />Creates a vec4 (4 doubles in an array)  |
+| int | **[VRFFIRegister](#vrffiregister)**(const char * funcName, [FFIFunc](../definitions/function-prototypes.mdx#typedef-ffifunc) func, int minArgc, void * userData)<br />Registers a function as a global Lua function in the main script environment. This function becomes a first-class Lua function callable by any Lua code in events or other plugins.  |
+| int | **[VRFFIUnregister](#vrffiunregister)**(const char * funcName, [FFIFunc](../definitions/function-prototypes.mdx#typedef-ffifunc) func)<br />Unregisters a previously registered FFIFunc.  |
+| void | **[VRRegisterEventFunction](#vrregistereventfunction)**(const char * name, [ScriptEventFunc](../definitions/function-prototypes.mdx#typedef-scripteventfunc) func, void * userData)<br />Registers a C function with a name which can then be used to call the function in direct response to an Event (e.g. Create, Activate, Timestep, etc)  |
+| void | **[VRUnregisterEventFunction](#vrunregistereventfunction)**(const char * name)<br />Unregisters a previously registered event function.  |
 
 ## Functions Documentation
 
@@ -78,7 +78,7 @@ Reads the AABB contained in the FFI variable and returns it.
 
 **Return**: pointer to array of 6 doubles containing the values (min xyz, max xyz) 
 
-**Warning**: the return value is only valid until the next call to [VRFFIGetAABB](../Modules/group__api__ffi.mdx#vrffigetaabb) with ANY HFFIVar. 
+**Warning**: the return value is only valid until the next call to [VRFFIGetAABB](#vrffigetaabb) with ANY HFFIVar. 
 
 ### VRFFIGetBool
 
@@ -160,7 +160,7 @@ Reads the mat3 contained in the FFI variable and returns it.
 
 **Return**: pointer to array of 9 doubles containing the values. 
 
-**Warning**: the return value is only valid until the next call to [VRFFIGetMat3](../Modules/group__api__ffi.mdx#vrffigetmat3) with ANY HFFIVar. 
+**Warning**: the return value is only valid until the next call to [VRFFIGetMat3](#vrffigetmat3) with ANY HFFIVar. 
 
 ### VRFFIGetMat4
 
@@ -178,7 +178,7 @@ Reads the mat4 contained in the FFI variable and returns it.
 
 **Return**: pointer to array of 16 doubles containing the values. 
 
-**Warning**: the return value is only valid until the next call to [VRFFIGetMat4](../Modules/group__api__ffi.mdx#vrffigetmat4) with ANY HFFIVar. 
+**Warning**: the return value is only valid until the next call to [VRFFIGetMat4](#vrffigetmat4) with ANY HFFIVar. 
 
 ### VRFFIGetNode
 
@@ -194,7 +194,7 @@ Reads the node contained in the FFI variable and returns a new handle to it.
 
   * **var** FFI variant handle, must be of type Node 
 
-**See**: [VRCloseNodeHandle](../Modules/group__api__core.mdx#vrclosenodehandle)
+**See**: [VRCloseNodeHandle](../modules/core.mdx#vrclosenodehandle)
 
 **Return**: new node handle to the node contained in the var 
 
@@ -216,7 +216,7 @@ Reads the plane contained in the FFI variable and returns it.
 
 **Return**: pointer to array of 4 doubles containing the values (normal xyz, distance) 
 
-**Warning**: the return value is only valid until the next call to [VRFFIGetPlane](../Modules/group__api__ffi.mdx#vrffigetplane) with ANY HFFIVar. 
+**Warning**: the return value is only valid until the next call to [VRFFIGetPlane](#vrffigetplane) with ANY HFFIVar. 
 
 ### VRFFIGetQuat
 
@@ -234,7 +234,7 @@ Reads the quaternion contained in the FFI variable and returns it.
 
 **Return**: pointer to array of 4 doubles containing the values (vector xyz, angle) 
 
-**Warning**: the return value is only valid until the next call to [VRFFIGetQuat](../Modules/group__api__ffi.mdx#vrffigetquat) with ANY HFFIVar. 
+**Warning**: the return value is only valid until the next call to [VRFFIGetQuat](#vrffigetquat) with ANY HFFIVar. 
 
 ### VRFFIGetRay
 
@@ -252,7 +252,7 @@ Reads the ray contained in the FFI variable and returns it.
 
 **Return**: pointer to array of 6 doubles containing the values (origin xyz, direction xyz) 
 
-**Warning**: the return value is only valid until the next call to [VRFFIGetRay](../Modules/group__api__ffi.mdx#vrffigetray) with ANY HFFIVar. 
+**Warning**: the return value is only valid until the next call to [VRFFIGetRay](#vrffigetray) with ANY HFFIVar. 
 
 ### VRFFIGetSphere
 
@@ -270,7 +270,7 @@ Reads the sphere contained in the FFI variable and returns it.
 
 **Return**: pointer to array of 4 doubles containing the values (centre xyz, radius) 
 
-**Warning**: the return value is only valid until the next call to [VRFFIGetSphere](../Modules/group__api__ffi.mdx#vrffigetsphere) with ANY HFFIVar. 
+**Warning**: the return value is only valid until the next call to [VRFFIGetSphere](#vrffigetsphere) with ANY HFFIVar. 
 
 ### VRFFIGetString
 
@@ -288,7 +288,7 @@ Reads the string value contained in the FFI variable and returns it.
 
 **Return**: null terminated string, may be UTF-8 encoded. 
 
-**Warning**: the return value is only valid for the lifetime of the FFI variant. Using this string pointer after calling [VRFFIFree](../Modules/group__api__ffi.mdx#vrffifree) on this var, without first copying it, will result in undefined behaviour. 
+**Warning**: the return value is only valid for the lifetime of the FFI variant. Using this string pointer after calling [VRFFIFree](#vrffifree) on this var, without first copying it, will result in undefined behaviour. 
 
 ### VRFFIGetType
 
@@ -324,7 +324,7 @@ Reads the vec2 contained in the FFI variable and returns it.
 
 **Return**: pointer to array of 2 doubles containing the values. 
 
-**Warning**: the return value is only valid until the next call to [VRFFIGetVec2](../Modules/group__api__ffi.mdx#vrffigetvec2) with ANY HFFIVar. 
+**Warning**: the return value is only valid until the next call to [VRFFIGetVec2](#vrffigetvec2) with ANY HFFIVar. 
 
 ### VRFFIGetVec3
 
@@ -342,7 +342,7 @@ Reads the vec3 contained in the FFI variable and returns it.
 
 **Return**: pointer to array of 3 doubles containing the values. 
 
-**Warning**: the return value is only valid until the next call to [VRFFIGetVec3](../Modules/group__api__ffi.mdx#vrffigetvec3) with ANY HFFIVar. 
+**Warning**: the return value is only valid until the next call to [VRFFIGetVec3](#vrffigetvec3) with ANY HFFIVar. 
 
 ### VRFFIGetVec4
 
@@ -360,7 +360,7 @@ Reads the vec4 contained in the FFI variable and returns it.
 
 **Return**: pointer to array of 4 doubles containing the values. 
 
-**Warning**: the return value is only valid until the next call to [VRFFIGetVec4](../Modules/group__api__ffi.mdx#vrffigetvec4) with ANY HFFIVar. 
+**Warning**: the return value is only valid until the next call to [VRFFIGetVec4](#vrffigetvec4) with ANY HFFIVar. 
 
 ### VRFFIInvoke
 
@@ -380,7 +380,7 @@ Calls a named function in the scripting environment.
   * **args** Array of HFFIVar handles representing the function parameters (pushed in array order). The array may contain null entries, in which case a nil variant will be substituted for the call. 
   * **nArgs** number of arguments in the args array 
 
-**Return**: a new variant handle containing the return value from the function. This will need to be [VRFFIFree](../Modules/group__api__ffi.mdx#vrffifree)'d after use. 
+**Return**: a new variant handle containing the return value from the function. This will need to be [VRFFIFree](#vrffifree)'d after use. 
 
 **Note**: this function, being C, is limited to returning only one value, so calling a FFI function that returns multiple values will only return the first value returned by the FFI function. The rest of the return values are currently discarded. 
 
@@ -398,7 +398,7 @@ Creates an AABB (6 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 6 doubles (min xyz, max xyz) 
 
-**See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
+**See**: [VRFFIFree(HFFIVar)](#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
@@ -416,7 +416,7 @@ Creates a boolean FFI variable and returns it.
 
   * **value** the value to wrap in the variant. any value other than zero results in a true boolean value. 
 
-**See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
+**See**: [VRFFIFree(HFFIVar)](#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
@@ -434,7 +434,7 @@ Creates a number FFI variable and returns it.
 
   * **value** the value to wrap in the variant. 
 
-**See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
+**See**: [VRFFIFree(HFFIVar)](#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
@@ -452,7 +452,7 @@ Creates a number FFI variable and returns it.
 
   * **value** the value to wrap in the variant. 
 
-**See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
+**See**: [VRFFIFree(HFFIVar)](#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
@@ -470,7 +470,7 @@ Creates a mat3 (9 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 9 doubles. 
 
-**See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
+**See**: [VRFFIFree(HFFIVar)](#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
@@ -488,7 +488,7 @@ Creates a mat4 (16 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 16 doubles. 
 
-**See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
+**See**: [VRFFIFree(HFFIVar)](#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
@@ -506,7 +506,7 @@ Wraps a node handle in an FFI variable.
 
   * **handle** valid node handle 
 
-**See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
+**See**: [VRFFIFree(HFFIVar)](#vrffifree)
 
 **Return**: a new FFI variant handle representing the node 
 
@@ -526,7 +526,7 @@ Creates a plane (4 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 4 doubles (normal xyz, distance) 
 
-**See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
+**See**: [VRFFIFree(HFFIVar)](#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
@@ -544,7 +544,7 @@ Creates a quaternion (4 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 4 doubles (vector xyz, angle) 
 
-**See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
+**See**: [VRFFIFree(HFFIVar)](#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
@@ -562,7 +562,7 @@ Creates a ray (6 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 6 doubles (origin xyz, direction xyz) 
 
-**See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
+**See**: [VRFFIFree(HFFIVar)](#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
@@ -580,7 +580,7 @@ Creates a sphere (4 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 4 doubles (centre xyz, radius) 
 
-**See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
+**See**: [VRFFIFree(HFFIVar)](#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
@@ -598,7 +598,7 @@ Creates a string FFI variable and returns it.
 
   * **value** the value to wrap in the variant. 
 
-**See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
+**See**: [VRFFIFree(HFFIVar)](#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
@@ -616,7 +616,7 @@ Creates a vec2 (2 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 2 doubles. 
 
-**See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
+**See**: [VRFFIFree(HFFIVar)](#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
@@ -634,7 +634,7 @@ Creates a vec3 (3 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 3 doubles. 
 
-**See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
+**See**: [VRFFIFree(HFFIVar)](#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
@@ -652,7 +652,7 @@ Creates a vec4 (4 doubles in an array)
 
   * **values** to wrap in the variant. expects an array of 4 doubles. 
 
-**See**: [VRFFIFree(HFFIVar)](../Modules/group__api__ffi.mdx#vrffifree)
+**See**: [VRFFIFree(HFFIVar)](#vrffifree)
 
 **Return**: a new FFI variant handle representing the value 
 
@@ -711,7 +711,7 @@ Registers a C function with a name which can then be used to call the function i
   * **func** The function to register 
   * **userData** arbitrary data to pass to the callback 
 
-**See**: [VRUnregisterEventFunction(const char*)](../Modules/group__api__ffi.mdx#vrunregistereventfunction)
+**See**: [VRUnregisterEventFunction(const char*)](#vrunregistereventfunction)
 
 ### VRUnregisterEventFunction
 

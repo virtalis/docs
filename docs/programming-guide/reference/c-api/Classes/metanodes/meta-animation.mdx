@@ -1,0 +1,105 @@
+---
+title: Meta_Animation
+summary: An animation is a collection of keyframes and/or actions to apply to a target node. 
+---
+
+# Meta_Animation
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+An animation is a collection of keyframes and/or actions to apply to a target node.  [More...](#detailed-description)
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[Axis](#enum-axis)** { AXIS_POSITIVE_X, AXIS_POSITIVE_Y, AXIS_POSITIVE_Z, AXIS_NEGATIVE_X, AXIS_NEGATIVE_Y, AXIS_NEGATIVE_Z}<br />Values for Idx_Axis.  |
+| enum| **[AxisOrder](#enum-axisorder)** { AXIS_ORDER_XYZ, AXIS_ORDER_YZX, AXIS_ORDER_ZXY, AXIS_ORDER_XZY, AXIS_ORDER_YXZ, AXIS_ORDER_ZYX}<br />Values for Idx_AxisOrder.  |
+| enum| **[IDX](#enum-idx)** { Idx_Interpolation, Idx_OrientTo, Idx_LookAtTarget, Idx_Axis, Idx_RotationMethod, Idx_AxisOrder}<br />Property index.  |
+| enum| **[Interpolation](#enum-interpolation)** { INTERPOLATION_CONSTANT, INTERPOLATION_LINEAR, INTERPOLATION_CATMULL_ROM}<br />Values for Idx_Interpolation.  |
+| enum| **[OrientTo](#enum-orientto)** { ORIENT_TO_KEYFRAMES, ORIENT_TO_PATH, ORIENT_TO_TARGET, ORIENT_TO_PATH_PLUS_KEYFRAMES, ORIENT_TO_TARGET_PLUS_KEYFRAMES}<br />Values for Idx_OrientTo.  |
+| enum| **[RotationMethod](#enum-rotationmethod)** { ROTATION_METHOD_QUATERNION, ROTATION_METHOD_EULER_ANGLES}<br />Values for Idx_RotationMethod.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_Animation;
+```
+
+An animation is a collection of keyframes and/or actions to apply to a target node. 
+
+Valid child types: Meta_AnimationFramePRS, Meta_AnimationFrameBool, Meta_AnimationFrameInt, Meta_AnimationFrameFloat, Meta_AnimationFrameDouble, Meta_AnimationFrameWorldFloat, Meta_AnimationFrameString, Meta_AnimationFrameLink, Meta_AnimationAction
+
+## Public Types Documentation
+
+### enum Axis
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| AXIS_POSITIVE_X | | Rotate the animation target about the positive x-axis (Symbols - C: `"AxisPositiveX"`, Lua: `__Animation_AxisPositiveX`)   |
+| AXIS_POSITIVE_Y | | Rotate the animation target about the positive y-axis (Symbols - C: `"AxisPositiveY"`, Lua: `__Animation_AxisPositiveY`)   |
+| AXIS_POSITIVE_Z | | Rotate the animation target about the positive z-axis (Symbols - C: `"AxisPositiveZ"`, Lua: `__Animation_AxisPositiveZ`)   |
+| AXIS_NEGATIVE_X | | Rotate the animation target about the negative x-axis (Symbols - C: `"AxisNegativeX"`, Lua: `__Animation_AxisNegativeX`)   |
+| AXIS_NEGATIVE_Y | | Rotate the animation target about the negative y-axis (Symbols - C: `"AxisNegativeY"`, Lua: `__Animation_AxisNegativeY`)   |
+| AXIS_NEGATIVE_Z | | Rotate the animation target about the negative z-axis (Symbols - C: `"AxisNegativeZ"`, Lua: `__Animation_AxisNegativeZ`)   |
+
+Values for Idx_Axis. 
+
+### enum AxisOrder
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| AXIS_ORDER_XYZ | | In Euler angle mode apply X first, then Y, then Z (Symbols - C: `"AxisOrderXYZ"`, Lua: `__Animation_AxisOrderXYZ`)   |
+| AXIS_ORDER_YZX | | In Euler angle mode apply Y first, then Z, then X (Symbols - C: `"AxisOrderYZX"`, Lua: `__Animation_AxisOrderYZX`)   |
+| AXIS_ORDER_ZXY | | In Euler angle mode apply Z first, then X, then Y (Symbols - C: `"AxisOrderZXY"`, Lua: `__Animation_AxisOrderZXY`)   |
+| AXIS_ORDER_XZY | | In Euler angle mode apply X first, then Z, then Y (Symbols - C: `"AxisOrderXZY"`, Lua: `__Animation_AxisOrderXZY`)   |
+| AXIS_ORDER_YXZ | | In Euler angle mode apply Y first, then X, then Z (Symbols - C: `"AxisOrderYXZ"`, Lua: `__Animation_AxisOrderYXZ`)   |
+| AXIS_ORDER_ZYX | | In Euler angle mode apply Z first, then Y, then X (Symbols - C: `"AxisOrderZYX"`, Lua: `__Animation_AxisOrderZYX`)   |
+
+Values for Idx_AxisOrder. 
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Interpolation | | [Interpolation (int) - How to transform the animation target between keyframes   |
+| Idx_OrientTo | | [OrientTo (int) - How to rotate the animation target   |
+| Idx_LookAtTarget | | link - A node with a transform to point the animation target at   |
+| Idx_Axis | | [Axis](#enum-axis) (int) - The axis of rotation to use when orienting to a path or target   |
+| Idx_RotationMethod | | [RotationMethod (int) - Whether to apply keyframe rotations with quaternions or Euler angles   |
+| Idx_AxisOrder | | [AxisOrder](#enum-axisorder) (int) - The order to apply Euler angles. This affects how the animation interpolates between keyframes   |
+
+Property index. 
+
+### enum Interpolation
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| INTERPOLATION_CONSTANT | | Snap to the transform in the previous keyframe (Symbols - C: `"InterpolationConstant"`, Lua: `__Animation_InterpolationConstant`)   |
+| INTERPOLATION_LINEAR | | Interpolate along a line between keyframes (Symbols - C: `"InterpolationLinear"`, Lua: `__Animation_InterpolationLinear`)   |
+| INTERPOLATION_CATMULL_ROM | | Interpolate along a spline that passes through keyframes (Symbols - C: `"InterpolationCatmullRom"`, Lua: `__Animation_InterpolationCatmullRom`)   |
+
+Values for Idx_Interpolation. 
+
+### enum OrientTo
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| ORIENT_TO_KEYFRAMES | | Rotate the animation target using values stored in keyframes (Symbols - C: `"OrientToKeyframes"`, Lua: `__Animation_OrientToKeyframes`)   |
+| ORIENT_TO_PATH | | Direct the animation target along the path that it's following (Symbols - C: `"OrientToPath"`, Lua: `__Animation_OrientToPath`)   |
+| ORIENT_TO_TARGET | | Direct the animation target towards a specified node (Symbols - C: `"OrientToTarget"`, Lua: `__Animation_OrientToTarget`)   |
+| ORIENT_TO_PATH_PLUS_KEYFRAMES | | Direct the animation target along the path that it's following and apply keyframe rotations too (Symbols - C: `"OrientToPathPlusKeyframes"`, Lua: `__Animation_OrientToPathPlusKeyframes`)   |
+| ORIENT_TO_TARGET_PLUS_KEYFRAMES | | Direct the animation target towards a specified node and apply keyframe rotations too (Symbols - C: `"OrientToTargetPlusKeyframes"`, Lua: `__Animation_OrientToTargetPlusKeyframes`)   |
+
+Values for Idx_OrientTo. 
+
+### enum RotationMethod
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| ROTATION_METHOD_QUATERNION | | Represent angles below 180 degrees without the concern of gimbal lock (Symbols - C: `"RotationMethodQuaternion"`, Lua: `__Animation_RotationMethodQuaternion`)   |
+| ROTATION_METHOD_EULER_ANGLES | | Represent angles above 180 degrees with the possibility of gimbal lock (Symbols - C: `"RotationMethodEulerAngles"`, Lua: `__Animation_RotationMethodEulerAngles`)   |
+
+Values for Idx_RotationMethod. 

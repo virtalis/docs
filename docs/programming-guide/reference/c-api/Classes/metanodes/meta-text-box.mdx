@@ -1,0 +1,32 @@
+---
+title: Meta_TextBox
+---
+
+# Meta_TextBox
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** { Idx_Enabled, Idx_Position, Idx_SizingMode, Idx_Size, Idx_Text, Idx_Editable, Idx_Multiline, Idx_AutoWrap, Idx_Style, Idx_Hint, Idx_ToolTip, Idx_ToolTipStyle} |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - When enabled, draws itself and its children   |
+| Idx_Position | | vec3f - Position of the panel relative to its parent   |
+| Idx_SizingMode | | [SizingMode](../metanodes/meta-panel.mdx#enum-sizingmode) (int) - How the panel sizes itself in respect to its contents   |
+| Idx_Size | | vec2f - Size of the panel, when `SizingMode==Fixed`  |
+| Idx_Text | | string - Text to display   |
+| Idx_Editable | |   |
+| Idx_Multiline | | bool - Specifies whether the return key will add a new line   |
+| Idx_AutoWrap | | bool - Specifies whether or not the text should auto wrap   |
+| Idx_Style | | link - Style to apply to the label (Meta_LabelStyle)   |
+| Idx_Hint | | string - Hint text to display when empty   |
+| Idx_ToolTip | | string - Text that should appear when hovering   |
+| Idx_ToolTipStyle | |   |

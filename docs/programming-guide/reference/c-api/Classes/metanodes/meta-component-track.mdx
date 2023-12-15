@@ -1,0 +1,39 @@
+---
+title: Meta_ComponentTrack
+summary: A component track is a collection of animations to apply to a component of a vector property. 
+---
+
+# Meta_ComponentTrack
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A component track is a collection of animations to apply to a component of a vector property.  [More...](#detailed-description)
+
+`#include <meta_division.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** { Idx_State, Idx_Component}<br />Property index.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_ComponentTrack;
+```
+
+A component track is a collection of animations to apply to a component of a vector property. 
+
+Valid child types: [Meta_Animation](../metanodes/meta-animation.mdx), [Meta_AnimationLink](../metanodes/meta-animation-link.mdx)
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_State | | [State](../metanodes/meta-assembly-track.mdx#enum-state) (int) - Can this track be recorded into and played, played only, or neither   |
+| Idx_Component | | int - The index of the vector component to animate   |
+
+Property index. 

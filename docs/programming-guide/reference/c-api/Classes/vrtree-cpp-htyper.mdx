@@ -13,24 +13,24 @@ Reference counted wrapper around a handle. Automatically closes the handle when 
 
 | Type           | Name           |
 | -------------- | -------------- |
-| void | **[dec](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#dec)**()<br />Manually decrement the refcount. If recount hits zero, handle is closed.  |
-| | **[HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#htyper)**()<br />Construct a null handle.  |
-| | **[HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#htyper)**(T handle)<br />Construct from a raw node handle and make it refcounted.  |
-| | **[HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#htyper)**(const [HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx)< T > & other)<br />Copy an existing handle, incrementing its refcount.  |
-| void | **[inc](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#inc)**()<br />Manually increment the refcount (effectively makes the handle permanent until manually closed)  |
-| | **[operator T](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#operator-t)**() const<br />Access the raw node handle.  |
-| bool | **[operator<](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#operator<)**(T other) const<br />Compare the raw node handle for storage in ordered containers.  |
-| [HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx)< T > & | **[operator=](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#operator=)**(const [HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx)< T > & other)<br />Assign an existing handle.  |
-| [HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx)< T > & | **[operator=](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#operator=)**(T handle)<br />Assign a raw handle and make it refcounted.  |
-| | **[~HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#~htyper)**()<br />Decrements refcount, closing the node handle if this is the last reference.  |
-| T * | **[raw](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#raw)**(const [HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx)< T > arr[])<br />Converts an array of reference counted handles to an array of raw handles for passing to an api function that expects an array of handles. Return value is only valid until the next call to this function.  |
+| void | **[dec](#dec)**()<br />Manually decrement the refcount. If recount hits zero, handle is closed.  |
+| | **[HTypeR](#htyper)**()<br />Construct a null handle.  |
+| | **[HTypeR](#htyper-1)**(T handle)<br />Construct from a raw node handle and make it refcounted.  |
+| | **[HTypeR](#htyper-2)**(const [HTypeR](#htyper)< T > & other)<br />Copy an existing handle, incrementing its refcount.  |
+| void | **[inc](#inc)**()<br />Manually increment the refcount (effectively makes the handle permanent until manually closed)  |
+| | **[operator T](#operator-t)**() const<br />Access the raw node handle.  |
+| bool | **[operator<](#operator)**(T other) const<br />Compare the raw node handle for storage in ordered containers.  |
+| [HTypeR](#htyper)< T > & | **[operator=](#operator-1)**(const [HTypeR](#htyper)< T > & other)<br />Assign an existing handle.  |
+| [HTypeR](#htyper)< T > & | **[operator=](#operator-2)**(T handle)<br />Assign a raw handle and make it refcounted.  |
+| | **[~HTypeR](#htyper-3)**()<br />Decrements refcount, closing the node handle if this is the last reference.  |
+| T * | **[raw](#raw)**(const [HTypeR](#htyper)< T > arr[])<br />Converts an array of reference counted handles to an array of raw handles for passing to an api function that expects an array of handles. Return value is only valid until the next call to this function.  |
 
 ## Public Attributes
 
 | Type           | Name           |
 | -------------- | -------------- |
-| T | **[m_handle](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#m-handle)** <br />The handle to wrap.  |
-| [HRefCount](../Classes/structvrtree__cpp_1_1_h_ref_count.mdx) * | **[ptr](../Classes/structvrtree__cpp_1_1_h_type_r.mdx#ptr)** <br />Reference counter. Automatically deletes itself when the refcount is zero.  |
+| T | **[m_handle](#m-handle)** <br />The handle to wrap.  |
+| [HRefCount](../classes/vrtree-cpp-hrefcount.mdx) * | **[ptr](#ptr)** <br />Reference counter. Automatically deletes itself when the refcount is zero.  |
 
 ## Detailed Description
 

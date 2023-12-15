@@ -5,83 +5,85 @@ summary: Functions for accessing node Properties.
 
 # Properties
 
+**Module:** **[Nodes](../nodes/index.mdx)**
+
 Functions for accessing node properties. 
 
 ## Functions
 
 | Type           | Name           |
 | -------------- | -------------- |
-| int | **[VRGetEnumValue](../Modules/group__api__properties.mdx#vrgetenumvalue)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * symbol)<br />Gets the value of an enum symbol in the context of the specified node type.  |
-| int | **[VRGetEnumValueEx](../Modules/group__api__properties.mdx#vrgetenumvalueex)**(const char * metanode, const char * symbol)<br />Gets the value of an enum symbol in the context of the specified node type.  |
-| uint32_t | **[VRGetProperty](../Modules/group__api__properties.mdx#vrgetproperty)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName)<br />Gets a reusable property handle. Even though this uses a node handle to get a property index, the property index can still be used to interact with the property on any instance of the metanode. (not just this single instance of node)  |
-| size_t | **[VRGetPropertyArrayDouble](../Modules/group__api__properties.mdx#vrgetpropertyarraydouble)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, double * buffer, size_t bufferSize)<br />Gets a DOUBLE array element from a node property.  |
-| size_t | **[VRGetPropertyArrayDoubleEx](../Modules/group__api__properties.mdx#vrgetpropertyarraydoubleex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, double * buffer, size_t bufferSize)<br />Gets the DOUBLE array from the property a node.  |
-| size_t | **[VRGetPropertyArrayFloat](../Modules/group__api__properties.mdx#vrgetpropertyarrayfloat)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, float * buffer, size_t bufferSize)<br />Gets a FLOAT array from a node property.  |
-| size_t | **[VRGetPropertyArrayFloatEx](../Modules/group__api__properties.mdx#vrgetpropertyarrayfloatex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, float * buffer, size_t bufferSize)<br />Gets the FLOAT array from the property a node.  |
-| size_t | **[VRGetPropertyArrayWorldFloat](../Modules/group__api__properties.mdx#vrgetpropertyarrayworldfloat)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, void * buffer, size_t bufferSize)<br />Gets a WORLD_FLOAT array element from a node property.  |
-| size_t | **[VRGetPropertyArrayWorldFloatEx](../Modules/group__api__properties.mdx#vrgetpropertyarrayworldfloatex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, void * buffer, size_t bufferSize)<br />Gets the WORLD_FLOAT array from the property a node.  |
-| char | **[VRGetPropertyChar](../Modules/group__api__properties.mdx#vrgetpropertychar)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName)<br />Gets a CHAR or BOOL property from a node.  |
-| char | **[VRGetPropertyCharElement](../Modules/group__api__properties.mdx#vrgetpropertycharelement)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, size_t index)<br />Gets a CHAR or BOOL array element from a node property.  |
-| char | **[VRGetPropertyCharElementEx](../Modules/group__api__properties.mdx#vrgetpropertycharelementex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, size_t index)<br />Gets a CHAR or BOOL array element from a node property.  |
-| char | **[VRGetPropertyCharEx](../Modules/group__api__properties.mdx#vrgetpropertycharex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop)<br />Gets a CHAR or BOOL property from a node.  |
-| double | **[VRGetPropertyDouble](../Modules/group__api__properties.mdx#vrgetpropertydouble)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName)<br />Gets a DOUBLE property from a node.  |
-| double | **[VRGetPropertyDoubleElement](../Modules/group__api__properties.mdx#vrgetpropertydoubleelement)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, size_t index)<br />Gets a DOUBLE array element from a node property.  |
-| double | **[VRGetPropertyDoubleElementEx](../Modules/group__api__properties.mdx#vrgetpropertydoubleelementex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, size_t index)<br />Gets a DOUBLE array element from a node property.  |
-| double | **[VRGetPropertyDoubleEx](../Modules/group__api__properties.mdx#vrgetpropertydoubleex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop)<br />Gets a DOUBLE property from a node.  |
-| uint32_t | **[VRGetPropertyEx](../Modules/group__api__properties.mdx#vrgetpropertyex)**(const char * metaName, const char * propName)<br />Gets a reusable property handle from a metanode name.  |
-| float | **[VRGetPropertyFloat](../Modules/group__api__properties.mdx#vrgetpropertyfloat)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName)<br />Gets a FLOAT property from a node.  |
-| float | **[VRGetPropertyFloatElement](../Modules/group__api__properties.mdx#vrgetpropertyfloatelement)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, size_t index)<br />Gets a FLOAT array element from a node property.  |
-| float | **[VRGetPropertyFloatElementEx](../Modules/group__api__properties.mdx#vrgetpropertyfloatelementex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, size_t index)<br />Gets a FLOAT array element from a node property.  |
-| float | **[VRGetPropertyFloatEx](../Modules/group__api__properties.mdx#vrgetpropertyfloatex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop)<br />Gets a FLOAT property from a node.  |
-| int | **[VRGetPropertyInt](../Modules/group__api__properties.mdx#vrgetpropertyint)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName)<br />Gets an INT property from a node.  |
-| int | **[VRGetPropertyIntElement](../Modules/group__api__properties.mdx#vrgetpropertyintelement)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, size_t index)<br />Gets an INT array element from a node property.  |
-| int | **[VRGetPropertyIntElementEx](../Modules/group__api__properties.mdx#vrgetpropertyintelementex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, size_t index)<br />Gets an INT array element from a node property.  |
-| int | **[VRGetPropertyIntEx](../Modules/group__api__properties.mdx#vrgetpropertyintex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop)<br />Gets an INT property from a node.  |
-| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRGetPropertyLink](../Modules/group__api__properties.mdx#vrgetpropertylink)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName)<br />Gets a LINK property from a node.  |
-| [HNode](../Modules/group__api__types.mdx#typedef-hnode) | **[VRGetPropertyLinkEx](../Modules/group__api__properties.mdx#vrgetpropertylinkex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop)<br />Gets a LINK property from a node.  |
-| size_t | **[VRGetPropertyString](../Modules/group__api__properties.mdx#vrgetpropertystring)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, char * buffer, size_t bufferSize)<br />Gets a STRING property from a node.  |
-| const char * | **[VRGetPropertyStringElement](../Modules/group__api__properties.mdx#vrgetpropertystringelement)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, size_t index)<br />Gets a STRING array element from a node property.  |
-| const char * | **[VRGetPropertyStringElementEx](../Modules/group__api__properties.mdx#vrgetpropertystringelementex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, size_t index)<br />Gets a STRING array element from a node property.  |
-| size_t | **[VRGetPropertyStringEx](../Modules/group__api__properties.mdx#vrgetpropertystringex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, char * buffer, size_t bufferSize)<br />Gets a STRING property from a node.  |
-| size_t | **[VRGetPropertyValue](../Modules/group__api__properties.mdx#vrgetpropertyvalue)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, void * valueBuffer, size_t bufferSize)<br />Gets a property from a node.  |
-| size_t | **[VRGetPropertyValueEx](../Modules/group__api__properties.mdx#vrgetpropertyvalueex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, void * valueBuffer, size_t bufferSize)<br />Gets a property from a node.  |
-| size_t | **[VRGetPropertyValueSize](../Modules/group__api__properties.mdx#vrgetpropertyvaluesize)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName)<br />Gets the required size of a buffer to pass to VRGetPropertyValue. In the case of string properties, returns the length of the string including null terminator.  |
-| size_t | **[VRGetPropertyValueSizeEx](../Modules/group__api__properties.mdx#vrgetpropertyvaluesizeex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop)<br />Gets the required size of a buffer to pass to VRGetPropertyValue In the case of string properties, returns the length of the string including null terminator.  |
-| int | **[VRGetWorldTransform](../Modules/group__api__properties.mdx#vrgetworldtransform)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, void * valueBuffer, size_t bufferSize)<br />Gets the world transform of the specified node from the transform hierarchy. Internally calls TransformHierarchy::getWorldTransformSafe unless a propName is specified.  |
-| int | **[VRIsPropertyEnumValue](../Modules/group__api__properties.mdx#vrispropertyenumvalue)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, const char * symbol)<br />Gets the int value of symbol and checks if the specified INT property is currently set to that value.  |
-| int | **[VRIsPropertyEnumValueEx](../Modules/group__api__properties.mdx#vrispropertyenumvalueex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, const char * symbol)<br />Gets the int value of symbol and checks if the specified INT property is currently set to that value.  |
-| int | **[VRSetPropertyArrayDouble](../Modules/group__api__properties.mdx#vrsetpropertyarraydouble)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, double * valueData, size_t arraySize)<br />Sets an array of doubles property on a node (useful to set matrices)  |
-| int | **[VRSetPropertyArrayDoubleEx](../Modules/group__api__properties.mdx#vrsetpropertyarraydoubleex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, double * valueData, size_t arraySize, uint32_t flags, int userChange)<br />Sets an element in a double array property on a node.  |
-| int | **[VRSetPropertyArrayFloat](../Modules/group__api__properties.mdx#vrsetpropertyarrayfloat)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, float * valueData, size_t arraySize)<br />Sets an array of floats property on a node (useful to set matrices)  |
-| int | **[VRSetPropertyArrayFloatEx](../Modules/group__api__properties.mdx#vrsetpropertyarrayfloatex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, float * valueData, size_t arraySize, uint32_t flags, int userChange)<br />Sets an element in a float array property on a node.  |
-| int | **[VRSetPropertyArrayWorldFloat](../Modules/group__api__properties.mdx#vrsetpropertyarrayworldfloat)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, void * valueData, size_t arraySize)<br />Sets an array of world float property on a node (useful to set matrices)  |
-| int | **[VRSetPropertyArrayWorldFloatEx](../Modules/group__api__properties.mdx#vrsetpropertyarrayworldfloatex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, void * valueData, size_t arraySize, uint32_t flags, int userChange)<br />Sets an element in a world float array property on a node.  |
-| int | **[VRSetPropertyChar](../Modules/group__api__properties.mdx#vrsetpropertychar)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, char value)<br />Sets a CHAR or BOOL property on a node.  |
-| int | **[VRSetPropertyCharElement](../Modules/group__api__properties.mdx#vrsetpropertycharelement)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, size_t index, char value)<br />Sets an element in a CHAR or BOOL array property on a node.  |
-| int | **[VRSetPropertyCharElementEx](../Modules/group__api__properties.mdx#vrsetpropertycharelementex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, size_t index, char value, uint32_t flags, int userChange)<br />Sets an element in a CHAR or BOOL array property on a node.  |
-| int | **[VRSetPropertyCharEx](../Modules/group__api__properties.mdx#vrsetpropertycharex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, char value, uint32_t flags, int userChange)<br />Sets a CHAR or BOOL property on a node.  |
-| int | **[VRSetPropertyDouble](../Modules/group__api__properties.mdx#vrsetpropertydouble)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, double value)<br />Sets a DOUBLE property on a node.  |
-| int | **[VRSetPropertyDoubleElement](../Modules/group__api__properties.mdx#vrsetpropertydoubleelement)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, size_t index, double value)<br />Sets an element in a DOUBLE array property on a node.  |
-| int | **[VRSetPropertyDoubleElementEx](../Modules/group__api__properties.mdx#vrsetpropertydoubleelementex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, size_t index, double value, uint32_t flags, int userChange)<br />Sets an element in a DOUBLE array property on a node.  |
-| int | **[VRSetPropertyDoubleEx](../Modules/group__api__properties.mdx#vrsetpropertydoubleex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, double value, uint32_t flags, int userChange)<br />Sets a DOUBLE property on a node.  |
-| int | **[VRSetPropertyEnum](../Modules/group__api__properties.mdx#vrsetpropertyenum)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, const char * symbol)<br />Sets an INT property on a node using the value of a symbol.  |
-| int | **[VRSetPropertyEnumEx](../Modules/group__api__properties.mdx#vrsetpropertyenumex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, const char * symbol, uint32_t flags, int userChange)<br />Sets an INT property on a node using the value of a symbol.  |
-| int | **[VRSetPropertyFloat](../Modules/group__api__properties.mdx#vrsetpropertyfloat)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, float value)<br />Sets a FLOAT property on a node.  |
-| int | **[VRSetPropertyFloatElement](../Modules/group__api__properties.mdx#vrsetpropertyfloatelement)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, size_t index, float value)<br />Sets an element in a FLOAT array property on a node.  |
-| int | **[VRSetPropertyFloatElementEx](../Modules/group__api__properties.mdx#vrsetpropertyfloatelementex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, size_t index, float value, uint32_t flags, int userChange)<br />Sets an element in a FLOAT array property on a node.  |
-| int | **[VRSetPropertyFloatEx](../Modules/group__api__properties.mdx#vrsetpropertyfloatex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, float value, uint32_t flags, int userChange)<br />Sets a FLOAT property on a node.  |
-| int | **[VRSetPropertyInt](../Modules/group__api__properties.mdx#vrsetpropertyint)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, int value)<br />Sets an INT property on a node.  |
-| int | **[VRSetPropertyIntElement](../Modules/group__api__properties.mdx#vrsetpropertyintelement)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, size_t index, int value)<br />Sets an element in a INT array property on a node.  |
-| int | **[VRSetPropertyIntElementEx](../Modules/group__api__properties.mdx#vrsetpropertyintelementex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, size_t index, int value, uint32_t flags, int userChange)<br />Sets an element in a INT array property on a node.  |
-| int | **[VRSetPropertyIntEx](../Modules/group__api__properties.mdx#vrsetpropertyintex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, int value, uint32_t flags, int userChange)<br />Sets an INT property on a node.  |
-| int | **[VRSetPropertyLink](../Modules/group__api__properties.mdx#vrsetpropertylink)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, [HNode](../Modules/group__api__types.mdx#typedef-hnode) linkTarget)<br />Sets a LINK property on a node.  |
-| int | **[VRSetPropertyLinkEx](../Modules/group__api__properties.mdx#vrsetpropertylinkex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, [HNode](../Modules/group__api__types.mdx#typedef-hnode) linkTarget, uint32_t flags, int userChange)<br />Sets a LINK property on a node.  |
-| int | **[VRSetPropertyString](../Modules/group__api__properties.mdx#vrsetpropertystring)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, const char * stringData)<br />Sets a STRING property on a node.  |
-| int | **[VRSetPropertyStringElement](../Modules/group__api__properties.mdx#vrsetpropertystringelement)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, size_t index, const char * value, size_t valueSize)<br />Sets an element in a STRING array property on a node.  |
-| int | **[VRSetPropertyStringElementEx](../Modules/group__api__properties.mdx#vrsetpropertystringelementex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, size_t index, const char * values, size_t arraySize, uint32_t flags, int userChange)<br />Sets an element in a STRING array property on a node.  |
-| int | **[VRSetPropertyStringEx](../Modules/group__api__properties.mdx#vrsetpropertystringex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, const char * stringData, uint32_t flags, int userChange)<br />Sets a STRING property on a node.  |
-| int | **[VRSetPropertyValue](../Modules/group__api__properties.mdx#vrsetpropertyvalue)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName, const void * valueData, size_t valueSize)<br />Sets a property value on a node.  |
-| int | **[VRSetPropertyValueEx](../Modules/group__api__properties.mdx#vrsetpropertyvalueex)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop, const void * valueData, size_t valueSize, uint32_t flags, int userChange)<br />Sets a property value on a node.  |
+| int | **[VRGetEnumValue](#vrgetenumvalue)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * symbol)<br />Gets the value of an enum symbol in the context of the specified node type.  |
+| int | **[VRGetEnumValueEx](#vrgetenumvalueex)**(const char * metanode, const char * symbol)<br />Gets the value of an enum symbol in the context of the specified node type.  |
+| uint32_t | **[VRGetProperty](#vrgetproperty)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName)<br />Gets a reusable property handle. Even though this uses a node handle to get a property index, the property index can still be used to interact with the property on any instance of the metanode. (not just this single instance of node)  |
+| size_t | **[VRGetPropertyArrayDouble](#vrgetpropertyarraydouble)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, double * buffer, size_t bufferSize)<br />Gets a DOUBLE array element from a node property.  |
+| size_t | **[VRGetPropertyArrayDoubleEx](#vrgetpropertyarraydoubleex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, double * buffer, size_t bufferSize)<br />Gets the DOUBLE array from the property a node.  |
+| size_t | **[VRGetPropertyArrayFloat](#vrgetpropertyarrayfloat)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, float * buffer, size_t bufferSize)<br />Gets a FLOAT array from a node property.  |
+| size_t | **[VRGetPropertyArrayFloatEx](#vrgetpropertyarrayfloatex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, float * buffer, size_t bufferSize)<br />Gets the FLOAT array from the property a node.  |
+| size_t | **[VRGetPropertyArrayWorldFloat](#vrgetpropertyarrayworldfloat)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, void * buffer, size_t bufferSize)<br />Gets a WORLD_FLOAT array element from a node property.  |
+| size_t | **[VRGetPropertyArrayWorldFloatEx](#vrgetpropertyarrayworldfloatex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, void * buffer, size_t bufferSize)<br />Gets the WORLD_FLOAT array from the property a node.  |
+| char | **[VRGetPropertyChar](#vrgetpropertychar)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName)<br />Gets a CHAR or BOOL property from a node.  |
+| char | **[VRGetPropertyCharElement](#vrgetpropertycharelement)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, size_t index)<br />Gets a CHAR or BOOL array element from a node property.  |
+| char | **[VRGetPropertyCharElementEx](#vrgetpropertycharelementex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, size_t index)<br />Gets a CHAR or BOOL array element from a node property.  |
+| char | **[VRGetPropertyCharEx](#vrgetpropertycharex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop)<br />Gets a CHAR or BOOL property from a node.  |
+| double | **[VRGetPropertyDouble](#vrgetpropertydouble)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName)<br />Gets a DOUBLE property from a node.  |
+| double | **[VRGetPropertyDoubleElement](#vrgetpropertydoubleelement)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, size_t index)<br />Gets a DOUBLE array element from a node property.  |
+| double | **[VRGetPropertyDoubleElementEx](#vrgetpropertydoubleelementex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, size_t index)<br />Gets a DOUBLE array element from a node property.  |
+| double | **[VRGetPropertyDoubleEx](#vrgetpropertydoubleex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop)<br />Gets a DOUBLE property from a node.  |
+| uint32_t | **[VRGetPropertyEx](#vrgetpropertyex)**(const char * metaName, const char * propName)<br />Gets a reusable property handle from a metanode name.  |
+| float | **[VRGetPropertyFloat](#vrgetpropertyfloat)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName)<br />Gets a FLOAT property from a node.  |
+| float | **[VRGetPropertyFloatElement](#vrgetpropertyfloatelement)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, size_t index)<br />Gets a FLOAT array element from a node property.  |
+| float | **[VRGetPropertyFloatElementEx](#vrgetpropertyfloatelementex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, size_t index)<br />Gets a FLOAT array element from a node property.  |
+| float | **[VRGetPropertyFloatEx](#vrgetpropertyfloatex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop)<br />Gets a FLOAT property from a node.  |
+| int | **[VRGetPropertyInt](#vrgetpropertyint)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName)<br />Gets an INT property from a node.  |
+| int | **[VRGetPropertyIntElement](#vrgetpropertyintelement)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, size_t index)<br />Gets an INT array element from a node property.  |
+| int | **[VRGetPropertyIntElementEx](#vrgetpropertyintelementex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, size_t index)<br />Gets an INT array element from a node property.  |
+| int | **[VRGetPropertyIntEx](#vrgetpropertyintex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop)<br />Gets an INT property from a node.  |
+| [HNode](../../definitions/types.mdx#typedef-hnode) | **[VRGetPropertyLink](#vrgetpropertylink)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName)<br />Gets a LINK property from a node.  |
+| [HNode](../../definitions/types.mdx#typedef-hnode) | **[VRGetPropertyLinkEx](#vrgetpropertylinkex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop)<br />Gets a LINK property from a node.  |
+| size_t | **[VRGetPropertyString](#vrgetpropertystring)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, char * buffer, size_t bufferSize)<br />Gets a STRING property from a node.  |
+| const char * | **[VRGetPropertyStringElement](#vrgetpropertystringelement)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, size_t index)<br />Gets a STRING array element from a node property.  |
+| const char * | **[VRGetPropertyStringElementEx](#vrgetpropertystringelementex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, size_t index)<br />Gets a STRING array element from a node property.  |
+| size_t | **[VRGetPropertyStringEx](#vrgetpropertystringex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, char * buffer, size_t bufferSize)<br />Gets a STRING property from a node.  |
+| size_t | **[VRGetPropertyValue](#vrgetpropertyvalue)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, void * valueBuffer, size_t bufferSize)<br />Gets a property from a node.  |
+| size_t | **[VRGetPropertyValueEx](#vrgetpropertyvalueex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, void * valueBuffer, size_t bufferSize)<br />Gets a property from a node.  |
+| size_t | **[VRGetPropertyValueSize](#vrgetpropertyvaluesize)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName)<br />Gets the required size of a buffer to pass to VRGetPropertyValue. In the case of string properties, returns the length of the string including null terminator.  |
+| size_t | **[VRGetPropertyValueSizeEx](#vrgetpropertyvaluesizeex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop)<br />Gets the required size of a buffer to pass to VRGetPropertyValue In the case of string properties, returns the length of the string including null terminator.  |
+| int | **[VRGetWorldTransform](#vrgetworldtransform)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, void * valueBuffer, size_t bufferSize)<br />Gets the world transform of the specified node from the transform hierarchy. Internally calls TransformHierarchy::getWorldTransformSafe unless a propName is specified.  |
+| int | **[VRIsPropertyEnumValue](#vrispropertyenumvalue)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, const char * symbol)<br />Gets the int value of symbol and checks if the specified INT property is currently set to that value.  |
+| int | **[VRIsPropertyEnumValueEx](#vrispropertyenumvalueex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, const char * symbol)<br />Gets the int value of symbol and checks if the specified INT property is currently set to that value.  |
+| int | **[VRSetPropertyArrayDouble](#vrsetpropertyarraydouble)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, double * valueData, size_t arraySize)<br />Sets an array of doubles property on a node (useful to set matrices)  |
+| int | **[VRSetPropertyArrayDoubleEx](#vrsetpropertyarraydoubleex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, double * valueData, size_t arraySize, uint32_t flags, int userChange)<br />Sets an element in a double array property on a node.  |
+| int | **[VRSetPropertyArrayFloat](#vrsetpropertyarrayfloat)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, float * valueData, size_t arraySize)<br />Sets an array of floats property on a node (useful to set matrices)  |
+| int | **[VRSetPropertyArrayFloatEx](#vrsetpropertyarrayfloatex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, float * valueData, size_t arraySize, uint32_t flags, int userChange)<br />Sets an element in a float array property on a node.  |
+| int | **[VRSetPropertyArrayWorldFloat](#vrsetpropertyarrayworldfloat)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, void * valueData, size_t arraySize)<br />Sets an array of world float property on a node (useful to set matrices)  |
+| int | **[VRSetPropertyArrayWorldFloatEx](#vrsetpropertyarrayworldfloatex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, void * valueData, size_t arraySize, uint32_t flags, int userChange)<br />Sets an element in a world float array property on a node.  |
+| int | **[VRSetPropertyChar](#vrsetpropertychar)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, char value)<br />Sets a CHAR or BOOL property on a node.  |
+| int | **[VRSetPropertyCharElement](#vrsetpropertycharelement)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, size_t index, char value)<br />Sets an element in a CHAR or BOOL array property on a node.  |
+| int | **[VRSetPropertyCharElementEx](#vrsetpropertycharelementex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, size_t index, char value, uint32_t flags, int userChange)<br />Sets an element in a CHAR or BOOL array property on a node.  |
+| int | **[VRSetPropertyCharEx](#vrsetpropertycharex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, char value, uint32_t flags, int userChange)<br />Sets a CHAR or BOOL property on a node.  |
+| int | **[VRSetPropertyDouble](#vrsetpropertydouble)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, double value)<br />Sets a DOUBLE property on a node.  |
+| int | **[VRSetPropertyDoubleElement](#vrsetpropertydoubleelement)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, size_t index, double value)<br />Sets an element in a DOUBLE array property on a node.  |
+| int | **[VRSetPropertyDoubleElementEx](#vrsetpropertydoubleelementex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, size_t index, double value, uint32_t flags, int userChange)<br />Sets an element in a DOUBLE array property on a node.  |
+| int | **[VRSetPropertyDoubleEx](#vrsetpropertydoubleex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, double value, uint32_t flags, int userChange)<br />Sets a DOUBLE property on a node.  |
+| int | **[VRSetPropertyEnum](#vrsetpropertyenum)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, const char * symbol)<br />Sets an INT property on a node using the value of a symbol.  |
+| int | **[VRSetPropertyEnumEx](#vrsetpropertyenumex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, const char * symbol, uint32_t flags, int userChange)<br />Sets an INT property on a node using the value of a symbol.  |
+| int | **[VRSetPropertyFloat](#vrsetpropertyfloat)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, float value)<br />Sets a FLOAT property on a node.  |
+| int | **[VRSetPropertyFloatElement](#vrsetpropertyfloatelement)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, size_t index, float value)<br />Sets an element in a FLOAT array property on a node.  |
+| int | **[VRSetPropertyFloatElementEx](#vrsetpropertyfloatelementex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, size_t index, float value, uint32_t flags, int userChange)<br />Sets an element in a FLOAT array property on a node.  |
+| int | **[VRSetPropertyFloatEx](#vrsetpropertyfloatex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, float value, uint32_t flags, int userChange)<br />Sets a FLOAT property on a node.  |
+| int | **[VRSetPropertyInt](#vrsetpropertyint)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, int value)<br />Sets an INT property on a node.  |
+| int | **[VRSetPropertyIntElement](#vrsetpropertyintelement)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, size_t index, int value)<br />Sets an element in a INT array property on a node.  |
+| int | **[VRSetPropertyIntElementEx](#vrsetpropertyintelementex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, size_t index, int value, uint32_t flags, int userChange)<br />Sets an element in a INT array property on a node.  |
+| int | **[VRSetPropertyIntEx](#vrsetpropertyintex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, int value, uint32_t flags, int userChange)<br />Sets an INT property on a node.  |
+| int | **[VRSetPropertyLink](#vrsetpropertylink)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, [HNode](../../definitions/types.mdx#typedef-hnode) linkTarget)<br />Sets a LINK property on a node.  |
+| int | **[VRSetPropertyLinkEx](#vrsetpropertylinkex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, [HNode](../../definitions/types.mdx#typedef-hnode) linkTarget, uint32_t flags, int userChange)<br />Sets a LINK property on a node.  |
+| int | **[VRSetPropertyString](#vrsetpropertystring)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, const char * stringData)<br />Sets a STRING property on a node.  |
+| int | **[VRSetPropertyStringElement](#vrsetpropertystringelement)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, size_t index, const char * value, size_t valueSize)<br />Sets an element in a STRING array property on a node.  |
+| int | **[VRSetPropertyStringElementEx](#vrsetpropertystringelementex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, size_t index, const char * values, size_t arraySize, uint32_t flags, int userChange)<br />Sets an element in a STRING array property on a node.  |
+| int | **[VRSetPropertyStringEx](#vrsetpropertystringex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, const char * stringData, uint32_t flags, int userChange)<br />Sets a STRING property on a node.  |
+| int | **[VRSetPropertyValue](#vrsetpropertyvalue)**([HNode](../../definitions/types.mdx#typedef-hnode) node, const char * propName, const void * valueData, size_t valueSize)<br />Sets a property value on a node.  |
+| int | **[VRSetPropertyValueEx](#vrsetpropertyvalueex)**([HNode](../../definitions/types.mdx#typedef-hnode) node, uint32_t prop, const void * valueData, size_t valueSize, uint32_t flags, int userChange)<br />Sets a property value on a node.  |
 
 ## Functions Documentation
 
@@ -145,7 +147,7 @@ Gets a DOUBLE array element from a node property.
   * **buffer** the buffer to store the data in 
   * **bufferSize** the size of the buffer to store the data in 
 
-**See**: [VRGetPropertyValue()](../Modules/group__api__properties.mdx#vrgetpropertyvalue)
+**See**: [VRGetPropertyValue()](#vrgetpropertyvalue)
 
 **Return**: the size of the data buffer 
 
@@ -167,7 +169,7 @@ Gets the DOUBLE array from the property a node.
   * **buffer** the buffer to store the data in 
   * **bufferSize** size of the buffer 
 
-**See**: [VRGetPropertyValueEx()](../Modules/group__api__properties.mdx#vrgetpropertyvalueex)
+**See**: [VRGetPropertyValueEx()](#vrgetpropertyvalueex)
 
 **Return**: size of the buffer 
 
@@ -189,7 +191,7 @@ Gets a FLOAT array from a node property.
   * **buffer** the buffer to store the data in 
   * **bufferSize** size of the buffer 
 
-**See**: [VRGetPropertyValue()](../Modules/group__api__properties.mdx#vrgetpropertyvalue)
+**See**: [VRGetPropertyValue()](#vrgetpropertyvalue)
 
 **Return**: size of the buffer 
 
@@ -211,7 +213,7 @@ Gets the FLOAT array from the property a node.
   * **buffer** the buffer to store the data in 
   * **bufferSize** size of the buffer 
 
-**See**: [VRGetPropertyValueEx()](../Modules/group__api__properties.mdx#vrgetpropertyvalueex)
+**See**: [VRGetPropertyValueEx()](#vrgetpropertyvalueex)
 
 **Return**: size of the buffer 
 
@@ -233,7 +235,7 @@ Gets a WORLD_FLOAT array element from a node property.
   * **buffer** the buffer to store the data in 
   * **bufferSize** the size of the buffer to store the data in 
 
-**See**: [VRGetPropertyValue()](../Modules/group__api__properties.mdx#vrgetpropertyvalue)
+**See**: [VRGetPropertyValue()](#vrgetpropertyvalue)
 
 **Return**: the size of the data buffer 
 
@@ -255,7 +257,7 @@ Gets the WORLD_FLOAT array from the property a node.
   * **buffer** the buffer to store the data in 
   * **bufferSize** size of the buffer 
 
-**See**: [VRGetPropertyValueEx()](../Modules/group__api__properties.mdx#vrgetpropertyvalueex)
+**See**: [VRGetPropertyValueEx()](#vrgetpropertyvalueex)
 
 **Return**: size of the buffer 
 
@@ -270,7 +272,7 @@ char VRGetPropertyChar(
 
 Gets a CHAR or BOOL property from a node. 
 
-**See**: [VRGetPropertyValue()](../Modules/group__api__properties.mdx#vrgetpropertyvalue)
+**See**: [VRGetPropertyValue()](#vrgetpropertyvalue)
 
 **Return**: the value 
 
@@ -290,7 +292,7 @@ Gets a CHAR or BOOL array element from a node property.
 
   * **index** index of array to read 
 
-**See**: [VRGetPropertyValue()](../Modules/group__api__properties.mdx#vrgetpropertyvalue)
+**See**: [VRGetPropertyValue()](#vrgetpropertyvalue)
 
 **Return**: the value 
 
@@ -310,7 +312,7 @@ Gets a CHAR or BOOL array element from a node property.
 
   * **index** index of array to read 
 
-**See**: [VRGetPropertyValueEx()](../Modules/group__api__properties.mdx#vrgetpropertyvalueex)
+**See**: [VRGetPropertyValueEx()](#vrgetpropertyvalueex)
 
 **Return**: the value 
 
@@ -325,7 +327,7 @@ char VRGetPropertyCharEx(
 
 Gets a CHAR or BOOL property from a node. 
 
-**See**: [VRGetPropertyValueEx()](../Modules/group__api__properties.mdx#vrgetpropertyvalueex)
+**See**: [VRGetPropertyValueEx()](#vrgetpropertyvalueex)
 
 **Return**: the value 
 
@@ -340,7 +342,7 @@ double VRGetPropertyDouble(
 
 Gets a DOUBLE property from a node. 
 
-**See**: [VRGetPropertyValue()](../Modules/group__api__properties.mdx#vrgetpropertyvalue)
+**See**: [VRGetPropertyValue()](#vrgetpropertyvalue)
 
 **Return**: the value 
 
@@ -360,7 +362,7 @@ Gets a DOUBLE array element from a node property.
 
   * **index** index of array to read 
 
-**See**: [VRGetPropertyValue()](../Modules/group__api__properties.mdx#vrgetpropertyvalue)
+**See**: [VRGetPropertyValue()](#vrgetpropertyvalue)
 
 **Return**: the value 
 
@@ -380,7 +382,7 @@ Gets a DOUBLE array element from a node property.
 
   * **index** index of array to read 
 
-**See**: [VRGetPropertyValueEx()](../Modules/group__api__properties.mdx#vrgetpropertyvalueex)
+**See**: [VRGetPropertyValueEx()](#vrgetpropertyvalueex)
 
 **Return**: the value 
 
@@ -395,7 +397,7 @@ double VRGetPropertyDoubleEx(
 
 Gets a DOUBLE property from a node. 
 
-**See**: [VRGetPropertyValueEx()](../Modules/group__api__properties.mdx#vrgetpropertyvalueex)
+**See**: [VRGetPropertyValueEx()](#vrgetpropertyvalueex)
 
 **Return**: the value 
 
@@ -428,7 +430,7 @@ float VRGetPropertyFloat(
 
 Gets a FLOAT property from a node. 
 
-**See**: [VRGetPropertyValue()](../Modules/group__api__properties.mdx#vrgetpropertyvalue)
+**See**: [VRGetPropertyValue()](#vrgetpropertyvalue)
 
 **Return**: the value 
 
@@ -448,7 +450,7 @@ Gets a FLOAT array element from a node property.
 
   * **index** index of array to read 
 
-**See**: [VRGetPropertyValue()](../Modules/group__api__properties.mdx#vrgetpropertyvalue)
+**See**: [VRGetPropertyValue()](#vrgetpropertyvalue)
 
 **Return**: the value 
 
@@ -468,7 +470,7 @@ Gets a FLOAT array element from a node property.
 
   * **index** index of array to read 
 
-**See**: [VRGetPropertyValueEx()](../Modules/group__api__properties.mdx#vrgetpropertyvalueex)
+**See**: [VRGetPropertyValueEx()](#vrgetpropertyvalueex)
 
 **Return**: the value 
 
@@ -483,7 +485,7 @@ float VRGetPropertyFloatEx(
 
 Gets a FLOAT property from a node. 
 
-**See**: [VRGetPropertyValueEx()](../Modules/group__api__properties.mdx#vrgetpropertyvalueex)
+**See**: [VRGetPropertyValueEx()](#vrgetpropertyvalueex)
 
 **Return**: the value 
 
@@ -498,7 +500,7 @@ int VRGetPropertyInt(
 
 Gets an INT property from a node. 
 
-**See**: [VRGetPropertyValue()](../Modules/group__api__properties.mdx#vrgetpropertyvalue)
+**See**: [VRGetPropertyValue()](#vrgetpropertyvalue)
 
 **Return**: the value 
 
@@ -518,7 +520,7 @@ Gets an INT array element from a node property.
 
   * **index** index of array to read 
 
-**See**: [VRGetPropertyValue()](../Modules/group__api__properties.mdx#vrgetpropertyvalue)
+**See**: [VRGetPropertyValue()](#vrgetpropertyvalue)
 
 **Return**: the value 
 
@@ -538,7 +540,7 @@ Gets an INT array element from a node property.
 
   * **index** index of array to read 
 
-**See**: [VRGetPropertyValueEx()](../Modules/group__api__properties.mdx#vrgetpropertyvalueex)
+**See**: [VRGetPropertyValueEx()](#vrgetpropertyvalueex)
 
 **Return**: the value 
 
@@ -553,7 +555,7 @@ int VRGetPropertyIntEx(
 
 Gets an INT property from a node. 
 
-**See**: [VRGetPropertyValueEx()](../Modules/group__api__properties.mdx#vrgetpropertyvalueex)
+**See**: [VRGetPropertyValueEx()](#vrgetpropertyvalueex)
 
 **Return**: the value 
 
@@ -568,7 +570,7 @@ HNode VRGetPropertyLink(
 
 Gets a LINK property from a node. 
 
-**See**: [VRGetPropertyValue()](../Modules/group__api__properties.mdx#vrgetpropertyvalue)
+**See**: [VRGetPropertyValue()](#vrgetpropertyvalue)
 
 **Return**: handle to the link target node 
 
@@ -583,7 +585,7 @@ HNode VRGetPropertyLinkEx(
 
 Gets a LINK property from a node. 
 
-**See**: [VRGetPropertyValueEx()](../Modules/group__api__properties.mdx#vrgetpropertyvalueex)
+**See**: [VRGetPropertyValueEx()](#vrgetpropertyvalueex)
 
 **Return**: handle to the link target node 
 
@@ -605,7 +607,7 @@ Gets a STRING property from a node.
   * **buffer** buffer to receive the string data 
   * **bufferSize** size of the buffer 
 
-**See**: [VRGetPropertyValue()](../Modules/group__api__properties.mdx#vrgetpropertyvalue)
+**See**: [VRGetPropertyValue()](#vrgetpropertyvalue)
 
 **Return**: the number of bytes written to the buffer 
 
@@ -627,7 +629,7 @@ Gets a STRING array element from a node property.
 
   * **index** index of array to read 
 
-**See**: [VRGetPropertyValue()](../Modules/group__api__properties.mdx#vrgetpropertyvalue)
+**See**: [VRGetPropertyValue()](#vrgetpropertyvalue)
 
 **Return**: the value 
 
@@ -647,7 +649,7 @@ Gets a STRING array element from a node property.
 
   * **index** index of array to read 
 
-**See**: [VRGetPropertyValueEx()](../Modules/group__api__properties.mdx#vrgetpropertyvalueex)
+**See**: [VRGetPropertyValueEx()](#vrgetpropertyvalueex)
 
 **Return**: the value 
 
@@ -669,7 +671,7 @@ Gets a STRING property from a node.
   * **buffer** buffer to receive the string data 
   * **bufferSize** size of the buffer 
 
-**See**: [VRGetPropertyValueEx()](../Modules/group__api__properties.mdx#vrgetpropertyvalueex)
+**See**: [VRGetPropertyValueEx()](#vrgetpropertyvalueex)
 
 **Return**: the number of bytes written to the buffer 
 
@@ -819,7 +821,7 @@ Sets an array of doubles property on a node (useful to set matrices)
   * **valueData** double precision data to set 
   * **arraySize** the size of the data buffer 
 
-**See**: [VRSetPropertyValue()](../Modules/group__api__properties.mdx#vrsetpropertyvalue)
+**See**: [VRSetPropertyValue()](#vrsetpropertyvalue)
 
 **Return**: 0 on success 
 
@@ -843,7 +845,7 @@ Sets an element in a double array property on a node.
   * **valueData** data to set 
   * **arraySize** size of the data buffer 
 
-**See**: [VRSetPropertyValueEx()](../Modules/group__api__properties.mdx#vrsetpropertyvalueex)
+**See**: [VRSetPropertyValueEx()](#vrsetpropertyvalueex)
 
 **Return**: 0 on success 
 
@@ -865,7 +867,7 @@ Sets an array of floats property on a node (useful to set matrices)
   * **valueData** single precision data to set 
   * **arraySize** the size of the data buffer 
 
-**See**: [VRSetPropertyValue()](../Modules/group__api__properties.mdx#vrsetpropertyvalue)
+**See**: [VRSetPropertyValue()](#vrsetpropertyvalue)
 
 **Return**: 0 on success 
 
@@ -889,7 +891,7 @@ Sets an element in a float array property on a node.
   * **valueData** data to set 
   * **arraySize** size of the data buffer 
 
-**See**: [VRSetPropertyValueEx()](../Modules/group__api__properties.mdx#vrsetpropertyvalueex)
+**See**: [VRSetPropertyValueEx()](#vrsetpropertyvalueex)
 
 **Return**: 0 on success 
 
@@ -911,7 +913,7 @@ Sets an array of world float property on a node (useful to set matrices)
   * **valueData** data to set 
   * **arraySize** the size of the data buffer 
 
-**See**: [VRSetPropertyValue()](../Modules/group__api__properties.mdx#vrsetpropertyvalue)
+**See**: [VRSetPropertyValue()](#vrsetpropertyvalue)
 
 **Return**: 0 on success 
 
@@ -935,7 +937,7 @@ Sets an element in a world float array property on a node.
   * **valueData** data to set 
   * **arraySize** size of the data buffer 
 
-**See**: [VRSetPropertyValueEx()](../Modules/group__api__properties.mdx#vrsetpropertyvalueex)
+**See**: [VRSetPropertyValueEx()](#vrsetpropertyvalueex)
 
 **Return**: 0 on success 
 
@@ -955,7 +957,7 @@ Sets a CHAR or BOOL property on a node.
 
   * **value** value to set 
 
-**See**: [VRSetPropertyValue()](../Modules/group__api__properties.mdx#vrsetpropertyvalue)
+**See**: [VRSetPropertyValue()](#vrsetpropertyvalue)
 
 **Return**: 0 on success 
 
@@ -977,7 +979,7 @@ Sets an element in a CHAR or BOOL array property on a node.
   * **index** element to set (0-based array index) 
   * **value** value to set 
 
-**See**: [VRSetPropertyValue()](../Modules/group__api__properties.mdx#vrsetpropertyvalue)
+**See**: [VRSetPropertyValue()](#vrsetpropertyvalue)
 
 **Return**: 0 on success 
 
@@ -1001,7 +1003,7 @@ Sets an element in a CHAR or BOOL array property on a node.
   * **index** element to set (0-based array index) 
   * **value** value to set 
 
-**See**: [VRSetPropertyValueEx()](../Modules/group__api__properties.mdx#vrsetpropertyvalueex)
+**See**: [VRSetPropertyValueEx()](#vrsetpropertyvalueex)
 
 **Return**: 0 on success 
 
@@ -1023,7 +1025,7 @@ Sets a CHAR or BOOL property on a node.
 
   * **value** value to set 
 
-**See**: [VRSetPropertyValueEx()](../Modules/group__api__properties.mdx#vrsetpropertyvalueex)
+**See**: [VRSetPropertyValueEx()](#vrsetpropertyvalueex)
 
 **Return**: 0 on success 
 
@@ -1043,7 +1045,7 @@ Sets a DOUBLE property on a node.
 
   * **value** value to set 
 
-**See**: [VRSetPropertyValue()](../Modules/group__api__properties.mdx#vrsetpropertyvalue)
+**See**: [VRSetPropertyValue()](#vrsetpropertyvalue)
 
 **Return**: 0 on success 
 
@@ -1065,7 +1067,7 @@ Sets an element in a DOUBLE array property on a node.
   * **index** element to set (0-based array index) 
   * **value** value to set 
 
-**See**: [VRSetPropertyValue()](../Modules/group__api__properties.mdx#vrsetpropertyvalue)
+**See**: [VRSetPropertyValue()](#vrsetpropertyvalue)
 
 **Return**: 0 on success 
 
@@ -1089,7 +1091,7 @@ Sets an element in a DOUBLE array property on a node.
   * **index** element to set (0-based array index) 
   * **value** value to set 
 
-**See**: [VRSetPropertyValueEx()](../Modules/group__api__properties.mdx#vrsetpropertyvalueex)
+**See**: [VRSetPropertyValueEx()](#vrsetpropertyvalueex)
 
 **Return**: 0 on success 
 
@@ -1111,7 +1113,7 @@ Sets a DOUBLE property on a node.
 
   * **value** value to set 
 
-**See**: [VRSetPropertyValueEx()](../Modules/group__api__properties.mdx#vrsetpropertyvalueex)
+**See**: [VRSetPropertyValueEx()](#vrsetpropertyvalueex)
 
 **Return**: 0 on success 
 
@@ -1131,7 +1133,7 @@ Sets an INT property on a node using the value of a symbol.
 
   * **symbol** name of the symbol to read the value from 
 
-**See**: [VRSetPropertyValue()](../Modules/group__api__properties.mdx#vrsetpropertyvalue)
+**See**: [VRSetPropertyValue()](#vrsetpropertyvalue)
 
 **Return**: 0 on success 
 
@@ -1153,7 +1155,7 @@ Sets an INT property on a node using the value of a symbol.
 
   * **symbol** name of the symbol to read the value from 
 
-**See**: [VRSetPropertyValueEx()](../Modules/group__api__properties.mdx#vrsetpropertyvalueex)
+**See**: [VRSetPropertyValueEx()](#vrsetpropertyvalueex)
 
 **Return**: 0 on success 
 
@@ -1173,7 +1175,7 @@ Sets a FLOAT property on a node.
 
   * **value** value to set 
 
-**See**: [VRSetPropertyValue()](../Modules/group__api__properties.mdx#vrsetpropertyvalue)
+**See**: [VRSetPropertyValue()](#vrsetpropertyvalue)
 
 **Return**: 0 on success 
 
@@ -1195,7 +1197,7 @@ Sets an element in a FLOAT array property on a node.
   * **index** element to set (0-based array index) 
   * **value** value to set 
 
-**See**: [VRSetPropertyValue()](../Modules/group__api__properties.mdx#vrsetpropertyvalue)
+**See**: [VRSetPropertyValue()](#vrsetpropertyvalue)
 
 **Return**: 0 on success 
 
@@ -1219,7 +1221,7 @@ Sets an element in a FLOAT array property on a node.
   * **index** element to set (0-based array index) 
   * **value** value to set 
 
-**See**: [VRSetPropertyValueEx()](../Modules/group__api__properties.mdx#vrsetpropertyvalueex)
+**See**: [VRSetPropertyValueEx()](#vrsetpropertyvalueex)
 
 **Return**: 0 on success 
 
@@ -1241,7 +1243,7 @@ Sets a FLOAT property on a node.
 
   * **value** value to set 
 
-**See**: [VRSetPropertyValueEx()](../Modules/group__api__properties.mdx#vrsetpropertyvalueex)
+**See**: [VRSetPropertyValueEx()](#vrsetpropertyvalueex)
 
 **Return**: 0 on success 
 
@@ -1261,7 +1263,7 @@ Sets an INT property on a node.
 
   * **value** value to set 
 
-**See**: [VRSetPropertyValue()](../Modules/group__api__properties.mdx#vrsetpropertyvalue)
+**See**: [VRSetPropertyValue()](#vrsetpropertyvalue)
 
 **Return**: 0 on success 
 
@@ -1283,7 +1285,7 @@ Sets an element in a INT array property on a node.
   * **index** element to set (0-based array index) 
   * **value** value to set 
 
-**See**: [VRSetPropertyValue()](../Modules/group__api__properties.mdx#vrsetpropertyvalue)
+**See**: [VRSetPropertyValue()](#vrsetpropertyvalue)
 
 **Return**: 0 on success 
 
@@ -1307,7 +1309,7 @@ Sets an element in a INT array property on a node.
   * **index** element to set (0-based array index) 
   * **value** value to set 
 
-**See**: [VRSetPropertyValueEx()](../Modules/group__api__properties.mdx#vrsetpropertyvalueex)
+**See**: [VRSetPropertyValueEx()](#vrsetpropertyvalueex)
 
 **Return**: 0 on success 
 
@@ -1329,7 +1331,7 @@ Sets an INT property on a node.
 
   * **value** value to set 
 
-**See**: [VRSetPropertyValueEx()](../Modules/group__api__properties.mdx#vrsetpropertyvalueex)
+**See**: [VRSetPropertyValueEx()](#vrsetpropertyvalueex)
 
 **Return**: 0 on success 
 
@@ -1349,7 +1351,7 @@ Sets a LINK property on a node.
 
   * **linkTarget** value to set 
 
-**See**: [VRSetPropertyValue()](../Modules/group__api__properties.mdx#vrsetpropertyvalue)
+**See**: [VRSetPropertyValue()](#vrsetpropertyvalue)
 
 **Return**: 0 on success 
 
@@ -1371,7 +1373,7 @@ Sets a LINK property on a node.
 
   * **linkTarget** value to set 
 
-**See**: [VRSetPropertyValueEx()](../Modules/group__api__properties.mdx#vrsetpropertyvalueex)
+**See**: [VRSetPropertyValueEx()](#vrsetpropertyvalueex)
 
 **Return**: 0 on success 
 
@@ -1391,7 +1393,7 @@ Sets a STRING property on a node.
 
   * **stringData** value to set 
 
-**See**: [VRSetPropertyValue()](../Modules/group__api__properties.mdx#vrsetpropertyvalue)
+**See**: [VRSetPropertyValue()](#vrsetpropertyvalue)
 
 **Return**: 0 on success 
 
@@ -1415,7 +1417,7 @@ Sets an element in a STRING array property on a node.
   * **value** value to set 
   * **valueSize** the size of the size 
 
-**See**: [VRSetPropertyValue()](../Modules/group__api__properties.mdx#vrsetpropertyvalue)
+**See**: [VRSetPropertyValue()](#vrsetpropertyvalue)
 
 **Return**: 0 on success 
 
@@ -1441,7 +1443,7 @@ Sets an element in a STRING array property on a node.
   * **values** values to set 
   * **arraySize** the size of the values array 
 
-**See**: [VRSetPropertyValueEx()](../Modules/group__api__properties.mdx#vrsetpropertyvalueex)
+**See**: [VRSetPropertyValueEx()](#vrsetpropertyvalueex)
 
 **Return**: 0 on success 
 
@@ -1463,7 +1465,7 @@ Sets a STRING property on a node.
 
   * **stringData** value to set 
 
-**See**: [VRSetPropertyValueEx()](../Modules/group__api__properties.mdx#vrsetpropertyvalueex)
+**See**: [VRSetPropertyValueEx()](#vrsetpropertyvalueex)
 
 **Return**: 0 on success 
 

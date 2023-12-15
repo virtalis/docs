@@ -11,31 +11,31 @@ Namespace containing a collection of helper functions for simplifying reading of
 
 | Type           | Name           |
 | -------------- | -------------- |
-| struct | **[vrtree_cpp::Handle](../Classes/structvrtree__cpp_1_1_handle.mdx)** <br />Helper struct to take any handle and close it appropriately.  |
-| struct | **[vrtree_cpp::HRefCount](../Classes/structvrtree__cpp_1_1_h_ref_count.mdx)** <br />Helper structure that provides a reference count that persists between refcounted handle copies.  |
-| struct | **[vrtree_cpp::HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx)** <br />Reference counted wrapper around a handle. Automatically closes the handle when there are no references left.  |
-| class | **[vrtree_cpp::NodeManager](../Classes/classvrtree__cpp_1_1_node_manager.mdx)** <br />Utility class providing an interface for responding to changes to specified metanodes; with an additional update function, which will be called every time a frame is drawn.  |
-| struct | **[vrtree_cpp::ObserverWrapper](../Classes/structvrtree__cpp_1_1_observer_wrapper.mdx)** <br />Wraps a class implementing static observer functions accepting refcounted handles.  |
+| struct | **[vrtree_cpp::Handle](../classes/vrtree-cpp-handle.mdx)** <br />Helper struct to take any handle and close it appropriately.  |
+| struct | **[vrtree_cpp::HRefCount](../classes/vrtree-cpp-hrefcount.mdx)** <br />Helper structure that provides a reference count that persists between refcounted handle copies.  |
+| struct | **[vrtree_cpp::HTypeR](../classes/vrtree-cpp-htyper.mdx)** <br />Reference counted wrapper around a handle. Automatically closes the handle when there are no references left.  |
+| class | **[vrtree_cpp::NodeManager](../classes/vrtree-cpp-nodemanager.mdx)** <br />Utility class providing an interface for responding to changes to specified metanodes; with an additional update function, which will be called every time a frame is drawn.  |
+| struct | **[vrtree_cpp::ObserverWrapper](../classes/vrtree-cpp-observerwrapper.mdx)** <br />Wraps a class implementing static observer functions accepting refcounted handles.  |
 
 ## Types
 
 | Type           | Name           |
 | -------------- | -------------- |
-| typedef [HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx)< [HFFIVar](../Modules/group__api__types.mdx#typedef-hffivar) > | **[HFFIVarR](../Namespaces/namespacevrtree__cpp.mdx#typedef-hffivarr)** <br />Reference counted FFI handle.  |
-| typedef [HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx)< [HMeta](../Modules/group__api__types.mdx#typedef-hmeta) > | **[HMetaR](../Namespaces/namespacevrtree__cpp.mdx#typedef-hmetar)** <br />Reference counted metanode handle.  |
-| typedef [HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx)< [HMigration](../Modules/group__api__types.mdx#typedef-hmigration) > | **[HMigrationR](../Namespaces/namespacevrtree__cpp.mdx#typedef-hmigrationr)** <br />Reference counted migration handle.  |
-| typedef [HTypeR](../Classes/structvrtree__cpp_1_1_h_type_r.mdx)< [HNode](../Modules/group__api__types.mdx#typedef-hnode) > | **[HNodeR](../Namespaces/namespacevrtree__cpp.mdx#typedef-hnoder)** <br />Reference counted node handle.  |
+| typedef [HTypeR](../classes/vrtree-cpp-htyper.mdx)< [HFFIVar](../definitions/types.mdx#typedef-hffivar) > | **[HFFIVarR](#typedef-hffivarr)** <br />Reference counted FFI handle.  |
+| typedef [HTypeR](../classes/vrtree-cpp-htyper.mdx)< [HMeta](../definitions/types.mdx#typedef-hmeta) > | **[HMetaR](#typedef-hmetar)** <br />Reference counted metanode handle.  |
+| typedef [HTypeR](../classes/vrtree-cpp-htyper.mdx)< [HMigration](../definitions/types.mdx#typedef-hmigration) > | **[HMigrationR](#typedef-hmigrationr)** <br />Reference counted migration handle.  |
+| typedef [HTypeR](../classes/vrtree-cpp-htyper.mdx)< [HNode](../definitions/types.mdx#typedef-hnode) > | **[HNodeR](#typedef-hnoder)** <br />Reference counted node handle.  |
 
 ## Functions
 
 |  Type          | Name           |
 | -------------- | -------------- |
-| std::string | **[getNodeName](../Namespaces/namespacevrtree__cpp.mdx#getnodename)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Utility function for getting the name of a node.  |
-| std::string | **[getNodePath](../Namespaces/namespacevrtree__cpp.mdx#getnodepath)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node)<br />Utility function for getting the path of a node.  |
-| std::string | **[readStringProp](../Namespaces/namespacevrtree__cpp.mdx#readstringprop)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, const char * propName)<br />Utility function for reading a string property.  |
-| std::string | **[readStringProp](../Namespaces/namespacevrtree__cpp.mdx#readstringprop)**([HNode](../Modules/group__api__types.mdx#typedef-hnode) node, uint32_t prop)<br />Utility function for reading a string property.  |
-| template <typename T\> <br />void | **[RegisterObserver](../Namespaces/namespacevrtree__cpp.mdx#registerobserver)**(const char * metaName)<br />Registers a class implementing static observer functions as an observer of the specified metanode.  |
-| template <typename T\> <br />void | **[UnRegisterObserver](../Namespaces/namespacevrtree__cpp.mdx#unregisterobserver)**(const char * metaName)<br />Unregisters a class implementing static observer functions as an observer of the specified metanode.  |
+| std::string | **[getNodeName](#getnodename)**([HNode](../definitions/types.mdx#typedef-hnode) node)<br />Utility function for getting the name of a node.  |
+| std::string | **[getNodePath](#getnodepath)**([HNode](../definitions/types.mdx#typedef-hnode) node)<br />Utility function for getting the path of a node.  |
+| std::string | **[readStringProp](#readstringprop)**([HNode](../definitions/types.mdx#typedef-hnode) node, const char * propName)<br />Utility function for reading a string property.  |
+| std::string | **[readStringProp](#readstringprop)**([HNode](../definitions/types.mdx#typedef-hnode) node, uint32_t prop)<br />Utility function for reading a string property.  |
+| template <typename T\> <br />void | **[RegisterObserver](#registerobserver)**(const char * metaName)<br />Registers a class implementing static observer functions as an observer of the specified metanode.  |
+| template <typename T\> <br />void | **[UnRegisterObserver](#unregisterobserver)**(const char * metaName)<br />Unregisters a class implementing static observer functions as an observer of the specified metanode.  |
 
 ## Types Documentation
 

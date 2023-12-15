@@ -1,0 +1,166 @@
+---
+title: Meta_ParticleSystem
+summary: A ParticleSystem emits particles. It gets its transform from a parent Meta_Assembly. 
+---
+
+# Meta_ParticleSystem
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A ParticleSystem emits particles. It gets its transform from a parent [Meta_Assembly](../metanodes/meta-assembly.mdx). 
+
+`#include <meta_particles.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[BillboardMode](#enum-billboardmode)** { BillboardModeXY, BillboardModeXZ}<br />Values for Idx_BillboardMode.  |
+| enum| **[BlendMode](#enum-blendmode)** { Additive, AlphaBlend}<br />Values for Idx_BlendMode.  |
+| enum| **[BurstDataTypes](#enum-burstdatatypes)** { BurstDataTypes_Time, BurstDataTypes_Min, BurstDataTypes_Max, BurstDataTypes_Cycles, BurstDataTypes_Intervals, BurstDataTypes_Count} |
+| enum| **[EmitShape](#enum-emitshape)** { Sphere, Hemisphere, Cone, Box, Circle, Mesh}<br />Values for Idx_EmitShape.  |
+| enum| **[IDX](#enum-idx)** { Idx_Enabled, Idx_Duration, Idx_Looping, Idx_LifeSpanInputType, Idx_LifeSpanValue, Idx_LifeSpanMinMax, Idx_LifeSpanCurve, Idx_StartSpeedInputType, Idx_StartSpeedValue, Idx_StartSpeedMinMax, Idx_StartSpeedCurve, Idx_StartSizeInputType, Idx_StartSizeValue, Idx_StartSizeMinMax, Idx_StartSizeCurve, Idx_StartRotationInputType, Idx_StartRotationValue, Idx_StartRotationMinMax, Idx_StartRotationCurve, Idx_RotationDirectionRandom, Idx_LifetimeGradient, Idx_MaxParticles, Idx_MainTexture, Idx_BlendMode, Idx_SmoothDist, Idx_TilingMode, Idx_TextureTilesNumber, Idx_AnimationSpeed, Idx_BillboardMode, Idx_OrientU, Idx_OrientV, Idx_FlipU, Idx_FlipV, Idx_WorldSpace, Idx_ScaleMode, Idx_Lit, Idx_AlphaOrderOffset, Idx_EmitRate, Idx_Bursts, Idx_EmitShape, Idx_EmitShapeAngle, Idx_EmitMesh, Idx_EmitShapeSize, Idx_EmitShapeShell, Idx_EmitRandomDirection, Idx_VelocityOverLifetimeEnabled, Idx_VelocityOverLifetime, Idx_VelocityOverLifetimeMultiplier, Idx_VelocityLimitOverLifetimeEnabled, Idx_VelocityLimitOverLifetime, Idx_Damping, Idx_SizeOverLifetimeEnabled, Idx_SizeOverLifetime, Idx_SizeOverVelocityEnabled, Idx_SizeOverVelocity, Idx_SizeOverVelocityRange, Idx_RotationSpeedOverLifetimeEnabled, Idx_RotationSpeedOverLifetime, Idx_Force}<br />Property index.  |
+| enum| **[ParticleInputType](#enum-particleinputtype)** { Value, MinMax, Curve}<br />Values for InputType properties.  |
+| enum| **[ScaleMode](#enum-scalemode)** { ScaleModeNone, ScaleModeShape, ScaleModeFull}<br />Values for Idx_ScaleMode.  |
+| enum| **[TilingMode](#enum-tilingmode)** { TilingModeNone, TilingModeRandom, TilingModeAnimated, TilingModeAnimatedRowRandom}<br />Values for Idx_TilingMode.  |
+
+## Public Types Documentation
+
+### enum BillboardMode
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| BillboardModeXY | |   |
+| BillboardModeXZ | |   |
+
+Values for Idx_BillboardMode. 
+
+### enum BlendMode
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Additive | |   |
+| AlphaBlend | |   |
+
+Values for Idx_BlendMode. 
+
+### enum BurstDataTypes
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| BurstDataTypes_Time | |   |
+| BurstDataTypes_Min | |   |
+| BurstDataTypes_Max | |   |
+| BurstDataTypes_Cycles | |   |
+| BurstDataTypes_Intervals | |   |
+| BurstDataTypes_Count | |   |
+
+### enum EmitShape
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Sphere | |   |
+| Hemisphere | |   |
+| Cone | |   |
+| Box | |   |
+| Circle | |   |
+| Mesh | |   |
+
+Values for Idx_EmitShape. 
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - If false particle system isn't drawn or updated.   |
+| Idx_Duration | | float - Duration of a cycle of the particle system   |
+| Idx_Looping | | bool - If true, the system restarts at the end of each cycle   |
+| Idx_LifeSpanInputType | | [ParticleInputType (int) - Specifies the method of lifespan input for how long a particle lives, in seconds   |
+| Idx_LifeSpanValue | | float - data for Value mode   |
+| Idx_LifeSpanMinMax | | vec2f - data for MinMax mode   |
+| Idx_LifeSpanCurve | | ``vector<float>`` - data for Curve mode   |
+| Idx_StartSpeedInputType | | [ParticleInputType (int) - Specifies the method of particle start speed input   |
+| Idx_StartSpeedValue | | float - data for Value mode   |
+| Idx_StartSpeedMinMax | | vec2f - data for MinMax mode   |
+| Idx_StartSpeedCurve | | ``vector<float>`` - data for Curve mode   |
+| Idx_StartSizeInputType | | [ParticleInputType (int) - Specifies the method of particle start size input   |
+| Idx_StartSizeValue | | float - data for Value mode   |
+| Idx_StartSizeMinMax | | vec2f - data for MinMax mode   |
+| Idx_StartSizeCurve | | ``vector<float>`` - data for Curve mode   |
+| Idx_StartRotationInputType | | [ParticleInputType (int) - Specifies the method of initial particle rotation input   |
+| Idx_StartRotationValue | | float - data for Value mode   |
+| Idx_StartRotationMinMax | | vec2f - data for MinMax mode   |
+| Idx_StartRotationCurve | | ``vector<float>`` - data for Curve mode   |
+| Idx_RotationDirectionRandom | | bool - Randomise rotation direction   |
+| Idx_LifetimeGradient | | link - Specifies a gradient to use to control the lifetime of particles   |
+| Idx_MaxParticles | | int - Maximum number of particles in flight at once. Special value of zero means no limit to the number of particles.   |
+| Idx_MainTexture | | link - Specifies a texture containing particle sprite data to use for rendering the particles   |
+| Idx_BlendMode | | [BlendMode](#enum-blendmode) (int) - Specifies the particle renderer blend mode   |
+| Idx_SmoothDist | | float - When part of a particle is within this distance of some background scene geoemtry, it will be faded over this distance to give a smoother appearance at intersections.   |
+| Idx_TilingMode | | [TilingMode (int) - Specifies how to use the texture sprite sheet   |
+| Idx_TextureTilesNumber | | vec2i - for all tiling modes except None, specifies the number of tiles in the sheet (X,Y)   |
+| Idx_AnimationSpeed | | float - For animated tiling modes, specifies the speed multiplier for texture sheet animation   |
+| Idx_BillboardMode | | [BillboardMode](#enum-billboardmode) (int) - Specify how the particles should be aligned   |
+| Idx_OrientU | | bool -   |
+| Idx_OrientV | | bool -   |
+| Idx_FlipU | | bool -   |
+| Idx_FlipV | | bool -   |
+| Idx_WorldSpace | | bool -   |
+| Idx_ScaleMode | | [ScaleMode (int) -   |
+| Idx_Lit | | bool -   |
+| Idx_AlphaOrderOffset | | float -   |
+| Idx_EmitRate | | float - Rate at which particles are emitted, in particles-per-second.   |
+| Idx_Bursts | | `vector<float>` -   |
+| Idx_EmitShape | | [EmitShape](#enum-emitshape) (int) - Controls the initial position and direction of an emitted particle.   |
+| Idx_EmitShapeAngle | | float - For Cone and Circle, the angle range of the shape   |
+| Idx_EmitMesh | | link - For Mesh, link to the mesh to use   |
+| Idx_EmitShapeSize | | float - Size of shape within which particles are emitted at random positions.   |
+| Idx_EmitShapeShell | | bool - If true, the particles are emitted from the shell of the shape rather than within it.   |
+| Idx_EmitRandomDirection | | bool - If false, the particles are emitted in directions relating to the shape, if true the directions are completely random.   |
+| Idx_VelocityOverLifetimeEnabled | | bool -   |
+| Idx_VelocityOverLifetime | | `vector<float>` -   |
+| Idx_VelocityOverLifetimeMultiplier | | float -   |
+| Idx_VelocityLimitOverLifetimeEnabled | | bool -   |
+| Idx_VelocityLimitOverLifetime | | `vector<float>` -   |
+| Idx_Damping | | float -   |
+| Idx_SizeOverLifetimeEnabled | | bool -   |
+| Idx_SizeOverLifetime | | `vector<float>` -   |
+| Idx_SizeOverVelocityEnabled | | bool -   |
+| Idx_SizeOverVelocity | | `vector<float>` -   |
+| Idx_SizeOverVelocityRange | | vec2f -   |
+| Idx_RotationSpeedOverLifetimeEnabled | | bool -   |
+| Idx_RotationSpeedOverLifetime | | `vector<float>` -   |
+| Idx_Force | | vec3f - constant force applied to particles during their lifetime.   |
+
+Property index. 
+
+### enum ParticleInputType
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Value | | float specifies single value   |
+| MinMax | | vec2 specifies minimum and maximum values   |
+| Curve | | Vector specifies points on a catmull-rom spline.   |
+
+Values for InputType properties. 
+
+### enum ScaleMode
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| ScaleModeNone | |   |
+| ScaleModeShape | |   |
+| ScaleModeFull | |   |
+
+Values for Idx_ScaleMode. 
+
+### enum TilingMode
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| TilingModeNone | |   |
+| TilingModeRandom | |   |
+| TilingModeAnimated | |   |
+| TilingModeAnimatedRowRandom | |   |
+
+Values for Idx_TilingMode. 

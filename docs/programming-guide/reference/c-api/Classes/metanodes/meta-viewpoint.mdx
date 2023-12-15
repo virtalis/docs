@@ -1,0 +1,38 @@
+---
+title: Meta_Viewpoint
+summary: Meta_Viewpoint represents camera settings for a specific view on the scene. It should be a child of a Meta_Assembly. 
+---
+
+# Meta_Viewpoint
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+Meta_Viewpoint represents camera settings for a specific view on the scene. It should be a child of a [Meta_Assembly](../metanodes/meta-assembly.mdx).  [More...](#detailed-description)
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** { Idx_Transform}<br />Property index.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_Viewpoint;
+```
+
+Meta_Viewpoint represents camera settings for a specific view on the scene. It should be a child of a [Meta_Assembly](../metanodes/meta-assembly.mdx). 
+
+This is attached to an Assembly whose world transform is used as a camera position. 
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Transform | | Not currently used - use the parent Assembly transform.   |
+
+Property index. 

@@ -1,0 +1,42 @@
+---
+title: Meta_AssemblyPRS
+summary: An AssemblyPRS node is used to store hints for matrix edit gui controls. 
+---
+
+# Meta_AssemblyPRS
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+An AssemblyPRS node is used to store hints for matrix edit gui controls.  [More...](#detailed-description)
+
+`#include <meta_division.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** { Idx_Position, Idx_Rotation, Idx_Scale}<br />Property Index.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_AssemblyPRS;
+```
+
+An AssemblyPRS node is used to store hints for matrix edit gui controls. 
+
+This exists because the standard transform controls decompose the matrix into position, rotation, and scale. Decomposition to euler angles regularly results in unexpected values that make it look like the rotation is incorrect, when it is just another possible valid euler representation.
+
+This node is automatically created when the user interface edits a transform property on an assembly, and is read first when re-selecting the assembly. It is then composed and compared against the transform property to verify it is still up to date. 
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Position | | vec3w - Translation   |
+| Idx_Rotation | | vec3w - Rotation (eulers)   |
+| Idx_Scale | | vec3w - Scale   |
+
+Property Index. 

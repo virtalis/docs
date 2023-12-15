@@ -1,34 +1,34 @@
 ---
-title: Save/Load Tree I/O Flags
+title: Save/Load Tree IO Flags
 summary: Input and output operation flags that can be passed to the ioFlags parameter on VRLoadTreeEx and VRSaveTreeEx. 
 ---
 
-# Save/Load Tree I/O Flags
+# Save/Load Tree IO Flags
 
-Input and output operation flags that can be passed to the `ioFlags` parameter on [VRLoadTreeEx](../definitions/group__api__tree.mdx#vrloadtreeex) and [VRSaveTreeEx](../definitions/group__api__tree.mdx#vrsavetreeex). 
+Input and output operation flags that can be passed to the `ioFlags` parameter on [VRLoadTreeEx](../modules/nodes/tree.mdx#vrloadtreeex) and [VRSaveTreeEx](../modules/nodes/tree.mdx#vrsavetreeex). 
 
 ## Attributes
 
 | Type           | Name           |
 | -------------- | -------------- |
-| const uint64_t | **[FILEIO_CHANGED_ONLY](../definitions/group__api__io__flags.mdx#fileio-changed-only)** <br />Signals the file IO to only output Libraries that are changed.  |
-| const uint64_t | **[FILEIO_FILE_FORMAT_GUESS](../definitions/group__api__io__flags.mdx#fileio-file-format-guess)** <br />Signals that the save/load operation should determine the file format from the file extension.  |
-| const uint64_t | **[FILEIO_FILE_FORMAT_HUMAN](../definitions/group__api__io__flags.mdx#fileio-file-format-human)** <br />Signals that the file should be saved/loaded as a VRText file.  |
-| const uint64_t | **[FILEIO_FILE_FORMAT_MACHINE](../definitions/group__api__io__flags.mdx#fileio-file-format-machine)** <br />Signals that the files should be saved/loaded as a VRNative file.  |
-| const uint64_t | **[FILEIO_FORCE_SAVE](../definitions/group__api__io__flags.mdx#fileio-force-save)** <br />Signals the file IO that we should override the NO_SAVE flag and save anyways.  |
-| const uint64_t | **[FILEIO_IGNORE_UNSAVED_PROPERTIES](../definitions/group__api__io__flags.mdx#fileio-ignore-unsaved-properties)** <br />Signals that values of properties that aren't saved should be ignored when loading.  |
-| const uint64_t | **[FILEIO_MERGE](../definitions/group__api__io__flags.mdx#fileio-merge)** <br />Signals the file IO that this call to loadTree() is merging files into the current scene, newly created library nodes will always be flagged as dirty so they are saved with the existing data they have been merged with.  |
-| const uint64_t | **[FILEIO_MONOLITHIC](../definitions/group__api__io__flags.mdx#fileio-monolithic)** <br />Signals that Library nodes' archive flag should be ignored.  |
-| const uint64_t | **[FILEIO_NESTED](../definitions/group__api__io__flags.mdx#fileio-nested)** <br />Signals the file IO that this call to loadTree() is nested inside another.  |
-| const uint64_t | **[FILEIO_NEW_UUIDS](../definitions/group__api__io__flags.mdx#fileio-new-uuids)** <br />Signals that the file IO should not preserve the Node UUID's.  |
-| const uint64_t | **[FILEIO_OVERLAY_DOCUMENT](../definitions/group__api__io__flags.mdx#fileio-overlay-document)** <br />Signals that the document should be saved as a system document.  |
-| const uint64_t | **[FILEIO_SAVE_SIBLINGS_TOO](../definitions/group__api__io__flags.mdx#fileio-save-siblings-too)** <br />Signals that the nodes siblings should be saved.  |
-| const uint64_t | **[FILEIO_SYSTEM_DOCUMENT](../definitions/group__api__io__flags.mdx#fileio-system-document)** <br />Signals that the document should be saved as a system document.  |
-| const uint64_t | **[FILEIO_UUIDS_MUST_EXIST](../definitions/group__api__io__flags.mdx#fileio-uuids-must-exist)** <br />Signals that the file IO should throw an exception if the file being loaded does not have UUID's.  |
+| const uint64_t | **[FILEIO_CHANGED_ONLY](#fileio-changed-only)** <br />Signals the file IO to only output Libraries that are changed.  |
+| const uint64_t | **[FILEIO_FILE_FORMAT_GUESS](#fileio-file-format-guess)** <br />Signals that the save/load operation should determine the file format from the file extension.  |
+| const uint64_t | **[FILEIO_FILE_FORMAT_HUMAN](#fileio-file-format-human)** <br />Signals that the file should be saved/loaded as a VRText file.  |
+| const uint64_t | **[FILEIO_FILE_FORMAT_MACHINE](#fileio-file-format-machine)** <br />Signals that the files should be saved/loaded as a VRNative file.  |
+| const uint64_t | **[FILEIO_FORCE_SAVE](#fileio-force-save)** <br />Signals the file IO that we should override the NO_SAVE flag and save anyways.  |
+| const uint64_t | **[FILEIO_IGNORE_UNSAVED_PROPERTIES](#fileio-ignore-unsaved-properties)** <br />Signals that values of properties that aren't saved should be ignored when loading.  |
+| const uint64_t | **[FILEIO_MERGE](#fileio-merge)** <br />Signals the file IO that this call to loadTree() is merging files into the current scene, newly created library nodes will always be flagged as dirty so they are saved with the existing data they have been merged with.  |
+| const uint64_t | **[FILEIO_MONOLITHIC](#fileio-monolithic)** <br />Signals that Library nodes' archive flag should be ignored.  |
+| const uint64_t | **[FILEIO_NESTED](#fileio-nested)** <br />Signals the file IO that this call to loadTree() is nested inside another.  |
+| const uint64_t | **[FILEIO_NEW_UUIDS](#fileio-new-uuids)** <br />Signals that the file IO should not preserve the Node UUID's.  |
+| const uint64_t | **[FILEIO_OVERLAY_DOCUMENT](#fileio-overlay-document)** <br />Signals that the document should be saved as a system document.  |
+| const uint64_t | **[FILEIO_SAVE_SIBLINGS_TOO](#fileio-save-siblings-too)** <br />Signals that the nodes siblings should be saved.  |
+| const uint64_t | **[FILEIO_SYSTEM_DOCUMENT](#fileio-system-document)** <br />Signals that the document should be saved as a system document.  |
+| const uint64_t | **[FILEIO_UUIDS_MUST_EXIST](#fileio-uuids-must-exist)** <br />Signals that the file IO should throw an exception if the file being loaded does not have UUID's.  |
 
 ## Attributes Documentation
 
-### FILEIO_CHANGED_ONLY
+### FILEIO_CHANGED_ONLY {#fileio-changed-only}
 
 ```cpp
 const uint64_t FILEIO_CHANGED_ONLY = ((uint64_t)1 << 0);
@@ -36,7 +36,7 @@ const uint64_t FILEIO_CHANGED_ONLY = ((uint64_t)1 << 0);
 
 Signals the file IO to only output Libraries that are changed. 
 
-### FILEIO_FILE_FORMAT_GUESS
+### FILEIO_FILE_FORMAT_GUESS {#fileio-file-format-guess}
 
 ```cpp
 const uint64_t FILEIO_FILE_FORMAT_GUESS = ((uint64_t)1 << 35);
@@ -44,7 +44,7 @@ const uint64_t FILEIO_FILE_FORMAT_GUESS = ((uint64_t)1 << 35);
 
 Signals that the save/load operation should determine the file format from the file extension. 
 
-### FILEIO_FILE_FORMAT_HUMAN
+### FILEIO_FILE_FORMAT_HUMAN {#fileio-file-format-human}
 
 ```cpp
 const uint64_t FILEIO_FILE_FORMAT_HUMAN = ((uint64_t)1 << 34);
@@ -52,7 +52,7 @@ const uint64_t FILEIO_FILE_FORMAT_HUMAN = ((uint64_t)1 << 34);
 
 Signals that the file should be saved/loaded as a VRText file. 
 
-### FILEIO_FILE_FORMAT_MACHINE
+### FILEIO_FILE_FORMAT_MACHINE {#fileio-file-format-machine}
 
 ```cpp
 const uint64_t FILEIO_FILE_FORMAT_MACHINE = ((uint64_t)1 << 33);
@@ -60,7 +60,7 @@ const uint64_t FILEIO_FILE_FORMAT_MACHINE = ((uint64_t)1 << 33);
 
 Signals that the files should be saved/loaded as a VRNative file. 
 
-### FILEIO_FORCE_SAVE
+### FILEIO_FORCE_SAVE {#fileio-force-save}
 
 ```cpp
 const uint64_t FILEIO_FORCE_SAVE = ((uint64_t)1 << 3);
@@ -68,7 +68,7 @@ const uint64_t FILEIO_FORCE_SAVE = ((uint64_t)1 << 3);
 
 Signals the file IO that we should override the NO_SAVE flag and save anyways. 
 
-### FILEIO_IGNORE_UNSAVED_PROPERTIES
+### FILEIO_IGNORE_UNSAVED_PROPERTIES {#fileio-ignore-unsaved-properties}
 
 ```cpp
 const uint64_t FILEIO_IGNORE_UNSAVED_PROPERTIES = ((uint64_t)1 << 7);
@@ -76,7 +76,7 @@ const uint64_t FILEIO_IGNORE_UNSAVED_PROPERTIES = ((uint64_t)1 << 7);
 
 Signals that values of properties that aren't saved should be ignored when loading. 
 
-### FILEIO_MERGE
+### FILEIO_MERGE {#fileio-merge}
 
 ```cpp
 const uint64_t FILEIO_MERGE = ((uint64_t)1 << 2);
@@ -84,7 +84,7 @@ const uint64_t FILEIO_MERGE = ((uint64_t)1 << 2);
 
 Signals the file IO that this call to loadTree() is merging files into the current scene, newly created library nodes will always be flagged as dirty so they are saved with the existing data they have been merged with. 
 
-### FILEIO_MONOLITHIC
+### FILEIO_MONOLITHIC {#fileio-monolithic}
 
 ```cpp
 const uint64_t FILEIO_MONOLITHIC = ((uint64_t)1 << 6);
@@ -92,7 +92,7 @@ const uint64_t FILEIO_MONOLITHIC = ((uint64_t)1 << 6);
 
 Signals that Library nodes' archive flag should be ignored. 
 
-### FILEIO_NESTED
+### FILEIO_NESTED {#fileio-nested}
 
 ```cpp
 const uint64_t FILEIO_NESTED = ((uint64_t)1 << 1);
@@ -100,7 +100,7 @@ const uint64_t FILEIO_NESTED = ((uint64_t)1 << 1);
 
 Signals the file IO that this call to loadTree() is nested inside another. 
 
-### FILEIO_NEW_UUIDS
+### FILEIO_NEW_UUIDS {#fileio-new-uuids}
 
 ```cpp
 const uint64_t FILEIO_NEW_UUIDS = ((uint64_t)1 << 4);
@@ -108,7 +108,7 @@ const uint64_t FILEIO_NEW_UUIDS = ((uint64_t)1 << 4);
 
 Signals that the file IO should not preserve the Node UUID's. 
 
-### FILEIO_OVERLAY_DOCUMENT
+### FILEIO_OVERLAY_DOCUMENT {#fileio-overlay-document}
 
 ```cpp
 const uint64_t FILEIO_OVERLAY_DOCUMENT = ((uint64_t)1 << 9);
@@ -116,7 +116,7 @@ const uint64_t FILEIO_OVERLAY_DOCUMENT = ((uint64_t)1 << 9);
 
 Signals that the document should be saved as a system document. 
 
-### FILEIO_SAVE_SIBLINGS_TOO
+### FILEIO_SAVE_SIBLINGS_TOO {#fileio-save-siblings-too}
 
 ```cpp
 const uint64_t FILEIO_SAVE_SIBLINGS_TOO = ((uint64_t)1 << 32);
@@ -124,7 +124,7 @@ const uint64_t FILEIO_SAVE_SIBLINGS_TOO = ((uint64_t)1 << 32);
 
 Signals that the nodes siblings should be saved. 
 
-### FILEIO_SYSTEM_DOCUMENT
+### FILEIO_SYSTEM_DOCUMENT {#fileio-system-document}
 
 ```cpp
 const uint64_t FILEIO_SYSTEM_DOCUMENT = ((uint64_t)1 << 8);
@@ -132,7 +132,7 @@ const uint64_t FILEIO_SYSTEM_DOCUMENT = ((uint64_t)1 << 8);
 
 Signals that the document should be saved as a system document. 
 
-### FILEIO_UUIDS_MUST_EXIST
+### FILEIO_UUIDS_MUST_EXIST {#fileio-uuids-must-exist}
 
 ```cpp
 const uint64_t FILEIO_UUIDS_MUST_EXIST = ((uint64_t)1 << 5);

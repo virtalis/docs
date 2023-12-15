@@ -1,0 +1,109 @@
+---
+title: Meta_ImageMarkerStyle
+summary: An ImageMarkerStyle provides styling for a marker, using a custom texture instead of the default sphere. 
+---
+
+# Meta_ImageMarkerStyle
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+An ImageMarkerStyle provides styling for a marker, using a custom texture instead of the default sphere. 
+
+`#include <meta_gui.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[AlignMode](#enum-alignmode)** { AlignMode_World, AlignMode_Camera, AlignMode_Screen, AlignMode_Camera_X, AlignMode_Camera_Y, AlignMode_Camera_Z, AlignMode_Vector, AlignMode_World_Up}<br />Values for Idx_AlignMode.  |
+| enum| **[DepthTestMode](#enum-depthtestmode)** { DepthTestMode_Normal, DepthTestMode_ShowThrough, DepthTestMode_AlwaysOnTop}<br />Values for Idx_DepthTestMode.  |
+| enum| **[IDX](#enum-idx)** { Idx_Visible, Idx_Size, Idx_SizeMode, Idx_AlignMode, Idx_MinimumSize, Idx_MaximumSize, Idx_Material, Idx_UseMaterialColour, Idx_Colour, Idx_Colour_hovering, Idx_Colour_pressed, Idx_Colour_highlight, Idx_Texture, Idx_CursorName, Idx_DepthTestMode, Idx_AspectRatio, Idx_Offset, Idx_IgnoreProbes}<br />Property index.  |
+| enum| **[SizeMode](#enum-sizemode)** { SizeMode_World, SizeMode_View, SizeMode_Pixels, SizeMode_Local}<br />Values for Idx_SizeMode.  |
+
+## Public Functions
+
+| Type           | Name           |
+| -------------- | -------------- |
+| void | **[AddIgnoreProbes](#addignoreprobes)**([HMigration](../../definitions/types.mdx#typedef-hmigration) ) |
+| void | **[RemoveHitTestRadius](#removehittestradius)**([HMigration](../../definitions/types.mdx#typedef-hmigration) ) |
+
+## Public Types Documentation
+
+### enum AlignMode
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| AlignMode_World | | Aligns in world space, based on parent assembly transforms (Symbols - C: `"AlignModeWorld"`, Lua: `__ImageMarkerStyle_AlignModeWorld`)   |
+| AlignMode_Camera | | Aligns to the camera (Symbols - C: `"AlignModeCamera"`, Lua: `__ImageMarkerStyle_AlignModeCamera`)   |
+| AlignMode_Screen | | Aligns to the screen (Symbols - C: `"AlignModeScreen"`, Lua: `__ImageMarkerStyle_AlignModeScreen`)   |
+| AlignMode_Camera_X | | Aligns to the camera around the X axis (Symbols - C: `"AlignModeCameraX"`, Lua: `__ImageMarkerStyle_AlignModeCameraX`)   |
+| AlignMode_Camera_Y | | Aligns to the camera around the Y axis (Symbols - C: `"AlignModeCameraY"`, Lua: `__ImageMarkerStyle_AlignModeCameraY`)   |
+| AlignMode_Camera_Z | | Aligns to the camera around the Z axis (Symbols - C: `"AlignModeCameraZ"`, Lua: `__ImageMarkerStyle_AlignModeCameraZ`)   |
+| AlignMode_Vector | | Aligns to the vector specified on the marker (Symbols - C: `"AlignModeVector"`, Lua: `__ImageMarkerStyle_AlignModeVector`)   |
+| AlignMode_World_Up | | Aligns to the world up vector regardless of the parent transform hierarchy (Symbols - C: `"AlignModeWorldUp"`, Lua: `__ImageMarkerStyle_AlignModeWorldUp`)   |
+
+Values for Idx_AlignMode. 
+
+### enum DepthTestMode
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| DepthTestMode_Normal | | Markers are occluded by objects in front of them (Symbols - C: `"DepthTestModeNormal"`, Lua: `__ImageMarkerStyle_DepthTestModeNormal`)   |
+| DepthTestMode_ShowThrough | | Markers appear stippled through objects in front of them (Symbols - C: `"DepthTestModeStipple"`, Lua: `__ImageMarkerStyle_DepthTestModeStipple`)   |
+| DepthTestMode_AlwaysOnTop | | Markers are always rendered on top of objects (Symbols - C: `"DepthTestModeAlwaysOnTop"`, Lua: `__ImageMarkerStyle_DepthTestModeAlwaysOnTop`)   |
+
+Values for Idx_DepthTestMode. 
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Visible | | bool - Controls the visibility of all markers using this style   |
+| Idx_Size | | float - Scale of the model   |
+| Idx_SizeMode | | [SizeMode (int) - How to size the markers   |
+| Idx_AlignMode | | [AlignMode](#enum-alignmode) (int) - Specifies the alignment mode   |
+| Idx_MinimumSize | | float - Specifies the minimum view or screen size that this marker can display based on camera distance   |
+| Idx_MaximumSize | | float - Specifies the maximum view or screen size that this marker can display based on camera distance   |
+| Idx_Material | | link - Material to use when Idx_UseMaterialColour is true. Using a material means there are no highlight colour distinctions. ([Meta_StdMaterial, [Meta_GUIMaterial](../metanodes/meta-gui-material.mdx), [Meta_WaterMaterial)   |
+| Idx_UseMaterialColour | | bool - When enabled, uses the material specified in Idx_Material instead of the style colours   |
+| Idx_Colour | | vec4f - Default marker colour when not using a material; RGBA 0.0f to 1.0f   |
+| Idx_Colour_hovering | | vec4f - Default hover colour when not using a material; RGBA 0.0f to 1.0f   |
+| Idx_Colour_pressed | | vec4f - Default pressed colour when not using a material; RGBA 0.0f to 1.0f   |
+| Idx_Colour_highlight | | vec4f - Default highlight colour when not using a material; RGBA 0.0f to 1.0f   |
+| Idx_Texture | | link - Texture to use ([Meta_Texture)   |
+| Idx_CursorName | | string - Name of the cursor to display when pointing at the marker. These are found in `<usernode>/Cursors/Mouse/Cursor` - defaults to "SceneDefault", which is the 3D cursor. "GUIDefault" is the 2D pointer.   |
+| Idx_DepthTestMode | | [DepthTestMode](#enum-depthtestmode) (int) - Controls how the marker is rendered when occluded by other objects   |
+| Idx_AspectRatio | | float - Specifies the aspect raio to display (result of `width/height`)   |
+| Idx_Offset | | vec3f - Specifies an offset to apply to the image on all markers   |
+| Idx_IgnoreProbes | | bool - Specifies that markers with this style should not appear in [Meta_LightProbe or [Meta_ReflectionProbe output   |
+
+Property index. 
+
+### enum SizeMode
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| SizeMode_World | | Scale the billboard using the value in Idx_WorldScale (Symbols - C: `"SizeModeWorld"`, Lua: `__ImageMarkerStyle_SizeModeWorld`)   |
+| SizeMode_View | | Scale the billboard using the value in Idx_ViewScale (Symbols - C: `"SizeModeView"`, Lua: `__ImageMarkerStyle_SizeModeView`)   |
+| SizeMode_Pixels | | Scale the billboard using the value in Idx_PixelScale (Symbols - C: `"SizeModePixels"`, Lua: `__ImageMarkerStyle_SizeModePixels`)   |
+| SizeMode_Local | | Size is world units with local scaling applied (Symbols - C: `"SizeModeLocal"`, Lua: `__ImageMarkerStyle_SizeModeLocal`)   |
+
+Values for Idx_SizeMode. 
+
+## Public Functions Documentation
+
+### AddIgnoreProbes
+
+```cpp
+static void AddIgnoreProbes(
+    HMigration 
+)
+```
+
+### RemoveHitTestRadius
+
+```cpp
+static void RemoveHitTestRadius(
+    HMigration 
+)
+```

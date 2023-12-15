@@ -1,0 +1,29 @@
+---
+title: Meta_GestureGuard
+summary: A GestureGuard prevents script event dispatch unless the specified gesture is matched. 
+---
+
+# Meta_GestureGuard
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A GestureGuard prevents script event dispatch unless the specified gesture is matched. 
+
+`#include <meta_script.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** { Idx_Gesture, Idx_User}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Gesture | | string - The name of the recorded gesture to match   |
+| Idx_User | | link - (optional) Link to a user, who is the only user whose gestures are considered by this guard   |
+
+Property index. 

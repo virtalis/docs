@@ -1,0 +1,34 @@
+---
+title: Meta_MaterialSelector
+summary: A MaterialSelector gathers all materials in the scene and presents them in a list. 
+---
+
+# Meta_MaterialSelector
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A MaterialSelector gathers all materials in the scene and presents them in a list. 
+
+`#include <meta_gui.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** { Idx_SelectionSet, Idx_ButtonStyle, Idx_GroupPanelStyle, Idx_HeaderButtonStyle, Idx_ExpandButtonStyle}<br />Selecting an item in the list applies the material to the selection in the specified selection group.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_SelectionSet | | link - The selection to apply materials to (Meta_ViewSelectionContainer)   |
+| Idx_ButtonStyle | | link - Style to apply to the button ([Meta_ColouredButtonStyle](../metanodes/meta-coloured-button-style.mdx), [Meta_TexturedButtonStyle) for the material items for the material items  |
+| Idx_GroupPanelStyle | | link - A Panel style ([Meta_ColouredPanelStyle](../metanodes/meta-coloured-panel-style.mdx), [Meta_GradientPanelStyle](../metanodes/meta-gradient-panel-style.mdx), [Meta_TexturedPanelStyle](../metanodes/meta-textured-panel-style.mdx) for the button container area for the button container area  |
+| Idx_HeaderButtonStyle | | link - Style to apply to the button ([Meta_ColouredButtonStyle](../metanodes/meta-coloured-button-style.mdx), [Meta_TexturedButtonStyle) for the header button for the header button  |
+| Idx_ExpandButtonStyle | | link - Style to apply to the button ([Meta_ColouredButtonStyle](../metanodes/meta-coloured-button-style.mdx), [Meta_TexturedButtonStyle) for the expand button for the expand button  |
+
+Selecting an item in the list applies the material to the selection in the specified selection group. 
+
+Property Index 

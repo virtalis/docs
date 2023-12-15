@@ -1,0 +1,32 @@
+---
+title: Meta_ColouredPanelStyle
+summary: A ColouredPanelStyle provides a background colour for a panel or stack. 
+---
+
+# Meta_ColouredPanelStyle
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A ColouredPanelStyle provides a background colour for a panel or stack. 
+
+`#include <meta_gui.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** { Idx_Borders, Idx_BGColour, Idx_EdgeThickness, Idx_EdgeColour, Idx_MultiplyEdge}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Borders | | vec2f - Specifies padding around the edge of the styled object   |
+| Idx_BGColour | | vec4f - Specifies the background colour; RGBA 0.0f to 1.0f   |
+| Idx_EdgeThickness | | vec2f - Specifies the thickness of edge to draw around the overall frame   |
+| Idx_EdgeColour | | vec4f - Specifies the edge colour; RGBA 0.0f to 1.0f   |
+| Idx_MultiplyEdge | | bool - Specifies whether the edge colour should multiply with the background colour   |
+
+Property index. 

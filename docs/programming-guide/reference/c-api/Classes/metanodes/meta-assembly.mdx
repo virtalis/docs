@@ -1,0 +1,58 @@
+---
+title: Meta_Assembly
+summary: An Assembly is the main node type in the scenegraph, used to build the transform hierarchy of the scene. 
+---
+
+# Meta_Assembly
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+An Assembly is the main node type in the scenegraph, used to build the transform hierarchy of the scene. 
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[CONSTRAINT_TYPE](#enum-constraint-type)** { CONSTRAINT_NONE, CONSTRAINT_LOCK, CONSTRAINT_PARENT, CONSTRAINT_LIMIT, CONSTRAINT_IK, CONSTRAINT_LOOKAT}<br />Values for Idx_Constraint.  |
+| enum| **[IDX](#enum-idx)** { Idx_Enabled, Idx_Transform, Idx_Constraint, Idx_ShadowCaster, Idx_CollisionLayer, Idx_SnapEnabled, Idx_IgnoreCoverageLOD, Idx_IgnoreProbes}<br />Property index.  |
+| enum| **[LAYERS](#enum-layers)** { LAYER_INVALID = INT_MIN, LAYER_DEFAULT = 0}<br />Values for Idx_CollisionLayer.  |
+
+## Public Types Documentation
+
+### enum CONSTRAINT_TYPE
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| CONSTRAINT_NONE | | do not constrain the transform at all (Symbols - C: `"ConstraintNone"`, Lua: `__Assembly_ConstraintNone`)   |
+| CONSTRAINT_LOCK | | do not allow the transform to be changed (Symbols - C: `"ConstraintLock"`, Lua: `__Assembly_ConstraintLock`)   |
+| CONSTRAINT_PARENT | | defer a change to the transform to its parent (Symbols - C: `"ConstraintParent"`, Lua: `__Assembly_ConstraintParent`)   |
+| CONSTRAINT_LIMIT | | constrain the transform parameters to the values in a child [Meta_TransformLimits node (Symbols - C: `"ConstraintLimit"`, Lua: `__Assembly_ConstraintLimit`)   |
+| CONSTRAINT_IK | | Reserved for future use.   |
+| CONSTRAINT_LOOKAT | | keep the node facing towards another node (Symbols - C: `"ConstraintLookAt"`, Lua: `__Assembly_ConstraintLookAt`)   |
+
+Values for Idx_Constraint. 
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - If true, assembly is active and children should be traversed. Otherwise stop traversal here.   |
+| Idx_Transform | | mat4w - The local transformation matrix of this assembly.   |
+| Idx_Constraint | | [CONSTRAINT_TYPE](#enum-constraint-type) (int) - Type of constraint to be enforced on this assemblies transform.   |
+| Idx_CollisionLayer | | [LAYERS (int) - A signed integer representing the collision layer of this assembly. Higher values take priority over lower values. i.e. if multiple ray intersections are returned from the collision system, then the one associated with an assembly with the highest layer value will be used. INVALID_LAYER can be used to disable ray cast collisions.   |
+| Idx_SnapEnabled | | bool - If true, restore snap mode will be enabled on this assembly (regardless of global value).   |
+| Idx_IgnoreCoverageLOD | | bool -If true, coverage LOD for this assembly and all its descendants is disabled.   |
+| Idx_IgnoreProbes | | bool - If true, the assembly and all its decendents will be ignored by any probes.   |
+
+Property index. 
+
+### enum LAYERS
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| LAYER_INVALID | INT_MIN| do not perform hit test (Symbols - C: `"LayerInvalid"`, Lua: `__Assembly_LayerInvalid`)   |
+| LAYER_DEFAULT | 0| default hit test layer (evaluates to rex::OpaqueLayer in scene event node) (Symbols - C: `"LayerDefault"`, Lua: `__Assembly_LayerDefault`)   |
+
+Values for Idx_CollisionLayer. 

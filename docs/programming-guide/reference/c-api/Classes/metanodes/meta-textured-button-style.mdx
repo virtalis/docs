@@ -1,0 +1,63 @@
+---
+title: Meta_TexturedButtonStyle
+summary: A TexturedButtonStyle provides controls for texturing a Meta_Button as well as content layout controls. 
+---
+
+# Meta_TexturedButtonStyle
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A TexturedButtonStyle provides controls for texturing a [Meta_Button](../metanodes/meta-button.mdx) as well as content layout controls. 
+
+`#include <meta_gui.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** { Idx_Texture_normal, Idx_TextureRect_normal, Idx_Texture_hovering, Idx_TextureRect_hovering, Idx_Texture_pressed, Idx_TextureRect_pressed, Idx_Texture_toggled, Idx_TextureRect_toggled, Idx_CornerSize, Idx_CornerTextureSize, Idx_TextSize, Idx_TextPadding, Idx_TextColour, Idx_Font, Idx_ImageSize, Idx_ImagePosition, Idx_HAlign, Idx_VAlign, Idx_Borders, Idx_TextureRot_normal, Idx_TextureRot_hovering, Idx_TextureRot_pressed, Idx_TextureRot_toggled}<br />Property index.  |
+| enum| **[ImagePosition](#enum-imageposition)** { IMAGEPOSITION_LEFT, IMAGEPOSITION_TOP, IMAGEPOSITION_RIGHT, IMAGEPOSITION_BOTTOM, IMAGEPOSITION_CENTRE}<br />Values for Idx_ImagePosition.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Texture_normal | | link - Texture to use to display normal state   |
+| Idx_TextureRect_normal | | vec4f - Section of the texture to use, position and size in UV coordinates   |
+| Idx_Texture_hovering | | link - Texture to use to display hovering state   |
+| Idx_TextureRect_hovering | | vec4f - Section of the texture to use, position and size in UV coordinates   |
+| Idx_Texture_pressed | | link - Texture to use to display pressed state   |
+| Idx_TextureRect_pressed | | vec4f - Section of the texture to use, position and size in UV coordinates   |
+| Idx_Texture_toggled | | link - Texture to use to display toggled state   |
+| Idx_TextureRect_toggled | | vec4f - Section of the texture to use, position and size in UV coordinates   |
+| Idx_CornerSize | | vec2f - Size of the corners in panel units   |
+| Idx_CornerTextureSize | | vec2f - Size of the corner graphics in the texture, in UV coordinates   |
+| Idx_TextSize | | float - Scalar applied to text to control its size   |
+| Idx_TextPadding | | vec2f - Padding around text   |
+| Idx_TextColour | | vec4f - Text colour; RGBA 0.0f to 1.0f   |
+| Idx_Font | | link - Font to use to display the text ([Meta_Font](../metanodes/meta-font.mdx))   |
+| Idx_ImageSize | | float - Scalar applied to image to control its size   |
+| Idx_ImagePosition | | [ImagePosition (int) - How to align the image around the text   |
+| Idx_HAlign | | [HAlign](../metanodes/meta-stack.mdx#enum-halign) (int) - How to align the objects horizontally   |
+| Idx_VAlign | | [VAlign](../metanodes/meta-stack.mdx#enum-valign) (int) - How to align the objects vertically   |
+| Idx_Borders | | vec2f - Padding around the edge of the button   |
+| Idx_TextureRot_normal | | float - Rotation of the texture (degrees) for the normal state  for the normal state  |
+| Idx_TextureRot_hovering | | float - Rotation of the texture (degrees) for the hovering state  for the hovering state  |
+| Idx_TextureRot_pressed | | float - Rotation of the texture (degrees) for the pressed state  for the pressed state  |
+| Idx_TextureRot_toggled | | float - Rotation of the texture (degrees) for the toggled state  for the toggled state  |
+
+Property index. 
+
+### enum ImagePosition
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| IMAGEPOSITION_LEFT | | (Symbols - C: `"ImagePositionLeft"`, Lua: `__TexturedButtonStyle_ImagePositionLeft`)   |
+| IMAGEPOSITION_TOP | | (Symbols - C: `"ImagePositionTop"`, Lua: `__TexturedButtonStyle_ImagePositionTop`)   |
+| IMAGEPOSITION_RIGHT | | (Symbols - C: `"ImagePositionRight"`, Lua: `__TexturedButtonStyle_ImagePositionRight`)   |
+| IMAGEPOSITION_BOTTOM | | (Symbols - C: `"ImagePositionBottom"`, Lua: `__TexturedButtonStyle_ImagePositionBottom`)   |
+| IMAGEPOSITION_CENTRE | | (Symbols - C: `"ImagePositionCentre"`, Lua: `__TexturedButtonStyle_ImagePositionCentre`)   |
+
+Values for Idx_ImagePosition. 

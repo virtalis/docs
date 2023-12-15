@@ -1,0 +1,31 @@
+---
+title: Meta_GuiGroupHint
+summary: Contains the description of a Gui layout group - that is, a collection of controls whose interfaces should display based on a value condition or a rollout button. If a property is to be a member of the group, it should be linked to by the GuiHints group property. Groups can be linked to other groups, in which case they are sub-groups. 
+---
+
+# Meta_GuiGroupHint
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+Contains the description of a Gui layout group - that is, a collection of controls whose interfaces should display based on a value condition or a rollout button. If a property is to be a member of the group, it should be linked to by the GuiHints group property. Groups can be linked to other groups, in which case they are sub-groups. 
+
+`#include <meta_semantics.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](.#enum-idx)** { Idx_VisibleCondition, Idx_ExpandCaption, Idx_Group, Idx_ExpandedByDefault, Idx_Indented, Idx_CustomType} |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_VisibleCondition | | Condition under which this group should be visible (e.g. Property.Value true)   |
+| Idx_ExpandCaption | | OR, caption to display on a button to allow manual visibilty control.   |
+| Idx_Group | | The GuiGroupHint this group is a sub-group of.   |
+| Idx_ExpandedByDefault | | Whether the group is initially expanded (will be overriden if there is a condition)   |
+| Idx_Indented | | Whether to increment the indent level for the group's members.   |
+| Idx_CustomType | | The name of a custom type registered with GUIBuilder.   |
