@@ -69,7 +69,6 @@ return {
 
 If you choose to implement the [VRPSettingsInterfaceProc](../../reference/c-api/modules/plugins/interface.mdx#typedef-vrpsettingsinterfacesproc) function to return valid XML (see the schema and example on the function docs), Visionary Render will automatically parse this to generate both a recipe file and the user interface to control the settings.
 
-
 ### Recipe File
 
 The XML is parsed before import, and if not already present on disk, the settings are written to a recipe file in `<documents>/VisionaryRender <version>/recipe`. The path to this file is then passed to the `recipePath` parameter of the [VRPImportProc](../../reference/c-api/modules/plugins/interface.mdx#typedef-vrpimportproc) function. The importer implementation should parse this file (it is a simple `key=value` text file with one setting per line) and use the values accordingly.
