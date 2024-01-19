@@ -15,8 +15,8 @@ A TransformLink synchronises the transform of the source node onto the target no
 
 | Type           | Name           |
 | -------------- | -------------- |
-| enum| **[Idx](#enum-idx)** { Idx_Enabled, Idx_Source, Idx_Target, Idx_OverrideMode, Idx_PositionOverride, Idx_RotationOverride, Idx_ScaleOverride, Idx_TwoWay, Idx_UpdateOrder, Idx_LocalTransforms}<br />Property index.  |
-| enum| **[OverrideMode](#enum-overridemode)** { Override_None = 0, Override_P = 1, Override_R = 2, Override_PR = 3, Override_S = 4, Override_PS = 5, Override_RS = 6, Override_PRS = 7}<br />Values for Idx_OverrideMode.  |
+| enum| **[Idx](#enum-idx)** \{ Idx_Enabled, Idx_Source, Idx_Target, Idx_OverrideMode, Idx_PositionOverride, Idx_RotationOverride, Idx_ScaleOverride, Idx_TwoWay, Idx_UpdateOrder, Idx_LocalTransforms \}<br />Property index.  |
+| enum| **[OverrideMode](#enum-overridemode)** \{ Override_None = 0, Override_P = 1, Override_R = 2, Override_PR = 3, Override_S = 4, Override_PS = 5, Override_RS = 6, Override_PRS = 7 \}<br />Values for Idx_OverrideMode.  |
 
 ## Detailed Description
 
@@ -37,7 +37,7 @@ This is usually used to connect assemblies from the scene to some part of the vi
 | Idx_Enabled | | bool - When enabled, the link is active   |
 | Idx_Source | | link - The source node, whose transform will be applied to the target   |
 | Idx_Target | | link - The target node, which receives the transform   |
-| Idx_OverrideMode | | [OverrideMode (int) - Which parts of the transform are overridden   |
+| Idx_OverrideMode | | OverrideMode (int) - Which parts of the transform are overridden   |
 | Idx_PositionOverride | | vec3w - The position value to apply instead of the source position   |
 | Idx_RotationOverride | | vec3w - The rotation value to apply instead of the source rotation   |
 | Idx_ScaleOverride | | vec3w - The scale value to apply instead of the source scale   |

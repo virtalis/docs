@@ -15,9 +15,9 @@ A HapticDevice represents a connection to a device such as a Phantom Omni. Only 
 
 | Type           | Name           |
 | -------------- | -------------- |
-| enum| **[IDX](#enum-idx)** { Idx_Enabled, Idx_Position, Idx_Rotation, Idx_Velocity, Idx_GeometryGrabRadius, Idx_LinkedAssembly, Idx_WorkspaceTranslation, Idx_WorkspaceRotationOffset, Idx_WorkspaceSize, Idx_HapticSpaceMode, Idx_DrawHapticWorkspace, Idx_TouchableFace}<br />Property index.  |
-| enum| **[SpaceMode](#enum-spacemode)** { FixedSpace, FixedCameraAlignedSpace, CameraAttachedSpace}<br />Values for Idx_HapticSpaceMode.  |
-| enum| **[TouchableFace](#enum-touchableface)** { FrontFace, BackFace, FrontAndBackFace}<br />Values for Idx_TouchableFace.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_Position, Idx_Rotation, Idx_Velocity, Idx_GeometryGrabRadius, Idx_LinkedAssembly, Idx_WorkspaceTranslation, Idx_WorkspaceRotationOffset, Idx_WorkspaceSize, Idx_HapticSpaceMode, Idx_DrawHapticWorkspace, Idx_TouchableFace \}<br />Property index.  |
+| enum| **[SpaceMode](#enum-spacemode)** \{ FixedSpace, FixedCameraAlignedSpace, CameraAttachedSpace \}<br />Values for Idx_HapticSpaceMode.  |
+| enum| **[TouchableFace](#enum-touchableface)** \{ FrontFace, BackFace, FrontAndBackFace \}<br />Values for Idx_TouchableFace.  |
 
 ## Detailed Description
 
@@ -46,9 +46,9 @@ The three buttons on the device dispatch `__KeyCode` values of `1100`, `1101`, a
 | Idx_WorkspaceTranslation | | vec3w - Translation of the haptic workspace relative according to the value of Idx_HapticSpaceMode   |
 | Idx_WorkspaceRotationOffset | | vec3w - Rotation offset of the haptic workspace that can be used to account for alignment of physical device installation   |
 | Idx_WorkspaceSize | | float - The spherical workspace diameter   |
-| Idx_HapticSpaceMode | | [SpaceMode - How to position the haptic space (using the WorkspaceTranslation).   |
+| Idx_HapticSpaceMode | | SpaceMode - How to position the haptic space (using the WorkspaceTranslation).   |
 | Idx_DrawHapticWorkspace | | bool - Draws a visual representation of the workspace showing the approximate range of movement of the device   |
-| Idx_TouchableFace | | [TouchableFace - Specifies which faces of shapes will be touchable   |
+| Idx_TouchableFace | | TouchableFace - Specifies which faces of shapes will be touchable   |
 
 Property index. 
 

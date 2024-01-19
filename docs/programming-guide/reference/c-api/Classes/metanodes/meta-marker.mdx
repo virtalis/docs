@@ -15,9 +15,9 @@ A Marker is a 3D icon used to represent a clickable / draggable object in the sc
 
 | Type           | Name           |
 | -------------- | -------------- |
-| enum| **[AutoSelectMode](#enum-autoselectmode)** { AutoSelect_Off, AutoSelect_Marker, AutoSelect_Parent, AutoSelect_Link}<br />Values for Idx_AutoSelect.  |
-| enum| **[IDX](#enum-idx)** { Idx_Enabled, Idx_Position, Idx_Style, Idx_Draggable, Idx_AutoSelect, Idx_AutoSelectLink, Idx_Unpickable, Idx_Rotation, Idx_SnapTo, Idx_SizingReference, Idx_AlignmentVector, Idx_MapOffset, Idx_SupportClipPlanes}<br />Property index.  |
-| enum| **[SnapTo](#enum-snapto)** { SnapTo_Geometry, SnapTo_Plane, SnapTo_GeometryOrPlane}<br />Values for Idx_SnapTo.  |
+| enum| **[AutoSelectMode](#enum-autoselectmode)** \{ AutoSelect_Off, AutoSelect_Marker, AutoSelect_Parent, AutoSelect_Link \}<br />Values for Idx_AutoSelect.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_Position, Idx_Style, Idx_Draggable, Idx_AutoSelect, Idx_AutoSelectLink, Idx_Unpickable, Idx_Rotation, Idx_SnapTo, Idx_SizingReference, Idx_AlignmentVector, Idx_MapOffset, Idx_SupportClipPlanes \}<br />Property index.  |
+| enum| **[SnapTo](#enum-snapto)** \{ SnapTo_Geometry, SnapTo_Plane, SnapTo_GeometryOrPlane \}<br />Values for Idx_SnapTo.  |
 
 ## Public Types Documentation
 
@@ -38,13 +38,13 @@ Values for Idx_AutoSelect.
 | ---------- | ----- | ----------- |
 | Idx_Enabled | | bool - Enables or disables the marker and its visual   |
 | Idx_Position | | vec3w - Position of the marker relative to its parent   |
-| Idx_Style | | link - A style to apply to the marker ([Meta_SphericalMarkerStyle, [Meta_ModelMarkerStyle, [Meta_ImageMarkerStyle](../metanodes/meta-image-marker-style.mdx))   |
+| Idx_Style | | link - A style to apply to the marker (Meta_SphericalMarkerStyle, Meta_ModelMarkerStyle, [Meta_ImageMarkerStyle](../metanodes/meta-image-marker-style.mdx))   |
 | Idx_Draggable | | bool - Whether the marker is draggable with the mouse   |
 | Idx_AutoSelect | | [AutoSelectMode](#enum-autoselectmode) (int) - What happens when the marker is clicked in the scene   |
 | Idx_AutoSelectLink | | link - When `AutoSelectMode==Link`, this node is selected   |
 | Idx_Unpickable | | bool - Whether the marker is pickable (false means the cursor cannot click on it)   |
 | Idx_Rotation | | vec3w - Rotation of the marker relative to its parent   |
-| Idx_SnapTo | | [SnapTo - What to snap to when dragging   |
+| Idx_SnapTo | | SnapTo - What to snap to when dragging   |
 | Idx_SizingReference | | link - Optionally specify a node whose bounding sphere is used as the reference for calculating screen scale (if the style indicates a screen sized marker)   |
 | Idx_AlignmentVector | | vec3w - Specifies the orientation and length when the style is set to Vector alignment mode   |
 | Idx_MapOffset | | float - Adjusts the texture mapping when the style uses Map Auto Scale   |

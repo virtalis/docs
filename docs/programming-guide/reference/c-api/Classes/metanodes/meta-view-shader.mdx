@@ -15,9 +15,9 @@ A ViewShader represents a shader object, expected to be used by a [Meta_ViewFilt
 
 | Type           | Name           |
 | -------------- | -------------- |
-| enum| **[IDX](#enum-idx)** { Idx_SourceCode, Idx_Description, Idx_Target, Idx_StereoMode}<br />Property Index.  |
-| enum| **[StereoMode](#enum-stereomode)** { StereoMode_Any, StereoMode_MonoOnly, StereoMode_StereoOnly}<br />Values for Idx_StereoMode.  |
-| enum| **[Target](#enum-target)** { Target_Viewport, Target_ViewportAfterHDR, Target_Window}<br />Values for Idx_Target.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_SourceCode, Idx_Description, Idx_Target, Idx_StereoMode \}<br />Property Index.  |
+| enum| **[StereoMode](#enum-stereomode)** \{ StereoMode_Any, StereoMode_MonoOnly, StereoMode_StereoOnly \}<br />Values for Idx_StereoMode.  |
+| enum| **[Target](#enum-target)** \{ Target_Viewport, Target_ViewportAfterHDR, Target_Window \}<br />Values for Idx_Target.  |
 
 ## Detailed Description
 
@@ -41,8 +41,8 @@ When the SourceCode property changes a search for `#pragma rex <param ...` state
 | ---------- | ----- | ----------- |
 | Idx_SourceCode | | string - the source code of the shader. Usually a full GLSL shader but could be just a GLSL function used by a bigger shader.   |
 | Idx_Description | | string - friendly description of what the shader does, for presenting to the user.   |
-| Idx_Target | | [Target (int)- determines when the shader runs and which buffers it has access to.   |
-| Idx_StereoMode | | [StereoMode (int) - specifies whether the shader applies to mono or stereo views, or both.   |
+| Idx_Target | | Target (int)- determines when the shader runs and which buffers it has access to.   |
+| Idx_StereoMode | | StereoMode (int) - specifies whether the shader applies to mono or stereo views, or both.   |
 
 Property Index. 
 

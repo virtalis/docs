@@ -15,9 +15,9 @@ An assembly track is a collection of animations to apply to the transform of a s
 
 | Type           | Name           |
 | -------------- | -------------- |
-| enum| **[IDX](#enum-idx)** { Idx_State, Idx_Target, Idx_Body, Idx_TransformMode}<br />Property index.  |
-| enum| **[State](#enum-state)** { STATE_PLAY_AND_RECORD, STATE_PLAY, STATE_DISABLED, STATE_COUNT}<br />Values for Idx_State.  |
-| enum| **[TransformMode](#enum-transformmode)** { TRANSFORM_WORLD, TRANSFORM_LOCAL}<br />Values for Idx_TransformMode.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_State, Idx_Target, Idx_Body, Idx_TransformMode \}<br />Property index.  |
+| enum| **[State](#enum-state)** \{ STATE_PLAY_AND_RECORD, STATE_PLAY, STATE_DISABLED, STATE_COUNT \}<br />Values for Idx_State.  |
+| enum| **[TransformMode](#enum-transformmode)** \{ TRANSFORM_WORLD, TRANSFORM_LOCAL \}<br />Values for Idx_TransformMode.  |
 
 ## Public Types Documentation
 
@@ -25,10 +25,10 @@ An assembly track is a collection of animations to apply to the transform of a s
 
 | Enumerator | Value | Description |
 | ---------- | ----- | ----------- |
-| Idx_State | | [State (int) - Can this track be recorded into and played, played only, or neither   |
+| Idx_State | | State (int) - Can this track be recorded into and played, played only, or neither   |
 | Idx_Target | | link - A node with a transform to animate   |
 | Idx_Body | | bool - If true, this track will animate the user's camera   |
-| Idx_TransformMode | | [TransformMode (int) - Whether to animate the target in world space or local space (i.e. relativeto its parent)   |
+| Idx_TransformMode | | TransformMode (int) - Whether to animate the target in world space or local space (i.e. relativeto its parent)   |
 
 Property index. 
 

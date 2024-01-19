@@ -15,11 +15,11 @@ A ModelMarkerStyle provides styling for a marker, using a custom model instead o
 
 | Type           | Name           |
 | -------------- | -------------- |
-| enum| **[AlignMode](#enum-alignmode)** { AlignMode_World, AlignMode_Camera, AlignMode_Screen, AlignMode_Camera_X, AlignMode_Camera_Y, AlignMode_Camera_Z, AlignMode_Vector, AlignMode_World_Up}<br />Values for Idx_AlignMode.  |
-| enum| **[DepthTestMode](#enum-depthtestmode)** { DepthTestMode_Normal, DepthTestMode_ShowThrough, DepthTestMode_AlwaysOnTop}<br />Values for Idx_DepthTestMode.  |
-| enum| **[HitTestMode](#enum-hittestmode)** { HitTestMode_Sphere, HitTestMode_Box}<br />Values for Idx_HitTestMode.  |
-| enum| **[IDX](#enum-idx)** { Idx_Visible, Idx_Size, Idx_SizeMode, Idx_AlignMode, Idx_MinimumSize, Idx_MaximumSize, Idx_Material, Idx_UseMaterialColour, Idx_Colour, Idx_Colour_hovering, Idx_Colour_pressed, Idx_Colour_highlight, Idx_Model, Idx_ModelTransform, Idx_CursorName, Idx_HitTestMode, Idx_HitTestRadius, Idx_DepthTestMode, Idx_MapAutoScale}<br />Property index.  |
-| enum| **[SizeMode](#enum-sizemode)** { SizeMode_World, SizeMode_View, SizeMode_Pixels, SizeMode_Local}<br />Values for Idx_SizeMode.  |
+| enum| **[AlignMode](#enum-alignmode)** \{ AlignMode_World, AlignMode_Camera, AlignMode_Screen, AlignMode_Camera_X, AlignMode_Camera_Y, AlignMode_Camera_Z, AlignMode_Vector, AlignMode_World_Up \}<br />Values for Idx_AlignMode.  |
+| enum| **[DepthTestMode](#enum-depthtestmode)** \{ DepthTestMode_Normal, DepthTestMode_ShowThrough, DepthTestMode_AlwaysOnTop \}<br />Values for Idx_DepthTestMode.  |
+| enum| **[HitTestMode](#enum-hittestmode)** \{ HitTestMode_Sphere, HitTestMode_Box \}<br />Values for Idx_HitTestMode.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_Visible, Idx_Size, Idx_SizeMode, Idx_AlignMode, Idx_MinimumSize, Idx_MaximumSize, Idx_Material, Idx_UseMaterialColour, Idx_Colour, Idx_Colour_hovering, Idx_Colour_pressed, Idx_Colour_highlight, Idx_Model, Idx_ModelTransform, Idx_CursorName, Idx_HitTestMode, Idx_HitTestRadius, Idx_DepthTestMode, Idx_MapAutoScale \}<br />Property index.  |
+| enum| **[SizeMode](#enum-sizemode)** \{ SizeMode_World, SizeMode_View, SizeMode_Pixels, SizeMode_Local \}<br />Values for Idx_SizeMode.  |
 
 ## Public Types Documentation
 
@@ -63,11 +63,11 @@ Values for Idx_HitTestMode.
 | ---------- | ----- | ----------- |
 | Idx_Visible | | bool - Controls the visibility of all markers using this style   |
 | Idx_Size | | float - Scale of the model   |
-| Idx_SizeMode | | [SizeMode (int) - How to size the markers   |
+| Idx_SizeMode | | SizeMode (int) - How to size the markers   |
 | Idx_AlignMode | | [AlignMode](#enum-alignmode) (int) - Specifies the alignment mode   |
 | Idx_MinimumSize | | float - Specifies the minimum view or screen size that this marker can display based on camera distance   |
 | Idx_MaximumSize | | float - Specifies the maximum view or screen size that this marker can display based on camera distance   |
-| Idx_Material | | link - Material to use when Idx_UseMaterialColour is true. Using a material means there are no highlight colour distinctions. ([Meta_StdMaterial, [Meta_GUIMaterial](../metanodes/meta-gui-material.mdx), [Meta_WaterMaterial](../metanodes/meta-water-material.mdx)   |
+| Idx_Material | | link - Material to use when Idx_UseMaterialColour is true. Using a material means there are no highlight colour distinctions. (Meta_StdMaterial, [Meta_GUIMaterial](../metanodes/meta-gui-material.mdx), [Meta_WaterMaterial](../metanodes/meta-water-material.mdx)   |
 | Idx_UseMaterialColour | | bool - When enabled, uses the material specified in Idx_Material instead of the style colours   |
 | Idx_Colour | | vec4f - Default marker colour when not using a material; RGBA 0.0f to 1.0f   |
 | Idx_Colour_hovering | | vec4f - Default hover colour when not using a material; RGBA 0.0f to 1.0f   |

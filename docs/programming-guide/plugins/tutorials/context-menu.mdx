@@ -15,7 +15,7 @@ The context menu is located in the local user's tree. This is visible in the Dev
 
 ## Node Creation
 
-The local user node (::VRGetThisUser) contains the context menu, which is accessible by searching for `"ApplicationMenus/ContextMenu"` using ::VRFind. 
+The local user node (VRGetThisUser) contains the context menu, which is accessible by searching for `"ApplicationMenus/ContextMenu"` using VRFind. 
 
 From here, any nodes created will appear in the root of the menu. Menu nodes can be nested to create sub-menus.
 
@@ -110,7 +110,7 @@ For native plugins, this should be done with the `Function` type. For Lua, it sh
 
 ### Native Callback
 
-With the exception of Lua, the callback function should be registered using a unique name, with ::VRRegisterEventFunction.
+With the exception of Lua, the callback function should be registered using a unique name, with VRRegisterEventFunction.
 
 This type of callback function does not receive any parameters. Instead it should read the registers set by the event system. For more details, see [Foreign Function Interface](ffi.mdx).
 
@@ -209,4 +209,4 @@ The `Type` property on the menu item has a few other values which allow more spe
 | `TypePropertyToggle` | Toggles the value of the property named in the `Command` property (must be a boolean property), on the node at the path specified in the `UserString` property. The path is relative to this menu node. |
 | `TypeSettingToggle`  | Toggles the value of the setting referenced by the `UserString` property (must be a boolean setting). |
 | `TypeActivate`       | Triggers an Activate event on the menu node itself, executing any attached EventHandler nodes with events set to `Event_Activate` |
-| `TypeFunction`       | Calls a named function registered with the script engine (::VRRegisterEventFunction) |
+| `TypeFunction`       | Calls a named function registered with the script engine (VRRegisterEventFunction) |

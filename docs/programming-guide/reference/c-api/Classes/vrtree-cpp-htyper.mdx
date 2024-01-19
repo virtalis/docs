@@ -16,12 +16,12 @@ Reference counted wrapper around a handle. Automatically closes the handle when 
 | void | **[dec](#dec)**()<br />Manually decrement the refcount. If recount hits zero, handle is closed.  |
 | | **[HTypeR](#htyper)**()<br />Construct a null handle.  |
 | | **[HTypeR](#htyper-1)**(T handle)<br />Construct from a raw node handle and make it refcounted.  |
-| | **[HTypeR](#htyper-2)**(const [HTypeR](#htyper)< T > & other)<br />Copy an existing handle, incrementing its refcount.  |
+| | **[HTypeR](#htyper-2)**(const [HTypeR](#htyper)\< T \> & other)<br />Copy an existing handle, incrementing its refcount.  |
 | void | **[inc](#inc)**()<br />Manually increment the refcount (effectively makes the handle permanent until manually closed)  |
 | | **[operator T](#operator-t)**() const<br />Access the raw node handle.  |
-| bool | **[operator<](#operator)**(T other) const<br />Compare the raw node handle for storage in ordered containers.  |
-| [HTypeR](#htyper)< T > & | **[operator=](#operator-1)**(const [HTypeR](#htyper)< T > & other)<br />Assign an existing handle.  |
-| [HTypeR](#htyper)< T > & | **[operator=](#operator-2)**(T handle)<br />Assign a raw handle and make it refcounted.  |
+| bool | **[operator\<](#operator)**(T other) const<br />Compare the raw node handle for storage in ordered containers.  |
+| [HTypeR](#htyper)\< T \> & | **[operator=](#operator-1)**(const [HTypeR](#htyper)\< T \> & other)<br />Assign an existing handle.  |
+| [HTypeR](#htyper)\< T \> & | **[operator=](#operator-2)**(T handle)<br />Assign a raw handle and make it refcounted.  |
 | | **[~HTypeR](#htyper-3)**()<br />Decrements refcount, closing the node handle if this is the last reference.  |
 | T * | **[raw](#raw)**(const [HTypeR](#htyper)< T > arr[])<br />Converts an array of reference counted handles to an array of raw handles for passing to an api function that expects an array of handles. Return value is only valid until the next call to this function.  |
 
@@ -95,7 +95,7 @@ inline operator T() const
 
 Access the raw node handle. 
 
-### operator<
+### operator\<
 
 ```cpp
 inline bool operator<(

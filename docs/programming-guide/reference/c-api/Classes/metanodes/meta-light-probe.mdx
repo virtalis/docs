@@ -15,10 +15,10 @@ A LightProbe represents a local skybox providing dynamic reflections of the surr
 
 | Type           | Name           |
 | -------------- | -------------- |
-| enum| **[IDX](#enum-idx)** { Idx_Enabled, Idx_Resolution, Idx_IncludeNode, Idx_ExcludeNode, Idx_ProxyType, Idx_ProxySize, Idx_Shadows, Idx_UpdateMode, Idx_UpdateAndStoreNow, Idx_Texture, Idx_Mode, Idx_BakedTexture, Idx_ViewBoundsNode}<br />Property index.  |
-| enum| **[ProbeMode](#enum-probemode)** { Probe_Bake, Probe_Custom}<br />Values for Idx_Mode.  |
-| enum| **[ProxyType](#enum-proxytype)** { Proxy_None, Proxy_Ellipsoid, Proxy_Box}<br />Values for Idx_ProxyType.  |
-| enum| **[UpdateMode](#enum-updatemode)** { Update_Auto, Update_Always, Update_Manual}<br />Values for Idx_UpdateMode.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_Resolution, Idx_IncludeNode, Idx_ExcludeNode, Idx_ProxyType, Idx_ProxySize, Idx_Shadows, Idx_UpdateMode, Idx_UpdateAndStoreNow, Idx_Texture, Idx_Mode, Idx_BakedTexture, Idx_ViewBoundsNode \}<br />Property index.  |
+| enum| **[ProbeMode](#enum-probemode)** \{ Probe_Bake, Probe_Custom \}<br />Values for Idx_Mode.  |
+| enum| **[ProxyType](#enum-proxytype)** \{ Proxy_None, Proxy_Ellipsoid, Proxy_Box \}<br />Values for Idx_ProxyType.  |
+| enum| **[UpdateMode](#enum-updatemode)** \{ Update_Auto, Update_Always, Update_Manual \}<br />Values for Idx_UpdateMode.  |
 
 ## Detailed Description
 
@@ -40,13 +40,13 @@ These are positioned in the scene by adding them as a child of an [Assembly](../
 | Idx_Resolution | | int - Resolution of each cubemap face.   |
 | Idx_IncludeNode | | link - A node in the scene that should render into the light probe (defaults to the root scene, in other words 'everything').   |
 | Idx_ExcludeNode | | link - A node in the scene that should _not_ render into the light probe (defaults to null, in other words 'nothing').   |
-| Idx_ProxyType | | [ProxyType (int) - The type of proxy geometry to use.   |
+| Idx_ProxyType | | ProxyType (int) - The type of proxy geometry to use.   |
 | Idx_ProxySize | | vec3f - The world-space size of the light probes proxy geometry, everything inside this geometry will use the light probes cubemap as an environment map.   |
 | Idx_Shadows | | bool - Whether or not to render shadows into the probe.   |
-| Idx_UpdateMode | | [UpdateMode (int) - Describes how the probe should update itself.   |
+| Idx_UpdateMode | | UpdateMode (int) - Describes how the probe should update itself.   |
 | Idx_UpdateAndStoreNow | | bool - Transient property used as an event to trigger the manual rendering of the baked texture. Resets back to false after updating.   |
 | Idx_Texture | | link - The custom texture used when `Mode==Probe_Custom`  |
-| Idx_Mode | | [ProbeMode (int) - Whether the probes image is rendered in-engine or comes from an external image file.   |
+| Idx_Mode | | ProbeMode (int) - Whether the probes image is rendered in-engine or comes from an external image file.   |
 | Idx_BakedTexture | | link - The baked texture used when `Mode==Probe_Bake`  |
 | Idx_ViewBoundsNode | | link - Defines the bounds within which the light probe should be used   |
 

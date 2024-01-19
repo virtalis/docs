@@ -35,7 +35,7 @@ They can be modified as with any other assembly property.
 
 If the scene is saved, then these values are saved with it.
 
-This example demonstrates how a script can dynamically create metadata nodes within the scene. It checks for the existence of a MetaData value and if that value is not present it creates it. The script gets the first child of the MetaData assembly then goes through all of its siblings looking at the assembly’s name. The script uses the function ::vrnode::find to look for an existing node matching the name. If the node does not exist it then calls ::vrCreateNode with the type of node to create, its name and the parent node. It then initialises that metadata value to 0.
+This example demonstrates how a script can dynamically create metadata nodes within the scene. It checks for the existence of a MetaData value and if that value is not present it creates it. The script gets the first child of the MetaData assembly then goes through all of its siblings looking at the assembly’s name. The script uses the function vrnode::find to look for an existing node matching the name. If the node does not exist it then calls vrCreateNode with the type of node to create, its name and the parent node. It then initialises that metadata value to 0.
 
 ```lua
 -- Drag/Drop section BEGINS - Do not edit between BEGINS and ENDS.
@@ -79,7 +79,7 @@ Although not generally encouraged for imported CAD attribute data, Lua can also 
 Assembly__048_037_16B.Metadata.PTC_WM_ITERATION = Assembly__048_037_16B.Metadata.PTC_WM_ITERATION + 1
 ```
 
-Each key/value pair in an attribute table uses two properties on the node. These can also be controlled to a limited extent by using ::vrNodeGetValueByIndex and ::vrNodeSetValueByIndex
+Each key/value pair in an attribute table uses two properties on the node. These can also be controlled to a limited extent by using vrNodeGetValueByIndex and vrNodeSetValueByIndex
 
 ```lua
 -- count the total number of properties

@@ -11,7 +11,7 @@ Scripts that take more than 30 seconds to execute will be interrupted by the bui
 
 Selecting `Yes` terminates the script with the error `Aborted due to timeout`. Selecting `No` allows it to run for a further 30 seconds before the panic happens again.
 
-The solution to this is to make sure the script yields, using ::vrYield, periodically so the application can continue to update. 
+The solution to this is to make sure the script yields, using vrYield, periodically so the application can continue to update. 
 
 <Tabs>
 <TabItem value="console" label="Console">

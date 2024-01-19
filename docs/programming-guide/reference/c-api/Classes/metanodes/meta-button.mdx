@@ -15,7 +15,7 @@ A Button is a clickable GUI object which can trigger actions via [Meta_EventHand
 
 | Type           | Name           |
 | -------------- | -------------- |
-| enum| **[IDX](#enum-idx)** { Idx_Enabled, Idx_Position, Idx_SizingMode, Idx_Size, Idx_Text, Idx_Image, Idx_Toggle, Idx_ToggledImage, Idx_Draggable, Idx_RadioGroup, Idx_Style, Idx_Toggled, Idx_ToolTip, Idx_ToolTipStyle, Idx_Permission}<br />Property index.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_Position, Idx_SizingMode, Idx_Size, Idx_Text, Idx_Image, Idx_Toggle, Idx_ToggledImage, Idx_Draggable, Idx_RadioGroup, Idx_Style, Idx_Toggled, Idx_ToolTip, Idx_ToolTipStyle, Idx_Permission \}<br />Property index.  |
 
 ## Public Types Documentation
 
@@ -25,14 +25,14 @@ A Button is a clickable GUI object which can trigger actions via [Meta_EventHand
 | ---------- | ----- | ----------- |
 | Idx_Enabled | | bool - When enabled, draws itself and its children   |
 | Idx_Position | | vec3f - Position of the panel relative to its parent   |
-| Idx_SizingMode | | [SizingMode (int) - How the panel sizes itself in respect to its contents   |
+| Idx_SizingMode | | SizingMode (int) - How the panel sizes itself in respect to its contents   |
 | Idx_Size | | vec2f - Size of the panel, when `SizingMode==Fixed`  |
 | Idx_Text | | string - Text to display on the button   |
 | Idx_Image | | link - Texture to use as an image to display on the button   |
 | Idx_Toggle | | bool - Specifies whether the button is togglable (in which case Idx_Toggled stores the state)   |
 | Idx_ToggledImage | | link - Texture to use as an image to display on the button when toggled   |
 | Idx_Draggable | | bool - Specifies whether the button is dragable   |
-| Idx_RadioGroup | | link - [Meta_ButtonGroup that this button belongs to. Only one button in a group can be in the Toggled state   |
+| Idx_RadioGroup | | link - Meta_ButtonGroup that this button belongs to. Only one button in a group can be in the Toggled state   |
 | Idx_Style | | link - Style to apply to the button ([Meta_ColouredButtonStyle](../metanodes/meta-coloured-button-style.mdx), [Meta_TexturedButtonStyle](../metanodes/meta-textured-button-style.mdx))   |
 | Idx_Toggled | | bool - Toggled state of the button (if Idx_Toggle is true)   |
 | Idx_ToolTip | | string - Text that should appear when hovering   |

@@ -48,7 +48,7 @@ There are various types of event that can trigger a script to execute. The table
 
 | Event             | Registers                 | Description                              |
 | ----------------- | ------------------------- | ---------------------------------------- |
-| Activate          | `__Other`                 | Fired when `::vrActivate` is called. The caller of `::vrActivate` can set the value of `__Other` to whatever is required inside this event. It is also triggered by double clicking on some node types in the tree. |
+| Activate          | `__Other`                 | Fired when `vrActivate` is called. The caller of `vrActivate` can set the value of `__Other` to whatever is required inside this event. It is also triggered by double clicking on some node types in the tree. |
 | Break             | `__Other`                 | Fired when two objects stop touching each other in the scene. `__Self` is this object, `__Other` is the object that it touched. The guard condition can be set to an Assembly to only fire Break events for that Assembly instead of any node in the scene. Note: you’ll need to add a Collision node to `__Self` for this event to be fired. |
 | Click             |                           | Fired when a 3D GUI item receives a full click (i.e. a press followed by a release). |
 | Create            |                           | Fired when the node is created, loaded from file, or when the event script is compiled. |

@@ -15,8 +15,8 @@ A GUIMaterial is a material that can specify its draw layer, so it may appear ab
 
 | Type           | Name           |
 | -------------- | -------------- |
-| enum| **[IDX](#enum-idx)** { Idx_LayerValue, Idx_Colour, Idx_Texture, Idx_DepthWrite, Idx_DepthTest, Idx_SubPixelAntiAlias, Idx_PremultipliedAlpha}<br />Property index.  |
-| enum| **[Layer](#enum-layer)** { Opaque, Transparent, SceneOverlay, ViewOverlay}<br />Values for the X element of Idx_LayerValue.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_LayerValue, Idx_Colour, Idx_Texture, Idx_DepthWrite, Idx_DepthTest, Idx_SubPixelAntiAlias, Idx_PremultipliedAlpha \}<br />Property index.  |
+| enum| **[Layer](#enum-layer)** \{ Opaque, Transparent, SceneOverlay, ViewOverlay \}<br />Values for the X element of Idx_LayerValue.  |
 
 ## Public Types Documentation
 
@@ -24,7 +24,7 @@ A GUIMaterial is a material that can specify its draw layer, so it may appear ab
 
 | Enumerator | Value | Description |
 | ---------- | ----- | ----------- |
-| Idx_LayerValue | | vec2i - Layer to draw in. X = a [Layer, Y = offset within the layer (higher values are drawn later)   |
+| Idx_LayerValue | | vec2i - Layer to draw in. X = a Layer, Y = offset within the layer (higher values are drawn later)   |
 | Idx_Colour | | vec4f - Colour of the material (RGBA 0.0f to 1.0f)   |
 | Idx_Texture | | link - Texture to apply   |
 | Idx_DepthWrite | | bool - Whether to write to the depth buffer   |

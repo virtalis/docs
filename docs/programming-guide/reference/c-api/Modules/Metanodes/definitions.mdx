@@ -228,10 +228,10 @@ Listing of metanode structures, describing their purpose and listing their prope
 
 **Note**: 
 
-  * This documentation is generated from the application headers, where, conventionally, a `Meta_` prefix is used, and an `IDX` enum lists the properties in order, with an `Idx_` prefix. So [Meta_Animation::Idx_Interpolation](../../classes/metanodes/meta-animation.mdx#enumvalue-idx-interpolation) refers to the `Interpolation` property on the `Animation` metanode.
+  * This documentation is generated from the application headers, where, conventionally, a `Meta_` prefix is used, and an `IDX` enum lists the properties in order, with an `Idx_` prefix. So [Meta_Animation::Idx_Interpolation](../../classes/metanodes/meta-animation.mdx#enum-interpolation) refers to the `Interpolation` property on the `Animation` metanode.
   * When applying this information to scripts and plugins, which operate on node and property names, omit the `Meta_` and `Idx_` prefixes
 
-Enum values that specify "symbols" are for int properties that expect a particular internal value. Since this value may change over time, in order to allow plugins to remain compatible between versions, it is recommended to use these symbols to set these values, rather than the raw integer values. The Lua symbol can be used as-is, as it is global in the Lua state. The C symbols can be used with [VRSetPropertyEnum](../metanodes/properties.mdx#vrsetpropertyenum) and related functions. 
+Enum values that specify "symbols" are for int properties that expect a particular internal value. Since this value may change over time, in order to allow plugins to remain compatible between versions, it is recommended to use these symbols to set these values, rather than the raw integer values. The Lua symbol can be used as-is, as it is global in the Lua state. The C symbols can be used with [VRSetPropertyEnum](../nodes/properties.mdx#vrsetpropertyenum) and related functions. 
 
 ## Macros Documentation
 

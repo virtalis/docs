@@ -48,7 +48,7 @@ Internal implementation of [VRProgressYield](../plugins/interface.mdx#typedef-vr
 
 ## Macros Documentation
 
-### define LOG_DEBUG
+### define LOG_DEBUG {#define-log-debug}
 
 ```cpp
 #define LOG_DEBUG 3
@@ -56,7 +56,7 @@ Internal implementation of [VRProgressYield](../plugins/interface.mdx#typedef-vr
 
 Type passed to a [VRPLogProc](../plugins/interface.mdx#typedef-vrplogproc) for debug messages. 
 
-### define LOG_ERROR
+### define LOG_ERROR {#define-log-error}
 
 ```cpp
 #define LOG_ERROR 2
@@ -64,7 +64,7 @@ Type passed to a [VRPLogProc](../plugins/interface.mdx#typedef-vrplogproc) for d
 
 Type passed to a [VRPLogProc](../plugins/interface.mdx#typedef-vrplogproc) for error messages. 
 
-### define LOG_INFO
+### define LOG_INFO {#define-log-info}
 
 ```cpp
 #define LOG_INFO 0
@@ -72,7 +72,7 @@ Type passed to a [VRPLogProc](../plugins/interface.mdx#typedef-vrplogproc) for e
 
 Type passed to a [VRPLogProc](../plugins/interface.mdx#typedef-vrplogproc) for info (standard) messages. 
 
-### define LOG_WARN
+### define LOG_WARN {#define-log-warn}
 
 ```cpp
 #define LOG_WARN 1
@@ -80,7 +80,7 @@ Type passed to a [VRPLogProc](../plugins/interface.mdx#typedef-vrplogproc) for i
 
 Type passed to a [VRPLogProc](../plugins/interface.mdx#typedef-vrplogproc) for warning messages. 
 
-### define VRPLUGIN_API_IMPL
+### define VRPLUGIN_API_IMPL {#define-vrplugin-api-impl}
 
 ```cpp
 #define VRPLUGIN_API_IMPL VRPLUGIN_API_STDIMPL;      \
@@ -91,7 +91,7 @@ Type passed to a [VRPLogProc](../plugins/interface.mdx#typedef-vrplogproc) for w
 
 Combines all helper impl macros. 
 
-### define VRPLUGIN_API_LOGIMPL
+### define VRPLUGIN_API_LOGIMPL {#define-vrplugin-api-logimpl}
 
 ```cpp
 #define VRPLUGIN_API_LOGIMPL static VRPLogProc s_logFunc = NULL;                                   \
@@ -102,7 +102,7 @@ Combines all helper impl macros.
 
 Implements the log registration functions and provides static variables to store the registered log functions, `s_logFunc` and `s_logIndentFunc`
 
-### define VRPLUGIN_API_PERMISSIONIMPL
+### define VRPLUGIN_API_PERMISSIONIMPL {#define-vrplugin-api-permissionimpl}
 
 ```cpp
 #define VRPLUGIN_API_PERMISSIONIMPL static VRPHasPermissionProc s_hasPermissionFunc = NULL;               \
@@ -113,7 +113,7 @@ Implements the log registration functions and provides static variables to store
 
 Implements permission registration functions and provides static variables to store the registered permission functions, `s_hasPermissionFunc` and `s_reqPermissionFunc`
 
-### define VRPLUGIN_API_STDIMPL
+### define VRPLUGIN_API_STDIMPL {#define-vrplugin-api-stdimpl}
 
 ```cpp
 #define VRPLUGIN_API_STDIMPL PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPGetAPIVersionMajor() { return PLUGIN_API_VERSION_MAJOR; } \
@@ -122,7 +122,7 @@ Implements permission registration functions and provides static variables to st
 
 Implements the major and minor version query functions. 
 
-### define VRPLUGIN_API_YIELDIMPL
+### define VRPLUGIN_API_YIELDIMPL {#define-vrplugin-api-yieldimpl}
 
 ```cpp
 #define VRPLUGIN_API_YIELDIMPL PLUGIN_ENTRY_POINT void VRTREE_APIENTRY VRPRegisterProgressYield(VRPProgressYieldProc proc) { registerYield(proc); }
@@ -130,7 +130,7 @@ Implements the major and minor version query functions.
 
 Implements progress yield registration function and wraps it in [progress_yield](../plugins/index.mdx#progress-yield). 
 
-### define VRPLUGIN_IMPORT_PERMISSION
+### define VRPLUGIN_IMPORT_PERMISSION {#define-vrplugin-import-permission}
 
 ```cpp
 #define VRPLUGIN_IMPORT_PERMISSION(
@@ -142,7 +142,7 @@ if(!s_reqPermissionFunc || s_reqPermissionFunc(NAME, "Cancel Import") == 0) \
 
 Helper macro that checks and calls the registered [VRPRequestPermissionProc](../plugins/interface.mdx#typedef-vrprequestpermissionproc) to trigger an application license check. Inserts a `return 1` on failure, so should be used in a function that returns an int. 
 
-### define VRPLUGIN_INIT_PERMISSION
+### define VRPLUGIN_INIT_PERMISSION {#define-vrplugin-init-permission}
 
 ```cpp
 #define VRPLUGIN_INIT_PERMISSION(
@@ -154,7 +154,7 @@ if(!s_hasPermissionFunc) return 1; \
 
 Helper macro that checks the existence of the registered [VRPHasPermissionProc](../plugins/interface.mdx#typedef-vrphaspermissionproc) and calls it. Inserts a `return 1` on failure, so should be used in a function that returns an int. 
 
-### define VRPLUGIN_INJECT_CORE_LOG
+### define VRPLUGIN_INJECT_CORE_LOG {#define-vrplugin-inject-core-log}
 
 ```cpp
 #define VRPLUGIN_INJECT_CORE_LOG 
@@ -162,7 +162,7 @@ Helper macro that checks the existence of the registered [VRPHasPermissionProc](
 
 Internal use for Virtalis plugins. 
 
-### define VRPLUGIN_INJECT_CORE_YIELD
+### define VRPLUGIN_INJECT_CORE_YIELD {#define-vrplugin-inject-core-yield}
 
 ```cpp
 #define VRPLUGIN_INJECT_CORE_YIELD 
@@ -170,7 +170,7 @@ Internal use for Virtalis plugins.
 
 Internal use for Virtalis plugins. 
 
-### define VRPLUGIN_LOADVRTREE
+### define VRPLUGIN_LOADVRTREE {#define-vrplugin-loadvrtree}
 
 ```cpp
 #define VRPLUGIN_LOADVRTREE {                   \

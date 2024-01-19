@@ -22,7 +22,7 @@ Metanode that contains a basic description of what a property is intended to be 
 
 | Type           | Name           |
 | -------------- | -------------- |
-| enum| **[IDX](#enum-idx)** { Idx_Type, Idx_Filter, Idx_ReadOnly, Idx_Range} |
+| enum| **[IDX](#enum-idx)** \{ Idx_Type, Idx_Filter, Idx_ReadOnly, Idx_Range \} |
 
 ## Public Types Documentation
 
@@ -32,5 +32,5 @@ Metanode that contains a basic description of what a property is intended to be 
 | ---------- | ----- | ----------- |
 | Idx_Type | | The type of property For Image/File/FileSave - a Windows formatted file filter string with \0 replaced with | For link properties - the names of metanodes that this property is allowed to link to (e.g. Visual::Model can only link to "Model" nodes)   |
 | Idx_Filter | |   |
-| Idx_ReadOnly | | Whether this property should be user-editable The range of values - 8 doubles to accommodate ranges up to vec4 min/max (stored in doubles, even if it's an int property). Use the [Range helper and setPropertyValueData to set this property. It's 8 doubles because that is less overhead than two nodes "min, max" + their respective value properties. If max == min, there is no range (no edit should be done with ReadOnly, not a zero-sized range)   |
+| Idx_ReadOnly | | Whether this property should be user-editable The range of values - 8 doubles to accommodate ranges up to vec4 min/max (stored in doubles, even if it's an int property). Use the Range helper and setPropertyValueData to set this property. It's 8 doubles because that is less overhead than two nodes "min, max" + their respective value properties. If max == min, there is no range (no edit should be done with ReadOnly, not a zero-sized range)   |
 | Idx_Range | |   |

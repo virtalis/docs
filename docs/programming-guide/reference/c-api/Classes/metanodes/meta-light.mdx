@@ -15,8 +15,8 @@ A Light lights the scene. It is intended to be a child of a [Meta_Assembly](../m
 
 | Type           | Name           |
 | -------------- | -------------- |
-| enum| **[IDX](#enum-idx)** { Idx_Enabled, Idx_Type, Idx_Colour, Idx_Radius, Idx_SpotCone, Idx_ShadowMap, Idx_ShadowMapSize, Idx_ShadowClipOffset, Idx_Intensity, Idx_ShadowBlur, Idx_ShadowOverdarken, Idx_ShadowStrength, Idx_ShadowBoundsNode, Idx_Texture, Idx_AreaSize, Idx_InverseSquareFalloff, Idx_CascadedShadowMap, Idx_CascadedShadowMapSplits, Idx_CascadedShadowMapStaggered, Idx_MaxViewDistance, Idx_MaxViewDistanceFade, Idx_LockShadowMap}<br />Property index.  |
-| enum| **[LIGHTTYPE](#enum-lighttype)** { LIGHTTYPE_DIR, LIGHTTYPE_POINT, LIGHTTYPE_SPOT, LIGHTTYPE_AMBIENT, LIGHTTYPE_AREA}<br />Values for Idx_Type.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_Type, Idx_Colour, Idx_Radius, Idx_SpotCone, Idx_ShadowMap, Idx_ShadowMapSize, Idx_ShadowClipOffset, Idx_Intensity, Idx_ShadowBlur, Idx_ShadowOverdarken, Idx_ShadowStrength, Idx_ShadowBoundsNode, Idx_Texture, Idx_AreaSize, Idx_InverseSquareFalloff, Idx_CascadedShadowMap, Idx_CascadedShadowMapSplits, Idx_CascadedShadowMapStaggered, Idx_MaxViewDistance, Idx_MaxViewDistanceFade, Idx_LockShadowMap \}<br />Property index.  |
+| enum| **[LIGHTTYPE](#enum-lighttype)** \{ LIGHTTYPE_DIR, LIGHTTYPE_POINT, LIGHTTYPE_SPOT, LIGHTTYPE_AMBIENT, LIGHTTYPE_AREA \}<br />Values for Idx_Type.  |
 
 ## Public Types Documentation
 
@@ -25,7 +25,7 @@ A Light lights the scene. It is intended to be a child of a [Meta_Assembly](../m
 | Enumerator | Value | Description |
 | ---------- | ----- | ----------- |
 | Idx_Enabled | | bool - Whether the light is enabled   |
-| Idx_Type | | [LIGHTTYPE (int) - Type of light   |
+| Idx_Type | | LIGHTTYPE (int) - Type of light   |
 | Idx_Colour | | vec3f - Colour that this light emits   |
 | Idx_Radius | | world_float - For Point and Spot types: The distance at which the light fades to 100% black. If zero, no fading will be applied   |
 | Idx_SpotCone | | vec2f - For Spot type: X = cone cutoff angle (0-90 degrees), Y = cone intensity distribution exponent (0-128)   |

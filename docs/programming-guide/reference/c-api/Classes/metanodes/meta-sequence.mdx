@@ -15,9 +15,9 @@ A sequence is a collection of tracks that animate target nodes Valid child types
 
 | Type           | Name           |
 | -------------- | -------------- |
-| enum| **[IDX](#enum-idx)** { Idx_Enabled, Idx_Position, Idx_Length, Idx_PlayMode, Idx_PlayCount, Idx_PlaySpeed, Idx_FixedPlaySpeed, Idx_PlayUser, Idx_InitialState, Idx_InitialPosition, Idx_DisableSceneVisuals, Idx_DisableActions, Idx_Looped, Idx_LoopStart, Idx_LoopEnd}<br />Property index.  |
-| enum| **[InitialState](#enum-initialstate)** { STATE_PAUSE, STATE_PLAY_FORWARDS, STATE_PLAY_BACKWARDS}<br />Values for Idx_InitialState.  |
-| enum| **[PlayMode](#enum-playmode)** { PLAY_FORWARDS, PLAY_BACKWARDS}<br />Values for Idx_PlayMode.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_Position, Idx_Length, Idx_PlayMode, Idx_PlayCount, Idx_PlaySpeed, Idx_FixedPlaySpeed, Idx_PlayUser, Idx_InitialState, Idx_InitialPosition, Idx_DisableSceneVisuals, Idx_DisableActions, Idx_Looped, Idx_LoopStart, Idx_LoopEnd \}<br />Property index.  |
+| enum| **[InitialState](#enum-initialstate)** \{ STATE_PAUSE, STATE_PLAY_FORWARDS, STATE_PLAY_BACKWARDS \}<br />Values for Idx_InitialState.  |
+| enum| **[PlayMode](#enum-playmode)** \{ PLAY_FORWARDS, PLAY_BACKWARDS \}<br />Values for Idx_PlayMode.  |
 
 ## Public Types Documentation
 
@@ -28,12 +28,12 @@ A sequence is a collection of tracks that animate target nodes Valid child types
 | Idx_Enabled | | bool - If true, the animation actor will timestep this sequence's Idx_Position each frame until it reaches Idx_Length, at which point the sequence will be looped or disabled   |
 | Idx_Position | | float - The current time in seconds that the sequence is set to   |
 | Idx_Length | | float - The length of the sequence in seconds (as calculated by the animation actor)   |
-| Idx_PlayMode | | [PlayMode (int) - Whether to play the sequence forwards or backwards when it is enabled   |
+| Idx_PlayMode | | PlayMode (int) - Whether to play the sequence forwards or backwards when it is enabled   |
 | Idx_PlayCount | | int - The number of times to play the sequence (or part of it, as defined by Idx_LoopStart and Idx_LoopEnd). If < 0, the sequence will loop forever   |
 | Idx_PlaySpeed | | float - Playback rate (0.5 = half speed, 2.0 = double speed, etc.)   |
 | Idx_FixedPlaySpeed | | bool - If true, this sequence will ignore the global play speed setting   |
 | Idx_PlayUser | | link - The last user to interact with this sequence. This is used when collaborating to make camera tracks affect the user who triggered the sequence   |
-| Idx_InitialState | | [InitialState (int) - The state of the sequence when the scene is loaded   |
+| Idx_InitialState | | InitialState (int) - The state of the sequence when the scene is loaded   |
 | Idx_InitialPosition | | float - The start time in seconds of the sequence when the scene is loaded   |
 | Idx_DisableSceneVisuals | | bool - If true, don't draw visuals in the 3D scene for this sequence. This can improve performance in sequences with lots of keyframes (such as mocap data)   |
 | Idx_DisableActions | | bool - If true, ignore any action frames in this sequence. This can improve performance slightly in sequences without action frames   |

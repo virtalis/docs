@@ -1,6 +1,6 @@
 // @ts-check
 
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -9,7 +9,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://virtalis.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -17,14 +17,14 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'virtalis', // Usually your GitHub org/user name.
-  projectName: 'visren-docs', // Usually your repo name.
+  projectName: 'developer', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
+  // Even if you don't use internationalization, you can use this field to set
+  // useful metadata like html lang. For example, if your site is Chinese, you
+  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -36,8 +36,8 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          breadcrumbs: true,
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: './sidebars.js',
+          editUrl: 'https://github.com/virtalis/developer',
         },
         theme: {
           customCss: [
@@ -89,11 +89,11 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} Virtalis. All rights reserved.`,
       },
       prism: {
-        theme: darkCodeTheme,
-        darkTheme: darkCodeTheme,
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
         additionalLanguages: ['c', 'cmake', 'glsl', 'lua'],
       },
     }),
 };
 
-module.exports = config;
+export default config;

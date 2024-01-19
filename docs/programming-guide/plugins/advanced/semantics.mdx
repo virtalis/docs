@@ -12,7 +12,7 @@ There are three categories of semantics:
 
 Traits are a bit like a type, in that they describe vaguely what a metanode is for, but different because multiple metanodes can be given the same trait in order to group them.
 
-Trait names are arbitrary - a plugin may invent new traits and apply them to whichever metanodes it defines. It would do this using ::VRAddTrait when defining the metanode.
+Trait names are arbitrary - a plugin may invent new traits and apply them to whichever metanodes it defines. It would do this using VRAddTrait when defining the metanode.
 
 The metanodes defined by the Visionary Render application make use of a number of standard traits, which a plugin may also use in order to group its metanodes with the application-defined ones.
 
@@ -39,7 +39,7 @@ The metanodes defined by the Visionary Render application make use of a number o
 
 Property semantics contain a basic description of what a property is intended to be used for. For example, is it a colour, or a file.
 
-When defining a metanode, property semantics are applied automatically when using functions such as ::VRAddPropertyVec2iRange, as well as when applying special conditions to properties such as ::VRSetPropertyReadOnly.
+When defining a metanode, property semantics are applied automatically when using functions such as VRAddPropertyVec2iRange, as well as when applying special conditions to properties such as VRSetPropertyReadOnly.
 
 Semantics can also be applied to node instances by creating a `PropSemantics` node as a child of the target node, naming it after the property you wish to affect. You then have full control over all of the semantics for that instance's property.
 
@@ -96,7 +96,7 @@ To specify that the property should not be editable (controls are usually greyed
 
 GUI Hints provide a more detailed set of information for the user interface, for example, captions, tooltips, help topics, group layouts, etc.
 
-To add these additional hints to a property, use the ::VRAddGuiHintDouble (and related) functions in a metanode definition, or create a `GuiHints` node on a node instance to affect only that instance of the node.
+To add these additional hints to a property, use the VRAddGuiHintDouble (and related) functions in a metanode definition, or create a `GuiHints` node on a node instance to affect only that instance of the node.
 
 This table lists all available hints, as well as the type, so that the correct `VRAddGuiHint` function can be used to apply it:
 
@@ -111,7 +111,7 @@ This table lists all available hints, as well as the type, so that the correct `
 | `CustomText`       | `string` | The first custom text (for semantic type `custom`) |
 | `CustomText2`      | `string` | The second custom text (for semantic type `custom`) |
 | `Group`            | `link`   | (advanced) Link to a group descriptor node that this property should be a member of (see next subsection) |
-| `NoGui`            | `bool`   | If true, the GUI system should not create any controls for this property at all, effectively hiding it. This is analogous to calling ::VRSetPropertyInternal |
+| `NoGui`            | `bool`   | If true, the GUI system should not create any controls for this property at all, effectively hiding it. This is analogous to calling VRSetPropertyInternal |
 | `About`            | `string` | A string containing even more detailed information that would not fit in a tooltip. Currently only the settings window is capable of displaying this, and will only do so for setting sub-categories (tab roots) |
 | `ImageFilename`    | `string` | The name of an icon file relative to the `data` directory to display next to this property |
 | `CreateNewEnabled` | `bool`   | (`link` properties) Instructs the link picker control to use the contents of the filter semantic to add a menu item for creating new nodes of any filtered type and automatically linking to them. |

@@ -35,9 +35,9 @@ end
 
 ## Iterating over Child Nodes
 
-Use `::vrNodeGetChild()` and `::vrNodeGetSibling()` to iterate over the children of a node. The `::vrNodeGetChildCount()` and `::vrNodeGetChildByIndex()` functions are not optimised for this purpose and may result in poor performance when iterating over lots of nodes.
+Use `vrNodeGetChild()` and `vrNodeGetSibling()` to iterate over the children of a node. The `vrNodeGetChildCount()` and `vrNodeGetChildByIndex()` functions are not optimised for this purpose and may result in poor performance when iterating over lots of nodes.
 
-See also: `::vrNodeForEachChild()` and `::vrNodeForEachChildOfType()`.
+See also: `vrNodeForEachChild()` and `vrNodeForEachChildOfType()`.
 
 <Tabs>
 <TabItem value="good" label="Good" attributes={{className: styles.green}}>

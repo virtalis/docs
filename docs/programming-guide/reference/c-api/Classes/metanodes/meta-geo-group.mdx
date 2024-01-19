@@ -15,9 +15,9 @@ A GeoGroup contains a collection of polygons which share a single material. It m
 
 | Type           | Name           |
 | -------------- | -------------- |
-| enum| **[CullFace](#enum-cullface)** { CullFace_None = 1, CullFace_Front = 1028, CullFace_Back = 1029}<br />Values for Idx_CullFace.  |
-| enum| **[DrawMode](#enum-drawmode)** { DrawMode_Points = 6912, DrawMode_Lines = 6913, DrawMode_Solid = 6914}<br />Values for Idx_DrawMode.  |
-| enum| **[IDX](#enum-idx)** { Idx_Enabled, Idx_Material, Idx_CullFace, Idx_LockMaterial, Idx_DrawMode, Idx_BakedLighting, Idx_ShadowCaster, Idx_IgnoreCoverageLOD}<br />Property index.  |
+| enum| **[CullFace](#enum-cullface)** \{ CullFace_None = 1, CullFace_Front = 1028, CullFace_Back = 1029 \}<br />Values for Idx_CullFace.  |
+| enum| **[DrawMode](#enum-drawmode)** \{ DrawMode_Points = 6912, DrawMode_Lines = 6913, DrawMode_Solid = 6914 \}<br />Values for Idx_DrawMode.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_Material, Idx_CullFace, Idx_LockMaterial, Idx_DrawMode, Idx_BakedLighting, Idx_ShadowCaster, Idx_IgnoreCoverageLOD \}<br />Property index.  |
 
 ## Public Types Documentation
 
@@ -46,9 +46,9 @@ Values for Idx_DrawMode.
 | Enumerator | Value | Description |
 | ---------- | ----- | ----------- |
 | Idx_Enabled | | bool - When enabled, mesh children are drawn   |
-| Idx_Material | | link - The material to draw the meshes with ([Meta_StdMaterial, [Meta_GUIMaterial, [Meta_WaterMaterial)   |
+| Idx_Material | | link - The material to draw the meshes with (Meta_StdMaterial, Meta_GUIMaterial, Meta_WaterMaterial)   |
 | Idx_CullFace | | [CullFace](#enum-cullface) (int) - How to cull the mesh faces   |
-| Idx_LockMaterial | | bool - When enabled, material overrides from [Meta_Visual are ignored   |
+| Idx_LockMaterial | | bool - When enabled, material overrides from Meta_Visual are ignored   |
 | Idx_DrawMode | | [DrawMode](#enum-drawmode) (int) - How to draw the meshes   |
 | Idx_BakedLighting | | bool - When enabled, meshes are not affected by scene lighting   |
 | Idx_ShadowCaster | | bool - When enabled, the meshes cast shadows   |

@@ -6,14 +6,14 @@ Single element value property types
 
 | Type           | Internal Type            | API Function              |
 | -------------- | ------------------------ | ------------------------- |
-| VR_BOOL        | bool                     | ::VRAddPropertyBool       |
-| VR_CHAR        | char                     | ::VRAddPropertyChar       |
-| VR_INT         | int                      | ::VRAddPropertyInt        |
-| VR_FLOAT       | float                    | ::VRAddPropertyFloat      |
-| VR_DOUBLE      | double                   | ::VRAddPropertyDouble     |
-| VR_WORLD_FLOAT | double (in x64 versions) | ::VRAddPropertyWorldFloat |
-| VR_LINK        | UserClass                | ::VRAddPropertyLink       |
-| VR_STRING      | const char*              | ::VRAddPropertyString     |
+| VR_BOOL        | bool                     | VRAddPropertyBool       |
+| VR_CHAR        | char                     | VRAddPropertyChar       |
+| VR_INT         | int                      | VRAddPropertyInt        |
+| VR_FLOAT       | float                    | VRAddPropertyFloat      |
+| VR_DOUBLE      | double                   | VRAddPropertyDouble     |
+| VR_WORLD_FLOAT | double (in x64 versions) | VRAddPropertyWorldFloat |
+| VR_LINK        | UserClass                | VRAddPropertyLink       |
+| VR_STRING      | const char*              | VRAddPropertyString     |
 
 ## Array and Vector types
 
@@ -21,16 +21,16 @@ The above properties (except links and strings) can be stored in array or vector
 
 An array property is fixed size, defined when the property is added to the metanode.
 
-There are a number of standard array property types such as ::VRAddPropertyMat3f or ::VRAddPropertyVec4w, or array properties of arbitrary size can be defined.
+There are a number of standard array property types such as VRAddPropertyMat3f or VRAddPropertyVec4w, or array properties of arbitrary size can be defined.
 
 | Type           | Internal Type              | API Function                   |
 | -------------- | -------------------------- | ------------------------------ |
-| VR_BOOL        | bool[]                     | ::VRAddPropertyArrayBool       |
-| VR_CHAR        | char[]                     | ::VRAddPropertyArrayChar       |
-| VR_INT         | int[]                      | ::VRAddPropertyArrayInt        |
-| VR_FLOAT       | float[]                    | ::VRAddPropertyArrayFloat      |
-| VR_DOUBLE      | double[]                   | ::VRAddPropertyArrayDouble     |
-| VR_WORLD_FLOAT | double[] (in x64 versions) | ::VRAddPropertyArrayWorldFloat |
+| VR_BOOL        | bool[]                     | VRAddPropertyArrayBool       |
+| VR_CHAR        | char[]                     | VRAddPropertyArrayChar       |
+| VR_INT         | int[]                      | VRAddPropertyArrayInt        |
+| VR_FLOAT       | float[]                    | VRAddPropertyArrayFloat      |
+| VR_DOUBLE      | double[]                   | VRAddPropertyArrayDouble     |
+| VR_WORLD_FLOAT | double[] (in x64 versions) | VRAddPropertyArrayWorldFloat |
 
 Vector properties are variable size, allowing data to be added and removed at runtime. This is usually used for storing mesh vertices, etc.
 

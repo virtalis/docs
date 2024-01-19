@@ -15,8 +15,8 @@ Meta_ViewFilter's are associated with Views, and correspond to a full-screen qua
 
 | Type           | Name           |
 | -------------- | -------------- |
-| enum| **[BlendMode](#enum-blendmode)** { BlendMode_None, BlendMode_Alpha, BlendMode_Add, BlendMode_Multiply}<br />Values for Idx_BlendMode.  |
-| enum| **[IDX](#enum-idx)** { Idx_Enabled, Idx_Shader, Idx_BlendMode} |
+| enum| **[BlendMode](#enum-blendmode)** \{ BlendMode_None, BlendMode_Alpha, BlendMode_Add, BlendMode_Multiply \}<br />Values for Idx_BlendMode.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_Shader, Idx_BlendMode \} |
 
 ## Detailed Description
 
@@ -48,5 +48,5 @@ Values for Idx_BlendMode.
 | Enumerator | Value | Description |
 | ---------- | ----- | ----------- |
 | Idx_Enabled | | bool - whether or not to apply the filter to any views it's attached to   |
-| Idx_Shader | | link - a link to a [Meta_ViewShader instance   |
+| Idx_Shader | | link - a link to a Meta_ViewShader instance   |
 | Idx_BlendMode | | [BlendMode](#enum-blendmode) (int) - controls how shader output is blended with the framebuffer contents.   |

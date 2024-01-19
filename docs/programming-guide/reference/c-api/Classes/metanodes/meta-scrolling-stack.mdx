@@ -15,8 +15,8 @@ A ScrollingStack is a stack that adds scrollbars if its contents are larger than
 
 | Type           | Name           |
 | -------------- | -------------- |
-| enum| **[IDX](#enum-idx)** { Idx_Enabled, Idx_Position, Idx_SizingMode, Idx_MinimumSize, Idx_MaximumSize, Idx_Direction, Idx_HAlign, Idx_VAlign, Idx_Gap, Idx_Style, Idx_Resolution, Idx_MipmapEnabled, Idx_ScrollDirection, Idx_Resizable}<br />Property index.  |
-| enum| **[ScrollDirection](#enum-scrolldirection)** { NONE = 0, SCROLLDIRECTION_HORIZONTAL = 1, SCROLLDIRECTION_VERTICAL = 2, SCROLLDIRECTION_BOTH = 3}<br />Values for Idx_ScrollDirection.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_Position, Idx_SizingMode, Idx_MinimumSize, Idx_MaximumSize, Idx_Direction, Idx_HAlign, Idx_VAlign, Idx_Gap, Idx_Style, Idx_Resolution, Idx_MipmapEnabled, Idx_ScrollDirection, Idx_Resizable \}<br />Property index.  |
+| enum| **[ScrollDirection](#enum-scrolldirection)** \{ NONE = 0, SCROLLDIRECTION_HORIZONTAL = 1, SCROLLDIRECTION_VERTICAL = 2, SCROLLDIRECTION_BOTH = 3 \}<br />Values for Idx_ScrollDirection.  |
 
 ## Public Types Documentation
 
@@ -29,14 +29,14 @@ A ScrollingStack is a stack that adds scrollbars if its contents are larger than
 | Idx_SizingMode | | [SizingMode](../metanodes/meta-panel.mdx#enum-sizingmode) (int) - How the panel sizes itself in respect to its contents   |
 | Idx_MinimumSize | | vec2f - Size of the panel, when `SizingMode==Fixed`  |
 | Idx_MaximumSize | | vec2f - Maximum size when not in 'fixed' sizing mode; zero indicates no limit   |
-| Idx_Direction | | [Direction (int) - The direction to stack the child objects   |
-| Idx_HAlign | | [HAlign (int) - How to align the objects horizontally   |
-| Idx_VAlign | | [VAlign (int) - How to align the objects vertically   |
+| Idx_Direction | | Direction (int) - The direction to stack the child objects   |
+| Idx_HAlign | | HAlign (int) - How to align the objects horizontally   |
+| Idx_VAlign | | VAlign (int) - How to align the objects vertically   |
 | Idx_Gap | | float - Specifies the gap size between objects (padding)   |
-| Idx_Style | | link - Style to apply to the stack ([Meta_ScrollingStackStyle)   |
+| Idx_Style | | link - Style to apply to the stack (Meta_ScrollingStackStyle)   |
 | Idx_Resolution | | float Specifies the resolution of the frame buffer object used to render this stack   |
 | Idx_MipmapEnabled | | bool When enabled, generates mipmaps to improve quality when rendering at smaller sizes   |
-| Idx_ScrollDirection | | [ScrollDirection (int) - Which direction(s) to scroll in   |
+| Idx_ScrollDirection | | ScrollDirection (int) - Which direction(s) to scroll in   |
 | Idx_Resizable | | bool Whether the stack is resizable using the cursor   |
 
 Property index. 

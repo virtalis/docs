@@ -15,9 +15,9 @@ An AudioTrack provides full control over playback and looping of data in a [Meta
 
 | Type           | Name           |
 | -------------- | -------------- |
-| enum| **[IDX](#enum-idx)** { Idx_AudioBuffer, Idx_State, Idx_Gain, Idx_Loop, Idx_Relative, Idx_RelativeTo, Idx_Directional}<br />Property Index.  |
-| enum| **[RelativeTo](#enum-relativeto)** { World, Local}<br />Values for Idx_RelativeTo.  |
-| enum| **[State](#enum-state)** { Stopped, Playing, Paused}<br />Values for Idx_State.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_AudioBuffer, Idx_State, Idx_Gain, Idx_Loop, Idx_Relative, Idx_RelativeTo, Idx_Directional \}<br />Property Index.  |
+| enum| **[RelativeTo](#enum-relativeto)** \{ World, Local \}<br />Values for Idx_RelativeTo.  |
+| enum| **[State](#enum-state)** \{ Stopped, Playing, Paused \}<br />Values for Idx_State.  |
 
 ## Detailed Description
 
@@ -36,11 +36,11 @@ One sound source is allocated to this and is retained to prevent AudioSound inte
 | Enumerator | Value | Description |
 | ---------- | ----- | ----------- |
 | Idx_AudioBuffer | | link - [Meta_AudioBuffer](../metanodes/meta-audio-buffer.mdx) containing the audio data we want this sound to play   |
-| Idx_State | | [State (int) - The playback state of the track   |
+| Idx_State | | State (int) - The playback state of the track   |
 | Idx_Gain | | float - Volume; 0.0 is silent, 1.0 is 100% volume, 2.0 is 200%. Clamped at 2.0.   |
 | Idx_Loop | | bool - When true, track automatically restarts when it reaches the end. Otherwise, upon ending it enters the Stopped state.   |
 | Idx_Relative | | bool - When true, positional audio is relative to the listener (i.e. Camera), otherwise it is positioned in its world location.   |
-| Idx_RelativeTo | | [RelativeTo (int) - For relative mode, whether to use the parent Assembly world or local transform.   |
+| Idx_RelativeTo | | RelativeTo (int) - For relative mode, whether to use the parent Assembly world or local transform.   |
 | Idx_Directional | | Unused.   |
 
 Property Index. 

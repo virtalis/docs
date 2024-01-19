@@ -15,13 +15,13 @@ A Texture contains image data that is referenced by materials.  [More...](#detai
 
 | Type           | Name           |
 | -------------- | -------------- |
-| enum| **[ColourSpace](#enum-colourspace)** { ColourSpace_Default, ColourSpace_sRGB, ColourSpace_LinearRGB}<br />Values for Idx_ColourSpace.  |
-| enum| **[Content](#enum-content)** { Content_Colours, Content_BumpMap, Content_NormalMap, Content_AlphaTest}<br />Values for Idx_Content.  |
-| enum| **[Encoding](#enum-encoding)** { Encoding_RGB_XYZ, Encoding_RGB_XZY}<br />Values for Idx_Encoding.  |
-| enum| **[IDX](#enum-idx)** { Idx_Filename, Idx_Minify, Idx_Magnify, Idx_WrapU, Idx_WrapV, Idx_ColourSpace, Idx_DDSData, Idx_DDSModifiedTime, Idx_Content, Idx_Encoding, Idx_AnisotropicDegree, Idx_Transform, Idx_MapChannel, Idx_LODBias, Idx_AlphaRef} |
-| enum| **[Magnify](#enum-magnify)** { Magnify_None = 9728, Magnify_Bilinear = 9729}<br />Values for Idx_Magnify.  |
-| enum| **[Minify](#enum-minify)** { Minify_None = 9728, Minify_Bilinear = 9729, Minify_Trilinear = 9987}<br />Values for Idx_Minify.  |
-| enum| **[Wrap](#enum-wrap)** { Wrap_ClampWhite = 33069, Wrap_ClampEdge = 33071, Wrap_Repeat = 10497, Wrap_Mirrored = 33648}<br />Values for Idx_WrapU and Idx_WrapV.  |
+| enum| **[ColourSpace](#enum-colourspace)** \{ ColourSpace_Default, ColourSpace_sRGB, ColourSpace_LinearRGB \}<br />Values for Idx_ColourSpace.  |
+| enum| **[Content](#enum-content)** \{ Content_Colours, Content_BumpMap, Content_NormalMap, Content_AlphaTest \}<br />Values for Idx_Content.  |
+| enum| **[Encoding](#enum-encoding)** \{ Encoding_RGB_XYZ, Encoding_RGB_XZY \}<br />Values for Idx_Encoding.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_Filename, Idx_Minify, Idx_Magnify, Idx_WrapU, Idx_WrapV, Idx_ColourSpace, Idx_DDSData, Idx_DDSModifiedTime, Idx_Content, Idx_Encoding, Idx_AnisotropicDegree, Idx_Transform, Idx_MapChannel, Idx_LODBias, Idx_AlphaRef \} |
+| enum| **[Magnify](#enum-magnify)** \{ Magnify_None = 9728, Magnify_Bilinear = 9729 \}<br />Values for Idx_Magnify.  |
+| enum| **[Minify](#enum-minify)** \{ Minify_None = 9728, Minify_Bilinear = 9729, Minify_Trilinear = 9987 \}<br />Values for Idx_Minify.  |
+| enum| **[Wrap](#enum-wrap)** \{ Wrap_ClampWhite = 33069, Wrap_ClampEdge = 33071, Wrap_Repeat = 10497, Wrap_Mirrored = 33648 \}<br />Values for Idx_WrapU and Idx_WrapV.  |
 
 ## Detailed Description
 
@@ -75,10 +75,10 @@ Values for Idx_Encoding.
 | Enumerator | Value | Description |
 | ---------- | ----- | ----------- |
 | Idx_Filename | | string - File name of the texture. See main description for information about how this property is used.   |
-| Idx_Minify | | [Minify (int) - The minify filter to apply to texels that when viewed are smaller than a pixel   |
-| Idx_Magnify | | [Magnify (int) - The magnify filter to apply to texels that when viewed are larger than a pixel   |
-| Idx_WrapU | | [Wrap (int) - The wrapping mode to use when the U coordinate is outside of the 0.0 - 1.0 range   |
-| Idx_WrapV | | [Wrap (int) - The wrapping mode to use when the V coordinate is outside of the 0.0 - 1.0 range   |
+| Idx_Minify | | Minify (int) - The minify filter to apply to texels that when viewed are smaller than a pixel   |
+| Idx_Magnify | | Magnify (int) - The magnify filter to apply to texels that when viewed are larger than a pixel   |
+| Idx_WrapU | | Wrap (int) - The wrapping mode to use when the U coordinate is outside of the 0.0 - 1.0 range   |
+| Idx_WrapV | | Wrap (int) - The wrapping mode to use when the V coordinate is outside of the 0.0 - 1.0 range   |
 | Idx_ColourSpace | | [ColourSpace](#enum-colourspace) (int) - The colour space of the texture. A non-default value may involve automatic internal conversion to the colour space used by the application.   |
 | Idx_DDSData | | `vector<char>` - Raw DDS data (including DDS headers)   |
 | Idx_DDSModifiedTime | | int64 - The time the DDSData was last modified. Unix epoch (seconds since Jan 1 1970), stored as two 32-bit ints (LO,HI)   |

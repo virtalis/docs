@@ -9,11 +9,11 @@ When a plugin is performing a long operation, such as importing or exporting, Vi
 
 ## Registration
 
-Native plugins are given the yield function when they are initialised, if they export a ::VRPRegisterProgressYieldProc called `VRPRegisterProgressYield`. This function recieves a ::VRPProgressYieldProc which should be stored for the lifetime of the plugin.
+Native plugins are given the yield function when they are initialised, if they export a VRPRegisterProgressYieldProc called `VRPRegisterProgressYield`. This function recieves a VRPProgressYieldProc which should be stored for the lifetime of the plugin.
 
 Native plugins using the `vrtree-linker` library and its `VRPLUGIN_API_STDIMPL` macro may call ::progress_yield, which has automatically been connected to the yield function provided to the registration function.
 
-Lua plugins do not need to perform any registration and may call ::vrProgressYield.
+Lua plugins do not need to perform any registration and may call vrProgressYield.
 
 ## Yielding
 
@@ -25,7 +25,7 @@ Whether native or Lua, the yield function takes the same arguments:
 The progress value represents the current progress, out of a total specified in the maximum value. When these are non-zero, the loading screen displays a progress bar.
 If a message is provided, it replaces what was previously displayed on the loading screen. Otherwise, the message currently on the screen remains present.
 
-Lua may omit the values and provide the message as the first parameter to ::vrProgressYield, if no progress bar is required.
+Lua may omit the values and provide the message as the first parameter to vrProgressYield, if no progress bar is required.
 
 It is important that long operations yield regularly to keep the application responsive and keep the user informed of the progress.
 

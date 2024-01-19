@@ -4,7 +4,7 @@
 
 Native plugins can register functions to be called from Lua. Currently these can only be registered in the global table, and cannot replace existing functions of the same name.
 
-This is done using ::VRFFIRegister.
+This is done using VRFFIRegister.
 
 ```cpp
 static HFFIVar multiply(int argc, HFFIVar* argv, void*) {

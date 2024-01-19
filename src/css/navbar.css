@@ -1,12 +1,3 @@
-/*
-Prevent hyperlinks from appearing at the origin when the page is 
-refreshed due to the logo not being cached. The logo itself still 
-flickers but it's an improvement
-*/
-.navbar__logo {
-  width: 156px;
-}
-
 .navbar__link--active {
   border-radius: 5rem;
   padding-top: 0.2rem;

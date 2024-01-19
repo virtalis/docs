@@ -1,6 +1,6 @@
 # Visionary Render Docs
 
-This repo contains the Visionary Render User Manual and Programming Guide. It is built with [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This repo contains the Visionary Render User Manual and Programming Guide. It is built with [Docusaurus 3](https://docusaurus.io/), a modern static website generator.
 
 ### Installation
 

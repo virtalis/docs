@@ -15,10 +15,10 @@ A Stack is a container that provides layout controls for its child objects.
 
 | Type           | Name           |
 | -------------- | -------------- |
-| enum| **[Direction](#enum-direction)** { DIRECTION_LEFTTORIGHT, DIRECTION_RIGHTTOLEFT, DIRECTION_TOPTOBOTTOM, DIRECTION_BOTTOMTOTOP}<br />Values for Idx_Direction.  |
-| enum| **[HAlign](#enum-halign)** { HALIGN_LEFT, HALIGN_CENTRE, HALIGN_RIGHT, HALIGN_FULLWIDTH}<br />Values for Idx_HAlign.  |
-| enum| **[IDX](#enum-idx)** { Idx_Enabled, Idx_Position, Idx_SizingMode, Idx_Size, Idx_Direction, Idx_HAlign, Idx_VAlign, Idx_Gap, Idx_ContentZPosition, Idx_Style, Idx_Popup, Idx_PopupOwner, Idx_DisableAnimation}<br />Property index.  |
-| enum| **[VAlign](#enum-valign)** { VALIGN_TOP, VALIGN_MIDDLE, VALIGN_BOTTOM, VALIGN_FULLHEIGHT}<br />Values for Idx_VAlign.  |
+| enum| **[Direction](#enum-direction)** \{ DIRECTION_LEFTTORIGHT, DIRECTION_RIGHTTOLEFT, DIRECTION_TOPTOBOTTOM, DIRECTION_BOTTOMTOTOP \}<br />Values for Idx_Direction.  |
+| enum| **[HAlign](#enum-halign)** \{ HALIGN_LEFT, HALIGN_CENTRE, HALIGN_RIGHT, HALIGN_FULLWIDTH \}<br />Values for Idx_HAlign.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_Position, Idx_SizingMode, Idx_Size, Idx_Direction, Idx_HAlign, Idx_VAlign, Idx_Gap, Idx_ContentZPosition, Idx_Style, Idx_Popup, Idx_PopupOwner, Idx_DisableAnimation \}<br />Property index.  |
+| enum| **[VAlign](#enum-valign)** \{ VALIGN_TOP, VALIGN_MIDDLE, VALIGN_BOTTOM, VALIGN_FULLHEIGHT \}<br />Values for Idx_VAlign.  |
 
 ## Public Types Documentation
 
@@ -54,10 +54,10 @@ Values for Idx_HAlign.
 | Idx_Size | | vec2f - Size of the panel, when `SizingMode==Fixed`  |
 | Idx_Direction | | [Direction](#enum-direction) (int) - The direction to stack the child objects   |
 | Idx_HAlign | | [HAlign](#enum-halign) (int) - How to align the objects horizontally   |
-| Idx_VAlign | | [VAlign (int) - How to align the objects vertically   |
+| Idx_VAlign | | VAlign (int) - How to align the objects vertically   |
 | Idx_Gap | | float - Specifies the gap size between objects (padding)   |
 | Idx_ContentZPosition | | float - Specifies the Z position (depth) of the contents relative to the stack background   |
-| Idx_Style | | link - A Panel style ([Meta_ColouredPanelStyle](../metanodes/meta-coloured-panel-style.mdx), [Meta_GradientPanelStyle](../metanodes/meta-gradient-panel-style.mdx), [Meta_TexturedPanelStyle)   |
+| Idx_Style | | link - A Panel style ([Meta_ColouredPanelStyle](../metanodes/meta-coloured-panel-style.mdx), [Meta_GradientPanelStyle](../metanodes/meta-gradient-panel-style.mdx), Meta_TexturedPanelStyle)   |
 | Idx_Popup | | bool - Specifies that this stack is a popup   |
 | Idx_PopupOwner | | link - Internal - Specifies the user that owns this stack (if it is a popup)   |
 | Idx_DisableAnimation | | bool - When enabled, layout changes are applied instantly instead of animating to their new position   |
