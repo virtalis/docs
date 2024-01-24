@@ -5,21 +5,22 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Visionary Render Docs',
-  tagline: '',
+  tagline: 'The low-code desktop application to create enterprise-scale visualizations',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://virtalis.github.io',
+  url: 'https://www.docs.virtalis.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/visren/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'virtalis', // Usually your GitHub org/user name.
-  projectName: 'developer', // Usually your repo name.
+  projectName: 'visren-docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
+  onBrokenAnchors: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -36,8 +37,9 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          routeBasePath: '/',
           sidebarPath: './sidebars.js',
-          editUrl: 'https://github.com/virtalis/developer',
+          editUrl: 'https://github.com/virtalis/visren-docs/tree/master/',
         },
         theme: {
           customCss: [
