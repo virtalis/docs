@@ -12,13 +12,17 @@ To open the Sequencer, click on the Virtalis button at the top-left of the Toolb
 
 The Sequencer provides a standard set of controls for traversing your animations. Some of these controls are also available in the Properties window and Browser.
 
-| Button                                                                    | Description                                                                                                                                                                                          | Button                                                                    | Description                                |
-|---------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|--------------------------------------------|
-| ![](/img/user-manual/chapter15/2.jpg) | Seek to start of sequence (**Home**).                                                                                                                                                                | ![](/img/user-manual/chapter15/3.jpg) | Seek to end of sequence (**End**).         |
-| ![](/img/user-manual/chapter15/4.jpg) | Seek to previous frame (**Up/Left Arrow**).                                                                                                                                                          | ![](/img/user-manual/chapter15/5.jpg) | Seek to next frame (**Down/Right Arrow**). |
-| ![](/img/user-manual/chapter1/6.jpg) | Play sequence backwards from current time.                                                                                                                                                           | ![](/img/user-manual/chapter15/7.jpg) | Play sequence forwards from current time.  |
-| ![](/img/user-manual/chapter15/8.jpg) | Pause sequence at current time. This is shown over the play button whilst a sequence is playing.                                                                                                     | ![](/img/user-manual/chapter15/9.jpg) | Enable or disable looped playback.         |
-| ![](/img/user-manual/chapter15/10.jpg) | In Manual capture mode, record the current state of the track targets. In Continuous or Motion capture mode, start or stop recording. The button is highlighted red whilst recording is in progress. |                                                                           |                                            |
+| Button                                 | Description |
+|----------------------------------------|-------------|
+| ![](/img/user-manual/chapter15/2.jpg)  | Seek to start of sequence (`Home`). |
+| ![](/img/user-manual/chapter15/3.jpg)  | Seek to end of sequence (`End`). |
+| ![](/img/user-manual/chapter15/4.jpg)  | Seek to previous frame (`Up` or `Left Arrow`). |
+| ![](/img/user-manual/chapter15/5.jpg)  | Seek to next frame (`Down` or `Right Arrow`). |
+| ![](/img/user-manual/chapter1/6.jpg)   | Play sequence backwards from current time. |
+| ![](/img/user-manual/chapter15/7.jpg)  | Play sequence forwards from current time. |
+| ![](/img/user-manual/chapter15/8.jpg)  | Pause sequence at current time. This is shown over the play button whilst a sequence is playing. |
+| ![](/img/user-manual/chapter15/9.jpg)  | Enable or disable looped playback. |
+| ![](/img/user-manual/chapter15/10.jpg) | In Manual capture mode, record the current state of the track targets. In Continuous or Motion capture mode, start or stop recording. The button is highlighted red whilst recording is in progress. |
 
 ### Properties Panel
 
@@ -26,12 +30,12 @@ The Sequencer provides a standard set of controls for traversing your animations
 
 | Property | Description |
 | --- | --- |
-| Time | The current sequence position in seconds (or the current start position of selected frames, animations or tracks whilst performing a drag operation). This value is updated as the sequence is played. It is also an editable property, so you can type a value into it to jump to a time. [default: 0.00s] |
-| Speed | The playback rate (0.5x = half speed, 2.0x = double speed, etc.). [default: 1.0x] |
-| Capture | The type of recording to perform. There are 3 options:Continuous – play the sequence and capture keyframes when targets are transformed.Manual – capture the current transform of each target when the record button is pressed. [default]Motion – capture keyframes when targets are transformed. The current sequence time progresses as motion occurs. |
-| Step | The number of seconds to skip after a Manual capture. [default: 1.00s] |
-| Rate | This replaces Step in Continuous or Motion capture mode. It is the number of keyframes to capture per second. [default: 10 Hz] |
-| Auto Track | This checkbox is visible in Continuous or Motion capture mode. Enable it to automatically create an assembly track when an untargeted node in the scene is transformed. [default: false] |
+| Time | The current sequence position in seconds (or the current start position of selected frames, animations or tracks whilst performing a drag operation). This value is updated as the sequence is played. It is also an editable property, so you can type a value into it to jump to a time. *[default: 0.00s]* |
+| Speed | The playback rate (0.5x = half speed, 2.0x = double speed, etc.). *[default: 1.0x]* |
+| Capture | The type of recording to perform. There are 3 options:<ul><li>**Continuous** – play the sequence and capture keyframes when targets are transformed.</li><li>**Manual** – capture the current transform of each target when the record button is pressed. *[default]*</li><li>**Motion** – capture keyframes when targets are transformed. The current sequence time progresses as motion occurs.</li></ul> |
+| Step | The number of seconds to skip after a Manual capture. *[default: 1.00s]* |
+| Rate | This replaces Step in Continuous or Motion capture mode. It is the number of keyframes to capture per second. *[default: 10 Hz]* |
+| Auto Track | This checkbox is visible in Continuous or Motion capture mode. Enable it to automatically create an assembly track when an untargeted node in the scene is transformed. *[default: false]* |
 
 ### Track List
 
@@ -43,7 +47,7 @@ The Track List shows all the tracks in a sequence. It has 3 columns:
 | --- | --- |
 | Track | The name of a track node. A tooltip shows the location of the track node in the tree. |
 | Target | The name of a node to animate with a track. A tooltip shows the location of the target node in the tree. |
-| State | A tri-state button that can be one of the following values: Play and record – the track can be played and recorded into. Play – the track can be played but not recorded into. Disabled – the track cannot be played or recorded into. |
+| State | The current state of the track. There are 3 options: <ul><li>**Play and record** – the track can be played and recorded into.</li><li>**Play** – the track can be played but not recorded into.</li><li>**Disabled** – the track cannot be played or recorded into.</li></ul> |
 
 :::note
 The state of a parent track overwrites that of its children. For instance, if a Sequence Track is disabled, any tracks beneath it will also be disabled regardless of their individual states.
@@ -57,7 +61,7 @@ Mouse over a track name with ellipses to see its full name/path or a target to s
 
 The timeline indicates the positions of Frames, Animations, and other Sequences within a sequence. Hold down the middle mouse button and drag to pan it left and right. Whilst hovering over the timeline, scroll the mouse wheel to increment or decrement the current time. Use `Ctrl` + `Mouse wheel` to zoom in and out. The timeline can display increments of 0.01 seconds to 1 minute.
 
-| ![](/img/user-manual/chapter15/14.jpg) | Time GripThe Time Grip marks the current sequence position. Drag it along the timeline to animate the sequence. Double-click on it to return to time zero. |
+| ![](/img/user-manual/chapter15/14.jpg) | The Time Grip marks the current sequence position. Drag it along the timeline to animate the sequence. Double-click on it to return to time zero. |
 | --- | --- |
 
 ### Track View
@@ -68,8 +72,8 @@ This is the main view in the sequencer. It permits Animations and Frames to be c
 
 #### Key
 
-|                                                                           |               |                                                                           |                |
-|---------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------|----------------|
+| Image                                  | Description   | Image                                  | Description    |
+|----------------------------------------|---------------|----------------------------------------|----------------|
 | ![](/img/user-manual/chapter15/16.jpg) | Keyframe      | ![](/img/user-manual/chapter15/17.jpg) | Animation      |
 | ![](/img/user-manual/chapter15/18.jpg) | Custom Action | ![](/img/user-manual/chapter15/19.jpg) | Property Track |
 | ![](/img/user-manual/chapter15/20.jpg) | Audio         | ![](/img/user-manual/chapter15/21.jpg) | Sequence Track |
@@ -93,8 +97,8 @@ There are 5 types of animation track that can be added to a sequence:
 |-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Assembly  | Targets a node with a transform and records the changing position, rotation, and scale of that node over time.                                                                          |
 | Camera    | A special type of Assembly Track that transforms a user’s camera. There can only be one Camera Track per sequence.                                                                      |
-| Property  | Targets a node to record non-transform information such as material changes. Any type of node property can be recorded - Bool, Int, Float, Double, World Float, String, Link or Vector. |
-| Component | Targets a component of a vector property track (i.e. x, y, z, or w).                                                                                                                    |
+| Property  | Targets a node to record non-transform information such as material changes. Any type of node property can be recorded - **Bool**, **Int**, **Float**, **Double**, **World Float**, **String**, **Link** or **Vector**. |
+| Component | Targets a component of a vector property track (**x**, **y**, **z**, or **w**).                                                                                                                    |
 | Sequence  | Targets a sequence. The targeted sequence may contain any number of tracks in it, including other sequence tracks (thus creating a hierarchy).                                          |
 
 To create a track, right-click over empty space in the Sequencer and select **Create** from the context menu.
@@ -171,7 +175,7 @@ This applies to any node that you add a property track to. To record the changes
 
 ![](/img/user-manual/chapter15/30.jpg)
 
-The sequencer generates visuals in the scene to show the animation paths of targets and to permit keyframe positions to be edited visually. The red circles represent keyframes and the lines between them represent the animation path of the target. Simply left-click on a keyframe marker to select it. It can then be moved with one of the manipulators (simply drag to move it with the mouse manipulator). Alternatively, hold **Shift** and click on a marker to bring up the PRS manipulator. The Properties window will show the current position of the keyframe.
+The sequencer generates visuals in the scene to show the animation paths of targets and to permit keyframe positions to be edited visually. The red circles represent keyframes and the lines between them represent the animation path of the target. Simply left-click on a keyframe marker to select it. It can then be moved with one of the manipulators (simply drag to move it with the mouse manipulator). Alternatively, hold `Shift` and click on a marker to bring up the PRS manipulator. The Properties window will show the current position of the keyframe.
 
 ### Markers
 
@@ -181,7 +185,7 @@ Right-click on a keyframe marker to show the following context menu:
 
 | Option | Description |
 | --- | --- |
-| Create | A submenu with 2 options:Keyframe (Before) – insert a keyframe at the midpoint between the current and previous keyframes.Keyframe (After) – insert a keyframe at the midpoint between the current and next keyframes. |
+| Create | A submenu with 2 options:<ul><li>**Keyframe (Before)** – insert a keyframe at the midpoint between the current and previous keyframes.</li><li>**Keyframe (After)** – insert a keyframe at the midpoint between the current and next keyframes.</li></ul> |
 | Fly to | Fly to the selected marker in the scene. |
 | Delete | Remove this keyframe from the animation. |
 
@@ -209,18 +213,18 @@ The Sequencer can be configured via **Settings** > **Animation Sequencer**.
 
 | Setting          | Description                                                                                                 |
 |------------------|-------------------------------------------------------------------------------------------------------------|
-| Frames > Enabled | When enabled, keyframes are drawn in the sequencer track view. *\[default: true\]*                          |
-| Frames > Snap To | When enabled, the time grip snaps to frames and frames snap to each other when dragged. *\[default: true\]* |
+| Frames > Enabled | When enabled, keyframes are drawn in the sequencer track view. *[default: true]*                          |
+| Frames > Snap To | When enabled, the time grip snaps to frames and frames snap to each other when dragged. *[default: true]* |
 
 ### 3D View
 
 | Setting | Description |
 | --- | --- |
-| Show Visuals | How to present sequences in the 3D scene. There are 3 options:All Sequences – show visuals for all the sequences in the scene.Current Sequence – show visuals for the current sequence in the Animation Sequencer. [default] Disabled – do not show any visuals for any sequences. |
-| Markers > Enabled | When enabled, markers are drawn in the scene to represent the location of keyframes. [default: true] |
-| Markers > Size | The size of the markers in pixels. [default: 20] |
-| Markers > Colour | The colour of the markers. [default: dark red] |
-| Markers > Highlight Colour | The colour of the markers that are selected. [default: red] |
-| Lines > Enabled | When enabled, lines are drawn between keyframe markers to represent interpolation. [default: true] |
-| Lines > Width | The width of the lines in pixels. [default: 1.0] |
-| Lines > Colour | The colour of the lines between markers. [default: black] |
+| Show Visuals | How to present sequences in the 3D scene. There are 3 options:<ul><li>**All Sequences** – show visuals for all the sequences in the scene.</li><li>**Current Sequence** – show visuals for the current sequence in the Animation Sequencer. *[default]*</li><li>**Disabled** – do not show any visuals for any sequences.</li></ul> |
+| Markers > Enabled | When enabled, markers are drawn in the scene to represent the location of keyframes. *[default: true]* |
+| Markers > Size | The size of the markers in pixels. *[default: 20]* |
+| Markers > Colour | The colour of the markers. *[default: dark red]* |
+| Markers > Highlight Colour | The colour of the markers that are selected. *[default: red]* |
+| Lines > Enabled | When enabled, lines are drawn between keyframe markers to represent interpolation. *[default: true]* |
+| Lines > Width | The width of the lines in pixels. *[default: 1.0]* |
+| Lines > Colour | The colour of the lines between markers. *[default: black]* |

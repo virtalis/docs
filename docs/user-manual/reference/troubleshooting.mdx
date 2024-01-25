@@ -4,7 +4,7 @@ This page contains tracker, importer, and application errors that you may encoun
 
 ## Tracker Errors
 
-| Error Message | Cause | Resolution |
+| Error | Cause | Resolution |
 | --- | --- | --- |
 | Oculus Rift failed | Internal error in Oculus SDK | Ensure the Oculus Rift is connected to the PC and configured correctlyRestart the application |
 | Found -viewconfig command line option but license has not granted EditViewConfig permission | The application detected an attempt to load a custom view configuration file without the appropriate license | Custom view configuration requires an Immersive license |
@@ -56,7 +56,7 @@ This page contains tracker, importer, and application errors that you may encoun
 
 ## Importer Errors
 
-| Error Message | Cause | Resolution |
+| Error | Cause | Resolution |
 | --- | --- | --- |
 | Hoops error:  | Internal error in the importer |  |
 | Cannot get pdf 3d streams for  | 3D PDF file does not appear to be a valid format | Import a different 3D PDF fileRe-save the 3D PDF file from the CAD package |
@@ -118,7 +118,7 @@ This page contains tracker, importer, and application errors that you may encoun
 
 ## Application Errors
 
-| Error Message | Cause | Resolution |
+| Error | Cause | Resolution |
 | --- | --- | --- |
 | cachefs: cacheindex:  | There is an error in the internal caching system | Make sure the cache directory is readable and writable and that the drive has enough space for a 4GB (default) cache fileThe default cache directory is C:\Users\\AppData\Local\Virtalis\VRTreeCacheA different directory can be specified using the VRCACHEDIR environment variableThe size of the cache can be specified in gigabytes in the VRCACHESIZE environment variable, which must be greater than 0 |
 | Clipboard failed to paste data | An internal error prevented the application from pasting image data from the clipboard | Copy the image to the clipboard again and retry,Restart the application and retry,Paste the image data into Paint, and save it as an image file before opening it Visionary Render byBrowsing to it in the Texture propertiesDragging and dropping it into the Visionary Render window |

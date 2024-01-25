@@ -37,14 +37,7 @@ The text editor is the main panel of the window. It permits code to be created a
 
 The Script Editor supports basic syntax highlighting.
 
-- **Red** = Lua keywords. These are reserved and cannot be used for variable and function names, etc. The reserved keywords are:
-
-    |              |           |          |           |            |         |           |            |
-    |--------------|-----------|----------|-----------|------------|---------|-----------|------------|
-    | **and**      | **break** | **do**   | **else**  | **elseif** | **end** | **false** | **for**    |
-    | **function** | **if**    | **in**   | **local** | **nil**    | **not** | **or**    | **repeat** |
-    | **return**   | **then**  | **true** | **until** | **while**  |         |           |            |
-
+- **Red** = Lua keywords. These are reserved and cannot be used for variable and function names, etc. The reserved keywords are: `and`, `break`, `do`, `else`, `elseif`, `end`, `false`, `for`, `function`, `if`, `in`, `local`, `nil`, `not`, `or`, `repeat`, `return`, `then`, `true`, `until` and `while`.
 - **White** = default text like user variables, functions, and operators, etc.
 - **Blue** = literal strings (i.e. text wrapped in quotes).
 - **Green** = comments.
@@ -68,7 +61,7 @@ The Script Editor gives access to some standard registers. These are variables t
 | `__KeyState` | Whether the key in `__KeyCode` was pressed or released (1 = pressed). |
 | `__Other` | Event specific node. |
 | `__Pose` | The name of the pose that was made. |
-| `__PoseState` | The state of the pose (true = entered, false = exited). |
+| `__PoseState` | The state of the pose (`true` = entered, `false` = exited). |
 | `__Script` | The script node containing the code being executed (available in all events). |
 | `__Self` | The node that the event node is attached to (e.g. an Assembly). Available in all events. |
 | `__Time` | The total number of seconds since the application started (available in all events). |

@@ -114,8 +114,9 @@ When used in a networked environment (Collaboration/Clustering) all machines mus
 
 One method to help with this is to copy the file locally to each PC in the collaboration ensuring each uses the same path. Because of the continuously varying field of view the level of detail algorithm used for the Point Cloud will not yield best results when using head tracking. Depending on the original data, you can colour the points in 3 different ways:
 
+| Screenshot                             | Description                                                                  |
+|----------------------------------------|------------------------------------------------------------------------------|
 | ![](/img/user-manual/chapter29/14.jpg) | Original file has red, green, and blue values for each point.                |
-|---------------------------------|------------------------------------------------------------------------------|
 | ![](/img/user-manual/chapter29/15.jpg) | Display the point cloud with no colour – disabling the Use Colour Attribute. |
 | ![](/img/user-manual/chapter29/16.jpg) | Using a Gradient image to colour the points depending on their altitude.     |
 
@@ -125,18 +126,18 @@ One method to help with this is to copy the file locally to each PC in the colla
 
 | Property | Description |
 | --- | --- |
-| Enabled | Toggles whether the Point Cloud is enabled and therefore visible and pickable in the 3D scene. [default: true] |
-| Filename | Filename of the converted point cloud file. [default: none] |
-| Brightness | Adjusts the brightness of the Point Cloud points, 0.0 is black, 0.5 is the original brightness, 1.0 is maximum brightness. [default: 0.5] |
-| Use Colour Attribute | When enabled the Point Cloud colours are rendered (the colour from the original scan), otherwise the gradient or white. [default: true] |
-| Point Size | Controls how large each point appears on the screen. This also controls how large the point is when calculating intersections with the Point Cloud whilst picking. [default: 0.04] |
-| LOD Scale | Adjusts the LOD calculation so more or less detail is visible from a distance. For a fixed camera position a LOD scale of 2.0 draws approximately half the detail of LOD scale 1.0 and 0.5 twice the detail, 3.0 draws 4 times less detail and 0.25 4 times more detail.The larger the scale the fewer points are drawn, the smaller the scale the greater the number of points being drawn. [default: 1.0] |
-| Gradient File | Filename of an image to supply gradient colours. [default: none] |
-| Gradient Texture | A link to a Gradient or Texture used to supply gradient colours. [default: none] |
-| Gradient Enabled | Controls whether the gradient is used to colour the points. [default: false] |
-| Intensity Map | When enabled the gradient is applied to the Point Cloud by mapping the value of the point colour red channel otherwise the point altitude is used. [default: false] |
-| Normal Channel | When Enabled the Point Cloud is rendered using a pseudo lighting algorithm. The surface angle for each pixel is calculated by reading the depth of the neighbouring pixels. To achieve a satisfactory result, the Point Cloud must have enough density and point size for the points to overlap. [default: false] |
-| Alpha Threshold | Controls the visibility of points based on their alpha values – only points with alpha values greater than or equal to the threshold are rendered. When used in conjunction with a gradient, the alpha values are taken from the gradient, meaning that detailed control over the visibility of one or more ranges of values can be achieved using the Gradient Editor. [default: 0.0] |
+| Enabled | Toggles whether the Point Cloud is enabled and therefore visible and pickable in the 3D scene. *[default: true]* |
+| Filename | Filename of the converted point cloud file. *[default: none]* |
+| Brightness | Adjusts the brightness of the Point Cloud points, 0.0 is black, 0.5 is the original brightness, 1.0 is maximum brightness. *[default: 0.5]* |
+| Use Colour Attribute | When enabled the Point Cloud colours are rendered (the colour from the original scan), otherwise the gradient or white. *[default: true]* |
+| Point Size | Controls how large each point appears on the screen. This also controls how large the point is when calculating intersections with the Point Cloud whilst picking. *[default: 0.04]* |
+| LOD Scale | Adjusts the LOD calculation so more or less detail is visible from a distance. For a fixed camera position a LOD scale of 2.0 draws approximately half the detail of LOD scale 1.0 and 0.5 twice the detail, 3.0 draws 4 times less detail and 0.25 4 times more detail.The larger the scale the fewer points are drawn, the smaller the scale the greater the number of points being drawn. *[default: 1.0]* |
+| Gradient File | Filename of an image to supply gradient colours. *[default: none]* |
+| Gradient Texture | A link to a Gradient or Texture used to supply gradient colours. *[default: none]* |
+| Gradient Enabled | Controls whether the gradient is used to colour the points. *[default: false]* |
+| Intensity Map | When enabled the gradient is applied to the Point Cloud by mapping the value of the point colour red channel otherwise the point altitude is used. *[default: false]* |
+| Normal Channel | When Enabled the Point Cloud is rendered using a pseudo lighting algorithm. The surface angle for each pixel is calculated by reading the depth of the neighbouring pixels. To achieve a satisfactory result, the Point Cloud must have enough density and point size for the points to overlap. *[default: false]* |
+| Alpha Threshold | Controls the visibility of points based on their alpha values – only points with alpha values greater than or equal to the threshold are rendered. When used in conjunction with a gradient, the alpha values are taken from the gradient, meaning that detailed control over the visibility of one or more ranges of values can be achieved using the Gradient Editor. *[default: 0.0]* |
 
 ### Dynamic Sections
 
@@ -162,4 +163,4 @@ You can configure point cloud performance from the Settings window (`F6`) under 
 
 | Setting                | Description                                                                                             |
 |------------------------|---------------------------------------------------------------------------------------------------------|
-| Point Cloud Cache Size | The percentage of total computer memory to make available for caching point clouds. *\[default: 100%\]* |
+| Point Cloud Cache Size | The percentage of total computer memory to make available for caching point clouds. *[default: 100%]* |

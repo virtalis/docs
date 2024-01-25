@@ -1,10 +1,10 @@
 # Search
 
-The Search window provides advanced search capabilities that are outside the scope of the quick search found in tree views. It provides two methods of finding nodes -- a Name Contains query and an Advanced query.
+The Search window provides advanced search capabilities that are outside the scope of the quick search found in tree views. It provides two methods of finding nodes - a Name Contains query and an Advanced query.
 
 ![](/img/user-manual/chapter13/1.jpg)
 
-To open the Search window, click on the Virtalis button at the top-left of the Toolbar and select **Windows** \> **Search**. Alternatively, click and hold left mouse button over the Windows menu of the Toolbar and select **Search**. It can also be shown or hidden with **Ctrl** + **Shift** + **F**.
+To open the Search window, click on the Virtalis button at the top-left of the Toolbar and select **Windows** > **Search**. Alternatively, click and hold left mouse button over the Windows menu of the Toolbar and select **Search**. It can also be shown or hidden with `Ctrl` + `Shift` + `F`.
 
 ## Name Contains
 
@@ -15,7 +15,7 @@ This text entry box simply finds items with the specified text anywhere in their
 This entry box accepts a search query in the following format:
 
 ```
-\[and\|or\] \[name\|type\|type.prop\] \[equals\|not\|contains\] \<query\>
+[and|or] [name|type|type.prop] [equals|not|contains] <query>
 ```
 
 ### Examples
@@ -34,17 +34,21 @@ StdMaterial.Ambient equals 1,1,1,1 or StdMaterial.Diffuse equals 1,1,1,1
 
 To find assemblies with the words "my assembly" in their name:
 
-```type equals Assembly and name contains “my assembly”```
+```
+type equals Assembly and name contains “my assembly”
+```
 
 To find any assemblies with metadata of a specific value:
 
-```name equals PART_U_OF_Wand MetaDataString.Value equals KILOGRAM```
+```
+name equals PART_U_OF_Wand MetaDataString.Value equals KILOGRAM
+```
 
 This will find any metadata assemblies of name `PART_U_OF_W` with a value of `KILOGRAM`. The second part of the search on the new line is very important.
 
 You can also search in metadata attribute tables:
 
-The syntax is `attrib \<key\> \<comparator\> \<value\>`, e.g. `attrib TITLE_2 contains viewpoint or attrib DRAWN_BY equals RJB`.
+The syntax is `attrib <key> <comparator> <value>`, e.g. `attrib TITLE_2 contains viewpoint or attrib DRAWN_BY equals RJB`.
 
 ## Filters
 
@@ -57,6 +61,6 @@ The filter checkboxes permit the search to be refined.
 
 ## Results
 
-The results area shows a scrollable list of search results. Double-click on a result to select it in the tree view. You can also show multiple results in the tree view by selecting items with **Ctrl** or **Shift**. Right-click on the selection and select one of the options from the context menu.
+The results area shows a scrollable list of search results. Double-click on a result to select it in the tree view. You can also show multiple results in the tree view by selecting items with `Ctrl` or `Shift`. Right-click on the selection and select one of the options from the context menu.
 
 ![](/img/user-manual/chapter13/2.jpg)

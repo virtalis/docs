@@ -56,36 +56,28 @@ By tweaking these properties, the appearance of the ocean can be configured from
 
 | Property | Description |
 | --- | --- |
-| Enabled | Render the ocean. [default: true] |
-| Animated | Animate the ocean. [default: true]Fixed Time – when animation is paused, this property can be used to change the current wave heights to those at a different fixed point in time. [default: 0.0] |
-| Colour | The colour of the water. This colour is used in conjunction with the extinction distance and scattering amount to bias the final colour seen above and beneath the ocean. [default: blue] |
-| Sea State | The general condition of the ocean with respect to how rough the wind waves are. This value corresponds to the WMO sea state codes – or Douglas sea scale – i.e:CodeWave Height (m)Description10 to 0.1Calm (rippled)20.1 to 0.5Smooth (wavelets)30.5 to 1.25Slight41.25 to 2.5Moderate52.5 to 4Rough64 to 6Very rough[default: 2.0] |
-| Code | Wave Height (m) | Description |
-| 1 | 0 to 0.1 | Calm (rippled) |
-| 2 | 0.1 to 0.5 | Smooth (wavelets) |
-| 3 | 0.5 to 1.25 | Slight |
-| 4 | 1.25 to 2.5 | Moderate |
-| 5 | 2.5 to 4 | Rough |
-| 6 | 4 to 6 | Very rough |
-| Surface |
-| Reflectivity | How much incoming light should be reflected in the water when looking straight down on the surface. Note that there will always be some reflection as the surface becomes more edge-on towards the horizon because of the fresnel effect. [range: 0.0 to 1.0; default: 0.02] |
-| Local Reflections | Enable this to reflect the objects in the scene on the ocean surface, rather than just reflecting the skybox. Note that this involves drawing the scene a second time (flipped upside down), which will lower your overall framerate. [default: false]Quality – scales the resolution of the texture used to draw local reflections. For example, if the scale is 0.5 then the resolution of the texture will be half the resolution of the viewport. This can help improve the framerate when local reflections are enabled, but by how much depends on the complexity of your scene. [default: 1.0] |
-| Sea Level | The base height of the ocean in metres from the world origin. [default: 0.0] |
-| Spray | Add a particle spray effect to cresting waves at high sea states. [default: false] |
-| Wind Direction | Direction of the wind. Used to control the general direction of the waves. [range: -180 to 180 degrees; default: 0] |
-| Wind Bias | How much the waves will appear to travel in the direction of the wind. 0 means they will move chaotically back and forth into and out of the wind. 1 means they will move very noticeably along the wind direction. [range: 0.0 to 1.0; default: 0.4] |
-| Displacement Scale | Scales the geometric displacement of waves. This can be used to make the ocean surface completely flat but still retain the lighting of a 3D surface. [range: 0.0 to 1.0; default: 1.0] |
-| Underwater |
-| Underwater Effects | Enable underwater caustics, scattering and extinction effects. [default: false] |
-| Extinction Distance | The distance in metres a ray of light must travel through the water before it's almost entirely extinguished. For the clearest ocean waters on earth this value would be 150 metres. [range: 0.0 to 200.0; default: 50.0] |
-| Scattering Amount | Scales the amount of light scattered towards the viewer due to particulate matter such as algae in the water. [range: 0.0 to 1.0; default: 0.11] |
-| Depth Scale | Scales the calculated submerged depth of objects used by the underwater lighting model to attenuate light from above the ocean. This allows you to tweak the final effect if your scene isn't visible enough under realistic conditions. A value of 1.0 means no scale, therefore realistic depths are used. [default: 1.0] |
-| Distance Scale | Scales the distances the underwater lighting model uses to calculate realistic fog effects. This allows you to tweak the final effect if your scene isn't visible enough under realistic conditions. A value of 1.0 means no scale, therefore realistic distances are used. [default: 1.0] |
-| Surface Lighting Depth | Controls how much scattered light is affected by local lights and shadows when rendering the water surface. [default: 0.5] |
-| Caustics |
-| Size | The size of the caustic cells in the scene. [default: 3.8] |
-| Strength | The intensity of the caustics. [default: 0.6] |
-| Extinction | Permit caustics to be affected by depth. [default: true] |
+| Enabled | Render the ocean. *[default: true]* |
+| Animated | Animate the ocean. *[default: true]*<ul><li>**Fixed Time** – when animation is paused, this property can be used to change the current wave heights to those at a different fixed point in time. *[default: 0.0]*</li></ul> |
+| Colour | The colour of the water. This colour is used in conjunction with the extinction distance and scattering amount to bias the final colour seen above and beneath the ocean. *[default: blue]* |
+| Sea State | The general condition of the ocean with respect to how rough the wind waves are. This value corresponds to the WMO sea state codes – or Douglas sea scale (see table below) | 
+| Reflectivity | How much incoming light should be reflected in the water when looking straight down on the surface. Note that there will always be some reflection as the surface becomes more edge-on towards the horizon because of the fresnel effect. *[range: 0.0 to 1.0; default: 0.02]* |
+| Local Reflections | Enable this to reflect the objects in the scene on the ocean surface, rather than just reflecting the skybox. Note that this involves drawing the scene a second time (flipped upside down), which will lower your overall framerate. *[default: false]*<ul><li>**Quality** – scales the resolution of the texture used to draw local reflections. For example, if the scale is 0.5 then the resolution of the texture will be half the resolution of the viewport. This can help improve the framerate when local reflections are enabled, but by how much depends on the complexity of your scene. *[default: 1.0]*</li></ul> |
+| Sea Level | The base height of the ocean in metres from the world origin. *[default: 0.0]* |
+| Spray | Add a particle spray effect to cresting waves at high sea states. *[default: false]* |
+| Wind Direction | Direction of the wind. Used to control the general direction of the waves. *[range: -180 to 180 degrees; default: 0]* |
+| Wind Bias | How much the waves will appear to travel in the direction of the wind. 0 means they will move chaotically back and forth into and out of the wind. 1 means they will move very noticeably along the wind direction. *[range: 0.0 to 1.0; default: 0.4]* |
+| Displacement Scale | Scales the geometric displacement of waves. This can be used to make the ocean surface completely flat but still retain the lighting of a 3D surface. *[range: 0.0 to 1.0; default: 1.0]* |
+| Underwater Effects | Enable underwater caustics, scattering and extinction effects. *[default: false]* |
+| Extinction Distance | The distance in metres a ray of light must travel through the water before it's almost entirely extinguished. For the clearest ocean waters on earth this value would be 150 metres. *[range: 0.0 to 200.0; default: 50.0]* |
+| Scattering Amount | Scales the amount of light scattered towards the viewer due to particulate matter such as algae in the water. *[range: 0.0 to 1.0; default: 0.11]* |
+| Depth Scale | Scales the calculated submerged depth of objects used by the underwater lighting model to attenuate light from above the ocean. This allows you to tweak the final effect if your scene isn't visible enough under realistic conditions. A value of 1.0 means no scale, therefore realistic depths are used. *[default: 1.0]* |
+| Distance Scale | Scales the distances the underwater lighting model uses to calculate realistic fog effects. This allows you to tweak the final effect if your scene isn't visible enough under realistic conditions. A value of 1.0 means no scale, therefore realistic distances are used. *[default: 1.0]* |
+| Surface Lighting Depth | Controls how much scattered light is affected by local lights and shadows when rendering the water surface. *[default: 0.5]* |
+| Size | The size of the caustic cells in the scene. *[default: 3.8]* |
+| Strength | The intensity of the caustics. *[default: 0.6]* |
+| Extinction | Permit caustics to be affected by depth. *[default: true]* |
+
+Douglas sea scale:
 
 | Code | Wave Height (m) | Description |
 | --- | --- | --- |
@@ -112,26 +104,23 @@ The procedural sky permits you to generate sky boxes dynamically rather than usi
 
 | Setting | Description |
 | --- | --- |
-| Render From Probe | When this is enabled, the procedural sky is rendered as a skybox. It means that you can’t fly into the clouds as they are no longer a 3D element. This will improve performance over a fully procedural sky. [default: true]Probe Resolution – size of each cubemap face in pixels. [default: 1024 x 1024] |
-| Ground Colour | Colour of the lower hemisphere of the skybox. This is affected by the sun but not by other lights in your scene. [default: black] |
-| Moon Azimuth / Elevation | Adjusting these values will move the position of the moon in the sky. [default: 90.0, 45.0] |
-| Moon Phase | The dropdown provides options to adjust the phase of the moon. [default: Full Moon] |
-| Brightness | Adjust the brightness of the sky relative to the sun. [default: 1.0] |
-| Scatter |
-| Adjust Scatter | When enabled, it provides options to adjust the particle density and size that alters the sky colour based on scattering of light. [default: false] |
-| Rayleigh Density | Adjust the amount micro particles scatter sun's light in the atmosphere. Responsible for the blue colour in the sky. [default: 1.0] |
-| Mie Density | Adjust the amount of large particulate affecting scattering. Responsible for the white glare seen around the sun. [default: 1.0] |
-| Light Pollution Colour | Adjusts the colour of light pollution. Most notable when the sun is down. [default: white] |
-| Light Pollution EV | Adjusts the exposure value of light pollution. [default: -14.5] |
-| Clouds |
-| Coverage | Adjusts the density of cloud cover. [default: 0.25] |
-| Quality | The higher the quality the better the clouds will look but this will impact on performance. [default: Standard] |
-| Height | Adjusts the altitude of the clouds. If Render From Probe is not enabled, you can fly into a through the clouds. [default: 4000.0] |
-| Thickness | Adjusts the thickness of the cloud layer. [default: 2000.0] |
-| Density | Adjust the density of the cloud layer (i.e. how dark the clouds appear). [default: 0.16] |
-|  |
-| Starmap Rotation | This controls the star map rotation. Stars are visible when sun position is at twilight and night. HDR may need to be set for best view. [default: 0.0, 0.0, 0.0] |
-| Altitude | Adjust the height of the scene relative to the ground (in metres). Increasing this will make the horizon appear lower. [default: 1000.0] |
+| Render From Probe | When this is enabled, the procedural sky is rendered as a skybox. It means that you can’t fly into the clouds as they are no longer a 3D element. This will improve performance over a fully procedural sky. *[default: true]*<ul><li>**Probe Resolution** – size of each cubemap face in pixels. *[default: 1024 x 1024]*</li></ul> |
+| Ground Colour | Colour of the lower hemisphere of the skybox. This is affected by the sun but not by other lights in your scene. *[default: black]* |
+| Moon Azimuth / Elevation | Adjusting these values will move the position of the moon in the sky. *[default: 90.0, 45.0]* |
+| Moon Phase | The dropdown provides options to adjust the phase of the moon. *[default: Full Moon]* |
+| Brightness | Adjust the brightness of the sky relative to the sun. *[default: 1.0]* |
+| Adjust Scatter | When enabled, it provides options to adjust the particle density and size that alters the sky colour based on scattering of light. *[default: false]* |
+| Rayleigh Density | Adjust the amount micro particles scatter sun's light in the atmosphere. Responsible for the blue colour in the sky. *[default: 1.0]* |
+| Mie Density | Adjust the amount of large particulate affecting scattering. Responsible for the white glare seen around the sun. *[default: 1.0]* |
+| Light Pollution Colour | Adjusts the colour of light pollution. Most notable when the sun is down. *[default: white]* |
+| Light Pollution EV | Adjusts the exposure value of light pollution. *[default: -14.5]* |
+| Coverage | Adjusts the density of cloud cover. *[default: 0.25]* |
+| Quality | The higher the quality the better the clouds will look but this will impact on performance. *[default: Standard]* |
+| Height | Adjusts the altitude of the clouds. If Render From Probe is not enabled, you can fly into a through the clouds. *[default: 4000.0]* |
+| Thickness | Adjusts the thickness of the cloud layer. *[default: 2000.0]* |
+| Density | Adjust the density of the cloud layer (i.e. how dark the clouds appear). *[default: 0.16]* |
+| Starmap Rotation | This controls the star map rotation. Stars are visible when sun position is at twilight and night. HDR may need to be set for best view. *[default: 0.0, 0.0, 0.0]* |
+| Altitude | Adjust the height of the scene relative to the ground (in metres). Increasing this will make the horizon appear lower. *[default: 1000.0]* |
 
 #### Sun
 

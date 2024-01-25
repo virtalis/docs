@@ -6,12 +6,11 @@ The Measuring Tool permits you to measure the distance between two points in you
 
 ## Basic Usage
 
-| 1 | Click the  icon in the Toolbar or press `Ctrl` + `2` to enable the Measuring Tool. |  |
-| --- | --- | --- |
-| 2 | The scene cursor should now show a measuring tape icon when hovered over some geometry. |  |
-| 3 | Click on the point that you wish to measure from. A marker will be added to that location. If you need to adjust its position, click and drag the marker to move it. |  |
-| 4 | Now click on the point that you wish to measure to. A marker will be added to that location and a GUI will appear. The number in white (406.9mm) is the straight-line distance between the two points.(Tip: to add additional measurements, hold Shift and click on some other geometry.) |  |
-| 5 | The measuring points will appear in the tree view beneath the nodes they are attached to. They can also be shown in the Browser via the Measurements filter. |  |
+1. Click the  icon in the Toolbar or press `Ctrl` + `2` to enable the Measuring Tool.
+2. The scene cursor should now show a measuring tape icon when hovered over some geometry.
+3. Click on the point that you wish to measure from. A marker will be added to that location. If you need to adjust its position, click and drag the marker to move it.
+4. Now click on the point that you wish to measure to. A marker will be added to that location and a GUI will appear. The number in white (406.9mm) is the straight-line distance between the two points. (Tip: to add additional measurements, hold Shift and click on some other geometry.)
+5. The measuring points will appear in the tree view beneath the nodes they are attached to. They can also be shown in the Browser via the Measurements filter.
 
 ## Dimension
 
@@ -25,8 +24,8 @@ For each dimension, Visionary Render displays details of the dimension as a 3D G
 
 The image shows the 3D GUI. The top row of icons indicates which distances should be displayed on the GUI.
 
-|                          |                                      |
-|--------------------------|--------------------------------------|
+| Image                                 | Description                          |
+|---------------------------------------|--------------------------------------|
 | ![](/img/user-manual/chapter21/3.jpg) | Show or hide straight-line distance. |
 | ![](/img/user-manual/chapter21/4.jpg) | Show or hide X distance.             |
 | ![](/img/user-manual/chapter21/5.jpg) | Show or hide Y distance.             |
@@ -40,8 +39,9 @@ The units used within the display are evaluated on the scale of each distance.
 
 ### Example
 
-| ![](/img/user-manual/chapter21/8.jpg) | The image shows a simple example of a dimension. Both the black and white pawns have a measuring point attached to them.The direct distance between them is shown as a yellow line, with the axial distances being shown as green red and blue lines. The numerical display in the centre of the yellow line is a display of the 4 distances – direct, X, Y and Z.This display will rotate to face you and update when either the assemblies are move or the measuring points themselves. |
+| Image | Description |
 | --- | --- |
+| ![](/img/user-manual/chapter21/8.jpg) | The image shows a simple example of a dimension. Both the black and white pawns have a measuring point attached to them.The direct distance between them is shown as a yellow line, with the axial distances being shown as green red and blue lines. The numerical display in the centre of the yellow line is a display of the 4 distances – direct, X, Y and Z.This display will rotate to face you and update when either the assemblies are move or the measuring points themselves. |
 | ![](/img/user-manual/chapter21/9.jpg) | The same measurement can be changed to display the coordinates of each of the measuring points. You can also remove the X, Y, Z numerical and line displays to simplify the display.You can select and drag either of the two measuring points around the scene. If you drag the point onto part of the screen with no assemblies, then it will remain at the last valid location.The measuring points also have a display which can show the position of the point or the range of movement in each axis over the lifetime of the point. |
 | ![](/img/user-manual/chapter21/10.jpg) | This is the same dimension from a different angle. This time it shows the bounding box of the dimension. This is enabled in the properties window for the dimension.The red, green, and blue lines are drawn from a different position but show the same distances.The line of icons above the distance is a simple enable/disable of each of the distances. |
 
@@ -65,7 +65,7 @@ A measuring point is a single position (x, y, z) in the scene that is attached t
 
 You can display the absolute position of a measuring point and its range of movement since it was created.
 
-|     |                                                                                                                                                                                                                                                |                                                                                                                                                             |
+| Step | Action                                                                                                                                                                                                                                      | Image                                                                                                                                                     |
 |-----|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1   | Hover the cursor over a measuring point and click on it to select it. Once selected, the measuring point will be highlighted orange and a ‘+’ icon will appear below it. (Alternatively, you can select the measuring point in the tree view.) | ![](/img/user-manual/chapter21/13.jpg) |
 | 2   | Click on the ‘+’ icon to show the menu.                                                                                                                                                                                                        | ![](/img/user-manual/chapter21/14.jpg)                    |
@@ -117,10 +117,10 @@ To configure the Measuring Tool, open the Settings window (`F6`) and select **To
 
 | Setting | Description |
 | --- | --- |
-| Show Visuals | Show or hide all measuring points and their GUI’s in the scene. [default: true] |
-| Display Mode | Dynamic – show measurements with an appropriate unit for their length (i.e. 1300mm would be shown as 1.3m). [default]Base Unit – show measurements with a single unit, as defined by the Base Unit setting. |
-| Display Mode > Units | (This setting is shown when the Display Mode is set to Dynamic.)Metric – show measurements in millimetres, metres, and kilometres. [default]Imperial – show measurements in inches, feet, and miles. |
-| Display Mode > Base Unit | (This setting is shown when the Display Mode is set to Base Unit.)A single unit to show measurements in. There are 8 options:Millimetres (mm)Centimetres (cm)Metres (m) [default]Kilometres (km)Inches (in)Feet (ft)Yards (yd)Miles (mi) |
-| Precision | The number of significant figures to show for each measurement value. [default: 4] |
-| Snap Angle | The maximum angle in degrees at which a measurement is treated as if it is aligned to an axis (i.e. that axis will be hidden from the GUI). [default: 5.0] |
-| Snap To Vertex | By default, snapping only occurs when the Alt key is held down whilst dragging a measuring point. To enable it without having to press Alt, click Tools > Measuring > Snap To > Vertex in the Settings window. Pressing Alt will now disable snapping instead.The colour and size of the vertex markers can be configured from the Settings window under User Interface > Mouse > Snap.[default: false] |
+| Show Visuals | Show or hide all measuring points and their GUI’s in the scene. *[default: true]* |
+| Display Mode | <ul><li>**Dynamic** – show measurements with an appropriate unit for their length (i.e. 1300mm would be shown as 1.3m). *[default]* </li><li>**Base Unit** – show measurements with a single unit, as defined by the Base Unit setting.</li></ul> |
+| Display Mode > Units | (This setting is shown when the Display Mode is set to Dynamic.)<ul><li>**Metric** – show measurements in millimetres, metres, and kilometres. *[default]* </li><li>**Imperial** – show measurements in inches, feet, and miles.</li></ul> |
+| Display Mode > Base Unit | (This setting is shown when the Display Mode is set to Base Unit.)<br/>A single unit to show measurements in. There are 8 options: <ul><li>**Millimetres (mm)**</li><li>**Centimetres (cm)**</li><li>**Metres (m)** *[default]*</li><li>**Kilometres (km)**</li><li>**Inches (in)**</li><li>**Feet (ft)**</li><li>**Yards (yd)**</li><li>**Miles (mi)**</li></ul> |
+| Precision | The number of significant figures to show for each measurement value. *[default: 4]* |
+| Snap Angle | The maximum angle in degrees at which a measurement is treated as if it is aligned to an axis (i.e. that axis will be hidden from the GUI). *[default: 5.0]* |
+| Snap To Vertex | By default, snapping only occurs when the Alt key is held down whilst dragging a measuring point. To enable it without having to press Alt, click **Tools** > **Measuring** > **Snap To** > **Vertex** in the Settings window. Pressing `Alt` will now disable snapping instead. The colour and size of the vertex markers can be configured from the Settings window under **User Interface** > **Mouse** > **Snap**. <br/>![](/img/user-manual/chapter21/20.jpg)<br/> *[default: false]* |
