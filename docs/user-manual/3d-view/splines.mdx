@@ -44,17 +44,17 @@ The spline will be automatically snapped to surfaces when it is dragged whilst t
 
 | Property | Description |
 |----------|-------------|
-| Enabled | Whether or not to render the spline in the scene. *\[default: true\]* |
-| Transform | The position, rotation and scale to apply to the spline. *\[default: identity\]* |
-| Draw Mode | Whether to render the spline as a line or tube in the scene. *\[default: Line\]* |
-| Sides | If in tube mode, the number of sides to apply to the tube geometry. Increase this value to make the tube smoother. *\[default: 16\]* |
-| UV Mode | Controls how textures repeat along the length of the spline. There are 3 options: - **Per segment** - Textures are scaled to fit each segment. *\[default\]* - **Whole spline** - Textures are scaled to fit the whole spline. **Length** - Textures are scaled with the physical length of the spline. |
-| UV Scale | Adjusts the scale of the textures applied to the spline. *\[default: 1.0, 1.0\]* | 
-| Thickness | The thickness of the spline path. This will be in pixels if the Draw Mode is Line or in centimetres if the Draw Mode is Tube. *\[default: 1.0\]* |
-| Subdivisions | The number of interpolated points between each pair of knots. *\[default: 10\]* |
-| Material | The material to apply to the spline. *\[default: none\]* |
-| Closed | Whether to render a segment of the spline between the first and last knots. *\[default: true\]* |
-| Shadow Caster | Whether or not the spline casts a shadow. *\[default: false\]* |
+| Enabled | Whether or not to render the spline in the scene. *[default: true]* |
+| Transform | The position, rotation and scale to apply to the spline. *[default: identity]* |
+| Draw Mode | Whether to render the spline as a line or tube in the scene. *[default: Line]* |
+| Sides | If in tube mode, the number of sides to apply to the tube geometry. Increase this value to make the tube smoother. *[default: 16]* |
+| UV Mode | Controls how textures repeat along the length of the spline. There are 3 options: - **Per segment** - Textures are scaled to fit each segment. *[default]* - **Whole spline** - Textures are scaled to fit the whole spline. **Length** - Textures are scaled with the physical length of the spline. |
+| UV Scale | Adjusts the scale of the textures applied to the spline. *[default: 1.0, 1.0]* | 
+| Thickness | The thickness of the spline path. This will be in pixels if the Draw Mode is Line or in centimetres if the Draw Mode is Tube. *[default: 1.0]* |
+| Subdivisions | The number of interpolated points between each pair of knots. *[default: 10]* |
+| Material | The material to apply to the spline. *[default: none]* |
+| Closed | Whether to render a segment of the spline between the first and last knots. *[default: true]* |
+| Shadow Caster | Whether or not the spline casts a shadow. *[default: false]* |
 
 #### Knot
 
@@ -62,11 +62,11 @@ The spline will be automatically snapped to surfaces when it is dragged whilst t
 
 | Property | Description |
 |----------|-------------|
-| Transform | The position, rotation and scale to apply to the knot. *\[default: identity\]* |
-| Interpolation | The method used to generate the curve at this knot. There are five options: - **Auto** - Generates a smooth curve. *\[default\]* - **Corner** - Generates a sharp corner. - **Bezier** - Generates a curve using the handle positions. - **Bezier Corner** - Generates a curve or corner using the handle positions. - **Auto (round)** - Generates a more rounded curve, which is good for approximating circles or ellipses. |
-| Handle 1 | Controls the direction of the curve between this knot and the previous one. *\[default: 0, 0, 0\]* |
-| Handle 2 | Controls the direction of the curve between this knot and the next one. *\[default: 0, 0, 0\]* |
-| Mirror Handles | Keep the Bezier handles the same distance from the knot as each other. *\[default: False\]* | 
+| Transform | The position, rotation and scale to apply to the knot. *[default: identity]* |
+| Interpolation | The method used to generate the curve at this knot. There are five options: - **Auto** - Generates a smooth curve. *[default]* - **Corner** - Generates a sharp corner. - **Bezier** - Generates a curve using the handle positions. - **Bezier Corner** - Generates a curve or corner using the handle positions. - **Auto (round)** - Generates a more rounded curve, which is good for approximating circles or ellipses. |
+| Handle 1 | Controls the direction of the curve between this knot and the previous one. *[default: 0, 0, 0]* |
+| Handle 2 | Controls the direction of the curve between this knot and the next one. *[default: 0, 0, 0]* |
+| Mirror Handles | Keep the Bezier handles the same distance from the knot as each other. *[default: False]* | 
 
 ## Curvature
 
