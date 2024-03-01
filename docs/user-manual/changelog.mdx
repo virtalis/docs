@@ -39,11 +39,6 @@ sidebar_position: 2
 - FUS-3276 - Fixes issue with the auto-hide mouse setting not working when hovering over scene GUIs.
 - FUS-3356 - Fixes issue with the tracking configuration buttons being incorrectly greyed out at startup.
 
-#### Importers
-
-- FUS-3304 - Updates to the latest version of HOOPS Exchange (2024.1).
-- FUS-3339 - Fixes issue with models only rendering the first time they are imported.
-
 ---
 
 ## 2023.2
@@ -80,17 +75,6 @@ sidebar_position: 2
 - FUS-3172 - Prevents VIVE features from being enabled in other immersive modes as it was unnecessary and could affect the HoloLens 2.
 - FUS-3174 - Fixes issue with the Tracking/Configuration settings page sometimes missing settings.
 - FUS-3192 - Prevents the OpenXR visibility mask from interfering with occlusion culling.
-
-#### Importers
-
-- FUS-1837 - Fixes issue with HOOPS-based importers not preserving metadata structure.
-- FUS-2129 - Fixes memory leaks that could occur when importing metadata in various file formats.
-- FUS-2809 - Fixes issues with viewpoints and reimporting Simple Reps in the Creo importer.
-- FUS-3093 - Fixes issue with the Jt Importer not bringing in metadata for certain types of metanodes.
-- FUS-3134 - Adds a new importer for Autodesk Navisworks files.
-- FUS-3175 - Adds support for Creo View 10 files by updating the Creo View importer to use dAPI 20.0.
-- FUS-3201 - Updates to the latest version of HOOPS Exchange (2023 SP2 U1).
-- FUS-3202 - Improves performance of HOOPS-based importers in scenes with large numbers of models and improves performance of model instancing.
 
 ---
 
@@ -141,10 +125,6 @@ sidebar_position: 2
 - FUS-3136 - Fixes crash that could occur when a sphere collision object and a mesh collision object had identical positions.
 - FUS-3141 - Ensures the Display Sync setting is applied correctly when leaving immersive mode.
 
-#### Importers
-
-- FUS-3067 - Fixes issue with the Revit importer bringing in data at a 90 degree angle.
-
 ---
 
 ## 2022.3
@@ -178,7 +158,6 @@ sidebar_position: 2
 - FUS-2617 - Fixes a crash and inconsistent behaviour in the Animation Sequencer due to scaling handles not being deleted.
 - FUS-2706 - Fixes 'Remove from Group' option not being added to the context menu correctly.
 - FUS-2712 - Ensures that Lua variables created by dragging and dropping nodes into the script editor always have unique names.
-- FUS-2714 - When reporting errors during import, excludes unrelated messages such as tracking errors.
 - FUS-2717 - Sets Assembly Constraint properties correctly when applying snapshots.
 - FUS-2770 - Fixes misaligned body parts when a Manikin is moved while disabled.
 - FUS-2771 - Fixes a crash in the Animation Sequencer when undoing while dragging.
@@ -186,13 +165,6 @@ sidebar_position: 2
 - FUS-2802 - Fixes incorrect relative paths in Point Cloud and Texture filenames after loading a file from an older version of Visionary Render.
 - FUS-2891 - Fixes incorrect lighting from reflection probes.
 - FUS-2896 - Reduces the amount of data sent when joining a collaboration.
-
-#### Importers
-
-- FUS-2786 - Updates to the latest version of dAPI.
-- FUS-2783 - Updates to the latest version of HOOPS Exchange (2022 SP2).
-- FUS-2787 - Updates Max Exporter to support the 2023 Max SDK.
-- FUS-2785 - Updates to the latest version of ODA.
 
 ---
 
@@ -229,10 +201,6 @@ sidebar_position: 2
 #### Fixed
 
 - FUS-2480 - Fixes a crash when Escape is pressed twice after changing the tracking mode while the Measuring Tool is enabled.
-
-#### Importers
-
-- FUS-2350 - Fixes a crash when using the Creo View importer on a fresh Windows 11 installation.
 
 ---
 
@@ -294,10 +262,6 @@ sidebar_position: 2
 - FUS-2401 - Fixes crash when manipulating a knot handle after changing tracking mode.
 - FUS-2404 - Helper markers can't be selected from above in a tracked environment.
 
-#### Importers
-
-- FUS-2191 - Updates the Revit importer to use HOOPS so that it is more up-to-date and reliable.
-
 ---
 
 ## 2021.3.1
@@ -335,15 +299,6 @@ sidebar_position: 2
 
 - FUS-2121 - Fixes issue where the Hololens 2 doesn't receive the depth buffer via Holographic Remoting.
 - FUS-2198 - Updates the Microsoft Visual C++ redistributables in the Visionary Render and GeoVisionary installers.
-
-#### Importers
-
-- FUS-1802 - Fixes issue where Creo files could fail to read with error code -10007.
-- FUS-1941 - Updates to the latest version of ODA.
-- FUS-1942 - Updates to the latest version of HOOPS Exchange (2021 Update 2).
-- FUS-1944 - Updates Max Exporter to support the 2022 Max SDK.
-- FUS-1945 - Updates to the latest version of dAPI.
-- FUS-2094 - Updates to the latest version of JTOPEN.
 
 ---
 
@@ -433,15 +388,6 @@ sidebar_position: 2
 - FUS-1901 - Fixes a crash when the scene is saved by right-clicking on the Scenes node and choosing 'Save Selection'.
 - FUS-1916 - Fixes a crash that could occur when opening multiple animated pointcloud projects.
 
-#### Importers
-
-- FUS-1656 - Fixes an issue with the HOOPS importers failing on German language PCs.
-- FUS-1759 - Fixes an issue that could cause HOOPS importers to generate duplicate materials.
-- FUS-1780 - Fixes an issue with the KML importer not loading in Visionary Render.
-- FUS-1787 - Improves an error message when HOOPS importers fail to import.
-- FUS-1798 - Fixes an issue with a Jt file failing to import.
-- FUS-1818 - Updates HOOPS importers to the latest HOOPS Exchange 2021 API.
-
 ---
 
 ## 2020.3
@@ -465,7 +411,6 @@ sidebar_position: 2
 - FUS-1549 - Fixes an issue with the network cache not being used unless the -net-enable option is on the command line.
 - FUS-1596 - Fixes a memory leak in the Oculus avatar.
 - FUS-1524 - Fixes an issue where the application would appear to be unresponsive while joining a collaboration. The progress display is now shown while the connection is being established.
-- FUS-1562 - Fixes an issue where the recipe file path would not be passed to importers using the C or Lua plugin APIs. Adds a -recipefile command line option so that a custom recipe file can be specified for command line imports.
 - FUS-1565 - Fixes an issue where connecting the view with a collaborator while using a custom view config could result in a blank view after the application is restarted. (FD500)
 - FUS-1716 - Stops the position being repeatedly reset when the touchpad on a tracked controller is used to move a grabbed object relative to the hand.
 - FUS-1662 - Fixes an error when creating a MetaData Container from the context menu in the tree views.
@@ -476,14 +421,6 @@ sidebar_position: 2
 - FUS-1736 - Fixes an issue with the full-body avatar's arms not following the tracked hands. (FD9547)
 - FUS-1753 - Fixes a crash when a zero-length camera animation is triggered, e.g. when skipping between annotations if the "Viewpoint Animation" option is set to "Fly".
 - FUS-1757 - Fixes an occasional crash that could occur when running Visionary Render with a floating license.
-
-#### Importers
-
-- FUS-1127 - Updates Creo View importer to 17.0 API for Creo 7 format.
-- FUS-1528 - Updates Bim Revit (rvt) importer to 2021.6 API.
-- FUS-1530 - Updates Drawing (dwg) and Design (dgn) importers to 2021.6 API.
-- FUS-1251 - Updates CAD importers to 2020 SP2 U1 API.
-- FUS-1479 - Fixes an issue with the Creo View Importer missing objects when sub-elements are stored in sub-folders.
 
 ---
 
@@ -527,12 +464,6 @@ sidebar_position: 2
 - FUS-1496 - Improves application startup speed by reducing loading of asset files.
 - FUS-1503 - Reduces reloading of files when changing tracking modes.
 - FUS-1531 - Fixes lower than expected performance in the start room due to HDR being enabled in low-quality mode.
-
-#### Importers
-
-- FUS-1273 - Vendor API used for Revit Importer is updated to Oda BimRv 2021.2 (build 21.2).
-- FUS-1317 - Vendor API used for Drawing and Design Importers is updated to Oda Drawing 2021.2 (build 21.2).
-- FUS-1478 - Supports decompressing subfolders in .pvz format files.
 
 ---
 
@@ -602,15 +533,6 @@ sidebar_position: 2
 - FUS-78 - Prevents the Space Mouse from being able to fly the camera far away when erroneous values are received.
 - FUS-36 - Fixes issue with depth buffer based view filters not working with MSAA.
 
-#### Importers
-
-- FUS-1111 - Updates HOOPS importers to generate error messages alongside error codes.
-- FUS-1110 - Permits files with unicode characters in their name/path to be imported.
-- FUS-1106 - Updates importers based on Jt Open toolkit to latest 10.5.2 version.
-- FUS-429 - Updates the HOOPS API to HOOPS Exchange 2020.
-- FUS-395 - Updates the API to support Inventor 2020 files.
-- FUS-333 - Updates Teigha importers to ODA 2020.1, which supports Revit 2020 and the latest DWG/DGN formats.
-
 ---
 
 ## 2019.5
@@ -657,30 +579,18 @@ sidebar_position: 2
 - FUS-310 - Fixes issue causing plugin installation via the settings window to silently fail under certain circumstances.
 - FUS-309 - Fixes flickering object bug with occlusion culling enabled.
 - FUS-304 - Fixes point cloud rendering when overlapped culling is enabled. (FD856)
-- FUS-303 - Fixes issue with importer and exporter Lua plugins reporting a not found error when operations are successful.
 - FUS-285 - Marks the node in the tree if the version is different from the expected version.
 - FUS-283 - Fixes the animation on rollout expander. (FD858, FD875)
 - FUS-277 - Fixes Crash when Stereo3D is enabled with occlusion culling on.
 - FUS-276 - Fixes issue with View Widget spin boxes ignoring the Editor Step Size setting.
 - FUS-272 - Updates Baked Lighting property caption and tooltip to clarify what it is. (FD366)
 - FUS-255 - Fixes crash that could occur on a cluster when loading DocsPlugin.dll. (FD741)
-- FUS-252 - Makes various minor corrections to the Visionary Render manual, importer manuals and programming guide.
+- FUS-252 - Makes various minor corrections to the Visionary Render manual and programming guide.
 - FUS-243 - Prevents invalid characters from being accepted in filename text boxes.
 - FUS-222 - Fixes issue with one eye being out-of-sync when fading/teleporting in a HMD.
 - FUS-182 - Permits point clouds, markers and scene GUI to be clipped by dynamic sections. (FD382)
 - FUS-13 - Fixes crash that could occur on exit when a HMD is connected.
 - FUS-11 - Fixes issue with the Enable Pivot Visual setting in User Interface > Advanced not working on newly-created pivots. (FD350, FD404, FD422)
-
-#### Importers
-
-- FUS-499 - Removes support for importing Ogre files.
-- FUS-328 - Prevents errors from being generated when Visual nodes are created during an FBX import.
-- FUS-325 - Updates old screenshots in all importer manuals.
-- FUS-273 - Improves the display of metadata when an assembly has more than one attribute table node. These no longer appear as separate columns.
-- FUS-256 - Fixes crash that could occur when importing FBX files. (FD765)
-- FUS-221 - Fixes an issue that caused some of the metadata to be omitted when importing Creo View files. (FD431)
-- FUS-180 - Fixes issue with the Merge GeoGroups setting in the Creo View importer not optimising imports fully. (FD695)
-- FUS-108 - Updates HOOPS importers to use the latest API, 2019 SP2 U1. (FD877, FD878)
 
 ---
 
@@ -766,16 +676,6 @@ Visionary Render has been updated to reflect our new company brand identity.
 - DEV-1366 - Fixes issue with not being able to choose options in context menus on the zSpace, Fixes issue with windows continuing to be resized on the zSpace after the button is released, Fixes issue with the immersive context menu being shown on the zSpace when right-clicking on part of the GUI.
 - DEV-2003 - Updates the Oculus avatar to match the User Colour setting, fixes the orientation of the virtalis avatar's hands when using the oculus touch (FD166)
 
-#### Importers
-
-- DEV-1332 - Fixed ifx4 support in the IFC importer
-- DEV-1682 - Fixed problem with correct instatiation of the scene when same file imported twice
-- DEV-1100 - Fixes issue where importer user manuals were not being displayed.
-- DEV-1390 - Fixes issue where the UI would not scale correctly in the point cloud converter.
-- DEV-2199 - Recipe file to define one list of search paths and a flag to search recursively
-- DEV-2204 - Recipe gui factory reset button to save the recipe values to file
-- DEV-1771 - Update HOOPS importer to latest api release HOOPS Exchange 2019 SP1
-
 ---
 
 ## 2019.2
@@ -821,13 +721,11 @@ New version number convention: Year.Release
 
 - DEV-1274 - Fixes browser previews for particle systems
 - DEV-1019 - Fixes sky and probe reflections in SteamVR headsets
-- DEV-1420 - Fixes issue where clusters could get stuck with an import dialog box / modal overlay
 - DEV-1269 - Fixes a crash that could occur if an unexpected uniform type was encountered in a surface shader
 - DEV-1732 - Fixes issue with child visuals being added to groups in trees other than Scenes (NETSUITE CASE2007)
 - DEV-1241 - Fixes issue with joystick controllers moving relative to the camera instead of the direction in which the stick is pointing.
 - DEV-1419 - Fixes issue with Leap Motion not working in Desktop mode or with the Oculus HMD. (NETSUITE CASE1778)
 - DEV-1399 - Prevents the Iray license message box from appearing when dragging and dropping files onto Visionary Render.
-- DEV-1626 - Fixes a bug that prevented browsing to a license file when importing triggers a license dialogue
 - DEV-943 - Fixes bug where the snap home tool wouldn't work correctly with a child assembly with a PARENT constraint, as well as setting the local transform edit to be read only when PARENT constraint is used.
 - DEV-660 - Fixes a bug when using the Oculus Rift & Touch where an object would move if you tried to fly while holding it
 - DEV-1633 - Fixes rendering issues encountered when using dynamic sections on the HTC Vive, Microsoft Mixed Reality, and zSpace
@@ -841,16 +739,6 @@ New version number convention: Year.Release
 - DEV-1735 - Fixes issue preventing side-by-side stereo from working correctly
 - DEV-1715 - Fixes issue where video streaming settings could adversely affect the main viewport (NETSUITE CASE1997)
 - DEV-1494 - Fixes a crash when using the particle bursts UI on a cluster
-
-#### Importers
-
-- DEV-1523 - Fixed issue with importer merge functionality not being able to merge imports
-- DEV-1525 - Fixes issues with DWG materials appearing black
-- DEV-682 - Fixed problem of recipe values not passed correctly to the importer and ignoring user directives setup (NETSUITE CASE1785)
-- DEV-1702 - Fixed problem with inverted faces
-- DEV-1706 - Fixed sandbox working with cluster
-- DEV-1688 - Prevents superfluous network connections when using certain importers during a collaboration
-- DEV-1174 - Updates recipe metadata on imported data to use more efficient Attribute Tables
 
 ---
 
@@ -903,7 +791,6 @@ New version number convention: Year.Release
 - DEV-766 - Fixes issue where Lua Observers were not receiving callbacks. 
 - DEV-779 - Fixes issue where plugins would not display relevant progress messages. 
 - DEV-1035 - Fixes issue where the application would hang if a collaborator crashed. 
-- DEV-1051 - Fixes issue where the application would hang if an importer crashed. 
 - DEV-1148 - Fixes issue where unlocking a setting would not trigger a callback. 
 - DEV-1148 - Fixes issue where string setting overrides would trigger inappropriate callbacks. 
 - DEV-971 - Fixes issue with the Toolbar being hidden on a cluster when its show/hide windows button is clicked. 
@@ -921,26 +808,6 @@ New version number convention: Year.Release
 - DEV-1508 - Fixes a crash when using the "Toggle Information Display" option from the context menu for an annotation in the 3D scene. 
 - DEV-1504 - Fixes issue with textures not being pasted from the Windows clipboard into link pickers and a subsequent crash that could occur.
 - DEV-1537 - Fixes a crash after closing script editor tabs in some circumstances
-
-#### Importers
-
-- DEV-493 - OpenJT importer will can now import BREP information
-- DEV-431 - Fixes issue with empty scene due to active view for file not being able to catch triangulation. User can select from gui to override the active view and use Revit default 3d view instead
-- DEV-933 - Fixes bug where after using some importers, metadata meant for individual models would be placed incorrectly as a child of the geometry library rather than the model node. 
-- DEV-981 - Fixes bug with some importers where vertices with colour information were include in the same mesh as those without, they are now created using separate meshes. 
-- DEV-1078 - Fixes triangulation issue, by supporting face vertex buffer with multiple uv coordinates definition per vertex
-- DEV-1154 - Fixes issue where duplicate lods were created on models with multiple BREP elements on their structure
-- DEV-1276 - Fixes incorrect materials due to texture for the surfaces not being included in HOOPS global texture definitions. The texture was stored locally on the surface only, and the traverser is not creating new texture information, thus new material.
-- DEV-1154 - Fixes bug where BREP and LOD data imported by various importers would be duplicated if the Replace Character setting is used.
-- DEV-1079 - Fixes bug where if an inventor file contained a model with more than 120 individual attributes the importer would crash.
-- DEV-1267 - Fixes incorrect materials due to texture for the surfaces not being included in HOOPS global texture definitions.
-- DEV-431 - Fixes issue with empty scene due to active view for file not being able to catch triangulation. User can select from gui to override the active view and use Revit default 3d view instead 
-- DEV-1300 - Fixes issue with z-up recipe directive to correctly use the Z coordinate for altitude
-- DEV-1405 - Fixed duplicate lods and metadata on models
-- DEV-1336 - All importers now use a unified method to handle metadata; attribute tables. These are split into multiple tables if metadata list is large.
-- DEV-1518 - Fixed issue generated when empty attribute tables are attempted to be created and ensured that attribute tables are split before reaching MAX_PROPERTIES limit (NETSUITE CASE1936)
-- DEV-1373 - Fix FBX importer corrupting embedded textures (NETSUITE CASE1908)
-- DEV-1331 - HOOPS based importers updated to use latest HOOPS api 2018sp2 u2
 
 ---
 
@@ -981,7 +848,6 @@ New version number convention: Year.Release
 - DEV-645 - Disables server configuration in the gallery until such a system is available
 - #13857 - Changes the back-end Lua engine from Lua 5.1 to LuaJIT, which is fully 5.1 compatible and provides performance improvements and some compatibility with Lua 5.2 features
 - #14079 - Improves the behaviour and responsiveness of the touch screen navigation and manipulation tools
-- #3476 - Automatically displays the file browse dialogue when performing an Import -> VRText / VRNative operation from the main menu
 - #14341 - Empty gallery categories are no longer displayed in the gallery tile view (but are still available on the context menu)
 - #13947 - Video Streaming settings toolbar button now opens the Video Streaming tab of the Screen Capture settings
 - #13968 - Plane and Disc geometric shapes now have Cull Face set to 'None' by default
@@ -1009,7 +875,6 @@ New version number convention: Year.Release
 - DEV-242 - Fixes issue preventing the user form flying up or down using the ART and pointing the controller up and moving the joystick. (NETSUITE CASE1798)
 - DEV-327 - Fixes markers style visual updates being delays
 - DEV-340 - Fixes visual for hand when using ART tracking
-- DEV-431 - Fixes crash when importing Revit
 - DEV-536 - Prevents SteamVR from closing Visionary Render when an HMD enters sleep mode
 - DEV-557 - Fixes file corruption when saving files from older versions of Visionary Render
 - DEV-701 - Fixes minimum pointcloud point size
@@ -1048,7 +913,6 @@ New version number convention: Year.Release
 - DEV-527 - Fixes crash that could occur when starting a cluster
 - DEV-532 - Fixes crash when compressing a texture
 - DEV-593 - Fixes camera position being reset when enabling an avatar
-- DEV-618 - Fixes file extension when choosing Save As following an import
 - DEV-624 - Fixed gallery menu corruption when switching between Category and Folder views
 - DEV-625 - Fixes immersive context menu materials tab
 - DEV-627 - Fixes immersive context menu disable control
@@ -1058,7 +922,6 @@ New version number convention: Year.Release
 - DEV-684 - Fixes issue causing the sun to appear black
 - DEV-715 - Fixes issue preventing gradients from being previewed in the Gallery
 - DEV-764 - Fixes issue causing all shape creation from the immersive context menu to be undone in one single step when pressing Undo
-- DEV-792 - Fixes issue with "Import" file dialogue being empty on cluster slaves
 - DEV-808 - Fixes a crash when custom size fields in the Ray Tracer window are set to zero
 - DEV-811 - Fixes issue where Gallery is showing duplicate suggested categories from GalleryCategoryMenu when there's a multiple selection.
 - DEV-815 - Fixes issue where the Raytracer Save As dialog box naming feild is auto populated with the wrong extension to its actual saved format.
@@ -1201,18 +1064,6 @@ New version number convention: Year.Release
 - #13856 - Fixes issues relating to IRay matrices
 - #14487 - Fixes crash that could occur when dropping content from the Gallery
 
-#### Importers
-
-- DEV-427 - Fixes issue where Inventor 2019 data was not being imported (NETSUITE CASE1812)
-- DEV-275 - Provides an isolated environment for importer plugins which greatly increases the stability of import operations
-- DEV-426 - Fixes a crash in the OpenJT importer when importing scenes with large amounts of metadata
-- DEV-482 - Fixes an issue in the DGN, DWG, and Revit importers where curve information on a floorplan scene would be missing
-- DEV-487 - Fixes issue in the OpenJT importer which caused it to create multiple metadata attribute tables on the scene root
-- DEV-671 - Updates to HOOPS version 2018 SP2 U1
-- DEV-731 - Fixes a crash in the Revit importer when importing files files with the 'Scene Hierarchy: Elements' option enabled
-- #13958 - Fixes issue in Creo importer recipe settings, where the tessellation level dropdown box would initially appear blank
-- #13957 - Fixes issue in Creo importer which caused to rotate imported objects incorrectly
-
 ---
 
 ## 2.0
@@ -1226,7 +1077,6 @@ New version number convention: Year.Release
 - #12007 - Adds Gradient Editor window. Gradients can be used interchangeably with textures when editing materials, etc
 - #2077 - Adds Lua state inspector, displaying global variables and coroutines
 - #11238 - Adds Rain controls to the renderer settings
-- #9076 - Adds Revit Importer, supporting geometry loading, hierarchy, unit conversion, scene metadata, materials, textures, manuals, and user specified tessellation
 - #11342 - Adds Search, Network and Review as individual windows, as the tools window has been removed
 - #10709 - Adds a 3D navigation widget displaying the view orientation using an axis, and also contains the preset view controls and body position controls
 - #10710 - Adds a Diagnostics window to replace parts of the tools window. This window unifies information such as view and tracking statistics, as well as Lua related information and general application logs
@@ -1262,7 +1112,6 @@ New version number convention: Year.Release
 - #11854 - Adds a handle offset property to Slider nodes
 - #8855 - Adds a histogram frame to help diagnose performance problems
 - #12340 - Adds a new set of cartoon avatars with configurable appearance
-- #5305 - Adds a new storage format for metadata called AttributeTables which improves import, load, and save speed, and provides a new user interface for viewing multiple selections containing metadata
 - #9136 - Adds a number of missing tooltips to context menu items
 - #10622 - Adds a troubleshooting section to the user manual
 - #12964 - Adds ability for link controls to rename their target nodes, and automatically present this for newly created targets
@@ -1291,10 +1140,8 @@ New version number convention: Year.Release
 - #11377 - Adds progress bar to saving and closing operations
 - #11449 - Adds settings for HDR minimum/maximum Lux to clamp the exposure in dark scenes with few lights
 - #12472 - Adds support for Oculus Dash
-- #8723 - Adds support for Unigraphics search paths allowing import to find referenced parts in specified locations (NETSUITE CASE864)
 - #3857 - Adds support for attribute queries in the advanced tree search query language
 - #12380 - Adds support for dragging video files from Windows and dropping them into the application to create a Movie node
-- #13034 - Adds support for multi-importer licenses
 - #12706 - Adds support for tooltips on 3D GUI objects
 - #11685 - Adds texture rotation controls to GUI styles involving textures
 - #8452 - Adds the ability for Lua to observe the internal transform hierarchy, providing notifications about changes to world transforms and enabled states
@@ -1338,11 +1185,10 @@ New version number convention: Year.Release
 - #9271 - Optimizes group snapshot storage - the presence of snapshots in the scene now contributes less to the overall memory and cpu usage
 - #12489 - Renames / clarifies some captions on Audio properties to better convey their purpose
 - #12299 - Replaces references to HTC Vive with Steam VR, as this interface also provides support for other types of headset
-- #10473 - Simplifies imported tree structures
 - #9863 - Unifies application and context menu internals so that context menu options may trigger the same types of events as main menus
 - #6711 - Updates the application graphical style to fit more closely with Windows 10 / Metro
 - #11032 - Updates the application splash screen
-- #9401 - Visionary Render and Importer Plugins are now exclusively 64-bit
+- #9401 - Visionary Render is now exclusively 64-bit
 - #10869 - Limits the number of viewports in a view configuration to 4, with additional ones unlocked with additional licenses
 - #10577 - All custom viewconfiguration files now require an Immersive feature to be loaded
 
@@ -1359,9 +1205,7 @@ New version number convention: Year.Release
 
 #### Fixed
 
-- #8993 - Fixes a crash in a collaboration when selecting an importer from another user's tree, which is not installed locally
 - #8914 - Fixes a crash when attempting to load a scene from the command line in a cluster
-- #12361 - Fixes a number of crashes resulting from inadvertently deleting important system nodes. All of these are now protected from deletion.
 - #8945 - Fixes annotation ordering issue when undoing an annotation deletion
 - #9428 - Fixes issue in texture properties where the compress button would appear for formats that cannot be compressed
 - #10399 - Fixes issue preventing Geometric Shape -> Room from being created in front of the camera
@@ -1410,8 +1254,6 @@ New version number convention: Year.Release
 - #13037 - Fixes issues rendering point clouds in stereo over large cluster viewport configurations (NETSUITE CASE1606)
 - #13219 - Fixes issue with file dialog filter when choosing movie files
 - #13490 - Fixes a crash caused by deleting a snapshot
-- #13636 - Fixes an issue in the Object importer causing construction planes to appear incorrectly
-- #14512 - Fixes a crash when importing some CreoView ol files
 - #14515 - Fixes a crash when loading a scene with a combination of probes and other render effects
 
 ---
@@ -1427,8 +1269,6 @@ New version number convention: Year.Release
 #### Fixed
 
 - #12740 - Fixes a crash when closing a scene and opening another one
-- #12805 - Fixes a crash when importing multiple VRML files
-- #12875 - Fixes a crash when importing some CreoView files
 - #12743 - Fixes issue preventing clash detection working with tracked hands
 - #10586 - Fixes issue preventing the loading of some WAV files
 - #12836 - Fixes issue preventing transformation of GUI Stacks in fixed size mode (NETSUITE CASE1588)
@@ -1436,7 +1276,6 @@ New version number convention: Year.Release
 - #12442 - Fixes issue where cluster windows would not always be brought to the top at startup (NETSUITE CASE1458 and CASE1493)
 - #12972 - Fixes issue where start room menu would be offset (NETSUITE CASE1143)
 - #13179 - Fixes issue where untracked avatars in collaboration sessions were not casting shadows
-- #12799 - Fixes issues loading some importer libraries
 
 ---
 
@@ -1448,29 +1287,16 @@ New version number convention: Year.Release
 
 - #11888 - Fixes a number of crashes caused by using Lua to set various setting values outside of the expected range
 - #12342 - Fixes crash when providing invalid time format specifiers to `os.date` in a Lua script
-- #10780 - Fixes crash when undoing after an import and merge operation
 - #12310 - Fixes issue preventing skinned characters from working
-- #12298 - Fixes issue with missing override materials in the Division importer (NETSUITE CASE1222)
-- #10887 - Fixes issue with visibility rules not being assigned correctly in the Unigraphics importer
-
-#### Importers
-
-- #12123 - HOOPS API upgrade to HOOPS Exchange 2018
-
 ---
 
 ## 1.3.5
 
 *Released 2017-10-17*
 
-#### Added
-
-- #10898 - Adds warning message to Division Importer when attempting to import unsupported legacy VDI formats
-
 #### Changed
 
 - #11520 - Automatic change recorder groups are now only saved into overlay scenes
-- #6127 - Replaces target "Unit" importer recipe option with "CAD File Unit" - Defaults to "Auto", using units detected from the file (previous behaviour)
 
 #### Removed
 
@@ -1478,27 +1304,16 @@ New version number convention: Year.Release
 
 #### Fixed
 
-- #11030 - Fixes DWG importer crash
 - #11029 - Fixes a crash in the sequencer when multi-selecting over a sequence track that isn't linked to a sequence
-- #10578 - Fixes a crash when re-tesselation is enabled during import
-- #10989 - Fixes an issue causing a VCRedist error message to appear during FBX importer install (NETSUITE CASE1294)
 - #11391 - Fixes crash during cluster shutdown (NETSUITE CASE1402)
-- #11490 - Fixes forward compatibility issue preventing data imported by newer importers (3.20.0+ / VisRen 2.0+) from being migrated down to a compatible format
-- #10321 - Fixes issue importing some CreoView files (NETSUITE CASE1130)
-- #11114 - Fixes issue preventing .ase files from being imported (NETSUITE CASE1358)
 - #10976 - Fixes issue preventing the Vive lasers being turned off by the Tracking/Laser/Enabled setting
-- #11070 - Fixes issue preventing the user specified units recipe option from working in some importers (NETSUITE CASE1343)
-- #11478 - Fixes issue where clicking on the main "Import" button on the file menu (rather than an individual importer) would have no effect. It now correctly triggers a browse dialog for all importable files.
 - #10794 - Fixes issue where default video streaming password was not being accepted (NETSUITE CASE1401)
-- #11083 - Fixes issue where importer assigns incorrect materials to geogroups when the "Merge Geogroups" option is enabled
 - #11128 - Fixes issue where shadow maps would not be updated when deleting objects from the scene
 - #11065 - Fixes issue where the -noquerysave parameter had no effect (application always asked to save modified scenes)
 - #11028 - Fixes issue where the Vicon driver would block the application startup if the configured address is unreachable. Improves progress display during Vicon connection attempts (NETSUITE CASE1292)
 - #11048 - Fixes issue where the internal collision for an Event_Enter/Leave guard was visible, editable, but not saved. It is now hidden as was intended.
 - #9906 - Fixes issue with occlusion culling in configurations with multiple viewports (NETSUITE CASE1105)
 - #11416 - Fixes issue with toggle buttons in a cluster, causing them to be out of sync (NETSUITE CASE1409)
-- #11560 - Fixes issue with unit conversion during OpenJT import
-- #11390 - Fixes performance issue in some importers causing them to take significantly longer to import in some cases
 
 ---
 
@@ -1510,7 +1325,6 @@ New version number convention: Year.Release
 
 - #9759 - Adds documentation for the automatic change recorder.
 - #10599 - Adds support for HTC Vive Puck devices
-- #10905 - Adds ability for user to select to import visuals (representation items) as different nodes
 
 #### Removed
 
@@ -1519,21 +1333,14 @@ New version number convention: Year.Release
 #### Fixed
 
 - #10472 - Fixes issue where the HTC Vive controllers would not work when Vive Deskop Immersion mode was controlled by a scene override setting (NETSUITE CASE1005)
-- #10477 - Fixes issue preventing CreoView importer from correctly importing construction elements
 - #10539 - Fixes issue where properties and settings windows would sometimes appear on cluster slaves, unable to be closed (NETSUITE CASE1192)
-- #10655 - Fixes compatibility issue where migrations were not being run on data imported by old importers
 - #10702 - Fixes crashes when collaborating on large datasets
 - #10748 - Fixes issue where the sequencer context menu was not displaying all available options (NETSUITE CASE1266)
 - #10752 - Fixes issues with missing Vive controller / base station geometry
 - #10807 - Fixes issue with fly-to in the HTC Vive (NETSUITE CASE1240)
 - #10884 - Fixes problem with material assignment on objects, by using material stored at visual item space (NETSUITE CASE0790)
 - #10904 - Fixes issue on missing RefSet metadata by adding Unigraphics specific entities attributes to metadata sets. Also adds metadata to new entities sub-components for entity references (NETSUITE CASE0790)
-- #10913 - Fixes issue where importer would add ';refset...' to assembly names (NETSUITE CASE0790)
 - #9335 - Fixes issue on Nvidia Optimus systems where the application would not always choose the Nvidia card as its graphics accelerator
-
-#### Importers
-
-- #10910 - HOOPS API upgrade to HOOPS Exchange 2017 SP2 U1
 
 ---
 
@@ -1548,24 +1355,16 @@ New version number convention: Year.Release
 #### Changed
 
 - #10383 - Improves the ability to load files which were saved out of newer versions of Visionary Render. A dialog will appear warning about the potential loss of data and lack of new version features.
-- #9585 - Improves the library structure of imported files allowing better support for non-monolithic scenes
 - #9947 - Moves the Hidden Area Stencil property from the OpenVRViewport to a setting in the Desktop Immersion section of the Settings window. It now also defaults to off.
 - #8943 - The Sequencer now uses the minimum bound instead of the centre of dragged animations and sequence tracks to pan the track view (NETSUITE CASE686)
 
-#### Removed
-
-- #9753 - Removes unused recipe entry from importer entity filters until a future version implements it
-
 #### Fixed
 
-- #9748 - Fixes a crash in Object Importer when encountering unsupported texture types (NETSUITE CASE1104)
-- #9662 - Fixes a model instancing issue in the Division Importer (NETSUITE CASE1088)
 - #9987 - Fixes an issue where the view statistics primitive count could overflow, leading to incorrect values being displayed
 - #9734 - Fixes an occasional crash when starting a new scene while sequencer scene visuals are enabled
 - #9592 - Fixes documentation issue regarding the 'file|' prefix for app commands that can accept multiple parameters
 - #9915 - Fixes issue assigning default materials to faces that have no colour information, uses face general attributes information for colour instead (does not apply to IFC) (NETSUITE CASE1133)
-- #10297 - Fixes issue in license server where features were being matched case-insensitively, and fixes an issue where an importer may use multiple floating license seats
-- #10354 - Fixes issue preventing drag/drop import of files, due to the 'visren_import_data' command now requiring a 'file|' prefix when specifying a file as a parameter (NETSUITE CASE1157)
+- #10297 - Fixes issue in license server where features were being matched case-insensitively
 - #9855 - Fixes issue preventing the CreoView plugin from working with side-by-side Visionary Render installations
 - #9735 - Fixes issue where animations and frames would move when selected in the sequencer track view
 - #9841 - Fixes issue where sequencer track view items would only be dragged if they were on the current page when the drag operation began (NETSUITE CASE1119)
@@ -1577,21 +1376,12 @@ New version number convention: Year.Release
 - #10373 - Fixes issues where resizing, moving, or minimising a cluster window would result in the rest of the cluster becoming unresponsive (NETSUITE CASE1166)
 - #9766 - Fixes the display of the multisample setting in the screen capture tool
 - #9765 - Fixes the input range of the screen capture Image Quality setting to limit it between 0 and 100
-- #9581 - Fixes the wording of FBX Importer entity filters to say 'Import' instead of 'Export'
-
-#### Importers
-
-- #9704 - Updates HOOPS to 2017 SP1
 
 ---
 
 ## 1.3.2
 
 *Released 2017-03-24*
-
-#### Added
-
-- #9081 - Adds wire-frame support to the following importers: U3D, Parasolid, Unigraphics, Jt, Step, CatiaV5, CatiaV6, Inventor, Solidworks, Solidedge, 3DPDF, VRML, STL, Rhino, Iges, Ideas, Ifc, Creo, Acis
 
 #### Changed
 
@@ -1600,11 +1390,9 @@ New version number convention: Year.Release
 #### Fixed
 
 - #9520 - Fixes a crash in VRPN driver when reloading the config or quitting
-- #9040 - Fixes a crash when attempting to import corrupted CreoView pvz files
 - #9123 - Fixes a crash when pressing the Enter key in the browser
 - #9435 - Fixes a crash when the auto-record tool saves a snapshot containing pivot related nodes
 - #9023 - Fixes confusing setting option Avatar/Enabled "Always" - changes it to "When tracked or networked"
-- #9277 - Fixes issue in Division importer where lights were being moved under a LightList node rather than retaining their location in the CAD heirarchy
 - #9110 - Fixes issue preventing custom oculus tracker xml files from working
 - #8998 - Fixes issue preventing mapping of gestures to actions
 - #9367 - Fixes issue where Vive controller vibration output nodes were missing
@@ -1615,17 +1403,9 @@ New version number convention: Year.Release
 - #9127 - Fixes issue where scene-only settings were not removed from the user interface when closing the scene
 - #9216 - Fixes issue where some functions on math objects exposed to Lua would conflict with other metatable entries (e.g. .Scale vs scale())
 - #9015 - Fixes issue where the application would hang on startup if the previous session was using a HTC Vive that is no longer connected to the computer
-- #9356 - Fixes issue where the import progress bar could exceed 100%
 - #8762 - Fixes issue where the uninstaller executable would be left behind after uninstalling a side by side installation
-- #9087 - Fixes issue with handling of pre-installed importer licenses
 - #9119 - Fixes issue with view shader targets and colour space in de-ghost and red-cyan shaders
-- #9293 - Fixes issues causing some CAD data to be imported at the wrong scale
-- #9353 - Fixes issues with unit conversion during file import
 - #9281 - Fixes issues with vertex material colours and Jt material overrides
-
-#### Importers
-
-- #9075 - Updates to HOOPS exchange 2017 U2, a bug-fix release
 
 ---
 
@@ -1654,10 +1434,6 @@ New version number convention: Year.Release
 - #8714 - Fixes a crash relating to the tree view node rename popup
 - #8686 - Fixes a crash when flying to a viewpoint on a cluster
 - #8743 - Fixes a crash when placing multiple measuring points while holding the shift key
-- #8818 - Fixes a crash in Division Importer when importing VDI files containing empty tokens
-- #8682 - Fixes importer issue where a colour assigned to a representation item without being defined as a material was incorrectly overriding a parent material
-- #8680 - Fixes issue in CreoView importer where the behaviour of the "Ignore Metadata" recipe option was inverted
-- #8649 - Fixes issue in importers where geogroups would lock their materials when a Visual did not specify an override, preventing new materials from being applied
 - #8639 - Fixes issue when saving files to network paths
 - #8564 - Fixes issue where Edit Capture Settings would not roll out the first time
 - #8585 - Fixes issue where Lua functions vrNodeComposeLocalTransform and vrNodeDecomposeTransform would throw exceptions even if they were given perfectly valid matrices
@@ -1666,10 +1442,8 @@ New version number convention: Year.Release
 - #6640 - Fixes issue where cancelling a search would not respond immediately and continued to present new results
 - #8498 - Fixes issue where default materials could incorrectly override geogroup materials
 - #8761 - Fixes issue where disabling tracking while the immersive user interface was visible would cause the user interface to appear to lock up
-- #8654 - Fixes issue where dropping multiple image files at once into the application would result in only one of them being imported
 - #8683 - Fixes issue where enabling stereo would sometimes cause the spacemouse to stop working
 - #8519 - Fixes issue where haptic devices would not be detected
-- #8637 - Fixes issue where import progress would appear to hang instead of showing progress
 - #6526 - Fixes issue where merging archive name was edited with a multi-line text box
 - #6244 - Fixes issue where some scene overrides were not saved correctly
 - #8672 - Fixes issue where the FBX plugin installer would not install the correct vcredist
@@ -1701,10 +1475,6 @@ New version number convention: Year.Release
 - #8984 - Fixes issue where some scene overrides would not be applied immediately when added
 - #8987 - Fixes issue where cluster slaves which did not share the GUI would incorrectly summon windows file dialogs
 
-#### Importers
-
-- #8722 - Updates HOOPS to 2017 U1
-
 ---
 
 ## 1.3
@@ -1714,9 +1484,6 @@ New version number convention: Year.Release
 #### Added
 
 - #5206 - Desktop Immersion module now comes as a standard feature of Visionary Render
-- #5683 - A new FBX importer plugin is available, supporting FBX versions 2006 through 2017
-- #5911 - Adds importer plugin cross compatibility with future versions, starting with this release (1.3).
-- #7808 - Adds a new importer plugin version number convention, starting at version 3.13.0. All plugins version 3 and above are compatible with all versions of Visionary Render starting at 1.3.
 - #7507 - Adds Anti-Aliasing settings for use when Render Mode is set to 'Deferred'
 - #6857 - Adds Occlusion Culling, available in the Renderer settings
 - #4163 - Adds a new settings system with improved user interface and easier ways of interacting via snapshots and Lua scripts, and replacing the World node
@@ -1749,7 +1516,6 @@ New version number convention: Year.Release
 - #2846 - Adds a utility in the install directory for sending exit messages to cluster slaves in case of error with the main application
 - #5822 - Adds ability for sequence keyframe rotations to wrap around (e.g. 720 degrees rotates a target two full revolutions)
 - #3809 - Adds ability for textures to be dragged directly onto the scene background to set the skybox
-- #5758 - Adds ability to click on the "Import" root menu option to import any supported CAD data using any of the installed importers (similar to the CTRL + I behaviour)
 - #1982 - Adds ability to rename an event script in the action column by right clicking on it and selecting "Rename"
 - #4469 - Adds an Invert Normals geometry operator which works similarly to Invert Surfaces except that it does not invert the winding order
 - #4205 - Adds application setting to control the visibility of all annotation comments
@@ -1762,7 +1528,6 @@ New version number convention: Year.Release
 - #6408 - Adds feature to script editor which highlights other text matching that which is currently selected
 - #7794 - Adds functions for disabling / enabling stacking for all stackable frames, and adds auto minimizing functionality for all stackable frames which can also be enabled and disabled.
 - #2328 - Adds graphical indication on property rollout controls to indicate that they can be rolled up and down
-- #6697 - Adds importer setting to specify the default material colour to apply to imported objects that do not already have a material
 - #4047 - Adds inline editing controls to the Browser in list mode
 - #2028 - Adds keyboard shortcuts to trigger flying to the preset view (Top, Side, etc) - defaults are ALT+1 through ALT+9
 - #3977 - Adds new guard type for enter and leave events that can specify a radius to trigger the events when the camera is within range
@@ -1780,7 +1545,6 @@ New version number convention: Year.Release
 - #5800 - Adds support for dragging multiple selected assemblies into an annotation state at once
 - #4458 - Adds support for flying to point clouds
 - #3362 - Adds support for hyperlinks in metadata; CTRL + click opens the link in the default web browser
-- #4231 - Adds support to the Object Importer for OBJ files with double precision vertices
 - #4277 - Adds the ability to split multiple sequence tracks in the same operation
 - #2213 - Adds the application name and version to the license request dialog
 - #6802 - Adds transparency to the immersive GUI background to provide a visual indication of its edges while still being able to see the scene behind it. Configurable in tool settings.
@@ -1792,7 +1556,6 @@ New version number convention: Year.Release
 #### Changed
 
 - #6507 - Starting a cluster and loading custom view configurations using the -viewConfig shortcut parameter now requires an Immersive license
-- #6692 - The following importers now require an additional license "Techsoft": U3D, Parasolid, Unigraphics, Jt, Step, CatiaV5, CatiaV6, Inventor, Solidworks, Solidedge, 3DPDF, VRML, STL, Rhino, Iges, Ideas, Ifc, Creo, Acis
 - #6647 - Changes the behaviour of Double Click - it no longer directly shows the properties window. Configurable in settings.
 - #7045 - Changes the default value of the Dynamic Section Size on Drop setting to 'ON' so that sections perform better on large models
 - #6320 - Changes the full screen shortcut from CTRL + F to Alt + Enter - F11 remains unchanged
@@ -1802,7 +1565,6 @@ New version number convention: Year.Release
 - #6803 - Restores default joystick left/right operation to rotate instead of strafe
 - #5796 - Annotation comments are now stacked on the annotation marker instead of being separate, floating comments disconnected from the main annotation
 - #2826 - Attempting to use an expired license now presents a relevant error message instead of the generic invalid one
-- #6701 - CAD files can now be imported by dragging them into the main application window
 - #5498 - Clicking on lines in the script editor Drag/Drop section now selects those nodes where possible
 - #4199 - Double clicking on an annotation marker now toggles the visibility of its comments
 - #5781 - Expands the Visual Shadow Caster property to allow shadow casting based on GeoGroup settings, or forcing shadow caster (as per original checkbox behaviour)
@@ -1810,7 +1572,6 @@ New version number convention: Year.Release
 - #6197 - Geometry Operator controls on assembly properties are now hidden if there are no visuals anywhere under the selected assembly
 - #5873 - Hides the selection history container node from the User tree
 - #6448 - Improved audio file support, including additional support for .flac and .aif, as well as better support for .wav files
-- #5052 - Improves error reporting from importers, and presents a dialog box after importing if there were any issues.
 - #4501 - Improves performance of sequence playback
 - #6375 - Improves performance saving documents
 - #5361 - Improves performance when recording camera sequences
@@ -1828,8 +1589,6 @@ New version number convention: Year.Release
 - #2998 - Simplifies the Ambient Occlusion settings
 - #4202 - Single clicking an annotation marker while the Annotation window is open will select that annotation
 - #4336 - Splits sequencer "Show frames" option into "Show frames" for 2D and "Marker Visuals" for 3D
-- #6866 - Streamlines the way library nodes are created during import to avoid excessive nested libraries
-- #7321 - The File -> Import menu is now consistently sorted alphabetically
 - #4796 - The toolbox root node in the user tree is now protected and cannot be deleted
 - #3068 - Tweaks the wording of the light creation menu and sub-items
 
@@ -1853,9 +1612,7 @@ New version number convention: Year.Release
 - #5418 - Fixes crash when undoing the creation of events
 - #6192 - Fixes flickering issue with dynamic sections when capped sections are enabled
 - #4015 - Fixes issue causing in-scene scrollbar objects going out of sync on a cluster
-- #6059 - Fixes issue causing loss of precision when importing animation keyframes
 - #6438 - Fixes issue causing some images to be pasted with the wrong alignment ('wonky' images)
-- #6044 - Fixes issue in importer install scripts where an importer could not be uninstalled if Visionary Render had already been uninstalled
 - #2824 - Fixes issue invoking manual and displaying tooltips
 - #6884 - Fixes issue where Isolate would persist between different scenes
 - #2427 - Fixes issue where a Lua script call to find() could fail when searching for children of a node with the same name
@@ -1864,14 +1621,12 @@ New version number convention: Year.Release
 - #6031 - Fixes issue where annotation markers would lag behind their target object when that object was moved too quickly
 - #3837 - Fixes issue where auto indenting a script would add an unnecessary amount of undo entries, rather than just one
 - #5468 - Fixes issue where changes to view config nodes could not be undone
-- #7324 - Fixes issue where clicking the lowest most importer visible on a scrollable File -> Import list would cause the list to scroll to the next page, leaving the desired importer out of view.
 - #6222 - Fixes issue where creating successive nested Room geometric shapes would result in larger and larger rooms
 - #5828 - Fixes issue where dragging assemblies with filtered attributes from the scenes tree into link properties would fail
 - #6240 - Fixes issue where dynamic section opacity could be set to unreasonable values
-- #5934 - Fixes issue where importer metadata (version, date, etc) was not consistently named
 - #6366 - Fixes issue where in-scene keyframe markers would appear to "pop" when switching between sequences
 - #6357 - Fixes issue where isolating assemblies with measurements would incorrectly hide the dimensions
-- #8042 - Fixes issue where loading, importing, and saving files with unicode characters in the filenames was dependent on the system locale (e.g. a UK system could not operate on files with Chinese characters in the name)
+- #8042 - Fixes issue where loading and saving files with unicode characters in the filenames was dependent on the system locale (e.g. a UK system could not operate on files with Chinese characters in the name)
 - #5457 - Fixes issue where network connections would sometimes be highlighted red when they are in-fact successful
 - #6285 - Fixes issue where opening a script in the script editor could be undone, clearing the text editor
 - #6281 - Fixes issue where opening a script while the editor window was minimized would not restore it to display the script
@@ -1885,8 +1640,6 @@ New version number convention: Year.Release
 - #4487 - Fixes issue where some spot light properties could be set to values outside of acceptable ranges
 - #4795 - Fixes issue where specifying a non-existant toolbox on the command line would result in no tools being available at all. It now falls back to the defaults
 - #4339 - Fixes issue where splitting a sequence was not inserting keyframes at the split time
-- #7323 - Fixes issue where subsequent CreoView imports in the same instance of Visionary Render would not be given a default material
-- #7340 - Fixes issue where textures imported by some importers would end up being given filenames containing UUIDs that were different every time the file was imported
 - #6087 - Fixes issue where the Lua auto-complete list in the script editor was inconsistent between cluster slaves
 - #6247 - Fixes issue where the gesture recording interface was usable when there was no tracking input to record
 - #3872 - Fixes issue where the texture instance count in the browser was not counting some types of instances
@@ -1896,12 +1649,7 @@ New version number convention: Year.Release
 - #5864 - Fixes issue with actions not executing when they should during playback.
 - #6132 - Fixes issue with dragging nodes into long scripts that was preventing the dropped entry from being selected correctly
 - #5151 - Fixes issue with the geometric shape / cone normals
-- #5760 - Fixes issue with wobbling visuals after importing DWG files containing data at geographic scale
 - #6035 - Fixes some performance issues when resizing text controls containing a lot of text
-
-#### Importers
-
-- #7970 - Updated to HOOPS 2016 SP2 Update 2
 
 ---
 
@@ -1911,12 +1659,9 @@ New version number convention: Year.Release
 
 #### Fixed
 
-- #7843 - Fixes a crash when importing CreoView files that use relative paths to external references
 - #7878 - Fixes a crash when inputting a very long line into the advanced search control
 - #7613 - Fixes a crash when loading a scene containing invalid or corrupt texture data
 - #7519 - Fixes an issue where the application installer would uninstall a previous version before confirmation of the new installation was provided
-- #7830 - Fixes issue where importer uninstallers triggered during upgrades would unintentionally remove the Visionary Render data directory contents and prevent it from starting
-- #7814 - Fixes issue where importer uninstallers would not remove the importer files
 - #7712 - Fixes issue where the tracked mouse control tool did not function correctly in multi-sided cluster environments
 - #5367 - Fixes issue where tracked manipulation of objects constraint with the 'Parent' constraint mode would cause the objects to fly off unexpectedly
 - #7799 - Fixes issue with recipe files not being found when using the -documentDir parameter when launching Visionary Render
@@ -1934,30 +1679,22 @@ New version number convention: Year.Release
 
 #### Changed
 
-- #6588 - Improves vague warning "Could not link model to visual" with more information from the Division Importer
 - #7059 - Speeds up loading of VRText/VRNative files, which is especially noticeable when loading very large files
 
 #### Fixed
 
-- #7417 - Fixes a crash during subsequent SolidWorks imports into the same Visionary Render instance
 - #6957 - Fixes a crash in the PRS manipulator
 - #6989 - Fixes a crash involving deleting unused assets when the scene had contained pivots
 - #6956 - Fixes a crash that could be caused by loading a file with invalid measurement dimensions
 - #7060 - Fixes a crash when using a combination of finger tracking and a flystick at the same time
-- #6939 - Fixes issue in importers where some files with unicode characters in file names would fail to load
 - #6997 - Fixes issue modifying pivots on a cluster
 - #6101 - Fixes issue where Visionary Render running in fullscreen mode on Windows 7 would prevent TeamViewer from being able to transmit data to the support team
 - #7466 - Fixes issue where avatar arms would appear in the wrong place during collaboration
 - #6478 - Fixes issue where delete unused assets would not work on the library root node
 - #3361 - Fixes issue where deleting unused assets would leave metadata behind
-- #7242 - Fixes issue where importing a Jt file would incorrectly set material overrides for some parts
 - #7316 - Fixes issue where the sequencer would behave incorrectly when dragging a track which was longer than the current visible time range
 - #7350 - Fixes issue where triggering a high resolution screen capture with the PrtScrn key would cause the application to hang
 - #7416 - Fixes problematic object reading due to unpacking uv inf from triangle strip surfaces
-
-#### Importers
-
-- #7244 - Updates HOOPS API to 2016 SP2
 
 ---
 
@@ -1975,16 +1712,13 @@ New version number convention: Year.Release
 
 - #6110 - Greatly improved overall rendering performance
 - #6665 - Lowers the memory overhead of loading scenes containing textures and sounds
-- #6023 - Improves performance of division importer
 - #5989 - Improves performance of script editor output window when there is a lot of text outside of the visible area
-- #6007 - Changes the re-tessellate importer option to a tessellation mode dropdown, with "analysis" and "visualisation" as options. The default value is "visualisation". Applies only to HOOPs based importers.
 - #6212 - Lua functions registered with vrAddNodeObserver and similar, now have valid __Script and __Self registers when called
 - #6386 - Updates Oculus SDK to version 1.3. The latest version of the Oculus runtime is required - there is no backward compatibility with previous Oculus runtime versions.
 
 #### Removed
 
 - #6648 - Removes unnecessary scroll bar on the browser filter dropdown menu
-- #6758 - Removes obsolete error message about missing light config files during import
 
 #### Fixed
 
@@ -1992,9 +1726,6 @@ New version number convention: Year.Release
 - #3259 - Fixes issue where loading a different audio file with an identical modified date as the one currently loaded did not work
 - #4330 - Fixes issue where CTRL + P would not toggle the properties window
 - #5745 - Fixes issue where cubemaps could not be applied correctly in a material's reflection map slot
-- #5894 - Fixes issue with template support in the division importer
-- #6157 - Fixes crash during import of PVS files containing large numbers of children
-- #6172 - Fixes a crash in the FBX importer when loading FBX2016 files
 - #6195 - Fixes issue where selecting an item near the bottom of the browser list would cause it to incorrectly scroll the list
 - #6198 - Fixes issue where the PRS manipulator toggle button on the immersive context menu was not functional
 - #6213 - Fixes issue where scene GUI buttons could be interacted with by pointing directly away from them
@@ -2006,33 +1737,24 @@ New version number convention: Year.Release
 - #6391 - Fixes an issue where black bars appeared during a render to texture when the texture size was greater than 1024
 - #6404 - Fixed a crash when Overlapped Cull is enabled
 - #6411 - Fixes issue where enabling ambient occlusion with an ocean present in the scene would result in visual distortion
-- #6445 - Fixes issue where some data imports would not preserve texture coordinates
-- #6531 - Fixes issue where some CreoView metadata was not being imported correctly
-- #6542 - Fixes a crash when using Import and Merge
 - #6580 - Fixes issue where changing guard conditions on events would not update the user interface immediately
 - #6586 - Fixes BadNodeID exception in the log when undoing the creation of a Room (Geometric Shape)
 - #6610 - Fixes issue where disabling any global application button mapping would cause the rest of the global buttons to stop working
 - #6637 - Fixes issue where using the screen capture tool with a custom output directory would not save the captures to disk
 - #6662 - Fixes collaboration issue in the start room where users selecting the Open button would trigger the dialogs for a different user
 - #6670 - Fixes issue where adding a skybox to a scene containing MovieScreen objects would cause the movies to render incorrectly
-- #6675 - Fixes an issue causing import failure for some CreoView PVZ files
-- #6694 - Fixes issue where materials imported from Creo would lose their shininess
 - #6735 - Fixes a typo on the tooltip for the Point Cloud LOD Scale property
 - #6743 - Fixes issues with the avatar arms bending unnaturally and obscuring the view of the scene
 - #6823 - Fixes issue where dragging a skybox from Windows Explorer into Visionary Render directly onto the Scenes Skybox property would result in a black skybox
-- #6825 - Fixes a crash when importing certain individual ol files with the CreoView importer
 - #6830 - Fixes issue where link picker controls would not scroll their dropdown contents to the currently selected item
 - #6860 - Fixes a crash when deleting a measuring point while dragging it
 - #6865 - Fixes an issue where using some geometry operators while the browser was displaying models in list mode caused some columns to reset to 0
-- #4941 - Fixes initialization issue in CreoView importer - recipe file should be regenerated manually using "Set as Defaults" in the importer settings
 - #5824 - Fixes write issues with recipe files stored in the application data directory by saving them in the documents directory instead
 - #5852 - Fixes issue in button mapper where bindings involving modifier keys would display as large numbers instead of the description of the keys
 - #5870 - Fixes audio playback issues in collaboration - all members of the collaboration will now correctly hear the sound when it is played
-- #5893 - Fixes issue in division importer where the DIVISIONPATH environment variable was not being used
 - #5920 - Fixes a crash reported during collaboration
 - #5950 - Fixes issue where the manipulator buttons in the edit tab were not connected to some of the tools
 - #5972 - Fixes issue where the toolbox would not be created if a non-existant toolbox was specified on the command line
-- #5994 - Fixes issue where a DWG import would not have the correct amount of normals
 - #6009 - Fixes issue where disabled annotations would not stay attached to the object they were created on
 - #6080 - Fixes issues with automatic tracking configuration reloading when the file is changed on disk
 - #6098 - Fixes an issue where moving an invisible Dynamic Section in the tree would cause it to become visible
@@ -2048,11 +1770,6 @@ New version number convention: Year.Release
 - #6453 - Fixes issue where toggling the visibility of some frames would not bring them into focus
 - #6809 - Fixes issue where camera movement would be interpreted as a gesture
 - #4331 - Fixes issue where undocking/docking tree view frames would result in incorrectly ordered tabs
-
-#### Importers
-
-- #6599 - Updates HOOPS API to 2016 version
-- #6027 - Updates Assimp to version 3.2
 
 ---
 
@@ -2093,12 +1810,8 @@ New version number convention: Year.Release
 - Adds VSync option to user settings.
 - Adds option for overlapped culling.
 - Adds finer control over hardware instancing.
-- Adds importer option to "Import and Merge", which passes the imported data through the merging system to avoid the step of having to save as VRText and then import that.
-- Adds an "Import Asset" option to the Browser context menu, providing a quick way of importing files.
-- Adds ability to import multiple files from a single command line / shortcut.
 - Adds more shapes to the Create -> Geometric Shape menu.
 - Adds Texture mapping and normal generation tools, as well as automatic height map and normal map tools.
-- Adds an FBX Importer.
 - Adds ability to optimise meshes from within the application.
 - Adds a new User Interface for scene and application settings, including a button mapping feature.
 - Adds an improved drag and drop interface, allowing tree items to be reordered.
@@ -2132,15 +1845,12 @@ New version number convention: Year.Release
 
 #### Changed
 
-- Implements faster import and improved Library handling for PTC VDI files.
-- Implements additional optimizations during CAD imports.
 - Double clicking in the tree now toggles a node's Enabled property, if it has one. The property window is now summoned by right clicking on the node and selecting "Show Properties".
 - Clicking on a link property (e.g. Visual->Material property) now selects the target instead of triggering the sibling dropdown. The dropdown is now triggered only by the arrow icon on the right of the control.
 - The icon of a library tree now reflects its contents.
 - Lua plugins are now automatically loaded from the Documents directory as well as the install directory.
 - Memory usage optimizations for very large scenes.
 - Significant application performance and stability improvements.
-- Improvements to various data format importers.
 
 ---
 
@@ -2159,4 +1869,3 @@ New version number convention: Year.Release
 
 - Various bug fixes and overall application performance and stability improvements.
 - Clearer access to application and scene settings.
-- Improvements to various data format importers.

@@ -84,6 +84,12 @@ const config = {
             position: 'left',
             label: 'Programming Guide',
           },
+          {
+            type: 'docSidebar',
+            sidebarId: 'importersSidebar',
+            position: 'left',
+            label: 'Importers',
+          },
         ],
       },
       footer: {
