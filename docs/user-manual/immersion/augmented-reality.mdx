@@ -94,6 +94,43 @@ Click on an ARMarker in the table to select it in the treeview and scene.
 | Size | The size of the visual helper for this marker (does not affect detection of markers). *[default: 0.15]* |
 | Match Tracked Marker | Whether to update the helper type and size when the corresponding marker is detected in the real world. *[default: true]* |
 
+## Reverse Connection Mode
+
+The Hololens has a reverse connection mode that permits you to connect to your machine from the HoloLens.
+
+### Setup
+
+1. Start Visionary Render and enable HoloLens mode.
+2. Press the Settings button in the HoloLens connection status window.
+3. In the settings window, change HoloLens Connection Mode to Listen. (Leave the HoloLens Listen IP box empty unless you experience problems due to your PC being connected to multiple networks.)
+4. Press the Generate QR code button in the HoloLens connection status window. This will generate a QR code containing ms-holographic-remoting://HOSTNAME where HOSTNAME is the name of your PC. Save and print the image.
+5. Put on the HoloLens and look at the printed QR code. You don’t need to start the Holographic Remote app first (but it will also work if you do).
+6. Either push the virtual button that appears or say “connect”.
+7. The HoloLens will now attempt to connect to the PC running Visionary Render.
+
+### Troubleshooting
+
+-	The firewall on the PC may need to be configured to allow incoming connections on ports 8265 and 8266.
+-	If the HoloLens cannot resolve the host name of the PC, you could try using its IP address instead. Generate a QR code containing ms-holographic-remoting://x.x.x.x where x.x.x.x is the IP address of the PC. The Generate QR code button doesn’t have an option for IP addresses yet but there are 3 alternatives:
+    - Put the link in the ID property of an ARMarker node and generate a QR code from the context menu. 
+    - Use the vrGenerateQRCodeFile Lua function (see the programming guide for more details).
+    - Use a third-party QR code generator.
+-	If the PC has multiple network adapters, you may need to specify which address to listen for connections on. You can see the list of local IP addresses in the Statistics section of the Network window after enabling networking. Determine which one is on the same network as the HoloLens and enter that into the HoloLens Listen IP setting.
+-	If you leave the Holographic Remoting app on the HoloLens and go back into it, it may still be trying to connect to the same address as before. If you need to revert to the normal connection mode, go to the home screen, find the Holographic Remoting cube, press ..., press X to close it, and then start it again.
+
+## Passthrough
+
+The HoloLens supports passthrough, which permits you to view the real world around you whilst still viewing your hologram.
+
+### Setup
+
+1. In the Oculus desktop app, go to Settings/Beta and enable “Developer runtime features” and “Pass-through over Oculus Link”.
+2. Start Quest Link on your headset.
+3. Start Visionary Render and switch to OpenXR mode.
+4. Load a scene or create some geometry.
+5. Go to Settings/Tracking/Augmented Reality and enable Show Environment. The real world should be visible in your headset instead of the scene background/sky.
+6. Adjust the Background Opacity setting. This should blend smoothly between the real world and the scene background/sky.
+
 ## Settings
 
 ### Augmented Reality

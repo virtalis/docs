@@ -164,6 +164,7 @@ Core functions and types that can be used by Lua scripts and plugins.
 | boolean | **[vrShouldSaveCamera](#vrshouldsavecamera)**()<br />Returns true if the camera position should be saved into documents.  |
 | void | **[vrSnapshotApply](#vrsnapshotapply)**([vrnode](../classes/vrnode.mdx) snapNode)<br />Applies the specified snapshot.  |
 | [MULTI](../classes/multi.mdx)< string, string, string > | **[vrSplitFilePath](#vrsplitfilepath)**(string path)<br />Returns file directory, name, and extension.  |
+| void | **[vrSplitVirtalisHubURL](#vrsplitvirtalishuburl)**(string url)<br />Identifies a Virtalis Hub URL and splits out the server name, artifact ID and artifact name.  |
 | table | **[vrSubDirs](#vrsubdirs)**(string path)<br />Gets the subdirectories of a directory.  |
 | void | **[vrToggleProjection](#vrtoggleprojection)**()<br />Toggles the current viewport between perspective and orthographic views.  |
 | void | **[vrToggleToolEnabled](#vrtoggletoolenabled)**(string toolName, [vrnode](../classes/vrnode.mdx) userNode =nil)<br />Toggles the Enabled state of a named Tool.  |
@@ -2205,6 +2206,20 @@ Returns file directory, name, and extension.
   * File Directory 
   * File Name 
   * File Extension 
+
+### vrSplitVirtalisHubURL
+
+```lua
+void vrSplitVirtalisHubURL(
+    string url
+)
+```
+
+Identifies a Virtalis Hub URL and splits out the server name, artifact ID and artifact name.
+
+**Parameters**: 
+
+  * **url** The Virtalis Hub URL
 
 ### vrSubDirs
 

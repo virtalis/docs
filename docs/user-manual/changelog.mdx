@@ -4,6 +4,48 @@ sidebar_position: 2
 
 # Changelog
 
+## 2024.1
+
+*Released 2024-02-29*
+
+#### Added
+
+- FUS-3205 - Adds the ability to upload your scenes to Virtalis Hub using the App Menu > Upload to Virtalis Hub... option.
+- FUS-3216 - Adds support for new server types such as RTSP to Movie nodes.
+- FUS-3236 - Adds an alternative connection mode for the HoloLens 2 that permits the headset to connect to the PC using a QR code.
+- FUS-3249 - Adds the ability to download scenes from Virtalis Hub directly to Visionary Render.
+- FUS-3275 - Adds support for the XR_FB_passthrough extension in OpenXR, which permits passthrough to be enabled when using the Quest Link in developer mode. Also adds adjustable background opacity in AR.
+
+#### Changed
+
+- FUS-3121 - Improves save speed for scenes with a very large number of models in a library.
+- FUS-3294 - Improves the speed of rendering particle systems in stereo.
+
+#### Fixed
+
+- FUS-2548 - Stops executing new custom action frames by default when sequences are looped. Note that you should use property tracks instead if possible.
+- FUS-3053 - Fixes issue where the whole scene could disappear when changing World Scale via the controllers in a headset.
+- FUS-3170 - Fixes issues with occlusion culling that could lead to flickering geometry.
+- FUS-3212 - Fixes issue where scene GUIs could have rendering artifacts after loading.
+- FUS-3218 - Fixes a crash that could occur when toggling the Edit Pivot mode button.
+- FUS-3224 - Fixes issue with the message "OpenXR lists 0 API layers" being repeated in the log.
+- FUS-3225 - Fixes issue with the file browser not being able to follow shortcuts.
+- FUS-3227 - Fixes issue with UI settings and window positions not being restored after restarting Visionary Render.
+- FUS-3234 - Makes measuring points visible in the Scenes tree view and fixes issue with the parent object being selected when clicking on a measuring point in the 3D scene.
+- FUS-3238 - Permits the track and target name columns in the sequencer to be resized by clicking and dragging at the right of their headers as they're often too narrow.
+- FUS-3266 - Fixes a crash that could occur when rendering the first frame of a complex scene.
+- FUS-3268 - Fixes issue where the HoloLens settings button didn't always show the correct tab in the settings window.
+- FUS-3274 - Fixes issue where occlusion culling failed to cull occluded objects that are visible in only one eye when rendering in stereo.
+- FUS-3276 - Fixes issue with the auto-hide mouse setting not working when hovering over scene GUIs.
+- FUS-3356 - Fixes issue with the tracking configuration buttons being incorrectly greyed out at startup.
+
+#### Importers
+
+- FUS-3304 - Updates to the latest version of HOOPS Exchange (2024.1).
+- FUS-3339 - Fixes issue with models only rendering the first time they are imported.
+
+---
+
 ## 2023.2
 
 *Released 2023-09-26*
