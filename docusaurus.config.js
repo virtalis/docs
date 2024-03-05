@@ -90,6 +90,12 @@ const config = {
             position: 'left',
             label: 'Importers',
           },
+          {
+            type: 'docSidebar',
+            sidebarId: 'maxExporterSidebar',
+            position: 'left',
+            label: 'Max Exporter',
+          },
         ],
       },
       footer: {
