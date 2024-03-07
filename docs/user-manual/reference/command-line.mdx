@@ -63,61 +63,7 @@ Display text messages to the command window or a log file on disk.
 
 ## Importing
 
-This allows you to directly import a non-Visionary Render format file.
-
-| Parameter                             | Description                                                                                                                                                                                     |
-|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `-import “file1, file2, file3”`       | Specifies the list of files to import directly into Visionary Render. It is a comma delimited list of files. Visionary Render will select the importer to use depending on the file extensions. |
-| `-use-importer “importer-short-name”` | When specified after a `–import` parameter it indicates to Visionary Render which importer to use. See list below for details.                                                                  |
-
-An example of importing multiple files from the command line is:
-
-```
--import "file1.vdi, file2.pvs" -import "file3.pvs"
-```
-
-Or from a specified importer:
-
-```
--import "file1.vdi" `-use-importer "division" -import "file2.pvs, file3.pvs" `-use-importer "creoview"
-```
-
-The list below shows the full list of importers with their short names. You can only use an importer if it is installed and licensed.
-
-| Parameter                     | Full Importer Name         |
-|-------------------------------|----------------------------|
-| `-use-importer "3ds"`         | Autodesk 3DS Importer      |
-| `-use-importer "asc"`         | Asc Importer               |
-| `-use-importer "acis"`        | Acis Importer              |
-| `-use-importer "blender"`     | Blender Importer           |
-| `-use-importer "catiav5"`     | CatiaV5 Importer           |
-| `-use-importer "catiav6"`     | CatiaV6 Importer           |
-| `-use-importer "collada"`     | Collada Importer           |
-| `-use-importer "creo"`        | Creo Importer              |
-| `-use-importer "creoview"`    | CreoView Importer          |
-| `-use-importer "division"`    | Division Importer          |
-| `-use-importer "dgn"`         | Design Importer            |
-| `-use-importer "dwg"`         | Drawing Importer           |
-| `-use-importer "dxf"`         | Autocad DXF Importer       |
-| `-use-importer "fbx"`         | Filmbox Importer           |
-| `-use-importer "jt"`          | Jt Importer                |
-| `-use-importer "siemensjt"`   | SiemensJT Importer         |
-| `-use-importer "ideas"`       | I-deas Importer            |
-| `-use-importer "ifc"`         | IFC Importer               |
-| `-use-importer "iges"`        | Iges Importer              |
-| `-use-importer "inventor"`    | Autodesk Inventor Importer |
-| `-use-importer "obj"`         | Object Importer            |
-| `-use-importer "parasolid"`   | Parasolid Importer         |
-| `-use-importer "pdf"`         | Pdf3D Importer             |
-| `-use-importer "prc"`         | RC Importer                |
-| `-use-importer "rhino"`       | Rhino Importer             |
-| `-use-importer "solidedge"`   | SolidEdge Importer         |
-| `-use-importer "solidworks"`  | SolidWorks Importer        |
-| `-use-importer "step"`        | Step Importer              |
-| `-use-importer "stl"`         | StereoLithography Importer |
-| `-use-importer "u3d"`         | Universal 3D Importer      |
-| `-use-importer "unigraphics"` | Unigraphics Importer       |
-| `-use-importer "vrml"`        | Vrml Importer              |
+See [Importers Command-line](../../importers/reference/command-line.mdx) to learn how to use the importers from the command-line.
 
 ## Examples
 
