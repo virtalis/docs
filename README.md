@@ -1,6 +1,6 @@
-# Visionary Render Docs
+# Virtalis Docs
 
-This repo contains the Visionary Render User Manual and Programming Guide. It is built with [Docusaurus 3](https://docusaurus.io/), a modern static website generator.
+This repo contains the documentation for all Virtalis applications. The documentation is stored as markdown and built with [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
 ### Installation
 
