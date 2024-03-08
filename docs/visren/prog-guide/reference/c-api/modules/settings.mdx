@@ -1,0 +1,771 @@
+---
+title: Settings
+summary: Functions for accessing settings. 
+---
+
+# Settings
+
+Functions for accessing settings. 
+
+## Functions
+
+| Type           | Name           |
+| -------------- | -------------- |
+| int | **[VRAddCallbackSettingChanged](#vraddcallbacksettingchanged)**(const char * path, [SettingChangedFunc](../definitions/function-prototypes.mdx#typedef-settingchangedfunc) func, void * userData)<br />Registers a function to be called when a setting value changes.  |
+| int | **[VRAddSettingToScene](#vraddsettingtoscene)**(const char * path)<br />Adds a scene override of a setting (if it doesn't already exist) and copies the value from the user setting to the override.  |
+| int | **[VRCreateSettingArrayDouble](#vrcreatesettingarraydouble)**(const char * path, size_t count, const double * defaultValues)<br />Creates a double array setting if it doesn't already exist.  |
+| int | **[VRCreateSettingArrayFloat](#vrcreatesettingarrayfloat)**(const char * path, size_t count, const float * defaultValues)<br />Creates a float array setting if it doesn't already exist.  |
+| int | **[VRCreateSettingArrayInt](#vrcreatesettingarrayint)**(const char * path, size_t count, const int * defaultValues)<br />Creates an integer array setting if it doesn't already exist.  |
+| int | **[VRCreateSettingBool](#vrcreatesettingbool)**(const char * path, char defaultValue)<br />Creates a boolean setting if it doesn't already exist.  |
+| int | **[VRCreateSettingDouble](#vrcreatesettingdouble)**(const char * path, double defaultValue)<br />Creates a double setting if it doesn't already exist.  |
+| int | **[VRCreateSettingFloat](#vrcreatesettingfloat)**(const char * path, float defaultValue)<br />Creates a float setting if it doesn't already exist.  |
+| int | **[VRCreateSettingInt](#vrcreatesettingint)**(const char * path, int defaultValue)<br />Creates an integer setting if it doesn't already exist.  |
+| int | **[VRCreateSettingLink](#vrcreatesettinglink)**(const char * path)<br />Creates a link setting if it doesn't already exist.  |
+| int | **[VRCreateSettingString](#vrcreatesettingstring)**(const char * path, const char * defaultValue)<br />Creates a string setting if it doesn't already exist.  |
+| [HNode](../definitions/types.mdx#typedef-hnode) | **[VRGetRootSettingNode](#vrgetrootsettingnode)**()<br />Gets the VRTree node associated with the root of the settings hierarchy.  |
+| [HNode](../definitions/types.mdx#typedef-hnode) | **[VRGetSceneRootSettingNode](#vrgetscenerootsettingnode)**()<br />Gets the VRTree node associated with the root of the scene overrides, if present.  |
+| [HNode](../definitions/types.mdx#typedef-hnode) | **[VRGetSettingNode](#vrgetsettingnode)**(const char * path)<br />Gets the VRTree node associated with a setting. If the setting has a scene override, the override node is returned; otherwise, the user setting node is returned.  |
+| size_t | **[VRGetSettingSize](#vrgetsettingsize)**(const char * path)<br />Returns the number of bytes required to store a setting's value. For string settings, this includes the terminating null character.  |
+| size_t | **[VRReadSettingArrayDouble](#vrreadsettingarraydouble)**(const char * path, double * values, size_t count)<br />Reads a double array setting.  |
+| size_t | **[VRReadSettingArrayFloat](#vrreadsettingarrayfloat)**(const char * path, float * values, size_t count)<br />Reads a float array setting.  |
+| size_t | **[VRReadSettingArrayInt](#vrreadsettingarrayint)**(const char * path, int * values, size_t count)<br />Reads an int array setting.  |
+| char | **[VRReadSettingBool](#vrreadsettingbool)**(const char * path)<br />Reads a boolean setting.  |
+| double | **[VRReadSettingDouble](#vrreadsettingdouble)**(const char * path)<br />Reads a double setting.  |
+| float | **[VRReadSettingFloat](#vrreadsettingfloat)**(const char * path)<br />Reads a float setting.  |
+| int | **[VRReadSettingInt](#vrreadsettingint)**(const char * path)<br />Reads an int setting.  |
+| [HNode](../definitions/types.mdx#typedef-hnode) | **[VRReadSettingLink](#vrreadsettinglink)**(const char * path)<br />Reads a link setting.  |
+| size_t | **[VRReadSettingString](#vrreadsettingstring)**(const char * path, char * buffer, size_t bufferSize)<br />Reads a string setting.  |
+| int | **[VRRemoveCallbackSettingChanged](#vrremovecallbacksettingchanged)**(const char * path, [SettingChangedFunc](../definitions/function-prototypes.mdx#typedef-settingchangedfunc) func)<br />Removes a callback that was added with [VRAddCallbackSettingChanged()](#vraddcallbacksettingchanged) |
+| int | **[VRRemoveSettingFromScene](#vrremovesettingfromscene)**(const char * path)<br />Removes a scene override of a setting.  |
+| int | **[VRSetSettingCaption](#vrsetsettingcaption)**(const char * path, const char * caption)<br />Assigns a custom caption to a setting, allowing the text displayed to in user interface to be different from the setting name.  |
+| int | **[VRSetSettingFilter](#vrsetsettingfilter)**(const char * path, const char * filter)<br />Assigns a filter to a setting. The meaning of the filter depends on the setting type:  |
+| int | **[VRSetSettingRange](#vrsetsettingrange)**(const char * path, double minValue, double maxValue)<br />Assigns a range to a numeric setting.  |
+| int | **[VRSetSettingStep](#vrsetsettingstep)**(const char * path, double step)<br />Assigns a step size to a numeric setting.  |
+| int | **[VRSetSettingType](#vrsetsettingtype)**(const char * path, const char * type)<br />Assigns a type to a setting, which determines how the setting is presented in the user interface. The types that can be assigned depend on the data type of the setting:  |
+| int | **[VRWriteSettingArrayDouble](#vrwritesettingarraydouble)**(const char * path, const double * values, size_t count)<br />Sets the value of a double array setting.  |
+| int | **[VRWriteSettingArrayFloat](#vrwritesettingarrayfloat)**(const char * path, const float * values, size_t count)<br />Sets the value of a float array setting.  |
+| int | **[VRWriteSettingArrayInt](#vrwritesettingarrayint)**(const char * path, const int * values, size_t count)<br />Sets the value of an int array setting.  |
+| int | **[VRWriteSettingBool](#vrwritesettingbool)**(const char * path, char value)<br />Sets the value of a boolean setting.  |
+| int | **[VRWriteSettingDouble](#vrwritesettingdouble)**(const char * path, double value)<br />Sets the value of a double setting.  |
+| int | **[VRWriteSettingFloat](#vrwritesettingfloat)**(const char * path, float value)<br />Sets the value of a float setting.  |
+| int | **[VRWriteSettingInt](#vrwritesettingint)**(const char * path, int value)<br />Sets the value of an int setting.  |
+| int | **[VRWriteSettingLink](#vrwritesettinglink)**(const char * path, [HNode](../definitions/types.mdx#typedef-hnode) value)<br />Sets the value of a link setting.  |
+| int | **[VRWriteSettingString](#vrwritesettingstring)**(const char * path, const char * value)<br />Sets the value of a string setting.  |
+
+## Functions Documentation
+
+### VRAddCallbackSettingChanged
+
+```cpp
+int VRAddCallbackSettingChanged(
+    const char * path,
+    SettingChangedFunc func,
+    void * userData
+)
+```
+
+Registers a function to be called when a setting value changes. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **func** the function to be called 
+  * **userData** an arbitrary value to be passed to the callback function 
+
+**Return**: 0 on success, 1 on failure 
+
+### VRAddSettingToScene
+
+```cpp
+int VRAddSettingToScene(
+    const char * path
+)
+```
+
+Adds a scene override of a setting (if it doesn't already exist) and copies the value from the user setting to the override. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+
+**Return**: 0 if an override was added or already present, or 1 on failure 
+
+### VRCreateSettingArrayDouble
+
+```cpp
+int VRCreateSettingArrayDouble(
+    const char * path,
+    size_t count,
+    const double * defaultValues
+)
+```
+
+Creates a double array setting if it doesn't already exist. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **count** the number of elements in the array (may be 2, 3, 4, 9 or 16) 
+  * **defaultValue** the value to set if the setting didn't already exist 
+
+**Return**: 0 if the setting was created or already existed, or 1 on failure 
+
+### VRCreateSettingArrayFloat
+
+```cpp
+int VRCreateSettingArrayFloat(
+    const char * path,
+    size_t count,
+    const float * defaultValues
+)
+```
+
+Creates a float array setting if it doesn't already exist. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **count** the number of elements in the array (may be 2, 3, 4, 9 or 16) 
+  * **defaultValue** the value to set if the setting didn't already exist 
+
+**Return**: 0 if the setting was created or already existed, or 1 on failure 
+
+### VRCreateSettingArrayInt
+
+```cpp
+int VRCreateSettingArrayInt(
+    const char * path,
+    size_t count,
+    const int * defaultValues
+)
+```
+
+Creates an integer array setting if it doesn't already exist. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **count** the number of elements in the array (may be 2, 3 or 4) 
+  * **defaultValue** the value to set if the setting didn't already exist 
+
+**Return**: 0 if the setting was created or already existed, or 1 on failure 
+
+### VRCreateSettingBool
+
+```cpp
+int VRCreateSettingBool(
+    const char * path,
+    char defaultValue
+)
+```
+
+Creates a boolean setting if it doesn't already exist. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **defaultValue** the value to set if the setting didn't already exist 
+
+**Return**: 0 if the setting was created or already existed, or 1 on failure 
+
+### VRCreateSettingDouble
+
+```cpp
+int VRCreateSettingDouble(
+    const char * path,
+    double defaultValue
+)
+```
+
+Creates a double setting if it doesn't already exist. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **defaultValue** the value to set if the setting didn't already exist 
+
+**Return**: 0 if the setting was created or already existed, or 1 on failure 
+
+### VRCreateSettingFloat
+
+```cpp
+int VRCreateSettingFloat(
+    const char * path,
+    float defaultValue
+)
+```
+
+Creates a float setting if it doesn't already exist. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **defaultValue** the value to set if the setting didn't already exist 
+
+**Return**: 0 if the setting was created or already existed, or 1 on failure 
+
+### VRCreateSettingInt
+
+```cpp
+int VRCreateSettingInt(
+    const char * path,
+    int defaultValue
+)
+```
+
+Creates an integer setting if it doesn't already exist. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **defaultValue** the value to set if the setting didn't already exist 
+
+**Return**: 0 if the setting was created or already existed, or 1 on failure 
+
+### VRCreateSettingLink
+
+```cpp
+int VRCreateSettingLink(
+    const char * path
+)
+```
+
+Creates a link setting if it doesn't already exist. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **defaultValue** the value to set if the setting didn't already exist 
+
+**Return**: 0 if the setting was created or already existed, or 1 on failure 
+
+### VRCreateSettingString
+
+```cpp
+int VRCreateSettingString(
+    const char * path,
+    const char * defaultValue
+)
+```
+
+Creates a string setting if it doesn't already exist. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **defaultValue** the value to set if the setting didn't already exist 
+
+**Return**: 0 if the setting was created or already existed, or 1 on failure 
+
+### VRGetRootSettingNode
+
+```cpp
+HNode VRGetRootSettingNode()
+```
+
+Gets the VRTree node associated with the root of the settings hierarchy. 
+
+**Return**: the VRTree node associated with the root of the settings hierarchy 
+
+### VRGetSceneRootSettingNode
+
+```cpp
+HNode VRGetSceneRootSettingNode()
+```
+
+Gets the VRTree node associated with the root of the scene overrides, if present. 
+
+**Return**: the VRTree node associated with the root of the scene overrides, or 0 if no overrides are present 
+
+### VRGetSettingNode
+
+```cpp
+HNode VRGetSettingNode(
+    const char * path
+)
+```
+
+Gets the VRTree node associated with a setting. If the setting has a scene override, the override node is returned; otherwise, the user setting node is returned. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+
+**Return**: the VRTree node currently associated with the setting 
+
+### VRGetSettingSize
+
+```cpp
+size_t VRGetSettingSize(
+    const char * path
+)
+```
+
+Returns the number of bytes required to store a setting's value. For string settings, this includes the terminating null character. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+
+**Return**: the size of the value in bytes, or 0 on failure 
+
+### VRReadSettingArrayDouble
+
+```cpp
+size_t VRReadSettingArrayDouble(
+    const char * path,
+    double * values,
+    size_t count
+)
+```
+
+Reads a double array setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **values** pointer to a buffer to receive the data 
+  * **count** the size of the buffer (number of double elements) 
+
+**Return**: the number of values written to the buffer 
+
+### VRReadSettingArrayFloat
+
+```cpp
+size_t VRReadSettingArrayFloat(
+    const char * path,
+    float * values,
+    size_t count
+)
+```
+
+Reads a float array setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **values** pointer to a buffer to receive the data 
+  * **count** the size of the buffer (number of float elements) 
+
+**Return**: the number of values written to the buffer 
+
+### VRReadSettingArrayInt
+
+```cpp
+size_t VRReadSettingArrayInt(
+    const char * path,
+    int * values,
+    size_t count
+)
+```
+
+Reads an int array setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **values** pointer to a buffer to receive the data 
+  * **count** the size of the buffer (number of int elements) 
+
+**Return**: the number of values written to the buffer 
+
+### VRReadSettingBool
+
+```cpp
+char VRReadSettingBool(
+    const char * path
+)
+```
+
+Reads a boolean setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+
+**Return**: the setting value, or 0 on failure 
+
+### VRReadSettingDouble
+
+```cpp
+double VRReadSettingDouble(
+    const char * path
+)
+```
+
+Reads a double setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+
+**Return**: the setting value, or 0 on failure 
+
+### VRReadSettingFloat
+
+```cpp
+float VRReadSettingFloat(
+    const char * path
+)
+```
+
+Reads a float setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+
+**Return**: the setting value, or 0 on failure 
+
+### VRReadSettingInt
+
+```cpp
+int VRReadSettingInt(
+    const char * path
+)
+```
+
+Reads an int setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+
+**Return**: the setting value, or 0 on failure 
+
+### VRReadSettingLink
+
+```cpp
+HNode VRReadSettingLink(
+    const char * path
+)
+```
+
+Reads a link setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+
+**Return**: the setting value, or 0 on failure 
+
+### VRReadSettingString
+
+```cpp
+size_t VRReadSettingString(
+    const char * path,
+    char * buffer,
+    size_t bufferSize
+)
+```
+
+Reads a string setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **buffer** pointer to buffer to receive the string data 
+  * **bufferSize** the size of the buffer 
+
+**Return**: the number of bytes written to the buffer 
+
+**Note**: if buffer is null, the function returns the required size of the buffer 
+
+### VRRemoveCallbackSettingChanged
+
+```cpp
+int VRRemoveCallbackSettingChanged(
+    const char * path,
+    SettingChangedFunc func
+)
+```
+
+Removes a callback that was added with [VRAddCallbackSettingChanged()](#vraddcallbacksettingchanged)
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **func** the callback function 
+
+**Return**: 0 on success, 1 on failure 
+
+### VRRemoveSettingFromScene
+
+```cpp
+int VRRemoveSettingFromScene(
+    const char * path
+)
+```
+
+Removes a scene override of a setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+
+**Return**: 0 on success, 1 on failure 
+
+### VRSetSettingCaption
+
+```cpp
+int VRSetSettingCaption(
+    const char * path,
+    const char * caption
+)
+```
+
+Assigns a custom caption to a setting, allowing the text displayed to in user interface to be different from the setting name. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **caption** the caption to be displayed in the user interface 
+
+**Return**: 0 on success, 1 on failure 
+
+### VRSetSettingFilter
+
+```cpp
+int VRSetSettingFilter(
+    const char * path,
+    const char * filter
+)
+```
+
+Assigns a filter to a setting. The meaning of the filter depends on the setting type: 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **type** the filter to assign 
+
+| Setting type  | Filter meaning   |
+|  -------- | -------- |
+| string with type "file", "filesave" or "stream"  | List of allowable file extensions specified as pairs of strings separated by |, e.g. "Text files&#124;*.txt&#124;HTML files&#124;*.htm;*.html"  |
+| link  | List of allowable node types separated by commas, e.g. "StdMaterial,Texture"  |
+
+### VRSetSettingRange
+
+```cpp
+int VRSetSettingRange(
+    const char * path,
+    double minValue,
+    double maxValue
+)
+```
+
+Assigns a range to a numeric setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **minValue** the minimum allowable value 
+  * **maxValue** the maximum allowable value 
+
+### VRSetSettingStep
+
+```cpp
+int VRSetSettingStep(
+    const char * path,
+    double step
+)
+```
+
+Assigns a step size to a numeric setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **step** the step size 
+
+### VRSetSettingType
+
+```cpp
+int VRSetSettingType(
+    const char * path,
+    const char * type
+)
+```
+
+Assigns a type to a setting, which determines how the setting is presented in the user interface. The types that can be assigned depend on the data type of the setting: 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **type** the type name 
+
+| Data type  | Valid type names   |
+|  -------- | -------- |
+| string  | image, file, filesave, stream, dir, font, password, singlelinetext  |
+| int/float/double  | slider, logslider, log2slider, collisiongroupmask  |
+| float array (3 or 4 elements)  | colour  |
+| int/float/double array (4 elements)  | rect, sphere  |
+| int/float/double array (16 elements)  | matrix, 2dmatrix  |
+
+### VRWriteSettingArrayDouble
+
+```cpp
+int VRWriteSettingArrayDouble(
+    const char * path,
+    const double * values,
+    size_t count
+)
+```
+
+Sets the value of a double array setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **values** the values to set 
+  * **count** the number of values 
+
+**Return**: 0 on success, 1 on failure 
+
+### VRWriteSettingArrayFloat
+
+```cpp
+int VRWriteSettingArrayFloat(
+    const char * path,
+    const float * values,
+    size_t count
+)
+```
+
+Sets the value of a float array setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **values** the values to set 
+  * **count** the number of values 
+
+**Return**: 0 on success, 1 on failure 
+
+### VRWriteSettingArrayInt
+
+```cpp
+int VRWriteSettingArrayInt(
+    const char * path,
+    const int * values,
+    size_t count
+)
+```
+
+Sets the value of an int array setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **values** the values to set 
+  * **count** the number of values 
+
+**Return**: 0 on success, 1 on failure 
+
+### VRWriteSettingBool
+
+```cpp
+int VRWriteSettingBool(
+    const char * path,
+    char value
+)
+```
+
+Sets the value of a boolean setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **value** the value to set 
+
+**Return**: 0 on success, 1 on failure 
+
+### VRWriteSettingDouble
+
+```cpp
+int VRWriteSettingDouble(
+    const char * path,
+    double value
+)
+```
+
+Sets the value of a double setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **value** the value to set 
+
+**Return**: 0 on success, 1 on failure 
+
+### VRWriteSettingFloat
+
+```cpp
+int VRWriteSettingFloat(
+    const char * path,
+    float value
+)
+```
+
+Sets the value of a float setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **value** the value to set 
+
+**Return**: 0 on success, 1 on failure 
+
+### VRWriteSettingInt
+
+```cpp
+int VRWriteSettingInt(
+    const char * path,
+    int value
+)
+```
+
+Sets the value of an int setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **value** the value to set 
+
+**Return**: 0 on success, 1 on failure 
+
+### VRWriteSettingLink
+
+```cpp
+int VRWriteSettingLink(
+    const char * path,
+    HNode value
+)
+```
+
+Sets the value of a link setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **value** the value to set 
+
+**Return**: 0 on success, 1 on failure 
+
+### VRWriteSettingString
+
+```cpp
+int VRWriteSettingString(
+    const char * path,
+    const char * value
+)
+```
+
+Sets the value of a string setting. 
+
+**Parameters**: 
+
+  * **path** the path from the root of the settings hierarchy 
+  * **the** value to set 
+
+**Return**: 0 on success, 1 on failure 

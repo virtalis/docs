@@ -1,0 +1,40 @@
+# STEP Importer
+
+The STEP importer includes various format-specific settings.
+
+## Format Specific Setup
+
+| Setting              | Description                                                                                         |
+|----------------------|-----------------------------------------------------------------------------------------------------|
+| Load Structure Only  | Only	With a value of TRUE, read and return only the tree of the assembly in a model file. *[default: false]* |
+| Prefer Product Name  | The name of the occurrence is the one defined by PRODUCT. Otherwise it is the one defined by NEXT_ASSEMBLY_USAGE_OCCURRENCE. *[default: true]* |
+| Occurrence Name Rule | In case of prefering product name is unchecked, indicate which name to use from NEXT_ASSEMBLY_USAGE_OCCURRENCE <ul><li>Id</li><li>Name</li><li>Description *[default]*</li></ul> |
+| Prefer First Color   | In case a geometry has several colors, prefer the first one. *[default: false]* |
+| Code Page Name       | The code page to use to convert text to Unicode. These values follow the format used by the libiconv GNU Package. For example, "EUC-JP" for Japanese files. *[default: none]* |
+| Split Open Shells    | Split open shells into several bodies. *[default: true]* |
+| Heal Orientations    | Activate orientation healing on the modelfile. Reading time will be longer. *[default: false]* |
+
+## Format Specific Validation Setup
+
+| Setting                                       | Description                                                           |
+|-----------------------------------------------|-----------------------------------------------------------------------|
+| Read Validation Properties                    | Read validation properties from the file. Only available with AP242. If this parameter is not checked then the rest of the properties are disabled. *[default: true]* |
+| Compute Validation Properties                 | This will compute validation properties and compare them with the ones read from de the file. Only available with AP242. *[default: true]* |
+| Add Result To Name                            | Keywords OK or FAIL will be added to the name of the item that has validation properties. *[default: false]* |
+| Validation Properties Threshold               | Set the precision to use for validation properties comparison. If user selects to setup threshold values, the rest of the widgets in this section are enabled. *[default: false]* |
+| Volume (%)                                    | Threshold for volume of solids comparison. *[range: 0.001 to 100, default: 90.0]* |
+| Surface Area (%)                              | Threshold for surface of solids comparison. *[range: 0.001 to 100, default: 90.0]* |
+| Independent Surface Area (%)                  | Threshold for surface of surfaces comparison. *[range: 0.001 to 100, default: 90.0]* |
+| Independent Curve Length (%)                  | Threshold for length of curves comparison. *[range: 0.001 to 100, default: 90.0]* |
+| Deviation Centroid (mm)                       | Threshold for centroid of solids comparison. *[default: 1.0]* |
+| Independent Deviation Surface Centroid (mm)   | Threshold for centroid of surfaces comparison. *[default: 1.0]* |
+| Independent Deviation Curve Centroid (mm)     | Threshold for centroid of curves comparison. *[default: 1.0]* |
+| Independent Deviation Point Set Centroid (mm) | Threshold for centroid of points set comparison. *[default: 1.0]* |
+| Deviation Bounding Box (mm)                   | Threshold for bounding box of any geometry comparison. *[default: 1.0]* |
+| Total Affected Area (%)                       | Total area of the faces or surfaces the PMI is attached to, comparison threshold. *[range: 0.001 to 100, default: 90.0]* |
+| Total Affected Curve Length (%)               | Total curve length of the edges or curves the PMI is attached to, comparison threshold. *[range: 0.001 to 100, default: 90.0]* |
+| Total Curve Length (%)                        | Total length of the PMI wireframe part comparison threshold. *[range: 0.001 to 100, default: 90.0]* |
+| Total Surface Area (%)                        | Total surface of the PMI tessellated part comparison threshold. *[range: 0.001 to 100, default: 90.0]* |
+| Curve Centroid (mm)                           | Centroid of the PMI wireframe part comparison threshold. *[default: 1.0]* |
+| Surface Centroid (mm)                         | Centroid of the PMI tessellated part comparison threshold. *[default: 1.0]* |
+| Notional Solids Centroid (mm)                 | Centroid of the assembly comparison threshold. *[default: 1.0]* |

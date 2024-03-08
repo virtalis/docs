@@ -1,0 +1,61 @@
+---
+title: Meta_Light
+summary: A Light lights the scene. It is intended to be a child of a Meta_Assembly so it can be positioned in the scene. 
+---
+
+# Meta_Light
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A Light lights the scene. It is intended to be a child of a [Meta_Assembly](../metanodes/meta-assembly.mdx) so it can be positioned in the scene. 
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_Type, Idx_Colour, Idx_Radius, Idx_SpotCone, Idx_ShadowMap, Idx_ShadowMapSize, Idx_ShadowClipOffset, Idx_Intensity, Idx_ShadowBlur, Idx_ShadowOverdarken, Idx_ShadowStrength, Idx_ShadowBoundsNode, Idx_Texture, Idx_AreaSize, Idx_InverseSquareFalloff, Idx_CascadedShadowMap, Idx_CascadedShadowMapSplits, Idx_CascadedShadowMapStaggered, Idx_MaxViewDistance, Idx_MaxViewDistanceFade, Idx_LockShadowMap \}<br />Property index.  |
+| enum| **[LIGHTTYPE](#enum-lighttype)** \{ LIGHTTYPE_DIR, LIGHTTYPE_POINT, LIGHTTYPE_SPOT, LIGHTTYPE_AMBIENT, LIGHTTYPE_AREA \}<br />Values for Idx_Type.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - Whether the light is enabled   |
+| Idx_Type | | LIGHTTYPE (int) - Type of light   |
+| Idx_Colour | | vec3f - Colour that this light emits   |
+| Idx_Radius | | world_float - For Point and Spot types: The distance at which the light fades to 100% black. If zero, no fading will be applied   |
+| Idx_SpotCone | | vec2f - For Spot type: X = cone cutoff angle (0-90 degrees), Y = cone intensity distribution exponent (0-128)   |
+| Idx_ShadowMap | | bool - For all types except Ambient: Cast shadows from visuals that have their shadow caster property enabled   |
+| Idx_ShadowMapSize | | int - Resoltion of the shadow map texture   |
+| Idx_ShadowClipOffset | | float - Offset of shadowmap near clip plane   |
+| Idx_Intensity | | float - Scalar to apply to light colour when doing light calculation   |
+| Idx_ShadowBlur | | int - The number of times to blur the shadowmap   |
+| Idx_ShadowOverdarken | | float - How much to overdarken the shadow to compensate for light bleeding   |
+| Idx_ShadowStrength | | float - How dark the shadow is, 0=no shadow, 1=jet black shadow   |
+| Idx_ShadowBoundsNode | | link = If set, adjusts the shadow map for a directional light to include just this node instead of the whole scene   |
+| Idx_Texture | | Unused.   |
+| Idx_AreaSize | | vec2f - For Area type: Size of the light surface   |
+| Idx_InverseSquareFalloff | | bool - For Point and Spot types: Causes the light closest to its source to be very bright, getting dimmer very quickly as it moves to the radius bool - If true and this is a directional light then the renderer will use the view-dependent cascaded shadowmap method for shadows. This method is costly to the frame rate because all shadow casters in the scene are redrawn 4 times every frame, but give consistently high resolution shadows regardless of scene size and view position.   |
+| Idx_CascadedShadowMap | |   |
+| Idx_CascadedShadowMapSplits | | vec4w - These define the distances from the viewer where each of the 4 cascades ends. The smaller the value the more detailed the shadow in that cascade but the less area it covers in the world. Each distance is relative to the previous distance, except for the first which is relative to the near clip plane of whichever view is using the shadow map. e.g. if the values were 5,5,5,5 then the first cascade would cover an area from 0 to 5 metres from the near clip plane, the second cascade would cover from 5 metres to 10 metres, the third from 10 to 15 etc.   |
+| Idx_CascadedShadowMapStaggered | | bool - If true, only one split of the cascaded shadow map will be drawn per frame, cycling through to the next split each frame.   |
+| Idx_MaxViewDistance | | float - The maxmimum distance from the camera at which this light will be rendered, or zero if it should render at any distance.   |
+| Idx_MaxViewDistanceFade | | float - The proportion of MaxViewDistance over which the light fades out smoothly.   |
+| Idx_LockShadowMap | | bool - if true the shadow map of the light will not be redrawn until it's set to false again   |
+
+Property index. 
+
+### enum LIGHTTYPE
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| LIGHTTYPE_DIR | | Directional light (Symbols - C: `"TypeDirectional"`, Lua: `__Light_TypeDirectional`)   |
+| LIGHTTYPE_POINT | | Point light (Symbols - C: `"TypePoint"`, Lua: `__Light_TypePoint`)   |
+| LIGHTTYPE_SPOT | | Spot light (Symbols - C: `"TypeSpot"`, Lua: `__Light_TypeSpot`)   |
+| LIGHTTYPE_AMBIENT | | Ambient light (Symbols - C: `"TypeAmbient"`, Lua: `__Light_TypeAmbient`)   |
+
+Values for Idx_Type. 

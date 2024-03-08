@@ -1,0 +1,53 @@
+---
+title: Meta_AnimationAction
+summary: Animation keyframes for bool, int, float, double and world float properties. 
+---
+
+# Meta_AnimationAction
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+Animation keyframes for bool, int, float, double and world float properties.  [More...](#detailed-description)
+
+`#include <meta_division.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_RelTime, Idx_Type \}<br />Property index.  |
+| enum| **[Type](#enum-type)** \{ TYPE_CUSTOM, TYPE_ENABLE, TYPE_DISABLE, TYPE_SOUND \}<br />Values for Idx_Type.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_AnimationAction;
+```
+
+Animation keyframes for bool, int, float, double and world float properties. 
+
+An action frame holds a script that can be executed by animation sequences
+
+Valid child types: [Meta_EventHandler](../metanodes/meta-event-handler.mdx), [Meta_AudioBuffer](../metanodes/meta-audio-buffer.mdx), [Meta_AudioSound](../metanodes/meta-audio-sound.mdx)
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_RelTime | | float - The time in seconds of this frame relative to its parent animation   |
+| Idx_Type | | int - The type of action represented by this frame   |
+
+Property index. 
+
+### enum Type
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| TYPE_CUSTOM | | A custom script defined by the user (Symbols - C: `"Custom"`, Lua: `__AnimationAction_Custom`)   |
+| TYPE_ENABLE | | A predefined script to enable the animation target's Visual node(s) (Symbols - C: `"Enable"`, Lua: `__AnimationAction_Enable`)   |
+| TYPE_DISABLE | | A predefined script to disable the animation target's Visual node(s) (Symbols - C: `"Disable"`, Lua: `__AnimationAction_Disable`)   |
+| TYPE_SOUND | | A predefined script to play an audio sample (Symbols - C: `"Sound"`, Lua: `__AnimationAction_Sound`)   |
+
+Values for Idx_Type. 

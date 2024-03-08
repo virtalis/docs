@@ -1,0 +1,29 @@
+---
+title: Meta_PoseStateGuard
+summary: A PoseStateGuard prevents script event dispatch unless the specified pose is maintained. 
+---
+
+# Meta_PoseStateGuard
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A PoseStateGuard prevents script event dispatch unless the specified pose is maintained. 
+
+`#include <meta_script.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_Pose, Idx_PoseState \}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Pose | | string - The name of the recorded pose to match   |
+| Idx_PoseState | | bool - Whether the pose should be active to pass the guard (e.g. true = pose required, false = only pass if pose is NOT maintained)   |
+
+Property index. 

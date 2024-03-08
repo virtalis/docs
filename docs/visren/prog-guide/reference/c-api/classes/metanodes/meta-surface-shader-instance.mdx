@@ -1,0 +1,63 @@
+---
+title: Meta_SurfaceShaderInstance
+summary: Meta_SurfaceShaderInstances are associated with Materials, when attached as a child of a material they will effect the vertex and/or fragment shaders of any visuals rendered with said material. 
+---
+
+# Meta_SurfaceShaderInstance
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+Meta_SurfaceShaderInstances are associated with Materials, when attached as a child of a material they will effect the vertex and/or fragment shaders of any visuals rendered with said material.  [More...](#detailed-description)
+
+`#include <meta_division.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[Version](#enum-version)** \{ CurrentVersion =1 \} |
+| enum| **[IDX](#enum-idx)** \{ Idx_Version, Idx_Enabled, Idx_Definition \} |
+
+## Public Functions
+
+| Type           | Name           |
+| -------------- | -------------- |
+| | **[Meta_SurfaceShaderInstance](#meta-surfaceshaderinstance)**() |
+
+## Detailed Description
+
+```cpp
+struct Meta_SurfaceShaderInstance;
+```
+
+Meta_SurfaceShaderInstances are associated with Materials, when attached as a child of a material they will effect the vertex and/or fragment shaders of any visuals rendered with said material. 
+
+Whether the vertex/fragment shaders will be affected depends on the SourceCode in the Definition. The shader can access various vertex / surface properties of the visual being rendered to use for various things.
+
+The parameters of the material instance's arguments are selectively specified through the creation of child [Meta_MaterialArgument](../metanodes/meta-material-argument.mdx) nodes. These Meta_MaterialArguments can be set to take their value from the Definition's default value, a specific value from StdMaterial, or a custom value.
+
+Some examples of surface shaders: Procedural texturing, procedural vertex animation, complex multi-layer material rendering. 
+
+## Public Types Documentation
+
+### enum Version
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| CurrentVersion | =1|   |
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Version | | version number of this metanode, for potential future upgrade hooks   |
+| Idx_Enabled | | if false any object using this material instance will not be drawn   |
+| Idx_Definition | | link to a [Meta_SurfaceShaderDefinition](../metanodes/meta-surface-shader-definition.mdx) to use   |
+
+## Public Functions Documentation
+
+### Meta_SurfaceShaderInstance
+
+```cpp
+inline Meta_SurfaceShaderInstance()
+```

@@ -1,0 +1,29 @@
+---
+title: Meta_AnimationLink
+summary: An animation link permits a Meta_Animation node to be inserted into a track at a specified time. This level of indirection is necessary in order to reuse a single animation in multiple places. 
+---
+
+# Meta_AnimationLink
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+An animation link permits a [Meta_Animation](../metanodes/meta-animation.mdx) node to be inserted into a track at a specified time. This level of indirection is necessary in order to reuse a single animation in multiple places. 
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_Animation, Idx_RelStart \}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Animation | | link - A [Meta_Animation](../metanodes/meta-animation.mdx) node to play   |
+| Idx_RelStart | | float - The time in seconds to start the animation relative to the parent sequence   |
+
+Property index. 

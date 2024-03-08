@@ -1,0 +1,32 @@
+---
+title: Meta_MetaValue
+summary: A MetaValue provides a description of a property on a metanode. 
+---
+
+# Meta_MetaValue
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A MetaValue provides a description of a property on a metanode. 
+
+`#include <meta_root.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_Offset, Idx_Type, Idx_Count, Idx_DataSize, Idx_InitData \}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Offset | | `int` - (internal) Byte offset into a node's value buffer where this property data is stored   |
+| Idx_Type | | `int` - The type of value stored in this property   |
+| Idx_Count | | `int` - The number of values stored (e.g. 1 for a single value, 4 for an array of 4 values, etc)   |
+| Idx_DataSize | | `int` - The total number of bytes used by this property   |
+| Idx_InitData | | `vector<char>` - The data to initialise this property with for new node instances   |
+
+Property index. 

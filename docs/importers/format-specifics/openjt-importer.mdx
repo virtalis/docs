@@ -1,0 +1,34 @@
+# OpenJT Importer
+
+The OpenJT importer includes various format-specific settings.
+
+## Reader Setup
+
+| Setting                  | Description                                                                                         |
+|--------------------------|-----------------------------------------------------------------------------------------------------|
+| Export to Ascii          | Convert a binary file to the ASCII format. *[default: false]* |
+| Brep Load Option         | Convert a scene to the Visionary Render coordinate system. There are 5 options:<ul><li>**JtkTESS_ONLY** – read only tessellated data. *[default]*</li><li>**JtkBREP_ONLY** – read only BREP data.</li><li>**JtkTESS_AND_BREP** – read both tessellated and BREP data.</li><li>**JtkTESS_XOR_BREP** – read BREP data if available. Otherwise, read tessellated data.</li><li>**JtkNO_GEOM** – do not read any BREP or tessellated data.</li></ul> |
+| Brep Edit Option         | Set the import preference for BREPs versus tessellated geometry. *[default: true]* |
+| Assembly Option          | Use exploding instead of instancing of reused subassemblies during import. *[default: false]* |
+| Ignore Hidden Properties | Ignore hidden properties and don't add them to the metadata list |
+| Remove Message Filter    | Stop reporting import messages. *[default: true]* |
+| Remove Debug Filter      | Stop reporting debug messages. *[default: true]* |
+| Remove Warn Filter       | Stop reporting warning messages. *[default: true]* |
+| Remove Error Filter      | Stop reporting error messages. *[default: false]* |
+| Hole Removal Fraction    | Simplify BREP data. *[default: true]* |
+
+## Tessellation Setup
+
+| Setting                    | Description                                                                                         |
+|----------------------------|-----------------------------------------------------------------------------------------------------|
+| Re-Tessellate              | Whether to use the triangulation stored in the file or re-tessellate it at load time. *[default: false]* |
+| Relative Chordal Tolerance | Use a relative chordal tolerance for the tessellation. *[default: true]* |
+| Angular Tolerance          | The angular tolerance of the tessellation. *[range: 0.001 to 179.0, default: 40.0]* |
+| Chordal Tolerance          | The chordal tolerance of the tessellation. *[range: 0.001 to 100.0, default: 0.01]* |
+| Length Tolerance           | The length tolerance of the tessellation. *[range: 0.0 to 100.0, default: 0.0]* |
+| Min. Edge Length           | The minimum edge length. *[range: 0.0 to 100.0, default: 0.0]* |
+| Min. Angle                 | The minimum angle in radians. *[range: 0 to 2PI, default: 0.0]* |
+| Max. Aspect                | The maximum aspect in radians. *[range: 0 to 2PI, default: 0.0]* |
+| Trim Suppress              | Suppress face trimming. *[default: false]* |
+| Advanced Compression Level | Use the advanced compression level. *[default: true]* |
+| Simplifier Fraction        | Generate LODs automatically using a simplifier fraction. *[default: true]* |

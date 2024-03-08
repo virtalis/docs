@@ -1,0 +1,44 @@
+---
+title: Meta_View
+summary: a View can be inserted at any point in the scene, and will be rendered into either the framebuffer or any child RenderTarget's there may be. 
+---
+
+# Meta_View
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+a View can be inserted at any point in the scene, and will be rendered into either the framebuffer or any child RenderTarget's there may be. 
+
+`#include <meta_division.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_Projection, Idx_Viewport, Idx_Scene, Idx_LODScale \} |
+
+## Public Functions
+
+| Type           | Name           |
+| -------------- | -------------- |
+| | **[Meta_View](#meta-view)**() |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | |   |
+| Idx_Projection | | the projection matrix to use for the render.   |
+| Idx_Viewport | | the viewport to use for the render (x,y,width,height).   |
+| Idx_Scene | | link to a scenegraph node to render.   |
+| Idx_LODScale | | scale to apply to camera distance when evaluating level-of-detail nodes. For example, if it's 0.0f the highest resolution lod will always be selected.   |
+
+## Public Functions Documentation
+
+### Meta_View
+
+```cpp
+inline Meta_View()
+```

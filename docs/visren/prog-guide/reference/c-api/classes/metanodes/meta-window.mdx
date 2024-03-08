@@ -1,0 +1,37 @@
+---
+title: Meta_Window
+summary: A Window represents an actual application window displaying some viewports. 
+---
+
+# Meta_Window
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A Window represents an actual application window displaying some viewports. 
+
+`#include <meta_view.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_ViewportLayout, Idx_MessageBoxRegion, Idx_GUIEnabled, Idx_GUIEnabledExcludeNode, Idx_Zoom, Idx_NormalRect, Idx_FrameMode, Idx_Maximized, Idx_Minimized, Idx_Stereo3DModeOverride \}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_ViewportLayout | | link - The viewport layout that this window displays   |
+| Idx_MessageBoxRegion | | vec4i - The rect within the window in which to display message boxes. Use zeros to specify full window size   |
+| Idx_GUIEnabled | | bool - Controls the visibility of the GUI in this window   |
+| Idx_GUIEnabledExcludeNode | | link - Internal   |
+| Idx_Zoom | | vec2f - Zoom factor to apply to the window to enlarge or shrink in X and Y axis   |
+| Idx_NormalRect | | vec4i - The "normal" window rect, that is unminimized and unmaximized   |
+| Idx_FrameMode | | int - The current frame mode, 0 being windowed, 1+ being maximized on each desktop screen. `nScreens+1` is full screen over all displays   |
+| Idx_Maximized | | bool - Whether the frame is maximized   |
+| Idx_Minimized | | bool - Whether the frame is minimized   |
+| Idx_Stereo3DModeOverride | | int - Forces a specific stereo mode override for this window   |
+
+Property index. 

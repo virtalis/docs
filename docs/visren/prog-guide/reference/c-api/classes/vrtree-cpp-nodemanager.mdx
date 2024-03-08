@@ -1,0 +1,129 @@
+---
+title: vrtree_cpp::NodeManager
+summary: Utility class providing an interface for responding to changes to specified metanodes; with an additional update function, which will be called every time a frame is drawn. 
+---
+
+# vrtree_cpp::NodeManager
+
+Utility class providing an interface for responding to changes to specified metanodes; with an additional update function, which will be called every time a frame is drawn. 
+
+`#include <interface_helpers.hpp>`
+
+## Public Functions
+
+| Type           | Name           |
+| -------------- | -------------- |
+| virtual void | **[nodeChildAdded](#nodechildadded)**([HNodeR](../namespaces/vrtree-cpp.mdx#typedef-hnoder) & vrParent, [HNodeR](../namespaces/vrtree-cpp.mdx#typedef-hnoder) & vrChild) |
+| virtual void | **[nodeChildRemoved](#nodechildremoved)**([HNodeR](../namespaces/vrtree-cpp.mdx#typedef-hnoder) & vrParent, [HNodeR](../namespaces/vrtree-cpp.mdx#typedef-hnoder) & vrChild) |
+| virtual void | **[nodeCreated](#nodecreated)**([HNodeR](../namespaces/vrtree-cpp.mdx#typedef-hnoder) & vrNode) |
+| virtual void | **[nodeDestroying](#nodedestroying)**([HNodeR](../namespaces/vrtree-cpp.mdx#typedef-hnoder) & vrNode) |
+| virtual void | **[nodeParentChanged](#nodeparentchanged)**([HNodeR](../namespaces/vrtree-cpp.mdx#typedef-hnoder) & vrNode, [HNodeR](../namespaces/vrtree-cpp.mdx#typedef-hnoder) & vrNewParent, [HNodeR](../namespaces/vrtree-cpp.mdx#typedef-hnoder) & vrOldParent) |
+| virtual void | **[nodeRenamed](#noderenamed)**([HNodeR](../namespaces/vrtree-cpp.mdx#typedef-hnoder) & vrNode) |
+| virtual void | **[nodeValuesChanged](#nodevalueschanged)**([HNodeR](../namespaces/vrtree-cpp.mdx#typedef-hnoder) & vrNode) |
+| void | **[registerObserver](#registerobserver)**(const char * metaName)<br />Registers a class implementing static observer functions as an observer of the specified metanode.  |
+| void | **[registerUpdateable](#registerupdateable)**() |
+| void | **[unRegisterObserver](#unregisterobserver)**(const char * metaName)<br />Unregisters a class implementing static observer functions as an observer of the specified metanode.  |
+| void | **[unRegisterUpdateable](#unregisterupdateable)**() |
+| virtual void | **[update](#update)**(double deltaTime) |
+
+## Public Functions Documentation
+
+### nodeChildAdded
+
+```cpp
+inline virtual void nodeChildAdded(
+    HNodeR & vrParent,
+    HNodeR & vrChild
+)
+```
+
+### nodeChildRemoved
+
+```cpp
+inline virtual void nodeChildRemoved(
+    HNodeR & vrParent,
+    HNodeR & vrChild
+)
+```
+
+### nodeCreated
+
+```cpp
+inline virtual void nodeCreated(
+    HNodeR & vrNode
+)
+```
+
+### nodeDestroying
+
+```cpp
+inline virtual void nodeDestroying(
+    HNodeR & vrNode
+)
+```
+
+### nodeParentChanged
+
+```cpp
+inline virtual void nodeParentChanged(
+    HNodeR & vrNode,
+    HNodeR & vrNewParent,
+    HNodeR & vrOldParent
+)
+```
+
+### nodeRenamed
+
+```cpp
+inline virtual void nodeRenamed(
+    HNodeR & vrNode
+)
+```
+
+### nodeValuesChanged
+
+```cpp
+inline virtual void nodeValuesChanged(
+    HNodeR & vrNode
+)
+```
+
+### registerObserver
+
+```cpp
+inline void registerObserver(
+    const char * metaName
+)
+```
+
+Registers a class implementing static observer functions as an observer of the specified metanode. 
+
+### registerUpdateable
+
+```cpp
+inline void registerUpdateable()
+```
+
+### unRegisterObserver
+
+```cpp
+inline void unRegisterObserver(
+    const char * metaName
+)
+```
+
+Unregisters a class implementing static observer functions as an observer of the specified metanode. 
+
+### unRegisterUpdateable
+
+```cpp
+inline void unRegisterUpdateable()
+```
+
+### update
+
+```cpp
+inline virtual void update(
+    double deltaTime
+)
+```

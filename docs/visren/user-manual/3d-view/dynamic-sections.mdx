@@ -1,0 +1,45 @@
+# Dynamic Sections
+
+A Dynamic Section is a plane that can be used to clip geometry in your scenes. It removes all the geometry to one side of the plane and can be applied to standard geometry, point clouds and scene GUI. They permit designers to visually inspect sections of their products such as the internals of a wind turbine.
+
+![](/img/user-manual/chapter19/1.jpg)
+
+:::note
+Visionary Render can support up to 6 dynamic sections at once.
+:::
+
+## Create
+
+To create a Dynamic Section, right-click on the Scenes node in the Data window and select **Create** > **Dynamic Section** from the context menu. This will create a Dynamic Section node beneath a Dynamic Section List called Sections.
+
+![](/img/user-manual/chapter19/2.jpg)
+
+You can organise several Dynamic Sections in your scene beneath this list. Dynamic Sections can also be parented to Assemblies. To do this, right-click on an Assembly and select **Create** > **Dynamic Section**. When a Dynamic Section is parented to an Assembly it will only clip the parent Assembly and its children.
+
+## Properties
+
+![](/img/user-manual/chapter19/3.jpg)
+
+| Property     | Description                                                                                                                                                                                                                                                                                                              |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Enabled      | Simple flag to indicate whether a section is enabled. *[default: true]*                                                                                                                                                                                                                                                |
+| Visible      | Draw a plane in the scene to indicate the position and orientation of the section. *[default: true]*                                                                                                                                                                                                                   |
+| Enable Caps  | Fill in the gaps in geometry caused by the section clipping it (i.e. cap it off). *[default: false]*                                                                                                                                                                                                                   |
+| Alignment    | The initial plane alignment of the section. There are 4 options: XY, XZ, YZ and Custom. These just represent default values – the orientation of the section can be changed to a custom value from the properties of the parent Assembly (in which case, the Custom option will be automatically set). *[default: XY]* |
+| Invert       | Swap the side of the plane to clip geometry from. *[default: false]*                                                                                                                                                                                                                                                   |
+| Section Link | The Assembly to apply the section to (including its children). Typically this will be the Scenes node so that the section is applied to the whole scene. *[default: parent node]*                                                                                                                                      |
+| Opacity      | The transparency of the section plane if the Visible property is enabled. *[default: 0.5]*                                                                                                                                                                                                                             |
+
+## Settings
+
+Dynamic sections can be configured via **Settings** > **Dynamic Sections**.
+
+![](/img/user-manual/chapter19/4.jpg)
+
+| Setting | Description |
+| --- | --- |
+| Colour | The colour to apply to section planes. *[default: white]* |
+| Selection Mode | The selection behaviour of section planes. There are 3 options:Disable – prevent section planes for being selectable.Plane – click anywhere on a section plane to select it.Edge of Plane – click near the edge of a section plane to select it. *[default]* |
+| Assign To Scene Root | Create sections with their Section Link property set to the Scenes node (to apply the section to the entire scene). Otherwise, new sections will be applied to their parent Assemblies. *[default: false]* |
+| Size on Drop | When enabled, moving sections will not update their visual bounds until the movement is complete. This can improve performance when clipping complex Assemblies by reducing the number of sizing calculations performed during dragging. *[default: true]* |
+| Opacity | The default opacity to apply to new sections. *[default: 0.5]* |

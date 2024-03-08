@@ -1,0 +1,291 @@
+---
+title: vrvec3
+summary: A vector. 
+---
+
+# vrvec3
+
+**Module:** **[Maths](../modules/maths.mdx)**
+
+A vector. 
+
+`#include <lua_api.h>`
+
+## Public Functions
+
+| Type           | Name           |
+| -------------- | -------------- |
+| Any | **[copy](#copy)**()<br />(vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane  |
+| [vrvec3](../classes/vrvec3.mdx) | **[cross](#cross)**(Any vec2)<br />(vrCross) Returns the cross product of two vectors. Both vectors must be the same type  |
+| number | **[dot](#dot)**(Any vec2)<br />(vrDot) Returns the dot product of two vectors. Both vectors must be the same type  |
+| number | **[getLength](#getlength)**()<br />(vrLength) Returns the length of a vector.  |
+| number | **[getLengthSq](#getlengthsq)**()<br />(vrLengthSquared) Returns the squared length of a vector.  |
+| Any | **[normalise](#normalise)**()<br />(vrNormalise) Returns normalised vector/matrix.  |
+| Any | **[operator*](#operator)**() |
+| Any | **[operator+](#operator-1)**() |
+| Any | **[operator-](#operator-)**() |
+| Any | **[operator/](#operator-2)**() |
+| Any | **[operator=](#operator-3)**() |
+
+## Public Attributes
+
+| Type           | Name           |
+| -------------- | -------------- |
+| number | **[pitch](#pitch)** <br />Rotation around X axis (if this is a vector of Euler angles).  |
+| number | **[roll](#roll)** <br />Rotation around Z axis (if this is a vector of Euler angles).  |
+| number | **[x](#x)** <br />x element  |
+| [vrvec2](../classes/vrvec2.mdx) | **[xy](#xy)** <br />xy elements  |
+| [vrvec3](../classes/vrvec3.mdx) | **[xyz](#xyz)** <br />xyz elements  |
+| [vrvec2](../classes/vrvec2.mdx) | **[xz](#xz)** <br />xz elements  |
+| [vrvec3](../classes/vrvec3.mdx) | **[xzy](#xzy)** <br />xzy elements  |
+| number | **[y](#y)** <br />y element  |
+| number | **[yaw](#yaw)** <br />Rotation around Y axis (if this is a vector of Euler angles).  |
+| [vrvec2](../classes/vrvec2.mdx) | **[yx](#yx)** <br />yx elements  |
+| [vrvec3](../classes/vrvec3.mdx) | **[yxz](#yxz)** <br />yxz elements  |
+| [vrvec2](../classes/vrvec2.mdx) | **[yz](#yz)** <br />yz elements  |
+| [vrvec3](../classes/vrvec3.mdx) | **[yzx](#yzx)** <br />yzx elements  |
+| number | **[z](#z)** <br />z element  |
+| [vrvec2](../classes/vrvec2.mdx) | **[zx](#zx)** <br />zx elements  |
+| [vrvec3](../classes/vrvec3.mdx) | **[zxy](#zxy)** <br />zxy elements  |
+| [vrvec2](../classes/vrvec2.mdx) | **[zy](#zy)** <br />zy elements  |
+| [vrvec3](../classes/vrvec3.mdx) | **[zyx](#zyx)** <br />zyx elements  |
+
+## Public Functions Documentation
+
+### copy
+
+```lua
+Any copy()
+```
+
+(vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane 
+
+### cross
+
+```lua
+vrvec3 cross(
+    Any vec2
+)
+```
+
+(vrCross) Returns the cross product of two vectors. Both vectors must be the same type 
+
+**Parameters**: 
+
+  * **vec2** Vector 2 \{x, y\} or \{x, y, z\}. 
+
+### dot
+
+```lua
+number dot(
+    Any vec2
+)
+```
+
+(vrDot) Returns the dot product of two vectors. Both vectors must be the same type 
+
+**Parameters**: 
+
+  * **vec2** Vector 2 \{x, y\} or \{x, y, z\}. 
+
+### getLength
+
+```lua
+number getLength()
+```
+
+(vrLength) Returns the length of a vector. 
+
+### getLengthSq
+
+```lua
+number getLengthSq()
+```
+
+(vrLengthSquared) Returns the squared length of a vector. 
+
+### normalise
+
+```lua
+Any normalise()
+```
+
+(vrNormalise) Returns normalised vector/matrix. 
+
+**Return**: Normalised vector or matrix depending on the type passed in 
+
+### operator*
+
+```lua
+Any operator*()
+```
+
+### operator+
+
+```lua
+Any operator+()
+```
+
+### operator-
+
+```lua
+Any operator-()
+```
+
+### operator/
+
+```lua
+Any operator/()
+```
+
+### operator=
+
+```lua
+Any operator=()
+```
+
+## Public Attributes Documentation
+
+### pitch
+
+```lua
+number pitch;
+```
+
+Rotation around X axis (if this is a vector of Euler angles). 
+
+### roll
+
+```lua
+number roll;
+```
+
+Rotation around Z axis (if this is a vector of Euler angles). 
+
+### x
+
+```lua
+number x;
+```
+
+x element 
+
+### xy
+
+```lua
+vrvec2 xy;
+```
+
+xy elements 
+
+### xyz
+
+```lua
+vrvec3 xyz;
+```
+
+xyz elements 
+
+### xz
+
+```lua
+vrvec2 xz;
+```
+
+xz elements 
+
+### xzy
+
+```lua
+vrvec3 xzy;
+```
+
+xzy elements 
+
+### y
+
+```lua
+number y;
+```
+
+y element 
+
+### yaw
+
+```lua
+number yaw;
+```
+
+Rotation around Y axis (if this is a vector of Euler angles). 
+
+### yx
+
+```lua
+vrvec2 yx;
+```
+
+yx elements 
+
+### yxz
+
+```lua
+vrvec3 yxz;
+```
+
+yxz elements 
+
+### yz
+
+```lua
+vrvec2 yz;
+```
+
+yz elements 
+
+### yzx
+
+```lua
+vrvec3 yzx;
+```
+
+yzx elements 
+
+### z
+
+```lua
+number z;
+```
+
+z element 
+
+### zx
+
+```lua
+vrvec2 zx;
+```
+
+zx elements 
+
+### zxy
+
+```lua
+vrvec3 zxy;
+```
+
+zxy elements 
+
+### zy
+
+```lua
+vrvec2 zy;
+```
+
+zy elements 
+
+### zyx
+
+```lua
+vrvec3 zyx;
+```
+
+zyx elements 

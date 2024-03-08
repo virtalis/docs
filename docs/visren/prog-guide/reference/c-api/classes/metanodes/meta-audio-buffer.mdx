@@ -1,0 +1,40 @@
+---
+title: Meta_AudioBuffer
+summary: An AudioBuffer represents sound data that can be played by multiple sources. 
+---
+
+# Meta_AudioBuffer
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+An AudioBuffer represents sound data that can be played by multiple sources.  [More...](#detailed-description)
+
+`#include <meta_audio.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_File, Idx_RawData, Idx_RawModifiedTime \}<br />Property index.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_AudioBuffer;
+```
+
+An AudioBuffer represents sound data that can be played by multiple sources. 
+
+This node is usually created in a library and referenced from [Meta_AudioSound](../metanodes/meta-audio-sound.mdx) or [Meta_AudioTrack](../metanodes/meta-audio-track.mdx) nodes. These are positional. 
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_File | | `string` - Path to the audio file, which is loaded automatically and stored in RawData   |
+| Idx_RawData | | `vector<char>` - Raw audio file data (including headers), can be set directly if not specifying a file name   |
+| Idx_RawModifiedTime | | `int64` - The time the raw data was last modified. Unix epoch (seconds since Jan 1 1970) stored as two 32-bit ints (LO,HI)   |
+
+Property index. 

@@ -1,0 +1,1133 @@
+---
+title: Maths
+summary: Maths functions and types that can be used by Lua scripts and plugins.
+---
+
+# Maths
+
+Maths functions and types that can be used by Lua scripts and plugins.
+
+## Classes
+
+| Type           | Name           |
+| -------------- | -------------- |
+| struct | **[vrbox](../classes/vrbox.mdx)** <br />A box.  |
+| struct | **[vrmatrix3](../classes/vrmatrix3.mdx)** <br />A matrix.  |
+| struct | **[vrmatrix4](../classes/vrmatrix4.mdx)** <br />A matrix.  |
+| struct | **[vrplane](../classes/vrplane.mdx)** <br />A plane.  |
+| struct | **[vrquaternion](../classes/vrquaternion.mdx)** <br />A quaternion.  |
+| struct | **[vrray](../classes/vrray.mdx)** <br />A ray.  |
+| struct | **[vrsphere](../classes/vrsphere.mdx)** <br />A sphere.  |
+| struct | **[vrvec2](../classes/vrvec2.mdx)** <br />A vector.  |
+| struct | **[vrvec3](../classes/vrvec3.mdx)** <br />A vector.  |
+| struct | **[vrvec4](../classes/vrvec4.mdx)** <br />A vector.  |
+
+## Functions
+
+| Type           | Name           |
+| -------------- | -------------- |
+| [vrbox](../classes/vrbox.mdx) | **[vrAABox](#vraabox)**([vrvec3](../classes/vrvec3.mdx) min, [vrvec3](../classes/vrvec3.mdx) max)<br />Construct an axis aligned bounding box.  |
+| number | **[vrAABoxExtent](#vraaboxextent)**([vrbox](../classes/vrbox.mdx) box)<br />Returns the largest dimension of an axis aligned bounding box.  |
+| [vrbox](../classes/vrbox.mdx) | **[vrAABoxMerge](#vraaboxmerge)**(Any l, [vrbox](../classes/vrbox.mdx) r)<br />Returns an axis aligned bounding box that contains two other bounding boxes.  |
+| [vrbox](../classes/vrbox.mdx) | **[vrAABoxPosAndSize](#vraaboxposandsize)**([vrvec3](../classes/vrvec3.mdx) pos, [vrvec3](../classes/vrvec3.mdx) size)<br />Construct an axis aligned bounding box, using a position and a size.  |
+| [vrbox](../classes/vrbox.mdx) | **[vrAABoxTransform](#vraaboxtransform)**(Any box, [vrmatrix4](../classes/vrmatrix4.mdx) matrix)<br />Returns an axis aligned bounding box transformed by a matrix.  |
+| number | **[vrAngleRadians](#vrangleradians)**(number arcLength, number radius)<br />Calculates the angle of an arc in radians.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrApplyForce](#vrapplyforce)**([vrnode](../classes/vrnode.mdx) node, [vrvec3](../classes/vrvec3.mdx) force, [vrvec3](../classes/vrvec3.mdx) relPos, number duration)<br />Applies a force to an object causing a dynamics response.  |
+| boolean | **[vrApproxEquals](#vrapproxequals)**(Any left, Any right, number prec =0.0)<br />Returns whether or not two items are approximately equal.  |
+| number | **[vrArcLength](#vrarclength)**(number angleRadians, number radius)<br />Calculates the length of an arc.  |
+| number | **[vrArcRadius](#vrarcradius)**(number arcLength, number angleRadians)<br />Calculates the radius of an arc.  |
+| void | **[vrAssemblyLookAt](#vrassemblylookat)**([vrnode](../classes/vrnode.mdx) assembly, [vrvec3](../classes/vrvec3.mdx) eyePos, [vrvec3](../classes/vrvec3.mdx) lookAtPos, [vrvec3](../classes/vrvec3.mdx) upVec)<br />Rotates the assembly so that it is looking at the given position.  |
+| number | **[vrBitsToInteger](#vrbitstointeger)**(boolean ... )<br />Converts boolean values to an integer.  |
+| Any | **[vrCopy](#vrcopy)**(Any c)<br />Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane.  |
+ [vrvec3](../classes/vrvec3.mdx) | **[vrCross](#vrcross)**(Any vec1, Any vec2)<br />Returns the cross product of two vectors. Both vectors must be the same type.  |
+| number | **[vrDot](#vrdot)**(Any vec1, Any vec2)<br />Returns the dot product of two vectors. Both vectors must be the same type.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrGetForwardVec](#vrgetforwardvec)**([vrnode](../classes/vrnode.mdx) viewportNode =nil)<br />Extracts the forward vector from the inverse of the current view matrix.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrGetOwnerNode](#vrgetownernode)**(Any c)<br />Get the node that owns this Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrHSV2RGB](#vrhsv2rgb)**([vrvec3](../classes/vrvec3.mdx) hsvColour)<br />Converts a HSV coiour (vec3f) to an RGB colour (vec3f)  |
+| boolean | **[vrIntegerToBits](#vrintegertobits)**(number i)<br />Converts an integer to a boolean value for each bit.  |
+| boolean | **[vrIsDoublePrecision](#vrisdoubleprecision)**()<br />Returns true if the scenegraph uses double precision values for matrices etc.  |
+| number | **[vrLength](#vrlength)**(Any vec)<br />Returns the length of a vector.  |
+| number | **[vrLengthSquared](#vrlengthsquared)**(Any vec)<br />Returns the squared length of a vector.  |
+| [vrmatrix3](../classes/vrmatrix3.mdx) | **[vrMat3](#vrmat3)**()<br />Return an identity 3x3 Matrix.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMat4](#vrmat4)**()<br />Return an identity 4x4 Matrix.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMat4Frustum](#vrmat4frustum)**(number left, number right, number bottom, number top, number nearval, number farval, number focalval)<br />Return a frustum projection matrix.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMat4Ortho](#vrmat4ortho)**(number left, number right, number bottom, number top, number nearval, number farval)<br />Return an orthographic projection matrix.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMat4Ortho2D](#vrmat4ortho2d)**(number left, number right, number bottom, number top)<br />Return a 2D orthographic projection matrix.  |
+| number | **[vrMatDeterminant](#vrmatdeterminant)**(Any m)<br />Returns the determinant of the matrix.  |
+| number | **[vrMatGetValue](#vrmatgetvalue)**(Any m, number x, number y)<br />Get the value of an element of a matrix.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMatInverse](#vrmatinverse)**([vrmatrix4](../classes/vrmatrix4.mdx) m)<br />Returns the inverse of a 4x4 matrix.  |
+| Any | **[vrMatOrthoNormalise](#vrmatorthonormalise)**(Any m)<br />Returns an orthogonal matrix.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMatRotateEulerX](#vrmatrotateeulerx)**(Any m, number v)<br />Return M rotated on the X axis by angle V.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMatRotateEulerY](#vrmatrotateeulery)**(Any m, number v)<br />Return M rotated on the Y axis by angle V.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMatRotateEulerZ](#vrmatrotateeulerz)**(Any m, number v)<br />Return M rotated on the Z axis by angle V.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMatScale](#vrmatscale)**(Any m, Any v)<br />Return M scaled by vector V. If V is a scalar then a vector in which x=v, y=v, z=v will be used.  |
+| void | **[vrMatSetValue](#vrmatsetvalue)**(Any m, number x, number y, number v)<br />Set the value of an element of a matrix.  |
+| string | **[vrMatToString](#vrmattostring)**(Any m)<br />Get a string representation of a matrix.  |
+| [vrmatrix4](../classes/vrmatrix4.mdx) | **[vrMatTranslate](#vrmattranslate)**(Any m, [vrvec3](../classes/vrvec3.mdx) v)<br />Return M translated by the vector V.  |
+| Any | **[vrMatTranspose](#vrmattranspose)**(Any m)<br />Returns the tranpose of a 3x3 matrix, or a 4x4 matrix with the 3x3 component transposed.  |
+| Any | **[vrNormalise](#vrnormalise)**(Any c)<br />Returns normalised vector/matrix.  |
+| [vrplane](../classes/vrplane.mdx) | **[vrPlane](#vrplane)**([vrvec3](../classes/vrvec3.mdx) normal, number distance)<br />Returns a plane.  |
+| [vrplane](../classes/vrplane.mdx) | **[vrPlaneFromMatrix](#vrplanefrommatrix)**([vrmatrix4](../classes/vrmatrix4.mdx) mat)<br />Returns a plane created from a matrix.  |
+| [vrplane](../classes/vrplane.mdx) | **[vrPlaneFromTriangle](#vrplanefromtriangle)**([vrvec3](../classes/vrvec3.mdx) point1, [vrvec3](../classes/vrvec3.mdx) point2, [vrvec3](../classes/vrvec3.mdx) point3)<br />Returns a plane created from a triangle defined by 3 points.  |
+| number | **[vrPlaneGetPointDistance](#vrplanegetpointdistance)**([vrplane](../classes/vrplane.mdx) plane, [vrvec3](../classes/vrvec3.mdx) point)<br />Returns the distance a point is from the plane. A negative value means that the point is behind the plane. A positive value means the point is in front. A zero means it is on the plane.  |
+| boolean | **[vrPlaneLineIntersect](#vrplanelineintersect)**([vrplane](../classes/vrplane.mdx) plane, [vrvec3](../classes/vrvec3.mdx) point1, [vrvec3](../classes/vrvec3.mdx) point2)<br />Returns whether or not a line made of two points will intersect a plane.  |
+| number | **[vrPlaneRayIntersect](#vrplanerayintersect)**([vrplane](../classes/vrplane.mdx) plane, [vrray](../classes/vrray.mdx) ray)<br />Returns how far along the ray an intersection point with this plane is.  |
+| [vrplane](../classes/vrplane.mdx) | **[vrPlaneTransform](#vrplanetransform)**(Any plane, [vrmatrix4](../classes/vrmatrix4.mdx) mat)<br />Returns a plane transformed by a matrix.  |
+| void | **[vrPolarToDegrees](#vrpolartodegrees)**(number degrees, number minutes, number seconds)<br />Convert polar coordinates to degrees.  |
+| number | **[vrPolarToRadians](#vrpolartoradians)**(number degrees, number minutes, number seconds)<br />Convert polar coordinates to radians.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrProjInvTransformVec](#vrprojinvtransformvec)**([vrvec3](../classes/vrvec3.mdx) vec, [vrnode](../classes/vrnode.mdx) viewportNode =nil)<br />Transforms a vector by the inverse of the current projection matrix.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrProjTransformVec](#vrprojtransformvec)**([vrvec3](../classes/vrvec3.mdx) vec, [vrnode](../classes/vrnode.mdx) viewportNode =nil)<br />Transforms a vector by the current projection matrix.  |
+| [vrquaternion](../classes/vrquaternion.mdx) | **[vrQuaternion](#vrquaternion)**()<br />Return an identity quaternion.  |
+| number | **[vrQuaternionDot](#vrquaterniondot)**([vrquaternion](../classes/vrquaternion.mdx) l, [vrquaternion](../classes/vrquaternion.mdx) r)<br />Returns the dot product of two quaternions.  |
+| [vrquaternion](../classes/vrquaternion.mdx) | **[vrQuaternionFromAxisAngle](#vrquaternionfromaxisangle)**([vrvec3](../classes/vrvec3.mdx) axis, number angle)<br />Return a quaternion constructed from a rotation around an axis.  |
+| [vrquaternion](../classes/vrquaternion.mdx) | **[vrQuaternionFromEulerAngles](#vrquaternionfromeulerangles)**([vrvec3](../classes/vrvec3.mdx) angles)<br />Return a quaternion constructed from euler angles.  |
+| [vrquaternion](../classes/vrquaternion.mdx) | **[vrQuaternionFromMat](#vrquaternionfrommat)**(Any m)<br />Returns a quaternion constructed from a 4x4 matrix.  |
+| [vrquaternion](../classes/vrquaternion.mdx) | **[vrQuaternionLerp](#vrquaternionlerp)**([vrquaternion](../classes/vrquaternion.mdx) l, [vrquaternion](../classes/vrquaternion.mdx) r, number d)<br />Returns the linear interpolation between two quaternions.  |
+| [vrquaternion](../classes/vrquaternion.mdx) | **[vrQuaternionSlerp](#vrquaternionslerp)**([vrquaternion](../classes/vrquaternion.mdx) l, [vrquaternion](../classes/vrquaternion.mdx) r, number d)<br />Returns the spherical interpolation between two quaternions.  |
+| [vrray](../classes/vrray.mdx) | **[vrRay](#vrray)**([vrvec3](../classes/vrvec3.mdx) origin, [vrvec3](../classes/vrvec3.mdx) dir)<br />Returns a ray.  |
+| number | **[vrSmoothStep](#vrsmoothstep)**(number a, number b, number x)<br />Return a smoothly interpolated value between A and B.  |
+| [vrsphere](../classes/vrsphere.mdx) | **[vrSphere](#vrsphere)**([vrvec3](../classes/vrvec3.mdx) position, number radius)<br />Returns a sphere.  |
+| [vrsphere](../classes/vrsphere.mdx) | **[vrSphereMerge](#vrspheremerge)**(Any left, [vrsphere](../classes/vrsphere.mdx) right)<br />Returns a sphere that encapsulates two spheres.  |
+| [vrsphere](../classes/vrsphere.mdx) | **[vrSphereTransform](#vrspheretransform)**(Any sphere, [vrmatrix4](../classes/vrmatrix4.mdx) matrix)<br />Returns a sphere transformed by a matrix.  |
+| void | **[vrSuspendDynamics](#vrsuspenddynamics)**([vrnode](../classes/vrnode.mdx) node, boolean onOff)<br />Enables or disables dynamics.  |
+| boolean | **[vrTestContain](#vrtestcontain)**(Any a, Any b)<br />Returns whether or object A completly contains object B.  |
+| boolean | **[vrTestIntersection](#vrtestintersection)**(Any a, Any b)<br />Returns whether or not two objects are intersecting one another.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrTransformVecByWorldRotation](#vrtransformvecbyworldrotation)**([vrnode](../classes/vrnode.mdx) node, [vrvec3](../classes/vrvec3.mdx) vec)<br />Transforms a vector by the world rotation of the node.  |
+| vec2 | **[vrVec2](#vrvec2)**(number x =0.0, number y =0.0)<br />Returns a 2 dimensional vector.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrVec3](#vrvec3)**(number x =0.0, number y =0.0, number z =0.0)<br />Returns a 3 dimensional vector.  |
+| [vrvec4](../classes/vrvec4.mdx) | **[vrVec4](#vrvec4)**(number x =0.0, number y =0.0, number z =0.0, number w =0.0)<br />Returns a 4 dimensional vector.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrViewInvTransformVec](#vrviewinvtransformvec)**([vrvec3](../classes/vrvec3.mdx) vec, [vrnode](../classes/vrnode.mdx) viewportNode =nil)<br />Transforms a vector by the inverse of the current view matrix.  |
+| [vrvec3](../classes/vrvec3.mdx) | **[vrViewTransformVec](#vrviewtransformvec)**([vrvec3](../classes/vrvec3.mdx) vec, [vrnode](../classes/vrnode.mdx) viewportNode =nil)<br />Transforms a vector by the current view matrix.  |
+
+## Functions Documentation
+
+### vrAABox
+
+```lua
+vrbox vrAABox(
+    vrvec3 min,
+    vrvec3 max
+)
+```
+
+Construct an axis aligned bounding box. 
+
+**Parameters**: 
+
+  * **min** The minimum value of the bounding box. 
+  * **max** The maximum value of the bounding box. 
+
+
+**Return**: A new box enclosing the min/max points 
+
+### vrAABoxExtent
+
+```lua
+number vrAABoxExtent(
+    vrbox box
+)
+```
+
+Returns the largest dimension of an axis aligned bounding box. 
+
+### vrAABoxMerge
+
+```lua
+vrbox vrAABoxMerge(
+    Any l,
+    vrbox r
+)
+```
+
+Returns an axis aligned bounding box that contains two other bounding boxes. 
+
+### vrAABoxPosAndSize
+
+```lua
+vrbox vrAABoxPosAndSize(
+    vrvec3 pos,
+    vrvec3 size
+)
+```
+
+Construct an axis aligned bounding box, using a position and a size. 
+
+**Parameters**: 
+
+  * **pos** The position of the bounding box. 
+  * **size** The size of the bounding box. 
+
+
+**Return**: A new box enclosing the pos/size points 
+
+### vrAABoxTransform
+
+```lua
+vrbox vrAABoxTransform(
+    Any box,
+    vrmatrix4 matrix
+)
+```
+
+Returns an axis aligned bounding box transformed by a matrix. 
+
+### vrAngleRadians
+
+```lua
+number vrAngleRadians(
+    number arcLength,
+    number radius
+)
+```
+
+Calculates the angle of an arc in radians. 
+
+**Parameters**: 
+
+  * **arcLength** The length of the arc 
+  * **radius** The radius of the circle 
+
+**Return**: The angle 
+
+### vrApplyForce
+
+```lua
+vrnode vrApplyForce(
+    vrnode node,
+    vrvec3 force,
+    vrvec3 relPos,
+    number duration
+)
+```
+
+Applies a force to an object causing a dynamics response. 
+
+### vrApproxEquals
+
+```lua
+boolean vrApproxEquals(
+    Any left,
+    Any right,
+    number prec =0.0
+)
+```
+
+Returns whether or not two items are approximately equal. 
+
+**Parameters**: 
+
+  * **prec** Override the default epsilon value used for comparing floating point values 
+
+### vrArcLength
+
+```lua
+number vrArcLength(
+    number angleRadians,
+    number radius
+)
+```
+
+Calculates the length of an arc. 
+
+**Parameters**: 
+
+  * **angleRadians** The angle to measure 
+  * **radius** The radius of the circle 
+
+**Return**: The length 
+
+### vrArcRadius
+
+```lua
+number vrArcRadius(
+    number arcLength,
+    number angleRadians
+)
+```
+
+Calculates the radius of an arc. 
+
+**Parameters**: 
+
+  * **arcLength** The length of the arc 
+  * **angleRadians** The angle of the arc 
+
+**Return**: The radius 
+
+### vrAssemblyLookAt
+
+```lua
+void vrAssemblyLookAt(
+    vrnode assembly,
+    vrvec3 eyePos,
+    vrvec3 lookAtPos,
+    vrvec3 upVec
+)
+```
+
+Rotates the assembly so that it is looking at the given position. 
+
+**Parameters**: 
+
+  * **eyePos** New position for the assembly 
+  * **lookAtPos** Position the assembly is looking at along it's Z axis 
+  * **upVec** World up vector 
+
+### vrBitsToInteger
+
+```lua
+number vrBitsToInteger(
+    boolean ... 
+)
+```
+
+Converts boolean values to an integer. 
+
+**Parameters**: 
+
+  * **...** Values (1 or 0, or true or false) that make up the bit field. 
+
+**Return**: Integer composed of the individual bits provided 
+
+### vrCopy
+
+```lua
+Any vrCopy(
+    Any c
+)
+```
+
+Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane. 
+
+### vrCross
+
+```lua
+vrvec3 vrCross(
+    Any vec1,
+    Any vec2
+)
+```
+
+Returns the cross product of two vectors. Both vectors must be the same type. 
+
+**Parameters**: 
+
+  * **vec1** Vector 1 \{x, y\} or \{x, y, z\}. 
+  * **vec2** Vector 2 \{x, y\} or \{x, y, z\}. 
+
+### vrDot
+
+```lua
+number vrDot(
+    Any vec1,
+    Any vec2
+)
+```
+
+Returns the dot product of two vectors. Both vectors must be the same type. 
+
+**Parameters**: 
+
+  * **vec1** Vector 1 \{x, y\} or \{x, y, z\}. 
+  * **vec2** Vector 2 \{x, y\} or \{x, y, z\}. 
+
+### vrGetForwardVec
+
+```lua
+vrvec3 vrGetForwardVec(
+    vrnode viewportNode =nil
+)
+```
+
+Extracts the forward vector from the inverse of the current view matrix. 
+
+**Parameters**: 
+
+  * **viewportNode** Viewport to get the view matrix from (defaults to local user's default viewport) 
+
+### vrGetOwnerNode
+
+```lua
+vrnode vrGetOwnerNode(
+    Any c
+)
+```
+
+Get the node that owns this Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane. 
+
+**Return**: The owner of this data (the node that will be affected by changes to its data) 
+
+### vrHSV2RGB
+
+```lua
+vrvec3 vrHSV2RGB(
+    vrvec3 hsvColour
+)
+```
+
+Converts a HSV coiour (vec3f) to an RGB colour (vec3f) 
+
+**Parameters**: 
+
+  * **hsvColour** The input colour in HSV 
+
+### vrIntegerToBits
+
+```lua
+boolean vrIntegerToBits(
+    number i
+)
+```
+
+Converts an integer to a boolean value for each bit. 
+
+**Parameters**: 
+
+  * **i** The integer to split into bits 
+
+**Return**: 32 bools, one for each bit in the number 
+
+### vrIsDoublePrecision
+
+```lua
+boolean vrIsDoublePrecision()
+```
+
+Returns true if the scenegraph uses double precision values for matrices etc. 
+
+### vrLength
+
+```lua
+number vrLength(
+    Any vec
+)
+```
+
+Returns the length of a vector. 
+
+**Parameters**: 
+
+  * **vec** Vector \{x, y\} or \{x, y, z\}. 
+
+### vrLengthSquared
+
+```lua
+number vrLengthSquared(
+    Any vec
+)
+```
+
+Returns the squared length of a vector. 
+
+**Parameters**: 
+
+  * **vec** Vector \{x, y\} or \{x, y, z\}. 
+
+### vrMat3
+
+```lua
+vrmatrix3 vrMat3()
+```
+
+Return an identity 3x3 Matrix. 
+
+### vrMat4
+
+```lua
+vrmatrix4 vrMat4()
+```
+
+Return an identity 4x4 Matrix. 
+
+### vrMat4Frustum
+
+```lua
+vrmatrix4 vrMat4Frustum(
+    number left,
+    number right,
+    number bottom,
+    number top,
+    number nearval,
+    number farval,
+    number focalval
+)
+```
+
+Return a frustum projection matrix. 
+
+### vrMat4Ortho
+
+```lua
+vrmatrix4 vrMat4Ortho(
+    number left,
+    number right,
+    number bottom,
+    number top,
+    number nearval,
+    number farval
+)
+```
+
+Return an orthographic projection matrix. 
+
+### vrMat4Ortho2D
+
+```lua
+vrmatrix4 vrMat4Ortho2D(
+    number left,
+    number right,
+    number bottom,
+    number top
+)
+```
+
+Return a 2D orthographic projection matrix. 
+
+### vrMatDeterminant
+
+```lua
+number vrMatDeterminant(
+    Any m
+)
+```
+
+Returns the determinant of the matrix. 
+
+**Parameters**: 
+
+  * **m** The matrix to get the determinant of. 
+
+### vrMatGetValue
+
+```lua
+number vrMatGetValue(
+    Any m,
+    number x,
+    number y
+)
+```
+
+Get the value of an element of a matrix. 
+
+**Parameters**: 
+
+  * **m** The matrix to select the element from 
+  * **x** The column of the element to select. 
+  * **y** The row of the element to select. 
+
+### vrMatInverse
+
+```lua
+vrmatrix4 vrMatInverse(
+    vrmatrix4 m
+)
+```
+
+Returns the inverse of a 4x4 matrix. 
+
+**Parameters**: 
+
+  * **m** The matrix to take the transpose of. 
+
+### vrMatOrthoNormalise
+
+```
+Any vrMatOrthoNormalise(
+    Any m
+)
+```
+
+Returns an orthogonal matrix. 
+
+**Parameters**: 
+
+  * **m** The matrix to orthonormalise. 
+
+**Return**: Orthogonal mat3 or mat4 depending on the type passed in 
+
+### vrMatRotateEulerX
+
+```lua
+vrmatrix4 vrMatRotateEulerX(
+    Any m,
+    number v
+)
+```
+
+Return M rotated on the X axis by angle V. 
+
+**Parameters**: 
+
+  * **m** The matrix to rotate. 
+  * **v** The angle to rotate M by. 
+
+### vrMatRotateEulerY
+
+```lua
+vrmatrix4 vrMatRotateEulerY(
+    Any m,
+    number v
+)
+```
+
+Return M rotated on the Y axis by angle V. 
+
+**Parameters**: 
+
+  * **m** The matrix to rotate. 
+  * **v** The angle to rotate M by. 
+
+### vrMatRotateEulerZ
+
+```lua
+vrmatrix4 vrMatRotateEulerZ(
+    Any m,
+    number v
+)
+```
+
+Return M rotated on the Z axis by angle V. 
+
+**Parameters**: 
+
+  * **m** The matrix to rotate. 
+  * **v** The angle to rotate M by. 
+
+### vrMatScale
+
+```lua
+vrmatrix4 vrMatScale(
+    Any m,
+    Any v
+)
+```
+
+Return M scaled by vector V. If V is a scalar then a vector in which x=v, y=v, z=v will be used. 
+
+**Parameters**: 
+
+  * **m** The matrix to scale. 
+  * **v** The vector or scalar to scale M by. 
+
+### vrMatSetValue
+
+```lua
+void vrMatSetValue(
+    Any m,
+    number x,
+    number y,
+    number v
+)
+```
+
+Set the value of an element of a matrix. 
+
+**Parameters**: 
+
+  * **m** The matrix of whose elements to set. 
+  * **x** The column of the element to select. 
+  * **y** The row of the element to select. 
+  * **v** The value to set the element. 
+
+### vrMatToString
+
+```lua
+string vrMatToString(
+    Any m
+)
+```
+
+Get a string representation of a matrix. 
+
+**Parameters**: 
+
+  * **m** The matrix to stringify 
+
+### vrMatTranslate
+
+```lua
+vrmatrix4 vrMatTranslate(
+    Any m,
+    vrvec3 v
+)
+```
+
+Return M translated by the vector V. 
+
+**Parameters**: 
+
+  * **m** The matrix to translate. 
+  * **v** The vector to translate the matrix by. 
+
+### vrMatTranspose
+
+```lua
+Any vrMatTranspose(
+    Any m
+)
+```
+
+Returns the tranpose of a 3x3 matrix, or a 4x4 matrix with the 3x3 component transposed. 
+
+**Parameters**: 
+
+  * **m** The matrix to take the transpose of. 
+
+**Return**: vrmat3 or vrmat4 depending on the type passed in 
+
+### vrNormalise
+
+```lua
+Any vrNormalise(
+    Any c
+)
+```
+
+Returns normalised vector/matrix. 
+
+**Parameters**: 
+
+  * **c** Vector2 or Vector3 or Mat3 or Mat4 
+
+
+**Return**: Normalised vector or matrix depending on the type passed in 
+
+### vrPlane
+
+```lua
+vrplane vrPlane(
+    vrvec3 normal,
+    number distance
+)
+```
+
+Returns a plane. 
+
+**Parameters**: 
+
+  * **normal** The normal of the plane. 
+  * **distance** The distance from origin. 
+
+### vrPlaneFromMatrix
+
+```lua
+vrplane vrPlaneFromMatrix(
+    vrmatrix4 mat
+)
+```
+
+Returns a plane created from a matrix. 
+
+### vrPlaneFromTriangle
+
+```lua
+vrplane vrPlaneFromTriangle(
+    vrvec3 point1,
+    vrvec3 point2,
+    vrvec3 point3
+)
+```
+
+Returns a plane created from a triangle defined by 3 points. 
+
+### vrPlaneGetPointDistance
+
+```lua
+number vrPlaneGetPointDistance(
+    vrplane plane,
+    vrvec3 point
+)
+```
+
+Returns the distance a point is from the plane. A negative value means that the point is behind the plane. A positive value means the point is in front. A zero means it is on the plane. 
+
+### vrPlaneLineIntersect
+
+```lua
+boolean vrPlaneLineIntersect(
+    vrplane plane,
+    vrvec3 point1,
+    vrvec3 point2
+)
+```
+
+Returns whether or not a line made of two points will intersect a plane. 
+
+**Return**: true if the line intersects the plane 
+
+### vrPlaneRayIntersect
+
+```lua
+number vrPlaneRayIntersect(
+    vrplane plane,
+    vrray ray
+)
+```
+
+Returns how far along the ray an intersection point with this plane is. 
+
+### vrPlaneTransform
+
+```lua
+vrplane vrPlaneTransform(
+    Any plane,
+    vrmatrix4 mat
+)
+```
+
+Returns a plane transformed by a matrix. 
+
+### vrPolarToDegrees
+
+```lua
+void vrPolarToDegrees(
+    number degrees,
+    number minutes,
+    number seconds
+)
+```
+
+Convert polar coordinates to degrees. 
+
+### vrPolarToRadians
+
+```lua
+number vrPolarToRadians(
+    number degrees,
+    number minutes,
+    number seconds
+)
+```
+
+Convert polar coordinates to radians. 
+
+### vrProjInvTransformVec
+
+```lua
+vrvec3 vrProjInvTransformVec(
+    vrvec3 vec,
+    vrnode viewportNode =nil
+)
+```
+
+Transforms a vector by the inverse of the current projection matrix. 
+
+**Parameters**: 
+
+  * **viewportNode** Viewport to get the projection matrix from (defaults to local user's default viewport) 
+
+### vrProjTransformVec
+
+```lua
+vrvec3 vrProjTransformVec(
+    vrvec3 vec,
+    vrnode viewportNode =nil
+)
+```
+
+Transforms a vector by the current projection matrix. 
+
+**Parameters**: 
+
+  * **viewportNode** Viewport to get the projection matrix from (defaults to local user's default viewport) 
+
+### vrQuaternion
+
+```lua
+vrquaternion vrQuaternion()
+```
+
+Return an identity quaternion. 
+
+### vrQuaternionDot
+
+```lua
+number vrQuaternionDot(
+    vrquaternion l,
+    vrquaternion r
+)
+```
+
+Returns the dot product of two quaternions. 
+
+### vrQuaternionFromAxisAngle
+
+```lua
+vrquaternion vrQuaternionFromAxisAngle(
+    vrvec3 axis,
+    number angle
+)
+```
+
+Return a quaternion constructed from a rotation around an axis. 
+
+**Parameters**: 
+
+  * **axis** The axis to rotate around. 
+  * **angle** The angle to rotate by. 
+
+### vrQuaternionFromEulerAngles
+
+```lua
+vrquaternion vrQuaternionFromEulerAngles(
+    vrvec3 angles
+)
+```
+
+Return a quaternion constructed from euler angles. 
+
+**Parameters**: 
+
+  * **angles** The X, Y and Z angles to construct the quaternion from. 
+
+### vrQuaternionFromMat
+
+```lua
+vrquaternion vrQuaternionFromMat(
+    Any m
+)
+```
+
+Returns a quaternion constructed from a 4x4 matrix. 
+
+**Parameters**: 
+
+  * **m** The matrix to construct with (mat3 or mat4). 
+
+### vrQuaternionLerp
+
+```lua
+vrquaternion vrQuaternionLerp(
+    vrquaternion l,
+    vrquaternion r,
+    number d
+)
+```
+
+Returns the linear interpolation between two quaternions. 
+
+### vrQuaternionSlerp
+
+```lua
+vrquaternion vrQuaternionSlerp(
+    vrquaternion l,
+    vrquaternion r,
+    number d
+)
+```
+
+Returns the spherical interpolation between two quaternions. 
+
+### vrRay
+
+```lua
+vrray vrRay(
+    vrvec3 origin,
+    vrvec3 dir
+)
+```
+
+Returns a ray. 
+
+**Parameters**: 
+
+  * **origin** The origin of the ray. 
+  * **dir** The direction the ray is pointing. 
+
+### vrSmoothStep
+
+```lua
+number vrSmoothStep(
+    number a,
+    number b,
+    number x
+)
+```
+
+Return a smoothly interpolated value between A and B. 
+
+**Parameters**: 
+
+  * **a** The lowest value. 
+  * **b** The highest value. 
+  * **x** How much to interpolate. 
+
+### vrSphere
+
+```lua
+vrsphere vrSphere(
+    vrvec3 position,
+    number radius
+)
+```
+
+Returns a sphere. 
+
+**Parameters**: 
+
+  * **position** The center of the sphere. 
+  * **radius** The radius of the sphere. 
+
+### vrSphereMerge
+
+```lua
+vrsphere vrSphereMerge(
+    Any left,
+    vrsphere right
+)
+```
+
+Returns a sphere that encapsulates two spheres. 
+
+### vrSphereTransform
+
+```lua
+vrsphere vrSphereTransform(
+    Any sphere,
+    vrmatrix4 matrix
+)
+```
+
+Returns a sphere transformed by a matrix. 
+
+### vrSuspendDynamics
+
+```lua
+void vrSuspendDynamics(
+    vrnode node,
+    boolean onOff
+)
+```
+
+Enables or disables dynamics. 
+
+### vrTestContain
+
+```lua
+boolean vrTestContain(
+    Any a,
+    Any b
+)
+```
+
+Returns whether or object A completly contains object B. 
+
+**Parameters**: 
+
+  * **a** A sphere or AABB 
+  * **b** A sphere, AABB, or vec3 
+
+**Return**: true if b is inside a 
+
+### vrTestIntersection
+
+```lua
+boolean vrTestIntersection(
+    Any a,
+    Any b
+)
+```
+
+Returns whether or not two objects are intersecting one another. 
+
+**Parameters**: 
+
+  * **a** A sphere or AABB 
+  * **b** A sphere or AABB 
+
+**Return**: True if the objects are intersecting 
+
+### vrTransformVecByWorldRotation
+
+```lua
+vrvec3 vrTransformVecByWorldRotation(
+    vrnode node,
+    vrvec3 vec
+)
+```
+
+Transforms a vector by the world rotation of the node. 
+
+### vrVec2
+
+```lua
+vec2 vrVec2(
+    number x =0.0,
+    number y =0.0
+)
+```
+
+Returns a 2 dimensional vector. 
+
+**Parameters**: 
+
+  * **x** The X component of the resulting vector 
+  * **y** The Y component of the resulting vector 
+
+### vrVec3
+
+```lua
+vrvec3 vrVec3(
+    number x =0.0,
+    number y =0.0,
+    number z =0.0
+)
+```
+
+Returns a 3 dimensional vector. 
+
+**Parameters**: 
+
+  * **x** The X component of the resulting vector 
+  * **y** The Y component of the resulting vector 
+  * **z** The Z component of the resulting vector 
+
+### vrVec4
+
+```lua
+vrvec4 vrVec4(
+    number x =0.0,
+    number y =0.0,
+    number z =0.0,
+    number w =0.0
+)
+```
+
+Returns a 4 dimensional vector. 
+
+**Parameters**: 
+
+  * **x** The X component of the resulting vector 
+  * **y** The Y component of the resulting vector 
+  * **z** The Z component of the resulting vector 
+  * **w** The W component of the resulting vector 
+
+### vrViewInvTransformVec
+
+```lua
+vrvec3 vrViewInvTransformVec(
+    vrvec3 vec,
+    vrnode viewportNode =nil
+)
+```
+
+Transforms a vector by the inverse of the current view matrix. 
+
+**Parameters**: 
+
+  * **viewportNode** Viewport to get the view matrix from (defaults to local user's default viewport) 
+
+### vrViewTransformVec
+
+```lua
+vrvec3 vrViewTransformVec(
+    vrvec3 vec,
+    vrnode viewportNode =nil
+)
+```
+
+Transforms a vector by the current view matrix. 
+
+**Parameters**: 
+
+  * **viewportNode** Viewport to get the view matrix from (defaults to local user's default viewport) 

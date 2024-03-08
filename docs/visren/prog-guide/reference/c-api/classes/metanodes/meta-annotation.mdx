@@ -1,0 +1,46 @@
+---
+title: Meta_Annotation
+summary: An Annotation node is a method of associating information with an object in the scene. 
+---
+
+# Meta_Annotation
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+An Annotation node is a method of associating information with an object in the scene.  [More...](#detailed-description)
+
+`#include <meta_annotation.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_TargetAssembly, Idx_DefaultViewpoint, Idx_CommentsVisible, Idx_CreatedBy, Idx_Position, Idx_Rotation, Idx_EnterSnapShot, Idx_LeaveSnapShot \} |
+
+## Detailed Description
+
+```cpp
+struct Meta_Annotation;
+```
+
+An Annotation node is a method of associating information with an object in the scene. 
+
+It can contain multiple viewpoints, comments, and object states, all of which are applied when the annotation becomes active. Generally created by using the Review user interface, annotations can also be data driven, automatically documenting scene objects according to the requirements of the script or plugin writer.
+
+Annotations can also be controlled by the `vrAnnotation*` family of Lua functions. 
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - Enabled state of this annotation.   |
+| Idx_TargetAssembly | | link - Assembly that is being annotated. The annotation is positioned relative to this assembly.   |
+| Idx_DefaultViewpoint | | link - Assembly (viewpoint) to fly to by default when the annotation is activated.   |
+| Idx_CommentsVisible | | bool - Whether or not to display the comments associated with this annotation.   |
+| Idx_CreatedBy | | string - Name of the user who created this annotation. This defaults to the value of the `Tools/Annotation/Comments/Author` setting, which itself defaults to the user's system username.   |
+| Idx_Position | | vec3 - The position of the annotation relative to the `TargetAssembly` transform.   |
+| Idx_Rotation | | vec3 - The rotation of the annotation relative to the `TargetAssembly` transform.   |
+| Idx_EnterSnapShot | |   |
+| Idx_LeaveSnapShot | |   |

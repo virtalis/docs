@@ -1,0 +1,53 @@
+---
+title: Meta_AudioSound
+summary: An AudioSound represents a "one-shot" playback method for Meta_AudioBuffer nodes. 
+---
+
+# Meta_AudioSound
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+An AudioSound represents a "one-shot" playback method for [Meta_AudioBuffer](../metanodes/meta-audio-buffer.mdx) nodes.  [More...](#detailed-description)
+
+`#include <meta_audio.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_AudioBuffer, Idx_Activate, Idx_Gain, Idx_Relative, Idx_RelativeTo, Idx_Directional \}<br />Property index.  |
+| enum| **[RelativeTo](#enum-relativeto)** \{ World, Local \}<br />Values for Idx_RelativeTo.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_AudioSound;
+```
+
+An AudioSound represents a "one-shot" playback method for [Meta_AudioBuffer](../metanodes/meta-audio-buffer.mdx) nodes. 
+
+Activating an audio sound spawns a new internal audio source and doesn't stop any previous instances from playing. This type of node is used for short, repeatable sounds. 
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_AudioBuffer | | link - [Meta_AudioBuffer](../metanodes/meta-audio-buffer.mdx) containing the audio data we want this sound to play   |
+| Idx_Activate | | bool - When set to true, starts playing the sound and instantly resets itself to false on the next update. This allows multiple instances of this sound to overlap if activated more than once, but this must be done over multiple frames due to the delay on resetting to false (e.g. using vrYield in Lua)   |
+| Idx_Gain | | float - Volume; 0.0 is silent, 1.0 is 100% volume, 2.0 is 200%. Clamped at 2.0.   |
+| Idx_Relative | | bool - When true, positional audio is relative to the listener (i.e. Camera), otherwise it is positioned in its world location.   |
+| Idx_RelativeTo | | RelativeTo (int) - For relative mode, whether to use the parent Assembly world or local transform.   |
+| Idx_Directional | | Unused.   |
+
+Property index. 
+
+### enum RelativeTo
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| World | | `0` - Use the parent assembly world transform to position the audio relative to the listener (Symbols - C: `"RelativeToWorld"`, Lua: `__AudioSound_RelativeToWorld`)   |
+| Local | | `1` - Use the parent assembly local transform (Symbols - C: `"RelativeToLocal"`, Lua: `__AudioSound_RelativeToLocal`)   |
+
+Values for Idx_RelativeTo. 

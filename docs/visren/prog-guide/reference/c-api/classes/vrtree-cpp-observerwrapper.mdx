@@ -1,0 +1,100 @@
+---
+title: vrtree_cpp::ObserverWrapper
+summary: Wraps a class implementing static observer functions accepting refcounted handles. 
+---
+
+# vrtree_cpp::ObserverWrapper
+
+Wraps a class implementing static observer functions accepting refcounted handles.  [More...](#detailed-description)
+
+`#include <interface_helpers.hpp>`
+
+## Public Functions
+
+| Type           | Name           |
+| -------------- | -------------- |
+| void | **[NodeChildAdded](#nodechildadded)**([HNode](../definitions/types.mdx#typedef-hnode) vrParent, [HNode](../definitions/types.mdx#typedef-hnode) vrChild, void * ) |
+| void | **[NodeChildRemoved](#nodechildremoved)**([HNode](../definitions/types.mdx#typedef-hnode) vrParent, [HNode](../definitions/types.mdx#typedef-hnode) vrChild, void * ) |
+| void | **[NodeCreated](#nodecreated)**([HNode](../definitions/types.mdx#typedef-hnode) vrNode, void * ) |
+| void | **[NodeDestroying](#nodedestroying)**([HNode](../definitions/types.mdx#typedef-hnode) vrNode, void * ) |
+| void | **[NodeParentChanged](#nodeparentchanged)**([HNode](../definitions/types.mdx#typedef-hnode) vrNode, [HNode](../definitions/types.mdx#typedef-hnode) vrNewParent, [HNode](../definitions/types.mdx#typedef-hnode) vrOldParent, void * ) |
+| void | **[NodeRenamed](#noderenamed)**([HNode](../definitions/types.mdx#typedef-hnode) vrNode, void * ) |
+| void | **[NodeValuesChanged](#nodevalueschanged)**([HNode](../definitions/types.mdx#typedef-hnode) vrNode, void * ) |
+
+## Detailed Description
+
+```cpp
+template <typename T >
+struct vrtree_cpp::ObserverWrapper;
+```
+
+Wraps a class implementing static observer functions accepting refcounted handles. 
+
+## Public Functions Documentation
+
+### NodeChildAdded
+
+```cpp
+static inline void NodeChildAdded(
+    HNode vrParent,
+    HNode vrChild,
+    void * 
+)
+```
+
+### NodeChildRemoved
+
+```cpp
+static inline void NodeChildRemoved(
+    HNode vrParent,
+    HNode vrChild,
+    void * 
+)
+```
+
+### NodeCreated
+
+```cpp
+static inline void NodeCreated(
+    HNode vrNode,
+    void * 
+)
+```
+
+### NodeDestroying
+
+```cpp
+static inline void NodeDestroying(
+    HNode vrNode,
+    void * 
+)
+```
+
+### NodeParentChanged
+
+```cpp
+static inline void NodeParentChanged(
+    HNode vrNode,
+    HNode vrNewParent,
+    HNode vrOldParent,
+    void * 
+)
+```
+
+### NodeRenamed
+
+```cpp
+static inline void NodeRenamed(
+    HNode vrNode,
+    void * 
+)
+```
+
+### NodeValuesChanged
+
+```cpp
+static inline void NodeValuesChanged(
+    HNode vrNode,
+    void * 
+)
+```

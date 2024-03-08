@@ -1,0 +1,40 @@
+---
+title: Meta_OceanWake
+summary: An OceanWake draws wakes behind vessels moving across the ocean surface. 
+---
+
+# Meta_OceanWake
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+An OceanWake draws wakes behind vessels moving across the ocean surface. 
+
+`#include <meta_ocean.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_VesselAssembly, Idx_WakeTexture, Idx_FoamTexture, Idx_Origin, Idx_BowOffset, Idx_BowWidth, Idx_BowWakeFoam, Idx_BowWakeLength, Idx_SternOffset, Idx_SternWidth, Idx_SternWakeLength, Idx_Lifespan, Idx_SamplesPerSecond, Idx_MaximumSpeed \} |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - Enables/Disables the rendering and update of the ocean wake.   |
+| Idx_VesselAssembly | | link - The assembly node that the wake will follow in the scene.   |
+| Idx_WakeTexture | | link - The wake texture used for the bow wakes normal map, this should be a normal map with the displacement embedded into the alpha channel.   |
+| Idx_FoamTexture | | link - The texture map used for the foam of the bow trail and wave crests.   |
+| Idx_Origin | | vec3f - If the vessel is not centred around the assembly that the wake is linked to this should contain the offset.   |
+| Idx_BowOffset | | float - The distance between the vessels origin and its bow (Should be a positive value).   |
+| Idx_BowWidth | | float - The width of the vessels bow.   |
+| Idx_BowWakeFoam | | float - The amount of foam the bow wake emits (0-None 1-100%)   |
+| Idx_BowWakeLength | | float - The length of the bow wake as a percentage of the total lifespan (0-0% 1-100%)   |
+| Idx_SternOffset | | float - The distance between the vessels origin and its stern (Show be a negative value).   |
+| Idx_SternWidth | | float - The width of the vessels stern.   |
+| Idx_SternWakeLength | | float - The length of the stern wake as a percentage of the total lifespan (0-0% 1-100%)   |
+| Idx_Lifespan | | float - The lifespan of the stern wake (in seconds), the wake will progressively fade out over this time span.   |
+| Idx_SamplesPerSecond | | int - The number of times the vessels position will be sampled per second.   |
+| Idx_MaximumSpeed | | float - The maximum speed of the vessel in knots.   |

@@ -1,0 +1,61 @@
+---
+title: vrtree_cpp::Handle
+summary: Helper struct to take any handle and close it appropriately. 
+---
+
+# vrtree_cpp::Handle
+
+Helper struct to take any handle and close it appropriately. 
+
+`#include <interface_helpers.hpp>`
+
+## Public Functions
+
+| Type           | Name           |
+| -------------- | -------------- |
+| void | **[close](#close)**([HNode](../definitions/types.mdx#typedef-hnode) handle)<br />Closes a node handle.  |
+| void | **[close](#close-1)**([HMeta](../definitions/types.mdx#typedef-hmeta) handle)<br />Closes a metanode handle.  |
+| void | **[close](#close-2)**([HMigration](../definitions/types.mdx#typedef-hmigration) handle)<br />Closes a migration handle.  |
+| void | **[close](#close-3)**([HFFIVar](../definitions/types.mdx#typedef-hffivar) handle)<br />Close an FFI var handle.  |
+
+## Public Functions Documentation
+
+### close
+
+```cpp
+static inline void close(
+    HNode handle
+)
+```
+
+Closes a node handle. 
+
+### close
+
+```cpp
+static inline void close(
+    HMeta handle
+)
+```
+
+Closes a metanode handle. 
+
+### close
+
+```cpp
+static inline void close(
+    HMigration handle
+)
+```
+
+Closes a migration handle. 
+
+### close
+
+```cpp
+static inline void close(
+    HFFIVar handle
+)
+```
+
+Close an FFI var handle. 

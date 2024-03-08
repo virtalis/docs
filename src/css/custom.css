@@ -1,35 +1,47 @@
-/* Light Mode */
 :root {
-  --ifm-color-primary: #0675f8;
-  --ifm-color-primary-dark: #0569df;
-  --ifm-color-primary-darker: #0563d3;
-  --ifm-color-primary-darkest: #0452ae;
-  --ifm-color-primary-light: #1e83fa;
-  --ifm-color-primary-lighter: #2a89fa;
-  --ifm-color-primary-lightest: #4f9efb;
+  --virtalis-color-light-blue: rgb(16, 6, 159);
+  --virtalis-color-lighter-blue: rgb(19, 6, 196);
+  --virtalis-color-dark-blue: rgb(13, 3, 114);
+  --virtalis-color-darker-blue: rgb(11, 3, 92);
+  --virtalis-color-light-navbar-text: rgb(213, 214, 255);
+  --virtalis-color-dark-navbar-text: rgb(189, 190, 230);
+
+  --ifm-color-primary: #d66800;
+  --ifm-color-primary-dark: #c15e00;
+  --ifm-color-primary-darker: #b65800;
+  --ifm-color-primary-darkest: #964900;
+  --ifm-color-primary-light: #eb7200;
+  --ifm-color-primary-lighter: #f67800;
+  --ifm-color-primary-lightest: #ff8817;
+
   --ifm-font-size-base: 18px;
+  --ifm-font-color-base: var(--ifm-color-black);
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-table-cell-padding: 0.5rem;
+  --ifm-footer-padding-vertical: calc(var(--ifm-spacing-vertical));
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-/* Dark Mode */
 [data-theme='dark'] {
-  --ifm-color-primary: #3995fe;
-  --ifm-color-primary-dark: #1a84fe;
-  --ifm-color-primary-darker: #0b7cfe;
-  --ifm-color-primary-darkest: #0166d9;
-  --ifm-color-primary-light: #58a6fe;
-  --ifm-color-primary-lighter: #67aefe;
-  --ifm-color-primary-lightest: #96c7fe;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #e8a92c;
+  --ifm-color-primary-dark: #e09d18;
+  --ifm-color-primary-darker: #d49417;
+  --ifm-color-primary-darkest: #ae7a13;
+  --ifm-color-primary-light: #ebb345;
+  --ifm-color-primary-lighter: #ecb851;
+  --ifm-color-primary-lightest: #f0c777;
+
+  --ifm-font-color-base: var(--ifm-color-white);
 }
 
 /*a {
   transition: 0s;
 }*/
 
-article {
-  margin-left: 14px;
+@media (min-width: 997px) {
+  article {
+    margin-left: 14px;
+  }
 }
 
 table {
@@ -43,9 +55,6 @@ th, td {
   padding: 8px;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
-
-th {
-  background-color: #0062ff;
-  color: white;
+.footer {
+  font-size: 80%;
 }

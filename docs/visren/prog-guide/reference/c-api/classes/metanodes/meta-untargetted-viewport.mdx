@@ -1,0 +1,36 @@
+---
+title: Meta_UntargettedViewport
+summary: An UntargettedViewport represents a viewport occupying a specified rectangle of a window (range 0 to 1) which renders the 3D scene using the specified view and projection matrices. 
+---
+
+# Meta_UntargettedViewport
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+An UntargettedViewport represents a viewport occupying a specified rectangle of a window (range 0 to 1) which renders the 3D scene using the specified view and projection matrices. 
+
+`#include <meta_view.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_Rectangle, Idx_Camera, Idx_ViewMatrix_Mono, Idx_ViewMatrix_Left, Idx_ViewMatrix_Right, Idx_ProjectionMatrix_Mono, Idx_ProjectionMatrix_Left, Idx_ProjectionMatrix_Right \}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - When enabled, viewport is drawn to the screen   |
+| Idx_Rectangle | | vec4f - The viewport bounds, scaled on the screen by the ViewportLayout size. (e.g. layout size `2.0, 1.0`, and child viewport width `1.0` will fill half the screen with the viewport)   |
+| Idx_Camera | | link - The camera from which the scene is rendered   |
+| Idx_ViewMatrix_Mono | | mat4w - View matrix for mono   |
+| Idx_ViewMatrix_Left | | mat4w - View matrix for the left eye   |
+| Idx_ViewMatrix_Right | | mat4w - View matrix for the right eye   |
+| Idx_ProjectionMatrix_Mono | | mat4w - Projection matrix for mono   |
+| Idx_ProjectionMatrix_Left | | mat4w - Projection matrix for the left eye   |
+| Idx_ProjectionMatrix_Right | | mat4w - Projection matrix for the right eye   |
+
+Property index. 

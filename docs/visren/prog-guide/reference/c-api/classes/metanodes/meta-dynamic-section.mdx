@@ -1,0 +1,53 @@
+---
+title: Meta_DynamicSection
+summary: A DynamicSection is a cutting plane that can be placed in the scene. 
+---
+
+# Meta_DynamicSection
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A DynamicSection is a cutting plane that can be placed in the scene. 
+
+`#include <meta_sections.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[AXISALIGNMODE](#enum-axisalignmode)** \{ AxisAlignMode_xy, AxisAlignMode_xz, AxisAlignMode_yz, AxisAlignMode_custom \}<br />Values for Idx_AlignMode.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_EnableCaps, Idx_Visible, Idx_Inverted, Idx_Selected, Idx_AlignMode, Idx_SectionLink, Idx_AssemblyLink, Idx_CornerBotLeft, Idx_CornerBotRight, Idx_CornerTopRight, Idx_CornerTopLeft, Idx_Plane, Idx_Opacity \}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum AXISALIGNMODE
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| AxisAlignMode_xy | | Align along the XY axis.   |
+| AxisAlignMode_xz | | Align along the XZ axis.   |
+| AxisAlignMode_yz | | Align along the YZ axis.   |
+| AxisAlignMode_custom | | Align according to the parent assembly transform.   |
+
+Values for Idx_AlignMode. 
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - Enable the dynamic section.   |
+| Idx_EnableCaps | | bool - Enable the capped sections.   |
+| Idx_Visible | | bool - Enable the visibility of the section plane.   |
+| Idx_Inverted | | bool - Invert the direction of the clipping.   |
+| Idx_Selected | | bool - The dynamic section is selected   |
+| Idx_AlignMode | | [AXISALIGNMODE](#enum-axisalignmode) (int) - Change the orientation of the clip plane.   |
+| Idx_SectionLink | | link - A link to the parent of the graph to be clipped.   |
+| Idx_AssemblyLink | | link - A link to the sections parent assembly.   |
+| Idx_CornerBotLeft | | (internal) The bottom left corner of the plane (used to save the size and position on exit).   |
+| Idx_CornerBotRight | | (internal)   |
+| Idx_CornerTopRight | | (internal)   |
+| Idx_CornerTopLeft | | (internal)   |
+| Idx_Plane | | (internal) The plane equation in world space.   |
+| Idx_Opacity | | float - The opacity of the plane.   |
+
+Property index. 

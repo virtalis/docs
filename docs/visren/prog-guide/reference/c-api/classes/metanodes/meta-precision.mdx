@@ -1,0 +1,36 @@
+---
+title: Meta_Precision
+summary: A Precision represents the tolerance value used by importer formats to tessellate a surface. Use validitymask to check which values are set. 
+---
+
+# Meta_Precision
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A Precision represents the tolerance value used by importer formats to tessellate a surface. Use validitymask to check which values are set. 
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_ValidityMask, Idx_Length, Idx_Angle, Idx_ChordHeight, Idx_EdgeLength, Idx_Thickness, Idx_Model, Idx_Face, Idx_Vector \}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_ValidityMask | | bitfield indicating which properties are valid   |
+| Idx_Length | | 0x1 Tolerance value for cleaning and is used to ensure that extra vertices are not created too close to existing vertices.   |
+| Idx_Angle | | 0x2 Angular Tolerance is the maximum angular deviation allowed between an analytical surface and its triangulation. Pairs of triangles cannot incorporate a dihedral angle greater than this amount. These units are expressed in degrees. This setting determines the minimum number of faces that may represent the circumference of a true cylinder, regardless of the Chord Height Tolerance setting. Medium and small objects relative to the total scene bounding box may easily fall within surface tolerance tessellation tolerances with perhaps only four or five sides representing a true cylindrical surface. Therefore, by using this tolerance setting you are controlling the “coarseness” of tessellation regardless of the geometry’s relative size in the scene. For example, an angle of 30 results in a 12 sided tessellated cylinder, and an angle of 45 results in an 8 sided tessellated cylinder.   |
+| Idx_ChordHeight | | 0x4 Chord height tolerance is the value that is allowed between a surface described by the BREPs (boundary representations), and the polygons that are produced by the tessellation process to approximate that surface. That is, between an edge and its tessellation. A smaller chord height tolerance causes more polygons to be produced, creating smoother models. The units are expressed as unit size based on those used by the model.   |
+| Idx_EdgeLength | | 0x8   |
+| Idx_Thickness | | 0x10   |
+| Idx_Model | | 0x20   |
+| Idx_Face | | 0x40   |
+| Idx_Vector | | 0x80   |
+
+Property index. 

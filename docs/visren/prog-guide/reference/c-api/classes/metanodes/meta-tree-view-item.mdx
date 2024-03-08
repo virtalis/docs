@@ -1,0 +1,50 @@
+---
+title: Meta_TreeViewItem
+summary: A TreeViewItem is a simple base element for constructing tree-view style UIs. 
+---
+
+# Meta_TreeViewItem
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A TreeViewItem is a simple base element for constructing tree-view style UIs. 
+
+`#include <meta_gui.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[ExpandedState](#enum-expandedstate)** \{ STATE_COLLAPSED, STATE_PARTIALLYEXPANDED, STATE_EXPANDED \}<br />Values for Idx_Expanded.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_BackgroundColour, Idx_Text, Idx_TextSize, Idx_TextColour, Idx_Image, Idx_ImageSize, Idx_ExpandButtonStyle, Idx_NameButtonStyle, Idx_Expanded, Idx_Clicked, Idx_DoubleClicked \}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum ExpandedState
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| STATE_COLLAPSED | | Node's children are hidden.   |
+| STATE_PARTIALLYEXPANDED | | Unused.   |
+| STATE_EXPANDED | | Node's children are visible.   |
+
+Values for Idx_Expanded. 
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - When enabled, this panel and its children are drawn   |
+| Idx_BackgroundColour | | vec4f - Background colour; RGBA 0.0f to 1.0f   |
+| Idx_Text | | string - Caption to display on the item   |
+| Idx_TextSize | | float - Size of the caption   |
+| Idx_TextColour | | vec4f - Colour of the caption; RGBA 0.0f to 1.0f   |
+| Idx_Image | | link - Image to display on the item (like an icon)   |
+| Idx_ImageSize | | float - Size of the image   |
+| Idx_ExpandButtonStyle | | link - Style to apply to the button ([Meta_ColouredButtonStyle](../metanodes/meta-coloured-button-style.mdx), [Meta_TexturedButtonStyle](../metanodes/meta-textured-button-style.mdx)) for the expand button  for the expand button  |
+| Idx_NameButtonStyle | | link - Style to apply to the button ([Meta_ColouredButtonStyle](../metanodes/meta-coloured-button-style.mdx), [Meta_TexturedButtonStyle](../metanodes/meta-textured-button-style.mdx)) for the caption area  for the caption area  |
+| Idx_Expanded | | [ExpandedState](../metanodes/meta-tree-view-item.mdx#enum-expandedstate) (int) - Whether the item is expanded to display its children   |
+| Idx_Clicked | | Internal.   |
+| Idx_DoubleClicked | | Internal.   |
+
+Property index. 

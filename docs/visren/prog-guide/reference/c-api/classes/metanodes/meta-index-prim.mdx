@@ -1,0 +1,50 @@
+---
+title: Meta_IndexPrim
+summary: An IndexPrim indexes vertices from Meta_VertexAttrib siblings. 
+---
+
+# Meta_IndexPrim
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+An IndexPrim indexes vertices from Meta_VertexAttrib siblings.  [More...](#detailed-description)
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_Prim, Idx_Content \}<br />Property index.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_IndexPrim;
+```
+
+An IndexPrim indexes vertices from Meta_VertexAttrib siblings. 
+
+**Note**: The collision system only supports meshes that provide triangles - lines and points will not be pickable with the cursor. 
+
+Conventionally, these nodes are called `IPn` (e.g `IP1` for the first primitive in the mesh). However, they are appended to the internal mesh index buffer in the order they are encountered in the tree, regardless of name.
+
+Primitives are constructed by indexing the appropriate number of vertices from the VertexAttrib data. These indexes refer to individual vertices rather than a vertex component, so if a VertexAttrib contains position data `0,0,0,1,1,1`, index 0 refers to point `0,0,0` and index 1 refers to `1,1,1`.
+
+The following Prim values are supported by the renderer:
+
+* `trilist` - Describes primitive constructed of triangles. Each triangle is indexed using 3 integer values (e.g. `0,1,2,0,3,1` makes two connected triangles that share two vertices)
+* `linelist` - Describes primitive constructed with lines. Each line segment is indexed using 2 integer values (e.g. `0,1,1,2` makes two connected line segments)
+* `pointlist` - Describes primitive constructed with points. Each point is a single integer index.
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - When enabled, this primitive is drawn by the mesh   |
+| Idx_Prim | | string - Primitive type - see above description   |
+| Idx_Content | | `vector<int>` - The indexes that make up the primitives   |
+
+Property index. 

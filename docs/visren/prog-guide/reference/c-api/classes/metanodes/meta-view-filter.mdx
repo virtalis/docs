@@ -1,0 +1,52 @@
+---
+title: Meta_ViewFilter
+summary: Meta_ViewFilter's are associated with Views, and correspond to a full-screen quad being drawn over the View executing a fragment shader function. 
+---
+
+# Meta_ViewFilter
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+Meta_ViewFilter's are associated with Views, and correspond to a full-screen quad being drawn over the View executing a fragment shader function.  [More...](#detailed-description)
+
+`#include <meta_division.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[BlendMode](#enum-blendmode)** \{ BlendMode_None, BlendMode_Alpha, BlendMode_Add, BlendMode_Multiply \}<br />Values for Idx_BlendMode.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_Shader, Idx_BlendMode \} |
+
+## Detailed Description
+
+```cpp
+struct Meta_ViewFilter;
+```
+
+Meta_ViewFilter's are associated with Views, and correspond to a full-screen quad being drawn over the View executing a fragment shader function. 
+
+The shader can sample the current contents of the View's colour and depth buffers (among others) as it goes. Examples of filters: colour grading, depth-of-field, screen-space ambient occlusion, screen-space reflections, screen-space atmospheric scattering, night-vision goggles.
+
+Expected Implementation Details:- When the Shader property changes (or when the SourceCode property of the linked Shader changes) any new arguments in the linked shader will be copied over to this ViewFilter as children, allowing the user to override the defaults in the Shader. 
+
+## Public Types Documentation
+
+### enum BlendMode
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| BlendMode_None | | No blend mode (Symbols - C: `"BlendModeNone"`, Lua: `__ViewFilter_BlendModeNone`)   |
+| BlendMode_Alpha | | Alpha blending (Symbols - C: `"BlendModeAlpha"`, Lua: `__ViewFilter_BlendModeAlpha`)   |
+| BlendMode_Add | | Additive blending (Symbols - C: `"BlendModeAdd"`, Lua: `__ViewFilter_BlendModeAdd`)   |
+| BlendMode_Multiply | | Multiplicative blending (Symbols - C: `"BlendModeMultiply"`, Lua: `__ViewFilter_BlendModeMultiply`)   |
+
+Values for Idx_BlendMode. 
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - whether or not to apply the filter to any views it's attached to   |
+| Idx_Shader | | link - a link to a Meta_ViewShader instance   |
+| Idx_BlendMode | | [BlendMode](#enum-blendmode) (int) - controls how shader output is blended with the framebuffer contents.   |

@@ -1,0 +1,22 @@
+# CreoView Importer
+
+The CreoView importer includes various format-specific settings.
+
+## Entity Filters
+
+| Setting                      | Description                                                                                         |
+|------------------------------|-----------------------------------------------------------------------------------------------------|
+| Ignore Cosmetic              | Ignore CAD model geometry cosmetic surfaces in the import. *[default: true]* |
+| Ignore Geometry Construction | Ignore CAD model construction geometry surfaces (datums) in the import. *[default: true]* |
+| Ignore Geometry              | Ignore CAD model geometry surfaces (quilts) in the import. *[default: false]* |
+
+## Tessellation Setup
+
+| Setting                   | Description                                                                                         |
+|---------------------------|-----------------------------------------------------------------------------------------------------|
+| Re-Tessellate             | Whether to use the triangulation stored in the file or re-tessellate it at load time. *[default: false]* |
+| Edge Length               | The resolution of the edge length (based on multiples of the analytical tolerance). This is only applied if Re-Tessellate is enabled. *[default: 0.0]* |
+| Edge Angle                | The maximum permitted angle between edges in degrees. This is only applied if Re-Tessellate is enabled. *[default: 0.0]* |
+| Chord Height              | The chord height resolution in mm (based on multiples of the analytical tolerance). This is only applied if Re-Tessellate is enabled. *[default: 3.0]* |
+| Remove Duplicate Geometry | Remove duplicate geometry from the import. *[default: false]* |
+| Remove Thin Triangles     | Remove thin triangles from the import. *[default: false]* |

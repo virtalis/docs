@@ -1,0 +1,29 @@
+---
+title: Meta_CameraCollisionGuard
+summary: A CameraCollisionGuard prevents script event dispatch unless the camera is within Radius metres of the parent assembly. 
+---
+
+# Meta_CameraCollisionGuard
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A CameraCollisionGuard prevents script event dispatch unless the camera is within Radius metres of the parent assembly. 
+
+`#include <meta_script.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_Radius, Idx_Collision \}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Radius | | floatw - Radius of activation area   |
+| Idx_Collision | | link - (internal) link to the auto-generated Collision object used by the guard   |
+
+Property index. 

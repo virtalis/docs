@@ -1,0 +1,182 @@
+---
+title: Utilities
+summary: Utilities to assist in plugin authoring, provided by the vrtree-linker library. 
+---
+
+# Utilities
+
+**Module:** **[Plugins](../plugins/index.mdx)**
+
+Utilities to assist in plugin authoring, provided by the `vrtree-linker` library. 
+
+## Functions
+
+| Type           | Name           |
+| -------------- | -------------- |
+| void | **[registerYield](#registeryield)**([VRPProgressYieldProc](../plugins/interface.mdx#typedef-vrpprogressyieldproc) proc)<br />Internal implementation of [VRProgressYield](../plugins/interface.mdx#typedef-vrpprogressyieldproc) which stores the progress function and exposes it via [progress_yield](../plugins/index.mdx#progress-yield).  |
+
+## Defines
+
+| Type           | Name           |
+| -------------- | -------------- |
+|  | **[LOG_DEBUG](#define-log-debug)** <br />Type passed to a [VRPLogProc](../plugins/interface.mdx#typedef-vrplogproc) for debug messages.  |
+|  | **[LOG_ERROR](#define-log-error)** <br />Type passed to a [VRPLogProc](../plugins/interface.mdx#typedef-vrplogproc) for error messages.  |
+|  | **[LOG_INFO](#define-log-info)** <br />Type passed to a [VRPLogProc](../plugins/interface.mdx#typedef-vrplogproc) for info (standard) messages.  |
+|  | **[LOG_WARN](#define-log-warn)** <br />Type passed to a [VRPLogProc](../plugins/interface.mdx#typedef-vrplogproc) for warning messages.  |
+|  | **[VRPLUGIN_API_IMPL](#define-vrplugin-api-impl)** <br />Combines all helper impl macros.  |
+|  | **[VRPLUGIN_API_LOGIMPL](#define-vrplugin-api-logimpl)** <br />Implements the log registration functions and provides static variables to store the registered log functions, `s_logFunc` and `s_logIndentFunc` |
+|  | **[VRPLUGIN_API_PERMISSIONIMPL](#define-vrplugin-api-permissionimpl)** <br />Implements permission registration functions and provides static variables to store the registered permission functions, `s_hasPermissionFunc` and `s_reqPermissionFunc` |
+|  | **[VRPLUGIN_API_STDIMPL](#define-vrplugin-api-stdimpl)** <br />Implements the major and minor version query functions.  |
+|  | **[VRPLUGIN_API_YIELDIMPL](#define-vrplugin-api-yieldimpl)** <br />Implements progress yield registration function and wraps it in [progress_yield](../plugins/index.mdx#progress-yield).  |
+|  | **[VRPLUGIN_IMPORT_PERMISSION](#define-vrplugin-import-permission)**(NAME) <br />Helper macro that checks and calls the registered [VRPRequestPermissionProc](../plugins/interface.mdx#typedef-vrprequestpermissionproc) to trigger an application license check. Inserts a `return 1` on failure, so should be used in a function that returns an int.  |
+|  | **[VRPLUGIN_INIT_PERMISSION](#define-vrplugin-init-permission)**(NAME) <br />Helper macro that checks the existence of the registered [VRPHasPermissionProc](../plugins/interface.mdx#typedef-vrphaspermissionproc) and calls it. Inserts a `return 1` on failure, so should be used in a function that returns an int.  |
+|  | **[VRPLUGIN_INJECT_CORE_LOG](#define-vrplugin-inject-core-log)** <br />Internal use for Virtalis plugins.  |
+|  | **[VRPLUGIN_INJECT_CORE_YIELD](#define-vrplugin-inject-core-yield)** <br />Internal use for Virtalis plugins.  |
+|  | **[VRPLUGIN_LOADVRTREE](#define-vrplugin-loadvrtree)** <br />Loads all the VRTree C API entry points.  |
+
+## Functions Documentation
+
+### registerYield
+
+```cpp
+void registerYield(
+    VRPProgressYieldProc proc
+)
+```
+
+Internal implementation of [VRProgressYield](../plugins/interface.mdx#typedef-vrpprogressyieldproc) which stores the progress function and exposes it via [progress_yield](../plugins/index.mdx#progress-yield). 
+
+## Macros Documentation
+
+### define LOG_DEBUG {#define-log-debug}
+
+```cpp
+#define LOG_DEBUG 3
+```
+
+Type passed to a [VRPLogProc](../plugins/interface.mdx#typedef-vrplogproc) for debug messages. 
+
+### define LOG_ERROR {#define-log-error}
+
+```cpp
+#define LOG_ERROR 2
+```
+
+Type passed to a [VRPLogProc](../plugins/interface.mdx#typedef-vrplogproc) for error messages. 
+
+### define LOG_INFO {#define-log-info}
+
+```cpp
+#define LOG_INFO 0
+```
+
+Type passed to a [VRPLogProc](../plugins/interface.mdx#typedef-vrplogproc) for info (standard) messages. 
+
+### define LOG_WARN {#define-log-warn}
+
+```cpp
+#define LOG_WARN 1
+```
+
+Type passed to a [VRPLogProc](../plugins/interface.mdx#typedef-vrplogproc) for warning messages. 
+
+### define VRPLUGIN_API_IMPL {#define-vrplugin-api-impl}
+
+```cpp
+#define VRPLUGIN_API_IMPL VRPLUGIN_API_STDIMPL;      \
+  VRPLUGIN_API_LOGIMPL;      \
+  VRPLUGIN_API_YIELDIMPL;    \
+  VRPLUGIN_API_PERMISSIONIMPL
+```
+
+Combines all helper impl macros. 
+
+### define VRPLUGIN_API_LOGIMPL {#define-vrplugin-api-logimpl}
+
+```cpp
+#define VRPLUGIN_API_LOGIMPL static VRPLogProc s_logFunc = NULL;                                   \
+  PLUGIN_ENTRY_POINT void VRTREE_APIENTRY VRPRegisterLog(VRPLogProc proc) { s_logFunc = proc; } \
+  static VRPLogIndentProc s_logIndentFunc = NULL;                       \
+  PLUGIN_ENTRY_POINT void VRTREE_APIENTRY VRPRegisterLogIndent(VRPLogIndentProc proc) { s_logIndentFunc = proc; }
+```
+
+Implements the log registration functions and provides static variables to store the registered log functions, `s_logFunc` and `s_logIndentFunc`
+
+### define VRPLUGIN_API_PERMISSIONIMPL {#define-vrplugin-api-permissionimpl}
+
+```cpp
+#define VRPLUGIN_API_PERMISSIONIMPL static VRPHasPermissionProc s_hasPermissionFunc = NULL;               \
+  PLUGIN_ENTRY_POINT void VRTREE_APIENTRY VRPRegisterHasPermission(VRPHasPermissionProc proc) { s_hasPermissionFunc = proc; } \
+  static VRPRequestPermissionProc s_reqPermissionFunc = NULL;           \
+  PLUGIN_ENTRY_POINT void VRTREE_APIENTRY VRPRegisterRequestPermission(VRPRequestPermissionProc proc) { s_reqPermissionFunc = proc; }
+```
+
+Implements permission registration functions and provides static variables to store the registered permission functions, `s_hasPermissionFunc` and `s_reqPermissionFunc`
+
+### define VRPLUGIN_API_STDIMPL {#define-vrplugin-api-stdimpl}
+
+```cpp
+#define VRPLUGIN_API_STDIMPL PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPGetAPIVersionMajor() { return PLUGIN_API_VERSION_MAJOR; } \
+  PLUGIN_ENTRY_POINT int VRTREE_APIENTRY VRPGetAPIVersionMinor() { return PLUGIN_API_VERSION_MINOR; }
+```
+
+Implements the major and minor version query functions. 
+
+### define VRPLUGIN_API_YIELDIMPL {#define-vrplugin-api-yieldimpl}
+
+```cpp
+#define VRPLUGIN_API_YIELDIMPL PLUGIN_ENTRY_POINT void VRTREE_APIENTRY VRPRegisterProgressYield(VRPProgressYieldProc proc) { registerYield(proc); }
+```
+
+Implements progress yield registration function and wraps it in [progress_yield](../plugins/index.mdx#progress-yield). 
+
+### define VRPLUGIN_IMPORT_PERMISSION {#define-vrplugin-import-permission}
+
+```cpp
+#define VRPLUGIN_IMPORT_PERMISSION(
+    NAME
+)
+if(!s_reqPermissionFunc || s_reqPermissionFunc(NAME, "Cancel Import") == 0) \
+    return 1
+```
+
+Helper macro that checks and calls the registered [VRPRequestPermissionProc](../plugins/interface.mdx#typedef-vrprequestpermissionproc) to trigger an application license check. Inserts a `return 1` on failure, so should be used in a function that returns an int. 
+
+### define VRPLUGIN_INIT_PERMISSION {#define-vrplugin-init-permission}
+
+```cpp
+#define VRPLUGIN_INIT_PERMISSION(
+    NAME
+)
+if(!s_hasPermissionFunc) return 1; \
+  s_hasPermissionFunc(NAME)
+```
+
+Helper macro that checks the existence of the registered [VRPHasPermissionProc](../plugins/interface.mdx#typedef-vrphaspermissionproc) and calls it. Inserts a `return 1` on failure, so should be used in a function that returns an int. 
+
+### define VRPLUGIN_INJECT_CORE_LOG {#define-vrplugin-inject-core-log}
+
+```cpp
+#define VRPLUGIN_INJECT_CORE_LOG 
+```
+
+Internal use for Virtalis plugins. 
+
+### define VRPLUGIN_INJECT_CORE_YIELD {#define-vrplugin-inject-core-yield}
+
+```cpp
+#define VRPLUGIN_INJECT_CORE_YIELD 
+```
+
+Internal use for Virtalis plugins. 
+
+### define VRPLUGIN_LOADVRTREE {#define-vrplugin-loadvrtree}
+
+```cpp
+#define VRPLUGIN_LOADVRTREE {                   \
+  int ret = loadVrtree();                       \
+  if(ret != 0)                                  \
+    return ret; }
+```
+
+Loads all the VRTree C API entry points. 

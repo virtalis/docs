@@ -1,0 +1,41 @@
+---
+title: Meta_VertexPrim
+summary: A VertexPrim specifies a range of vertices in Meta_VertexAttrib siblings to render from, requiring this data to be in primitive order (and possibly duplicated) 
+---
+
+# Meta_VertexPrim
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A VertexPrim specifies a range of vertices in [Meta_VertexAttrib](../metanodes/meta-vertex-attrib.mdx) siblings to render from, requiring this data to be in primitive order (and possibly duplicated)  [More...](#detailed-description)
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_Prim, Idx_Count, Idx_Start \}<br />Property index.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_VertexPrim;
+```
+
+A VertexPrim specifies a range of vertices in [Meta_VertexAttrib](../metanodes/meta-vertex-attrib.mdx) siblings to render from, requiring this data to be in primitive order (and possibly duplicated) 
+
+See [Meta_IndexPrim](../metanodes/meta-index-prim.mdx) for a list of supported prim type names. 
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - When enabled, this primitive is drawn by the mesh   |
+| Idx_Prim | | string - Primitive type   |
+| Idx_Count | | int - The number of primitives to draw from the array   |
+| Idx_Start | | int - The index of the vertex to start drawing from   |
+
+Property index. 

@@ -1,0 +1,32 @@
+---
+title: Meta_SceneLink
+summary: A SceneLink specifies a link to a branch of the tree to render. 
+---
+
+# Meta_SceneLink
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A SceneLink specifies a link to a branch of the tree to render. 
+
+`#include <meta_view.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_RootNode, Idx_Owner, Idx_VisibleToOwner, Idx_VisibleToOthers \}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - Whether to render the thing.   |
+| Idx_RootNode | | link - The thing to render.   |
+| Idx_Owner | | link - The user who owns the SceneLink.   |
+| Idx_VisibleToOwner | | bool - Whether the owner of the SceneLink can see the thing.   |
+| Idx_VisibleToOthers | | bool - Whether all the other users can see the thing.   |
+
+Property index. 

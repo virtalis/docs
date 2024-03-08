@@ -1,0 +1,135 @@
+---
+title: vrquaternion
+summary: A quaternion. 
+---
+
+# vrquaternion
+
+**Module:** **[Maths](../modules/maths.mdx)**
+
+A quaternion. 
+
+`#include <lua_api.h>`
+
+## Public Functions
+
+| Type           | Name           |
+| -------------- | -------------- |
+| Any | **[copy](#copy)**()<br />(vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane  |
+| number | **[dot](#dot)**(vrquaternion](../classes/vrquaternion.mdx) r)<br />(vrQuaternionDot) Returns the dot product of two quaternions.  |
+| Any | **[operator*](#operator)**() |
+| Any | **[operator+](#operator-1)**() |
+| Any | **[operator-](#operator-)**() |
+| Any | **[operator/](#operator-2)**() |
+| Any | **[operator=](#operator-3)**() |
+
+## Public Attributes
+
+| Type           | Name           |
+| -------------- | -------------- |
+| [vrvec3](../classes/vrvec3.mdx) | **[v](#v)** <br />xyz vector  |
+| [vrvec4](../classes/vrvec4.mdx) | **[vec4](#vec4)** <br />xyzw vector  |
+| number | **[w](#w)** <br />w component  |
+| number | **[x](#x)** <br />x component  |
+| number | **[y](#y)** <br />y component  |
+| number | **[z](#z)** <br />z component  |
+
+## Public Functions Documentation
+
+### copy
+
+```lua
+Any copy()
+```
+
+(vrCopy) Returns a copy of a Vector, Matrix, Ray, Sphere, AABBox, Quaternion or Plane 
+
+### dot
+
+```lua
+number dot(
+    vrquaternion r
+)
+```
+
+(vrQuaternionDot) Returns the dot product of two quaternions. 
+
+### operator*
+
+```lua
+Any operator*()
+```
+
+### operator+
+
+```lua
+Any operator+()
+```
+
+### operator-
+
+```lua
+Any operator-()
+```
+
+### operator/
+
+```lua
+Any operator/()
+```
+
+### operator=
+
+```lua
+Any operator=()
+```
+
+## Public Attributes Documentation
+
+### v
+
+```lua
+vrvec3 v;
+```
+
+xyz vector 
+
+### vec4
+
+```lua
+vrvec4 vec4;
+```
+
+xyzw vector 
+
+### w
+
+```lua
+number w;
+```
+
+w component 
+
+### x
+
+```lua
+number x;
+```
+
+x component 
+
+### y
+
+```lua
+number y;
+```
+
+y component 
+
+### z
+
+```lua
+number z;
+```
+
+z component 

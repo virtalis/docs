@@ -1,0 +1,29 @@
+---
+title: Meta_KeyStateGuard
+summary: A KeyStateGuard prevents script event dispatch unless the key is currently being pressed. 
+---
+
+# Meta_KeyStateGuard
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A KeyStateGuard prevents script event dispatch unless the key is currently being pressed. 
+
+`#include <meta_script.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_KeyCode, Idx_KeyState \}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_KeyCode | | int - Key code   |
+| Idx_KeyState | | bool - Whether the key must be pressed in order to pass   |
+
+Property index. 

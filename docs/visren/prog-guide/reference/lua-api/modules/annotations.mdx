@@ -1,0 +1,246 @@
+---
+title: Annotations
+summary: Functions for interacting with annotations. 
+---
+
+# Annotations
+
+Functions for interacting with annotations.
+
+## Functions
+
+| Type           | Name           |
+| -------------- | -------------- |
+| [vrnode](../classes/vrnode.mdx) | **[vrAnnotationCreate](#vrannotationcreate)**([vrvec3](../classes/vrvec3.mdx) worldPos, [vrvec3](../classes/vrvec3.mdx) worldRot, [vrnode](../classes/vrnode.mdx) targetNode)<br />Create an annotation at the specified location, linked to the specified object.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrAnnotationCreateComment](#vrannotationcreatecomment)**([vrnode](../classes/vrnode.mdx) annotation)<br />Create a comment on an annotation.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrAnnotationCreateViewpoint](#vrannotationcreateviewpoint)**([vrnode](../classes/vrnode.mdx) annotation)<br />Create a viewpoint on an annotation.  |
+| void | **[vrAnnotationDelete](#vrannotationdelete)**([vrnode](../classes/vrnode.mdx) annotation)<br />Delete an annotation and all associated comments and viewpoints.  |
+| void | **[vrAnnotationDeleteComment](#vrannotationdeletecomment)**([vrnode](../classes/vrnode.mdx) comment)<br />Delete a comment from an annotation.  |
+| void | **[vrAnnotationDeleteViewpoint](#vrannotationdeleteviewpoint)**([vrnode](../classes/vrnode.mdx) viewpoint)<br />Delete a viewpoint from an annotation.  |
+| void | **[vrAnnotationEditCommentText](#vrannotationeditcommenttext)**([vrnode](../classes/vrnode.mdx) comment)<br />Activates an interactive editor for editing an annotation comment.  |
+| string | **[vrAnnotationGetCommentText](#vrannotationgetcommenttext)**([vrnode](../classes/vrnode.mdx) comment)<br />Gets the text from an annotation comment.  |
+| table | **[vrAnnotationListAll](#vrannotationlistall)**()<br />Lists all annotations in the scene.  |
+| table | **[vrAnnotationListComments](#vrannotationlistcomments)**([vrnode](../classes/vrnode.mdx) annotation)<br />Lists all comments in an annotation.  |
+| table | **[vrAnnotationListViewpoints](#vrannotationlistviewpoints)**([vrnode](../classes/vrnode.mdx) annotation)<br />Lists all viewpoints in an annotation.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrAnnotationNext](#vrannotationnext)**(number flyTime =0.0)<br />Flies to and returns the next annotation after the currently active one.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrAnnotationPrev](#vrannotationprev)**(number flyTime =0.0)<br />Flies to and returns the previous annotation before the currently active one.  |
+| void | **[vrAnnotationSetActive](#vrannotationsetactive)**([vrnode](../classes/vrnode.mdx) annotation, number flyTime =0.0)<br />Sets the specified annotation as the active one and flies to its default viewpoint.  |
+| void | **[vrAnnotationSetCommentText](#vrannotationsetcommenttext)**([vrnode](../classes/vrnode.mdx) comment, string text)<br />Sets the text in an annotation comment.  |
+| void | **[vrAnnotationSetDefaultViewpoint](#vrannotationsetdefaultviewpoint)**([vrnode](../classes/vrnode.mdx) annotation, [vrnode](../classes/vrnode.mdx) viewpoint)<br />Sets the default viewpoint for an annotation.  |
+| void | **[vrAnnotationToggleInfoDisplay](#vrannotationtoggleinfodisplay)**([vrnode](../classes/vrnode.mdx) annotation)<br />Toggles the visibility of annotation comments and other information gizmos.  |
+| void | **[vrAnnotationUpdateViewpoint](#vrannotationupdateviewpoint)**([vrnode](../classes/vrnode.mdx) viewpoint)<br />Recaptures the view from the specified viewpoint.  |
+
+## Functions Documentation
+
+### vrAnnotationCreate
+
+```lua
+vrnode vrAnnotationCreate(
+    vrvec3 worldPos,
+    vrvec3 worldRot,
+    vrnode targetNode
+)
+```
+
+Create an annotation at the specified location, linked to the specified object. 
+
+**Parameters**: 
+
+  * **worldPos** World location of the annotation point 
+  * **worldRot** World rotation of the annotation point 
+  * **targetNode** Object being annotated 
+
+**Return**: The new annotation 
+
+### vrAnnotationCreateComment
+
+```lua
+vrnode vrAnnotationCreateComment(
+    vrnode annotation
+)
+```
+
+Create a comment on an annotation. 
+
+**Return**: The new comment 
+
+### vrAnnotationCreateViewpoint
+
+```lua
+vrnode vrAnnotationCreateViewpoint(
+    vrnode annotation
+)
+```
+
+Create a viewpoint on an annotation. 
+
+**Return**: The new viewpoint 
+
+### vrAnnotationDelete
+
+```lua
+void vrAnnotationDelete(
+    vrnode annotation
+)
+```
+
+Delete an annotation and all associated comments and viewpoints. 
+
+### vrAnnotationDeleteComment
+
+```lua
+void vrAnnotationDeleteComment(
+    vrnode comment
+)
+```
+
+Delete a comment from an annotation. 
+
+### vrAnnotationDeleteViewpoint
+
+```lua
+void vrAnnotationDeleteViewpoint(
+    vrnode viewpoint
+)
+```
+
+Delete a viewpoint from an annotation. 
+
+### vrAnnotationEditCommentText
+
+```lua
+void vrAnnotationEditCommentText(
+    vrnode comment
+)
+```
+
+Activates an interactive editor for editing an annotation comment. 
+
+### vrAnnotationGetCommentText
+
+```lua
+string vrAnnotationGetCommentText(
+    vrnode comment
+)
+```
+
+Gets the text from an annotation comment. 
+
+### vrAnnotationListAll
+
+```lua
+table vrAnnotationListAll()
+```
+
+Lists all annotations in the scene. 
+
+**Return**: List of annotation nodes 
+
+### vrAnnotationListComments
+
+```lua
+table vrAnnotationListComments(
+    vrnode annotation
+)
+```
+
+Lists all comments in an annotation. 
+
+**Return**: List of comment nodes 
+
+### vrAnnotationListViewpoints
+
+```lua
+table vrAnnotationListViewpoints(
+    vrnode annotation
+)
+```
+
+Lists all viewpoints in an annotation. 
+
+**Return**: List of viewpoint nodes 
+
+### vrAnnotationNext
+
+```lua
+vrnode vrAnnotationNext(
+    number flyTime =0.0
+)
+```
+
+Flies to and returns the next annotation after the currently active one. 
+
+**Parameters**: 
+
+  * **flyTime** The number of seconds to spend flying to the viewpoint 
+
+### vrAnnotationPrev
+
+```lua
+vrnode vrAnnotationPrev(
+    number flyTime =0.0
+)
+```
+
+Flies to and returns the previous annotation before the currently active one. 
+
+**Parameters**: 
+
+  * **flyTime** The number of seconds to spend flying to the viewpoint 
+
+### vrAnnotationSetActive
+
+```lua
+void vrAnnotationSetActive(
+    vrnode annotation,
+    number flyTime =0.0
+)
+```
+
+Sets the specified annotation as the active one and flies to its default viewpoint. 
+
+**Parameters**: 
+
+  * **flyTime** The number of seconds to spend flying to the viewpoint 
+
+### vrAnnotationSetCommentText
+
+```lua
+void vrAnnotationSetCommentText(
+    vrnode comment,
+    string text
+)
+```
+
+Sets the text in an annotation comment. 
+
+### vrAnnotationSetDefaultViewpoint
+
+```lua
+void vrAnnotationSetDefaultViewpoint(
+    vrnode annotation,
+    vrnode viewpoint
+)
+```
+
+Sets the default viewpoint for an annotation. 
+
+### vrAnnotationToggleInfoDisplay
+
+```lua
+void vrAnnotationToggleInfoDisplay(
+    vrnode annotation
+)
+```
+
+Toggles the visibility of annotation comments and other information gizmos. 
+
+### vrAnnotationUpdateViewpoint
+
+```lua
+void vrAnnotationUpdateViewpoint(
+    vrnode viewpoint
+)
+```
+
+Recaptures the view from the specified viewpoint. 

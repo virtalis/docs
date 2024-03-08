@@ -1,0 +1,47 @@
+---
+title: Meta_TrackerPRSLink
+summary: A TrackerPRSLink connects to Meta_TrackerInput nodes and translates their input data into a transformation matrix. 
+---
+
+# Meta_TrackerPRSLink
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A TrackerPRSLink connects to [Meta_TrackerInput](../metanodes/meta-tracker-input.mdx) nodes and translates their input data into a transformation matrix.  [More...](#detailed-description)
+
+`#include <meta_tracking.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_PositionSource, Idx_RotationSource, Idx_ScaleSource, Idx_Transform, Idx_Prediction, Idx_DefaultPosition, Idx_DefaultRotation, Idx_DefaultScale, Idx_IsTracking \}<br />Property index.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_TrackerPRSLink;
+```
+
+A TrackerPRSLink connects to [Meta_TrackerInput](../metanodes/meta-tracker-input.mdx) nodes and translates their input data into a transformation matrix. 
+
+This is used, mostly, for reading head and hand tracker position and rotations and composing them into a matrix that can be applied to assemblies. Any sources that are not provided are populated using their default values. 
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - When enabled, the Transform property is updated according to the tracker inputs   |
+| Idx_PositionSource | | link - A TrackerInput providing position data   |
+| Idx_RotationSource | | link - A TrackerInput providing rotation data   |
+| Idx_ScaleSource | | link - A TrackerInput providing scale data   |
+| Idx_Transform | | mat4w - The transform matrix, composed from the tracker input data this frame   |
+| Idx_Prediction | | floatw - Very basic motion prediction applied to position. Value is number of frames of prediction to apply.   |
+| Idx_DefaultPosition | | vec3w - Position value to use when no position source is provided   |
+| Idx_DefaultRotation | | vec3w - Rotation value to use when no rotation source is provided   |
+| Idx_DefaultScale | | vec3w - Scale value to use when no scale source is provided   |
+| Idx_IsTracking | | bool - Gets set to true if it is receiving data from the tracker inputs   |
+
+Property index. 

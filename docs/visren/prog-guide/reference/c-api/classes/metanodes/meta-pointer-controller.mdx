@@ -1,0 +1,50 @@
+---
+title: Meta_PointerController
+summary: A PointerController casts a ray to collide with scene and gui objects. It is used to provide lasers on tracked controllers. 
+---
+
+# Meta_PointerController
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A PointerController casts a ray to collide with scene and gui objects. It is used to provide lasers on tracked controllers. 
+
+`#include <meta_gui.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[Hand](#enum-hand)** \{ Left, Right \}<br />Values for Idx_Hand.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_Transform, Idx_Camera, Idx_ButtonSource, Idx_TouchSource, Idx_ShowCursor, Idx_ShowLaser, Idx_LaserSelectEnabled, Idx_Length, Idx_VisibleToAll, Idx_VisibleToSelf, Idx_DoubleClickDistanceTolerance, Idx_DoubleClickAngleTolerance, Idx_Hand, Idx_ActionMask \} |
+
+## Public Types Documentation
+
+### enum Hand
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Left | | Symbols - C: `"LeftHand"`, Lua: `__PointerController_LeftHand`  |
+| Right | | Symbols - C: `"RightHand"`, Lua: `__PointerController_RightHand`  |
+
+Values for Idx_Hand. 
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | |   |
+| Idx_Transform | | bool - Enabled state of the controller and its raycast   |
+| Idx_Camera | | mat4w - Local transform (origin) of the pointer   |
+| Idx_ButtonSource | | link - Optionally specify a [Meta_Camera](../metanodes/meta-camera.mdx) which should be the only one that can see the pointer   |
+| Idx_TouchSource | | link - a Meta_TrackerInput providing tracker buttons. Button 0 acts as a "trigger" to click on whatever the pointer is pointing at   |
+| Idx_ShowCursor | | link - a Meta_TrackerInput providing a touch pad tracker source   |
+| Idx_ShowLaser | | bool - Whether to show a cursor at the end of the laser   |
+| Idx_LaserSelectEnabled | | bool - Whether to show the red laser   |
+| Idx_Length | | bool - Whether the laser can select the 3D scene   |
+| Idx_VisibleToAll | | world_float - The length of the ray, or zero if it should extend to the far clip plane   |
+| Idx_VisibleToSelf | | bool - Whether the laser is visible to all users in a collaboration   |
+| Idx_DoubleClickDistanceTolerance | | bool - Whether the laser is visible to the local user (you)   |
+| Idx_DoubleClickAngleTolerance | | float - The distance the laser is allowed to move between clicks before they count as separate clicks   |
+| Idx_Hand | | float - The distance the laser is allowed to rotate between clicks before they count as separate clicks   |
+| Idx_ActionMask | | [Hand](../metanodes/meta-pointer-controller.mdx#enum-hand) (int) - Which hand should this be treated as? Button event codes are adjusted based on handedness.   |

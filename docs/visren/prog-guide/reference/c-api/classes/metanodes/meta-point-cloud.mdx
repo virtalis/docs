@@ -1,0 +1,39 @@
+---
+title: Meta_PointCloud
+summary: A PointCloud renders a file containing points, generated using the point cloud converter utility. 
+---
+
+# Meta_PointCloud
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A PointCloud renders a file containing points, generated using the point cloud converter utility. 
+
+`#include <meta_pointcloud.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_Filename, Idx_Brightness, Idx_UseColourAttribute, Idx_PointSize, Idx_LODScale, Idx_GradientFile, Idx_Gradient, Idx_GradientEnabled, Idx_IntensityMap, Idx_NormalChannel, Idx_AlphaThreshold \}<br />Property index.  |
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - Enables the cloud rendering   |
+| Idx_Filename | | string - Path to the point cloud file   |
+| Idx_Brightness | | float - Scale the brightness of the points   |
+| Idx_UseColourAttribute | | bool - Colour the points according to their colour attribute in the points file   |
+| Idx_PointSize | | float - The size each point should be drawn in the scene   |
+| Idx_LODScale | | float - Scales the level of detail threshold   |
+| Idx_GradientFile | | string - Path to a file to use as a gradient   |
+| Idx_Gradient | | link - Texture to use as a gradient instead of a file   |
+| Idx_GradientEnabled | | bool - Use the gradient to colour the points, mapped along the vertical axis   |
+| Idx_IntensityMap | | bool - Use the red channel of the point cloud for gradient mapping   |
+| Idx_NormalChannel | | bool - If the point cloud contains normals, draw them   |
+| Idx_AlphaThreshold | | float - determines if a point is visible based on it's alpha value   |
+
+Property index. 

@@ -1,0 +1,73 @@
+---
+title: Meta_HapticDevice
+summary: A HapticDevice represents a connection to a device such as a Phantom Omni. Only one instance is required in a scene. 
+---
+
+# Meta_HapticDevice
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A HapticDevice represents a connection to a device such as a Phantom Omni. Only one instance is required in a scene.  [More...](#detailed-description)
+
+`#include <meta_haptic.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[IDX](#enum-idx)** \{ Idx_Enabled, Idx_Position, Idx_Rotation, Idx_Velocity, Idx_GeometryGrabRadius, Idx_LinkedAssembly, Idx_WorkspaceTranslation, Idx_WorkspaceRotationOffset, Idx_WorkspaceSize, Idx_HapticSpaceMode, Idx_DrawHapticWorkspace, Idx_TouchableFace \}<br />Property index.  |
+| enum| **[SpaceMode](#enum-spacemode)** \{ FixedSpace, FixedCameraAlignedSpace, CameraAttachedSpace \}<br />Values for Idx_HapticSpaceMode.  |
+| enum| **[TouchableFace](#enum-touchableface)** \{ FrontFace, BackFace, FrontAndBackFace \}<br />Values for Idx_TouchableFace.  |
+
+## Detailed Description
+
+```cpp
+struct Meta_HapticDevice;
+```
+
+A HapticDevice represents a connection to a device such as a Phantom Omni. Only one instance is required in a scene. 
+
+The buttons on the device trigger KeyPress and KeyRelease [Meta_EventHandler](../metanodes/meta-event-handler.mdx) nodes that can be added as children of this node.
+
+The three buttons on the device dispatch `__KeyCode` values of `1100`, `1101`, and `1102`. 
+
+## Public Types Documentation
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_Enabled | | bool - Enables haptics using the connected Omni device   |
+| Idx_Position | | vec3w - Contains the current position of the haptic cursor in world space   |
+| Idx_Rotation | | vec3w - Contains the current rotation of the haptic cursor in world space   |
+| Idx_Velocity | | vec3w - Contains the current velocity of the haptic cursor   |
+| Idx_GeometryGrabRadius | | float - Radius to grab geometry around the haptic cursor scaled to workspace size. Performance intensive; Can be reduced for scenes containing complex meshes at the expense of potential missed hits.   |
+| Idx_LinkedAssembly | | link - Link to an assembly providing the visual representation of the haptic cursor   |
+| Idx_WorkspaceTranslation | | vec3w - Translation of the haptic workspace relative according to the value of Idx_HapticSpaceMode   |
+| Idx_WorkspaceRotationOffset | | vec3w - Rotation offset of the haptic workspace that can be used to account for alignment of physical device installation   |
+| Idx_WorkspaceSize | | float - The spherical workspace diameter   |
+| Idx_HapticSpaceMode | | SpaceMode - How to position the haptic space (using the WorkspaceTranslation).   |
+| Idx_DrawHapticWorkspace | | bool - Draws a visual representation of the workspace showing the approximate range of movement of the device   |
+| Idx_TouchableFace | | TouchableFace - Specifies which faces of shapes will be touchable   |
+
+Property index. 
+
+### enum SpaceMode
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| FixedSpace | | Fixed world space. Camera may move freely as the haptic world is not connected to the camera.   |
+| FixedCameraAlignedSpace | | Fixed world space but aligned to camera orientation. Camera must be stationary for haptics to be enabled.   |
+| CameraAttachedSpace | | Attached to camera. Camera must be stationary for haptics to be enabled.   |
+
+Values for Idx_HapticSpaceMode. 
+
+### enum TouchableFace
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| FrontFace | | Haptic collisions use front faces of geometry.   |
+| BackFace | | Haptic collisions use back faces of geometry.   |
+| FrontAndBackFace | | Haptic collisions use both faces of geometry.   |
+
+Values for Idx_TouchableFace. 

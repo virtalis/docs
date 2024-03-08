@@ -1,16 +1,15 @@
 // @ts-check
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Visionary Render Docs',
-  tagline: '',
+  title: 'Virtalis Docs',
+  tagline: 'Online documentation portal for Virtalis applications',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://www.docs.virtalis.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -18,14 +17,15 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'virtalis', // Usually your GitHub org/user name.
-  projectName: 'visren-docs', // Usually your repo name.
+  projectName: 'docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
+  onBrokenAnchors: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internalization, you can use this field to set useful
-  // metadata like html lang. For example, if your site is Chinese, you may want
-  // to replace "en" with "zh-Hans".
+  // Even if you don't use internationalization, you can use this field to set
+  // useful metadata like html lang. For example, if your site is Chinese, you
+  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -37,51 +37,89 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          routeBasePath: '/',
+          sidebarPath: './sidebars.js',
+          editUrl: 'https://github.com/virtalis/docs/tree/master/',
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: [
+            require.resolve('./src/css/custom.css'),
+            require.resolve('./src/css/navbar.css'),
+            require.resolve('./src/css/sidebar.css'),
+          ],
         },
       }),
+    ],
+  ],
+
+  plugins: [
+    [
+      require.resolve("docusaurus-plugin-search-local"), {
+        hashed: true,
+      },
     ],
   ],
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      colorMode: {
+        respectPrefersColorScheme: true,
+      },
       navbar: {
         title: '',
         logo: {
-          alt: 'Visionary Render Logo',
-          src: 'img/visren-logo.png',
+          src: 'img/virtalis-logo.svg',
+          width: 180,
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'userManualSidebar',
+            type: 'dropdown',
             position: 'left',
-            label: 'User Manual',
+            label: 'Visionary Render',
+            items: [
+              {
+                type: 'docSidebar',
+                sidebarId: 'userManualSidebar',
+                label: 'User Manual',
+              },
+              {
+                type: 'docSidebar',
+                sidebarId: 'progGuideSidebar',
+                label: 'Programming Guide',
+              },
+            ],
           },
           {
             type: 'docSidebar',
-            sidebarId: 'progGuideSidebar',
+            sidebarId: 'importersSidebar',
             position: 'left',
-            label: 'Programming Guide',
+            label: 'Importers',
+          },
+          {
+            type: 'dropdown',
+            position: 'left',
+            label: 'Miscellaneous',
+            items: [
+              {
+                type: 'docSidebar',
+                sidebarId: 'maxExporterSidebar',
+                label: 'Max Exporter',
+              },
+            ],
           },
         ],
       },
       footer: {
         style: 'dark',
-        copyright: `Copyright © ${new Date().getFullYear()} Virtalis. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Virtalis. All rights reserved.`,
       },
       prism: {
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-        additionalLanguages: ['c', 'cmake', 'glsl', 'lua', 'xml-doc'],
+        theme: prismThemes.github,
+        darkTheme: prismThemes.dracula,
+        additionalLanguages: ['c', 'cmake', 'glsl', 'lua'],
       },
     }),
 };
 
-module.exports = config;
+export default config;

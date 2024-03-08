@@ -1,0 +1,139 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Application Commands
+
+Visionary Render accepts some high level commands, which can be sent from Lua vrPostCommand.
+
+## Example
+
+Here is a simple example of automating a CAD import / VRNative save operation
+
+```lua
+-- define a function to perform a task when a file import is finished
+function importComplete(filename, node)
+  vrPostCommand("visren_save_document_as", "E:\\VR\\output.VRNative")
+  __unregisterCallback("onDocumentImported", importComplete)
+end
+
+-- register the function to be called when the onDocumentImported event is fired
+__registerCallback("onDocumentImported", importComplete)
+
+-- instruct visionary render to import the specified file (the importer for the file must be installed).
+-- note the double backslashes, \ is an escape character in a Lua string, so you need to use two to represent a real \
+vrPostCommand("visren_import_data", "file|E:\\Scenes\\tools\\tools.pvs")
+```
+
+The parameters accepted by commands are text strings.
+
+## Command Listing
+
+This is a listing of app commands and their parameters.
+
+| Command                         | Description                              | Parameter                                |
+| ------------------------------- | ---------------------------------------- | ---------------------------------------- |
+| `visren_new_document`           | Starts a new, empty scene                | Any non-empty string disables the "Do you want to save" prompt |
+| `visren_open_document`          | Opens a VRNative or VRText file          | An empty string triggers a file browsing dialog. Otherwise, a string in cmd\|val format, specifying the file or directory to open (e.g. file\|C:\\temp\\test.VRNative or directory\|C:\\temp) |
+| `visren_show_mergeassistant`    | Displays the merge dialog.               | No parameters                            |
+| `visren_close_document`         | Same as `visren_new_document` except it also loads the startup environment | Same as `visren_new_document`            |
+| `visren_save_document`          | Saves the scene if it has a name (i.e. has been saved before and modified), otherwise triggers Save-As | No parameters.                           |
+| `visren_save_document_as`       | Saves the scene with a specified name, or prompts the user to choose one | cmd\|val format - the command is optional. `val` is the path to the file to save as, `cmd` can be either `monolithic` to save as monolithic, or `finished` to save as finished (as per save-as menu items) |
+| `visren_import_data`            | Imports data using installed importer plugins - the imported data appears in whichever scene is currently loaded. | An empty string summons a file browse dialog filtering for all supported importers. Otherwise, string is expected in cmd\|val format - see the supplementary section below this table for the syntax. |
+| `visren_import_as_new_document` | Same as above except triggers a `visren_new_document` first. | Same as `visren_import_data`. There is no way to skip the save prompt triggered by the new document command. |
+| `visren_import_merge_data`      | Same as above except imported data is merged using the current merge assistant settings. | Same as `visren_import_data`             |
+| `visren_export_data`            | Exports data from the scene using installed exporter plugins | Same as `visren_import_data` except `importer` commands are replaced with `exporter` |
+| `visren_exit`                   | Exits the application.                   | An empty string triggers the "Do you want to save" dialog. `noquerysave` suppresses this dialog. |
+| `visren_cut_selection`          | Cuts the selected nodes to the clipboard | If specified, expects a path to the selection. Otherwise, uses the view that the user last selected nodes in (e.g. if selection was made in Scenes, that selection is cut) |
+| `visren_copy_selection`         | Copies the selected nodes to the clipboard | Same as cut                              |
+| `visren_paste_selection`        | Pastes the contents of the clipboard as children the current selection of nodes | Same as cut                              |
+| `visren_paste_as_sibling`       | Pastes the contents of the clipboard as siblings of the current selection of nodes | Same as cut                              |
+| `visren_delete_selection`       | Deletes the selected nodes               | Same as cut                              |
+| `visren_clear_selection`        | Clears the selection so nothing is selected | Same as cut                              |
+| `visren_show_user_manual`       | Shows user manuals                       | Defaults to showing the Visionary Render user manual. May be given a path to a specific chm file to display that instead |
+| `visren_show_about`             | Shows the about dialog                   | No parameters                            |
+| `visren_undo`                   | Undoes the last operation                | No parameters                            |
+| `visren_redo`                   | Redoes the last operation                | No parameters                            |
+| `visren_clear_history`          | Clears the undo stack                    | No parameters                            |
+
+## Import / Export Command
+
+The parameter for the import and export commands is slightly more complex. It could be
+
+- A file to be imported or exported now: `file|C:\temp\myCAD.ext`
+- A directory to browse in using filters from all plugins: `directory|C:\temp`
+- The name of a plugin, a dialog is displayed with filters from the specified plugin: `importer|myImporter` or `exporter|myExporter`
+- Any combination of the above, separated by `*`: `file|C:\temp\myCAD.ext*importer|EXTImporter` (this one imports the specified file using the specified importer)
+- An empty string, which displays a dialog using the filters from all plugins
+
+## Callbacks
+
+The example above makes use of `__registerCallback` for `onDocumentImported`.
+
+`__registerCallback(originalFunc, callbackFunc, isSceneFunc)`:
+
+* `originalFunc` - The name of the function to attach a callback to (see Event column below)
+* `callbackFunc` - Lua function (object) to call
+* `isSceneFunc` - Whether the callback is defined by an Event Handler in the scene. It will be cleaned up when the scene is closed.
+
+The following table lists all other events that can be used with `__registerCallback`.
+
+| Event                        | Callback signature                                       | Description                                                  |
+| ---------------------------- | -------------------------------------------------------- | ------------------------------------------------------------ |
+| `onTreeViewClick`            | `function(view,node)`                                    | Called when a node in the tree is clicked. `view` is the selection group (e.g. `MainSceneTreeView`), and `node` is the node that was clicked. |
+| `onTreeViewDoubleClick`      | `function(view,node)`                                    | Called when a node in the tree is double clicked. Parameters are the same as `onTreeViewClick`. |
+| `onTreeViewTextDoubleClick`  | `function(view,node)`                                    | Called when the text label of a node in the tree is double clicked. Parameters are the same as `onTreeViewClick`. |
+| `onSceneClick`               | `function(view, node, geogroup, material, visual, mesh)` | Called when a node is clicked in the 3D view. `view` and `node` parameters are the same as `onTreeViewClick`, the remaining parameters refer to the specific parts of the node that was clicked. |
+| `onTimestepEvent`            | `function(timeDelta)`                                    | Called once every frame. `timeDelta` contains the number of seconds since the last frame. |
+| `onDocumentSaving`           | `function(filename)`                                     | Called before a scene is saved as the specified `filename`.  |
+| `onDocumentSaved`            | `function(filename)`                                     | Called when the save is completed.                           |
+| `onDocumentImporting`        | `function(filename)`                                     | Called before an import is attempted with the specified `filename`. |
+| `onDocumentImported`         | `function(filename,node)`                                | Called when the file import is complete. `node` contains the newly imported assembly root node. |
+| `onDocumentImportNotStarted` | `function()`                                             | Called when an import fails to start.                        |
+| `onDocumentLoading`          | `function(filename)`                                     | Called before a scene is loaded.                             |
+| `onDocumentLoaded`           | `function(filename)`                                     | Called when a scene load is complete.                        |
+| `onDocumentClosed`           | `function()`                                             | Called when a scene is closed.                               |
+| `onDocumentNew`              | `function()`                                             | Called when starting a new scene (before removing any current scene data) |
+| `onDocumentClean`            | `function()`                                             | Called after `onDocumentNew`, once the tree is clear and Lua state has been reverted. |
+
+### Unregister
+
+To unregister a callback, use `__unregisterCallback(originalFunc, callbackFunc)`. This requires that the `callbackFunc` can be referenced again (anonymous functions used as callbacks cannot be unregistered using this method).
+
+Removal of all registered scene callbacks can be forced using `__cleanupSceneCallbacks()` as a last resort.
+
+### Custom Callbacks
+
+Since the callback registration stores arbitrary key names against Lua function values, it can also be used for user-defined callbacks, using any string other than the reserved event names above.
+
+The callbacks can be triggered by using `__callback`
+
+`__callback(originalFunc, ...)`:
+
+* `originalFunc` - The name of the function to call, as used in the call to `__registerCallback`
+* `...` - Other arguments to forward to the callback function. They are unpacked prior to calling.
+
+For example:
+
+<Tabs>
+<TabItem value="script" label="Script">
+
+```lua
+local function hello(name1, name2) 
+  print("Hello " .. name1 .. " and " .. name2) 
+end
+
+__registerCallback("sayHello", hello, true)
+__callback("sayHello", "Bob", "Alice")
+```
+
+</TabItem>
+<TabItem value="output" label="Output">
+
+```
+Running...
+Hello Bob and Alice
+Ended.
+```
+
+</TabItem>
+</Tabs>

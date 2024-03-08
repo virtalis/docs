@@ -1,0 +1,159 @@
+---
+title: Meta_Collision
+summary: A Collision node adds greater control over object collisions in the scene and allows the dispatching of script events in response to collisions. 
+---
+
+# Meta_Collision
+
+**Module:** **[Metanodes](../../modules/metanodes/index.mdx)** **/** **[Definitions](../../modules/metanodes/definitions.mdx)**
+
+A Collision node adds greater control over object collisions in the scene and allows the dispatching of script events in response to collisions. 
+
+`#include <meta_importables.hpp>`
+
+## Public Types
+
+| Type           | Name           |
+| -------------- | -------------- |
+| enum| **[CollideReport](#enum-collidereport)** \{ REPORT_QUIET = 1, REPORT_INVQUIET = 2, REPORT_NORMAL = (REPORT_QUIET | REPORT_INVQUIET) \} <br />Values for Idx_Report.  |
+| enum| **[CollideType](#enum-collidetype)** \{ TYPE_DEFAULT = GROUP_DEFAULT | ((0xffff & ~(GROUP_PICKING | GROUP_PICKABLE | GROUP_CAMERA)) \<\< 16), TYPE_PICKING = GROUP_PICKING | (GROUP_PICKABLE \<\< 16), TYPE_PICKABLE = GROUP_PICKABLE | (GROUP_PICKING \<\< 16), TYPE_CAMERA = GROUP_CAMERA | ((0xffff & ~(GROUP_PICKING | GROUP_PICKABLE | GROUP_CAMERA)) \<\< 16), TYPE_ALL = ~0 \}<br />Values for Idx_Type.  |
+| enum| **[IDX](#enum-idx)** \{ Idx_State, Idx_Mode, Idx_Geometry, Idx_Sphere, Idx_BBox, Idx_Ray, Idx_RayLength, Idx_CollisionResponse, Idx_Report, Idx_Type, Idx_Visible, Idx_CollideCount, Idx_Mass, Idx_Restitution, Idx_Friction, Idx_PrivateShape, Idx_CylindricalShape, Idx_Offset \}<br />Property index.  |
+| enum| **[ShapeMode](#enum-shapemode)** \{ MODE_GEOMETRY_BBOX, MODE_BBOX, MODE_SPHERE, MODE_VISUAL, MODE_RAY, MODE_RAY_PENETRATING, MODE_GEOMETRY_CONVEX_DECOMPOSITION, MODE_CYLINDER, MODE_CAPSULE, MODE_CONE \}<br />Values for Idx_Mode.  |
+
+## Public Attributes
+
+| Type           | Name           |
+| -------------- | -------------- |
+| const int | **[GROUP_CAMERA](#group-camera)** <br />defines a collision group for cameras  |
+| const int | **[GROUP_DEFAULT](#group-default)** <br />defines a standard collision group; DEFAULT objects collide with everything other than PICKING and PICKABLE objects  |
+| const int | **[GROUP_HELPERS](#group-helpers)** <br />defines a collision group for immersive helpers that require collision with the avatar but with not the picking rays  |
+| const int | **[GROUP_PICKABLE](#group-pickable)** <br />defines a Mockup compatible collide group; PICKABLE objects only collide with PICKING objects  |
+| const int | **[GROUP_PICKING](#group-picking)** <br />defines a Mockup compatible collide group; PICKING objects only collide with PICKABLE objects  |
+| const int | **[GROUP_SYSTEM](#group-system)** <br />defines a collide group for the systems always on picking - Skinnies without a Fat sibling  |
+| const int | **[GROUP_VISUAL](#group-visual)** <br />defines a collision group for Skinny bodies that have a Fat sibling - always the visual mesh  |
+
+## Public Types Documentation
+
+### enum CollideReport
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| REPORT_QUIET | 1| Report the collision to the other object and not this (Symbols - C: `"ReportQuiet"`, Lua: `__Collision_ReportQuiet`)   |
+| REPORT_INVQUIET | 2| Report the collision to this and not the other object (Symbols - C: `"ReportInvQuiet"`, Lua: `__Collision_ReportInvQuiet`)   |
+| REPORT_NORMAL | (REPORT_QUIET \| REPORT_INVQUIET)| Reports the collision to both objects (Symbols - C: `"ReportNormal"`, Lua: `__Collision_ReportNormal`)   |
+
+Values for Idx_Report. 
+
+### enum CollideType
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| TYPE_DEFAULT | GROUP_DEFAULT   \| ((0xffff & ~(GROUP_PICKING \| GROUP_PICKABLE \| GROUP_CAMERA)) \<\< 16)| (Symbols - C: `"TypeDefault"`, Lua: `__Collision_TypeDefault`)   |
+| TYPE_PICKING | GROUP_PICKING   \| (GROUP_PICKABLE \<\< 16)| (Symbols - C: `"TypePicking"`, Lua: `__Collision_TypePicking`)   |
+| TYPE_PICKABLE | GROUP_PICKABLE  \| (GROUP_PICKING \<\< 16)| (Symbols - C: `"TypePickable"`, Lua: `__Collision_TypePickable`)   |
+| TYPE_CAMERA | GROUP_CAMERA    \| ((0xffff & ~(GROUP_PICKING \| GROUP_PICKABLE \| GROUP_CAMERA)) \<\< 16)| (Symbols - C: `"Camera"`, Lua: `__Collision_Camera`)   |
+| TYPE_ALL | ~0| (Symbols - C: `"TypeAll"`, Lua: `__Collision_TypeAll`)   |
+
+Values for Idx_Type. 
+
+The values of this enum are for convenience, any 32bit value is usable so complex groups and mask are supported. 
+
+### enum IDX
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| Idx_State | | bool - The enabled state of this collision body   |
+| Idx_Mode | | ShapeMode (int) - Determines the Shape for the collision body   |
+| Idx_Geometry | | For GeometryBBox or ConvexDecomposition modes, link to the model to use as the collision body.   |
+| Idx_Sphere | | vec4w - For Sphere mode, describes the relative centre point and radius (xyz, w = radius) of the collision body sphere   |
+| Idx_BBox | | floatw[6] - For BBox mode, describes the relative min/max extents (0,1,2 = min xyz, 3,4,5 = max xyz) of the collision body bounding box   |
+| Idx_Ray | | vec3w - For Ray/PenetratingRay modes, describes the relative direction of the ray (normalized vector)   |
+| Idx_RayLength | | floatw - For Ray/PenetratingRay modes, specifies the length of the ray   |
+| Idx_CollisionResponse | | bool - When enabled, collisions are reported and events dispatched   |
+| Idx_Report | | CollideReport](#enum-collidereport) (int) - Determines how a collision is reported between this object and one the collides with it [CollideType](#enum-collidetype) (int) - Determines what the object can collide with. The value stored as the 'Type' property is the concatenation of a 16bit collideGroup and a 16bit collideMask. When a collision is detected the collideGroup of the first object is AND'd against the collideMask of the other object if the result is not 0 then a collision pair is generated.   |
+| Idx_Type | |   |
+| Idx_Visible | | bool - Enables debug drawing of simple wireframe collision shapes. Requires Collision/DebugDraw setting to be enabled.   |
+| Idx_CollideCount | | Internal.   |
+| Idx_Mass | | Reserved for future use.   |
+| Idx_Restitution | | Reserved for future use.   |
+| Idx_Friction | | Reserved for future use.   |
+| Idx_PrivateShape | | Internal.   |
+| Idx_CylindricalShape | | floatw[2] - For Cylinder/Capsule/Cone mode, describes the radius and height of the shape   |
+| Idx_Offset | | positional offset for physics shapes   |
+
+Property index. 
+
+### enum ShapeMode
+
+| Enumerator | Value | Description |
+| ---------- | ----- | ----------- |
+| MODE_GEOMETRY_BBOX | | use the BBox property of the Geometry (Symbols - C: `"ModeGeometryBBox"`, Lua: `__Collision_ModeGeometryBBox`)   |
+| MODE_BBOX | | use the BBox property for the min/max bounds of a Box shape (Symbols - C: `"ModeBBox"`, Lua: `__Collision_ModeBBox`)   |
+| MODE_SPHERE | | Use the Sphere property for the position and radius of a sphere shape (Symbols - C: `"ModeSphere"`, Lua: `__Collision_ModeSphere`)   |
+| MODE_VISUAL | | uses the first sibling visual for the collision shape (Symbols - C: `"ModeVisual"`, Lua: `__Collision_ModeVisual`)   |
+| MODE_RAY | | Uses the Ray properties to define an axis and length for a ray, This ray stops at the first collision. (Symbols - C: `"ModeRay"`, Lua: `__Collision_ModeRay`)   |
+| MODE_RAY_PENETRATING | | Uses the Ray properties to define an axis and length for a ray, This ray goes on to its end. (Symbols - C: `"ModePenetratingRay"`, Lua: `__Collision_ModePenetratingRay`)   |
+| MODE_GEOMETRY_CONVEX_DECOMPOSITION | | Uses the Geometry property and constructs a convex hull decomposition from it (Symbols - C: `"ModeGeometryConvexDecomposition"`, Lua: `__Collision_ModeGeometryConvexDecomposition`)   |
+| MODE_CYLINDER | |   |
+| MODE_CAPSULE | |   |
+| MODE_CONE | |   |
+
+Values for Idx_Mode. 
+
+## Public Attributes Documentation
+
+### GROUP_CAMERA
+
+```cpp
+static const int GROUP_CAMERA = VTBIT(13);
+```
+
+defines a collision group for cameras 
+
+### GROUP_DEFAULT
+
+```cpp
+static const int GROUP_DEFAULT = VTBIT(2);
+```
+
+defines a standard collision group; DEFAULT objects collide with everything other than PICKING and PICKABLE objects 
+
+### GROUP_HELPERS
+
+```cpp
+static const int GROUP_HELPERS = VTBIT(12);
+```
+
+defines a collision group for immersive helpers that require collision with the avatar but with not the picking rays 
+
+### GROUP_PICKABLE
+
+```cpp
+static const int GROUP_PICKABLE = VTBIT(1);
+```
+
+defines a Mockup compatible collide group; PICKABLE objects only collide with PICKING objects 
+
+### GROUP_PICKING
+
+```cpp
+static const int GROUP_PICKING = VTBIT(0);
+```
+
+defines a Mockup compatible collide group; PICKING objects only collide with PICKABLE objects 
+
+### GROUP_SYSTEM
+
+```cpp
+static const int GROUP_SYSTEM = VTBIT(15);
+```
+
+defines a collide group for the systems always on picking - Skinnies without a Fat sibling 
+
+### GROUP_VISUAL
+
+```cpp
+static const int GROUP_VISUAL = VTBIT(14);
+```
+
+defines a collision group for Skinny bodies that have a Fat sibling - always the visual mesh 
