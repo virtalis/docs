@@ -8,50 +8,56 @@
 
 [data-theme='light'] {
   --ifm-navbar-height: 3.75rem;
-  --ifm-navbar-background-color: var(--visren-color-light-purple);
-  --ifm-navbar-search-input-background-color: var(--visren-color-light-purple-highlight);
+  --ifm-navbar-background-color: var(--virtalis-color-light-blue);
+  --ifm-navbar-search-input-background-color: var(--virtalis-color-lighter-blue);
   --ifm-navbar-search-input-color: var(--ifm-color-gray-500);
 }
-[data-theme='light'] .navbar__item {
-  color: var(--visren-color-light-navbar-text);
-  margin-right: 0.5rem;
+[data-theme='light'] .navbar__link {
+  color: var(--virtalis-color-light-navbar-text);
+  font-size: 95%;
+}
+[data-theme='light'] .navbar__item .dropdown {
+  color: var(--virtalis-color-light-navbar-text);
 }
 [data-theme='light'] .navbar__link:hover {
   color: var(--ifm-color-white);
 }
 [data-theme='light'] .navbar__link--active {
   color: var(--ifm-color-white);
-  background-color: var(--visren-color-light-purple-highlight);
+  background-color: var(--virtalis-color-lighter-blue);
 }
 [data-theme='light'] .navbar-sidebar {
   background-color: var(--ifm-color-white);
 }
 [data-theme='light'] .navbar-sidebar__brand {
-  background-color: var(--visren-color-light-purple);
+  background-color: var(--virtalis-color-light-blue);
 }
 
 /* Dark Mode */
 
 [data-theme='dark'] {
   --ifm-navbar-height: 3.75rem;
-  --ifm-navbar-background-color: var(--visren-color-dark-purple);
-  --ifm-navbar-search-input-background-color: var(--visren-color-darker-purple);
+  --ifm-navbar-background-color: var(--virtalis-color-dark-blue);
+  --ifm-navbar-search-input-background-color: var(--virtalis-color-darker-blue);
   --ifm-navbar-search-input-color: var(--ifm-color-gray-700);
 }
-[data-theme='dark'] .navbar__item {
-  color: var(--visren-color-dark-navbar-text);
-  margin-right: 0.5rem;
+[data-theme='dark'] .navbar__link {
+  color: var(--virtalis-color-dark-navbar-text);
+  font-size: 95%;
+}
+[data-theme='dark'] .dropdown--active {
+  color: var(--virtalis-color-dark-navbar-text);
 }
 [data-theme='dark'] .navbar__link:hover {
-  color: var(--visren-color-off-white);
+  color: var(--virtalis-color-off-white);
 }
 [data-theme='dark'] .navbar__link--active {
-  color: var(--visren-color-off-white);
-  background-color: var(--visren-color-dark-purple-highlight);
+  color: var(--virtalis-color-off-white);
+  background-color: var(--virtalis-color-light-blue);
 }
 [data-theme='dark'] .navbar-sidebar {
   background-color: var(--ifm-color-gray-900);
 }
 [data-theme='dark'] .navbar-sidebar__brand {
-  background-color: var(--visren-color-dark-purple);
+  background-color: var(--virtalis-color-dark-blue);
 }

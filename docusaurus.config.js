@@ -4,20 +4,20 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Visionary Render Docs',
-  tagline: 'The low-code desktop application to create enterprise-scale visualizations',
+  title: 'Virtalis Docs',
+  tagline: 'Online documentation portal for Virtalis applications',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
   url: 'https://www.docs.virtalis.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/visren/',
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'virtalis', // Usually your GitHub org/user name.
-  projectName: 'visren-docs', // Usually your repo name.
+  projectName: 'docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'warn',
@@ -39,7 +39,7 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.js',
-          editUrl: 'https://github.com/virtalis/visren-docs/tree/master/',
+          editUrl: 'https://github.com/virtalis/docs/tree/master/',
         },
         theme: {
           customCss: [
@@ -69,20 +69,26 @@ const config = {
       navbar: {
         title: '',
         logo: {
-          src: 'img/visren-logo.png',
+          src: 'img/virtalis-logo.svg',
+          width: 180,
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'userManualSidebar',
+            type: 'dropdown',
             position: 'left',
-            label: 'User Manual',
-          },
-          {
-            type: 'docSidebar',
-            sidebarId: 'progGuideSidebar',
-            position: 'left',
-            label: 'Programming Guide',
+            label: 'Visionary Render',
+            items: [
+              {
+                type: 'docSidebar',
+                sidebarId: 'userManualSidebar',
+                label: 'User Manual',
+              },
+              {
+                type: 'docSidebar',
+                sidebarId: 'progGuideSidebar',
+                label: 'Programming Guide',
+              },
+            ],
           },
           {
             type: 'docSidebar',
@@ -91,10 +97,16 @@ const config = {
             label: 'Importers',
           },
           {
-            type: 'docSidebar',
-            sidebarId: 'maxExporterSidebar',
+            type: 'dropdown',
             position: 'left',
-            label: 'Max Exporter',
+            label: 'Miscellaneous',
+            items: [
+              {
+                type: 'docSidebar',
+                sidebarId: 'maxExporterSidebar',
+                label: 'Max Exporter',
+              },
+            ],
           },
         ],
       },

@@ -22,12 +22,12 @@
   display: none;
 }
 [data-theme='light'] .toggleButton:hover {
-  background: var(--visren-color-light-purple-highlight);
+  background: var(--virtalis-color-lighter-blue);
 }
 
 [data-theme='dark'] .lightToggleIcon {
   display: none;
 }
 [data-theme='dark'] .toggleButton:hover {
-  background: var(--visren-color-dark-purple-highlight);
+  background: var(--virtalis-color-light-blue);
 }
