@@ -4,7 +4,7 @@ Visionary Render enables you to add terrain, an ocean, a sky, and weather effect
 
 ## Terrain
 
-![](/img/user-manual/chapter26/1.jpg)
+![](/img/visren/user-manual/3d-view/world/overview.png)
 
 Visionary Render provides a simplified interface to the GeoVisionary 3 terrain system. Terrain is prepared by processing it with either the TileServer Converter or the VSI converter. GeoVisionary 3 files, if saved as VRNative, can also be loaded into Visionary Render, and used if the correct licenses are available.
 
@@ -18,7 +18,7 @@ Only one SimulationTerrain node may be active at a time. A SimulationTerrain is 
 
 ### Properties
 
-![](/img/user-manual/chapter26/2.jpg)
+![](/img/visren/user-manual/3d-view/world/properties.png)
 
 | Property        | Description                                                                                                                                                              |
 |-----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -40,7 +40,7 @@ Only one SimulationTerrain node may be active at a time. A SimulationTerrain is 
 
 Visionary Render permits you to add an ocean to your scenes. It supports different sea states, reflections, underwater effects, caustics and more.
 
-![](/img/user-manual/chapter26/3.jpg)
+![](/img/visren/user-manual/3d-view/world/ocean1.png)
 
 ### Create
 
@@ -48,7 +48,7 @@ To add an ocean to your scene, open the Developer tree then right-click on the S
 
 The ocean will appear black until lighting is added to your scene. For the ocean material to look correct, you need to add a skybox. To do this, press `F6` to open the Settings window and select **Renderer** > **World**. Drag and drop a skybox from the Library tree, Browser, or Gallery onto the Skybox property.
 
-![](/img/user-manual/chapter26/4.jpg)
+![](/img/visren/user-manual/3d-view/world/ocean2.png)
 
 ### Properties
 
@@ -90,9 +90,9 @@ Douglas sea scale:
 
 #### Examples
 
-![](/img/user-manual/chapter26/5.jpg)
+![](/img/visren/user-manual/3d-view/world/ocean3.png)
 
-![](/img/user-manual/chapter26/6.jpg)
+![](/img/visren/user-manual/3d-view/world/ocean4.png)
 
 ## Sky
 
@@ -137,35 +137,33 @@ When procedural sky is enabled, it automatically enables the sun.
 
 ### Skybox
 
-![](/img/user-manual/chapter26/7.jpg)
+![](/img/visren/user-manual/3d-view/world/skybox1.png)
 
 Skyboxes use one of two formats of texture that are required to provide the correct environment for reflections in a scene. Without either a skybox or environment map, the materials created will be flat looking as they will only reflect the scene background colour.
 
 Skyboxes are available as part of the resources available via the ftp link. These are pre-generated cubemap.dds files that can be added to any scene.
 
-![](/img/user-manual/chapter26/8.jpg)
+![](/img/visren/user-manual/3d-view/world/skybox2.png)
 
 The jpg file is a low-resolution preview to show what the skybox appears like whilst the useable DDS files are available as normal and HDR (High Dynamic Range) versions. Skyboxes are added the same as normal textures and can be dragged and dropped into the Visionary Render window.
 
 Once the file is added to your texture library, it can be added to the scene or user settings. Open **Renderer** > **World** in the Settings window then drag and drop the texture into the Skybox slot.
 
-![](/img/user-manual/chapter26/9.jpg)
+![](/img/visren/user-manual/3d-view/world/skybox3.png)
 
 Latitude longitude skybox files can also be used and there are many available online – search images for: lat long sky. There are three types of Skybox to select from:
 
 #### Infinite
 
-These are the skybox DDS textures that extend to the horizon in all directions. The skybox uses a specific DDS format that can be created using CubMapGen.
-
-[](http://www.geeks3d.com/20120112/cubemapgen-1-6-available/)
+These are the skybox DDS textures that extend to the horizon in all directions. The skybox uses a specific DDS format that can be created using [AMD CubeMapGen](https://code.google.com/archive/p/cubemapgen/).
 
 In Visionary Render, they will appear as below.
 
-![](/img/user-manual/chapter26/10.jpg)
+![](/img/visren/user-manual/3d-view/world/infinite1.png)
 
 Use the Clip Bottom property to clip the bottom face of Infinite skyboxes.
 
-![](/img/user-manual/chapter26/11.jpg)
+![](/img/visren/user-manual/3d-view/world/infinite2.png)
 
 #### Box
 
@@ -175,11 +173,11 @@ Examples can be found at:
 
 [](http://www.humus.name/index.php?page=Textures&start=0)
 
-![](/img/user-manual/chapter26/12.jpg)
+![](/img/visren/user-manual/3d-view/world/box1.png)
 
 With box, you need to set the boundary size and position of the box and adjust to suit.
 
-![](/img/user-manual/chapter26/13.jpg)
+![](/img/visren/user-manual/3d-view/world/box2.png)
 
 #### Hemisphere
 
@@ -189,17 +187,17 @@ The hemisphere skybox uses a hemisphere geometry rather than a cube. DDS cubemap
 
 Fog has three settings. By default, fog is turned off with two other options of exponential or linear fog.
 
-![](/img/user-manual/chapter26/14.jpg)
+![](/img/visren/user-manual/3d-view/world/fog.png)
 
 Linear uses a start and end distance. The end distance is the distance at which the fog is 100% density. Exponential is the distance at which 5% Luminant intensity is perceived due to fog. The colour specifies the fog colour.
 
 ## Rain
 
-![](/img/user-manual/chapter26/15.jpg)
+![](/img/visren/user-manual/3d-view/world/rain1.png)
 
 When enabled a particle system is created that provides a rain effect.
 
-![](/img/user-manual/chapter26/16.jpg)
+![](/img/visren/user-manual/3d-view/world/rain2.png)
 
 Intensity controls how heavy the rainfall is. The occlusion assembly is a link to a scene assembly that uses the occlusion radius to stop the rain effect visibility. This is used when you wish to have a rain effect in the scene but don’t want the rain entering an area such as a building.
 
@@ -209,7 +207,7 @@ The world scale feature allows the 3D scene to be viewed at a scale that is diff
 
 The scale of the world can be changed in the Settings window under **Renderer** > **Scene** > **Scene Scale**.
 
-![](/img/user-manual/chapter26/17.jpg)
+![](/img/visren/user-manual/3d-view/world/scale.png)
 
 Adjusting the world scale affects only the view and leaves the true size of the data unchanged. Any measurements in the scene will continue to display their unscaled values. A value of 1 means the scene it rendered at its true size. A value of 0.1 means the scene is scaled to 10% of its true size. A value of 2 means the scene is scaled to twice its true size.
 

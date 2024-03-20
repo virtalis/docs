@@ -2,13 +2,13 @@
 
 The screen capture tool can take screenshots and record and stream video of the GUI and 3D scene.
 
-It can be accessed from the ![](/img/user-manual/chapter32/1.jpg) button in the Toolbar. Click on the button to capture the screen in the current screen capture mode, or right-click on it to change the capture mode or open the Settings window.
+It can be accessed from the ![](/img/visren/user-manual/tools/screen-capture/capture.png) button in the Toolbar. Click on the button to capture the screen in the current screen capture mode, or right-click on it to change the capture mode or open the Settings window.
 
 ## Image/Video Capture
 
 Right-click on the Toolbar button and select **Settings...** or open the Settings window and navigate to **Screen Capture** > **Image/Video Capture** to configure the tool.
 
-![](/img/user-manual/chapter32/2.jpg)
+![](/img/visren/user-manual/tools/screen-capture/image.png)
 
 | Setting             | Description                                                                                                                 |
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------|
@@ -31,7 +31,7 @@ Right-click on the Toolbar button and select **Settings...** or open the Setting
 
 Visionary Render can stream video to external devices and control them remotely using a program called ActiveView Light, which is included in the Visionary Render install package.
 
-![](/img/user-manual/chapter32/3.jpg)
+![](/img/visren/user-manual/tools/screen-capture/video.png)
 
 :::note
 Multiple devices can connect to the same instance of Visionary Render.
@@ -39,14 +39,14 @@ Multiple devices can connect to the same instance of Visionary Render.
 
 ### Usage
 
-1. Run Visionary Render on the host machine and enable video streaming by clicking on the  icon in the Toolbar.
+1. Run Visionary Render on the host machine and enable video streaming by clicking on the ![](/img/visren/user-manual/tools/screen-capture/stream.png) icon in the Toolbar.
 2. Now right-click on the same icon and select Settings… from the drop-down menu to configure video streaming.
-3. Copy the Local IP address from the Video Streaming Statistics panel into the Host IP address field. To find any other addresses the machine may have (e.g. for connecting over the internet), run ipconfig from a Windows command prompt. Edit the Port and Password settings if desired or leave them blank.
-4. Run ActiveView Light from the client machine. This can be found in the Windows start menu.
-5. Enter the host’s IP address, port, and password into the dialogue, then click on the Connect button. Saved connections can be managed with the Save, +, - and Copy buttons at the bottom of the Saved connections panel.
+3. Copy the Local IP address from the Video Streaming Statistics panel into the Host IP address field. To find any other addresses the machine may have (e.g. for connecting over the internet), run ipconfig from a Windows command prompt. Edit the Port and Password settings if desired or leave them blank. ![](/img/visren/user-manual/tools/screen-capture/settings.png)
+4. Run ActiveView Light from the client machine. This can be found in the Windows start menu. ![](/img/visren/user-manual/tools/screen-capture/start-menu.png)
+5. Enter the host’s IP address, port, and password into the dialogue, then click on the Connect button. Saved connections can be managed with the Save, +, - and Copy buttons at the bottom of the Saved connections panel. ![](/img/visren/user-manual/tools/screen-capture/activeview.png)
 6. Ensure that Display Sync is enabled – it can be found under Settings > Renderer > General. If this is not done, the stream may appear choppy.
 7. Configure streaming settings for quality or responsiveness (see the Quality Settings header below).
-8. In ActiveView Light, click on the mouse button to allow remote control of the host machine. The X button exits back to the main menu.
+8. In ActiveView Light, click on the mouse button to allow remote control of the host machine. The X button exits back to the main menu. ![](/img/visren/user-manual/tools/screen-capture/icons.png)
 
 ### Settings
 
@@ -84,7 +84,7 @@ The default streaming settings are set up for medium-quality, high framerate, an
 
 It is also possible to stream video to a texture in Visionary Render. This is a special node that can be used in place of a normal texture. As well as streaming video from a remote machine, the texture can detect mouse input across the surface it is rendering and convert that back to remote control data. It also provides an interface so that scripting can be used to send data back to the remote server. This could be used to implement a virtual keyboard for example.
 
-![](/img/user-manual/chapter32/4.jpg)
+![](/img/visren/user-manual/tools/screen-capture/keyboard.png)
 
 #### Create
 

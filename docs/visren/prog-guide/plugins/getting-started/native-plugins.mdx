@@ -9,31 +9,31 @@ sidebar_position: 3
 The instructions here are tailored for Visual Studio 2017 onwards, for C/C++ development using the SDK library. There may be some differences in earlier versions of Visual Studio (specifically around project generation). There is also an example CMake script, which can be used as a convenient alternative to manual Visual Studio project setup, if desired.
 
 Start a new DLL project
-![](/img/programming-guide/vs-new-dll.png)
+![](/img/visren/prog-guide/vs-new-dll.png)
 
 Open the Configuration Manager
-![](/img/programming-guide/vs-config-mgr.png)
+![](/img/visren/prog-guide/vs-config-mgr.png)
 
 Edit the Active Solution Platforms
-![](/img/programming-guide/vs-edit-platform.png)
+![](/img/visren/prog-guide/vs-edit-platform.png)
 
 Remove the x86 platform
-![](/img/programming-guide/vs-del-x86.png)
+![](/img/visren/prog-guide/vs-del-x86.png)
 
 Open the project properties
-![](/img/programming-guide/vs-project-props.png)
+![](/img/visren/prog-guide/vs-project-props.png)
 
 Add C++ Include directory for installed SDK
 e.g. `C:\Virtalis\Visionary Render 2.1\data\vrtreesdk\include`
 or `C:\Virtalis\GeoVisionary 3.1.1\data\vrtreesdk\include`
 
-![](/img/programming-guide/vs-cpp-incdir.png)
+![](/img/visren/prog-guide/vs-cpp-incdir.png)
 
 Add Additional Library Directory for installed SDK
 e.g. `C:\Virtalis\Visionary Render 2.1\data\vrtreesdk\lib\x64`
 or `C:\Virtalis\GeoVisionary 3.1.1\data\vrtreesdk\lib\x64`
 
-![](/img/programming-guide/vs-link-dir.png)
+![](/img/visren/prog-guide/vs-link-dir.png)
 
 Add `vrtree-linker.lib`
 For Debug configuration:
@@ -42,10 +42,10 @@ For Debug configuration:
 For Release configuration:
 * `Release\vrtree-linker.lib`
 
-![](/img/programming-guide/vs-link-deps.png)
+![](/img/visren/prog-guide/vs-link-deps.png)
 
 Add a cpp file (e.g. main.cpp)
-![](/img/programming-guide/vs-add-main.png)
+![](/img/visren/prog-guide/vs-add-main.png)
 
 ### CMake
 
@@ -162,15 +162,15 @@ Once the plugin is in this location, launch Visionary Render.
 
 Open the settings window (F6), and select the "Plugins" category. 
 
-![](/img/programming-guide/plugin-settings.png)
+![](/img/visren/prog-guide/plugin-settings.png)
 
 The table displays all loaded plugins and the "My Plugin" plugin should be visible here.
 
-![](/img/programming-guide/sample-plugin.png)
+![](/img/visren/prog-guide/sample-plugin.png)
 
 You may also open the Diagnostics window and go to the Log tab. You should also be able to see the "Hello World" log message here.
 
-![](/img/programming-guide/hello-diagnostics.png)
+![](/img/visren/prog-guide/hello-diagnostics.png)
 
 ## Licensing
 

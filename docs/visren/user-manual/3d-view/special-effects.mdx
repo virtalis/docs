@@ -6,7 +6,7 @@ Visionary Render can render the scene to a texture to create special effects lik
 
 ### Properties
 
-![](/img/user-manual/chapter30/1.jpg)
+![](/img/visren/user-manual/3d-view/special-effects/properties.png)
 
 | Property       | Description                                                                                                               |
 |----------------|---------------------------------------------------------------------------------------------------------------------------|
@@ -18,19 +18,19 @@ Visionary Render can render the scene to a texture to create special effects lik
 
 ### Example
 
-![](/img/user-manual/chapter30/2.jpg)
+![](/img/visren/user-manual/3d-view/special-effects/example1.png)
 
 The image above shows a simple mirror effect. The mirror (central section surrounded by the purple frame) will reflect the view in front of it.
 
-![](/img/user-manual/chapter30/3.jpg)
+![](/img/visren/user-manual/3d-view/special-effects/example2.png)
 
 A PhysicalScreen is created and positioned within the scene – like any other assembly.
 
-![](/img/user-manual/chapter30/4.jpg)
+![](/img/visren/user-manual/3d-view/special-effects/example3.png)
 
 In the Library view a RenderToTexture assembly is created. The Texture size and format can then be set.
 
-![](/img/user-manual/chapter30/5.jpg)
+![](/img/visren/user-manual/3d-view/special-effects/example4.png)
 
 A viewport is created under the RenderToTexture. The Projection Mode is set to Physical Screen. The Mono, Left and Right properties are set to the previously created Physical screen in the Scenes view. This is done by dragging and dropping it from the Scenes view onto the property.
 
@@ -45,7 +45,7 @@ Now the RenderToTexture node can be used like a regular texture and can be inser
 
 View filters can be added to the scene to perform specific rendering effects to the final rendered image. There are several pre-configured filters built into Visionary Render.
 
-![](/img/user-manual/chapter30/6.jpg)
+![](/img/visren/user-manual/3d-view/special-effects/view-filters.png)
 
 A View Filter is a node that can be created and placed anywhere in the scene tree that, if enabled, will perform post-processing on the final image drawn into the viewport. To do this, it uses a View Shader. A newly created View Filter uses the Default view shader, which applies edge detection to all the geometry in the scene. There are several pre-configured View Shaders built into Visionary Render.
 
@@ -53,7 +53,7 @@ A View Filter is a node that can be created and placed anywhere in the scene tre
 
 A View Shader is an assembly that can be created and placed only under a Library assembly. When referenced by a View Filter it executes its shader source code on every pixel in the final image drawn in the viewport. You can view and edit this shader source code by double-clicking on the View Shader in the tree.
 
-![](/img/user-manual/chapter30/7.jpg)
+![](/img/visren/user-manual/3d-view/special-effects/view-shaders.png)
 
 The View Shaders are written in the OpenGL Shading Language (GLSL). Please refer to the Visionary Render Programming Guide if you wish to create your own View Shaders. Otherwise, Visionary Render provides some built-in View Shaders for you to use in your scenes:
 

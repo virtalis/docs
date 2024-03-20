@@ -2,7 +2,7 @@
 
 Writing Lua scripts can be quite an involved process, so Visionary Render enables you to automatically generate common scripts using Events. An EventHandler can be attached to an Assembly, which then registers interest in certain Events. These events may have a Guard condition attached to them to filter for specific occurrences of these events.
 
-![](/img/user-manual/chapter34/1.jpg)
+![](/img/visren/user-manual/3d-view/events/overview.png)
 
 To create an Event, right-click on a node and select **Create** > **Event** from the context menu. A default Key Press Event should be added as in the image above.
 
@@ -57,6 +57,8 @@ If an event occurs and the Guard condition is met, an Action is performed. Examp
 
 All the Actions have been dragged and dropped onto the EventHandler property window from the Scenes, Libraries or Developer window. When dragging a node which Visionary Render is not sure what to do with it offers you a choice depending on the type of node that is dropped:
 
+![](/img/visren/user-manual/3d-view/events/assembly.png)
+
 | Action | Description |
 | --- | --- |
 | Disable | Set the Enabled state of the Assembly to OFF. |
@@ -74,11 +76,13 @@ The same actions are provided for Lights, Dynamic Sections and Viewpoints.
 
 When dragging a Snapshot, it will execute that snapshot.
 
-![](/img/user-manual/chapter34/2.jpg)
+![](/img/visren/user-manual/3d-view/events/snapshot.png)
 
 ### Sequence
 
 When dragging a Sequence from the Developer view or the Browser it will present these options:
+
+![](/img/visren/user-manual/3d-view/events/sequence.png)
 
 | Action | Description |
 | --- | --- |
@@ -119,11 +123,13 @@ When dragging a Material onto the Action, it will present the following options:
 
 When dragging an AudioSound from the Developer tab, it will play the sound when the Event is triggered.
 
-![](/img/user-manual/chapter34/3.jpg)
+![](/img/visren/user-manual/3d-view/events/audiosound.png)
 
 ### AudioTrack
 
 When dragging an AudioTrack from the Developer tab onto an Action, it will offer the following options:
+
+![](/img/visren/user-manual/3d-view/events/audiotrack.png)
 
 | Action | Description |
 | --- | --- |
@@ -135,6 +141,6 @@ When dragging an AudioTrack from the Developer tab onto an Action, it will offer
 
 Scripts can also be navigated in the Browser. In the small and large icon views, the name of the script is shown beneath an icon. In the list view, event type, guard and parent assemblies are also shown.
 
-![](/img/user-manual/chapter34/4.jpg)
+![](/img/visren/user-manual/3d-view/events/browser.png)
 
 Double-click on a script to open it in the Script Editor.

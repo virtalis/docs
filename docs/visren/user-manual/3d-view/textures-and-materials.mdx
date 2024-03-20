@@ -55,7 +55,7 @@ Textures can be compressed so they take up less memory and disk space. They can 
 
 Textures can be added in two ways. The easy method is to locate the texture you wish in windows explorer and to drag and drop it into the Visionary Render window. Once dropped, the texture will appear in the Developer tab under Libraries, DroppedFiles library and in the Browser. If dropped directly onto the Texture slot, it will appear in the Default Library.
 
-![](/img/user-manual/chapter23/1.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/create-texture.png)
 
 Textures can also be added in the Browser window by the Create Asset drop down or by Right Click, create texture and selecting the image from your pc. The Filter drop down will define what will be displayed when right clicking in the Browser.
 
@@ -65,7 +65,7 @@ Textures can also be added in the Browser window by the Create Asset drop down o
 
 Selecting textures applied to a material/assembly is accomplished in the same manner as selecting materials in the context menu. This will highlight the texture in either the Browser or the library tree if the Developer tab is open.
 
-![](/img/user-manual/chapter23/2.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/select-texture.png)
 
 The secondary method picks the textures from the material itself. Select a material with textures and you will see in the properties window that one or more of the map channels contains a texture link. Clicking on this will open the texture properties.
 
@@ -85,11 +85,11 @@ A material can be used across multiple Models within a scene. Models reference m
 
 New materials can be created in either the Browser tab or in the Developer tab under Libraries in the tree. By right clicking in an open area of the material browser, you will have an option to create a new material. This menu is also available by selecting the Create Asset drop down.
 
-![](/img/user-manual/chapter23/3.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/create1.png)
 
 This method creates a new material in the Default Library Materials. In a scene with imported materials, these will appear under a specific Library associated with the imported data. If you wish to keep all materials in the same library, you can also create material by right clicking in the selected Library.
 
-![](/img/user-manual/chapter23/4.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/create2.png)
 
 In both of these creation methods, the materials will be visible in the browser window no matter which library they are in. Best practice when creating any new node is to rename it as the Data window can easily become densely populated.
 
@@ -97,7 +97,7 @@ In both of these creation methods, the materials will be visible in the browser 
 
 There are two methods of selecting materials from Assemblies in a scene. The first is part of the standard context menu and can be accessed by right clicking a node in the Data window or on an item in the 3D viewport then select **Select** > **Material**.
 
-![](/img/user-manual/chapter23/5.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/select.png)
 
 This will select the material of the assembly in either the Browser or the library tree if the Developer tab is open. If the Properties window is open, the selected material will also appear in there.
 
@@ -107,11 +107,11 @@ The second method is used within the 3D window. Holding down **Shift** + **Ctrl*
 
 The material browser provides quick access to all the materials used in the loaded scene. They can be viewed as a list, small or large icon format. Large and small icon views provide a visual of the material as applied to a sphere assembly as well as the name of the material.
 
-![](/img/user-manual/chapter23/6.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/browser1.png)
 
 In list view, a number of details can be seen ranging from Diffuse colour to Opacity level, whether a texture is applied to how many Models the material is used on.
 
-![](/img/user-manual/chapter23/7.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/browser2.png)
 
 Materials can be sorted by any of the categories to aid in finding the desired material. In all three views, the material can be applied to an assembly in the scene by either:
 
@@ -123,11 +123,11 @@ A fourth method allows you to drag a material from one assembly to another in th
 
 Whenever a material is applied, it Overrides the existing material but doesn’t replace it.
 
-![](/img/user-manual/chapter23/8.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/browser3.png)
 
 To revert the material to its original, select the Clear Link X.
 
-![](/img/user-manual/chapter23/9.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/browser4.png)
 
 ### Physically Based Materials
 
@@ -147,7 +147,7 @@ A material is defined using several properties:
 - Opacity
 - Textures – images used to affect the appearance
 
-![](/img/user-manual/chapter23/10.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/pbm.png)
 
 All Models have a material associated with them, a model without a material would not be visible in the viewport. Physically based materials require either an Environment Map or Skybox to truly work as they require an environment to reflect. The standard approach is to use a Skybox within the scene with material specific Environment maps detailed later.
 
@@ -161,7 +161,7 @@ This property can be thought of as the overall colour of the surface. It represe
 
 Selecting the colour bar will open the colour wheel. RGB values can be typed into the three boxes or colours can be selected by clicking or dragging around the wheel and square. Note that colours range from 0-255 where 0,0,0 is black, 255,255,255 is white and 255,0,0 is red with any combination of values in between.
 
-![](/img/user-manual/chapter23/11.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/colour.png)
 
 The colour picker describes the colour using the Hue, Satuation, Value (HSV) model. The circle describes the Hue and the square describes the Saturation and Value. As you alter these values all Models using this material will be updated immediately.
 
@@ -171,13 +171,13 @@ This property is the percentage of light that is reflected straight back at the 
 
 The Fresnel effect will add to this, so at a glancing angle a surface will exhibit more reflectivity than this amount because of this effect. This can also be thought of as the weight between diffuse scattering and specular reflection – a 100% reflective surface will not contain any diffuse scattering and so will appear to ignore the colour property, whereas a 0% reflective surface will not contain any reflected light when directly facing the light and the colour property will have its strongest influence. In other words, a bright red 100% reflective surface will reflect the surrounding light source, whereas a bright red 0% reflective surface will appear bright red.
 
-![](/img/user-manual/chapter23/12.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/reflectivity.png)
 
 #### Smoothness
 
 This property is literally how smooth or rough the surface is. This determines how sharp reflections from light sources and the environment are. A surface that is 100% smooth will reflect the incoming light perfectly, like a mirror, whereas a 0% smooth surface will only diffusely scatter the incoming light. For environment map reflections this means the reflected image goes from dull and very blurred (0% smoothness) to bright and pin sharp (100% smoothness).
 
-![](/img/user-manual/chapter23/13.jpg) ![](/img/user-manual/chapter23/14.jpg) ![](/img/user-manual/chapter23/15.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/smoothness1.png) ![](/img/visren/user-manual/3d-view/textures-and-materials/smoothness2.png) ![](/img/visren/user-manual/3d-view/textures-and-materials/smoothness3.png)
 
 #### Metallicness
 
@@ -186,7 +186,7 @@ There are different types of substances in real world. They can be classified in
 Dielectric materials are the most common materials. Their optical properties rarely vary much over the visible spectrum: water, glass, skin, wood, hair, leather, plastic, stone, concrete, ruby, diamond etc.  
 Metals. Their optical properties vary over the visible spectrum: iron, aluminium, copper, gold, cobalt, nickel, silver etc.
 
-![](/img/user-manual/chapter23/16.jpg) ![](/img/user-manual/chapter23/17.jpg) ![](/img/user-manual/chapter23/18.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/metallicness1.png) ![](/img/visren/user-manual/3d-view/textures-and-materials/metallicness2.png) ![](/img/visren/user-manual/3d-view/textures-and-materials/metallicness3.png)
 
 The main difference between a metal and a non-metal in the Visionary Render lighting system is a metal surface’s reflections are coloured by the colour property whereas a non-metal surface’s reflections are always coloured white. The other significant difference is that metals have no diffuse scattering, and so tend to only reflect and not absorb and scatter.
 
@@ -212,7 +212,7 @@ The advanced properties add further control to opacity settings and will be cove
 
 A colour map is a texture you use to define a surface's main colour. For example, if you want a metal grid in your scene, you can use an image of a metal grid as the colour map in the material applied to the assembly. When applying a colour map, you would normally adjust the base colour to white as the colour information is in the image.
 
-![](/img/user-manual/chapter23/19.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/colour-map.png)
 
 #### Smoothness Map
 
@@ -220,7 +220,7 @@ Shininess is often used in conjunction with a specular map. The smoothness level
 
 A smoothness map is only used when you have different levels of shine across a texture. In this case, you would have a colour, reflectivity, and smoothness map.
 
-![](/img/user-manual/chapter23/20.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/smoothness-map.png)
 
 #### Reflectivity Map
 
@@ -228,13 +228,13 @@ Reflectivity maps are the maps you use to define a surface's shininess and highl
 
 The higher the value of a pixel (from black to white), the shinier the surface will appear. Therefore, surfaces such as dry stone or cotton fabric would tend to have a very dark specular map, while surfaces like polished chrome or plastic would tend to have lighter specular maps.
 
-![](/img/user-manual/chapter23/21.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/reflectivity-map.png)
 
 #### Emissive Map
 
 Emissive intensity and maps determine the amount an assembly is self-illuminated. Examples of this would be LED’s, fluorescent lights, or a computer screen. The emissive map is an image where black is no illumination through varying degrees to bright illumination at white. If a colour is used, then this will be the emitted colour.
 
-![](/img/user-manual/chapter23/22.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/emissive-map.png)
 
 #### Normal/Bump Map
 
@@ -244,21 +244,21 @@ Object Space Normal Maps, are characterized by their full spectrum (rainbow-colo
 
 Tangent space normal maps are easily recognized by their mostly blue appearance. Tangent space normals almost always look bluish because normals in tangent space are always considered uv coordinates (0, 0, 1), even if in world space this is not true. The benefits of tangent space maps are the removal of the restrictions imposed Object Space normal maps. Tangent Space normal maps can rotate and deform, therefore they are ideal for characters or assemeblies that need to have vertex deformation. Tangent Space normal maps use the Bump Map slot.
 
-![](/img/user-manual/chapter23/23.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/normal-map1.png)
 
-![](/img/user-manual/chapter23/24.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/normal-map2.png)
 
 The advanced properties provide additional control over the effect scale. This will emphasise the depth of the bump but in general, the value should be around 1.
 
-![](/img/user-manual/chapter23/25.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/normal-map3.png)
 
 #### Reflection Map
 
 A basic Reflection map creates the illusion of chrome, glass, or metal by applying a map to the geometry so that the image looks like a reflection on the surface. This can be a sphere or cubemap.
 
-![](/img/user-manual/chapter23/26.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/reflection-map.png)
 
-Cubemaps can be created in a tool such as CubeMapGen - see: [](https://code.google.com/archive/p/cubemapgen/downloads)
+Cubemaps can be created in a tool such as [AMD CubeMapGen](https://code.google.com/archive/p/cubemapgen/).
 
 Files should be saved as Cubemap DXT1 or Cubemap float32rgba if HDR. In a scene that uses a skybox, the reflection map defaults to using the skybox as reflection map. Adding a map to a material overrides this.
 
@@ -266,13 +266,13 @@ Files should be saved as Cubemap DXT1 or Cubemap float32rgba if HDR. In a scene 
 
 There are 2 methods of creating opacity. The opacity map can be used which is a grey scale image where white is visible and black transparent. Anywhere in between will be translucent.
 
-![](/img/user-manual/chapter23/27.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/opacity-map1.png)
 
 The second method uses the alpha or transparency of the colour map if it contains one. Image formats such as PNG or TGA can contain a transparency / alpha component. The advanced properties give further control on how the alpha/opacity is blended and also, allows to test for an alpha threshold level.
 
-![](/img/user-manual/chapter23/28.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/opacity-map2.png)
 
-![](/img/user-manual/chapter23/29.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/opacity-map3.png)
 
 The threshold level determines at what point in an opacity map is it counted as transparent or not. Alpha To Coverage is a multisampling technique used in conjunction with Alpha Test to remove the need for alpha blending. It is more efficient than alpha blending but does not always look as good. MSAA must be enabled for this to work (this can be enabled from the Settings window under **Renderer** > **General** > **Anti-aliasing**).
 
@@ -286,31 +286,31 @@ Offset is the position on the texture, with 0.0,0.0 being bottom left and 1.0,1.
 
 Scale is the number of repeats in the two directions. A value of 1.0,1.0 would display a single instance of the image. A value of 2.0,1.0 would display two copies of the texture across the assembly.
 
-![](/img/user-manual/chapter23/30.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/map-matrix1.png)
 
 This image indicates the UV coordinates on a simple surface.
 
-![](/img/user-manual/chapter23/31.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/map-matrix2.png)
 
 The following images demonstrate some simple settings for the Offset and Scale values.
 
-![](/img/user-manual/chapter23/32.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/map-matrix3.png)
 
 Simple default values.
 
-![](/img/user-manual/chapter23/33.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/map-matrix4.png)
 
 Scale of 2 by 2.
 
-![](/img/user-manual/chapter23/34.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/map-matrix5.png)
 
 Scale of 3 by 1.
 
-![](/img/user-manual/chapter23/35.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/map-matrix6.png)
 
 Offset of 0.5 by 0.5.
 
-![](/img/user-manual/chapter23/36.jpg)
+![](/img/visren/user-manual/3d-view/textures-and-materials/map-matrix7.png)
 
 Combination of Scale and Offset to centre the Penguin head in the middle of the Cube.
 

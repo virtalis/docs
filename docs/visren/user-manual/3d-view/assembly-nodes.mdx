@@ -2,7 +2,7 @@
 
 Assembly nodes are the building blocks of Visionary Render scenes. They enable you to position, orient and scale objects in your scene. Each assembly defines a transform in the transform hierarchy, in which transforms have parent-child-sibling relationships. The units are metres and degrees. If your data has been translated from a CAD format, then the scale will generally be unit scale.
 
-![](/img/user-manual/chapter10/1.jpg)
+![](/img/visren/user-manual/3d-view/assembly-nodes/overview.png)
 
 ## Buttons
 
@@ -15,13 +15,13 @@ Assembly nodes are the building blocks of Visionary Render scenes. They enable y
 
 ## World Transform
 
-![](/img/user-manual/chapter10/2.jpg)
+![](/img/visren/user-manual/3d-view/assembly-nodes/world-transform.png)
 
 This can be changed to transform the Assembly relative to the world origin instead of to its ancestors.
 
 ## Apply Transformation
 
-![](/img/user-manual/chapter10/3.jpg)
+![](/img/visren/user-manual/3d-view/assembly-nodes/apply.png)
 
 The Apply Transform drop-down can be used to set a transform without applying it to an Assembly until the **Apply** button is pressed. It can be applied as a Local or World transform, depending on the Transform Mode property.
 
@@ -29,7 +29,7 @@ The Apply Transform drop-down can be used to set a transform without applying it
 
 The **Advanced** rollout contains a property for adding constraints to an Assembly.
 
-![](/img/user-manual/chapter10/4.jpg)
+![](/img/visren/user-manual/3d-view/assembly-nodes/constraints.png)
 
 ### Lock
 
@@ -39,11 +39,11 @@ Prevent the Assembly from being transformed.
 
 Prevent the Assembly from being transformed locally.
 
-### Limit
+### Limits
 
 Limit individual components of the Assembly's transform. A TransformLimits node will be automatically created to permit the limits to be configured from the Properties window.
 
-![](/img/user-manual/chapter10/5.jpg)
+![](/img/visren/user-manual/3d-view/assembly-nodes/limits.png)
 
 :::note
 Transform limits are only applied to user input.
@@ -53,11 +53,11 @@ Transform limits are only applied to user input.
 
 The Look at option permits you to select a Target Assembly to direct this Assembly towards. The axis is determined by the model's axis and may need to be adjusted to ensure correct direction. If required, a secondary node can be selected for the up axis.
 
-![](/img/user-manual/chapter10/6.jpg)
+![](/img/visren/user-manual/3d-view/assembly-nodes/look-at.png)
 
 ## Pivots
 
-![](/img/user-manual/chapter10/7.jpg)
+![](/img/visren/user-manual/3d-view/assembly-nodes/pivots.png)
 
 When importing models, it is often the case that the local origin is at the wrong location. This can become a problem when you wish to orient the model in your scene. For instance, you may have imported a door model that you need to rotate about its hinges, but the local origin may be at the centre of the door. The local origin could be moved in the software that was used to author the model, but this is not always convenient or possible. Pivots offer an alternative by defining a new point at which to rotate a model about.
 
@@ -80,7 +80,7 @@ You can only have one pivot per assembly.
 
 The position and orientation of a pivot can be configured from the Properties window. Select the Assembly with the pivot in the tree view or scene (if it has a visual) to bring up its properties. You should see some additional buttons for the pivot in the Properties window as below.
 
-![](/img/user-manual/chapter10/8.jpg)
+![](/img/visren/user-manual/3d-view/assembly-nodes/edit.png)
 
 | Button       | Description                                                                                                                                                                                                                                                                                                                              |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -94,7 +94,7 @@ Pivots can also be moved in the scene with the PRS manipulator enabled (`F9`). S
 
 You can configure pivots by opening the Settings window (`F6`) and navigating to **Tools** > **Pivots**.
 
-![](/img/user-manual/chapter10/9.jpg)
+![](/img/visren/user-manual/3d-view/assembly-nodes/settings.png)
 
 | Setting            | Description                                                                                                                 |
 |--------------------|-----------------------------------------------------------------------------------------------------------------------------|
