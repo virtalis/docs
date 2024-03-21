@@ -1,0 +1,600 @@
+---
+sidebar_position: 2
+description: 1.0.1 to 2024.1
+---
+
+# Importers
+
+## 2024.1
+
+*Released 2024-02-29*
+
+#### Changed
+
+- FUS-3304 - Updates to the latest version of HOOPS Exchange (2024.1).
+
+#### Fixed
+
+- FUS-3339 - Fixes issue with models only rendering the first time they are imported.
+
+---
+
+## 2023.2
+
+*Released 2023-09-26*
+
+#### Added
+
+- FUS-3134 - Adds a new importer for Autodesk Navisworks files.
+- FUS-3175 - Adds support for Creo View 10 files by updating the Creo View importer to use dAPI 20.0.
+
+#### Changed
+
+- FUS-3201 - Updates to the latest version of HOOPS Exchange (2023 SP2 U1).
+- FUS-3202 - Improves performance of HOOPS-based importers in scenes with large numbers of models and improves performance of model instancing.
+
+#### Fixed
+
+- FUS-1837 - Fixes issue with HOOPS-based importers not preserving metadata structure.
+- FUS-2129 - Fixes memory leaks that could occur when importing metadata in various file formats.
+- FUS-2809 - Fixes issues with viewpoints and reimporting Simple Reps in the Creo importer.
+- FUS-3093 - Fixes issue with the Jt Importer not bringing in metadata for certain types of metanodes.
+
+---
+
+## 2023.1
+
+*Released 2023-04-26*
+
+#### Fixed
+
+- FUS-3067 - Fixes issue with the Revit importer bringing in data at a 90 degree angle.
+
+---
+
+## 2022.3
+
+*Released 2022-11-02*
+
+#### Changed
+
+- FUS-2786 - Updates to the latest version of dAPI.
+- FUS-2783 - Updates to the latest version of HOOPS Exchange (2022 SP2).
+- FUS-2787 - Updates Max Exporter to support the 2023 Max SDK.
+- FUS-2785 - Updates to the latest version of ODA.
+
+#### Fixed
+
+- FUS-2714 - When reporting errors during import, excludes unrelated messages such as tracking errors.
+
+
+---
+
+## 2022.1.1
+
+*Released 2022-03-16*
+
+#### Fixed
+
+- FUS-2350 - Fixes a crash when using the Creo View importer on a fresh Windows 11 installation.
+
+---
+
+## 2022.1
+
+*Released 2022-01-24*
+
+#### Changed
+
+- FUS-2191 - Updates the Revit importer to use HOOPS so that it is more up-to-date and reliable.
+
+---
+
+## 2021.3
+
+*Released 2021-10-07*
+
+#### Changed
+
+- FUS-1941 - Updates to the latest version of ODA.
+- FUS-1942 - Updates to the latest version of HOOPS Exchange (2021 Update 2).
+- FUS-1944 - Updates Max Exporter to support the 2022 Max SDK.
+- FUS-1945 - Updates to the latest version of dAPI.
+- FUS-2094 - Updates to the latest version of JTOPEN.
+
+#### Fixed
+
+- FUS-1802 - Fixes issue where Creo files could fail to read with error code -10007.
+
+---
+
+## 2021.1
+
+*Released 2021-04-01*
+
+#### Changed
+
+- FUS-1787 - Improves an error message when HOOPS importers fail to import.
+- FUS-1818 - Updates HOOPS importers to the latest HOOPS Exchange 2021 API.
+
+#### Fixed
+
+- FUS-1656 - Fixes an issue with the HOOPS importers failing on German language PCs.
+- FUS-1759 - Fixes an issue that could cause HOOPS importers to generate duplicate materials.
+- FUS-1780 - Fixes an issue with the KML importer not loading in Visionary Render.
+- FUS-1798 - Fixes an issue with a Jt file failing to import.
+
+---
+
+## 2020.3
+
+*Released 2020-10-12*
+
+#### Changed
+
+- FUS-1127 - Updates Creo View importer to 17.0 API for Creo 7 format.
+- FUS-1528 - Updates Bim Revit (rvt) importer to 2021.6 API.
+- FUS-1530 - Updates Drawing (dwg) and Design (dgn) importers to 2021.6 API.
+- FUS-1251 - Updates CAD importers to 2020 SP2 U1 API.
+
+#### Fixed
+
+- FUS-1479 - Fixes an issue with the Creo View Importer missing objects when sub-elements are stored in sub-folders.
+
+---
+
+## 2020.2
+
+*Released 2020-07-08*
+
+#### Added
+
+- FUS-1478 - Supports decompressing subfolders in .pvz format files.
+
+#### Changed
+
+- FUS-1273 - Vendor API used for Revit Importer is updated to Oda BimRv 2021.2 (build 21.2).
+- FUS-1317 - Vendor API used for Drawing and Design Importers is updated to Oda Drawing 2021.2 (build 21.2).
+
+---
+
+## 2020.1
+
+*Released 2020-03-18*
+
+#### Changed
+
+- FUS-1111 - Updates HOOPS importers to generate error messages alongside error codes.
+- FUS-1106 - Updates importers based on Jt Open toolkit to latest 10.5.2 version.
+- FUS-429 - Updates the HOOPS API to HOOPS Exchange 2020.
+- FUS-395 - Updates the API to support Inventor 2020 files.
+- FUS-333 - Updates Teigha importers to ODA 2020.1, which supports Revit 2020 and the latest DWG/DGN formats.
+
+#### Fixed
+
+- FUS-1110 - Permits files with unicode characters in their name/path to be imported.
+
+---
+
+## 2019.5
+
+*Released 2019-12-06*
+
+#### Changed
+
+- FUS-108 - Updates HOOPS importers to use the latest API, 2019 SP2 U1. (FD877, FD878)
+- FUS-273 - Improves the display of metadata when an assembly has more than one attribute table node. These no longer appear as separate columns.
+
+#### Removed
+
+- FUS-499 - Removes support for importing Ogre files.
+
+#### Fixed
+
+- FUS-180 - Fixes issue with the Merge GeoGroups setting in the Creo View importer not optimising imports fully. (FD695)
+- FUS-221 - Fixes an issue that caused some of the metadata to be omitted when importing Creo View files. (FD431)
+- FUS-252 - Makes various minor corrections to the importer manuals.
+- FUS-256 - Fixes crash that could occur when importing FBX files. (FD765)
+- FUS-303 - Fixes issue with importer and exporter Lua plugins reporting a not found error when operations are successful.
+- FUS-325 - Updates old screenshots in all importer manuals.
+- FUS-328 - Prevents errors from being generated when Visual nodes are created during an FBX import.
+
+---
+
+## 2019.3
+
+*Released 2019-05-29*
+
+#### Changed
+
+- DEV-2199 - Recipe file to define one list of search paths and a flag to search recursively
+- DEV-2204 - Recipe gui factory reset button to save the recipe values to file
+- DEV-1771 - Update HOOPS importer to latest api release HOOPS Exchange 2019 SP1
+
+#### Fixed
+
+- DEV-1332 - Fixed ifx4 support in the IFC importer
+- DEV-1682 - Fixed problem with correct instatiation of the scene when same file imported twice
+- DEV-1100 - Fixes issue where importer user manuals were not being displayed.
+- DEV-1390 - Fixes issue where the UI would not scale correctly in the point cloud converter.
+
+---
+
+## 2019.1
+
+*Released 2019-01-24*
+
+New version number convention: Year.Release
+
+#### Changed
+
+- DEV-1688 - Prevents superfluous network connections when using certain importers during a collaboration
+- DEV-1174 - Updates recipe metadata on imported data to use more efficient Attribute Tables
+
+#### Fixed
+
+- DEV-1420 - Fixes issue where clusters could get stuck with an import dialog box / modal overlay
+- DEV-1523 - Fixed issue with importer merge functionality not being able to merge imports
+- DEV-1525 - Fixes issues with DWG materials appearing black
+- DEV-682 - Fixed problem of recipe values not passed correctly to the importer and ignoring user directives setup (NETSUITE CASE1785)
+- DEV-1702 - Fixed problem with inverted faces
+- DEV-1706 - Fixed sandbox working with cluster
+
+---
+
+## 2.2
+
+*Released 2018-11-15*
+
+#### Changed
+
+- DEV-493 - OpenJT importer will can now import BREP information
+- DEV-1331 - HOOPS based importers updated to use latest HOOPS api 2018sp2 u2
+- DEV-1336 - All importers now use a unified method to handle metadata; attribute tables. These are split into multiple tables if metadata list is large.
+
+#### Fixed
+
+- DEV-1051 - Fixes issue where the application would hang if an importer crashed. 
+- DEV-431 - Fixes issue with empty scene due to active view for file not being able to catch triangulation. User can select from gui to override the active view and use Revit default 3d view instead
+- DEV-933 - Fixes bug where after using some importers, metadata meant for individual models would be placed incorrectly as a child of the geometry library rather than the model node. 
+- DEV-981 - Fixes bug with some importers where vertices with colour information were include in the same mesh as those without, they are now created using separate meshes. 
+- DEV-1078 - Fixes triangulation issue, by supporting face vertex buffer with multiple uv coordinates definition per vertex
+- DEV-1154 - Fixes issue where duplicate lods were created on models with multiple BREP elements on their structure
+- DEV-1276 - Fixes incorrect materials due to texture for the surfaces not being included in HOOPS global texture definitions. The texture was stored locally on the surface only, and the traverser is not creating new texture information, thus new material.
+- DEV-1154 - Fixes bug where BREP and LOD data imported by various importers would be duplicated if the Replace Character setting is used.
+- DEV-1079 - Fixes bug where if an inventor file contained a model with more than 120 individual attributes the importer would crash.
+- DEV-1267 - Fixes incorrect materials due to texture for the surfaces not being included in HOOPS global texture definitions.
+- DEV-431 - Fixes issue with empty scene due to active view for file not being able to catch triangulation. User can select from gui to override the active view and use Revit default 3d view instead 
+- DEV-1300 - Fixes issue with z-up recipe directive to correctly use the Z coordinate for altitude
+- DEV-1405 - Fixed duplicate lods and metadata on models
+- DEV-1518 - Fixed issue generated when empty attribute tables are attempted to be created and ensured that attribute tables are split before reaching MAX_PROPERTIES limit (NETSUITE CASE1936)
+- DEV-1373 - Fix FBX importer corrupting embedded textures (NETSUITE CASE1908)
+
+---
+
+## 2.1
+
+*Released 2018-09-06*
+
+#### Changed
+
+- DEV-275 - Provides an isolated environment for importer plugins which greatly increases the stability of import operations
+- DEV-671 - Updates to HOOPS version 2018 SP2 U1
+
+#### Fixed
+
+- DEV-431 - Fixes crash when importing Revit
+- DEV-618 - Fixes file extension when choosing Save As following an import
+- DEV-792 - Fixes issue with "Import" file dialogue being empty on cluster slaves
+- DEV-427 - Fixes issue where Inventor 2019 data was not being imported (NETSUITE CASE1812)
+- DEV-426 - Fixes a crash in the OpenJT importer when importing scenes with large amounts of metadata
+- DEV-482 - Fixes an issue in the DGN, DWG, and Revit importers where curve information on a floorplan scene would be missing
+- DEV-487 - Fixes issue in the OpenJT importer which caused it to create multiple metadata attribute tables on the scene root
+- DEV-731 - Fixes a crash in the Revit importer when importing files files with the 'Scene Hierarchy: Elements' option enabled
+- #13958 - Fixes issue in Creo importer recipe settings, where the tessellation level dropdown box would initially appear blank
+- #13957 - Fixes issue in Creo importer which caused to rotate imported objects incorrectly
+
+---
+
+## 2.0
+
+*Released 2018-05-11*
+
+#### Added
+
+- #9076 - Adds Revit Importer, supporting geometry loading, hierarchy, unit conversion, scene metadata, materials, textures, manuals, and user specified tessellation
+- #5305 - Adds a new storage format for metadata called AttributeTables which improves import, load, and save speed, and provides a new user interface for viewing multiple selections containing metadata
+- #8723 - Adds support for Unigraphics search paths allowing import to find referenced parts in specified locations (NETSUITE CASE864)
+- #13034 - Adds support for multi-importer licenses
+
+#### Changed
+
+- #10473 - Simplifies imported tree structures
+- #9401 - Importer Plugins are now exclusively 64-bit
+
+#### Fixed
+
+- #8993 - Fixes a crash in a collaboration when selecting an importer from another user's tree, which is not installed locally
+
+---
+
+## 1.3.8
+
+*Released 2018-05-11*
+
+#### Fixed
+
+- #13636 - Fixes an issue in the Object importer causing construction planes to appear incorrectly
+- #14512 - Fixes a crash when importing some CreoView ol files
+
+---
+
+## 1.3.7
+
+*Released 2018-03-16*
+
+#### Fixed
+
+- #12805 - Fixes a crash when importing multiple VRML files
+- #12875 - Fixes a crash when importing some CreoView files
+- #12799 - Fixes issues loading some importer libraries
+
+---
+
+## 1.3.6
+
+*Released 2018-01-12*
+
+#### Changed
+
+- #12123 - HOOPS API upgrade to HOOPS Exchange 2018
+
+#### Fixed
+
+- #10780 - Fixes crash when undoing after an import and merge operation
+- #12298 - Fixes issue with missing override materials in the Division importer (NETSUITE CASE1222)
+- #10887 - Fixes issue with visibility rules not being assigned correctly in the Unigraphics importer
+
+---
+
+## 1.3.5
+
+*Released 2017-10-17*
+
+#### Added
+
+- #10898 - Adds warning message to Division Importer when attempting to import unsupported legacy VDI formats
+
+#### Changed
+
+- #6127 - Replaces target "Unit" importer recipe option with "CAD File Unit" - Defaults to "Auto", using units detected from the file (previous behaviour)
+
+#### Fixed
+
+- #11030 - Fixes DWG importer crash
+- #10578 - Fixes a crash when re-tesselation is enabled during import
+- #10989 - Fixes an issue causing a VCRedist error message to appear during FBX importer install (NETSUITE CASE1294)
+- #11490 - Fixes forward compatibility issue preventing data imported by newer importers (3.20.0+ / VisRen 2.0+) from being migrated down to a compatible format
+- #10321 - Fixes issue importing some CreoView files (NETSUITE CASE1130)
+- #11114 - Fixes issue preventing .ase files from being imported (NETSUITE CASE1358)
+- #11070 - Fixes issue preventing the user specified units recipe option from working in some importers (NETSUITE CASE1343)
+- #11478 - Fixes issue where clicking on the main "Import" button on the file menu (rather than an individual importer) would have no effect. It now correctly triggers a browse dialog for all importable files.
+- #11083 - Fixes issue where importer assigns incorrect materials to geogroups when the "Merge Geogroups" option is enabled
+- #11560 - Fixes issue with unit conversion during OpenJT import
+- #11390 - Fixes performance issue in some importers causing them to take significantly longer to import in some cases
+
+---
+
+## 1.3.4
+
+*Released 2017-08-15*
+
+#### Added
+
+- #10905 - Adds ability for user to select to import visuals (representation items) as different nodes
+
+#### Changed
+
+- #10910 - HOOPS API upgrade to HOOPS Exchange 2017 SP2 U1
+
+#### Fixed
+
+- #10477 - Fixes issue preventing CreoView importer from correctly importing construction elements
+- #10655 - Fixes compatibility issue where migrations were not being run on data imported by old importers
+- #10913 - Fixes issue where importer would add ';refset...' to assembly names (NETSUITE CASE0790)
+
+---
+
+## 1.3.3
+
+*Released 2017-08-09*
+
+#### Changed
+
+- #9585 - Improves the library structure of imported files allowing better support for non-monolithic scenes
+- #9704 - Updates HOOPS to 2017 SP1
+
+#### Removed
+
+- #9753 - Removes unused recipe entry from importer entity filters until a future version implements it
+
+#### Fixed
+
+- #9748 - Fixes a crash in Object Importer when encountering unsupported texture types (NETSUITE CASE1104)
+- #9662 - Fixes a model instancing issue in the Division Importer (NETSUITE CASE1088)
+- #10297 - Fixes issue in license server where features were being matched case-insensitively, and fixes an issue where an importer may use multiple floating license seats
+- #10354 - Fixes issue preventing drag/drop import of files, due to the 'visren_import_data' command now requiring a 'file|' prefix when specifying a file as a parameter (NETSUITE CASE1157)
+- #9855 - Fixes issue preventing the CreoView plugin from working with side-by-side Visionary Render installations
+- #9581 - Fixes the wording of FBX Importer entity filters to say 'Import' instead of 'Export'
+
+---
+
+## 1.3.2
+
+*Released 2017-03-24*
+
+#### Added
+
+- #9081 - Adds wire-frame support to the following importers: U3D, Parasolid, Unigraphics, Jt, Step, CatiaV5, CatiaV6, Inventor, Solidworks, Solidedge, 3DPDF, VRML, STL, Rhino, Iges, Ideas, Ifc, Creo, Acis
+
+#### Changed
+
+- #9075 - Updates to HOOPS exchange 2017 U2, a bug-fix release
+
+#### Fixed
+
+- #9040 - Fixes a crash when attempting to import corrupted CreoView pvz files
+- #9277 - Fixes issue in Division importer where lights were being moved under a LightList node rather than retaining their location in the CAD heirarchy
+- #9356 - Fixes issue where the import progress bar could exceed 100%
+- #9087 - Fixes issue with handling of pre-installed importer licenses
+- #9293 - Fixes issues causing some CAD data to be imported at the wrong scale
+- #9353 - Fixes issues with unit conversion during file import
+- #9281 - Fixes issues with vertex material colours and Jt material overrides
+
+---
+
+## 1.3.1
+
+*Released 2017-02-01*
+
+#### Changed
+
+- #8722 - Updates HOOPS to 2017 U1
+
+#### Fixed
+
+- #8818 - Fixes a crash in Division Importer when importing VDI files containing empty tokens
+- #8682 - Fixes importer issue where a colour assigned to a representation item without being defined as a material was incorrectly overriding a parent material
+- #8680 - Fixes issue in CreoView importer where the behaviour of the "Ignore Metadata" recipe option was inverted
+- #8649 - Fixes issue in importers where geogroups would lock their materials when a Visual did not specify an override, preventing new materials from being applied
+- #8637 - Fixes issue where import progress would appear to hang instead of showing progress
+- #8672 - Fixes issue where the FBX plugin installer would not install the correct vcredist
+
+#### Importers
+
+- #8722 - Updates HOOPS to 2017 U1
+
+---
+
+## 1.3
+
+*Released 2016-11-10*
+
+#### Added
+
+- #5683 - A new FBX importer plugin is available, supporting FBX versions 2006 through 2017
+- #5911 - Adds importer plugin cross compatibility with future versions, starting with this release (1.3).
+- #7808 - Adds a new importer plugin version number convention, starting at version 3.13.0. All plugins version 3 and above are 
+- #5758 - Adds ability to click on the "Import" root menu option to import any supported CAD data using any of the installed importers (similar to the CTRL + I behaviour)
+- #6697 - Adds importer setting to specify the default material colour to apply to imported objects that do not already have a material
+- #4231 - Adds support to the Object Importer for OBJ files with double precision vertices
+
+#### Changed
+
+- #6692 - The following importers now require an additional license "Techsoft": U3D, Parasolid, Unigraphics, Jt, Step, CatiaV5, CatiaV6, Inventor, Solidworks, Solidedge, 3DPDF, VRML, STL, Rhino, Iges, Ideas, Ifc, Creo, Acis
+- #6701 - CAD files can now be imported by dragging them into the main application window
+- #5052 - Improves error reporting from importers, and presents a dialog box after importing if there were any issues.
+- #6866 - Streamlines the way library nodes are created during import to avoid excessive nested libraries
+- #7321 - The File -> Import menu is now consistently sorted alphabetically
+- #7970 - Updated to HOOPS 2016 SP2 Update 2
+
+#### Fixed
+
+- #6059 - Fixes issue causing loss of precision when importing animation keyframes
+- #6044 - Fixes issue in importer install scripts where an importer could not be uninstalled if Visionary Render had already been uninstalled
+- #7324 - Fixes issue where clicking the lowest most importer visible on a scrollable File -> Import list would cause the list to scroll to the next page, leaving the desired importer out of view.
+- #5934 - Fixes issue where importer metadata (version, date, etc) was not consistently named
+- #8042 - Fixes issue where loading, importing, and saving files with unicode characters in the filenames was dependent on the system locale (e.g. a UK system could not operate on files with Chinese characters in the name)
+- #7323 - Fixes issue where subsequent CreoView imports in the same instance of Visionary Render would not be given a default material
+- #7340 - Fixes issue where textures imported by some importers would end up being given filenames containing UUIDs that were different every time the file was imported
+- #5760 - Fixes issue with wobbling visuals after importing DWG files containing data at geographic scale
+
+---
+
+## 1.2.3
+
+*Released 2016-09-20*
+
+#### Fixed
+
+- #7843 - Fixes a crash when importing CreoView files that use relative paths to external references
+- #7830 - Fixes issue where importer uninstallers triggered during upgrades would unintentionally remove the Visionary Render data directory contents and prevent it from starting
+- #7814 - Fixes issue where importer uninstallers would not remove the importer files
+
+---
+
+## 1.2.2
+
+*Released 2016-08-06*
+
+#### Changed
+
+- #6588 - Improves vague warning "Could not link model to visual" with more information from the Division Importer
+- #7244 - Updates HOOPS API to 2016 SP2
+
+#### Fixed
+
+- #7417 - Fixes a crash during subsequent SolidWorks imports into the same Visionary Render instance
+- #6939 - Fixes issue in importers where some files with unicode characters in file names would fail to load
+- #7242 - Fixes issue where importing a Jt file would incorrectly set material overrides for some parts
+
+---
+
+## 1.2.1
+
+*Released 2016-06-09*
+
+#### Changed
+
+- #6023 - Improves performance of division importer
+- #6007 - Changes the re-tessellate importer option to a tessellation mode dropdown, with "analysis" and "visualisation" as options. The default value is "visualisation". Applies only to HOOPS based importers.
+- #6599 - Updates HOOPS API to 2016 version
+- #6027 - Updates Assimp to version 3.2
+
+#### Removed
+
+- #6758 - Removes obsolete error message about missing light config files during import
+
+#### Fixed
+
+- #5894 - Fixes issue with template support in the division importer
+- #6157 - Fixes crash during import of PVS files containing large numbers of children
+- #6172 - Fixes a crash in the FBX importer when loading FBX2016 files
+- #6445 - Fixes issue where some data imports would not preserve texture coordinates
+- #6531 - Fixes issue where some CreoView metadata was not being imported correctly
+- #6542 - Fixes a crash when using Import and Merge
+- #6675 - Fixes an issue causing import failure for some CreoView PVZ files
+- #6694 - Fixes issue where materials imported from Creo would lose their shininess
+- #6825 - Fixes a crash when importing certain individual ol files with the CreoView importer
+- #4941 - Fixes initialization issue in CreoView importer - recipe file should be regenerated manually using "Set as Defaults" in the importer settings
+- #5893 - Fixes issue in division importer where the DIVISIONPATH environment variable was not being used
+- #5994 - Fixes issue where a DWG import would not have the correct amount of normals
+
+---
+
+## 1.1
+
+*Released 2014-10-24*
+
+#### Added
+
+- Adds importer option to "Import and Merge", which passes the imported data through the merging system to avoid the step of having to save as VRText and then import that.
+- Adds an "Import Asset" option to the Browser context menu, providing a quick way of importing files.
+- Adds ability to import multiple files from a single command line / shortcut.
+- Adds an FBX Importer.
+
+#### Changed
+
+- Implements faster import and improved Library handling for PTC VDI files.
+- Implements additional optimizations during CAD imports.
+- Improvements to various data format importers.
+
+---
+
+## 1.0.1
+
+*Released 2013-11-15*
+
+#### Changed
+
+- Improvements to various data format importers.

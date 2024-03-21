@@ -70,46 +70,71 @@ const config = {
         title: '',
         logo: {
           src: 'img/virtalis-logo.svg',
-          width: 180,
+          width: 190,
         },
-        items: [
-          {
-            type: 'dropdown',
-            position: 'left',
-            label: 'Visionary Render',
-            items: [
-              {
-                type: 'docSidebar',
-                sidebarId: 'userManualSidebar',
-                label: 'User Manual',
-              },
-              {
-                type: 'docSidebar',
-                sidebarId: 'progGuideSidebar',
-                label: 'Programming Guide',
-              },
-            ],
-          },
-          {
-            type: 'docSidebar',
-            sidebarId: 'importersSidebar',
-            position: 'left',
-            label: 'Importers',
-          },
-          {
-            type: 'dropdown',
-            position: 'left',
-            label: 'Miscellaneous',
-            items: [
-              {
-                type: 'docSidebar',
-                sidebarId: 'maxExporterSidebar',
-                label: 'Max Exporter',
-              },
-            ],
-          },
-        ],
-      },
+      items: [
+        {
+          type: 'dropdown',
+          position: 'left',
+          label: 'Manuals',
+          items: [
+            {
+              type: 'docSidebar',
+              sidebarId: 'geoVisionarySidebar',
+              label: 'GeoVisionary',
+            },
+            {
+              type: 'docSidebar',
+              sidebarId: 'importersSidebar',
+              label: 'Importers',
+            },
+            {
+              type: 'docSidebar',
+              sidebarId: 'maxExporterSidebar',
+              label: 'Max Exporter',
+            },
+            {
+              type: 'docSidebar',
+              sidebarId: 'reachWebViewerSidebar',
+              label: 'Reach Web Viewer',
+            },
+            {
+              type: 'docSidebar',
+              sidebarId: 'virtalisHubSidebar',
+              label: 'Virtalis Hub',
+            },
+            {
+              type: 'docSidebar',
+              sidebarId: 'visrenSidebar',
+              label: 'Visionary Render',
+            },
+          ],
+        },
+        {
+          type: 'dropdown',
+          position: 'left',
+          label: 'Guides',
+          items: [
+            {
+              type: 'docSidebar',
+              sidebarId: 'reachAdminSidebar',
+              label: 'Reach System Admin',
+            },
+            {
+              type: 'docSidebar',
+              sidebarId: 'visrenDevSidebar',
+              label: 'Visionary Render Developer',
+            },
+          ],
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'changelogsSidebar',
+          position: 'left',
+          label: 'Changelogs',
+        },
+      ],
+    },
       footer: {
         style: 'dark',
         copyright: `Copyright © ${new Date().getFullYear()} Virtalis. All rights reserved.`,

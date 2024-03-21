@@ -38,11 +38,11 @@
   transition: 0s;
 }*/
 
-@media (min-width: 997px) {
+/* @media (min-width: 997px) {
   article {
     margin-left: 14px;
   }
-}
+} */
 
 table {
   border-collapse: collapse;
