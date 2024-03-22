@@ -29,7 +29,7 @@ description: 1.0.1 to 2024.1
 - FUS-3170 - Fixes issues with occlusion culling that could lead to flickering geometry
 - FUS-3212 - Fixes issue where scene GUIs could have rendering artifacts after loading
 - FUS-3218 - Fixes a crash that could occur when toggling the Edit Pivot mode button
-- FUS-3224 - Fixes issue with the message "OpenXR lists 0 API layers" being repeated in the log
+- FUS-3224 - Fixes issue with the message `OpenXR lists 0 API layers` being repeated in the log
 - FUS-3225 - Fixes issue with the file browser not being able to follow shortcuts
 - FUS-3227 - Fixes issue with UI settings and window positions not being restored after restarting Visionary Render
 - FUS-3234 - Makes measuring points visible in the Scenes tree view and fixes issue with the parent object being selected when clicking on a measuring point in the 3D scene
@@ -187,17 +187,13 @@ description: 1.0.1 to 2024.1
 
 #### Fixed
 
-- FUS-2516 - Fixes incorrect return values from vrNodeIsInGroup(), and restores the "Remove from Group" option on the context menu
+- FUS-2516 - Restores the "Remove from Group" option on the context menu
 
 ---
 
 ## 2022.1.1
 
 *Released 2022-03-16*
-
-#### Added
-
-- FUS-2353 - Adds a performance warning regarding vrNodeGetChildCount() and vrNodeGetChildByIndex() in the programming guide
 
 #### Fixed
 
@@ -220,7 +216,7 @@ description: 1.0.1 to 2024.1
 
 #### Changed
 
-- FUS-2208 - Makes VisRen work on a cluster without requiring the Visual C++ redistributables to be manually installed on the slaves
+- FUS-2208 - Makes Visionary Render work on a cluster without requiring the Visual C++ redistributables to be manually installed on the slaves
 - FUS-2248 - Permits spline knots to be snapped to surfaces
 - FUS-2258 - Allows collision options to be specified for splines
 - FUS-2286 - Permits dynamic sections to be applied to tube splines
@@ -241,7 +237,6 @@ description: 1.0.1 to 2024.1
 - FUS-2293 - Fixes crashes that could occur when scripting events
 - FUS-2308 - Event handlers are called twice after being restored from the recycle bin (with possible crash)
 - FUS-2314 - Handles knots being reparented or deleted
-- FUS-2323 - Fixes logging so that failures in the plugin sandbox can be understood
 - FUS-2330 - Hides the icon marker on splines
 - FUS-2332 - Reparenting a knot can detach it from the spline
 - FUS-2333 - Changing the order of child knots in the tree generates extra knot markers
@@ -272,7 +267,6 @@ description: 1.0.1 to 2024.1
 #### Fixed
 
 - FUS-2254 - Fixes an incompatible library version that caused the Point Cloud Converter to fail to start
-- FUS-2293 - Fixes an occasional crash after certain combinations of Lua script errors
 
 ---
 
@@ -299,7 +293,7 @@ description: 1.0.1 to 2024.1
 #### Fixed
 
 - FUS-2121 - Fixes issue where the Hololens 2 doesn't receive the depth buffer via Holographic Remoting
-- FUS-2198 - Updates the Microsoft Visual C++ redistributables in the Visionary Render and GeoVisionary installers
+- FUS-2198 - Updates the Microsoft Visual C++ redistributables in the installer
 
 ---
 
@@ -309,24 +303,15 @@ description: 1.0.1 to 2024.1
 
 #### Added
 
-- FUS-1220 - Adds functions for observing events in Lua scripts and Native plugins
 - FUS-1733 - Adds a filter to the Scenes and Developer trees for highlighting disabled nodes
-- FUS-1747 - Adds the ability to create user settings in Lua scripts
 
 #### Fixed
 
-- FUS-1749 - Fixes various instances where infinite progress displays could be spawned in Lua scripts
 - FUS-1768 - Fixes issue where sessions can't be continued after reconnecting to the licence server
 - FUS-1887 - Fixes issue with licence client timing out too soon on slower networks
 - FUS-1908 - Prevents error message from popping up when the VPN is not connected
-- FUS-1925 - Improves vrNodeHasTrait (node:hasTrait()) to support checking for traits without version numbers and without the "Trait_" prefix. For example, n:hasTrait("AttributeTable") as a shortcut for n:hasTrait("Trait_AttributeTable.1")
-- FUS-1926 - Deprecates passing non-function objects as callbacks to __registerCallback and adds a warning message when it happens
-- FUS-1927 - Fixes issue where you cannot register Lua functions in the Lua state provided by vrtree.dll
-- FUS-1937 - Fixes issue with the programming guide start menu shortcut not being uninstalled
 - FUS-1953 - Fixes issue with Connect View option not working in 2020.3 onwards
 - FUS-1998 - Fixes issue with view configs not saving XInputEnvironment links
-- FUS-2056 - Prevents crashes when passing a vector or matrix to a Lua function that expects a node
-- FUS-2085 - Prevents scripts in the StandardActions library from being run multiple times in a collaboration
 - FUS-2086 - Fixes issue with user filters not being set correctly after resetting the button map
 - FUS-2092 - Fixes incorrect version numbering in start menu and desktop shortcuts in side-by-side installs
 
@@ -339,10 +324,6 @@ description: 1.0.1 to 2024.1
 #### Added
 
 - FUS-1879 - Adds support for projection onto curved screens
-
-#### Changed
-
-- FUS-1746 - Improves the vrAddPropertyObserver Lua function to allow multiple properties to be observed by a single observer
 
 ---
 
@@ -357,8 +338,6 @@ description: 1.0.1 to 2024.1
 
 #### Changed
 
-- FUS-1590 - Improves the performance of hooks in Lua scripts
-- FUS-1748 - Improves the performance of copying large strings in Lua scripts
 - FUS-1811 - Improves the performance of the materials list in the immersive context menu
 
 #### Removed
@@ -429,24 +408,19 @@ description: 1.0.1 to 2024.1
 #### Added
 
 - FUS-2 - Adds support for Hi5 tracking gloves
-- FUS-1401 - Adds Lua API function vrGetHoldingUser, to determine which user has grabbed an object
 - FUS-1561 - Adds an option to TransformLink to affect local transforms instead of world transforms
 
 #### Changed
 
-- FUS-1067 - Improves the Getting Started section of the Visionary Render Programming Guide
 - FUS-1434 - Allows 3D GUIs (including the immersive context menu) and certain tools to be operated at close range with a tracked controller when the laser pointer is turned off
 - FUS-1463 - Reduces the amount of data transferred while connecting a collaboration in some cases where HMDs are present
-- FUS-1533 - Allows objects to be released from the TrackedManipulatorTool using vrReleaseObjectFromTrackedHand, and adds optional parameters to vrGrabObjectWithTrackedHand and vrReleaseObjectFromTrackedHand to specify the user and/or hand and object positioning
 
 #### Fixed
 
 - FUS-243 - Prevents invalid characters from being accepted in filename text boxes
 - FUS-291 - Fixes incorrect highlighting of buttons in the immersive context menu in collaboration
-- FUS-1046 - Fixes issue with Lua functions such as vrSettingRead and vrSettingWrite being applied to the wrong user in a collaboration
 - FUS-1114 - Fixes issues with various buttons in the immersive context menu not working for slave users in a collaboration
 - FUS-1325 - Fixes an issue with Enter and Leave events being called multiple times in collaborations
-- FUS-1326 - Fixes problems with the vrBodyFly... Lua functions in collaboration sessions
 - FUS-1340 - Fixes issues with images loaded from DDS files appearing upside down and/or with the red and blue channels swapped
 - FUS-1363 - Fixes issues with highlighting and truncation of hyperlinks
 - FUS-1382 - Stops scripts from running in the cached copies of recently-used gallery items
@@ -455,9 +429,6 @@ description: 1.0.1 to 2024.1
 - FUS-1405 - Introduces an "auto" headlight mode which enables the headlight when there is no other light in the scene
 - FUS-1407 - Fixes a problem where changes to the sun position setting could affect the wrong users in collaboration
 - FUS-1409 - Stops evaluating sequences when opening scenes (unless the initial position property is set)
-- FUS-1410 - Allows a user to be specified when calling Lua functions vrIsToolEnabled, vrSetToolEnabled, vrToggleToolEnabled, vrSettingGet, vrSettingRead and vrSettingWrite
-- FUS-1412 - Fixes a bug where a call to vrBodyFlyTo from an activate event script would result in the event being triggered repeatedly
-- FUS-1430 - Fixes incorrect results from vrBodyFlyToFit and vrBodyFlyToFitSphere when called from a script in a collaboration for a user other than the master
 - FUS-1447 - Adds tooltips to the undo and redo buttons to indicate the actions that will be performed. Disables the undo and redo buttons when there are no actions available
 - FUS-1496 - Improves application startup speed by reducing loading of asset files
 - FUS-1503 - Reduces reloading of files when changing tracking modes
@@ -494,13 +465,12 @@ description: 1.0.1 to 2024.1
 #### Removed
 
 - FUS-1242 - Removes the requirement that meshes used for skinning must have tangents
-- FUS-9 - Removes "Link to Hand" context menu option on Assemblies and marked vrSetTrackedHandNode() and vrSetTrackedEyesNode() as deprecated (FD306)
+- FUS-9 - Removes "Link to Hand" context menu option on Assemblies (FD306)
 
 #### Fixed
 
 - FUS-1287 - Changes auto-indent shortcut in the Script Editor to Ctrl + Spacebar. Also fixes issues with Tab and Shift + Tab not always working properly (FD494)
 - FUS-1257 - Disables underwater effects when terrain data is present in the scene
-- FUS-1238 - Fixes crash when changing the current value of a custom drop-down setting created with vrSettingAddToScene() (FD1704)
 - FUS-1210 - Fixes possible GL_INVALID_VALUE error in log when starting up Visionary Render
 - FUS-1205 - Makes skybox clip bottom functional for infinite skyboxes
 - FUS-1200 - Adds the EULA text to the About dialog and makes minor corrections to it
@@ -526,7 +496,6 @@ description: 1.0.1 to 2024.1
 - FUS-286 - Optimises selection of a large number of nodes
 - FUS-264 - Changes a couple of default values for the Windows Mixed Reality controllers. Rotate Mode is now set to rotate about the eye position and Snap Level is disabled
 - FUS-259 - Fixes issue with links to nodes in the user tree being lost when 3 or more users collaborate
-- FUS-219 - Fixes issue with the plugins directory that Visionary Render installs not being checked for Lua scripts
 - FUS-143 - Fixes issue with not being able to select all instances of a Model in the Browser tab (FD1125, FD636, FD571)
 - FUS-78 - Prevents the Space Mouse from being able to fly the camera far away when erroneous values are received
 - FUS-36 - Fixes issue with depth buffer based view filters not working with MSAA
@@ -574,7 +543,6 @@ description: 1.0.1 to 2024.1
 - FUS-322 - Fixes issue with AudioBuffer "no file loaded" border being clipped at the bottom
 - FUS-316 - Fixes crash when an attribute table is selected in the Developer tree with Developer Admin Mode enabled
 - FUS-315 - Fixes issue with camera position not being restored when loading a scene with multiple viewConfigs
-- FUS-310 - Fixes issue causing plugin installation via the settings window to silently fail under certain circumstances
 - FUS-309 - Fixes flickering object bug with occlusion culling enabled
 - FUS-304 - Fixes point cloud rendering when overlapped culling is enabled (FD856)
 - FUS-285 - Marks the node in the tree if the version is different from the expected version
@@ -583,7 +551,7 @@ description: 1.0.1 to 2024.1
 - FUS-276 - Fixes issue with View Widget spin boxes ignoring the Editor Step Size setting
 - FUS-272 - Updates Baked Lighting property caption and tooltip to clarify what it is (FD366)
 - FUS-255 - Fixes crash that could occur on a cluster when loading DocsPlugin.dll (FD741)
-- FUS-252 - Makes various minor corrections to the Visionary Render manual and programming guide
+- FUS-252 - Makes various minor corrections to the Visionary Render manual
 - FUS-243 - Prevents invalid characters from being accepted in filename text boxes
 - FUS-222 - Fixes issue with one eye being out-of-sync when fading/teleporting in a HMD
 - FUS-182 - Permits point clouds, markers and scene GUI to be clipped by dynamic sections (FD382)
@@ -624,20 +592,15 @@ Visionary Render has been updated to reflect our new company brand identity
 
 - DEV-2207 - Adds a "Reset to Default" button to to the keymapper GUI so that button / gesture mappings can be reset
 - DEV-2057 - Adds Create Light options to the LightList node context menu while in the Developer tree view
-- DEV-1998 - vrGeometryOp() now supports optimise, split, explode, prune, sieve, recentre, transform and merge
 
 #### Changed
 
-- DEV-1374 - The scripting engine has been updated to LuaJIT-2.1.0-beta3, which allows 64-bit memory management
 - DEV-2118 - Improves performance when generating collision data for differently-scaled instances of a model
 - DEV-2161 - Improves the point cloud converter section in the user manual
 
 #### Fixed
 
-- DEV-1105 - Adds missing API reference documentation for vrHideModalDialogues
-- DEV-2086 - Adds missing documentation for parameter in vrNodeCaptureTransform
 - DEV-2173 - Disables stereo optimisation by default due to issues in SteamVR HMDs
-- DEV-2238 - Fix crash that could occur during compression of dds pixel data via the VRTree API
 - DEV-1711 - Fix crash when collaborator deletes node whose properties layout is currently showing a modal dialogue
 - DEV-2097 - Fix file browser sometimes getting pushed off top of screen on a cluster
 - DEV-1710 - Fix problem on collaboration mode when first user edits pivot and second user deletes it
@@ -664,7 +627,6 @@ Visionary Render has been updated to reflect our new company brand identity
 - DEV-1731 - Fixes issue with links in the toolbox not being saved (FD163)
 - DEV-1179 - Fixes issue with roll-outs closing when adding scene override settings
 - DEV-2099 - Fixes issue with the script editor not adding undo points when it should, such as when dragging and dropping nodes
-- DEV-1374 - Fixes out-of-memory issues with scripting, most commonly affecting Windows 7 (FD141)
 - DEV-2144 - Fixes the description of the Level Camera tool in the toolbar
 - DEV-2045 - Fixes the helper for Physical Screen nodes so it renders correctly
 - DEV-1676 - Fixes Toggle Information Display context menu option when right-clicking on an annotation in the scene
@@ -680,15 +642,10 @@ Visionary Render has been updated to reflect our new company brand identity
 
 *Released 2019-03-27*
 
-#### Added
-
-- DEV-1986 - Adds API methods to support working with properties containing vectors of strings
-- DEV-1987 - Adds API methods to access fixed sized floating point value arrays such as those used for matrices
-
 #### Fixed
 
 - DEV-1981 - Fixes a bug with the right eye when Stereo Optimisation is set to Single GPU Parallel where in some devices the geometry would be offset in the right eye
-- DEV-2022 - Fixes bug with right eye when using dual GPU mode with a steamvr headset (FD54)
+- DEV-2022 - Fixes bug with right eye when using dual GPU mode with a SteamVR headset (FD54)
 - DEV-1880 - Fixes crash at exit when using the Oculus Rift (FD169)
 - DEV-1981 - Fixes a bug with the right eye when Stereo Optimisation is set to Single GPU Parallel where in some devices the geometry would be offset in the right eye
 - DEV-1943 - Fixes a crash on certain configurations (zSpace 2) when toggling stereo 3D while video streaming is enabled
@@ -698,7 +655,7 @@ Visionary Render has been updated to reflect our new company brand identity
 - DEV-1721 - Fixes issue in Visionary Render for WITNESS with arcs in paths not being drawn when the model is scaled very small
 - DEV-1697 - Fixes crash that could occur when selecting nodes in the tree with the Developer Admin Mode setting enabled
 - DEV-2029 - Fixed crash when alt-tabbing away while renaming a partially hidden browser tile
-- DEV-1730 - Attribute tables on the Main tree view displays on the assembly's properties box instead of showng as child node (FD201)
+- DEV-1730 - Attribute tables on the Main tree view displays on the assembly's properties box instead of showing as child node (FD201)
 
 ---
 
@@ -712,14 +669,12 @@ New version number convention: Year.Release
 
 - DEV-214 - Adds single-pass stereo option to the renderer, which allows a stereo pair to be rendered in one pass, improving performance in some scenarios
 - DEV-249 - Adds support for rendering stereo to two NVidia graphics cards in parallel
-- DEV-1480 - Adds section to programming guide demonstrating pulling in data from external web resources
 - DEV-1628 - Adds settings to the snap home tool to permit the in-range and out-of-range ghosts to be hidden (NETSUITE CASE1961)
 
 #### Fixed
 
 - DEV-1274 - Fixes browser previews for particle systems
 - DEV-1019 - Fixes sky and probe reflections in SteamVR headsets
-- DEV-1269 - Fixes a crash that could occur if an unexpected uniform type was encountered in a surface shader
 - DEV-1732 - Fixes issue with child visuals being added to groups in trees other than Scenes (NETSUITE CASE2007)
 - DEV-1241 - Fixes issue with joystick controllers moving relative to the camera instead of the direction in which the stick is pointing
 - DEV-1419 - Fixes issue with Leap Motion not working in Desktop mode or with the Oculus HMD (NETSUITE CASE1778)
@@ -770,7 +725,7 @@ New version number convention: Year.Release
 
 #### Removed
 
-- DEV-1140 - Removes Enabled property from all nodes under the toolbox. Tools can still be enabled and disabled by using the settings found under `Tools/State/<name of tool>`. Any scripts that refer to the Enabled property of a tool node should be updated to refer to the relevant setting instead
+- DEV-1140 - Removes Enabled property from all nodes under the toolbox. Tools can still be enabled and disabled by using the settings found under `Tools/State/<name of tool>`
 - DEV-598 - Iray auto exposure removed from ray tracer frame and bugs fixed in main viewports
 
 #### Fixed
@@ -786,8 +741,6 @@ New version number convention: Year.Release
 - DEV-1064 - Fixes an issue causing labels not to be updated immediately when changing the background colour of a ColouredLabelStyle
 - DEV-1015 - Fixes corrupted mesh data after using the merge geometry operator when networked
 - DEV-806 - Fixes crashes when adding and removing folders in the gallery
-- DEV-766 - Fixes issue where Lua Observers were not receiving callbacks
-- DEV-779 - Fixes issue where plugins would not display relevant progress messages
 - DEV-1035 - Fixes issue where the application would hang if a collaborator crashed
 - DEV-1148 - Fixes issue where unlocking a setting would not trigger a callback
 - DEV-1148 - Fixes issue where string setting overrides would trigger inappropriate callbacks
@@ -797,11 +750,9 @@ New version number convention: Year.Release
 - DEV-1140 - Fixes an issue that caused some tools to be disabled under certain circumstances when leaving the Start Room with a custom view config active
 - DEV-975 - Fixes a bug where enabling altitude lock didn't function
 - DEV-1431 - Fixes an issue where collaborating users would be in the wrong location when returning to the start room
-- DEV-1272 - Fixes exception that could occur when starting a cluster without the VisionaryRender folder in your Documents directory
+- DEV-1272 - Fixes exception that could occur when starting a cluster without the `VisionaryRender` folder in your Documents directory
 - DEV-967 - Fixes issue with cluster nodes potentially having different clip plane ranges
 - DEV-1468 - Fixes issue with fullscreen mode not respecting Windows DPI scaling, which could result in the application not filling the whole screen
-- DEV-779 - Fixes issue where plugins would not display relevant progress messages
-- DEV-1093 - Fixes issues where matrix properties were not accessible via Lua
 - DEV-1514 - Fixes crash that could occur in the file browser when generating previews for certain image file formats
 - DEV-1508 - Fixes a crash when using the "Toggle Information Display" option from the context menu for an annotation in the 3D scene
 - DEV-1504 - Fixes issue with textures not being pasted from the Windows clipboard into link pickers and a subsequent crash that could occur
@@ -815,13 +766,10 @@ New version number convention: Year.Release
 
 #### Added
 
-- DEV-496 - Adds plugin SDK and documentation to the application installation in ‘data/vrtreesdk’, with a start menu shortcut to the programming guide
 - DEV-220 - Adds the ability to snap measuring points to vertices using the ALT key while dragging them
 - DEV-215 - Adds additional Gallery assets for constructing user interfaces in the 3D scene
 - DEV-712 - Adds the ability to specify custom preview images for gallery items, either from a file, or by capturing the current scene view
-- DEV-716 - Adds an improved API for node observer in Lua
 - DEV-623 - Adds support for both command line and GUI methods for enabling networking
-- DEV-686 - Adds Lua function for suppressing modal dialogues to enable unattended scripting
 - DEV-299 - Adds support for texture matrices in IRay rendering
 - DEV-300 - Adds support for emissive textures in IRay rendering
 - #12450 - Adds new Point cloud importer with full graphical user interface
@@ -830,7 +778,6 @@ New version number convention: Year.Release
 - #13995 - Adds settings to control the Snap Home tool snapping distance, either in screen percentage, or world distance
 - #13904 - Adds additional node types to the tree view filter dropdown
 - #14008 - Adds stipple effect to helpers when they are obscured by other geometry
-- #11550 - Adds a progress display during Shader Cache Priming
 - #14081 - Adds tooltips to the controls in the start room
 
 #### Changed
@@ -844,7 +791,6 @@ New version number convention: Year.Release
 - DEV-600 - Improves snapping tool to better support scale and rotation
 - DEV-213 - Tweaks the ocean when rendered in HMD’s so it doesn’t scintillate as much due to screen-door
 - DEV-645 - Disables server configuration in the gallery until such a system is available
-- #13857 - Changes the back-end Lua engine from Lua 5.1 to LuaJIT, which is fully 5.1 compatible and provides performance improvements and some compatibility with Lua 5.2 features
 - #14079 - Improves the behaviour and responsiveness of the touch screen navigation and manipulation tools
 - #14341 - Empty gallery categories are no longer displayed in the gallery tile view (but are still available on the context menu)
 - #13947 - Video Streaming settings toolbar button now opens the Video Streaming tab of the Screen Capture settings
@@ -860,7 +806,6 @@ New version number convention: Year.Release
 - #12969 - The Show Help Topic tool will now take you to the relevant manual entry when used on the Snapshot Tool, Node Helpers Options fly-out and the Region Select fly-out
 - #14156 - Hyperlinks in text now only show tooltip when the cursor is directly over the text and cursor only changes to a hand if the Ctrl key is held
 - #13585 - Moves options for tooltips in the 3d scene into the tool settings
-- #14084 - VR API development licenses are now less restricting, and one development license for a machine will allow development and debugging of any number of plugins
 - #11211 - Moves the 2D GUI (tree views, etc) onto the screen plane when in stereo, allowing the application to be controlled more comfortably on large projection screens without having to be wearing glasses
 
 #### Removed
@@ -880,7 +825,6 @@ New version number convention: Year.Release
 - DEV-199 - Fixes loading pivots from older versions of Visionary Render
 - DEV-207 - Fixes undoing of measurement points
 - DEV-210 - Fixes the rendering of cascaded shadows from non-directional lights
-- DEV-211 - Fixes corruption of metadata when editing a script
 - DEV-219 - Fixes lighting appearance in the Oculus HMD being affected by previously loaded files
 - DEV-221 - Fixes incorrect addition of pivots to the scene structure
 - DEV-224 - Fixes intrusive dialog when changing world scale using an Oculus Rift
@@ -903,7 +847,6 @@ New version number convention: Year.Release
 - DEV-334 - Fixes issue in the start room where the camera would be locked in place after starting and stopping the fly-through sequence
 - DEV-359 - Fixes issue where Iray would not apply texture scale and offset changes
 - DEV-422 - Fixes issues preventing cluster configurations from working with host names. They now support either host names or IP addresses
-- DEV-479 - Fixes a potential crash when calling certain Lua functions with too few arguments
 - DEV-480 - Fixes copy and paste for text controls when using clustering
 - DEV-512 - Fixes displaying screen capture settings 
 - DEV-518 - Fixes rendering issues with using clustering
@@ -956,11 +899,9 @@ New version number convention: Year.Release
 - #13933 - Fixes a potential crash when removing items from the gallery
 - #13936 - Fixes invalid water reflections that were occurring in the start room
 - #13942 - Fixes gallery previews for objects with dynamic sections
-- #13950 - Fixes issue with global lua state not being reset when changing scenes
-- #13966 - Fixes issue where some functions provided by Lua Plugins could be lost after starting a new scene
 - #13975 - Fixes issue where the merge assistant would silently fail instead of prompting for an existing root, when specifying an incoming root node
 - #13979 - Fixes an Iray crash when enabling it while complex scenes are loaded
-- #13983 - Fixes a crash when Shift+clicking in the scene inside a finite skybox
+- #13983 - Fixes a crash when Shift + clicking in the scene inside a finite skybox
 - #13986 - Fixes issues around deleting and re-adding Iray materials to a scene
 - #13987 - Fixes issue preventing the VRCONFIGDIR environment variable from being used, if present
 - #13989 - Fixes issue allowing multiple overlapping context menus to be summoned
@@ -968,7 +909,6 @@ New version number convention: Year.Release
 - #13996 - Fixes issue where all related helper objects would disappear when a single object with a helper was deleted from the scene
 - #13999 - Fixes a crash when attempting to teleport out of the start room in a tracked headset 
 - #14002 - Fixes issue where the Iray buttons in the toolbar were incorrectly greyed out and unavailable
-- #14007 - Fixes issue where the plugins list would be empty on cluster slaves
 - #14015 - Fixes incorrect clipping of the 3D view when using Iray and render-to-texture at the same time
 - #14047 - Fixes a crash on a cluster when clicking the mouse button rapidly in the Start Room
 - #14054 - Fixes an issue where an unresponsive ActiveView Light client could also cause Visionary Render to become unresponsive
@@ -1012,7 +952,6 @@ New version number convention: Year.Release
 - #13952 - Fixes issue causing the Ocean to render beyond the far clip plane
 - #13976 - Fixes issue in the Script Editor output pane that caused it to not always scroll to the most recent message
 - #13977 - Fixes brightness of the Start Room on Twilight setting
-- #13980 - Fixes issue reading properties from node snapshots in Lua
 - #14004 - Fixes issue where blink could teleport outside of the start room
 - #14006 - Fixes issue where adjusting a light helper resets the cone softness
 - #14012 - Fixes issue where the Pivot gizmo was affected by scene lighting
@@ -1089,21 +1028,17 @@ New version number convention: Year.Release
 - #8664 - Adds support for Oculus Touch as standard with Desktop Immersion
 - #9705 - Adds support for Simplified Representations through views visibility rules
 - #3593 - Adds support for animating generic node properties in the sequencer. Any number values can be animated in the same way as assembly transforms
-- #6168 - Adds support for custom surface shaders
 - #10795 - Adds support for particle systems
 - #8881 - Adds support for procedural skyboxes
 - #3936 - Adds support for the Polhemus G4
 - #10982 - Adds support for touch screens and multi-touch interaction
 - #9337 - Adds the Gallery feature
-- #9447 - Adds the ability to author and load plugins exporting a C interface
 - #12579 - Adds video stream texture node type that is able to receive and control video streams from ActiveView
 - #2766 - Adds "On Startup" setting which can remember the user's preference of loading into the start room, last loaded scene, new scene, or custom scene (specified by path)
 - #10455 - Adds "Select Parent" to tree context menus
 - #5429 - Adds CTRL + F to focus the tree quick search bar
 - #1519 - Adds Case Sensitive and Whole Word searching
 - #12762 - Adds Label gui components (like a button but not clickable)
-- #8894 - Adds Lua accessors to attribute data and traits
-- #9189 - Adds __Time register to scripts, containing the total time the application has been running
 - #11089 - Adds a Fly to speed setting to the navigation options, to control the speed of fly-to
 - #13664 - Adds a LockShadowMap property to Light, which stops the shadowmap being redrawn until its unset
 - #9000 - Adds a context menu option to remove the selected node from groups that it is in
@@ -1121,17 +1056,14 @@ New version number convention: Year.Release
 - #6389 - Adds buttons in the log window to show/hide errors/warnings/info messages
 - #9890 - Adds buttons to the settings window to add whole pages of settings as scene overrides
 - #9019 - Adds caption display to buttons and labels in the tree view, so it is easy to see at a glance which button a node is referring to
-- #9859 - Adds formal interface for Lua plugins, allowing them to be authored and integrated the same way as the new native plugin interface
 - #10809 - Adds information about installed licenses to the about box
 - #9463 - Adds left handed tracker button IDs to the event handler key guard dropdown
-- #12243 - Adds more built in Lua documentation and auto-complete information
-- #9242 - Adds more matrix functions to Lua
 - #12226 - Adds mouse wheel zooming in the 3D view, which moves the view into / out of the screen towards the cursor location
 - #10431 - Adds new mesh modifier tools
 - #9097 - Adds new setting Tracking/Laser/Angle to adjust the angle of the laser on HTC Vive controllers
 - #10681 - Adds new start room environment, demonstrating a number of new application features and providing an interface for network collaboration
 - #10369 - Adds option to create a viewpoint from the immersive context menu
-- #10367 - Adds optional fade effects to "Fly to", enabled by default for the immersive context menu, and an option to vrBodyFlyTo
+- #10367 - Adds optional fade effects to "Fly to", enabled by default for the immersive context menu
 - #10937 - Adds optional haptic feedback (vibration) on supported controllers when touching objects in the scene
 - #5699 - Adds options to reset settings values to installation defaults
 - #3424 - Adds orthographic viewport toggle and improves the mouse navigation in this mode
@@ -1142,8 +1074,6 @@ New version number convention: Year.Release
 - #12380 - Adds support for dragging video files from Windows and dropping them into the application to create a Movie node
 - #12706 - Adds support for tooltips on 3D GUI objects
 - #11685 - Adds texture rotation controls to GUI styles involving textures
-- #8452 - Adds the ability for Lua to observe the internal transform hierarchy, providing notifications about changes to world transforms and enabled states
-- #8378 - Adds the ability for Lua to query an object's world enabled state without having to manually traverse ancestors to check
 - #9365 - Adds the ability to choose the shape used for material previews
 - #3615 - Adds the ability to clone objects with the PRS manipulator by holding CTRL while manipulating the object
 - #4038 - Adds the ability to drag GUI components from the tree into other stacks
@@ -1154,7 +1084,6 @@ New version number convention: Year.Release
 
 #### Changed
 
-- #10638 - All Lua events (and the Script Console) now run inside Lua coroutines, allowing them to "pause", yielding execution back to the application to enable more simple implementation of long running scripts
 - #8177 - Automatically creates a viewport when creating a render to texture object, as it cannot function without one
 - #12815 - Changes F8 measuring tool toggle to CTRL+1/2/3 for the Region Select / Measuring / Annotation tools
 - #5408 - Changes colour picker controls to be popups instead of rollouts
@@ -1166,14 +1095,11 @@ New version number convention: Year.Release
 - #7607 - Disables automatic write-back to files in the application installation directory. Data files such as view configs and toolboxes are now written to the Documents directory with the rest of the application data files. Existing view configs in the application directory are migrated to the documents directory, after which any changes to the original file are no longer read.
 - #8852 - Greatly Improves the speed and reduces the memory usage of VRText / VRNative loading/saving
 - #5874 - Hides a lot of internal nodes in the developer / user tree behind the User Interface / Advanced / Developer Admin Mode setting
-- #8444 - Improves Lua's ability to observe changes to the tree
 - #11970 - Improves lighting accuracy in Light/Reflection Probe baking by allowing other probes to contribute to the calculated lighting
 - #10359 - Improves loading speed of geometry-heavy scenes
 - #10348 - Improves performance of "Select Instances" by approx. 90%
-- #9214 - Improves performance of Lua transform interface
 - #10426 - Improves performance of camera movement while a lot of assemblies are in the recycle bin
 - #4044 - Improves selection system behaviour, and reduces the number of Lua functions relating to selection (deprecates old functions)
-- #7027 - Improves the developer documentation for users who implement complex scripts, by providing a supplementary, searchable programming guide covering events, plugins, and shaders, as well as architectural overviews and advanced topics
 - #3745 - Improves the features and capability of the cluster / virtual file dialog and uses it by default in all configurations (including desktop)
 - #11797 - Improves the interaction with model dialogs while using the immersive GUI inside a headset
 - #4037 - Improves the pivot system, simplifying it (both internally and externally) and solving a lot of issues
@@ -1182,7 +1108,7 @@ New version number convention: Year.Release
 - #7511 - Moves a number of obscure / advanced properties behind an Advanced rollout
 - #9271 - Optimizes group snapshot storage - the presence of snapshots in the scene now contributes less to the overall memory and cpu usage
 - #12489 - Renames / clarifies some captions on Audio properties to better convey their purpose
-- #12299 - Replaces references to HTC Vive with Steam VR, as this interface also provides support for other types of headset
+- #12299 - Replaces references to HTC Vive with SteamVR, as this interface also provides support for other types of headset
 - #9863 - Unifies application and context menu internals so that context menu options may trigger the same types of events as main menus
 - #6711 - Updates the application graphical style to fit more closely with Windows 10 / Metro
 - #11032 - Updates the application splash screen
@@ -1195,7 +1121,6 @@ New version number convention: Year.Release
 - #5794 - Removes -uselauncher option. This is now the default, falling back to RPC only when the launcher is not running on the target machine
 - #1999 - Removes MovieScreen nodes as they have been superseded by the ability to apply Movies directly to materials / other objects expecting a texture. Provides a preset rig of GUI elements to replicate the behaviour of a MovieScreen
 - #10978 - Removes constant polling for new zSpace and SteamVR devices - these devices should be set up before launching Visionary Render
-- #9333 - Removes deprecated Lua functions vrNodeGetWorldMatrix and vrNodeSetWorldMatrix
 - #8950 - Removes editing capabilities from protected nodes in the Users tree, which cannot be edited
 - #12511 - Removes superfluous Event_ prefix from event handler type dropdown
 - #9330 - Removes the libraries tree tab. This is still accessible in the Developer tab. Disconnects the selection synchronisation between Scenes and Developer
@@ -1223,11 +1148,8 @@ New version number convention: Year.Release
 - #8446 - Fixes issue where script editor scroll bar would not always appear when needed
 - #5552 - Fixes issue where scrolling the tree view past approximately 1 million items would result in misalignment of items in the tree view
 - #10585 - Fixes issue where the global sequence speed would affect fly-to sequences
-- #8191 - Fixes issue where vrParseJSON would log an error but not actually fail when given invalid JSON
 - #11200 - Fixes issue where windows could be summoned on top of a modal dialog
 - #11301 - Fixes issue with drawing symbolic fonts in the scene GUI by exposing character set to the Font node properties
-- #9048 - Fixes issues around manually creating pivots from Lua and reusing/re-parenting them (NETSUITE CASE988)
-- #9240 - Fixes issues in some Lua vector and matrix math functions
 - #4024 - Fixes issues preventing objects with custom pivot points from snapping to surfaces correctly
 - #7509 - Fixes issues preventing view statistics from displaying on clusters
 - #8044 - Fixes issues when connecting to a tracked user's camera view from a desktop machine; It now correctly uses the tracked user's eye position (NETSUITE CASE763)
@@ -1283,8 +1205,6 @@ New version number convention: Year.Release
 
 #### Fixed
 
-- #11888 - Fixes a number of crashes caused by using Lua to set various setting values outside of the expected range
-- #12342 - Fixes crash when providing invalid time format specifiers to `os.date` in a Lua script
 - #12310 - Fixes issue preventing skinned characters from working
 ---
 
@@ -1370,7 +1290,6 @@ New version number convention: Year.Release
 - #9788 - Fixes issue where the Texture UV Channel property would start at 0 when the input range is 1-4. The default value is now 1.
 - #9900 - Fixes issue where valid ray direction values could not be entered on Collision properties
 - #9824 - Fixes issue with review licenses, where starting a new scene or quitting, while a modified scene is open, could result in accidentally saving an overlay file over the original scene file. The save-as dialog now correctly appears, prompting for a new file name for the overlay file
-- #10382 - Fixes issue with vrPostCommand in a file being loaded causing an infinite loop (NETSUITE CASE1144)
 - #10373 - Fixes issues where resizing, moving, or minimising a cluster window would result in the rest of the cluster becoming unresponsive (NETSUITE CASE1166)
 - #9766 - Fixes the display of the multisample setting in the screen capture tool
 - #9765 - Fixes the input range of the screen capture Image Quality setting to limit it between 0 and 100
@@ -1399,10 +1318,8 @@ New version number convention: Year.Release
 - #8663 - Fixes issue where pointcloud converter was not writing the output file correctly
 - #9003 - Fixes issue where removing something from a group would not remove it from the snapshots in the group
 - #9127 - Fixes issue where scene-only settings were not removed from the user interface when closing the scene
-- #9216 - Fixes issue where some functions on math objects exposed to Lua would conflict with other metatable entries (e.g. .Scale vs scale())
 - #9015 - Fixes issue where the application would hang on startup if the previous session was using a HTC Vive that is no longer connected to the computer
 - #8762 - Fixes issue where the uninstaller executable would be left behind after uninstalling a side by side installation
-- #9119 - Fixes issue with view shader targets and colour space in de-ghost and red-cyan shaders
 - #9281 - Fixes issues with vertex material colours and Jt material overrides
 
 ---
@@ -1434,7 +1351,6 @@ New version number convention: Year.Release
 - #8743 - Fixes a crash when placing multiple measuring points while holding the shift key
 - #8639 - Fixes issue when saving files to network paths
 - #8564 - Fixes issue where Edit Capture Settings would not roll out the first time
-- #8585 - Fixes issue where Lua functions vrNodeComposeLocalTransform and vrNodeDecomposeTransform would throw exceptions even if they were given perfectly valid matrices
 - #7654 - Fixes issue where Visual preview could be clipped, causing the display of an incorrect primitive count in the text area
 - #8796 - Fixes issue where a scene with a Viewport configured as a mirror would not save the mirror property
 - #6640 - Fixes issue where cancelling a search would not respond immediately and continued to present new results
@@ -1497,8 +1413,6 @@ New version number convention: Year.Release
 - #3708 - Adds "Select Children" option to the tree view context menu
 - #1979 - Adds Find and Replace to the script editor
 - #3771 - Adds Looped property to Sequence nodes. It is set to true for one cycle after a sequence is looped so that action frames have a means of preventing themselves from doing stuff
-- #6485 - Adds Lua function vrNodeGetRelativePath and associated node:relpath(other) functions for getting the path of a node relative to another node
-- #4222 - Adds Lua symbols for some property enum values which were previously missing, and unifies the naming convention of all symbols
 - #4310 - Adds a "Default Hand" setting that allows the user to specify which driver name to use as a backup if a hand model for the current tracker driver can't be found
 - #6300 - Adds a "Precise Control" method of control to the finger tracking tool, allowing objects to be rotated by rolling the fingers around the object, rather than rotating the entire wrist
 - #6144 - Adds a "Visible to Self" property to pointer controllers to specify whether they should be visible to the local user (while still being visible to collaborators)
@@ -1538,8 +1452,6 @@ New version number convention: Year.Release
 - #2558 - Adds sequence playback controls to tiles in the browser
 - #5967 - Adds skybox shadows, which use the shadow maps of any enabled directional lights
 - #3716 - Adds smoother fly-to animation
-- #4049 - Adds support for Lua coroutine yielding across the Lua/C boundary
-- #4117 - Adds support for Lua function objects passed into VR functions that require a callback, instead of only relying on global functions passed by name
 - #5800 - Adds support for dragging multiple selected assemblies into an annotation state at once
 - #4458 - Adds support for flying to point clouds
 - #3362 - Adds support for hyperlinks in metadata; CTRL + click opens the link in the default web browser
@@ -1548,8 +1460,6 @@ New version number convention: Year.Release
 - #6802 - Adds transparency to the immersive GUI background to provide a visual indication of its edges while still being able to see the scene behind it. Configurable in tool settings
 - #7489 - Adds tree highlight modes for Measuring Points and Dimensions
 - #5621 - Adds vibration support to the XInput tracking driver (XBox controllers)
-- #4195 - Adds vrBodyAddImpulse and vrBodyAddImpulseMouse to the Lua API
-- #4329 - Adds vrGetCursorPosition and vrGetLastClickedCursorPosition to the Lua interface
 
 #### Changed
 
@@ -1557,9 +1467,7 @@ New version number convention: Year.Release
 - #6647 - Changes the behaviour of Double Click - it no longer directly shows the properties window. Configurable in settings
 - #7045 - Changes the default value of the Dynamic Section Size on Drop setting to 'ON' so that sections perform better on large models
 - #6320 - Changes the full screen shortcut from CTRL + F to Alt + Enter - F11 remains unchanged
-- #1926 - Lua: Deprecates old PRS methods for accessing transform properties and adds new methods to use and access transform properties on nodes with a more consistent interface
 - #5969 - Manual navigation actions now cancel any fly-to animation, unless disabled by the setting "Navigation Cancels Fly To"
-- #5690 - Renames some of the properties of StdMaterial (scripts referencing these properties will trigger a warning on scene load and Lua script errors)
 - #6803 - Restores default joystick left/right operation to rotate instead of strafe
 - #5796 - Annotation comments are now stacked on the annotation marker instead of being separate, floating comments disconnected from the main annotation
 - #2826 - Attempting to use an expired license now presents a relevant error message instead of the generic invalid one
@@ -1613,7 +1521,6 @@ New version number convention: Year.Release
 - #6438 - Fixes issue causing some images to be pasted with the wrong alignment ('wonky' images)
 - #2824 - Fixes issue invoking manual and displaying tooltips
 - #6884 - Fixes issue where Isolate would persist between different scenes
-- #2427 - Fixes issue where a Lua script call to find() could fail when searching for children of a node with the same name
 - #6112 - Fixes issue where a sequences containing single keyframes were not always evaluated correctly
 - #6158 - Fixes issue where adding a pivot would prevent the restore transform feature from working
 - #6031 - Fixes issue where annotation markers would lag behind their target object when that object was moved too quickly
@@ -1711,7 +1618,6 @@ New version number convention: Year.Release
 - #6110 - Greatly improved overall rendering performance
 - #6665 - Lowers the memory overhead of loading scenes containing textures and sounds
 - #5989 - Improves performance of script editor output window when there is a lot of text outside of the visible area
-- #6212 - Lua functions registered with vrAddNodeObserver and similar, now have valid __Script and __Self registers when called
 - #6386 - Updates Oculus SDK to version 1.3. The latest version of the Oculus runtime is required - there is no backward compatibility with previous Oculus runtime versions
 
 #### Removed
@@ -1833,8 +1739,6 @@ New version number convention: Year.Release
 - Adds laser highlighting and manipulation system
 - Adds ability to interact with the 2D GUI using a hand tracker
 - Adds modifier key capability to key events, which now supports events on things such as CTRL + 5, or SHIFT + V, etc
-- Adds Lua interface for creating toolbars on the Tools window
-- Adds Lua interface to our maths library, allowing scripts to work with vectors, matrices, quaternions, spheres, bounding boxes and rays
 - Adds support for capped sections. Provides the ability to render cap geometry when enclosed geometry is sectioned
 - Adds ability to click through dynamic sections and change the method of selection
 - Adds ability to change colour and opacity of dynamic sections
@@ -1846,7 +1750,6 @@ New version number convention: Year.Release
 - Double clicking in the tree now toggles a node's Enabled property, if it has one. The property window is now summoned by right clicking on the node and selecting "Show Properties"
 - Clicking on a link property (e.g. Visual->Material property) now selects the target instead of triggering the sibling dropdown. The dropdown is now triggered only by the arrow icon on the right of the control
 - The icon of a library tree now reflects its contents
-- Lua plugins are now automatically loaded from the Documents directory as well as the install directory
 - Memory usage optimizations for very large scenes
 - Significant application performance and stability improvements
 

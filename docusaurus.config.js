@@ -137,7 +137,7 @@ const config = {
     },
       footer: {
         style: 'dark',
-        copyright: `Copyright © ${new Date().getFullYear()} Virtalis. All rights reserved.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Virtalis Ltd. All rights reserved.`,
       },
       prism: {
         theme: prismThemes.github,

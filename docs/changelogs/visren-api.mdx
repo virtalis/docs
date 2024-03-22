@@ -1,6 +1,6 @@
 ---
 sidebar_position: 7
-description: 2.0 to 2024.1
+description: 1.1 to 2024.1
 ---
 
 import Tabs from '@theme/Tabs';
@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- Adds `vrSplitVirtalisHubURL` for identifying Virtalis Hub URLs and splitting out their server name, artifact ID and artifact name
+- Added `vrSplitVirtalisHubURL` for identifying Virtalis Hub URLs and splitting out their server name, artifact ID and artifact name
 
 #### Fixed
 
@@ -28,7 +28,47 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- `vrGenerateQRCodeFile` to permit QR codes to be generated and saved to a file (which is used by the HoloLens 2 to view scenes in Augmented Reality)
+- Added `vrGenerateQRCodeFile` to permit QR codes to be generated and saved to a file (which is used by the HoloLens 2 to view scenes in Augmented Reality)
+
+---
+
+## 2022.2
+
+*Released 2022-07-08*
+
+#### Fixed
+
+- Fixed incorrect return values from `vrNodeIsInGroup`
+
+---
+
+## 2022.1.1
+
+*Released 2022-03-16*
+
+#### Added
+
+- Added a performance warning regarding `vrNodeGetChildCount` and `vrNodeGetChildByIndex` to the developer guide
+
+---
+
+## 2022.1
+
+*Released 2022-01-24*
+
+#### Fixed
+
+- Fixed logging so that failures in the plugin sandbox can be understood
+
+---
+
+## 2021.3.1
+
+*Released 2021-11-29*
+
+#### Fixed
+
+- Fixed an occasional crash after certain combinations of Lua script errors
 
 ---
 
@@ -38,7 +78,7 @@ import TabItem from '@theme/TabItem';
 
 #### Changed
 
-- `vrNodeFindChild` now returns nil instead of the node to search from when given an empty search path
+- `vrNodeFindChild` now returns `nil` instead of the node to search from when given an empty search path
 
 ---
 
@@ -48,14 +88,14 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- 2 functions to the Lua API for observing events:
+- Added 2 functions to the Lua API for observing events:
 
 | Function                   | Description                                                         |
 |----------------------------|---------------------------------------------------------------------|
 | `vrAddEventObserver`       | Adds an observer and callback function to execute for events        |
 | `vrAddGlobalEventObserver` | Adds an observer and callback function to execute for global events |
 
-- 32 functions to the C API for observing events:
+- Added 32 functions to the C API for observing events:
 
 | Function                        | Description                                                                                                               |
 |---------------------------------|---------------------------------------------------------------------------------------------------------------------------|
@@ -92,7 +132,7 @@ import TabItem from '@theme/TabItem';
 | `VRAddCallbackToggle`         | Add Toggle callback (button or similar node toggled)                                                                      |
 | `VRRemoveCallbackToggle`      | Remove Toggle callback (button or similar node toggled)                                                                   |
 
-- 14 functions to the Lua API for creating and editing user settings:
+- Added 14 functions to the Lua API for creating and editing user settings:
 
 | Function                       | Description                                                                                                                |
 |--------------------------------|----------------------------------------------------------------------------------------------------------------------------|
@@ -114,6 +154,29 @@ import TabItem from '@theme/TabItem';
 #### Changed
 
 - Permits `vrAddPropertyObserver` to observe multiple properties of a metanode
+- Improves `vrNodeHasTrait(node:hasTrait())` to support checking for traits without version numbers and without the `Trait_` prefix. For example, `n:hasTrait("AttributeTable")` as a shortcut for `n:hasTrait("Trait_AttributeTable.1")`
+
+#### Deprecated
+
+- Deprecates passing non-function objects as callbacks to `__registerCallback` and adds a warning message when it happens
+
+#### Fixed
+
+- Fixes various instances where infinite progress displays could be spawned from Lua scripts
+- Fixes issue where you cannot register Lua functions in the Lua state provided by `vrtree.dll`
+- Fixes issue with the developer guide start menu shortcut not being uninstalled
+- Prevents crashes when passing a vector or matrix to a Lua function that expects a node
+- Prevents scripts in the StandardActions library from being run multiple times in a collaboration
+
+---
+
+## 2021.1.1
+
+*Released 2021-04-19*
+
+#### Changed
+
+- Improves the `vrAddPropertyObserver` Lua function to allow multiple properties to be observed by a single observer
 
 ---
 
@@ -123,7 +186,7 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- FUS-1745 - 40 functions to the Lua API for for creating your own metanode types:
+- Added 40 functions to the Lua API for for creating your own metanode types:
 
 | Function                          | Description                 |
 | --------------------------------- | --------------------------- |
@@ -169,7 +232,7 @@ import TabItem from '@theme/TabItem';
 | `vrAddPropertyVectorWorldFloat` | Adds a new world float vector property to an unfinished metanode |
 | `vrAddPropertyVectorString`     | Adds a new string vector property to an unfinished metanode |
 
-- FUS-1228 - 40 functions to the C API for creating and observing settings:
+- Added 40 functions to the C API for creating and observing settings:
 
 | Function                           | Description                 |
 | ---------------------------------- | --------------------------- |
@@ -212,19 +275,21 @@ import TabItem from '@theme/TabItem';
 | `VRAddSettingToScene`            | Adds a scene override of a setting (if it doesn't already exist) and copies the value from the user setting to the override |
 | `VRRemoveSettingFromScene`       | Removes a scene override of a setting |
 | `VRAddCallbackSettingChanged`    | Registers a function to be called when a setting value changes |
-| `VRRemoveCallbackSettingChanged` | Removes a callback that was added with VRAddCallbackSettingChanged() |
+| `VRRemoveCallbackSettingChanged` | Removes a callback that was added with `VRAddCallbackSettingChanged()` |
 
-- `vrNodeArrayClear` to clear the values held in an array property
+- Added `vrNodeArrayClear` to clear the values held in an array property
 
 #### Changed
 
+- Improves the performance of hooks in Lua scripts
+- Improves the performance of copying large strings in Lua scripts
 - `vrNodeArraySet`, `vrNodeArrayPush` and `vrNodeArraySetElement` so that they accept zero or more values, maths types (vrVec2/3/4, vrMat3/4, etc.), strings containing binary data, or nested tables containing any combination of these
 - Added an optional parameter to `vrNodeArrayPop` specifying how many items to pop (defaults to 1)
 - Made all the `vrNodeArray*` functions accept a single `VectorPropUD` userdata argument as an alternative to the node and property name
 
 #### Fixed
 
-- FUS-1856 - Fixes an issue with `vrSelectNodes({})` no longer working
+- Fixes an issue with `vrSelectNodes({})` no longer working
 
 ---
 
@@ -234,10 +299,11 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- `vrGetHoldingUser` To determine which user has grabbed an object
+- Adds Lua API function `vrGetHoldingUser` to determine which user has grabbed an object
 
 #### Changed
 
+- Improves the Getting Started section of the developer guide
 - The following functions can now be called for a specific user node:
   - `vrIsToolEnabled`
   - `vrSetToolEnabled`
@@ -248,6 +314,13 @@ import TabItem from '@theme/TabItem';
   - `vrSettingWrite`
 - Allows objects to be released from the TrackedManipulatorTool using `vrReleaseObjectFromTrackedHand`
 - Adds optional parameters to `vrGrabObjectWithTrackedHand` and `vrReleaseObjectFromTrackedHand` to specify the user and/or hand and object positioning
+
+#### Fixed
+
+- Fixes issue with Lua functions such as `vrSettingRead` and `vrSettingWrite` being applied to the wrong user in a collaboration
+- Fixes problems with the `vrBodyFly...` Lua functions in collaboration sessions
+- Fixes incorrect results from `vrBodyFlyToFit` and `vrBodyFlyToFitSphere` when called from a script in a collaboration for a user other than the master
+- Fixes a bug where a call to `vrBodyFlyTo` from an activate event script would result in the event being triggered repeatedly
 
 ---
 
@@ -260,6 +333,26 @@ import TabItem from '@theme/TabItem';
 - `VRGetPrev` Gets the previous sibling of a node
 - `VRGetPrevOfType` Gets the previous sibling of a specific type
 - `VRSetParentEx` Sets the parent of a node, specifying a sibling to insert after
+
+#### Deprecated
+
+- Marked `vrSetTrackedHandNode` and `vrSetTrackedEyesNode` as deprecated
+
+#### Fixed
+
+- Fixes issue with the plugins directory that Visionary Render installs not being checked for Lua scripts
+- Fixes crash when changing the current value of a custom drop-down setting created with `vrSettingAddToScene`
+
+---
+
+## 2019.5
+
+*Released 2019-12-06*
+
+#### Fixed
+
+- Fixes issue causing plugin installation via the settings window to silently fail under certain circumstances
+- Makes various minor corrections to the developer guide
 
 ---
 
@@ -344,38 +437,14 @@ struct MyManager2
 
 #### Changed
 
-- The vrGeometryOp() Lua function now supports further operations:
-  - optimise
-  - split
-  - explode
-  - prune
-  - sieve
-  - recentre
-  - transform
-  - merge
+- Updated the scripting engine to `LuaJIT-2.1.0-beta3`, which allows 64-bit memory management
+- The `vrGeometryOp()` Lua function now supports `optimise`, `split`, `explode`, `prune`, `sieve`, `recentre`, `transform` and `merge` operations
 
 #### Fixed
 
-- Corrects documentation for Lua API functions:
-  - vrEnableWhenIrayAvailable
-  - vrClusterMasterNode
-  - vrHideModalDialogues
-  - vrLaunchProcess
-  - vrMat4Frustum
-  - vrMat4Ortho
-  - vrMat4Ortho2D
-  - vrNodeCaptureTransform
-  - vrNodeGetLocallyModified
-  - vrProgressEvents
-  - vrSetToolEnabled
-  - vrSetTrackedEyeNode
-  - vrSetTrackedHandNode
-  - vrShowNodeProperties
-  - vrToggleToolEnabled
-  - vrTreeControlRangeSelect
-  - vrTreeRangeSelect
-  - vrTreeSelect
-  - vrWitnessSetMaterial
+- Fixes crash that could occur when compressing DDS pixel data in the API
+- Corrects the documentation for various Lua API functions
+- Fixes out-of-memory issues with scripting, most commonly affecting Windows 7
 
 ---
 
@@ -386,23 +455,37 @@ struct MyManager2
 #### Added
 
 - New method introduced to be able to get the metanode handle from a given node handle
-  - VRGetMetaNode
+  - `VRGetMetaNode`
 
-- New metanode for vector strings and setter getter properties functionality
-  - VRAddPropertyVectorString
-  - VRChangePropertyVectorString
-  - VRSetPropertyStringElement
-  - VRSetPropertyStringElementEx
-  - VRGetPropertyStringElement
-  - VRGetPropertyStringElementEx
+- Adds API methods to support working with properties containing vectors of strings
+  - `VRAddPropertyVectorString`
+  - `VRChangePropertyVectorString`
+  - `VRSetPropertyStringElement`
+  - `VRSetPropertyStringElementEx`
+  - `VRGetPropertyStringElement`
+  - `VRGetPropertyStringElementEx`
   
-- New methods to set and get matrix data. Users now can pass default matrix values
-  - VRSetPropertyArrayFloat
-  - VRSetPropertyArrayFloatEx
-  - VRSetPropertyArrayDouble
-  - VRSetPropertyArrayDoubleEx
-  - VRSetPropertyArrayWorldFloat
-  - VRSetPropertyArrayWorldFloatEx
+- Adds API methods to access fixed sized floating point value arrays such as those used for matrices
+  - `VRSetPropertyArrayFloat`
+  - `VRSetPropertyArrayFloatEx`
+  - `VRSetPropertyArrayDouble`
+  - `VRSetPropertyArrayDoubleEx`
+  - `VRSetPropertyArrayWorldFloat`
+  - `VRSetPropertyArrayWorldFloatEx`
+
+---
+
+## 2019.1
+
+*Released 2019-01-24*
+
+#### Added
+
+- Adds section to developer guide demonstrating pulling in data from external web resources
+
+#### Fixed
+
+- Fixes a crash that could occur when an unexpected uniform type is encountered in a surface shader
 
 ---
 
@@ -480,6 +563,16 @@ vrSetToolEnabled("MouseNavigatorTool", false)
 </TabItem>
 </Tabs>
 
+#### Removed
+
+- DEV-1140 - Removes `Enabled` property from all nodes under the toolbox. Any scripts that refer to the `Enabled` property of a tool node should be updated to refer to the relevant setting instead
+
+#### Fixed
+
+- Fixes issue where Lua Observers were not receiving callbacks
+- Fixes issue where plugins would not display relevant progress messages
+- Fixes issues where matrix properties were not accessible via Lua
+
 ---
 
 ## 2.1
@@ -488,13 +581,26 @@ vrSetToolEnabled("MouseNavigatorTool", false)
 
 #### Added
 
+- Adds plugin SDK and documentation to the application installation in `data/vrtreesdk`, with a start menu shortcut for the developer guide
+- Adds Lua function `vrHideModalDialogues(true)` for suppressing modal dialogues to enable unattended scripting
 - Adds `VRGetNodeVersion` which allows migration code to query the version of a node
 - Adds `vrMetaNodeExists` to check if the named metanode is present
+- Adds a progress display during shader cache priming
 
 #### Changed
 
 - The internal Lua engine has changed from Lua 5.1 to LuaJIT 2.0.5. This is fully compatible with all existing Lua 5.1 code and plugins, and also supports some extensions from Lua 5.2. You can read more about LuaJIT and its extensions and performance benefits at http://luajit.org/luajit.html
-- Updates the function signatures of vrAddNodeObserver and vrAddMetaNodeObserver. The old versions have been deprecated. See [Observers](scripts/metanodes/observers.mdx) for more information
+- Adds an improved API for node observer in Lua. Updates the function signatures of `vrAddNodeObserver` and `vrAddMetaNodeObserver`. The old versions have been deprecated. See [Observers](../visren-dev/scripts/metanodes/observers.mdx) for more information
+- VR API development licenses are now less restricting, and one development license for a machine will allow development and debugging of any number of plugins
+
+#### Fixed
+
+- Fixes a potential crash when calling certain Lua functions with too few arguments
+- Fixes issue with global Lua state not being reset when changing scenes
+- Fixes issue where the plugins list would be empty on cluster slaves
+- Fixes issue where some functions provided by Lua Plugins could be lost after starting a new scene
+- Fixes issue reading properties from node snapshots in Lua
+- Fixes corruption of metadata when editing a script
 
 ---
 
@@ -504,24 +610,29 @@ vrSetToolEnabled("MouseNavigatorTool", false)
 
 #### Added
 
-- Adds the [VR Exchange API](reference/c-api/modules/vrexchange.mdx)
+- Adds the [VR Exchange API](../visren-dev/reference/c-api/modules/vrexchange.mdx)
 - Adds some utilities to assist working with reference types in Lua (vectors, matrices, etc)
   - `vrCopy`
   - `vrGetOwnerNode`
-- Adds vrSearchView which allows the tree view quick-search bar to be pre-populated with a search query string
-- Adds vrNodeGetTraits and vrNodeHasTrait to query the metanode traits of a node. If you know the name of the trait you are looking for, you should use `vrNodeHasTrait`, as getting all the traits is more expensive
-- Adds vrNodeIsInGroup to check whether a node is in the specified group, and vrGroupRemoveMember to remove a node from a group
-- Adds vrTreeViewSelectionSelectParent to select the parent nodes of the nodes in the specified view selection
-- Adds vrGetContactPoints which returns a list of contact points and normals between two nodes. This can be used, for example, from a Touch event by providing the `__Self` and `__Other` registers
-- Adds vrGetActivatorNode which can be used inside an activate event script to identify the node that activated it (in the case of it being activated by vrActivate)
-- Adds vrToggleProjection to toggle the current viewport between perspective and orthographic mode
-- Adds vrUsingHMD to identify whether the primary viewport is rendering into a head-mounted display
+- Adds `vrSearchView` which allows the tree view quick-search bar to be pre-populated with a search query string
+- Adds `vrNodeGetTraits` and `vrNodeHasTrait` to query the metanode traits of a node. If you know the name of the trait you are looking for, you should use `vrNodeHasTrait`, as getting all the traits is more expensive
+- Adds `vrNodeIsInGroup` to check whether a node is in the specified group, and `vrGroupRemoveMember` to remove a node from a group
+- Adds `vrTreeViewSelectionSelectParent` to select the parent nodes of the nodes in the specified view selection
+- Adds `vrGetContactPoints` which returns a list of contact points and normals between two nodes. This can be used, for example, from a Touch event by providing the `__Self` and `__Other` registers
+- Adds `vrGetActivatorNode` which can be used inside an activate event script to identify the node that activated it (in the case of it being activated by `vrActivate`)
+- Adds `vrToggleProjection` to toggle the current viewport between perspective and orthographic mode
+- Adds `vrUsingHMD` to identify whether the primary viewport is rendering into a head-mounted display
+- Adds the ability to author and load plugins exporting a C interface
+- Adds `__Time` register to scripts, containing the total time the application has been running
+- Adds more built in Lua documentation and auto-complete information
+- Adds optional fade effects to `vrBodyFlyTo`
+- Adds support for custom surface shaders
 
 #### Changed
 
-- Most nodes in the User tree (and the Developer tree in general) are now hidden behind the `User Interface / Advanced / Developer Admin Mode` setting. If you are a plugin developer it is recommended to enable this setting
+- Improves the developer documentation for users who implement complex scripts, by providing a supplementary, searchable developer guide covering events, plugins, and shaders, as well as architectural overviews and advanced topics
+- Most nodes in the User tree (and the Developer tree in general) are now hidden behind the User Interface / Advanced / Developer Admin Mode setting. If you are a plugin developer it is recommended to enable this setting
 - `vrParseJSON` now triggers a Lua error on parsing failure, instead of simply printing the error message and continuing
-- @subpage v13x_200_pivots
 - Fixes assignment to swizzled vector values (e.g. `vrScenesNode().Cube.Transform.Rotation.zx = { 10, 20 }`
 - New attribute table nodes are accessible from Lua using node property syntax for keys (e.g. `local value = a.Metadata.KEY_NAME`). The structure of attribute tables is such that keys and values are interleaved in regular properties, for example:
   - 0 - Key 1
@@ -529,11 +640,9 @@ vrSetToolEnabled("MouseNavigatorTool", false)
   - 2 - Key 2
   - 3 - Value 2
   - etc...
-  The vrNodeSetValueByIndex function allows access to key names as well as values using this convention
+  The `vrNodeSetValueByIndex` function allows access to key names as well as values using this convention
 - `node.WorldEnabled` provides access to the node's world enabled state
 - Lua plugins should no longer execute code outside of functions. Initialisation code should go in `function init()`  
-- @subpage v13x_200_lua_co
-- @subpage v13x_200_lua_observers
 - ApplicationMenuEntry nodes added to context menus now support all of the same types as the main application menu (e.g. app commands, lua blocks, property toggles, etc)
 - The tools window and associated UI nodes has been removed, replaced with the toolbar for common shortcuts, and the diagnostics frame for logs and stats. Plugins that were previously inserting frames into the tools window may now instead insert buttons into the toolbar, or add frames into the diagnostics window
 
@@ -566,6 +675,16 @@ The following Lua functions have been marked as Deprecated and may be removed in
 | `vrSelectAndShowProperties`         | vrSelectNodes                          |
 | `vrClusterSelectAndShowProperties`  | vrSelectNodes                          |
 
+#### Removed
+
+- Removes deprecated Lua functions `vrNodeGetWorldMatrix` and `vrNodeSetWorldMatrix`
+
+#### Fixed
+
+- Fixes issues around manually creating pivots from Lua and reusing/re-parenting them
+- Fixes issues in some Lua vector and matrix math functions
+- Fixes issue where `vrParseJSON` would log an error but not actually fail when given invalid JSON
+
 #### Lua Event Coroutines
 
 - Event handler scripts and the main Scripts console window now execute as coroutines
@@ -574,7 +693,7 @@ The following Lua functions have been marked as Deprecated and may be removed in
 
 A coroutine is a piece of code that may pause its execution and resume at some point in the future. In Visionary Render they can be used to control the flow of an event script, in most cases so that it can perform time-based operations sequentially.
 
-Consider this basic example using `vrYield:`
+Consider this basic example using `vrYield`:
 
 ```lua
 for i = 1, 10 do
@@ -636,7 +755,7 @@ end
 
 ##### Global Variables
 
-When writing a script that makes use of vrYield, it is important to understand that global variables are shared between the main Lua state and any coroutines. This means that when your script yields, the values of any global variables are not guaranteed to be the same when the script resumes.
+When writing a script that makes use of `vrYield`, it is important to understand that global variables are shared between the main Lua state and any coroutines. This means that when your script yields, the values of any global variables are not guaranteed to be the same when the script resumes.
 
 For example:
 
@@ -647,7 +766,7 @@ vrYield(0.1)
 print(__Self) -- prints an undefined node (probably not AssemblyA)
 ```
 
-If a script needs access to the global values it expects when the script it first executed, it should localise them somewhere in the script before the first call to vrYield.
+If a script needs access to the global values it expects when the script it first executed, it should localise them somewhere in the script before the first call to `vrYield`.
 
 ```lua
 -- AssemblyA.EventCreate
@@ -659,15 +778,15 @@ print(me) -- prints AssemblyA
 
 ##### Recompiling Coroutines
 
-When editing scripts involving vrYield, compilation will automatically abort any previously running (and still sleeping) instances of the code. This is to avoid long running scripts becoming stuck, and waking up to perform out of date instructions which will most likely cause issues in the scripted simulations in the scene.
+When editing scripts involving `vrYield`, compilation will automatically abort any previously running (and still sleeping) instances of the code. This is to avoid long running scripts becoming stuck, and waking up to perform out of date instructions which will most likely cause issues in the scripted simulations in the scene.
 
 The exception to this is when executing code in the script console - no cleanup is done on the previously executing coroutine. This is intentional, because sometimes it is useful to write some test code that involves a long running script, and then also execute other code while that is running.
 
 ##### Managing Sleeping Coroutines
 
-When a script calls vrYield, it goes to sleep for the specified (approximate) time. When this happens it is put into a list with all the other sleeping scripts, which is accessible from Lua itself using vrListSleepingScripts. This returns an array of sleeping coroutine names.
+When a script calls `vrYield`, it goes to sleep for the specified (approximate) time. When this happens it is put into a list with all the other sleeping scripts, which is accessible from Lua itself using `vrListSleepingScripts`. This returns an array of sleeping coroutine names.
 
-The name of a script can be set using vrSetScriptIdentifier, otherwise the name will just be a string representation of the coroutine memory address. This is not used for anything other than identification purposes and as the parameter to vrAbortScript, which can be used to abort a sleeping coroutine.
+The name of a script can be set using `vrSetScriptIdentifier`, otherwise the name will just be a string representation of the coroutine memory address. This is not used for anything other than identification purposes and as the parameter to `vrAbortScript`, which can be used to abort a sleeping coroutine.
 
 This can also be done using the Lua State tab in the Diagnostics window. The left panel displays the state of global variables, the right panel displays any sleeping scripts and provides an option to abort them.
 
@@ -693,7 +812,7 @@ This is the problem solved by the transform node observer.
 
 ###### Example
 
-A transform observer is added using the vrAddTransformNodeObserver function.
+A transform observer is added using the `vrAddTransformNodeObserver` function.
 
 Consider this hierarchy of assembly nodes in the Scenes tree:
 ```
@@ -715,11 +834,11 @@ vrAddTransformNodeObserver("myObserver",
 
 After running this example code, changing the transform or enabled property of any of `A`, `B`, or `C` will trigger the print messages.
 
-The observer can also be removed using the vrRemoveObserver function, by providing the name (in this case "myObserver").
+The observer can also be removed using the `vrRemoveObserver` function, by providing the name (in this case "myObserver").
 
 ##### Changes to Node and MetaNode Observers
 
-vrAddNodeObserver and vrAddMetaNodeObserver have been extended to support additional callbacks.
+`vrAddNodeObserver` and `vrAddMetaNodeObserver` have been extended to support additional callbacks.
 
 ###### Node Observer
 
@@ -816,3 +935,97 @@ target.WorldTransform.Rotation = {0,0,20}
 -- Rotate the target assembly around its world transform (Set on pivot node so the position of the pivot wont change)
 target.Pivot.UnpivotedWorldTransform.Rotation = {0,0,0}
 ```
+
+---
+
+## 1.3.6
+
+*Released 2018-01-12*
+
+#### Fixed
+
+- Fixes a number of crashes caused by using Lua to set various setting values outside of the expected range
+- Fixes crash when providing invalid time format specifiers to `os.date` in a Lua script
+
+---
+
+## 1.3.3
+
+*Released 2017-08-09*
+
+#### Fixed
+
+- Fixes issue with `vrPostCommand` in a file being loaded causing an infinite loop
+
+---
+
+## 1.3.2
+
+*Released 2017-03-24*
+
+#### Fixed
+
+- Fixes issue where some functions on math objects exposed to Lua would conflict with other metatable entries (e.g. `.Scale` vs `scale()`)
+- Fixes issue with view shader targets and colour space in de-ghost and red-cyan shaders
+
+---
+
+## 1.3.1
+
+*Released 2017-02-01*
+
+#### Fixed
+
+- Fixes issue where Lua functions `vrNodeComposeLocalTransform` and `vrNodeDecomposeTransform` would throw exceptions even if they were given perfectly valid matrices
+
+---
+
+## 1.3
+
+*Released 2016-11-10*
+
+#### Added
+
+- Adds `vrBodyAddImpulse` and `vrBodyAddImpulseMouse` to the Lua API
+- Adds `vrGetCursorPosition` and `vrGetLastClickedCursorPosition` to the Lua API
+- Adds Lua function `vrNodeGetRelativePath` and associated `node:relpath(other)` functions for getting the path of a node relative to another node
+- Adds Lua symbols for some property enum values which were previously missing, and unifies the naming convention of all symbols
+- Adds support for Lua coroutine yielding across the Lua/C boundary
+- Adds support for Lua function objects passed into VR functions that require a callback, instead of only relying on global functions passed by name
+
+#### Changed
+
+- Renames some of the properties of StdMaterial (scripts referencing these properties will trigger a warning on scene load and Lua script errors)
+
+#### Deprecated
+
+- Deprecates old Lua PRS methods for accessing transform properties and adds new methods to use and access transform properties on nodes with a more consistent interface
+
+#### Fixed
+
+- Fixes issue where a Lua script call to `find()` could fail when searching for children of a node with the same name
+
+---
+
+## 1.2.1
+
+*Released 2016-06-09*
+
+#### Changed
+
+- Lua functions registered with `vrAddNodeObserver` and similar, now have valid `__Script` and `__Self` registers when called
+
+---
+
+## 1.1
+
+*Released 2014-10-24*
+
+#### Added
+
+- Adds Lua interface for creating toolbars on the Tools window
+- Adds Lua interface to our maths library, allowing scripts to work with vectors, matrices, quaternions, spheres, bounding boxes and rays
+
+#### Changed
+
+- Lua plugins are now automatically loaded from the Documents directory as well as the install directory
