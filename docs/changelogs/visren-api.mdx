@@ -14,11 +14,11 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- Adds `vrSplitVirtalisHubURL` for identifying Virtalis Hub URLs and splitting out their server name, artifact ID and artifact name.
+- Adds `vrSplitVirtalisHubURL` for identifying Virtalis Hub URLs and splitting out their server name, artifact ID and artifact name
 
 #### Fixed
 
-- Makes `vrDot` work with `vrVec4` values.
+- Makes `vrDot` work with `vrVec4` values
 
 ---
 
@@ -28,7 +28,7 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- `vrGenerateQRCodeFile` to permit QR codes to be generated and saved to a file (which is used by the HoloLens 2 to view scenes in Augmented Reality).
+- `vrGenerateQRCodeFile` to permit QR codes to be generated and saved to a file (which is used by the HoloLens 2 to view scenes in Augmented Reality)
 
 ---
 
@@ -38,7 +38,7 @@ import TabItem from '@theme/TabItem';
 
 #### Changed
 
-- `vrNodeFindChild` now returns nil instead of the node to search from when given an empty search path.
+- `vrNodeFindChild` now returns nil instead of the node to search from when given an empty search path
 
 ---
 
@@ -50,8 +50,8 @@ import TabItem from '@theme/TabItem';
 
 - 2 functions to the Lua API for observing events:
 
-| Function                     | Description                                                         |
-|------------------------------|---------------------------------------------------------------------|
+| Function                   | Description                                                         |
+|----------------------------|---------------------------------------------------------------------|
 | `vrAddEventObserver`       | Adds an observer and callback function to execute for events        |
 | `vrAddGlobalEventObserver` | Adds an observer and callback function to execute for global events |
 
@@ -113,7 +113,7 @@ import TabItem from '@theme/TabItem';
 
 #### Changed
 
-- Permits `vrAddPropertyObserver` to observe multiple properties of a metanode.
+- Permits `vrAddPropertyObserver` to observe multiple properties of a metanode
 
 ---
 
@@ -123,7 +123,7 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- 40 functions to the Lua API for for creating your own metanode types:
+- FUS-1745 - 40 functions to the Lua API for for creating your own metanode types:
 
 | Function                          | Description                 |
 | --------------------------------- | --------------------------- |
@@ -169,7 +169,7 @@ import TabItem from '@theme/TabItem';
 | `vrAddPropertyVectorWorldFloat` | Adds a new world float vector property to an unfinished metanode |
 | `vrAddPropertyVectorString`     | Adds a new string vector property to an unfinished metanode |
 
-- 40 functions to the C API for creating and observing settings:
+- FUS-1228 - 40 functions to the C API for creating and observing settings:
 
 | Function                           | Description                 |
 | ---------------------------------- | --------------------------- |
@@ -214,13 +214,17 @@ import TabItem from '@theme/TabItem';
 | `VRAddCallbackSettingChanged`    | Registers a function to be called when a setting value changes |
 | `VRRemoveCallbackSettingChanged` | Removes a callback that was added with VRAddCallbackSettingChanged() |
 
-- `vrNodeArrayClear` to clear the values held in an array property.
+- `vrNodeArrayClear` to clear the values held in an array property
 
 #### Changed
 
-- `vrNodeArraySet`, `vrNodeArrayPush` and `vrNodeArraySetElement` so that they accept zero or more values, maths types (vrVec2/3/4, vrMat3/4, etc.), strings containing binary data, or nested tables containing any combination of these.
-- Added an optional parameter to `vrNodeArrayPop` specifying how many items to pop (defaults to 1).
-- Made all the `vrNodeArray*` functions accept a single `VectorPropUD` userdata argument as an alternative to the node and property name.
+- `vrNodeArraySet`, `vrNodeArrayPush` and `vrNodeArraySetElement` so that they accept zero or more values, maths types (vrVec2/3/4, vrMat3/4, etc.), strings containing binary data, or nested tables containing any combination of these
+- Added an optional parameter to `vrNodeArrayPop` specifying how many items to pop (defaults to 1)
+- Made all the `vrNodeArray*` functions accept a single `VectorPropUD` userdata argument as an alternative to the node and property name
+
+#### Fixed
+
+- FUS-1856 - Fixes an issue with `vrSelectNodes({})` no longer working
 
 ---
 
@@ -230,7 +234,7 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- `vrGetHoldingUser` To determine which user has grabbed an object.
+- `vrGetHoldingUser` To determine which user has grabbed an object
 
 #### Changed
 
@@ -242,8 +246,8 @@ import TabItem from '@theme/TabItem';
   - `vrSettingGet`
   - `vrSettingRead`
   - `vrSettingWrite`
-- Allows objects to be released from the TrackedManipulatorTool using `vrReleaseObjectFromTrackedHand`.
-- Adds optional parameters to `vrGrabObjectWithTrackedHand` and `vrReleaseObjectFromTrackedHand` to specify the user and/or hand and object positioning.
+- Allows objects to be released from the TrackedManipulatorTool using `vrReleaseObjectFromTrackedHand`
+- Adds optional parameters to `vrGrabObjectWithTrackedHand` and `vrReleaseObjectFromTrackedHand` to specify the user and/or hand and object positioning
 
 ---
 
@@ -253,9 +257,9 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- `VRGetPrev` Gets the previous sibling of a node.
-- `VRGetPrevOfType` Gets the previous sibling of a specific type.
-- `VRSetParentEx` Sets the parent of a node, specifying a sibling to insert after.
+- `VRGetPrev` Gets the previous sibling of a node
+- `VRGetPrevOfType` Gets the previous sibling of a specific type
+- `VRSetParentEx` Sets the parent of a node, specifying a sibling to insert after
 
 ---
 
@@ -265,8 +269,8 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- C API function `VRGetPropertyEx()` which lets you get the property index from a metanode name and property name.
-- `VRRemoveCallbackEx` variants added to allow you to remove callbacks specific to a piece of user data.
+- C API function `VRGetPropertyEx()` which lets you get the property index from a metanode name and property name
+- `VRRemoveCallbackEx` variants added to allow you to remove callbacks specific to a piece of user data
 
 <Tabs>
 <TabItem value="c" label="C">
@@ -490,7 +494,7 @@ vrSetToolEnabled("MouseNavigatorTool", false)
 #### Changed
 
 - The internal Lua engine has changed from Lua 5.1 to LuaJIT 2.0.5. This is fully compatible with all existing Lua 5.1 code and plugins, and also supports some extensions from Lua 5.2. You can read more about LuaJIT and its extensions and performance benefits at http://luajit.org/luajit.html
-- Updates the function signatures of vrAddNodeObserver and vrAddMetaNodeObserver. The old versions have been deprecated. See [Observers](scripts/metanodes/observers.mdx) for more information.
+- Updates the function signatures of vrAddNodeObserver and vrAddMetaNodeObserver. The old versions have been deprecated. See [Observers](scripts/metanodes/observers.mdx) for more information
 
 ---
 
@@ -508,14 +512,14 @@ vrSetToolEnabled("MouseNavigatorTool", false)
 - Adds vrNodeGetTraits and vrNodeHasTrait to query the metanode traits of a node. If you know the name of the trait you are looking for, you should use `vrNodeHasTrait`, as getting all the traits is more expensive
 - Adds vrNodeIsInGroup to check whether a node is in the specified group, and vrGroupRemoveMember to remove a node from a group
 - Adds vrTreeViewSelectionSelectParent to select the parent nodes of the nodes in the specified view selection
-- Adds vrGetContactPoints which returns a list of contact points and normals between two nodes. This can be used, for example, from a Touch event by providing the `__Self` and `__Other` registers.
+- Adds vrGetContactPoints which returns a list of contact points and normals between two nodes. This can be used, for example, from a Touch event by providing the `__Self` and `__Other` registers
 - Adds vrGetActivatorNode which can be used inside an activate event script to identify the node that activated it (in the case of it being activated by vrActivate)
 - Adds vrToggleProjection to toggle the current viewport between perspective and orthographic mode
 - Adds vrUsingHMD to identify whether the primary viewport is rendering into a head-mounted display
 
 #### Changed
 
-- Most nodes in the User tree (and the Developer tree in general) are now hidden behind the `User Interface / Advanced / Developer Admin Mode` setting. If you are a plugin developer it is recommended to enable this setting.
+- Most nodes in the User tree (and the Developer tree in general) are now hidden behind the `User Interface / Advanced / Developer Admin Mode` setting. If you are a plugin developer it is recommended to enable this setting
 - `vrParseJSON` now triggers a Lua error on parsing failure, instead of simply printing the error message and continuing
 - @subpage v13x_200_pivots
 - Fixes assignment to swizzled vector values (e.g. `vrScenesNode().Cube.Transform.Rotation.zx = { 10, 20 }`
@@ -525,13 +529,13 @@ vrSetToolEnabled("MouseNavigatorTool", false)
   - 2 - Key 2
   - 3 - Value 2
   - etc...
-  The vrNodeSetValueByIndex function allows access to key names as well as values using this convention.
+  The vrNodeSetValueByIndex function allows access to key names as well as values using this convention
 - `node.WorldEnabled` provides access to the node's world enabled state
 - Lua plugins should no longer execute code outside of functions. Initialisation code should go in `function init()`  
 - @subpage v13x_200_lua_co
 - @subpage v13x_200_lua_observers
 - ApplicationMenuEntry nodes added to context menus now support all of the same types as the main application menu (e.g. app commands, lua blocks, property toggles, etc)
-- The tools window and associated UI nodes has been removed, replaced with the toolbar for common shortcuts, and the diagnostics frame for logs and stats. Plugins that were previously inserting frames into the tools window may now instead insert buttons into the toolbar, or add frames into the diagnostics window.
+- The tools window and associated UI nodes has been removed, replaced with the toolbar for common shortcuts, and the diagnostics frame for logs and stats. Plugins that were previously inserting frames into the tools window may now instead insert buttons into the toolbar, or add frames into the diagnostics window
 
 #### Deprecated
 
@@ -564,7 +568,7 @@ The following Lua functions have been marked as Deprecated and may be removed in
 
 #### Lua Event Coroutines
 
-- Event handler scripts and the main Scripts console window now execute as coroutines.
+- Event handler scripts and the main Scripts console window now execute as coroutines
 
 ##### Introduction
 

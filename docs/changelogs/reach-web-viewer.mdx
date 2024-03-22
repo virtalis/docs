@@ -1,6 +1,6 @@
 ---
 sidebar_position: 4
-description: 2023.2 to 2024.1
+description: 2020.2 to 2024.1
 ---
 
 # Reach Web Viewer
@@ -11,7 +11,7 @@ description: 2023.2 to 2024.1
 
 #### Added
 
-- REACH-201: Added a product tree
+- REACH-201 - Added a product tree
 
 #### Changed
 
@@ -25,10 +25,379 @@ description: 2023.2 to 2024.1
 
 #### Added
 
-- REACH-1: Replace the edge server with something more scalable
-- REACH-14: Add in basic occlusion culling
+- PLAT-1283 - The "Third party license information" and "Profile" links now open in a new browser tab
+- REACH-1 - [Beta] Replace the edge server with something more scalable
+- REACH-14 - [Beta] Add in basic occlusion culling
+- REACH-113 - Add a button to navigate to the new Reach Beta
 
 #### Changed
 
-- REACH-34: Rework the artifact listing page
-- REACH-99: Improve the mesh optimiser
+- REACH-34 - [Beta] Rework the artifact listing page
+- REACH-99 - [Beta] Improve the mesh optimiser
+- REACH-140 - Updated packages with an npm audit fix to reduce the number of advisories
+
+---
+
+## 2023.1
+
+*Released 2023-02-28*
+
+#### Added
+
+- PLAT-1169 - Added support for the PICO 4 headset
+- PLAT-1176 - Added an onboarding sequence for immersive mode. This will take you to a separate onboarding room when started
+- PLAT-1193 - Added a new XR UI
+- PLAT-1233 - Added a tool to permit the position and orientation of objects moved with the Grab & Move tool to be restored
+
+#### Changed
+
+- PLAT-1194 - Changed teleport control to forward on the analogue stick instead of pulling the trigger
+- PLAT-1204 - Updated Reach Client to `.NET 6.0`
+- PLAT-1227 - Reduced the number of lights in the lighting rig from 4 to 2 for performance reasons
+- PLAT-1237 - Restricted the scope of `sendLuaFunc()` by requiring exported functions to be prefixed with `__webcall_`. This is for security reasons
+
+#### Removed
+
+- PLAT-1252 - Removed the ability to cycle through the different tools in XR mode as the new XR UI enables this. Also changed the teleport tool to display the teleport line only when forward is pressed
+- PLAT-1259 - Removed the checkerboard pattern when an item is stippled. This is for performance reasons
+
+---
+
+## 2022.4
+
+*Released 2022-10-18*
+
+#### Changed
+
+- YETI-1881 - Made it so that the picking laser can pick through transparent parts of canvases
+
+#### Removed
+
+- YETI-1825 - Removed smooth rotation. Instead the user will always snap rotate by 30°. If the stick is held for more than half a second they will rotate by another 30°
+
+---
+
+## 2022.3
+
+*Released 2022-08-05*
+
+#### Added
+
+- YETI-1569 - New Grab and Move feature tool added
+
+#### Changed
+
+- YETI-1161 - Orbit zoom speed now scales with the user's movement speed setting
+- YETI-1835 - Adjusted the offset of some XR controller visuals to better reflect their position in the real world
+
+#### Fixed
+
+- YETI-881 - Fixed numerous issues that prevented Reach from loading on an iPad. Including issues where gestures caused the view to lock up
+- YETI-1834 - Fixes for Vive Focus 3's movement issues in Standalone mode
+
+---
+
+## 2022.2
+
+*Released 2022-05-31*
+
+#### Changed
+
+- YETI-1300 - Scriptable canvas now responde to mouse move events even when there are no mouse buttons pressed
+- YETI-1512 - Lighting rig is now set on load. You can now toggle the lighting rig regardless of lighting availability
+- YETI-1627 - Multiview is now enabled on devices that support it
+
+#### Fixed
+
+- YETI-1699 - Fixed issue where a black dot could be seen on Linux
+- YETI-1733 - Fixed a potential memory leak involving GUI's and scriptable canvas. GUI's and scriptable canvas will now be scaled down if there are too many of them
+
+---
+
+## 2022.1
+
+*Released 2022-02-25*
+
+#### Added
+
+- YETI-361 - Added in the ability to teleport when in XR mode
+- YETI-1543 - Added correct icons to help panel
+
+#### Fixed
+
+- YETI-1207 - Inform the user when a Lua function fails
+- YETI-1480 - Fixed an issue where GUI buttons would freeze when multiple HMD controllers click on them
+- YETI-1482 - Enforce consistent texture limits preventing crash, identified on Android 12 devices
+- YETI-1487 - Fixed regression which caused scene lighting to be unavalible
+- YETI-1509 - Fixed an issue where the metadata table was not styled correctly
+- YETI-1598 - Error's in scriptable canvas' no longer fill the screen with notifications
+- YETI-1607 - Fixed an issue where Chrome 98+ would sometimes produce a STATUS_ACCESS_VIOLATION error when exiting / reloading / changing artefact versions
+- YETI-1619 - Fixed issue where if you were in XR mode and the browser wasn't focused then scriptable canvas wouldn't work
+
+---
+
+## 2021.5
+
+*Released 2021-12-15*
+
+#### Added
+
+- YETI-890 - Added support for immersive input events in the canvas
+- YETI-1236 - Added support for immersive picking
+
+#### Changed
+
+- YETI-780 - Thread markers now display a 3D GUI containing the latest comment when selected
+- YETI-879 - Updated controls page to include WebXR and Gamepad controls
+- YETI-1072 - Draw markers with an outline, this will make them more distinguishable when they overlap one another
+- YETI-1109 - XR controllers now show a user coloured laser
+- YETI-1195 - All visuals under an assembly are now stippled when selected
+
+#### Fixed
+
+- YETI-1298 - Reworked onKeyboard function to use ev.code, resolving an issue whereby CAPSLOCK was preventing navigation
+- YETI-1479 - Fixed issue where metadata panel was not resizing
+
+---
+
+## 2021.4
+
+*Released 2021-10-29*
+
+#### Added
+
+- YETI-882 - Added scriptable canvas support
+- YETI-1166 - Enabled Snapshot Actor from Visionary Render
+- YETI-1184 - Added embedded LUA support to Javascript canvas objects
+
+#### Removed
+
+- YETI-1226 - Render directly to device, remove MSAA option, remove dynamic resolution scaling
+
+#### Fixed
+
+- YETI-915 - Date and time is now shown in the users local time
+- YETI-1252 - Fixed issue where picked objects do not render stipple effect
+- YETI-1302 - Click action for nodes should only occur when in view mode
+
+---
+
+## 2021.3.1
+
+*Released 2021-09-08*
+
+#### Fixed
+
+- YETI-1196 - Stop 6-axis controllers identified by invalid vendor beef from being processed as camera input
+
+---
+
+## 2021.3
+
+*Released 2021-09-01*
+
+#### Added
+
+- YETI-291 - Added a crash handler to the edge server. A callstack for the crash can be found in the logs; please send this information to Virtalis if you experience unexpected edge server shutdowns
+- YETI-565 - Material changes on client now update server/client visuals, supporting dynamic/animated materials, or changes from scripts
+- YETI-1077 - Added a slider so the user can adjust there speed relative to the scenes base speed
+- YETI-625 - Added additional gamepad support for controllers such as Xbox 360
+- YETI-636 - Added support for Microsoft HoloLens 2
+- YETI-894 - Added a selection mode toggle option to the toolbox
+
+#### Changed
+
+- YETI-376 - Greatly improved both edge server and client performance for scenes with moving objects
+- YETI-582 - Server now detects when the client is backgrounded and reduces data sent
+- YETI-588 - Selecting a visual now executes any Click events attached to it's parent assembly
+- YETI-720 - Users can now disable just metadata without being forced to disable product tree
+- YETI-1006 - Now shows toast notification when XR mode fails to start
+- YETI-690 - Implement updated gui design
+- YETI-707 - Textures dynamically resize upon server's message to fit client's memory budget
+- YETI-763 - Render thread 3d markers
+- YETI-843 - Updated help dialog
+- YETI-848 - Update stipple to support multiple user selection
+- YETI-904 - Flat marker sphere for threads
+- YETI-946 - Updated favicon to use a transparent SVG that changes based on a light or dark theme
+
+#### Fixed
+
+- YETI-1027 - FlyTo on certain objects does nothing
+- YETI-1076 - Users can now add a rule to a ClientSettings meta node called BASE_SPEED to change the camera movements base speed
+- YETI-127 - Fixed pivots (system was not initialised)
+- YETI-348 - Objects can pop in and out on throttled connections
+- YETI-503 - Initial camera position is not always set
+- YETI-581 - Fixed meshes not appearing under extreme edge server cache pressure when the client cache is not full. Fixed an issue causing memory fragmentation on the edge server
+- YETI-665 - Spinner display is only spinning on network activity
+- YETI-707 - Textures dynamically resize to fit client's memory budget
+- YETI-1025 - Prevent camera lockup when using Orbit with touch screen controls
+- YETI-681 - CSS update for unselectable text on treeview
+- YETI-727 - Selection/Picking of objects occasional misbehavior
+- YETI-804 - Vive controllers now work in all supported browsers
+- YETI-835 - Fixed issue where node paths don't change properly when they change parents
+- YETI-840 - When rotating in VR the rotation axis is where the user is standing not the centre of their play area
+- YETI-892 - Fixed bug causing the page to zoom when the user used ctrl+mousewheel or trackpad pinch to zoom
+- YETI-893 - Fixed bug where the user would have to click in the scene to be able to move with WASD
+- YETI-902 - Fixed issue where user colours weren't distinct enough
+- YETI-948 - Fixed issue where using non latin charaters in a username or chat message would show the recipiant a garbled mess of characters
+- YETI-954 - Fixed issue where the user has joined/left message would display a garbled mess of characters if the users name contained non Latin characters
+- YETI-986 - Fixed issues with "Fly To Object" behaviour clashing with Orbit mode, Orbit mode will disable itself when the "Fly To Object" button is pressed
+
+---
+
+## 2021.1
+
+*Released 2021-03-24*
+
+#### Added
+
+- YETI-291 - Added a crash handler to the edge server. A callstack for the crash can be found in the logs; please send this information to Virtalis if you experience unexpected edge server shutdowns
+- YETI-592 - Add a tree view to show top level assemblies (YETI-587, YETI-597, YETI-604, YETI-605, YETI-590, YETI-580, YETI-575, YETI-579, YETI-564)
+- YETI-615 - Added help information for the tool buttons
+- YETI-617 - Added Space Mouse support for Chrome
+- YETI-622 - Added an option to disable MSAA (Multi-Sampled Antialiasing) in the help page
+- YETI-568 - New button added that allows the players to "blink fade" to a selected object
+- YETI-513 - ColouredButtonStyles now supported clientside
+- YETI-720 - You can now disable just metadata without being forced to disable product tree
+
+#### Changed
+
+- YETI-268 - Mouse wheel control behaviour are now more consistent between browser
+- YETI-376 - Greatly improved both edge server and client performance for scenes with moving objects
+- YETI-483 - Visualisation name will now appear in viewer without waiting for loading is complete
+- YETI-503 - Initial camera position is not always set
+- YETI-565 - Material changes on client now update server/client visuals, supporting dynamic/animated materials, or changes from scripts
+- YETI-588 - Selecting a visual now executes any Click events attached to it's parent assembly
+- YETI-600 - Show visualisations without the product tree if they are flagged
+
+#### Removed
+
+- YETI-495 - Disable pitch in WebXR
+
+#### Fixed
+
+- YETI-127 - Fixed pivots (system was not initialised)
+- YETI-348 - Objects can pop in and out on throttled connections
+- YETI-581 - Fixed meshes not appearing under extreme edge server cache pressure when the client cache is not full. Fixed an issue causing memory fragmentation on the edge server
+- YETI-582 - Server now detects when the client is backgrounded and reduces data sent
+- YETI-547 - Fixed disappearing textures on some mobile devices (including oculus quest)
+- YETI-556 - SteamVR now loads when opening the client to fix request session issue when pressing the HMD button
+- YETI-600 - Show visualisations without the product tree if they are flagged
+- YETI-603 - Fixed an issue where 3d orbit mode would interfere with selecting visual objects
+- YETI-620 - Updated loading spinner
+- YETI-628 - Headlight state is affected by scene visibility state
+
+---
+
+## 2020.3.2
+
+*Released 2020-11-27*
+
+#### Added
+
+- YETI-528 - Added a "performance mode" button. The default target framerate is now 30hz (down from 60hz), or 45hz in XR. Enabling performance mode increases the target framerate back to 60hz for both desktop and XR configs
+
+---
+
+## 2020.3.1
+
+*Released 2020-11-20*
+
+#### Changed
+
+- YETI-586 - Updated "artifacts" text in the UI to "visualisations"
+
+---
+
+## 2020.3
+
+*Released 2020-11-13*
+
+#### Added
+
+- YETI-473 - Added name tags to avatars
+- YETI-349 - Adds controller models for WebXR devices
+- YETI-362 - Adds basic camera controls for XR devices
+- YETI-410 - Adds healthcheck endpoint to client backend API and adds version info to server-side log output
+- YETI-457 - Added spinner on top left to show if the server is downloading data
+- YETI-461 - Added border to user icons corresponding to the users avatar colour
+- YETI-486 - Add highlight to gui buttons on click
+- YETI-511 - Added functionality to view all versions of an visualisation
+- YETI-474 - GUI objects can now be deleted from the scene
+
+#### Changed
+
+- YETI-99 - Reduced edge server memory usage for small scenes
+- YETI-108 - Edge Server memory usage is now soft-capped, via caching behaviour. This cap can be set using the YetiServerMemLimitMB environment variable. Note that this is only a hint; the server will try to keep memory usage under the limit, but may temporarily exceed it in some circumstances
+- YETI-204 - Improved hierarchical LOD generation, which improves client and server performance and reduces client memory usage
+- YETI-339 - Decode textures on worker thread
+- YETI-403 - Level of detail is now more consistent across the scene regardless of differences in detail of the original meshes
+- YETI-411 - Improved network prioritisation for better responsiveness to camera changes
+- YETI-548 - Resized name tag and added horizontal alignment
+- YETI-507 - Improved shader performance. Disabled anti-aliasing on high-dpi displays. Disabled high-quality texture filtering; this will be re-enabled in a future patch, based on device performance. Enabled backface culling, will have a visible effect on scenes that were modeled while using 2-sided lighting
+- YETI-508 - Moved notification toasts position to be under the navigation bar
+- YETI-515 - Updated default style of GUIs to match design
+- YETI-345 - Resolution in WebXR is now dynamically updated based on performance
+- YETI-374 - Camera cannot be rotated upside down
+- YETI-402 - Improved level of detail scaling for browsers that don't support EXT_disjoint_timer_query_webgl2; that is, everything other than Chrome on desktop
+- YETI-449 - Job status is no longer built in to this client - it is instead a separate application in the platform stack. The status button remains visible if access to the new service is available
+- YETI-465 - Shift top-level gui stacks using their layouts offset
+- YETI-470 - Improve token refresh handling so attempts are made before expires
+- YETI-476 - Avatar colour is now based on the UUID of the user
+
+#### Fixed
+
+- YETI-436 - Fix issue where the host leaving the session would not always set it back to private
+- YETI-451 - Prevented network traffic from backing up too much in scenes with many moving objects
+- YETI-462 - Fixed edge server crash when material texture maps were set to unsupported node types
+- YETI-501 - Reduced frame hitches in heavily textured scenes
+- YETI-543 - Fixed sessions sometimes being incorrectly set to private when joining
+- YETI-576 - Reduced client cache size calculation to lower the chance of WebGL context loss due to running out of memory
+- YETI-268 - Mouse wheel control behaviour are now more consistent between browsers
+- YETI-343 - Client now reliably times out the connection if the server becomes unresponsive
+- YETI-442 - Duplicate users can now join the same session
+- YETI-480 - Fixed a potentially large client-side GPU memory leak in scenes with moving objects, which eventually led to browser crashes
+- YETI-492 - Chat widget no longer blocks mouse/touch events when hidden
+- YETI-516 - Fix GUI picking
+- YETI-525 - Fixed various bugs with avatars and XR controller visuals
+- YETI-542 - Fixed GUIs not being pickable on certain devices
+
+---
+
+## 2020.2
+
+*Released 2020-07-20*
+
+#### Added
+
+- YETI-321 - Adds collaboration sessions, with a minimal avatar at the positions of other users and a chat feature (beta)
+- YETI-380 - New UI theme
+- YETI-237 - Adds basic support for scene GUI, stacks with limited layout options, buttons and labels
+- YETI-95 - Adds support for keypress and GUI click events
+- YETI-279 - Added lighting rig for artifacts without lights
+- YETI-334 - Adds middle-mouse drag control to Orbit mode, allowing more precise zooming
+- YETI-314 - Camera interpolation is now supported on the client
+
+#### Changed
+
+- YETI-52 - Level of detail is now automatically scaled based on client performance (currently with a fixed target framerate of 60hz)
+- YETI-152 - Camera starts at the default position in SavedUserPositions node
+- YETI-194 - Improved edge server reliability under poor network conditions
+- YETI-278 - Improves streaming prioritisation, which reduces the time for relevant objects to become visible or show in higher detail
+- YETI-283 - Greatly improves streaming performance for textured scenes
+- YETI-371 - Improved reporting of server-side errors
+- YETI-390 - Improved client rendering performance
+- YETI-302 - Move CTRL/Space camera controls to Q/E and update navigation instructions
+- YETI-297 - Integrates Keycloak authentication into client and backend APIs
+- YETI-385 - Improve presentation of errors from the server when an artifact doesn't exist
+- YETI-230 - Improves logging in browser and compiles out some verbose assertions that could affect performance
+- YETI-173 - Client memory usage is now limited by removing mesh data that hasn't been recently used (this can be sent again from the server when needed). The limit is dependent on client screen size
+- YETI-290 - Loading screen is now shown until there is something available on screen to render (or transitions immediately if there are no objects in the default viewport)
+
+#### Fixed
+
+- YETI-365 - Prevents objects from being drawn when they would appear unnoticeably small
+- YETI-200 - Fixes occasional edge server crash when client disconnects
+- YETI-344 - Fixes an issue causing the Edge Server to sometimes become permanently unresponsive on throttled network connections
+- YETI-308 - Fix issue with mouse input causing first-person camera look to jump occasionally
+- YETI-307 - Fixes issue with tool button padding in the Viewer page which was evident when using Firefox browsers
