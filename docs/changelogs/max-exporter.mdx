@@ -11,11 +11,11 @@ description: 1.03 to 1.09
 
 #### Added
 
-- FUS-3194 - Adds support for 3ds Max 2024
+- Support for 3ds Max 2024
 
 #### Removed
 
-- FUS-3194 - Removes support for 3ds Max 2014-2016
+- Support for 3ds Max 2014, 2015 and 2016
 
 ---
 
@@ -25,7 +25,7 @@ description: 1.03 to 1.09
 
 #### Added
 
-- FUS-2787 - Adds support for 3ds Max 2023
+- Support for 3ds Max 2023
 
 ---
 
@@ -35,11 +35,11 @@ description: 1.03 to 1.09
 
 #### Added
 
-- FUS-1944 - Adds support for 3ds Max 2021 and 2022
+- Support for 3ds Max 2021 and 2022
 
 #### Changed
 
-- FUS-2167 - Improves window layouts on high-resolution displays
+- Improve window layouts on high-resolution displays
 
 ---
 
@@ -49,9 +49,13 @@ description: 1.03 to 1.09
 
 #### Added
 
-- FUS-1060 - Adds a warning when skin vertices are affected by more than 4 bones
-- FUS-1165 - Adds support for the subdivisions and sides options on splines, and sets exported splines to tube mode when they have non-zero thickness
-- FUS-1258 - Adds support for Spline Select and Linked XForm modifiers affecting spline vertices
+- Support for subdivisions and sides options on splines
+- Support for Spline Select and Linked XForm modifiers to affect spline vertices
+- Warning when skin vertices are affected by more than 4 bones
+
+#### Changed
+
+- Set exported splines to tube mode when they have non-zero thickness
 
 ---
 
@@ -61,19 +65,18 @@ description: 1.03 to 1.09
 
 #### Added
 
-- FUS-4 - Adds support for exporting visibility tracks as sequence property tracks
-- FUS-5 - Adds support for spline IK control modifier to animate splines
-- FUS-423 - Adds support for 3ds Max 2020
-- FUS-1053 - Adds tooltips to the settings
+- Support for 3ds Max 2020
+- Ability to export visibility tracks as sequence property tracks
+- Spline IK control modifier to animate splines
+- Tooltips to the settings
 
 #### Changed
 
-- FUS-253 - Rebrands the user manual
-- FUS-392 - Improves the GUI layout and updates the logo
+- Improve the GUI layout and update the Virtalis logo
 
 #### Fixed
 
-- FUS-1048 - Fixes version number mismatch and broken revision number
+- Version number mismatch and broken revision number
 
 ---
 
@@ -83,5 +86,5 @@ description: 1.03 to 1.09
 
 #### Fixed
 
-- DEV-1848 - Fixes bug that caused Look At constraints to be improperly translated
-- DEV-2119 - Fixes bug where the exporter would complain about a missing DLL when 3ds Max starts (FD273, FD318)
+- Wrong translation in Look At constraints
+- Missing DLL error when 3ds Max is started

@@ -11,14 +11,12 @@ description: 2019.2 to 2024.1
 
 #### Added
 
-- FUS-3205 - Adds the ability to upload your scenes to Virtalis Hub using the App Menu > Upload to Virtalis Hub... option
-- FUS-3217 - Permits terrain to be clipped by dynamic sections
-- FUS-3249 - Adds the ability to download scenes from Virtalis Hub directly to GeoVisionary
-- FUS-3291 - Adds a start menu shortcut for the Visionary Render Developer Guide
+- Support for terrain clipping using dynamic sections
+- Start menu shortcut for the Visionary Render Developer Guide
 
 #### Fixed
 
-- FUS-3299 - Fixes issue with the HoloLens 2 not being supported
+- HoloLens 2 is unsupported
 
 ---
 
@@ -28,31 +26,12 @@ description: 2019.2 to 2024.1
 
 #### Changed
 
-- FUS-1602 - Stops saving defaulted properties to GV3/VRText/VRNative files to improve load/save time and reduce file size
-- FUS-2594 - Stores the metanodes section of GV3/VRText/VRNative files in alphabetical order to improve user experience with version control
-- FUS-2793 - Significantly reduces the amount of memory used by the physics system in scenes with lots of meshes
+- Reduce open/save time and file size by not saving default properties to GV3 files
+- Improve user experience with version control by storing the metanodes section of GV3 files in alphabetical order instead of a different random order each time they are saved
 
 #### Fixed
 
-- FUS-1372 - Fixes issue with Scene GUI becoming coloured when visible at the same time as a voxel model
-- FUS-3047 - Fixes a crash that could occur when loading a scene with a model with invalid indices
-- FUS-3174 - Fixes issue with the Tracking/Configuration settings page sometimes missing settings
-
----
-
-## 2023.1
-
-*Released 2023-04-26*
-
-#### Changed
-
-- FUS-2820 - Permits the sequencer to capture keyframes whilst immersed
-
-#### Fixed
-
-- FUS-2221 - Makes scrolling to selected items in the tree view more reliable
-- FUS-2843 - Fixes crash that could occur when adding a keyframe to a property track of a sequence
-- FUS-2900 - Removes old anthropometrics files from the data directory
+- Scene GUI has artefacts when visible at the same time as a voxel model
 
 ---
 
@@ -60,32 +39,10 @@ description: 2019.2 to 2024.1
 
 *Released 2022-11-02*
 
-#### Added
-
-- FUS-2490 - Adds an "immersive snap rotation" option to improve comfort in VR by rotating the camera in fixed increments
-
-#### Changed
-
-- FUS-2469 - Improves rendering performance in scenes with large numbers of small meshes
-
 #### Fixed
 
-- FUS-2427 - Fixes Point Clouds appearing in front of transparent objects for only the right eye
-- FUS-2617 - Fixes a crash and inconsistent behaviour in the Animation Sequencer due to scaling handles not being deleted
-- FUS-2771 - Fixes a crash in the Animation Sequencer when undoing while dragging
-- FUS-2773 - Restores the functionality of ActiveView Light Texture (NetPlayerTexture)
-- FUS-2802 - Fixes incorrect relative paths in Point Cloud and Texture filenames after loading a file from an older version of GeoVisionary
-
----
-
-## 2022.2
-
-*Released 2022-07-08*
-
-#### Added
-
-- FUS-2169 - Adds Manikins and makes various improvements to inverse kinematics and deformable meshes (see the Visionary Render changelog for more info)
-- FUS-2574 - Adds links to third-party licence documents in the Help - About window
+- Point clouds appear in front of transparent objects in the right eye in stereo
+- Point cloud and texture filenames have wrong relative paths after loading files from older versions of GeoVisionary
 
 ---
 
@@ -95,24 +52,8 @@ description: 2019.2 to 2024.1
 
 #### Fixed
 
-- FUS-2430 - Fixes a warning when physics debug visuals are enabled in a scene containing terrain
-- FUS-2433 - Fixes a crash when pointing at a voxel model that has reached its maximum vertex count
-
----
-
-## 2022.1
-
-*Released 2022-01-24*
-
-#### Added
-
-- FUS-2260 - Adds a new helper for splines and makes various improvements to helpers and splines (see the Visionary Render changelog for more info)
-
-#### Fixed
-
-- FUS-2263 - Signs the installer for the license server
-- FUS-2308 - Event handlers are called twice after being restored from the recycle bin (with possible crash)
-- FUS-2323 - Fixes logging so that failures in the plugin sandbox can be understood
+- Crash when pointing at a voxel model that's reached its maximum vertex count
+- Warning when physics debug visuals are enabled in a scene with terrain
 
 ---
 
@@ -122,22 +63,7 @@ description: 2019.2 to 2024.1
 
 #### Fixed
 
-- FUS-2254 - Fixes an incompatible library version that caused the Block Model Converter, Point Cloud Converter and TileServer Converter to fail to start
-
----
-
-## 2021.3
-
-*Released 2021-10-07*
-
-#### Changed
-
-- FUS-2063 - Optimises memory access to improve performance
-- FUS-2067 - Limits dispatch of move events to improve the performance of animating objects
-
-#### Fixed
-
-- FUS-2198 - Updates the Microsoft Visual C++ redistributables in the installer
+- Startup failures in the BlockModel Converter, Pointcloud Converter and TileServer Converter due to incompatible library version
 
 ---
 
@@ -145,14 +71,10 @@ description: 2019.2 to 2024.1
 
 *Released 2021-07-12*
 
-#### Added
-
-- FUS-1733 - Adds a filter to the Layers and Developer trees for highlighting disabled nodes
-
 #### Fixed
 
-- FUS-2026 - Fixes issue with voxel materials not being restored correctly when loading scenes
-- FUS-2032 - Fixes crash that could occur when selecting voxel data if the data source is not accessible
+- Crash when selecting voxel data if the data source is inaccessible
+- Voxel materials aren't restored correctly when loading scenes
 
 ---
 
@@ -160,19 +82,11 @@ description: 2019.2 to 2024.1
 
 *Released 2021-04-01*
 
-#### Added
-
-- FUS-1108 - Adds new settings for pivots to Tools/Pivots and improves and fixes bugs with the PRS and pivot visuals
-- FUS-1450 - Adds an isolate/unisolate button to the toolbar to hide/unhide all but the selected geometry in the scene
-
 #### Fixed
 
-- FUS-1452 - Fixes an occasional crash on exit when tracking is enabled
-- FUS-1773 - Fixes a crash when the Create button is pressed in the Sequencer
-- FUS-1774 - Fixes an issue with point cloud paths not being retained between 2020.2 and 2020.3 scenes
-- FUS-1822 - Fixes an issue with animated pointclouds using more memory each time they are played
-- FUS-1901 - Fixes a crash when the scene is saved by right-clicking on the Scenes node and choosing 'Save Selection'
-- FUS-1916 - Fixes a crash that could occur when opening multiple animated pointcloud projects
+- Crash when opening multiple animated point cloud projects
+- Point cloud paths are lost when a 2020.2 scene is converted to 2020.3
+- Animated point clouds use more memory each time they are played
 
 ---
 
@@ -182,8 +96,9 @@ description: 2019.2 to 2024.1
 
 #### Fixed
 
-- FUS-1591 - Fixes issues with changes to the GeoVisionary settings not being undoable, and/or the date and time, sun position etc. being added to the undo history when the "Track UTC" option is enabled
-- FUS-1740 - Fixes an issue where a path to a directory could be saved incorrectly if it contained a trailing backslash and the directory was on the same drive as the scene file
+- Changes to GeoVisionary settings can't be undone
+- Date and time and sun position are added to the undo history when the "Track UTC" option is enabled
+- Wrong directory path is saved if it contains a trailing backslash and the directory is on the same drive as the scene file
 
 ---
 
@@ -193,18 +108,8 @@ description: 2019.2 to 2024.1
 
 #### Fixed
 
-- FUS-1461 - Fixes rendering of boreholes with point property data
-- FUS-1563 - Fixes an issue that could cause GeoVisionary to become unresponsive at startup when using a licence without the "Immersive" feature
-
----
-
-## 2020.1.1
-
-*Released 2020-05-21*
-
-#### Fixed
-
-- FUS-1445 - Fixes issues with collaboration and video streaming over a VPN. GeoVisionary now listens for incoming connections on selected virtual network adapters
+- Rendering of boreholes with point property data
+- Stall at startup when using a licence without the "Immersive" feature
 
 ---
 
@@ -214,20 +119,20 @@ description: 2019.2 to 2024.1
 
 #### Changed
 
-- Updates the GUI theme
+- Update the GUI theme
 
 #### Fixed
 
-- FUS-1296 - Fixes issue with voxel clip plane handles not being rendered
-- FUS-1241 - Fixes crash when using the Dataset rollout in the properties of an OverlayLink
-- FUS-1234 - Fixes issue where GV becomes unresponsive after renaming a style used by 10000 shapes
-- FUS-1231 - Fixes issue with NOT operator in GVLayerQuery
-- FUS-1227 - Fixes warning in the log when a HeatMap or HeatMapPoint is created
-- FUS-1194 - Fixes issue with the Styles tab not rendering tiles properly when in Tile View mode
-- FUS-1178 - Fixes issue with windows (such as Styles and Gradients) not becoming fully transparent when in minimal mode
-- FUS-1170 - Fixes issue with the compass not being displayed
-- FUS-1169 - Fixes issue with the bottom of property tabs being clipped in the Terrain and GeoServer node properties
-- FUS-1140 - Fixes issue with the EPSG code search results not being displayed
+- Crash when using the Dataset rollout in the properties of an OverlayLink
+- Stall after renaming a style used by 10000 shapes
+- Voxel clip plane handles aren't rendered
+- NOT operator in GVLayerQuery
+- Styles tab doesn't render tiles properly in Tile View mode
+- Windows such as Styles and Gradients aren't fully transparent in minimal mode
+- Compass isn't displayed
+- Bottom of property tabs are clipped in the Terrain and GeoServer node properties
+- EPSG code search results aren't displayed
+- Warning in the log when a HeatMap or HeatMapPoint is created
 
 ---
 
@@ -235,54 +140,14 @@ description: 2019.2 to 2024.1
 
 *Released 2019-05-29*
 
-#### Added
-
-- DEV-2207 - Adds a "Reset to Default" button to to the keymapper GUI so that button / gesture mappings can be reset
-- DEV-1998 - vrGeometryOp() now supports optimise, split, explode, prune, sieve, recentre, transform and merge
-
-#### Changed
-
-- DEV-1374 - The scripting engine has been updated to LuaJIT-2.1.0-beta3, which allows 64-bit memory management
-- DEV-2118 - Improves performance when generating collision data for differently-scaled instances of a model
-
 #### Fixed
 
-- DEV-1105 - Adds missing API reference documentation for vrHideModalDialogues
-- DEV-2086 - Adds missing documentation for parameter in vrNodeCaptureTransform
-- DEV-2173 - Disables stereo optimisation by default due to issues in SteamVR HMDs
-- DEV-2238 - Fix crash that could occur during compression of dds pixel data via the VRTree API
-- DEV-1711 - Fix crash when collaborator deletes node whose properties layout is currently showing a modal dialogue
-- DEV-1710 - Fix problem on collaboration mode when first user edits pivot and second user deletes it
-- DEV-2138 - Fixed crash when ambient occlusion used in conjunction with the side-by-side stereo mode
-- DEV-1641 - Fixes a bug with the sea level property of Ocean nodes where the height of the sea would be double the expected level. Existing ocean nodes will be upgraded automatically to maintain their current level. (NETSUITE CASE2003)
-- DEV-1765 - Fixes a bug with the sky in the right eye of a HMD when 'Render from probe' is disabled
-- DEV-1520 - Fixes a crash that could occur when renaming a Gallery folder in Windows whilst GeoVisionary is running
-- DEV-2245 - Fixes a crash when saving a gallery collection with an invalid filename
-- DEV-2110 - Fixes a crash when the web service properties are dismissed before the response from the server has been received
-- DEV-2244 - Fixes a potential crash when collaborating more than one oculus user with avatars enabled
-- DEV-1984 - Fixes an issue where Avatars would stop being visible in a collaboration involving three or more participants (FD49, FD21, FD376, FD484)
-- DEV-2142 - Fixes an issue where point clouds weren't visible in the right eye with stereo optimisations enabled (FD375, FD438)
-- DEV-1329 - Fixes an issue with Oculus/SteamVR mode where resources weren't being cleaned up when exiting the mode
-- DEV-1993 - Fixes bug with moving/resizing gui elements when using Side-by-side stereo modes
-- DEV-2041 - Fixes crash that could occur in GeoVisionary when closing a scene with a GPS Tracker in it
-- DEV-2218 - Fixes crash that could occur when arranging objects in the scene
-- DEV-2202 - Fixes crash that could occur when transforming multiple assemblies, one with a pivot
-- DEV-2132 - Fixes issue where the application would crash when a GVHeatMap is given an incorrect node type
-- DEV-1695 - Fixes issue where the close button would be incorrectly disabled
-- DEV-1783 - Fixes issue where the properties window was not being updated with the correct voxel information
-- DEV-2136 - Fixes issue where the script editor would not be opened via the browser
-- DEV-2159 - Fixes issue with heat maps not being updated when their gradients are changed
-- DEV-1731 - Fixes issue with links in the toolbox not being saved (FD163)
-- DEV-1179 - Fixes issue with roll-outs closing when adding scene override settings
-- DEV-2099 - Fixes issue with the script editor not adding undo points when it should, such as when dragging and dropping nodes
-- DEV-1374 - Fixes out-of-memory issues with scripting, most commonly affecting Windows 7 (FD141)
-- DEV-2045 - Fixes the helper for Physical Screen nodes so it renders correctly
-- DEV-1676 - Fixes Toggle Information Display context menu option when right-clicking on an annotation in the scene
-- DEV-2155 - Prevents ActiveView Light from exiting when Esc is pressed and instead passes the key press to GeoVisionary
-- DEV-2044 - Fixes issue where Previews were being generated more often than needed
-- DEV-1978 - Fixes inability to disable the Immersive Context Menu on hand controllers, Replaces show/hide menu text in the Immersive Context Menu with a hamburger icon, Adds a button to the Immersive Context Menu to show or hide the tools
-- DEV-1366 - Fixes issue with not being able to choose options in context menus on the zSpace, Fixes issue with windows continuing to be resized on the zSpace after the button is released, Fixes issue with the immersive context menu being shown on the zSpace when right-clicking on part of the GUI
-- DEV-2003 - Updates the Oculus avatar to match the User Colour setting, fixes the orientation of the virtalis avatar's hands when using the oculus touch (FD166)
+- Crash when closing a scene with a GPS Tracker in it
+- Crash when GVHeatMap is given an incorrect node type
+- Crash when the web service properties are dismissed before the server response is received
+- Point clouds aren't visible in the right eye with stereo optimisations enabled
+- Properties window isn't updated with the correct voxel information
+- Heat maps aren't updated when their gradients are changed
 
 ---
 
@@ -292,23 +157,13 @@ description: 2019.2 to 2024.1
 
 #### Added
 
-- DEV-1304 - Adds ActiveViewLight to the installer and Start Menu folder
-- DEV-1986 - Adds API methods to support working with properties containing vectors of strings
-- DEV-1987 - Adds API methods to access fixed sized floating point value arrays such as those used for matrices
+- ActiveViewLight to the installer and Start Menu folder
 
 #### Changed
 
-- DEV-2068 - Improve formatting of GV Time of Day
+- Improve the format of Time of Day
 
 #### Fixed
 
-- DEV-1981 - Fixes a bug with the right eye when Stereo Optimisation is set to Single GPU Parallel where in some devices the geometry would be offset in the right eye
-- DEV-2022 - Fixes bug with right eye when using dual GPU mode with a steamvr headset (FD54)
-- DEV-1880 - Fixes crash at exit when using the Oculus Rift (FD169)
-- DEV-1981 - Fixes a bug with the right eye when Stereo Optimisation is set to Single GPU Parallel where in some devices the geometry would be offset in the right eye
-- DEV-1943 - Fixes a crash on certain configurations (zspace 2) when toggling stereo 3D while video streaming is enabled
-- DEV-2049 - Fixes issues causing OpenGL out of memory errors when loading large scenes (FD55, FD216, FD202, FD127)
-- DEV-1697 - Fixes crash that could occur when selecting nodes in the tree with the Developer Admin Mode setting enabled
-- DEV-1338 - Fixes issue with materials not being applied to borehole segments when they are displayed alongside a point property
-- DEV-1338 - Fixes issue with segment property combo box for boreholes being highlighted red when it shouldn't be
-- DEV-2029 - Fixed crash when alt-tabbing away while renaming a partially hidden browser tile
+- Materials aren't applied to borehole segments when shown with a point property
+- Segment property of boreholes is highlighted red when it shouldn't be

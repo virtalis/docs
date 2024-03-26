@@ -14,11 +14,11 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- Added `vrSplitVirtalisHubURL` for identifying Virtalis Hub URLs and splitting out their server name, artifact ID and artifact name
+- `vrSplitVirtalisHubURL` to identify Virtalis Hub URLs and extract their server name, artifact ID and artifact name
 
 #### Fixed
 
-- Makes `vrDot` work with `vrVec4` values
+- `vrDot` to work with `vrVec4` values
 
 ---
 
@@ -28,7 +28,7 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- Added `vrGenerateQRCodeFile` to permit QR codes to be generated and saved to a file (which is used by the HoloLens 2 to view scenes in Augmented Reality)
+- `vrGenerateQRCodeFile` to permit QR codes to be generated and saved to a file (which is used by the HoloLens 2 to view scenes in Augmented Reality)
 
 ---
 
@@ -38,17 +38,7 @@ import TabItem from '@theme/TabItem';
 
 #### Fixed
 
-- Fixed incorrect return values from `vrNodeIsInGroup`
-
----
-
-## 2022.1.1
-
-*Released 2022-03-16*
-
-#### Added
-
-- Added a performance warning regarding `vrNodeGetChildCount` and `vrNodeGetChildByIndex` to the developer guide
+- Incorrect return values from `vrNodeIsInGroup`
 
 ---
 
@@ -56,9 +46,9 @@ import TabItem from '@theme/TabItem';
 
 *Released 2022-01-24*
 
-#### Fixed
+#### Changed
 
-- Fixed logging so that failures in the plugin sandbox can be understood
+- Improve logging so that failures in the plugin sandbox can be understood
 
 ---
 
@@ -68,7 +58,7 @@ import TabItem from '@theme/TabItem';
 
 #### Fixed
 
-- Fixed an occasional crash after certain combinations of Lua script errors
+- Occasional crash after certain combinations of Lua script errors
 
 ---
 
@@ -78,7 +68,7 @@ import TabItem from '@theme/TabItem';
 
 #### Changed
 
-- `vrNodeFindChild` now returns `nil` instead of the node to search from when given an empty search path
+- `vrNodeFindChild` to return `nil` instead of the node to search from when passed an empty search path
 
 ---
 
@@ -88,14 +78,14 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- Added 2 functions to the Lua API for observing events:
+- 2 functions to the Lua API for observing events:
 
 | Function                   | Description                                                         |
 |----------------------------|---------------------------------------------------------------------|
 | `vrAddEventObserver`       | Adds an observer and callback function to execute for events        |
 | `vrAddGlobalEventObserver` | Adds an observer and callback function to execute for global events |
 
-- Added 32 functions to the C API for observing events:
+- 32 functions to the C API for observing events:
 
 | Function                        | Description                                                                                                               |
 |---------------------------------|---------------------------------------------------------------------------------------------------------------------------|
@@ -132,7 +122,7 @@ import TabItem from '@theme/TabItem';
 | `VRAddCallbackToggle`         | Add Toggle callback (button or similar node toggled)                                                                      |
 | `VRRemoveCallbackToggle`      | Remove Toggle callback (button or similar node toggled)                                                                   |
 
-- Added 14 functions to the Lua API for creating and editing user settings:
+- 14 functions to the Lua API for creating and editing user settings:
 
 | Function                       | Description                                                                                                                |
 |--------------------------------|----------------------------------------------------------------------------------------------------------------------------|
@@ -153,20 +143,18 @@ import TabItem from '@theme/TabItem';
 
 #### Changed
 
-- Permits `vrAddPropertyObserver` to observe multiple properties of a metanode
-- Improves `vrNodeHasTrait(node:hasTrait())` to support checking for traits without version numbers and without the `Trait_` prefix. For example, `n:hasTrait("AttributeTable")` as a shortcut for `n:hasTrait("Trait_AttributeTable.1")`
+- Improve `vrNodeHasTrait(node:hasTrait())` to support checking for traits without version numbers and without the `Trait_` prefix. For example, `n:hasTrait("AttributeTable")` as a shortcut for `n:hasTrait("Trait_AttributeTable.1")`
 
 #### Deprecated
 
-- Deprecates passing non-function objects as callbacks to `__registerCallback` and adds a warning message when it happens
+- `__registerCallback` no longer accepts non-function objects as callbacks
 
 #### Fixed
 
-- Fixes various instances where infinite progress displays could be spawned from Lua scripts
-- Fixes issue where you cannot register Lua functions in the Lua state provided by `vrtree.dll`
-- Fixes issue with the developer guide start menu shortcut not being uninstalled
-- Prevents crashes when passing a vector or matrix to a Lua function that expects a node
-- Prevents scripts in the StandardActions library from being run multiple times in a collaboration
+- Crash when a vector or matrix is passed to a Lua function that expects a node
+- Various instances where infinite progress displays could be spawned from Lua scripts
+- Inability to register Lua functions in the Lua state provided by `vrtree.dll`
+- Scripts in the StandardActions library can execute multiple times in a collaboration
 
 ---
 
@@ -176,7 +164,7 @@ import TabItem from '@theme/TabItem';
 
 #### Changed
 
-- Improves the `vrAddPropertyObserver` Lua function to allow multiple properties to be observed by a single observer
+- `vrAddPropertyObserver` can observe multiple properties of a metanode
 
 ---
 
@@ -186,7 +174,7 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- Added 40 functions to the Lua API for for creating your own metanode types:
+- 40 functions to the Lua API for for creating your own metanode types:
 
 | Function                          | Description                 |
 | --------------------------------- | --------------------------- |
@@ -232,7 +220,7 @@ import TabItem from '@theme/TabItem';
 | `vrAddPropertyVectorWorldFloat` | Adds a new world float vector property to an unfinished metanode |
 | `vrAddPropertyVectorString`     | Adds a new string vector property to an unfinished metanode |
 
-- Added 40 functions to the C API for creating and observing settings:
+- 40 functions to the C API for creating and observing settings:
 
 | Function                           | Description                 |
 | ---------------------------------- | --------------------------- |
@@ -277,7 +265,7 @@ import TabItem from '@theme/TabItem';
 | `VRAddCallbackSettingChanged`    | Registers a function to be called when a setting value changes |
 | `VRRemoveCallbackSettingChanged` | Removes a callback that was added with `VRAddCallbackSettingChanged()` |
 
-- Added `vrNodeArrayClear` to clear the values held in an array property
+- `vrNodeArrayClear` to clear the values held in an array property
 
 #### Changed
 
@@ -289,7 +277,7 @@ import TabItem from '@theme/TabItem';
 
 #### Fixed
 
-- Fixes an issue with `vrSelectNodes({})` no longer working
+- `vrSelectNodes({})` doesn't work
 
 ---
 
@@ -299,11 +287,10 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- Adds Lua API function `vrGetHoldingUser` to determine which user has grabbed an object
+- `vrGetHoldingUser` to determine which user has grabbed an object
 
 #### Changed
 
-- Improves the Getting Started section of the developer guide
 - The following functions can now be called for a specific user node:
   - `vrIsToolEnabled`
   - `vrSetToolEnabled`
@@ -330,13 +317,13 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- `VRGetPrev` Gets the previous sibling of a node
-- `VRGetPrevOfType` Gets the previous sibling of a specific type
-- `VRSetParentEx` Sets the parent of a node, specifying a sibling to insert after
+- `VRGetPrev` - Get the previous sibling of a node
+- `VRGetPrevOfType` - Get the previous sibling of a specific type
+- `VRSetParentEx` - Set the parent of a node, specifying a sibling to insert after
 
 #### Deprecated
 
-- Marked `vrSetTrackedHandNode` and `vrSetTrackedEyesNode` as deprecated
+- `vrSetTrackedHandNode` and `vrSetTrackedEyesNode`
 
 #### Fixed
 
@@ -352,7 +339,6 @@ import TabItem from '@theme/TabItem';
 #### Fixed
 
 - Fixes issue causing plugin installation via the settings window to silently fail under certain circumstances
-- Makes various minor corrections to the developer guide
 
 ---
 
@@ -362,8 +348,8 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- C API function `VRGetPropertyEx()` which lets you get the property index from a metanode name and property name
-- `VRRemoveCallbackEx` variants added to allow you to remove callbacks specific to a piece of user data
+- `VRGetPropertyEx()` to extract the property index from a metanode name and property name
+- `VRRemoveCallbackEx` variants to remove callbacks specific to a piece of user data
 
 <Tabs>
 <TabItem value="c" label="C">
@@ -438,12 +424,11 @@ struct MyManager2
 #### Changed
 
 - Updated the scripting engine to `LuaJIT-2.1.0-beta3`, which allows 64-bit memory management
-- The `vrGeometryOp()` Lua function now supports `optimise`, `split`, `explode`, `prune`, `sieve`, `recentre`, `transform` and `merge` operations
+- `vrGeometryOp()` now supports `optimise`, `split`, `explode`, `prune`, `sieve`, `recentre`, `transform` and `merge` operations
 
 #### Fixed
 
 - Fixes crash that could occur when compressing DDS pixel data in the API
-- Corrects the documentation for various Lua API functions
 - Fixes out-of-memory issues with scripting, most commonly affecting Windows 7
 
 ---
@@ -454,10 +439,9 @@ struct MyManager2
 
 #### Added
 
-- New method introduced to be able to get the metanode handle from a given node handle
-  - `VRGetMetaNode`
+- `VRGetMetaNode` to get the metanode handle from a given node handle
 
-- Adds API methods to support working with properties containing vectors of strings
+- 6 C API functions that work with properties containing vectors of strings:
   - `VRAddPropertyVectorString`
   - `VRChangePropertyVectorString`
   - `VRSetPropertyStringElement`
@@ -465,7 +449,7 @@ struct MyManager2
   - `VRGetPropertyStringElement`
   - `VRGetPropertyStringElementEx`
   
-- Adds API methods to access fixed sized floating point value arrays such as those used for matrices
+- 6 C API functions to access fixed sized floating point value arrays such as those used for matrices:
   - `VRSetPropertyArrayFloat`
   - `VRSetPropertyArrayFloatEx`
   - `VRSetPropertyArrayDouble`
@@ -478,10 +462,6 @@ struct MyManager2
 ## 2019.1
 
 *Released 2019-01-24*
-
-#### Added
-
-- Adds section to developer guide demonstrating pulling in data from external web resources
 
 #### Fixed
 
@@ -565,7 +545,7 @@ vrSetToolEnabled("MouseNavigatorTool", false)
 
 #### Removed
 
-- DEV-1140 - Removes `Enabled` property from all nodes under the toolbox. Any scripts that refer to the `Enabled` property of a tool node should be updated to refer to the relevant setting instead
+- Removes `Enabled` property from all nodes under the toolbox. Any scripts that refer to the `Enabled` property of a tool node should be updated to refer to the relevant setting instead
 
 #### Fixed
 
@@ -581,7 +561,6 @@ vrSetToolEnabled("MouseNavigatorTool", false)
 
 #### Added
 
-- Adds plugin SDK and documentation to the application installation in `data/vrtreesdk`, with a start menu shortcut for the developer guide
 - Adds Lua function `vrHideModalDialogues(true)` for suppressing modal dialogues to enable unattended scripting
 - Adds `VRGetNodeVersion` which allows migration code to query the version of a node
 - Adds `vrMetaNodeExists` to check if the named metanode is present
@@ -624,13 +603,11 @@ vrSetToolEnabled("MouseNavigatorTool", false)
 - Adds `vrUsingHMD` to identify whether the primary viewport is rendering into a head-mounted display
 - Adds the ability to author and load plugins exporting a C interface
 - Adds `__Time` register to scripts, containing the total time the application has been running
-- Adds more built in Lua documentation and auto-complete information
 - Adds optional fade effects to `vrBodyFlyTo`
 - Adds support for custom surface shaders
 
 #### Changed
 
-- Improves the developer documentation for users who implement complex scripts, by providing a supplementary, searchable developer guide covering events, plugins, and shaders, as well as architectural overviews and advanced topics
 - Most nodes in the User tree (and the Developer tree in general) are now hidden behind the User Interface / Advanced / Developer Admin Mode setting. If you are a plugin developer it is recommended to enable this setting
 - `vrParseJSON` now triggers a Lua error on parsing failure, instead of simply printing the error message and continuing
 - Fixes assignment to swizzled vector values (e.g. `vrScenesNode().Cube.Transform.Rotation.zx = { 10, 20 }`
@@ -677,7 +654,7 @@ The following Lua functions have been marked as Deprecated and may be removed in
 
 #### Removed
 
-- Removes deprecated Lua functions `vrNodeGetWorldMatrix` and `vrNodeSetWorldMatrix`
+- `vrNodeGetWorldMatrix` and `vrNodeSetWorldMatrix`
 
 #### Fixed
 
