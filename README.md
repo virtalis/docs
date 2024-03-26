@@ -1,6 +1,8 @@
 # Virtalis Docs
 
-This repo contains the documentation for all Virtalis applications. The documentation is stored as markdown and built with [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This repo contains the documentation for all of our applications. The documentation is stored as markdown and the web front-end is built with [Docusaurus](https://docusaurus.io/). This is work in progress and not yet live.
+
+![test](screenshot.png?raw=true)
 
 ### Installation
 
