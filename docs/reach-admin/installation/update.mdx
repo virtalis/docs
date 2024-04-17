@@ -1,0 +1,128 @@
+---
+sidebar_position: 3
+---
+
+# Update to Latest Version
+
+This section describes how to update your Reach installation to the latest version.
+
+## Set Up Variables
+
+Export the following variables:
+
+```
+export REACH_NAMESPACE=reach
+export REACH_VERSION=2024.1.0
+export SKIP_MIGRATIONS=0
+export ACR_REGISTRY_NAME=$(kubectl get secret reach-install-config -n $REACH_NAMESPACE  -o json | jq ".data.ACR_REGISTRY_NAME" -r | base64 -d)
+export ACR_USERNAME=$(kubectl get secret reach-install-config -n $REACH_NAMESPACE  -o json | jq ".data.ACR_USERNAME" -r | base64 -d)
+export ACR_PASSWORD=$(kubectl get secret reach-install-config -n $REACH_NAMESPACE  -o json | jq ".data.ACR_PASSWORD" -r | base64 -d)
+```
+
+## Download Installation Files
+
+Log in with Oras:
+
+```
+oras login "${ACR_REGISTRY_NAME}".azurecr.io \
+--username "${ACR_USERNAME}" \
+-p "${ACR_PASSWORD}"
+```
+
+Make a backup of the old installation files:
+
+```
+sudo mv /home/root/Reach /home/root/.Reach
+```
+
+Make a directory to store the installation files:
+
+```
+sudo mkdir -p /home/root/Reach && \
+cd /home/root/Reach && \
+sudo chown $(whoami) /home/root/Reach
+```
+
+Pull the Kubernetes deployment file archive from the Virtalis registry and unzip it:
+
+```
+oras pull "${ACR_REGISTRY_NAME}".azurecr.io/misc/k8s:$REACH_VERSION && tar -zxvf k8s.tar.gz
+```
+
+Make the installation scripts executable:
+
+```
+cd k8s && sudo chmod +x *.sh && sudo chmod +x misc/keycloak/migration/*.sh
+```
+
+## Installation
+
+Load the previous configuration:
+
+```
+. ./load-install-config.sh
+```
+
+Create the secrets:
+
+```
+./create-secrets.sh
+```
+
+Deploy Virtalis Reach:
+
+```
+./deploy.sh
+```
+
+### Licence Key
+
+This section describes how to replace the currently installed licence key with a new one.
+
+This section assumes that you have already installed Virtalis Reach and your shell is in the directory containing the files that were downloaded during the installation, this is usually stored in the home directory, for example `/home/root/Reach/k8s`
+
+#### Set Up Variables
+
+Export the following variables:
+
+```
+export REACH_NAMESPACE=reach
+```
+
+Load previous configuration:
+
+```
+. ./load-install-config.sh
+```
+
+ Substitute and export the following variables:
+
+```
+export reach_licence__key=<reach licence xml snippet>
+export reach_licence__signature=<reach licence signature>
+```
+
+#### ‍Update Secrets
+
+Run a script:
+
+```
+./create-secrets.sh
+./install-reach.sh 
+kubectl get secret reach-install-config \
+-n $REACH_NAMESPACE -o json | jq -r '.data.reach_licence__key="'\
+$(echo -n $reach_licence__key | base64 -w 0 | tr -d '\n')'"' \
+| kubectl apply -f -
+ 
+kubectl get secret reach-install-config \
+-n $REACH_NAMESPACE -o json | jq -r '.data.reach_licence__signature="'\
+$(echo -n $reach_licence__signature | base64 -w 0 | tr -d '\n')'"' \
+| kubectl apply -f -
+```
+
+Gracefully restart any running pods for the two services below by doing a rolling restart:
+
+```
+kubectl rollout restart deploy artifact-access-api -n $REACH_NAMESPACE
+kubectl rollout restart deploy project-management-api -n $REACH_NAMESPACE
+```

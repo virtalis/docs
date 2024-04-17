@@ -1,0 +1,369 @@
+---
+sidebar_position: 2
+---
+
+# Deploy to a Kubernetes Cluster
+
+This section covers deploying a complete Virtalis Reach system into a Kubernetes cluster.
+
+## System Requirements
+
+Kubernetes cluster (either on premises or in the cloud):
+
+- At least version 1.22.7
+- 8 cores
+- At least 64 GB of memory available to a single node (128 GB total recommended)
+- 625 GB of storage (see the storage section for more information)
+- Nginx as the cluster ingress controller
+- Access to the internet during the software deployment and update
+- A network policy compatible network plugin
+
+Virtalis Reach does not require:
+
+- A GPU in the server
+- A connection to the internet following the software deployment
+
+### Admin Tools
+
+The follow administration tools are required along with their recommended tested version:
+
+- [kubectl](https://kubernetes.io/docs/reference/kubectl/) v1.22.7 - this package allows us to communicate with a Kubernetes cluster on the command line
+- [‍helm](https://helm.sh/docs/intro/install/) v3.6.3 - this package is used to help us install large Kubernetes charts consisting of numerous resources
+- [oras](https://github.com/oras-project/oras/releases) v0.8.1 - this package is used to download an archive from our internal registry containing some configuration files which will be used to deploy Virtalis Reach
+- [azure cli](https://github.com/Azure/azure-cli) stable - this package is used to authenticate with our internal registry hosted on Azure
+- [jq](https://jqlang.github.io/jq/) v1.6 - this package is used to parse and traverse JSON on the command line
+- [yq](https://github.com/mikefarah/yq/releases) v4.6.1 - this package is used to parse and traverse YAML on the command line
+
+These tools are not installed on the Virtalis Reach server but only on the machine that will communicate with a Kubernetes cluster for the duration of the installation.
+
+:::note
+If using recent versions of Ubuntu, the Azure CLI as installed by Snap is called azure-cli not az which refers to an older version in the Ubuntu repos. Alias azure-cli to az if needed.
+:::
+
+## Set up
+
+### Deployment Shell
+
+Make a directory to store temporary installation files:
+
+```
+sudo mkdir -p /home/root/Reach && \
+cd /home/root/Reach && \
+sudo chown $(whoami) /home/root/Reach 
+```
+
+Export the following variables:
+
+```
+export REACH_VERSION=2024.1.0
+export ACR_REGISTRY_NAME=virtaliscustomer
+export SKIP_MIGRATIONS=1
+export TLS_SECRET_NAME=reach-tls-cert
+export REACH_NAMESPACE=reach
+```
+
+Substitute the variable values and export them:
+
+```
+export REACH_DOMAIN=<the domain Virtalis Reach will be hosted on>
+export ACR_USERNAME=<service principal id>
+export ACR_PASSWORD=<service principal password>
+```
+
+Substitute and export the following variables, wrap the values in single quotes to prevent bash substitution:
+
+```
+export reach_licence__key=<reach licence xml snippet>
+export reach_licence__signature=<reach licence signature>
+```
+
+#### Example
+
+```
+export reach_licence__key='<REACH><expires>123</expires></REACH>'
+export reach_licence__signature='o8k0niq63bPYOMS53NjgOTUqA0xfaBjfP5uB1uma'
+```
+
+Export the environment variables if Virtalis Reach TLS will be configured to use LetsEncrypt:
+
+```
+export KEYCLOAK_ANNOTATIONS="--set ingress.annotations\
+.cert-manager\.io/cluster-issuer=letsencrypt-prod"
+ 
+export INGRESS_ANNOTATIONS="--set ingress.annotations\
+.cert-manager\.io/cluster-issuer=letsencrypt-prod"
+```
+
+Optional configuration variables:
+
+```
+export MANAGED_TAG=<custom image tag for Virtalis Reach services>
+ 
+export MQ_EXPOSE_INGRESS=<when set to 1, expose rabbitmq on the ingress>
+
+export LOW_SPEC<set to true to set memory requests to a \
+low amount for low spec machines, used for development>
+
+export USE_NEO4J_MEMREC=<set to true to use neo4j memrec, \
+use in conjuction with LOW_SPEC>
+```
+
+### Nginx Ingress Controller
+
+```
+kubectl get pods -n ingress-nginx
+```
+
+This should return at least 1 running pod.
+
+```
+ingress-nginx nginx-ingress-controller…….. 1/1 Running
+```
+
+If Nginx is not installed, then please contact Virtalis to see if we can support a different ingress controller. Virtalis Reach is currently only compatible with Nginx.
+
+If there is no Ingress controller currently installed on the cluster, and you are confident you should install Nginx, then you can execute these commands to install it:
+
+```
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
+helm repo update
+
+helm install ingress 
+--create-namespace \
+-n ingress-nginx \
+bitnami/nginx-ingress-controller --version 9.7.7
+```
+
+## Storage
+
+Kubernetes supports a wide variety of volume plugins which allow you to provision storage dynamically as well as with constraints depending on your requirements.
+
+[List of supported volume plugins](https://kubernetes.io/docs/concepts/storage/storage-classes/#provisioner)
+
+All PersistentVolumes used by Virtalis Reach reserve 625 GB of storage space in total. This is a provisional amount which will likely change depending on your workload.
+
+### Default
+
+By default, Virtalis Reach is deployed with the local volume plugin which creates volumes on the worker nodes. This is not the recommended way to deploy Virtalis Reach and is only appropriate for test level deployments as all databases are tied to the single disk of the node that they’re deployed on which hinders the performance of the system.
+
+To assist in dynamic local volume provisioning, we use the Local Path Provisioner service developed by Rancher:
+
+```
+kubectl apply -f \
+https://raw.githubusercontent.com/rancher/\
+local-path-provisioner/master/deploy/local-path-storage.yaml
+```
+
+### Custom
+
+You can customize how storage for Virtalis Reach is provisioned by specifying which storage class you want to use. This must be created by a Kubernetes Administrator beforehand or, in some environments, a default class is also suitable. For example, when deploying to an Azure Kubernetes Service instance, it comes with a default storage class on the cluster which can be used to request storage from Azure.
+
+#### Express
+
+If you only want to modify the storage class and leave all other parameters like size as default, export these variables out:
+
+```
+export REACH_SC=<name of storage class>
+ 
+export REACH_SC_ARGS=" --set persistence\
+.storageClass="${REACH_SC}" --set core\
+.persistentVolume.storageClass\
+="${REACH_SC}" --set master.persistence\
+.storageClass="${REACH_SC}" "
+```
+
+#### Custom parameters
+
+A list of different databases in use by Virtalis Reach and how to customize their storage is shown below.
+
+The default values can be found in `/home/root/Reach/k8s/misc//values-common.yaml` and `/home/root/Reach/k8s/misc//values-prod.yaml`
+
+##### MinIO
+
+Please refer to the persistence: section found in the [values.yaml](https://github.com/bitnami/charts/blob/0a851a9c296d5934138dca02032325710f6e71ed/bitnami/minio/values.yaml) file in the Bitnami Minio helm chart repository for a list of available parameters to customize such as size, access modes and so on.
+
+##### Neo4j
+
+Please refer to the core: persistentVolume: section found in the [values.yaml](https://github.com/neo4j-contrib/neo4j-helm/blob/4.1.1-2/values.yaml) file in the Neo4j helm chart repository for a list of available parameters to customize such as size, access modes and so on.
+
+Alternatively, the Neo4j helm chart configuration documentation can also be found [here](https://neo4j.com/labs/neo4j-helm/1.0.0/configreference/).
+
+##### MySQL
+
+Please refer to the master: persistence: section found in the [values.yaml](https://github.com/bitnami/charts/blob/eeda6fcba43e1e98f37174479eb994badd2f5241/bitnami/mysql/values.yaml)
+ file in the Bitnami Mysql helm chart repository for a list of available parameters to customize such as size, access modes and so on.
+
+##### Miscellaneous
+
+Please refer to the persistence: section found in the [values.yaml](https://github.com/bitnami/charts/blob/8573a62618e8214c20a69e61128d8525ca4a00f2/bitnami/rabbitmq/values.yaml) file in the Bitnami Rabbitmq helm chart repository for a list of available parameters to customize such as size, access modes and so on.
+
+## Deployment
+
+Create a namespace:
+
+```
+kubectl create namespace "${REACH_NAMESPACE}"
+```
+
+Add namespace labels:
+
+```
+kubectl label namespace ingress-nginx reach-ingress=true; \
+kubectl label namespace kube-system reach-egress=true
+The ‘ingress-nginx’ entry on line 1 will have to be modified if your nginx ingress is deployed to a different namespace.
+```
+
+### Configure TLS
+
+Manually create a TLS secret from a TLS key and cert or use the LetsEncrypt integration with cert-manager.
+
+#### Manually Creating a TLS Cert Secret
+
+```
+kubectl create secret tls -n "${REACH_NAMESPACE}" \
+"${TLS_SECRET_NAME}" --key="tls.key" --cert="tls.crt"
+```
+
+#### LetsEncrypt with Cert-manager
+
+Requirements:
+
+The machine hosting Virtalis Reach can be reached via a public IP address (used to validate the ownership of your domain)
+
+A domain that you own (cannot be used for domains ending with .local)
+
+Inbound connections on port 80 are allowed
+
+Create a namespace for cert-manager:
+
+```
+kubectl create namespace cert-manager
+```
+
+Install the recommended version of cert-manager:
+
+```
+kubectl apply -f https://github.com/jetstack/\
+cert-manager/releases/download/v1.7.1/cert-manager.yaml
+```
+
+Create a new file:
+
+```
+nano prod_issuer.yaml
+```
+
+Paste in the following and replace variables wherever appropriate:
+
+```
+apiVersion: cert-manager.io/
+kind: ClusterIssuer
+metadata:
+   name: letsencrypt-prod
+   namespace: cert-manager
+spec:
+   acme:
+       server: https://acme-v02.api.letsencrypt.org/directory
+       # Email address used for ACME registration
+       email: <YOUR_EMAIL_ADDRESS>
+       privateKeySecretRef:
+               name: reach-tls-cert
+    solvers:
+       - http01:
+               ingress:
+                   class: nginx
+```
+
+Press `Ctrl` + `O` then `Enter` to save and then press `Ctrl` + `X` to exit nano. Now apply the file:
+
+```
+kubectl apply -f prod_issuer.yaml
+```
+
+Source: How to Set Up an Nginx Ingress with Cert-Manager on DigitalOcean Kubernetes | DigitalOcean 
+
+If you wish to do so, you can follow the digital ocean guide above and deploy an example service to test cert-manager before using it on Virtalis Reach.
+
+### Download Installation Files
+
+Log in with Oras:
+
+```
+oras login "${ACR_REGISTRY_NAME}".azurecr.io \
+--username "${ACR_USERNAME}" \
+-p "${ACR_PASSWORD}"
+```
+
+Pull the Kubernetes deployment file archive from the Virtalis registry and unzip it:
+
+```
+oras pull "${ACR_REGISTRY_NAME}"\
+.azurecr.io/misc/k8s:$REACH_VERSION &&
+tar -zxvf k8s.tar.gz
+```
+
+Make the installation scripts executable:
+
+```
+cd k8s && sudo chmod +x *.sh && sudo chmod +x misc/keycloak/migration/*.sh
+```
+
+### Create and Deploy Secrets
+
+Randomised secrets are used to securely interconnect the Virtalis Reach microservices.
+
+The script below uses the pwgen package to generate a random string of 30 alphanumeric characters. Before proceeding, make sure pwgen is installed on your machine.
+
+```
+./create-secrets.sh
+```
+
+### Deploy Virtalis Reach and Database Services
+
+```
+./deploy.sh
+```
+
+Wait until all pods are showing up as Ready:
+
+```
+watch -n2 kubectl get pods -n $REACH_NAMESPACE
+```
+
+You will now be able to access the Virtalis Reach frontend client by opening the domain Virtalis Reach was installed on in a web-browser.
+
+#### Retrieving the Keycloak Admin Password
+
+Run the following command:
+
+```
+kubectl get secret --namespace ${REACH_NAMESPACE} \
+keycloak -o jsonpath="{.data.admin_password}" \
+| base64 --decode; echo
+```
+
+Refer to Virtalis Reach User Management for more information on how to administer the system inside Keycloak.
+
+### Clean-up
+
+```
+unset REACH_DOMAIN && \
+unset TLS_SECRET_NAME && \
+unset REACH_NAMESPACE && \
+unset ACR_USERNAME && \
+unset ACR_PASSWORD && \
+unset ACR_REGISTRY_NAME && \
+unset REACH_SC && \
+unset REACH_SC_ARGS && \
+unset reach_licence__key && \
+unset reach_licence__signature
+```
+
+Clear bash history:
+
+```
+history -c
+```
+
+This will clean up any secrets exported in the system.

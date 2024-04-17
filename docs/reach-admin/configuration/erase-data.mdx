@@ -1,0 +1,173 @@
+# Manually Erasing Data
+
+Virtalis Reach does not provide a GUI mechanism to delete visualisations from the artifact store or models from the hub. This document is designed to help a systems administrator achieve that outcome.
+
+This section assumes that you have already installed Virtalis Reach and your shell is in the directory containing the files that were downloaded during the installation, this is usually stored in the home directory, for example `/home/root/Reach/k8s`.
+
+:::note
+The actions in this document directly modify the databases used by the Virtalis Reach services. No consideration is given to the current activity of the system and system wide transactions are not used. Before performing these actions prevent access to users of the system by temporarily disabling the ingress server.
+:::
+
+## Pre-installation
+
+Before continuing with the next section, please refer to Virtalis Reach Automated Backup System and perform a full backup of the system.
+
+### Installing the service
+
+```
+export REACH_NAMESPACE=reach
+helm install reach-data-eraser -n $REACH_NAMESPACE data-eraser/chart/ 
+```
+
+Turn On the Service
+
+```
+kubectl scale statefulset -n $REACH_NAMESPACE reach-data-eraser --replicas=1
+```
+
+List arguments:
+
+```
+ kubectl exec -it -n $REACH_NAMESPACE \
+ reach-data-eraser-0 -- /bin/bash -c \
+ "/del-obj.py --help"
+```
+
+Output:
+
+usage: `del-obj.py [-h] [-t TYPE] [-d DELETE] [-l] [-s] [-T]`
+
+Deletes visualisation artifacts and vrmodels from Virtalis Reach
+
+optional arguments:
+
+```
+  -h, --help            show this help message and exit
+  -t TYPE, --type TYPE  Choose data type to erase, either 'artifact' or 'vrmodel' (default artifact)
+  -d DELETE, --delete DELETE
+                        Deletes artifact or vrmodel by ID
+  -l, --list            List artifacts or vrmodels
+  -s, --size            List total size of artifacts or vrmodels. This will increase the time to retrieve the list depending on how much data is currently stored.
+  -T, --test            Dry run - test delete
+```
+‍
+Temporarily Disabling the Ingress Service
+Note down the replica count for nginx before scaling it down:
+
+```
+kubectl get deploy -n ingress-nginx 
+export NGINX_REPLICAS=<CURRENT_REPLICA_COUNT>
+```
+
+Scale down the nginx ingress service to prevent people from accessing Virtalis Reach during the deletion process:
+
+Deleting a Visualisation Artifact
+
+List Artifacts to Extract Artifact IDs
+
+```
+kubectl exec -it -n $REACH_NAMESPACE \
+ reach-data-eraser-0 -- /bin/bash -c \
+ "/del-obj.py --list"
+```
+
+Sample output:
+
+```
+Connecting to Neo4j bolt://localhost:7687
+JustAPointList : ID 8f3885c5-03ec-492f-9fca-8119ad2f4962
+assembled : ID 787eae34-5764-4105-a50f-c441c100f66e
+light_test_plus_cube : ID 7ae36ec6-ea6b-4639-973f-8fd16179b262
+template_torusknot : ID ebd7d8fe-a846-4b70-ac86-01c275e5f3b1
+template_torusknot : ID 81894536-d0d8-454e-816e-3db87d1e58c8
+```
+
+The above list will show each revision separately.
+
+As you can see, there are 2 revisions of template_torusknot You can use the UUID to cross-reference which version this refers to so that you can make sure you are deleting the right revision.
+
+In a web browser, navigate to the following URL, replacing `<UUID>` with the UUID of the artifact you want to check and replacing `<YOUR_DOMAIN>` with the domain of your Reach installation.
+
+```
+https://<YOUR_DOMAIN>/viewer/<UUID>
+```
+
+Once opened, you can click the “Show all versions” link to bring up a list of all versions along with the information about the current revision.
+
+## Erase an Artifact
+
+Optional but recommended, use the -T switch to test the deletion procedure without affecting the database.
+
+```
+kubectl exec -it -n $REACH_NAMESPACE \
+ reach-data-eraser-0 -- /bin/bash -c \
+ "/del-obj.py --test --delete f4a356df-823f-424c-a6c9-2bc763ef9a41"
+```
+
+Sample output:
+
+```
+Checking cachedxml/3b3a3f44ec5977f17cb5239030945f6063f9cf91b433909b01e779a89d4830be
+OK
+Deleting from meshes
+Deleting from textures
+Deleting from cachedxml
+Deleting cachedxml/3b3a3f44ec5977f17cb5239030945f6063f9cf91b433909b01e779a89d4830be
+OK
+```
+
+Remove the -T switch to delete the data.
+
+Input:
+
+```
+kubectl exec -it -n $REACH_NAMESPACE \
+ reach-data-eraser-0 -- /bin/bash -c \
+ "/del-obj.py --delete f4a356df-823f-424c-a6c9-2bc763ef9a41"
+```
+
+Sample output:
+
+```
+Checking cachedxml/3b3a3f44ec5977f17cb5239030945f6063f9cf91b433909b01e779a89d4830be
+OK
+Deleting from meshes
+Deleting from textures
+Deleting from cachedxml
+Deleting cachedxml/3b3a3f44ec5977f17cb5239030945f6063f9cf91b433909b01e779a89d4830be
+OK
+```
+
+## Deleting VRModels
+
+The process for deleting VRModels is the same as deleting visualisation artifacts except that the object type should be change from the default of artifact to vrmodel using the -t or --type parameter.
+
+```
+kubectl exec -it -n $REACH_NAMESPACE \
+ reach-data-eraser-0 -- /bin/bash -c \
+ "/del-obj.py --list --type vrmodel"
+```
+
+Sample output:
+
+```
+JustAPointList : ID a1e0544c-8985-4ca0-a50c-1856a81c7ca5
+NX_Speedboat : ID 3232ae07-b0bd-4f3b-ac1d-c595126a8b20
+SYSTEM_FILTER_BOX_WA_1_5T : ID 141d6136-3ba8-4a08-8462-8aa23e63ed5b
+Solid Edge 853 : ID 3b3ca5ec-589a-4582-bf85-65603872985e
+TwoModelsSameName : ID 86cbc92c-5159-4260-bd4a-22265debfa58
+```
+
+## Turn Off the Service
+
+Once done, scale down the service:
+
+```
+kubectl scale statefulset -n $REACH_NAMESPACE reach-data-eraser --replicas=0
+```
+
+## On Data Reuse Between Data Stores
+
+Binary data items may be referenced by multiple artifacts. For example, when a model is reused in different projects or by revisions of a project. Only when deletion of an artifact will result in the related binary data items being unreferenced will they be deleted.
+
+In the diagram below, the deletion of Visualisation A will no result in the deletion of the LOD Binary data because it is also referenced by Visualisation B. If A is first deleted then the LOD binary data will be referenced only by B, then when B is deleted and the LOD Binary data will also be deleted.

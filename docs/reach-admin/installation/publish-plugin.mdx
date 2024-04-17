@@ -1,0 +1,570 @@
+# Install the VirtalisPublish Plugin
+
+VirtalisPublish is a plugin for PTC’s Windchill PLM server software. It allows assemblies to be published to Virtalis Reach when Windchill detects that they have been modified. Once installed and and correctly configured, the general process is as follows.
+
+## ‍Prerequisites
+
+The processes outlined in this document have been developed and tested on Windchill 11.1.
+
+Throughout this document the base installation folder of Windchill will be referred to as `<install-folder>`, an example would be D:\ptc\Windchill_11.1\Windchill.
+
+Creo Elements/Pro (formerly Pro/Engineer) needs to be installed in the Windchill environment. This acts as the ‘Worker’ that Windchill’s Worker Agent will delegate the job of publishing a representation to, after a successful check-in event.
+
+It is assumed that you have already installed Virtalis Reach. After installing the plugin or making any configuration changes, the PTC Windchill service must be restarted for the changes to take effect.
+
+## Pre-Installation
+
+You must configure Virtalis Reach to allow for Windchill to talk to the Message Queue. The communication between Windchill and the message queue will be encrypted using TLS.
+
+Export the variables replacing anything in `<>`:
+
+```
+export REACH_NAMESPACE=<reach namespace>
+```
+
+## ‍Load the Previous Configuration
+
+```
+. ./load-install-config.sh
+```
+
+```
+docker login virtaliscustomer.azurecr.io \
+-u ${ACR_USERNAME} \
+-p ${ACR_PASSWORD}
+```
+
+The next command will generate a password for the client certificates and requires the pwgen package to be available on the command line. This can be substituted for any other command which generates a strong password.
+
+```
+export MQ_CLIENT_KEY_PASS="$(pwgen 30 1 -s)"
+```
+
+Generate certs:
+
+```
+docker run --rm \
+-e REACH_DOMAIN=${REACH_DOMAIN} \
+-e MQ_CLIENT_KEY_PASS=${MQ_CLIENT_KEY_PASS} \
+-e TRUSTSTORE_PASSWORD=${TRUSTSTORE_PASSWORD} \
+-v /tmp/result:/tmp/result \
+virtaliscustomer.azurecr.io/windchill-cert-generator:0.0.0
+```
+
+Create a rabbitmq-certs secret from the generated certs:
+
+```
+kubectl create secret generic rabbitmq-certs -n $REACH_NAMESPACE \
+--from-file='ca.crt'=ca_certificate.pem \
+--from-file='tls.crt'=server_certificate.pem \
+--from-file='tls.key'=server_key.pem
+```
+
+## ‍Configure RabbitMQ
+
+Upgrade RabbitMQ (make sure you are inside the ~/k8s/ directory (default) or wherever else the installation files were downloaded to during the Virtalis Reach installation):
+
+```
+MQ_EXPOSE_INGRESS=1 ./install-mq.sh
+```
+
+Configure a file source for Windchill by referring to the Configuring External File Sources section of the Deploying Virtalis Reach document and run the script:
+
+```
+./create-secrets.sh
+```
+
+Check if port 5671 is exposed in the service definition:
+
+```
+kubectl get svc message-queue-rabbitmq -n $REACH_NAMESPACE -o yaml
+```
+
+Under the port array you should find amqp-ssl:
+
+```
+spec:
+......
+  ports:
+.......
+  - name: amqp-ssl
+    port: 5671
+    protocol: TCP
+    targetPort: amqp-ssl
+......
+```
+
+If it is missing, add it to the service and also to the statefulset:
+
+```
+  - name: amqp-ssl
+    port: 5671
+    protocol: TCP
+    targetPort: amqp-ssl
+kubectl edit statefulset message-queue-rabbitmq -n $REACH_NAMESPACE
+```
+
+Add the following entry under:
+
+```
+spec
+template
+spec
+containers[0]
+ports
+
+        - containerPort: 5671
+          name: amqp-ssl
+          protocol: TCP
+```
+
+## ‍Configure nginx
+
+Run the command shown below:
+
+```
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tcp-services
+  namespace: ingress-nginx
+data:
+  5673: "$REACH_NAMESPACE/message-queue-rabbitmq:5671"
+EOF
+```
+
+This tells nginx to listen on port 5673 and proxy the connection to rabbitmq on port 5672.
+
+Run:
+
+```
+kubectl edit deploy ingress-nginx-ingress-controller -n ingress-nginx
+```
+
+Under containers.args add these args:
+
+```
+- --tcp-services-configmap=ingress-nginx/tcp-services
+- --enable-ssl-passthrough
+```
+
+Edit the ingress-nginx-controller service and add the new port under spec.ports:
+
+```
+kubectl edit svc ingress-nginx-ingress-controller -n ingress-nginx
+ ...
+ ports:
+  - name: mq
+    port: 5673
+    protocol: TCP
+    targetPort: 5673
+...
+```
+
+## ‍Create a Windchill User
+
+Replace `<WINDCHILL USER PASSWORD>` with a strong random generated password and replace `<REACH NAMESPACE>` with the namespace Virtalis Reach is deployed in and then run the command:
+
+```
+kubectl exec -n $REACH_NAMESPACE message-queue-rabbitmq-0 -- /bin/bash -c \
+"rabbitmqctl add_user 'windchill' '<WINDCHILL USER PASSWORD>' && \
+rabbitmqctl set_permissions -p '/' 'windchill' '^$' '^(amq.default|delay.exchange)$' '^$'"
+```
+
+## ‍Create a Windchill Group
+
+In the keycloak admin panel, create a new group with the name “windchill” and add any users to it that will use the Windchill integration. Refer to https://www.virtalis.com/chapter/virtalis-reach-user-management for further information.
+
+## Installation
+
+The plugin comes as a Zip file containing two main files:
+
+- VirtalisPublish.jar – this contains the compiled plugin code required to publish assemblies to Virtalis Reach.
+- virtalisPublish.properties – a configuration file for tailoring the plugin to your environment.
+
+To install, copy the files to the following locations:
+
+- VirtalisPublish.jar: `<install-folder>/codebase/WEB-INF/lib`
+- virtalisPublish.properties: `<install-folder>/codebase`
+
+The Zip file also comes with some third-party JAR files (one RabbitMQ AMQP jar required for posting messages to Virtalis Reach’s queue, and three Jackson jar files for JSON serialisation) that will be required if this is a first-time installation. They should also be copied to the `<install-folder>/codebase/WEB-INF/lib` folder if they aren’t already there.
+
+## Configuring Windchill
+
+To register the plugin with Windchill and instruct it to execute the plugin at the correct time, make the following modifications to these existing Windchill files.
+
+wt.properties
+Location: `<install-folder>/codebase/wt.properties`
+
+The main class in the VirtalisPublisher plugin is called StandardCopyRepsService. It extends the Windchill class wt.service.StandardManager, allowing integration with Windchill’s infrastructure. This class must be registered as a new service within Windchill.
+
+In the example below, it is registered as service number 8000. See here for some important notes on the numbering used. It is important to pick a number that’s higher than all the built-in Windchill services that it might need to work.
+
+Add an entry similar to this one:
+
+```
+wt.services.service.8000=co.uk.rootsolutions.virtalis.CopyRepsService/co.uk.rootsolutions.virtalis.StandardCopyRepsService
+```
+
+`‍<site-specific>.xconf`
+Location: `<install-folder>`
+
+All installations have a site.xconf file in `<install-folder>`. This is one of the main Windchill configuration files.
+
+However, changes aren’t allowed to be made to this file because future upgrades could overwrite them. Therefore, installations will have customer-specific configuration files alongside site.xconf, such as virtalis.xconf in our instance. To locate your file, open site.xconf and look for a ConfigurationRef entry similar to the one below. This will tell you which file to make the next changes to:
+
+```
+<ConfigurationRef xlink:href="D:\ptc\Windchill_11.1\Windchill\virtalis.xconf"/>
+```
+
+If such a file doesn’t exist, you may need to create one. Use the attached virtalis.xconf file as an example, and refer to the documentation here.
+
+Locate the entry with a property name set to publish.afterloadermethod, and edit it to look like this. If such an entry doesn’t exist, add one.
+
+```
+<Property name="publish.afterloadermethod" overridable="true" targetFile="codebase/WEB-INF/conf/wvs.properties"
+  value="co.uk.rootsolutions.virtalis.StandardCopyRepsService/copyReps"/>
+```
+
+Next, add an entry for the new service making sure the number (8000 in this case) matches what was specified in wt.properties:
+
+```
+<Property name="wt.services.service.8000" overridable="true" targetFile="codebase/wt.properties"
+  value="co.uk.rootsolutions.virtalis.CopyRepsService/co.uk.rootsolutions.virtalis.StandardCopyRepsService"/>
+```
+
+‍wvs.properties
+
+Location: `install-folder></codebase/WEB-INF/conf`
+
+This file also requires a reference to the Virtalis service. Add the following entry:
+
+```
+publish.afterloadermethod=co.uk.rootsolutions.virtalis.StandardCopyRepsService/copyReps
+```
+
+## ‍Configuring the Plugin
+
+The file virtalisPublish.properties allows various configuration options to be set, which are described below:
+
+‍Property name: copy.logger.location
+
+Description: Sets location for logger, if left without a value logs will be saved to `<install-folder>\logs` e.g. `D:\\ptc\\VirtalisPublish.log`.
+
+Example value: `D:/ptc/Virtalis_Download/logs/publisher.txt`
+
+‍
+‍Property name: log.verbose
+
+Description: Set log.verbose=true fordebugging purposes.
+
+Example value: `true`
+
+‍
+‍Property name: download.metadata
+
+Description: If true this will create a file for EPMDocument metadata.
+
+Example value: `true`
+‍
+
+Property name: attribute.names
+
+Description: If download.metadata=true set the list of attributes required here - use internal name & comma delimited.
+
+Example value: `name, number,revision,iterationInfo.identifier.iterationId,state.state`
+‍
+
+‍Property name: metadata.file.extension
+
+Description: Setfiletype for metadata file, for example txt or csv
+
+Example value: `txt`
+‍
+
+‍Property name: download.use.http
+
+Description: If true, the download URL that gets built up and then sent in the message to Reach will begin with http. Otherwise (and also default) it will begin with https.
+
+Example value: `true/false`
+‍
+
+‍Property name: downloadToLocal.dir
+
+Description: set location for files and metadata to be downloaded to, include \ escape character, can be unc path e.g.`\\\\vmware-host\\Shared Folders\\share`
+
+Example value: `D:\\ptc\\Virtalis_Download`
+‍
+
+‍Property name: check.for.state
+
+Description: If true this will only download files/metadata if published EPMDocument is at a state specified in copy.publish.states property.
+
+‍Example value: `true`
+‍
+
+‍Property name: copy.publish.states
+
+Description: States considered if check.for.state is true.
+
+Example value: `InWork,Released,Controlled`
+
+
+‍Property name: force.republish
+
+Description: If a positioning assembly representation already exists, when this property is set to true will overwrite the existing representation.
+
+Example value: `true`
+
+
+‍Property name: queue.host
+
+Description: The IP address or hostname of the Virtalis Reach queue to which NotificationMessages will be published after an assembly is checked-in.
+
+If using peer-verification (see below) this value must match either the CN or SAN fields in the server’s SSL certificate.
+
+Example value: `123.456.789.098` or a hostname
+
+
+‍Property name: queue.port
+
+Description: The port number needed to connect to the Virtalis Reach queue.
+
+Example value: `1234`
+
+
+‍Property name: queue,name
+
+Description: The name of the Virtalis Reach queue to publish messages on. The value should never need changing from ‘changes’.
+
+Example value: `changes`
+
+
+‍Property name: queue.username
+
+Description: The username required to connect to the Virtalis Reach queue (this is windchill by default if you follow the Pre-installation steps).
+
+Example value: `<queue-username>`
+
+
+‍Property name: queue.password
+
+Description: The password required to connect to the Virtalis Reach queue.
+
+Example value: `<queue-password>`
+
+
+‍Property name: queue.ssl
+
+Description: Whether to use SSL to connect to the Virtalis Reach queue. Setting this alone to true will encrypt the traffic between the Plugin and Virtalis Reach but will not perform peer-verification checks (see below). Nevertheless, this adds a layer of security.
+
+Example value: `true/false`
+
+
+‍Property name: queue.usePeerVerification
+
+Description: If set to true (and queue.ssl is also true), will attempt to perform peer verification when connecting to the Virtalis Reach queue. This adds more security but requires client keys to be installed. See the section on SSL/TLS.
+
+Example value: `true/false`
+
+
+‍Property name: queue.client.key
+
+Description: The client key. This file should be provided by a site administrator who provided the certificate used to secure the Virtalis Reach queue.
+
+`D:/ptc/Virtalis_Download/truststore/client_key.p12`
+
+
+‍Property name: queue.trust.store
+
+Description: This is where the Windchill plugin will store it’s certificates & keys etc. Should be a Java keystore file.
+
+Example value: `D:/ptc/Virtalis_Download/truststore/rabbitstore.jks`
+
+
+‍Property name: client.key.password
+
+Description: The password for the client key specified in queue.client.key.
+
+Example value: `<client-key-password>`
+
+
+‍Property name: trust.store.password
+
+Description: The password for the trust store specified when generating certificates under the pre-installation section under “Create a keystore for windchill”.
+
+Example value: `<trust-store-password>`
+
+
+‍Property name: exportable.item.filters
+
+Description: Regular expressions to limit which assemblies will be sent to Virtalis Reach. See the Filtering section for more information.
+
+Example value:
+
+```
+.*\.asm
+
+.*\.asm;.*\.prt
+
+.*Aviation.*\.asm;
+```
+
+‍Property name: groups
+
+Description: A comma-separated list of Virtalis Reach groups that the resulting asset will be available to (in Virtalis Reach).
+
+Example value:
+
+```
+windchill
+
+windchill,engineers
+```
+
+## ‍Verifying the Installation
+
+Once installed and configured, restart the PTC Windchill service.
+
+Locate the folder `D:\ptc\Windchill_11.1\Windchill\logs` and monitor the most recent `MethodServer-<date>-log4j.log` file. You should see messages appear like this:
+
+```
+2021-03-18 23:01:01,242 INFO [main] wt.system.out - VirtalisPublish - Loading properties
+2021-03-18 23:01:01,245 INFO [main] wt.system.out - VirtalisPublish - Setting up logger
+2021-03-18 23:01:01,245 INFO [main] wt.system.out - VirtalisPublish - logger setup complete
+```
+
+This indicates that the plugin has been successfully registered as a service within Windchill.
+
+Note, these are low-level log messages logged to stdout. After these messages appear, all future log messages from the plugin will be logged to the location specified by the configuration property copy.logger.location, which by default is D:\ptc\Virtalis_Download\logs\publisher.txt.
+
+## Testing the Plugin
+
+Make a change to an assembly in Windchill and perform a check-in.
+
+Shortly after, you should see some activity in the log file specified as copy.logger.location (publisher.txt by default).
+
+There should be a message similar to the following:
+
+```
+[2021-03-19 14:39:19.834]  - co.uk.rootsolutions.virtalis.StandardCopyRepsService - co.uk.rootsolutions.virtalis.MessageSender Message sent
+```
+
+This indicates that Windchill has posted a message to the Virtalis Reach queue and you should see an import job running in the jobs screen in Virtalis Reach
+
+If not, please refer to publisher.txt to see if there are any obvious error messages, the main Windchill logs, and the troubleshooting guide below.
+
+## Troubleshooting
+
+###Test the Connection
+
+We strongly recommend that before proceeding you test the Windchlll queue connection using the following commands. If there are connectivity issues in the future, the following can also assist with troubleshooting.
+
+Test the connection with the rabbitmq python client.
+
+Replace the variables wrapped in the # comment block and save file as mq.py:
+
+```
+#!/usr/bin/env python3
+import pika
+import logging
+import ssl
+logging.basicConfig(level=logging.INFO)
+ 
+###
+### Replace everything in <> below
+cafile_path="<full path to dir>/ca_certificate.pem"
+client_cert_path="<full path to dir>/client_certificate.pem"
+client_key_path="<full path to dir>/client_key.pem"
+mq_domain="<rabbit message queue domain/address>"
+windchill_mq_password="<windchill user password>"
+###
+###
+context = ssl.create_default_context(
+    cafile=cafile_path)
+context.load_cert_chain(client_cert_path,
+                        client_key_path)
+ssl_options = pika.SSLOptions(context, mq_domain)
+credentials = pika.PlainCredentials("windchill", windchill_mq_password)
+connection = pika.BlockingConnection(pika.ConnectionParameters(host=mq_domain, port=5673,
+virtual_host='/', 
+credentials=credentials,
+ssl_options=ssl_options
+))
+ 
+channel = connection.channel()
+```
+
+Install dependencies:
+
+```
+pip3 install pika
+chmod +x mq.py
+./mq.py
+```
+
+The connection should be instantly accepted and then closed:
+
+```
+root@master:~# ./mq.py 
+INFO:pika.adapters.utils.connection_workflow:Pika version 1.1.0 connecting to ('10.209.65.143', 5673)
+INFO:pika.adapters.utils.io_services_utils:Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.209.65.143', 45154), raddr=('10.209.65.143', 5673)>
+INFO:pika.adapters.utils.io_services_utils:SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.209.65.143', 45154), raddr=('10.209.65.143', 5673)>
+INFO:pika.adapters.utils.connection_workflow:Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd7c7550910>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd7c7550910> params=<ConnectionParameters host=reach.local port=5673 virtual_host=/ ssl=True>>).
+INFO:pika.adapters.utils.connection_workflow:AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd7c7550910> params=<ConnectionParameters host=reach.local port=5673 virtual_host=/ ssl=True>>
+INFO:pika.adapters.utils.connection_workflow:AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd7c7550910> params=<ConnectionParameters host=reach.local port=5673 virtual_host=/ ssl=True>>
+INFO:pika.adapters.blocking_connection:Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd7c7550910> params=<ConnectionParameters host=reach.local port=5673 virtual_host=/ ssl=True>>
+INFO:pika.adapters.blocking_connection:Created channel=1
+```
+
+### ‍Windchill Doesn’t Start After Installing the Plugin
+
+Check the main Windchill logs, which can be found in `<install-folder>/logs`. There are lots of different log files, you should first check `MethodServer-xxxxxxxxxxxx.log` and `BackgroundMethodServer-xxxxxxxxxxxx.log`.
+
+Nothing Happens After Performing a Check-in on an Assembly
+Check the main logs in `<install-folder>/logs` for errors.
+
+Check the log file of the VirtalisPublish plugin for errors. This is the file specified by the `copy.logger.location` configuration property in `virtalisPublish.properties`.
+
+Check the Worker Agent to see if the job was processed. You can access the worker agent jobs by logging into Windchill as an admin user and choosing Browse > Site > Utilities.
+
+You can see the general health of the Worker Agent in the window that opens up:
+
+There should be a PROE worker registered. This performs the work after a check-in and is required for the VirtalisPublish plugin to be triggered. Ask your Windchill server administrator to assist if the worker is not there. If it is listed but says anything other than ‘Available’ in the Job column, or the check against ‘On-Line’ is missing, you can try restarting it using the green flag icon in the appropriate row.
+
+Check the WVS Job Monitor to see if the job failed. You can access this via Quick Links > WVS Job Monitor.
+
+You might see a message saying that the publishing job failed. Note, this is Windchill’s internal publishing job (performed by the Worker).
+
+If you see an error similar to the one shown below, you will need to contact the Windchill server administrator to find out why the PROE Worker Agent isn’t working. It could be that the PROE licence has expired or any number of other reasons.
+
+### Worker Agent Fails to Start
+
+The worker agent can also fail to start if the license for Creo Parametric has expired. You may see these errors in the worker agent logs as it tries to start:
+
+```
+[2022-02-16 10:28:30] timestamps added to logging from command argument.
+
+[2022-02-16 10:28:30] workerhelper - Version : Creo 6.0.0.0 - (16.0.0.24) x86e_win64
+
+[2022-02-16 10:28:30] Increasing initial timeout to 180 seconds from command line to accomodate helper startup sleep time.
+
+[2022-02-16 10:28:30] Connecting to server "rootwindchill.virtalis.local" on port 5600
+
+[2022-02-16 10:28:30] Connection established
+
+[2022-02-16 10:28:30] Helper keep alive set - 300000 milliseconds
+
+[2022-02-16 10:28:31] Worker Cache Cleared
+
+[2022-02-16 10:28:31] Started worker
+
+[2022-02-16 10:28:36] Worker process 9004 has exited unexpectedly. Shutting down helper.
+
+[2022-02-16 10:28:36] Worker helper shutting down.
+
+[2022-02-16 10:28:36] WorkerHelper completed, exiting
+```
+
+These are indicative of a Creo Parametric license error which you can then confirm by running Creo Parametric. If Creo Parametric generates a license error at startup then contact the Windchill server administrator.

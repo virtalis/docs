@@ -1,0 +1,282 @@
+# Deploy the Monitoring Service Stack
+
+This section covers the deployment of various monitoring services which allow a Kubernetes Administrator to monitor the health, metrics, and logs for all cluster services including Reach.
+
+List of services to be deployed:
+
+### Prometheus Stack (health, metrics)
+
+- Grafana
+- Prometheus
+- Alertmanager
+
+### ELK Stack (logging)
+
+- Elasticsearch
+- Kibana
+- Filebeat
+
+## Set Up the Deployment Shell
+
+Export the following environment variables which will be used throughout the installation:
+
+```
+export MONITORING_DOMAIN=<the domain monitoring services will be hosted on>
+export MONITORING_NAMESPACE=monitoring
+export MONITORING_TLS_SECRET=reach-tls-secret
+```
+
+Navigate to the default Reach installation folder
+
+```
+cd /home/root/Reach/k8s
+```
+
+Export the following if Grafana will be configured to use AAD for authentication:
+
+```
+export GRAFANA_AAD_VALUES='-f misc/prometheus/values-grafana-aad.yaml'
+```
+
+Create a new namespace:
+
+```
+kubectl create namespace "${MONITORING_NAMESPACE}"
+kubectl label ns "${MONITORING_NAMESPACE}" release=prometheus-stack
+```
+
+### Storage
+
+#### Express
+
+If you only want to modify the storage class and leave all other parameters such as size as default, export these variables out:
+
+```
+export MONITORING_SC=<name of storage class>
+
+export ELASTICSEARCH_SC_ARGS="--set \
+volumeClaimTemplate.storageClassName=${MONITORING_SC}"
+
+export PROMETHEUS_SC_ARGS="
+--set alertmanager.alertmanagerSpec.storage.\
+volumeClaimTemplate.spec.storageClassName=${MONITORING_SC}
+--set prometheus.prometheusSpec.storageSpec.\
+volumeClaimTemplate.spec.storageClassName=${MONITORING_SC}
+--set grafana.persistence.storageClassName=${MONITORING_SC}
+"
+```
+
+#### Custom Parameters
+
+Here is a list of different monitoring services and how to customize their storage.
+
+##### Elasticsearch
+
+Please refer to the volumeClaimTemplate: section found in the values.yaml file in the elasticsearch helm chart repository for a list of available parameters to customize such as size, access modes and so on.
+
+These values can be added/tweaked in the following files:
+
+`k8s/misc/elk/elasticsearch/values-prod.yaml`
+
+`k8s/misc/elk/elasticsearch/values-common.yaml`
+
+##### Prometheus Stack
+
+Please refer to the volumeClaimTemplate: sections found in the values.yaml file in the prometheus-stack helm chart repository for a list of available parameters to customize such as size, access modes and so on.
+
+These values can be added/tweaked in the following files:
+
+`k8s/misc/elk/prometheus/values-prod.yaml`
+
+`k8s/misc/elk/prometheus/values-common.yaml`
+
+### Monitoring TLS
+
+Manually create a TLS secret from a TLS key and cert or use the LetsEncrypt integration with cert-manager.
+
+#### Manually Creating a TLS Cert Secret
+
+```
+kubectl create secret tls -n "${MONITORING_NAMESPACE}" \
+"${MONITORING_TLS_SECRET}" --key="tls.key" --cert="tls.crt"
+```
+
+#### LetsEncrypt with Cert-manager
+
+Export the following:
+```
+export KIBANA_INGRESS_ANNOTATIONS="--set ingress.annotations\
+.cert-manager\.io/cluster-issuer=letsencrypt-prod"
+
+export PROMETHEUS_INGRESS_ANNOTATIONS="--set prometheus.ingress\
+.annotations.cert-manager\.io/cluster-issuer=letsencrypt-prod"
+
+export GRAFANA_INGRESS_ANNOTATIONS="--set grafana.ingress\
+.annotations.cert-manager\.io/cluster-issuer=letsencrypt-prod"
+
+export ALERTMANAGER_INGRESS_ANNOTATIONS="--set alertmanager.ingress.\
+annotations.cert-manager\.io/cluster-issuer=letsencrypt-prod"
+```
+
+## Create Secrets
+
+The next command below uses the pwgen package to generate a random string of 30 alphanumeric characters.
+
+Before proceeding make sure pwgen is installed on your machine or use a different package to generate the string replacing the command inside the brackets:
+
+```
+$(pwgen 30 1 -s) → $(someOtherPackage --arg1 --arg2)
+```
+
+Create a secret which will store Grafana credentials:
+
+```
+kubectl create secret generic grafana \
+-n "${MONITORING_NAMESPACE}" \
+--from-literal="user"=$(pwgen 30 1 -s) \
+--from-literal="password"=$(pwgen 30 1 -s)
+
+kubectl create secret generic elastic-credentials  -n $MONITORING_NAMESPACE \
+--from-literal=password=$(pwgen -c -n -s 30 1 | tr -d '\n') \
+--from-literal=username=elastic
+
+kubectl create secret generic kibana-credentials -n $MONITORING_NAMESPACE \
+--from-literal=encryption-key=$(pwgen -c -n -s 32 1 | tr -d '\n')
+```
+
+## Installing Grafana, Alertmanager, and Prometheus
+
+If you have chosen to configure Grafana to use AAD for authentication, follow this guide to register an app in AAD Configure Azure AD OAuth2 authentication | Grafana documentation and then create a secret by filling out it with the information of the app you have created.
+
+```
+kubectl create secret generic grafana-auth-aad-secret -n "${MONITORING_NAMESPACE}" \
+--from-literal='auth_url'=<ends with /authorize> \
+--from-literal='client_id'=<aad app id> \
+--from-literal='client_secret'=<aad app secret> \
+--from-literal='token_url'=<ends with /token>
+```
+
+Run the following:
+
+```
+sudo chmod +x *.sh
+
+./install-monitoring.sh
+```
+
+Check the status of deployed pods:
+
+```
+kubectl get pods -n "${MONITORING_NAMESPACE}"
+```
+
+Optionally, configure filebeat log index to tweak the data retention period and index max size.
+
+You can read more about ILM here.
+
+```
+export ELASTIC_SEARCH_ADDRESS=<address of elasticsearch instance>
+curl -X PUT "$ELASTIC_SEARCH_ADDRESS/_ilm/policy/filebeat?pretty" -H 'Content-Type: application/json' -d'
+{
+  "policy": {
+    "phases": {
+      "hot": {
+        "actions": {
+          "rollover": {
+            "max_primary_shard_size": "<max size in gigabytes>" 
+          }
+        }
+      },
+      "delete": {
+        "min_age": "<min age in days, i.e 90d>",
+        "actions": {
+          "delete": {} 
+        }
+      }
+    }
+  }
+}
+```
+
+Set up a Serilog space in Kibana
+
+```
+export KIBANA_POD_NAME=$(kubectl get pod \
+-l app=kibana -n $MONITORING_NAMESPACE \
+-o jsonpath="{.items[0].metadata.name}")
+
+kubectl exec $KIBANA_POD_NAME -n $MONITORING_NAMESPACE -- bash -c 'curl http://${ES_USERNAME}:${ES_PASSWORD}@0.0.0.0:5601/api/spaces/space -X POST -H "Content-Type: application/json" -H "kbn-xsrf: reporting" --data-raw "{\"name\":\"serilog\",\"id\":\"serilog\",\"initials\":\"s\",\"color\":\"#D6BF57\",\"disabledFeatures\":[\"siem\",\"dev_tools\",\"advancedSettings\",\"indexPatterns\",\"savedObjectsManagement\",\"savedObjectsTagging\",\"osquery\",\"actions\",\"stackAlerts\",\"fleet\",\"monitoring\",\"enterpriseSearch\",\"discover\",\"dashboard\",\"canvas\",\"maps\",\"ml\",\"visualize\",\"apm\",\"uptime\",\"observabilityCases\",\"infrastructure\"],\"imageUrl\":\"\"}"'
+
+kubectl exec $KIBANA_POD_NAME -n $MONITORING_NAMESPACE -- bash -c 'curl http://${ES_USERNAME}:${ES_PASSWORD}@0.0.0.0:5601/s/serilog/api/infra/log_source_configurations/default -X PATCH -H "Content-Type: application/json" -H "kbn-xsrf: reporting" --data-raw "{\"data\":{\"name\":\"Serilog\",\"logIndices\":{\"type\":\"index_name\",\"indexName\":\"logs-*\"},\"fields\":{\"tiebreaker\":\"_doc\",\"timestamp\":\"@timestamp\"},\"logColumns\":[{\"timestampColumn\":{\"id\":\"5e7f964a-be8a-40d8-88d2-fbcfbdca0e2f\"}},{\"messageColumn\":{\"id\":\"b645d6da-824b-4723-9a2a-e8cece1645c0\"}},{\"fieldColumn\":{\"id\":\"227c3f32-0980-4566-a06e-06a2e60b3a8c\",\"field\":\"fields.ApplicationContext\"}}]}}"'
+```
+
+Scraping Virtalis Reach Services Using Prometheus
+
+Export the following:
+
+```
+export REACH_NAMESPACE=<name of kubernetes namespace Virtalis Reach is deployed in>
+export REACH_VERSION=$(kubectl get secret reach-version \
+-n $REACH_NAMESPACE -o json \
+| jq ".data.version" -r | base64 -d)
+```
+
+Run the upgrade:
+
+```
+. ./load-install-config.sh
+export PROMETHEUS_SCRAPE=true
+./install-reach.sh
+kubectl label namespace $REACH_NAMESPACE prometheus-scrape=true
+```
+
+Accessing the Grafana frontend
+
+Retrieve the Grafana admin user:
+
+```
+kubectl get secret --namespace "${MONITORING_NAMESPACE}" \
+grafana -o jsonpath="{.data.user}" | base64 --decode; echo
+```
+
+Retrieve the Grafana admin password:
+
+```
+kubectl get secret --namespace "${MONITORING_NAMESPACE}" \
+grafana -o jsonpath="{.data.password}" | base64 --decode; echo
+```
+
+Grafana can now be accessed at `https://${MONITORING_DOMAIN}/grafana/` from a web-browser using the admin user and admin password
+
+Accessing the Kibana frontend
+
+Retrieve the kibana admin username:
+
+```
+kubectl get secret elastic-credentials -o jsonpath\
+="{.data.username}" -n $MONITORING_NAMESPACE | \
+base64 --decode; echo
+```
+
+Retrieve the kibana admin password:
+
+```
+kubectl get secret elastic-credentials -o jsonpath\
+="{.data.password}" -n $MONITORING_NAMESPACE | \
+base64 --decode; echo
+```
+
+Kibana can now be accessed at `https://${MONITORING_DOMAIN}/kibana/` from a web-browser using the admin user and admin password
+
+Clean-up Post Monitoring Installation
+
+Unset environment variables:
+
+```
+unset MONITORING_DOMAIN && \
+unset MONITORING_NAMESPACE
+```
+
+Clear bash history:
+
+This will clean up any secrets exported in the system.

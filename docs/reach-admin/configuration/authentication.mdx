@@ -1,0 +1,346 @@
+# Authentication with External Systems
+
+In addition to users of Virtalis Reach being able to upload files for importing via the Hub’s user interface, Virtalis Reach can also download files from external locations. Examples are PLM systems such as Windchill or TeamCenter, which can be extended to notify Virtalis Reach of data changes.
+
+Often these URLs are protected, meaning that in order for the download to succeed, the authentication scheme and credentials must be configured. This section explains how to do this.
+
+## Supported Authentication Modes
+
+### None
+
+The resource is not protected and can be downloaded without any additional authentication steps
+
+### Basic
+
+The resource is protected with basic authentication. For example, it will require a valid username and password, supplied by the site administrator
+
+### Bearer Token
+
+The resource is protected by a bearer token. For example, if the bearer token “MyBearerToken” is provided, the authorisation header sent with the request will read “Authorisation: Bearer MyBearerToken”.
+
+### CustomAuthHeader
+
+The resource is protected by a custom authorisation header. For example, if the header specified is “MyAuthHeader” and the token specified is “MyAuthToken”, the header sent with the request will read “MyAuthHeader: MyAuthToken”. Contrast this with Bearer mode, where the standard Authorisation header would be used instead.
+
+### ServiceAccount
+
+The resource is protected by OAuth client credentials that are internal to Virtalis Reach. For example, using the reach-service account in your own instance of Keycloak to request an access token before presenting that token to the resource. This is used for downloading files from the internal ImportFolder service used when someone uses the Hub to upload a file.
+
+:::note
+This was previously called OAuth but has been renamed to better reflect its purpose and reduce ambiguity between this mode and the new OAuth2 mode described below.
+:::
+
+### OAuth2ClientCredentials
+
+Uses OAuth2’s client credentials flow to download the file. This is used when the resource is protected by client credentials that are held in an external OAuth2-compatible identity system. For example, you may have your own instance of Keycloak or Microsoft Identity Server where the client protecting the resource is defined.
+
+## Configuration
+
+### Translator Service
+
+The Translator Service and Job API perform the download operation and, in order to make a successful request, the host name must be configured in the UrlSourceCredentials section belonging to the services. This is a list of host names and credentials; there should be one entry for each host. An example section from the configuration is shown below:
+
+```json
+"UrlSourceCredentials": [
+  {
+    // A server that has no authentication, files can be downloaded 
+    "Hostname": "totallyinsecure.com",
+    "AuthType": "None"
+  },  
+  {
+    // The local Import Folder API used when the user imports a file via the Reach Hub
+    "Hostname": "virtalis.platform.importfolder.api",
+    "AuthType": "ServiceAccount"
+  },
+  {
+    // A server that is protected by BASIC authentication
+    "Hostname": "rootwindchill.virtalis.local",
+    "AuthType": "Basic",
+    "BasicConfig": {               
+       "Username": "someuser",
+       "Password": "somepassword"
+    }
+  },
+  {
+    "Hostname": "afilesource-ccf-file-export-function-app.azurewebsites.net",
+    "AuthType": "OAuth2ClientCredentials",    
+    "OAuth2ClientCredentialsConfig": {
+      "ClientId": "<clientId>",
+      "ClientSecret": "<secret>",
+      "AccessTokenEndpoint": "https://login.microsoftonline.com/<tenantId>/oauth2/v2.0/token",
+      "Scope": "api://<scope-value>/.default"
+    }
+  }
+]
+```
+
+## Job API
+
+After a file has been imported, the Job API attempts to make a call back to the system that provided it as a way of letting it know that the import was successful. For this reason, the Job API also has a UrlSourceCredentials section in its secrets file. In the example below, there are two systems that support the callback functionality, one for localhost which represents the built-in Virtalis Reach Hub callback (for when a user uploads a file through the Virtalis Reach user interface) and another for a provider in Microsoft Azure, which is protected by OAuth2 Client Credentials.
+
+```json
+"UrlSourceCredentials": [
+  {
+    // A server that has no authentication, files can be downloaded 
+    "Hostname": "totallyinsecure.com",
+    "AuthType": "None"
+  },  
+  {
+    // The local Import Folder API used when the user imports a file via the Reach Hub
+    "Hostname": "virtalis.platform.importfolder.api",
+    "AuthType": "ServiceAccount"
+  },
+  {
+    // A server that is protected by BASIC authentication
+    "Hostname": "rootwindchill.virtalis.local",
+    "AuthType": "Basic",
+    "BasicConfig": {               
+       "Username": "someuser",
+       "Password": "somepassword"
+    }
+  },
+  {
+    "Hostname": "afilesource-ccf-file-export-function-app.azurewebsites.net",
+    "AuthType": "OAuth2ClientCredentials",    
+    "OAuth2ClientCredentialsConfig": {
+      "ClientId": "<clientId>",
+      "ClientSecret": "<secret>",
+      "AccessTokenEndpoint": "https://login.microsoftonline.com/<tenantId>/oauth2/v2.0/token",
+      "Scope": "api://<scope-value>/.default"
+    }
+  }
+]
+```
+
+## Common Properties
+
+### Hostname
+
+When Virtalis Reach receives a message that includes a URL to download a file from, it will extract the hostname from it and then look for a matching section in TranslatorServiceSecrets. If no match is found, the message will be rejected. If a match is found, it will use the details in the matching section to configure the authentication required.
+
+### AuthType
+
+This is the authentication mode used by the external system.
+
+### Basic Mode Properties
+
+These should be set in a “BasicConfig” section alongside the “Hostname” and “AuthType” properties.
+
+Username
+The username required to access the resource.
+
+Password
+The password required to access the resource.
+
+Bearer Token Mode Properties
+These should be set in a “BearerTokenConfig” section alongside the “Hostname” and “AuthType” properties.
+
+BearerToken
+The bearer token required to access the resource.
+
+Custom Auth Header Mode Properties
+These should be set in a “CustomAuthHeaderConfig” section alongside the “Hostname” and “AuthType” properties.
+
+AuthHeader
+The custom auth header required to access the resource.
+
+AuthToken
+The header value to specify.
+
+### ServiceAccount Mode Properties
+
+There are no additional properties for this mode. Virtalis Reach is already configured internally with the correct credentials for requesting access tokens with the reach-service client.
+
+OAuth2ClientCredentials
+These should be set in a “OAuth2ClientCredentialsConfig” section alongside the “Hostname” and “AuthType” properties.
+
+ClientId
+This is the name of a client that exists in the external system’s identity server. In the example above, we have specified sunburn-client. A site administrator would be responsible for making sure this client exists.
+
+ClientSecret
+This is the client secret for the above client.
+
+AccessTokenEndpoint
+This is the endpoint Virtalis Reach needs to call when requesting an access token. A site administrator will need to provide this.
+
+If this is wrong, you will likely see an exception in the logs saying that an access token could not be retrieved, for example:
+
+Failed to obtain an access token. Check that the source credentials for the named resource (including ClientId, ClientSecret and Scope) are valid in the target identity system
+
+:::note
+This URL is also subject to the same checks for HTTP/HTTPS. If the URL is not over HTTPS you must explicitly allow insecure requests by setting AllowInsecureRequestUrls to true.
+:::
+
+Scope (Optional)
+If the resource requires a specific claim called ‘scope’ to be included in the request, you can specify it here. When Virtalis Reach requests the access token, it will also specify the scope and the resulting token will include it.
+
+AllowInsecureRequestUrls
+By default, Virtalis Reach does not allow files to be downloaded over HTTP because this is insecure. If a file source is configured with HTTP (via a mapping in the UrlSourceCredentials configuration section) or if a URL for a configured host comes into Virtalis Reach in a queue message and it specifies HTTP rather than HTTPS, an exception will be thrown and the request will not be made.
+
+It may be necessary to allow HTTP in some cases however, and this can be done by explicitly setting AllowInsecureRequestUrls to true in the configuration for that specific URL source. For example:
+
+```json
+  {
+    "Hostname": "virtalis.platform.importfolder.api",
+    "AuthType": "ServiceAccount",
+    "AllowInsecureRequestUrls": true
+  }
+```
+
+Mappings
+
+If an external system provides a download URL that cannot be accessed by Reach using the address provided, a Mapping section can be added to the URLSourceCredential section to change the following properties
+
+• Protocol (for example, http, https)
+
+• Hostname (for example, the hostname that Reach is able to access the source at)
+
+• Port (for example, the port number that Reach can access the source on)
+
+For example, a Windchill instance may see itself as having hostname windchill.test.local (and therefore generates a URL with that hostname). However, due to networking complications, Virtalis Reach may only be able to access the same instance via a different hostname such as windchill.testserver.local.
+
+```json
+  {
+    "Hostname": "windchill.test.local",
+    "AuthType": "Basic",
+    "AllowInsecureRequestUrls": false,
+    "Mapping": {
+      "Protocol": "https",
+      "Host": "windchill.testserver.local",
+      "Port": 1235
+    }		
+  }
+```
+
+In this situation, an incoming downloadURL containing the hostname windchill.test.local will have the changes from the Mapping section applied to it before attempting to download data from that server, for example, it will be rewritten to use `https://windchill.testserver.local:1235/<remainder-of-original-url>`.
+
+Managing External File Sources and File Source Certificates
+
+Introduction
+
+The Virtalis Reach data processing pipeline can support integrations with third-party software by downloading files from external services. This section is designed to help a systems administrator manage those connections as well as any certificates required to make those connections happen.
+
+Set Up the Deployment Shell
+Substitute and export the following variables:
+
+```
+export REACH_NAMESPACE=<name of kubernetes namespace Virtalis Reach is deployed in>
+```
+
+Navigate to the directory containing Reach installation files:
+
+```
+cd /home/root/Reach/k8s
+```
+
+Load previous configuration:
+
+```
+. ./load-install-config.sh
+```
+
+Adding or Removing External File Sources
+
+Check if the system has any external file sources already configured that can be appended to or deleted:
+
+```
+echo $IMPORT_TRANSLATOR_SOURCE_CREDENTIALS
+echo $JOB_API_SOURCE_CREDENTIALS
+```
+
+Example:
+
+Current configuration for the Job API:
+
+```json
+  {
+    "Hostname": "mynotauthenticatedserver.local",
+    "AuthType": "None",
+    "AllowInsecureRequestUrls": "false"
+  }
+```
+
+Adding an additional file source:
+
+```
+read -r -d '' JOB_API_SOURCE_CREDENTIALS <<'EOF'
+  {
+    "Hostname": "mynotauthenticatedserver.local",
+    "AuthType": "None",
+    "AllowInsecureRequestUrls": "false"
+  },
+  {
+    "Hostname": "windchill.local",
+    "AuthType": "Basic",
+    "BasicConfig": {
+      "Username": "windchilluser",
+      "Password": "windchill"
+    },
+    "Mapping": {
+      "Protocol": "http",
+      "Host": "windchill.local"
+    },
+    "AllowInsecureRequestUrls": "true"
+  }
+EOF
+export JOB_API_SOURCE_CREDENTIALS=$(echo -n ${JOB_API_SOURCE_CREDENTIALS} | tr -d '\n')
+```
+
+Removing all sources from the Job API:
+
+```
+unset JOB_API_SOURCE_CREDENTIALS
+```
+
+Removing all sources from the import-translator
+
+```
+unset IMPORT_TRANSLATOR_SOURCE_CREDENTIALS
+```
+
+Adding or Removing File Source Certificates
+
+Check if the system has any external file sources already configured that can be appended to or deleted:
+
+Example:
+
+Current configuration for the import-translator:
+
+```json
+[
+  {"secretName": "example-cert-secret", "key": "example.crt"}
+]
+```
+
+Adding an additional file source:
+
+```
+read -r -d '' IMPORT_TRANSLATOR_CERTIFICATES <<'EOF'
+[
+  {"secretName": "example-cert-secret", "key": "example.crt"},
+  {"secretName": "example-cert-secret2", "key": "example2.crt"}
+]
+EOF
+export IMPORT_TRANSLATOR_CERTIFICATES=${IMPORT_TRANSLATOR_CERTIFICATES}
+```
+
+Removing all certificates from the import-translator:
+
+```
+unset IMPORT_TRANSLATOR_CERTIFICATES
+```
+
+Removing all certificates from the Job API:
+
+```
+unset JOB_API_SOURCE_CERTIFICATES
+```
+
+Applying Changes
+
+Run the scripts:
+
+```
+./create-secrets.sh
+./install-reach.sh
+```

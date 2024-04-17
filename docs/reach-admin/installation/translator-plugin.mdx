@@ -1,0 +1,60 @@
+# Install the Translator Plugins
+
+Virtalis Reach supports numerous translator plugins which enable the end-user to import more file formats. This section describes how to install translator plugins into a live Virtalis Reach system.
+
+## Installation
+
+Export the following:
+
+```
+export REACH_NAMESPACE=reach
+```
+
+Extract the plugin on to a machine with access to the Kubernetes cluster Virtalis Reach is running on.
+
+Example: Installing a OpenJT Reader plugin, the OpenJTReader folder will contain .dll files and libraries:
+
+```
+root@reach-azure-develop:~/TranslatorPlugins# ls -latr
+total 12
+drwx------ 18 root   root   4096 Aug 17 14:11 ..
+drwxr-xr-x  2 ubuntu ubuntu 4096 Aug 17 14:11 OpenJTReader
+drwxr-xr-x  3 ubuntu ubuntu 4096 Aug 17 14:27 .
+```
+
+Get the full name of a running translator pod:
+
+```
+export TRANSLATOR_POD_NAME=$(kubectl get pod \
+-l app=import-translator -n $REACH_NAMESPACE \
+-o jsonpath="{.items[0].metadata.name}")
+```
+
+
+Copy the folder containing the plugins onto the persistent plugins folder on the translator pod, this might take a while depending on your connection and the size of the plugin folder
+
+kubectl cp format when pushing a file is `<source> <namespace>/<pod-name>:<pod-destination-path>`
+
+```
+kubectl cp PLMXMLReader/ \
+$REACH_NAMESPACE/$TRANSLATOR_POD_NAME:/app/Translators/
+```
+
+After the transfer is complete, restart the translator pod:
+
+```
+kubectl delete pods -n reach -l app=import-translator
+```
+
+Check the logs to verify that the plugin has been loaded:
+
+```
+kubectl logs -l app=import-translator -n reach
+```
+
+You should see a log message containing the name of the plugin:
+
+```
+[14:41:56 develop@5739eea INF] Adding translator OpenJTReader for extension .jt.
+```
+‍
