@@ -247,7 +247,7 @@ description: 2020.3 to 2024.1
 - Ports for API and web app docker images have been changed to 8080 for everything to be more consistent
 - Centralise version numbers
 - add vrtree migration step to the import of vrnative files, which now takes care of both the new uuid generation and the uuid links output
-- The `{id}` versions GET endpoint for the project api now returns a list of revisions with more detail
+- The \{id\} versions GET endpoint for the project api now returns a list of revisions with more detail
 - Treats the rules in the advanced editor as Json rather than a string (no escape characters required any more)
 - Modifies the internal Scratch Management API so its POST endpoint now starts a background job, callers now use a new GET endpoint to get the status
 - Silences spammy db query logging for APIs
@@ -325,7 +325,7 @@ description: 2020.3 to 2024.1
 - PipelineSchedulerService - Renamed service from Artifact Task Generator to Pipeline Scheduler Service
 - PipelineSchedulerService - Runs a Job every hour to check if any Projects are set to be run on that hour, if so generates a message for the Pipeline Runner Service
 - PipelineSchedulerService - Creates a job using the Job Api when scheduling a new run of a Project pipeline
-- ArtifactAccessApi - For an empty artifact list, the api will now return an empty list `[]` instead of a `404` error
+- ArtifactAccessApi - For an empty artifact list, the api will now return an empty list \[\] instead of a 404 error
 - ProjectManagementApi - ProjectManagementApiConfiguration updated to have: JobApiAddress, QueueAddress, QueueVHost, QueueName, QueueTimeout
 
 #### Fixed

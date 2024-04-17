@@ -1,9 +1,24 @@
 ---
 sidebar_position: 6
-description: 1.0.1 to 2024.1
+description: 1.0.1 to 2024.1.1
 ---
 
 # Visionary Render
+
+## 2024.1.1
+
+*Released 2024-04-01*
+
+#### Changed
+
+- Improve reporting of errors from Virtalis Hub uploads and downloads
+
+#### Fixed
+
+- Issues with uploading and downloading large Virtalis Hub scenes due to excessive numbers of simultaneous connections
+- Avoid using a Virtalis Hub server as the initial directory in the file browser as this could trigger unwanted login prompts
+
+---
 
 ## 2024.1
 
@@ -11,34 +26,34 @@ description: 1.0.1 to 2024.1
 
 #### Added
 
-- Adds the ability to upload your scenes to Virtalis Hub using the App Menu > Upload to Virtalis Hub... option
-- Adds support for new server types such as RTSP to Movie nodes
-- Adds an alternative connection mode for the HoloLens 2 that permits the headset to connect to the PC using a QR code
-- Adds the ability to download scenes from Virtalis Hub directly to Visionary Render
-- Adds support for the XR_FB_passthrough extension in OpenXR, which permits passthrough to be enabled when using the Quest Link in developer mode. Also adds adjustable background opacity in AR
+- Upload your scenes to Virtalis Hub using the App Menu > Upload to Virtalis Hub option
+- Download scenes from Virtalis Hub directly to Visionary Render
+- Support for new server types such as RTSP to Movie nodes
+- Alternative connection mode for the HoloLens 2 that permits the headset to connect to the PC using a QR code
+- Support for the XR_FB_passthrough extension in OpenXR, which permits passthrough to be enabled when using the Quest Link in developer mode. Also adds adjustable background opacity in AR
 
 #### Changed
 
-- Improves save speed for scenes with a very large number of models in a library
-- Improves the speed of rendering particle systems in stereo
+- Improve save speed for scenes with a very large number of models in a library
+- Improve the speed of rendering particle systems in stereo
 
 #### Fixed
 
-- Stops executing new custom action frames by default when sequences are looped. Note that you should use property tracks instead if possible
-- Fixes issue where the whole scene could disappear when changing World Scale via the controllers in a headset
-- Fixes issues with occlusion culling that could lead to flickering geometry
-- Fixes issue where scene GUIs could have rendering artifacts after loading
-- Fixes a crash that could occur when toggling the Edit Pivot mode button
-- Fixes issue with the message `OpenXR lists 0 API layers` being repeated in the log
-- Fixes issue with the file browser not being able to follow shortcuts
-- Fixes issue with UI settings and window positions not being restored after restarting Visionary Render
-- Makes measuring points visible in the Scenes tree view and fixes issue with the parent object being selected when clicking on a measuring point in the 3D scene
+- Crash when toggling the Edit Pivot mode button
+- Crash when rendering the first frame of a complex scene
+- UI settings and window positions aren't restored after restarting Visionary Render
+- Stop executing new custom action frames by default when sequences are looped. Note: property tracks are more stable and should be used instead if possible
+- Whole scene could disappear when changing World Scale via the controllers in a headset
+- Occlusion culling issues that could lead to flickering geometry
+- Scene GUIs could have rendering artifacts after loading
+- The message 'OpenXR lists 0 API layers' is repeated in the log
+- File browser cannot follow shortcuts
+- Parent object is selected when clicking on a measuring point in the 3D scene. Measuring points are now visible in the Scenes tree
 - Permits the track and target name columns in the sequencer to be resized by clicking and dragging at the right of their headers
-- Fixes a crash that could occur when rendering the first frame of a complex scene
-- Fixes issue where the HoloLens settings button didn't always show the correct tab in the settings window
-- Fixes issue where occlusion culling failed to cull occluded objects that are visible in only one eye when rendering in stereo
-- Fixes issue with the auto-hide mouse setting not working when hovering over scene GUIs
-- Fixes issue with the tracking configuration buttons being incorrectly greyed out at startup
+- HoloLens settings button didn't always show the correct tab in the Settings window
+- Occlusion culling failed to cull occluded objects that are visible in only one eye when rendering in stereo
+- Auto-hide mouse setting doesn't work when hovering over scene GUIs
+- Tracking configuration buttons are incorrectly greyed out at startup
 
 ---
 
@@ -721,7 +736,7 @@ New version number convention: Year.Release
 
 #### Removed
 
-- Removes Enabled property from all nodes under the toolbox. Tools can still be enabled and disabled by using the settings found under `Tools/State/<name of tool>`
+- Removes Enabled property from all nodes under the toolbox. Tools can still be enabled and disabled by using the settings found under Tools/State/\<name of tool\>
 - Iray auto exposure removed from ray tracer frame and bugs fixed in main viewports
 
 #### Fixed
@@ -746,7 +761,7 @@ New version number convention: Year.Release
 - Fixes an issue that caused some tools to be disabled under certain circumstances when leaving the Start Room with a custom view config active
 - Fixes a bug where enabling altitude lock didn't function
 - Fixes an issue where collaborating users would be in the wrong location when returning to the start room
-- Fixes exception that could occur when starting a cluster without the `VisionaryRender` folder in your Documents directory
+- Fixes exception that could occur when starting a cluster without the VisionaryRender folder in your Documents directory
 - Fixes issue with cluster nodes potentially having different clip plane ranges
 - Fixes issue with fullscreen mode not respecting Windows DPI scaling, which could result in the application not filling the whole screen
 - Fixes crash that could occur in the file browser when generating previews for certain image file formats
@@ -766,8 +781,8 @@ New version number convention: Year.Release
 - Adds additional Gallery assets for constructing user interfaces in the 3D scene
 - Adds the ability to specify custom preview images for gallery items, either from a file, or by capturing the current scene view
 - Adds support for both command line and GUI methods for enabling networking
-- Adds support for texture matrices in IRay rendering
-- Adds support for emissive textures in IRay rendering
+- Adds support for texture matrices in Iray rendering
+- Adds support for emissive textures in Iray rendering
 - Adds new Point cloud importer with full graphical user interface
 - Adds support to the file browser for some standard keyboard bindings: Ctrl+Shift+N to create a new directory, Alt+Left to go back in history, Alt+Right to go forward in history
 - Adds additional log messages around view configuration and tracker configuration file loading
@@ -833,8 +848,8 @@ New version number convention: Year.Release
 - Fixes issues with the start room when using collaboration
 - Fixes issues relating to selecting models which previously had a scale of 0
 - Fixes application freeze that could occur when setting the procedural sky probe resolution to its maximum
-- Fixes crashes relating to IRay views and materials
-- Fixes issues relating to IRay licensing
+- Fixes crashes relating to Iray views and materials
+- Fixes issues relating to Iray licensing
 - Fixes presentation of shadow cast properties
 - Fixes issue preventing Iray manual exposure mode from working
 - Fixes a crash that could occur when loading a scene containing light probes
@@ -933,8 +948,10 @@ New version number convention: Year.Release
 - Fixes a crash when trying to render a nonexistent page using the Word document renderer
 - Fixes an unnecessary ‘ViewConfig Modified’ prompt when using the world scale controls with the Oculus Rift
 - Fixes a bug which caused the metadata for auto-generated scripts to be lost if they were modified
-- Fixes fly-to so that it does not include the bounds of disabled objects  #13589 - Fix the Iray degrain settings so that options that are not relevant to the current filter mode are not displayed
-- Fixes issues with scroll-to-zoom on the mouse navigator forcing the character controller through walls  #13868 - Fixes undo when undoing the addition of Iray MDL materials
+- Fixes fly-to so that it does not include the bounds of disabled objects
+- Fixes the Iray degrain settings so that options that are not relevant to the current filter mode are not displayed
+- Fixes issues with scroll-to-zoom on the mouse navigator forcing the character controller through walls
+- Fixes undo when undoing the addition of Iray MDL materials
 - Fixes tooltips for superquadric shapes on the create menu
 - Fixes issue with default window layout causing the data window to always appear on top of the main toolbar
 - Fixes missing default UVs on some super-quadric geometric shapes
@@ -989,11 +1006,11 @@ New version number convention: Year.Release
 - Fixes immersive gui tooltips to make them visible correctly when the mirror is enabled in the start room
 - Fixes incorrect SRGB conversion when saving Iray renders out of the raytracer frame
 - Fixes a crash that could occur in some scenes when loading a scene with the Oculus Rift enabled
-- Fixes crash that could occur when enable IRay interactive mode
+- Fixes crash that could occur when enable Iray interactive mode
 - Fixes intrusive dialog when enabling SteamVR
 - Fixes unexpected application exit due to OpenVR
 - Fixes pivot creating invalid matrices
-- Fixes issues relating to IRay matrices
+- Fixes issues relating to Iray matrices
 - Fixes crash that could occur when dropping content from the Gallery
 
 ---
@@ -1178,7 +1195,7 @@ New version number convention: Year.Release
 
 #### Added
 
-- Adds `MasterScene` option to SceneLink properties so it can be configured to render the entire scene
+- Adds MasterScene option to SceneLink properties so it can be configured to render the entire scene
 
 #### Fixed
 
@@ -1236,10 +1253,6 @@ New version number convention: Year.Release
 #### Added
 
 - Adds support for HTC Vive Puck devices
-
-#### Removed
-
-- Rolls back fix #9841 due to side-effects seen in 1.3.3
 
 #### Fixed
 
@@ -1560,7 +1573,7 @@ New version number convention: Year.Release
 - Fixes an issue where the application installer would uninstall a previous version before confirmation of the new installation was provided
 - Fixes issue where the tracked mouse control tool did not function correctly in multi-sided cluster environments
 - Fixes issue where tracked manipulation of objects constraint with the 'Parent' constraint mode would cause the objects to fly off unexpectedly
-- Fixes issue with recipe files not being found when using the `-documentDir` parameter when launching Visionary Render
+- Fixes issue with recipe files not being found when using the -documentDir parameter when launching Visionary Render
 - Fixes issues with side by side installations not formatting shortcut arguments correctly
 
 ---

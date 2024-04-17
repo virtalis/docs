@@ -78,11 +78,11 @@ const config = {
           position: 'left',
           label: 'Manuals',
           items: [
-            {
-              type: 'docSidebar',
-              sidebarId: 'geoVisionarySidebar',
-              label: 'GeoVisionary',
-            },
+            // {
+            //   type: 'docSidebar',
+            //   sidebarId: 'geoVisionarySidebar',
+            //   label: 'GeoVisionary',
+            // },
             {
               type: 'docSidebar',
               sidebarId: 'importersSidebar',
@@ -142,7 +142,7 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
-        additionalLanguages: ['c', 'cmake', 'glsl', 'lua'],
+        additionalLanguages: ['c', 'cmake', 'glsl', 'lua', 'json'],
       },
     }),
 };
