@@ -1,9 +1,45 @@
 ---
 sidebar_position: 6
-description: 1.0.1 to 2024.1.1
+description: 1.0.1 to 2024.2
 ---
 
 # Visionary Render
+
+## 2024.2
+
+*Released 2024-07-08*
+
+#### Added
+
+- Button to the Networking window to disable networking after it has been enabled
+- Ability to capture unsaved properties such as the position of a sequence in snapshots
+- Option to RenderToTexture nodes to specify whether the background should be transparent
+
+#### Changed
+
+- Remove lag when using TransformLinks in collaboration
+- Replace texture format options in RenderToTexture nodes with separate HDR and Tone Map options
+- Text encoding to UTF-8 to improve support for different languages and for compatibility with Virtalis Hub
+- OpenXR reference space from "local" to "stage" so that floor level is respected when using the navigation tools
+
+#### Removed
+
+- Split Meshes option from Optimise geometry operator as it's no longer useful on modern GPUs
+
+#### Fixed
+
+- TransformLinks stop working when their creator leaves a collaboration
+- Errors when avatars are loaded in collaboration, including a crash when another user is using an Oculus/Meta Quest avatar
+- Duplicate options from the link picker control's "new" menu that created nodes of an incorrect version
+- Prevent vrSettingCreate... Lua functions from being able to create unnamed settings
+- Disallow creation of pivots on assemblies with locked constraints as this previously generated an error
+- Crash when a closed spline in "tube" mode has exactly one knot
+- Crash that could occur when using the Autogenerate UVs context menu option or toggling the "Needs Texture Coordinates" or "Needs Tangents" options on a Mesh node
+- Crash when enabling OpenXR mode with the Collision/Debug Draw setting enabled
+- Errors when loading the fullbody female and zSpace avatars
+- Crash when loading a scene containing scripts made in an older version of Visionary Render
+
+---
 
 ## 2024.1.1
 
@@ -63,7 +99,7 @@ description: 1.0.1 to 2024.1.1
 
 #### Added
 
-- Adds support for QR code tracking to the HoloLens 2 to permit scenes and objects to be aligned to real-world locations
+- Support for QR code tracking to the HoloLens 2 to permit scenes and objects to be aligned to real-world locations
 - Adds Tracking/AR/ShowEnvironment setting to control passthrough on AR headsets
 
 #### Changed
