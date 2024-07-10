@@ -52,6 +52,7 @@ Core functions and types that can be used by Lua scripts and plugins.
 | void | **[vrCursorGetTouchedVisual](#vrcursorgettouchedvisual)**()<br />Gets the first visual currently under the mouse cursor.  |
 | void | **[vrCursorIgnoreNode](#vrcursorignorenode)**([vrnode](../classes/vrnode.mdx) node, boolean ignore)<br />Makes the specified node unpickable with the cursor.  |
 | string | **[vrDataFile](#vrdatafile)**(string path)<br />Gets the specified file path from the Visionary Render application data directory, or an empty string if it does not exist.  |
+| void | **[vrDisableNetwork](#vrdisablenetwork)**()<br />Disables networking capabilities.  |
 | void | **[vrEnableNetwork](#vrenablenetwork)**()<br />Enables networking capabilities.  |
 | void | **[vrEnableNodeWhenConfigModeAvailable](#vrenablenodewhenconfigmodeavailable)**([vrnode](../classes/vrnode.mdx) node, number mode =CM_MODE_COUNT)<br />Makes a button available when the specified mode is avaliable.  |
 | void | **[vrEnableNodeWhenOculusAvailable](#vrenablenodewhenoculusavailable)**([vrnode](../classes/vrnode.mdx) node)<br />Makes a button available when an Oculus Rift is connected. Note: this function is for the legacy Oculus mode without Touch controllers.  |
@@ -712,6 +713,14 @@ Gets the specified file path from the Visionary Render application data director
   * **path** Path to the data file relative to the application data directory 
 
 **Return**: Absolute path to the specified data file 
+
+### vrDisableNetwork
+
+```lua
+void vrDisableNetwork()
+```
+
+Disables networking capabilities. 
 
 ### vrEnableNetwork
 

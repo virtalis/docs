@@ -8,13 +8,15 @@ Visionary Render can render the scene to a texture to create special effects lik
 
 ![](/img/visren/3d-view/special-effects/properties.png)
 
-| Property       | Description                                                                                                               |
-|----------------|---------------------------------------------------------------------------------------------------------------------------|
-| Enabled        | When enabled, the texture will be updated.                                                                                |
-| Texture Size   | The size of the texture in pixels.                                                                                        |
-| Texture Format | The format of the texture – RGBA, luminance, etc.                                                                         |
-| Stereo         | Controls whether the texture is updated separately for the left and right eyes or only once per frame.                    |
-| Mipmap Enabled | Controls whether mipmaps are generated each time the texture is updated. This can have a performance impact when enabled. |
+| Property | Description |
+|---|---|
+| Enabled | When enabled, the texture will be updated by the renderer. *[default: true]* | 
+| Texture Size | The size of the texture in pixels. *[default: 1024 x 1024]* |
+| Stereo | Controls whether the texture is updated separately for the left and right eyes or only once per frame. *[default: true]* |
+| Mipmap Enabled | Controls whether mipmaps are generated each time the texture is updated, to reduce visual artifacts when the texture is viewed at a distance. This can have a performance impact when enabled. *[default: false]* |
+| Transparent Background | Makes the texture transparent where only the scene background or sky would be rendered. *[default: false]* |
+| HDR | Uses a high dynamic range texture format to avoid clamping of brighter areas of the image; this is recommended when simulating a mirror but not a camera. *[default: true]* |
+| ToneMap | Controls whether exposure adjustment, tone mapping and other effects from the High Dynamic Range settings are applied to the rendered image. *[default: false]* |
 
 ### Example
 

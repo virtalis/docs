@@ -28,8 +28,8 @@ Functions for interacting with the script editor.
 | void | **[vrScriptEditorSelectWord](#vrscripteditorselectword)**()<br />Selects the word surrounding the current insertion point in the currently visible script editor tab.  |
 | void | **[vrScriptEditorSetCurrentLine](#vrscripteditorsetcurrentline)**(number lineNo)<br />Set the cursor at the start of the specified line in the currently visible script editor tab.  |
 | void | **[vrScriptEditorSetInsertAtMousePos](#vrscripteditorsetinsertatmousepos)**()<br />Places the text insert cursor in the currently visible script editor tab underneath the mouse cursor.  |
-| void | **[vrScriptEditorSetInsertPos](#vrscripteditorsetinsertpos)**(number pos, string relTo)<br />Sets the text insert cursor position in the currently visible script editor tab.  |
-| void | **[vrScriptEditorSetMarkPos](#vrscripteditorsetmarkpos)**(number pos, string relTo)<br />Sets the text mark cursor position in the currently visible script editor tab. This is for highlighting text.  |
+| void | **[vrScriptEditorSetInsertPos](#vrscripteditorsetinsertpos)**(number pos)<br />Sets the text insert cursor position in the currently visible script editor tab.  |
+| void | **[vrScriptEditorSetMarkPos](#vrscripteditorsetmarkpos)**(number pos)<br />Sets the text mark cursor position in the currently visible script editor tab. This is for highlighting text.  |
 
 ## Functions Documentation
 
@@ -201,8 +201,7 @@ Places the text insert cursor in the currently visible script editor tab underne
 
 ```lua
 void vrScriptEditorSetInsertPos(
-    number pos,
-    string relTo
+    number pos
 )
 ```
 
@@ -211,14 +210,12 @@ Sets the text insert cursor position in the currently visible script editor tab.
 **Parameters**: 
 
   * **pos** Character position in the text 
-  * **relTo** Specifies where the position is relative to; either 'current', 'start' or 'end' 
 
 ### vrScriptEditorSetMarkPos
 
 ```lua
 void vrScriptEditorSetMarkPos(
-    number pos,
-    string relTo
+    number pos
 )
 ```
 
@@ -227,4 +224,3 @@ Sets the text mark cursor position in the currently visible script editor tab. T
 **Parameters**: 
 
   * **pos** Character position in the text 
-  * **relTo** Specifies where the position is relative to; either 'current', 'start' or 'end' 
