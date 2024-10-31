@@ -59,7 +59,7 @@ Core functions and types that can be used by Lua scripts and plugins.
 | void | **[vrEnableNodeWhenOculusTouchAvailable](#vrenablenodewhenoculustouchavailable)**([vrnode](../classes/vrnode.mdx) node)<br />Makes a button available when an Oculus Touch is connected.  |
 | void | **[vrEnableNodeWhenOpenVRAvailable](#vrenablenodewhenopenvravailable)**([vrnode](../classes/vrnode.mdx) node)<br />Makes a button available when an OpenVR HMD is connected.  |
 | void | **[vrEnableNodeWhenZSpaceAvailable](#vrenablenodewhenzspaceavailable)**([vrnode](../classes/vrnode.mdx) node)<br />Makes a button available when a zSpace device is detected.  |
-| void | **[vrExtractBinaryAssets](#vrextractbinaryassets)**([vrnode](../classes/vrnode.mdx) fromNode, string path, boolean overwrite =true)<br />Extracts binary data from texture or audio nodes.  |
+| void | **[vrExtractBinaryAssets](#vrextractbinaryassets)**([vrnode](../classes/vrnode.mdx) fromNode, string path, boolean overwrite =true, ...)<br />Extracts binary data from Texture or AudioBuffer nodes.  |
 | boolean | **[vrFileExists](#vrfileexists)**(string path)<br />Returns true if the specified file exists.  |
 | void | **[vrFindAndOptimizeModels](#vrfindandoptimizemodels)**([vrnode](../classes/vrnode.mdx) node)<br />Finds and optimises model nodes.  |
 | boolean | **[vrFolderExists](#vrfolderexists)**(string path)<br />Returns true if the specified folder exists.  |
@@ -98,6 +98,7 @@ Core functions and types that can be used by Lua scripts and plugins.
 | void | **[vrGroupRemoveMember](#vrgroupremovemember)**([vrnode](../classes/vrnode.mdx) groupNode, [vrnode](../classes/vrnode.mdx) memberNode)<br />Removes a node from the specified group.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrGroupSnapshot](#vrgroupsnapshot)**([vrnode](../classes/vrnode.mdx) groupNode)<br />Creates a snapshot of the specified group.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrGroupsRoot](#vrgroupsroot)**(boolean noCreate =false)<br />Gets the Groups root node under the Scenes tree.  |
+| void | **[vrHasLicenceFeature](#vrhaslicencefeature)**(string featureName)<br />Checks whether a licence feature is available.  |
 | boolean | **[vrHasPermission](#vrhaspermission)**(string permission, [vrnode](../classes/vrnode.mdx) originatorNode =nil)<br />Queries whether or not we have a named permission.  |
 | void | **[vrHistoryAddMark](#vrhistoryaddmark)**()<br />Adds an undo point in to the History.  |
 | void | **[vrHistoryClear](#vrhistoryclear)**()<br />Erases the undo history.  |
@@ -808,17 +809,19 @@ Makes a button available when a zSpace device is detected.
 void vrExtractBinaryAssets(
     vrnode fromNode,
     string path,
-    boolean overwrite =true
+    boolean overwrite =true, 
+    ...
 )
 ```
 
-Extracts binary data from texture or audio nodes. 
+Extracts binary data from Texture or AudioBuffer nodes.
 
 **Parameters**: 
 
-  * **fromNode** The node to extract from 
+  * **fromNode** The node to extract from - maybe be a single node or a library to search
   * **path** Directory or file to save data to 
   * **overwrite** Whether to overwrite existing files on disk 
+  * **...** Types to search for ('Texture' or 'AudioBuffer'); only required if fromNode is a different type
 
 ### vrFileExists
 
@@ -1327,6 +1330,21 @@ Gets the Groups root node under the Scenes tree.
 **Parameters**: 
 
   * **noCreate** When true, the root node will not be created if it does not exist 
+
+### vrHasLicenceFeature
+
+```lua
+void vrHasLicenceFeature(
+    string featureName
+)
+```
+
+
+Checks whether a licence feature is available.
+
+**Parameters**: 
+
+  * **featureName** The name of the licence feature
 
 ### vrHasPermission
 
