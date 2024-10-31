@@ -85,13 +85,13 @@ const config = {
             // },
             {
               type: 'docSidebar',
-              sidebarId: 'importersSidebar',
-              label: 'Importers',
+              sidebarId: 'exportersSidebar',
+              label: 'Exporters',
             },
             {
               type: 'docSidebar',
-              sidebarId: 'maxExporterSidebar',
-              label: 'Max Exporter',
+              sidebarId: 'importersSidebar',
+              label: 'Importers',
             },
             {
               type: 'docSidebar',
