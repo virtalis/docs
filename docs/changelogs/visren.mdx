@@ -1,9 +1,47 @@
 ---
 sidebar_position: 6
-description: 1.0.1 to 2024.2
+description: 1.0.1 to 2024.3
 ---
 
 # Visionary Render
+
+## 2024.3
+
+*Released 2024-10-25*
+
+#### Added
+
+- Avatar name labels for easier identification of users in collaboration
+- Support for loading image files in WebP, JPEG 2000 (JP2), JNG, JPEG XR (JXR), PBM, PGM, PPM and PFM formats
+- Enable use of OpenXR mode with SteamVR's OpenXR runtime
+- Navigation between text boxes in the 3D GUI using the Tab key
+- Settings to control the visibility mask (when present) and mirror view in HMD tracking modes
+- An indication of the licence type currently in use to the title bar of the main Visionary Render window
+- An option to GUI nodes to control whether the GUIs are visible from the back
+- A width option to Font nodes, allowing use of condensed/expanded fonts that stopped appearing as separate typefaces in version 2024.2
+- Colour properties to textured GUI styles
+
+#### Changed
+
+- Improve the behaviour of the Character Controller when tracked and sets the rotation centre to the position of the tracked user
+- Improve smoothness of navigation in collaboration when using a display or HMD with a high refresh rate
+
+#### Fixed
+
+- Inconsistent behaviour of the "look at" constraint when the constrained object has a pivot
+- Incorrect ambient occlusion in the right eye when using single GPU stereo optimisation and the forward renderer
+- Stops the "look at" constraint from resetting the constrained object's scale
+- An issue where the file browser would become unresponsive after cancelling a prompt to overwrite a file
+- A crash after merging scenes
+- A crash when applying materials with bump/normal maps
+- A crash when using the Explode geometry operator
+- An issue where viewpoints would be lost from the SavedUserPositions node when loading an old file
+- Corrects the floor level when using the Character Controller with an HMD
+- Corruption of geometry when a mesh is modified by a Lua script
+- Missing Stereo Optimisation option when using GPUs that support dual GPU mode but not single GPU mode
+- The default value of the Tracking/Config/Origin option used by SteamVR mode, which was incorrectly set to "Manual" instead of "Roomscale"
+
+---
 
 ## 2024.2
 
