@@ -8,7 +8,7 @@ In the case of question dialogs, which require a response from the user before c
 
 Simple fire-and-forget message boxes are used to display information to the user.
 
-![](/img/visren-dev/message-dialog.png)
+![](/img/visren-prog/message-dialog.png)
 
 When a plugin is loaded, it is given a [pointer to a message box function](../../reference/c-api/modules/plugins/interface.mdx#typedef-vrpusermessageproc), which should be stored by the plugin and called when it wants to display a message.
 
@@ -30,7 +30,7 @@ void showMyMessageBox(const char* msg)
 
 Question boxes are used to get a yes/no answer from the user.
 
-![](/img/visren-dev/question-dialog.png)
+![](/img/visren-prog/question-dialog.png)
 
 When a plugin is loaded, it is given a [pointer to a question box function](../../reference/c-api/modules/plugins/interface.mdx#typedef-vrpuserquestionproc) and a [pointer to a response callback registration function](../../reference/c-api/modules/plugins/interface.mdx#typedef-vrpuserquestioncallbackregisterproc). The plugin is expected to store these, and to use the callback registration function prior to presenting the question in order to register a callback function which is called with the user's answer.
 

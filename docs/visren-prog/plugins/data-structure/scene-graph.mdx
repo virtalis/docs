@@ -20,7 +20,7 @@ Materials and Textures are usually standalone, single nodes.
 
 A texture alone does not do much - it should be referenced by a material node, in one of the material's map properties.
 
-![](/img/visren-dev/material-texture-ref.png)
+![](/img/visren-prog/material-texture-ref.png)
 
 ### Models 
 
@@ -30,7 +30,7 @@ A model node is mostly just a container which does nothing on its own. It can co
 
 A GeoGroup can reference a Material, which is applied to all of its meshes. When a Model or LOD contains multiple GeoGroups, each GeoGroup may reference a different material.
 
-![](/img/visren-dev/model-structure.png)
+![](/img/visren-prog/model-structure.png)
 
 ## Instances
 
@@ -40,4 +40,4 @@ In the Scenes tree view, Visual nodes are hidden, instead affecting the tree ico
 
 A Visual should reference the Model it wishes to use, and it will be rendered at the location specified by the Assembly transform, combined with any parent assembly transforms. A Visual can also reference a Material, which overrides the material selection of all GeoGroup nodes in the Model, unless they are set to **Lock Material**.
 
-![](/img/visren-dev/visual-model-ref.png)
+![](/img/visren-prog/visual-model-ref.png)

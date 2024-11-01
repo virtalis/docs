@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 6
 description: 1.1 to 2024.3
 ---
 
@@ -593,7 +593,7 @@ vrSetToolEnabled("MouseNavigatorTool", false)
 #### Changed
 
 - The internal Lua engine has changed from Lua 5.1 to LuaJIT 2.0.5. This is fully compatible with all existing Lua 5.1 code and plugins, and also supports some extensions from Lua 5.2. You can read more about LuaJIT and its extensions and performance benefits at http://luajit.org/luajit.html
-- Adds an improved API for node observer in Lua. Updates the function signatures of `vrAddNodeObserver` and `vrAddMetaNodeObserver`. The old versions have been deprecated. See [Observers](../visren-dev/scripts/metanodes/observers.mdx) for more information
+- Adds an improved API for node observer in Lua. Updates the function signatures of `vrAddNodeObserver` and `vrAddMetaNodeObserver`. The old versions have been deprecated. See [Observers](../visren-prog/scripts/metanodes/observers.mdx) for more information
 - VR API development licenses are now less restricting, and one development license for a machine will allow development and debugging of any number of plugins
 
 #### Fixed
@@ -613,7 +613,7 @@ vrSetToolEnabled("MouseNavigatorTool", false)
 
 #### Added
 
-- Adds the [VR Exchange API](../visren-dev/reference/c-api/modules/vrexchange.mdx)
+- Adds the [VR Exchange API](../visren-prog/reference/c-api/modules/vrexchange.mdx)
 - Adds some utilities to assist working with reference types in Lua (vectors, matrices, etc)
   - `vrCopy`
   - `vrGetOwnerNode`
@@ -791,7 +791,7 @@ The name of a script can be set using `vrSetScriptIdentifier`, otherwise the nam
 
 This can also be done using the Lua State tab in the Diagnostics window. The left panel displays the state of global variables, the right panel displays any sleeping scripts and provides an option to abort them.
 
-![](/img/visren-dev/diagnostics-window.png)
+![](/img/visren-prog/diagnostics-window.png)
 
 #### Lua Observers
 

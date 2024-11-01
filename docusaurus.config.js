@@ -95,13 +95,8 @@ const config = {
             },
             {
               type: 'docSidebar',
-              sidebarId: 'reachWebViewerSidebar',
-              label: 'Reach Web Viewer',
-            },
-            {
-              type: 'docSidebar',
-              sidebarId: 'virtalisHubSidebar',
-              label: 'Virtalis Hub',
+              sidebarId: 'hubViewerSidebar',
+              label: 'Virtalis Hub and Web Viewer',
             },
             {
               type: 'docSidebar',
@@ -117,13 +112,13 @@ const config = {
           items: [
             {
               type: 'docSidebar',
-              sidebarId: 'reachAdminSidebar',
-              label: 'Reach System Admin',
+              sidebarId: 'hubAdminSidebar',
+              label: 'Virtalis Hub System Admin',
             },
             {
               type: 'docSidebar',
-              sidebarId: 'visrenDevSidebar',
-              label: 'Visionary Render Developer',
+              sidebarId: 'visrenProgSidebar',
+              label: 'Visionary Render Programming',
             },
           ],
         },

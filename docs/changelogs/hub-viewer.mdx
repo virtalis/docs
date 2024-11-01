@@ -1,9 +1,9 @@
 ---
-sidebar_position: 5
+sidebar_position: 4
 description: 2020.3 to 2024.2
 ---
 
-# Virtalis Hub
+# Virtalis Hub and Web Viewer
 
 ## 2024.2
 
@@ -13,6 +13,13 @@ description: 2020.3 to 2024.2
 
 - GUI supports dark mode via the system-wide dark mode setting on your machine
 - Support for Xbox or gamepad controllers to navigate the GUI on devices such as a PC or Apple Vision Pro
+- Coloured name tags on avatars to facilitate collaboration
+- Lasers that can be toggled on and off in VR
+- Ability to import viewpoints and a tab next to the product tree for viewing them
+- Support for importing pivots
+- A help icon that shows navigation controls in a popup when clicked
+- New icons to the product tree to permit different node types to be easily identified
+- Texture colour approximation using average texture colour (full texture support will be added in future)
 
 #### Changed
 
@@ -20,6 +27,7 @@ description: 2020.3 to 2024.2
 - Improved AR touch controls on mobile devices with WebXR support
 - Optimised API data queries, which is particularly beneficial on slow or volatile networks
 - Optimised page loading and data filtering
+- Improved support for Apple devices (you can now view your scenes on an iPad or iPhone)
 
 ---
 
@@ -29,7 +37,13 @@ description: 2020.3 to 2024.2
 
 #### Added
 
-- Scenes can be uploaded to and downloaded from the Hub directly to Visionary Render
+- Scenes can be uploaded to and downloaded from Virtalis Hub directly to Visionary Render
+- Product tree in desktop mode
+- Show/hide assemblies in the product tree to focus on specific parts of your scenes
+- Double-click on assemblies in the product tree to view them in the scene
+- Live sessions page to make it easier to join collaborative sessions in HMDs
+- Avatars and controllers are displayed in the scene
+- Control the level of detail of your scene from the settings menu
 
 #### Changed
 
@@ -43,7 +57,18 @@ description: 2020.3 to 2024.2
 
 #### Added
 
-- Button to the navbar to access the beta web viewer
+- Button to the navbar to access the new beta web viewer
+- Basic occlusion culling to speed up rendering
+
+#### Changed
+
+- Improve rendering performance for complex datasets
+- Improve the artifact listing page
+- Improve the mesh optimiser
+
+#### Removed
+
+- Existing web viewer and its functionality as it wasn't scalable
 
 #### Fixed
 

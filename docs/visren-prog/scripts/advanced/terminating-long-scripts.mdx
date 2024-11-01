@@ -7,7 +7,7 @@ Script execution takes place in the main application loop. This means that a Lua
 
 Scripts that take more than 30 seconds to execute will be interrupted by the built-in panic timer. After the timer expires, a native dialog appears asking if you want to abort the script execution.
 
-![](/img/visren-dev/lua-panic.png)
+![](/img/visren-prog/lua-panic.png)
 
 Selecting `Yes` terminates the script with the error `Aborted due to timeout`. Selecting `No` allows it to run for a further 30 seconds before the panic happens again.
 
@@ -37,4 +37,4 @@ This script does not block the application, however it does leave a script runni
 
 The running script can be seen in the right hand panel. The left panel displays the current value of some built in and user global variables (see [Events](../getting-started/events.mdx))
 
-![](/img/visren-dev/diagnostics-window.png)
+![](/img/visren-prog/diagnostics-window.png)
