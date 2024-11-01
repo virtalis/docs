@@ -1,6 +1,6 @@
 ---
 sidebar_position: 2
-description: 2019.2 to 2024.2
+description: 2019.2 to 2024.3
 ---
 
 # GeoVisionary
@@ -8,6 +8,26 @@ description: 2019.2 to 2024.2
 :::note
 See the [Visionary Render Changelog](visren.mdx) for further changes that affect GeoVisionary.
 :::
+
+## 2024.3
+
+*Released 2024-10-25*
+
+#### Added
+
+- Avatar name labels for easier identification of users in collaboration
+- Support for loading image files in WebP, JPEG 2000 (JP2), JNG, JPEG XR (JXR), PBM, PGM, PPM and PFM formats
+- Enable use of OpenXR mode with SteamVR's OpenXR runtime
+- Settings to control the visibility mask (when present) and mirror view in HMD tracking modes
+
+#### Fixed
+
+- Improve smoothness of navigation in collaboration when using a display or HMD with a high refresh rate
+- An issue where the file browser would become unresponsive after cancelling a prompt to overwrite a file
+- An issue where viewpoints would be lost from the SavedUserPositions node when loading an old file
+- The default value of the Tracking/Config/Origin option used by SteamVR mode, which was incorrectly set to "Manual" instead of "Roomscale"
+
+---
 
 ## 2024.2
 
