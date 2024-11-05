@@ -27,6 +27,7 @@ You can change the number of recent files to display in **Settings** > **User In
 | New | Start a new, empty scene (`Ctrl` + `N`). |
 | Open | Show a file open dialog to specify a `VRNative` or `VRText` file to load. |
 | Import | Merge a file (`Ctrl` + `Shift` + `O`) or overlay into your scene or import a file with an installed importer (`Ctrl` + `I`). |
+| Export | Export your scene to a format supported by an installed exporter. |
 | Save | Save the current scene with its existing name and location (`Ctrl` + `S`). |
 | Save As | Save the current scene with a different name, location, or format (`Ctrl` + `Shift` + `S`).<ul><li>**Visionary Render Scene** (`VRNative`, `VRText`) – save the scene with a different name or location.</li><li>**Monolithic Scene** (`VRNative`) – save the scene as a single monolithic file.</li><li>**Finished Monolithic Scene** (`VRNative`) – save the scene as a finished monolithic file for presentations.</li><li>**System Document** (`VRNative`) – save the scene as a system document.</li><li>**Scene Overlay** (`VRNative`) – save an overlay of the scene that can be loaded over an existing scene. Use this if you don’t have a developer license to save only direct children of the Scenes tree plus any viewpoints, annotations, groups, settings, lights and dynamic sections. Note that you can save changes to additional node types using the [Automatic Change Recorder](../tools/miscellaneous.mdx#automatic-change-recorder).</li></ul> |
 | Upload To Virtalis Hub | Upload the current scene to Virtalis Hub to share it with other people in your organisation. |
@@ -67,3 +68,12 @@ Alternatively, **Save As** > **Monolithic Scene** will automatically disable the
 | ![](/img/visren/getting-started/toolbar/solid.png) | Render mode to use for geometry in the scene, either Solid or Wireframe. |
 | ![](/img/visren/getting-started/toolbar/tracking.png) | Enable or disable tracking (`F12`). This becomes a drop-down menu when the toolbar is narrow. It has 5 options: <ul><li>**Tracked Mouse Control** - Move the mouse with a tracked hand controller (`Ctrl` + `M`).</li><li>**Avatar Shadows** - Enable or disable avatar shadows.</li><li>**Level Camera** - Keep the camera level when tracking is enabled.</li><li>**Laser** - Show laser pointers on tracked controllers.</li><li>**AR Marker Tracking** - Track AR markers, if supported by the current tracking module.</li></ul> |
 | ![](/img/visren/getting-started/toolbar/immersion.png) | Set the desktop immersion mode to None (i.e. Desktop), OpenXR, Oculus Touch, SteamVR, zSpace, HoloLens or Custom. |
+
+## Licence
+
+The text at the top-right of the toolbar shows which licence mode Visionary Render is currently running in. This may be either:
+
+| Text | Description |
+|------|-------------|
+| RV   | Review Licence. This grants you permission to open scenes but not to directly edit and save your changes to them. |
+| DV   | Development Licence. This grants you full permission to edit scenes and save your changes to them. |
