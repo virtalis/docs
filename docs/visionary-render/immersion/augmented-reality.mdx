@@ -49,11 +49,11 @@ Finally, to set up the QR code:
 6. Attach the printed QR code to the object. Note that a HoloLens expects the QR code to be on a flat surface and may struggle to track a QR code on a curve.
 7. Enable AR marker tracking. When the QR code is detected by the headset, the object will be moved so that the virtual marker aligns with the real-world QR code.
 
-## HoloLens
+## HoloLens 2
 
 To view your scene in the HoloLens 2:
 
-1. Enable the HoloLens desktop immersion mode (see [HoloLens 2](#hololens-2)).
+1. Enable the HoloLens desktop immersion mode (see [HoloLens 2](desktop-immersion#hololens-2)).
 2. Enable AR marker tracking using the toolbar (in the Tracking group/rollout) or the Settings window (**Tracking** > **Augmented Reality** > **Marker Tracking**).
   ![](/img/visionary-render/immersion/ar/markers.png)
 3. Put the headset on and look at a physical QR code. Once recognised by the headset, you should see a blue square containing the content of the QR code overlaid on the physical QR code. If a matching ARMarker node is found in the Visionary Render scene, your camera will be automatically positioned so that the virtual marker aligns with the real-world marker. Note that this means it is not possible to move the camera using the navigator tools while AR marker tracking is in use. Also note that Visionary Render will avoid pitching or rolling the camera, keeping the world upright regardless of the rotation of the QR code.
@@ -143,7 +143,7 @@ The HoloLens supports passthrough, which permits you to view the real world arou
 | Marker Tracking | Enables tracking of AR markers such as QR codes, if supported by the current tracking mode and hardware. *[default: false]* |
 | Ownership Time | The number of seconds that a user keeps exclusive control of an object linked to an AR marker after the marker is detected by their headset. *[default: 5.0]* |
 
-### HoloLens
+### HoloLens 2
 
 There are some additional settings for the HoloLens tracking configuration mode.
 

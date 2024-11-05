@@ -53,8 +53,8 @@ Defines an interface for plugins to implement in order to be loadable by VRTree.
 
 | Type           | Name           |
 | -------------- | -------------- |
-| const int | **[PLUGIN_API_VERSION_MAJOR](#plugin-api-version-major)** <br />incremented if backward compatibility is broken  |
-| const int | **[PLUGIN_API_VERSION_MINOR](#plugin-api-version-minor)** <br />incremented if new exports are added  |
+| const int | **[PLUGIN_API_VERSION_MAJOR](#plugin_api_version_major)** <br />incremented if backward compatibility is broken  |
+| const int | **[PLUGIN_API_VERSION_MINOR](#plugin_api_version_minor)** <br />incremented if new exports are added  |
 
 ## Types Documentation
 
@@ -246,7 +246,7 @@ typedef int(VRTREE_APIENTRY * VRPGetAPIVersionProc) (void);
 
 Function prototype for the API version functions. 
 
-**Return**: Value of [PLUGIN_API_VERSION_MAJOR](#plugin-api-version-major) for `VRPGetAPIVersionMajor`, Value of [PLUGIN_API_VERSION_MINOR](#plugin-api-version-minor) for `VRPGetAPIVersionMinor`
+**Return**: Value of [PLUGIN_API_VERSION_MAJOR](#plugin_api_version_major) for `VRPGetAPIVersionMajor`, Value of [PLUGIN_API_VERSION_MINOR](#plugin_api_version_minor) for `VRPGetAPIVersionMinor`
 
 **Note**: `vrtree-linker` provides [VRPLUGIN_API_STDIMPL](../plugins/utilities.mdx#define-vrplugin-api-stdimpl) to implement these automatically 
 
