@@ -1,0 +1,40 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Terminating Long Scripts
+
+Script execution takes place in the main application loop. This means that a Lua script blocks the rest of the application until it has finished running.
+
+Scripts that take more than 30 seconds to execute will be interrupted by the built-in panic timer. After the timer expires, a native dialog appears asking if you want to abort the script execution.
+
+![](/img/visionary-render-programming/lua-panic.png)
+
+Selecting `Yes` terminates the script with the error `Aborted due to timeout`. Selecting `No` allows it to run for a further 30 seconds before the panic happens again.
+
+The solution to this is to make sure the script yields, using vrYield, periodically so the application can continue to update. 
+
+<Tabs>
+<TabItem value="console" label="Console">
+
+```lua
+local i = 0
+while i < 1 do
+  vrYield(0)
+end
+```
+
+</TabItem>
+<TabItem value="output" label="Output">
+
+```
+Running...
+```
+
+</TabItem>
+</Tabs>
+
+This script does not block the application, however it does leave a script running indefinitely because it never leaves the loop. To terminate troublesome scripts like this, use the `Lua State` controls in the `Diagnostics` window (`CTRL + D`).
+
+The running script can be seen in the right hand panel. The left panel displays the current value of some built in and user global variables (see [Events](../getting-started/events.mdx))
+
+![](/img/visionary-render-programming/diagnostics-window.png)

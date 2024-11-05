@@ -1,0 +1,30 @@
+# Snap Home
+
+The Snap Home option is a manipulation aid that returns an Assembly back to its original position and orientation when it is moved near its original position.
+
+It can be enabled from the ![](/img/visionary-render/tools/snap-home/snap-home.png) button in the Toolbar or by pressing `F4` (it is disabled by default).
+
+| Image | Description |
+| --- | --- |
+| ![](/img/visionary-render/tools/snap-home/default.png) | The snap home tool works with an assembly which is moved either with the mouse, SpaceMouse or tracked device. |
+| ![](/img/visionary-render/tools/snap-home/near.png) | As it moves from its original location, a green ghost version is left in its place. If you release the assembly – either with the right mouse button or tracker device – the assembly will snap back to its original location. |
+| ![](/img/visionary-render/tools/snap-home/far.png) | If the distance between original location and current location is greater than Snap Home distance, then the ghost version turns red. If you release the assembly while the ghost version is red, then it remains at that location and the ghost version is removed. If the assembly is moved back to within the Snap Home distance, then a green ghost version appears, and you can release it to have it snap back to its original location. This can be configured from the Settings window under **Tools** > **Snap Home**. |
+
+## Settings
+
+The Snap Home settings can be found under **Settings** > **Tools** > **Snap Home**.
+
+![](/img/visionary-render/tools/snap-home/settings.png)
+
+| Setting | Description |
+| --- | --- |
+| Translation Type | There are 2 options: <ul><li>**Screen Percentage** – sets the Translation Snap value to a percentage of the screen. *[default]* </li><li>**World Space** – sets the Translation Snap value to the world scale units.</li></ul> |
+| Translation Snap | Sets the value for the Snap Home distance. *[default: 10]* |
+| Rotation Snap | Sets the value for the Snap Home rotation in degrees. Note: if a value is set to 180 or above then any rotation will snap home. *[default: 20.0]* |
+| Scale Snap | Sets the value for the Snap Home Scale as a percentage. *[default: 0.25]* |
+| Ghost Mode | <ul><li>**Full Visuals** – shows a ghost of all visuals of the selected hierarchy when using the Snap Home tool. </li><li>**Selected Visual Only** – shows a ghost of the visual of only the parent of the selected hierarchy when using the Snap Home tool. *[default]* </li><li>**Bounding Box** – shows a ghost of the selected items bounding box when using the Snap Home tool.</li></ul> |
+| Highlight Ghost | Whether to highlight the ghost when the object is in or out of range. *[default: true]* |
+| In-range Ghost | Whether to show a ghost when the object is in-range. *[default: true]* |
+| In-range Colour | The colour of the in-range ghost. *[default: green]* |
+| Out-of-range Ghost | Whether to show a ghost when the object is out-of-range. *[default: true]* |
+| Out-of-range Colour | The colour of the out-of-range ghost. *[default: red]* |

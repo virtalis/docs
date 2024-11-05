@@ -81,27 +81,18 @@ const config = {
             // {
             //   type: 'docSidebar',
             //   sidebarId: 'geoVisionarySidebar',
-            //   label: 'GeoVisionary',
             // },
             {
               type: 'docSidebar',
-              sidebarId: 'exportersSidebar',
-              label: 'Exporters',
+              sidebarId: 'importersAndExportersSidebar',
             },
             {
               type: 'docSidebar',
-              sidebarId: 'importersSidebar',
-              label: 'Importers',
+              sidebarId: 'virtalisHubAndWebViewerSidebar',
             },
             {
               type: 'docSidebar',
-              sidebarId: 'hubViewerSidebar',
-              label: 'Virtalis Hub and Web Viewer',
-            },
-            {
-              type: 'docSidebar',
-              sidebarId: 'visrenSidebar',
-              label: 'Visionary Render',
+              sidebarId: 'visionaryRenderSidebar',
             },
           ],
         },
@@ -112,13 +103,11 @@ const config = {
           items: [
             {
               type: 'docSidebar',
-              sidebarId: 'hubAdminSidebar',
-              label: 'Virtalis Hub System Admin',
+              sidebarId: 'virtalisHubSystemAdminSidebar',
             },
             {
               type: 'docSidebar',
-              sidebarId: 'visrenProgSidebar',
-              label: 'Visionary Render Programming',
+              sidebarId: 'visionaryRenderProgrammingSidebar',
             },
           ],
         },
