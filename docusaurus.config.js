@@ -53,12 +53,12 @@ const config = {
   ],
 
   plugins: [
-    [
-      require.resolve("docusaurus-plugin-search-local"), {
-        hashed: true,
-      },
-    ],
+    require.resolve('docusaurus-lunr-search')
   ],
+
+  //future: {
+  //  experimental_router: 'hash',
+  //},
 
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -78,10 +78,6 @@ const config = {
           position: 'left',
           label: 'Manuals',
           items: [
-            // {
-            //   type: 'docSidebar',
-            //   sidebarId: 'geoVisionarySidebar',
-            // },
             {
               type: 'docSidebar',
               sidebarId: 'importersAndExportersSidebar',

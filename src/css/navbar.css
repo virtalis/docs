@@ -10,7 +10,7 @@
   --ifm-navbar-height: 3.75rem;
   --ifm-navbar-background-color: var(--virtalis-color-light-blue);
   --ifm-navbar-search-input-background-color: var(--virtalis-color-lighter-blue);
-  --ifm-navbar-search-input-color: var(--ifm-color-gray-500);
+  --ifm-navbar-search-input-color: var(--ifm-color-white);
 }
 [data-theme='light'] .navbar__link {
   color: var(--virtalis-color-light-navbar-text);
@@ -38,8 +38,8 @@
 [data-theme='dark'] {
   --ifm-navbar-height: 3.75rem;
   --ifm-navbar-background-color: var(--virtalis-color-dark-blue);
-  --ifm-navbar-search-input-background-color: var(--virtalis-color-darker-blue);
-  --ifm-navbar-search-input-color: var(--ifm-color-gray-700);
+  --ifm-navbar-search-input-background-color: var(--virtalis-color-light-blue);
+  --ifm-navbar-search-input-color: var(--virtalis-color-off-white);
 }
 [data-theme='dark'] .navbar__link {
   color: var(--virtalis-color-dark-navbar-text);
