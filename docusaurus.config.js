@@ -115,16 +115,16 @@ const config = {
         },
       ],
     },
-      footer: {
-        style: 'dark',
-        copyright: `Copyright © ${new Date().getFullYear()} Virtalis Ltd. All rights reserved.`,
-      },
-      prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
-        additionalLanguages: ['c', 'cmake', 'glsl', 'lua', 'json'],
-      },
-    }),
+    footer: {
+      style: 'dark',
+      copyright: `Copyright © ${new Date().getFullYear()} Virtalis Ltd. All rights reserved.`,
+    },
+    prism: {
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+      additionalLanguages: ['c', 'cmake', 'glsl', 'lua', 'json'],
+    },
+  }),
 };
 
 export default config;
