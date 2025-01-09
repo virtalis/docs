@@ -1,48 +1,20 @@
 ---
-sidebar_position: 5
+sidebar_position: 4
 ---
 
 # Projects
 
-This page shows a list of projects, which configure how data is processed to create scenes. You can search for and update existing projects that you have access to or create a new project. It also displays the version number of each asset.
-
-Click a project in the list to open it or click + New project. 
+This page shows a list of projects available to you, which configure how data is processed to create scenes. You can search for and update existing projects or create a new project.
 
 ![](/img/virtalis-hub-and-web-viewer/projects.png)
 
-When you open a project, you can use the General, Visualisation, Access and Publication tabs to view and edit the project properties.
-
-![](/img/importers-and-exporters/importers/installer.png)
-
-Click Advanced to view and edit the advanced configuration options for the project.
-
-![](/img/importers-and-exporters/importers/installer.png)
-
-Click Syntax Reference in the advanced project configuration page to display an example project structure and project information requirements. 
-
-Refer to Appendix A - JSON Template Processor Rules for further information.
-
-![](/img/importers-and-exporters/importers/installer.png)
-
-Click Save changes (if available) or Publish Now when you have finished editing/creating a project.
-
-Switch to the Job Status page to view the status of the jobs being processed. 
-
-Once completed, to open the project click:
-
-- The project in the Job Status page
-- The project in the Projects page
-- The yellow icon on the bottom left-hand side of the page to return to the Visualisations page
-
-If the project was configured to publish when the source data changes, then it will be published when you initially save it.
-
 ## Order By
 
-You can sort the assets by name using the combo box at the top-right of the page. It supports alphabetical (default) and reverse alphabetical order.
+You can sort the projects by created date or name using the combo box at the top-right of the page. It supports chronological (default) and reverse chronological order.
 
 ## Search
 
-You can filter the assets by name using the search bar at the top right of the page. Left-click in it and start typing to perform a query. The search results list will update each time you press a key.
+You can filter the projects by name using the search bar at the top right of the page. Left-click in it and start typing to perform a query. The search results list will update each time you press a key.
 
 :::note
 The search is case-insensitive and does not support autocomplete or wildcards.
@@ -52,23 +24,25 @@ The search is case-insensitive and does not support autocomplete or wildcards.
 
 Follow the steps outlined below to create a new project.
 
-1. Project Settings
+### Settings
+
 From the Projects page, click + New project.
 
 Enter a project name, select who can edit the project and if you want to allow scripts.
 
-![](/img/importers-and-exporters/importers/installer.png)
+![](/img/virtalis-hub-and-web-viewer/create-project-settings.png)
 
 When completed, click Next to open the Configure Visualisation page.
 
-2. Configure Visualisation
+### Visualisation
+
 Use this page to select and configure the assets to add to the project. 
 
-![](/img/importers-and-exporters/importers/installer.png)
+![](/img/virtalis-hub-and-web-viewer/create-project-visualisation.png)
 
 Click Add asset to open a list of assets that are available in your Library. Select the asset or assets you want to add to your project. Refer to Import assets for further information. 
 
-![](/img/importers-and-exporters/importers/installer.png)
+![](/img/virtalis-hub-and-web-viewer/create-project-assets.png)
 
 You can add multiple assets, if available, to the project. 
 
@@ -78,21 +52,23 @@ Once you have selected the asset or assets, click Add.
 
 When completed, click Next to open the Share Settings page.
 
-3. Share Settings
+### Share
+
 Use this page to select the groups that can access the published visualisation. These groups are user-specific and have been added by the server administrator. 
 
-![](/img/importers-and-exporters/importers/installer.png)
+![](/img/virtalis-hub-and-web-viewer/create-project-share.png)
 
 When completed, click Next to open the Ready to Publish page.
 
-4. Ready to Publish
+### Publish
+
 Use this page to select one of the following publication schedule options from the drop-down list:
 
 - Manually (default option)
 - Daily at a specific hour
 - When the source data changes
 
-![](/img/importers-and-exporters/importers/installer.png)
+![](/img/virtalis-hub-and-web-viewer/create-project-publish.png)
 
 Select a publication schedule option and click Save or Save and publish. You can switch to the Job Status page to view the status of your project publication. 
 
@@ -105,5 +81,50 @@ Once completed, to open the project click:
 
 ## Edit
 
+Left-click on the Edit button to the right of a project in the list to edit its properties. 
+
+### General
+
+You should see the general setting page by default. This contains fundamental settings such as the project's name, edit access permissions and whether or not to allow scripts.
+
+![](/img/virtalis-hub-and-web-viewer/edit-project-general.png)
+
+### Visualisation
+
+![](/img/virtalis-hub-and-web-viewer/edit-project-visualiation.png)
+
+### Access
+
+![](/img/virtalis-hub-and-web-viewer/edit-project-access.png)
+
+### Publications
+
+![](/img/virtalis-hub-and-web-viewer/edit-project-publications.png)
+
+### Advanced
+
+Click Advanced to view and edit the advanced configuration options for the project.
+
+![](/img/virtalis-hub-and-web-viewer/edit-project-advanced.png)
+
+Click Syntax Reference in the advanced project configuration page to display an example project structure and project information requirements. 
+
+Refer to Appendix A - JSON Template Processor Rules for further information.
+
+Click Save changes (if available) or Publish Now when you have finished editing/creating a project.
+
+## Open
+
+Switch to the Job Status page to view the status of the jobs being processed. 
+
+Once completed, to open the project click:
+
+- The project in the Job Status page
+- The project in the Projects page
+- The yellow icon on the bottom left-hand side of the page to return to the Visualisations page
+
+If the project was configured to publish when the source data changes, then it will be published when you initially save it.
+
 ## Delete
 
+Left-click on the Delete button at the right of a project in the list to remove it from your Virtalis Hub server. You will be prompted to confirm the operation.
