@@ -1,0 +1,27 @@
+---
+sidebar_position: 7
+---
+
+# Settings
+
+![](/img/virtalis-hub-and-web-viewer/settings.png)
+
+There are several settings available that could be useful. Click the settings (gear) icon when in a scene and a dialogue box will present you with a few options.
+
+## Backface Culling
+
+This is enabled by default and optimises performance by removing the rear faces of objects from your scene. Its effectiveness is influenced by how CAD models - such as pipes - are configured or imported into the software. These types of models can appear incorrect with Backface Culling enabled, so you may want to disable it if you notice holes in your geometry (but note that this might reduce performance in your scene).
+
+## Level of Detail
+
+This allows you to lower the detail level of the geometry on the fly in order to improve your framerate performance. This is especially useful for headset users in scenes with complex or heavy geometry. You can fine-tune the level of detail with the LOD level scaler, balancing performance and necessary visualisation information.
+
+:::note
+Developer mode and Animated debug camera settings are for diagnosing problems and not intended for everyday use.
+:::
+
+## Background Colour
+
+The background colour of your scene is determined by the Background Colour Scene Override in Visionary Render. The Web Viewer will display the scene using this set colour. If no override is applied, the default light blue background will appear instead.
+
+![](/img/virtalis-hub-and-web-viewer/background-colour.png)

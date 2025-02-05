@@ -4,127 +4,115 @@ sidebar_position: 4
 
 # Projects
 
-This page shows a list of projects available to you, which configure how data is processed to create scenes. You can search for and update existing projects or create a new project.
+This page shows a list of projects, which configure how data is processed to create scenes. You can search for and update existing projects available to you or create a new project.
 
 ![](/img/virtalis-hub-and-web-viewer/projects.png)
 
 ## Order By
 
-You can sort the projects by created date or name using the combo box at the top-right of the page. It supports chronological (default) and reverse chronological order.
+You can sort the projects by created date, name (alphabetical) or name (reverse alphabetical) using the combo box at the top-right of the page.
 
 ## Search
 
-You can filter the projects by name using the search bar at the top right of the page. Left-click in it and start typing to perform a query. The search results list will update each time you press a key.
+You can filter the projects by name using the search bar at the top right of the page. Click on it and start typing to perform a query. The search results list will update each time you press a key.
 
 :::note
 The search is case-insensitive and does not support autocomplete or wildcards.
 :::
 
-## Create
+## New
 
-Follow the steps outlined below to create a new project.
+Click the **New project** button to create a new project. You will be taken to the Create Project pages to configure the new project.
 
 ### Settings
 
-From the Projects page, click + New project.
-
-Enter a project name, select who can edit the project and if you want to allow scripts.
+Choose a project name (required), who else can edit the project, and whether or not to allow scripts.
 
 ![](/img/virtalis-hub-and-web-viewer/create-project-settings.png)
 
-When completed, click Next to open the Configure Visualisation page.
+When done, click the **Next** button at the bottom right of the page.
 
 ### Visualisation
 
-Use this page to select and configure the assets to add to the project. 
+Choose assets from the library to add to the new project. You can also add custom rules if required.
 
 ![](/img/virtalis-hub-and-web-viewer/create-project-visualisation.png)
 
-Click Add asset to open a list of assets that are available in your Library. Select the asset or assets you want to add to your project. Refer to Import assets for further information. 
+Click **Add asset** to open a list of assets in your library. Select the assets that you want to add to your project then click the close button to close the dialog.
 
 ![](/img/virtalis-hub-and-web-viewer/create-project-assets.png)
 
-You can add multiple assets, if available, to the project. 
+You can also add custom rules that will be applied to the entire project. The rules are specified as JSON and can be used to change the property of any node in the project, for example changing the diffuse value of a specific material or removing nodes from an asset for security reasons. See Appendix A - JSON Template Processor Rules for more information.
 
-You can also add custom rules that will apply to the entire project. The rules are specified as JSON and can be used to change the property of any node within the product, for example changing the diffuse value of a specific material or removing nodes from an asset for security reasons. Refer to Appendix A - JSON Template Processor Rules for further information.
-
-Once you have selected the asset or assets, click Add.
-
-When completed, click Next to open the Share Settings page.
+When done, click the **Next** button.
 
 ### Share
 
-Use this page to select the groups that can access the published visualisation. These groups are user-specific and have been added by the server administrator. 
+Choose the groups that can access the published scene (these are defined by your server administrator). 
 
 ![](/img/virtalis-hub-and-web-viewer/create-project-share.png)
 
-When completed, click Next to open the Ready to Publish page.
+When done, click the **Next** button.
 
 ### Publish
 
-Use this page to select one of the following publication schedule options from the drop-down list:
-
-- Manually (default option)
-- Daily at a specific hour
-- When the source data changes
+Choose a name for the scene (defaults to the project name) and a publication schedule.
 
 ![](/img/virtalis-hub-and-web-viewer/create-project-publish.png)
 
-Select a publication schedule option and click Save or Save and publish. You can switch to the Job Status page to view the status of your project publication. 
+There are 3 options for the publication schedule:
 
-Please note: Publication times are shown in the user's local time.
+- Manual (default)
+- Daily at specific hour
+- When the source data changes
 
-Once completed, to open the project click:
+Choose an option and click **Save** to save the project and publish it later, or **Save and publish** to save and publish the project now. If you chose the latter, open the Jobs page to view the status of the project publication. 
 
-- The project in the Job Status page
-- The yellow icon on the bottom left-hand side of the page to return to the Visualisations page
+### Open
+
+Once the project has been published into a scene, there are 2 ways to open it:
+
+- Click the **View** button to the right of the scene on the Jobs page
+- Click the Virtalis logo at the top left of the page to open the Scenes page then click on the scene
 
 ## Edit
 
-Left-click on the Edit button to the right of a project in the list to edit its properties. 
+Click the **Edit** button to the right of a project to edit its properties. 
 
 ### General
 
-You should see the general setting page by default. This contains fundamental settings such as the project's name, edit access permissions and whether or not to allow scripts.
+Edit the project name (required), who else can edit the project, and whether or not to allow scripts.
 
 ![](/img/virtalis-hub-and-web-viewer/edit-project-general.png)
 
 ### Visualisation
 
-![](/img/virtalis-hub-and-web-viewer/edit-project-visualiation.png)
+Edit the custom rules and assets that are included in the project.
+
+![](/img/virtalis-hub-and-web-viewer/edit-project-visualisation.png)
 
 ### Access
+
+Edit the groups that can access the published scene. 
 
 ![](/img/virtalis-hub-and-web-viewer/edit-project-access.png)
 
 ### Publications
 
+Edit the scene name and publication schedule.
+
 ![](/img/virtalis-hub-and-web-viewer/edit-project-publications.png)
 
 ### Advanced
 
-Click Advanced to view and edit the advanced configuration options for the project.
+Edit advanced configuration options for the project using JSON. See Appendix A - JSON Template Processor Rules for more information.
 
 ![](/img/virtalis-hub-and-web-viewer/edit-project-advanced.png)
 
-Click Syntax Reference in the advanced project configuration page to display an example project structure and project information requirements. 
+### Save and Publish
 
-Refer to Appendix A - JSON Template Processor Rules for further information.
-
-Click Save changes (if available) or Publish Now when you have finished editing/creating a project.
-
-## Open
-
-Switch to the Job Status page to view the status of the jobs being processed. 
-
-Once completed, to open the project click:
-
-- The project in the Job Status page
-- The project in the Projects page
-- The yellow icon on the bottom left-hand side of the page to return to the Visualisations page
-
-If the project was configured to publish when the source data changes, then it will be published when you initially save it.
+When done, click **Save changes** to save your changes and publish at a later time, or **Publish now** to save and publish your changes straight away. If you chose the latter, open the Jobs page to view the status of the project publication. 
 
 ## Delete
 
-Left-click on the Delete button at the right of a project in the list to remove it from your Virtalis Hub server. You will be prompted to confirm the operation.
+Click the **Delete** button at the right of a project to remove it from your Virtalis Hub server.
