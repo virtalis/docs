@@ -69,8 +69,8 @@ const config = {
       navbar: {
         title: '',
         logo: {
-          src: 'img/virtalis-logo.svg',
-          width: 190,
+          src: 'img/virtalis-docs.svg',
+          width: 230,
         },
       items: [
         {
