@@ -5,8 +5,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Virtalis Docs',
-  tagline: 'Online documentation portal for Virtalis applications',
-  favicon: 'img/favicon.ico',
+  tagline: 'Documentation portal for Virtalis applications',
+  favicon: 'favicon.ico',
 
   // Set the production url of your site here
   url: 'https://www.docs.virtalis.com',
@@ -69,8 +69,8 @@ const config = {
       navbar: {
         title: '',
         logo: {
-          src: 'img/virtalis-docs.svg',
-          width: 230,
+          src: 'logo.svg',
+          width: 220,
         },
       items: [
         {
