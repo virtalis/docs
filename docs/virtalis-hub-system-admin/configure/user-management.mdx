@@ -1,24 +1,18 @@
 # User Management
 
-This section describes how to manage Virtalis Reach user details, creating user groups and add selected users to the groups.
+This section describes how to manage Virtalis Hub user details, creating user groups and add selected users to the groups.
 
-Virtalis Reach uses Keycloak for Identity and Access Management (IAM). 
+Virtalis Hub uses Keycloak for Identity and Access Management (IAM). 
 
 This section assumes Keycloak has been installed on your system and that you have administration access rights.
 
 ## Accessing the Keycloak Admin Panel
 
-Navigate to https://SITE/auth/admin/ replacing 'SITE' with the domain Virtalis Reach is hosted on.
+Navigate to `https://SITE/auth/admin/` replacing 'SITE' with the domain Virtalis Hub is hosted on.
 
-Enter the Keycloak administrator credentials that were extracted during the Virtalis Reach deployment.
+Enter the Keycloak administrator credentials that were extracted during the Virtalis Hub deployment.
 
-Graphical user interface, applicationDescription automatically generated
-
-Ensure that the currently selected realm in the top left corner is Reach. If not, select it from the drop-down menu.
-
-Graphical user interface, applicationDescription automatically generated
-
-A screenshot of a computerDescription automatically generated
+Ensure that the currently selected realm in the top left corner is Virtalis Hub. If not, select it from the drop-down menu.
 
 ## Managing Users 
 
@@ -76,13 +70,13 @@ Go to Manage > Groups and use this page to:
 View all the groups currently in the system
 Create new groups for the purpose of access control on certain assets, projects, or visualisations
 
-### Virtalis Reach Specific Groups
+### Virtalis Hub Specific Groups
 
-Virtalis Reach has three main system groups:
+Virtalis Hub has three main system groups:
 
 - data-uploaders - access to /import/, controls who can import assets into the system 
 - project-authors - access to /hub, controls who can create and publish projects
-- reach_script_publishers - controls whether a user can enable scripts for their project
+- hub_script_publishers - controls whether a user can enable scripts for their project
 
 Graphical user interface, applicationDescription automatically generated
 

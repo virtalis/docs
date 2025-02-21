@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Deploy to a Kubernetes Cluster
 
-This section covers deploying a complete Virtalis Reach system into a Kubernetes cluster.
+This section covers deploying a complete Virtalis Hub system into a Kubernetes cluster.
 
 ## System Requirements
 
@@ -18,7 +18,7 @@ Kubernetes cluster (either on premises or in the cloud):
 - Access to the internet during the software deployment and update
 - A network policy compatible network plugin
 
-Virtalis Reach does not require:
+Virtalis Hub does not require:
 
 - A GPU in the server
 - A connection to the internet following the software deployment
@@ -29,12 +29,12 @@ The follow administration tools are required along with their recommended tested
 
 - [kubectl](https://kubernetes.io/docs/reference/kubectl/) v1.22.7 - this package allows us to communicate with a Kubernetes cluster on the command line
 - [‍helm](https://helm.sh/docs/intro/install/) v3.6.3 - this package is used to help us install large Kubernetes charts consisting of numerous resources
-- [oras](https://github.com/oras-project/oras/releases) v0.8.1 - this package is used to download an archive from our internal registry containing some configuration files which will be used to deploy Virtalis Reach
+- [oras](https://github.com/oras-project/oras/releases) v0.8.1 - this package is used to download an archive from our internal registry containing some configuration files which will be used to deploy Virtalis Hub
 - [azure cli](https://github.com/Azure/azure-cli) stable - this package is used to authenticate with our internal registry hosted on Azure
 - [jq](https://jqlang.github.io/jq/) v1.6 - this package is used to parse and traverse JSON on the command line
 - [yq](https://github.com/mikefarah/yq/releases) v4.6.1 - this package is used to parse and traverse YAML on the command line
 
-These tools are not installed on the Virtalis Reach server but only on the machine that will communicate with a Kubernetes cluster for the duration of the installation.
+These tools are not installed on the Virtalis Hub server but only on the machine that will communicate with a Kubernetes cluster for the duration of the installation.
 
 :::note
 If using recent versions of Ubuntu, the Azure CLI as installed by Snap is called azure-cli not az which refers to an older version in the Ubuntu repos. Alias azure-cli to az if needed.
@@ -47,25 +47,25 @@ If using recent versions of Ubuntu, the Azure CLI as installed by Snap is called
 Make a directory to store temporary installation files:
 
 ```
-sudo mkdir -p /home/root/Reach && \
-cd /home/root/Reach && \
-sudo chown $(whoami) /home/root/Reach 
+sudo mkdir -p /home/root/Hub && \
+cd /home/root/Hub && \
+sudo chown $(whoami) /home/root/Hub 
 ```
 
 Export the following variables:
 
 ```
-export REACH_VERSION=2024.1.0
+export HUB_VERSION=2024.1.0
 export ACR_REGISTRY_NAME=virtaliscustomer
 export SKIP_MIGRATIONS=1
-export TLS_SECRET_NAME=reach-tls-cert
-export REACH_NAMESPACE=reach
+export TLS_SECRET_NAME=hub-tls-cert
+export HUB_NAMESPACE=hub
 ```
 
 Substitute the variable values and export them:
 
 ```
-export REACH_DOMAIN=<the domain Virtalis Reach will be hosted on>
+export HUB_DOMAIN=<the domain Virtalis Hub will be hosted on>
 export ACR_USERNAME=<service principal id>
 export ACR_PASSWORD=<service principal password>
 ```
@@ -73,18 +73,18 @@ export ACR_PASSWORD=<service principal password>
 Substitute and export the following variables, wrap the values in single quotes to prevent bash substitution:
 
 ```
-export reach_licence__key=<reach licence xml snippet>
-export reach_licence__signature=<reach licence signature>
+export hub_licence__key=<hub licence xml snippet>
+export hub_licence__signature=<hub licence signature>
 ```
 
 #### Example
 
 ```
-export reach_licence__key='<REACH><expires>123</expires></REACH>'
-export reach_licence__signature='o8k0niq63bPYOMS53NjgOTUqA0xfaBjfP5uB1uma'
+export hub_licence__key='<HUB><expires>123</expires></HUB>'
+export hub_licence__signature='o8k0niq63bPYOMS53NjgOTUqA0xfaBjfP5uB1uma'
 ```
 
-Export the environment variables if Virtalis Reach TLS will be configured to use LetsEncrypt:
+Export the environment variables if Virtalis Hub TLS will be configured to use LetsEncrypt:
 
 ```
 export KEYCLOAK_ANNOTATIONS="--set ingress.annotations\
@@ -97,7 +97,7 @@ export INGRESS_ANNOTATIONS="--set ingress.annotations\
 Optional configuration variables:
 
 ```
-export MANAGED_TAG=<custom image tag for Virtalis Reach services>
+export MANAGED_TAG=<custom image tag for Virtalis Hub services>
  
 export MQ_EXPOSE_INGRESS=<when set to 1, expose rabbitmq on the ingress>
 
@@ -120,7 +120,7 @@ This should return at least 1 running pod.
 ingress-nginx nginx-ingress-controller…….. 1/1 Running
 ```
 
-If Nginx is not installed, then please contact Virtalis to see if we can support a different ingress controller. Virtalis Reach is currently only compatible with Nginx.
+If Nginx is not installed, then please contact Virtalis to see if we can support a different ingress controller. Virtalis Hub is currently only compatible with Nginx.
 
 If there is no Ingress controller currently installed on the cluster, and you are confident you should install Nginx, then you can execute these commands to install it:
 
@@ -141,11 +141,11 @@ Kubernetes supports a wide variety of volume plugins which allow you to provisio
 
 [List of supported volume plugins](https://kubernetes.io/docs/concepts/storage/storage-classes/#provisioner)
 
-All PersistentVolumes used by Virtalis Reach reserve 625 GB of storage space in total. This is a provisional amount which will likely change depending on your workload.
+All PersistentVolumes used by Virtalis Hub reserve 625 GB of storage space in total. This is a provisional amount which will likely change depending on your workload.
 
 ### Default
 
-By default, Virtalis Reach is deployed with the local volume plugin which creates volumes on the worker nodes. This is not the recommended way to deploy Virtalis Reach and is only appropriate for test level deployments as all databases are tied to the single disk of the node that they’re deployed on which hinders the performance of the system.
+By default, Virtalis Hub is deployed with the local volume plugin which creates volumes on the worker nodes. This is not the recommended way to deploy Virtalis Hub and is only appropriate for test level deployments as all databases are tied to the single disk of the node that they’re deployed on which hinders the performance of the system.
 
 To assist in dynamic local volume provisioning, we use the Local Path Provisioner service developed by Rancher:
 
@@ -157,27 +157,27 @@ local-path-provisioner/master/deploy/local-path-storage.yaml
 
 ### Custom
 
-You can customize how storage for Virtalis Reach is provisioned by specifying which storage class you want to use. This must be created by a Kubernetes Administrator beforehand or, in some environments, a default class is also suitable. For example, when deploying to an Azure Kubernetes Service instance, it comes with a default storage class on the cluster which can be used to request storage from Azure.
+You can customize how storage for Virtalis Hub is provisioned by specifying which storage class you want to use. This must be created by a Kubernetes Administrator beforehand or, in some environments, a default class is also suitable. For example, when deploying to an Azure Kubernetes Service instance, it comes with a default storage class on the cluster which can be used to request storage from Azure.
 
 #### Express
 
 If you only want to modify the storage class and leave all other parameters like size as default, export these variables out:
 
 ```
-export REACH_SC=<name of storage class>
+export HUB_SC=<name of storage class>
  
-export REACH_SC_ARGS=" --set persistence\
-.storageClass="${REACH_SC}" --set core\
+export HUB_SC_ARGS=" --set persistence\
+.storageClass="${HUB_SC}" --set core\
 .persistentVolume.storageClass\
-="${REACH_SC}" --set master.persistence\
-.storageClass="${REACH_SC}" "
+="${HUB_SC}" --set master.persistence\
+.storageClass="${HUB_SC}" "
 ```
 
 #### Custom parameters
 
-A list of different databases in use by Virtalis Reach and how to customize their storage is shown below.
+A list of different databases in use by Virtalis Hub and how to customize their storage is shown below.
 
-The default values can be found in `/home/root/Reach/k8s/misc//values-common.yaml` and `/home/root/Reach/k8s/misc//values-prod.yaml`
+The default values can be found in `/home/root/Hub/k8s/misc//values-common.yaml` and `/home/root/Hub/k8s/misc//values-prod.yaml`
 
 ##### MinIO
 
@@ -203,14 +203,14 @@ Please refer to the persistence: section found in the [values.yaml](https://gith
 Create a namespace:
 
 ```
-kubectl create namespace "${REACH_NAMESPACE}"
+kubectl create namespace "${HUB_NAMESPACE}"
 ```
 
 Add namespace labels:
 
 ```
-kubectl label namespace ingress-nginx reach-ingress=true; \
-kubectl label namespace kube-system reach-egress=true
+kubectl label namespace ingress-nginx hub-ingress=true; \
+kubectl label namespace kube-system hub-egress=true
 The ‘ingress-nginx’ entry on line 1 will have to be modified if your nginx ingress is deployed to a different namespace.
 ```
 
@@ -221,7 +221,7 @@ Manually create a TLS secret from a TLS key and cert or use the LetsEncrypt inte
 #### Manually Creating a TLS Cert Secret
 
 ```
-kubectl create secret tls -n "${REACH_NAMESPACE}" \
+kubectl create secret tls -n "${HUB_NAMESPACE}" \
 "${TLS_SECRET_NAME}" --key="tls.key" --cert="tls.crt"
 ```
 
@@ -229,7 +229,7 @@ kubectl create secret tls -n "${REACH_NAMESPACE}" \
 
 Requirements:
 
-The machine hosting Virtalis Reach can be reached via a public IP address (used to validate the ownership of your domain)
+The machine hosting Virtalis Hub can be accessed via a public IP address (used to validate the ownership of your domain)
 
 A domain that you own (cannot be used for domains ending with .local)
 
@@ -268,7 +268,7 @@ spec:
        # Email address used for ACME registration
        email: <YOUR_EMAIL_ADDRESS>
        privateKeySecretRef:
-               name: reach-tls-cert
+               name: hub-tls-cert
     solvers:
        - http01:
                ingress:
@@ -283,7 +283,7 @@ kubectl apply -f prod_issuer.yaml
 
 Source: How to Set Up an Nginx Ingress with Cert-Manager on DigitalOcean Kubernetes | DigitalOcean 
 
-If you wish to do so, you can follow the digital ocean guide above and deploy an example service to test cert-manager before using it on Virtalis Reach.
+If you wish to do so, you can follow the digital ocean guide above and deploy an example service to test cert-manager before using it on Virtalis Hub.
 
 ### Download Installation Files
 
@@ -299,7 +299,7 @@ Pull the Kubernetes deployment file archive from the Virtalis registry and unzip
 
 ```
 oras pull "${ACR_REGISTRY_NAME}"\
-.azurecr.io/misc/k8s:$REACH_VERSION &&
+.azurecr.io/misc/k8s:$HUB_VERSION &&
 tar -zxvf k8s.tar.gz
 ```
 
@@ -311,7 +311,7 @@ cd k8s && sudo chmod +x *.sh && sudo chmod +x misc/keycloak/migration/*.sh
 
 ### Create and Deploy Secrets
 
-Randomised secrets are used to securely interconnect the Virtalis Reach microservices.
+Randomised secrets are used to securely interconnect the Virtalis Hub microservices.
 
 The script below uses the pwgen package to generate a random string of 30 alphanumeric characters. Before proceeding, make sure pwgen is installed on your machine.
 
@@ -319,7 +319,7 @@ The script below uses the pwgen package to generate a random string of 30 alphan
 ./create-secrets.sh
 ```
 
-### Deploy Virtalis Reach and Database Services
+### Deploy Virtalis Hub and Database Services
 
 ```
 ./deploy.sh
@@ -328,36 +328,36 @@ The script below uses the pwgen package to generate a random string of 30 alphan
 Wait until all pods are showing up as Ready:
 
 ```
-watch -n2 kubectl get pods -n $REACH_NAMESPACE
+watch -n2 kubectl get pods -n $HUB_NAMESPACE
 ```
 
-You will now be able to access the Virtalis Reach frontend client by opening the domain Virtalis Reach was installed on in a web-browser.
+You will now be able to access the Virtalis Hub frontend client by opening the domain Virtalis Hub was installed on in a web-browser.
 
 #### Retrieving the Keycloak Admin Password
 
 Run the following command:
 
 ```
-kubectl get secret --namespace ${REACH_NAMESPACE} \
+kubectl get secret --namespace ${HUB_NAMESPACE} \
 keycloak -o jsonpath="{.data.admin_password}" \
 | base64 --decode; echo
 ```
 
-Refer to Virtalis Reach User Management for more information on how to administer the system inside Keycloak.
+Refer to Virtalis Hub User Management for more information on how to administer the system inside Keycloak.
 
 ### Clean-up
 
 ```
-unset REACH_DOMAIN && \
+unset HUB_DOMAIN && \
 unset TLS_SECRET_NAME && \
-unset REACH_NAMESPACE && \
+unset HUB_NAMESPACE && \
 unset ACR_USERNAME && \
 unset ACR_PASSWORD && \
 unset ACR_REGISTRY_NAME && \
-unset REACH_SC && \
-unset REACH_SC_ARGS && \
-unset reach_licence__key && \
-unset reach_licence__signature
+unset HUB_SC && \
+unset HUB_SC_ARGS && \
+unset hub_licence__key && \
+unset hub_licence__signature
 ```
 
 Clear bash history:

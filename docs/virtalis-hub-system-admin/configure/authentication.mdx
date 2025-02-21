@@ -1,6 +1,6 @@
 # Authentication with External Systems
 
-In addition to users of Virtalis Reach being able to upload files for importing via the Hub’s user interface, Virtalis Reach can also download files from external locations. Examples are PLM systems such as Windchill or TeamCenter, which can be extended to notify Virtalis Reach of data changes.
+In addition to users of Virtalis Hub being able to upload files for importing via the Hub’s user interface, Virtalis Hub can also download files from external locations. Examples are PLM systems such as Windchill or TeamCenter, which can be extended to notify Virtalis Hub of data changes.
 
 Often these URLs are protected, meaning that in order for the download to succeed, the authentication scheme and credentials must be configured. This section explains how to do this.
 
@@ -24,7 +24,7 @@ The resource is protected by a custom authorisation header. For example, if the 
 
 ### ServiceAccount
 
-The resource is protected by OAuth client credentials that are internal to Virtalis Reach. For example, using the reach-service account in your own instance of Keycloak to request an access token before presenting that token to the resource. This is used for downloading files from the internal ImportFolder service used when someone uses the Hub to upload a file.
+The resource is protected by OAuth client credentials that are internal to Virtalis Hub. For example, using the hub-service account in your own instance of Keycloak to request an access token before presenting that token to the resource. This is used for downloading files from the internal ImportFolder service used when someone uses the Hub to upload a file.
 
 :::note
 This was previously called OAuth but has been renamed to better reflect its purpose and reduce ambiguity between this mode and the new OAuth2 mode described below.
@@ -48,7 +48,7 @@ The Translator Service and Job API perform the download operation and, in order 
     "AuthType": "None"
   },  
   {
-    // The local Import Folder API used when the user imports a file via the Reach Hub
+    // The local Import Folder API used when the user imports a file via the Hub
     "Hostname": "virtalis.platform.importfolder.api",
     "AuthType": "ServiceAccount"
   },
@@ -76,7 +76,7 @@ The Translator Service and Job API perform the download operation and, in order 
 
 ## Job API
 
-After a file has been imported, the Job API attempts to make a call back to the system that provided it as a way of letting it know that the import was successful. For this reason, the Job API also has a UrlSourceCredentials section in its secrets file. In the example below, there are two systems that support the callback functionality, one for localhost which represents the built-in Virtalis Reach Hub callback (for when a user uploads a file through the Virtalis Reach user interface) and another for a provider in Microsoft Azure, which is protected by OAuth2 Client Credentials.
+After a file has been imported, the Job API attempts to make a call back to the system that provided it as a way of letting it know that the import was successful. For this reason, the Job API also has a UrlSourceCredentials section in its secrets file. In the example below, there are two systems that support the callback functionality, one for localhost which represents the built-in Virtalis Hub callback (for when a user uploads a file through the Virtalis Hub user interface) and another for a provider in Microsoft Azure, which is protected by OAuth2 Client Credentials.
 
 ```json
 "UrlSourceCredentials": [
@@ -86,7 +86,7 @@ After a file has been imported, the Job API attempts to make a call back to the 
     "AuthType": "None"
   },  
   {
-    // The local Import Folder API used when the user imports a file via the Reach Hub
+    // The local Import Folder API used when the user imports a file via the Hub
     "Hostname": "virtalis.platform.importfolder.api",
     "AuthType": "ServiceAccount"
   },
@@ -116,7 +116,7 @@ After a file has been imported, the Job API attempts to make a call back to the 
 
 ### Hostname
 
-When Virtalis Reach receives a message that includes a URL to download a file from, it will extract the hostname from it and then look for a matching section in TranslatorServiceSecrets. If no match is found, the message will be rejected. If a match is found, it will use the details in the matching section to configure the authentication required.
+When Virtalis Hub receives a message that includes a URL to download a file from, it will extract the hostname from it and then look for a matching section in TranslatorServiceSecrets. If no match is found, the message will be rejected. If a match is found, it will use the details in the matching section to configure the authentication required.
 
 ### AuthType
 
@@ -149,7 +149,7 @@ The header value to specify.
 
 ### ServiceAccount Mode Properties
 
-There are no additional properties for this mode. Virtalis Reach is already configured internally with the correct credentials for requesting access tokens with the reach-service client.
+There are no additional properties for this mode. Virtalis Hub is already configured internally with the correct credentials for requesting access tokens with the hub-service client.
 
 OAuth2ClientCredentials
 These should be set in a “OAuth2ClientCredentialsConfig” section alongside the “Hostname” and “AuthType” properties.
@@ -161,7 +161,7 @@ ClientSecret
 This is the client secret for the above client.
 
 AccessTokenEndpoint
-This is the endpoint Virtalis Reach needs to call when requesting an access token. A site administrator will need to provide this.
+This is the endpoint Virtalis Hub needs to call when requesting an access token. A site administrator will need to provide this.
 
 If this is wrong, you will likely see an exception in the logs saying that an access token could not be retrieved, for example:
 
@@ -172,10 +172,10 @@ This URL is also subject to the same checks for HTTP/HTTPS. If the URL is not ov
 :::
 
 Scope (Optional)
-If the resource requires a specific claim called ‘scope’ to be included in the request, you can specify it here. When Virtalis Reach requests the access token, it will also specify the scope and the resulting token will include it.
+If the resource requires a specific claim called ‘scope’ to be included in the request, you can specify it here. When Virtalis Hub requests the access token, it will also specify the scope and the resulting token will include it.
 
 AllowInsecureRequestUrls
-By default, Virtalis Reach does not allow files to be downloaded over HTTP because this is insecure. If a file source is configured with HTTP (via a mapping in the UrlSourceCredentials configuration section) or if a URL for a configured host comes into Virtalis Reach in a queue message and it specifies HTTP rather than HTTPS, an exception will be thrown and the request will not be made.
+By default, Virtalis Hub does not allow files to be downloaded over HTTP because this is insecure. If a file source is configured with HTTP (via a mapping in the UrlSourceCredentials configuration section) or if a URL for a configured host comes into Virtalis Hub in a queue message and it specifies HTTP rather than HTTPS, an exception will be thrown and the request will not be made.
 
 It may be necessary to allow HTTP in some cases however, and this can be done by explicitly setting AllowInsecureRequestUrls to true in the configuration for that specific URL source. For example:
 
@@ -189,15 +189,15 @@ It may be necessary to allow HTTP in some cases however, and this can be done by
 
 Mappings
 
-If an external system provides a download URL that cannot be accessed by Reach using the address provided, a Mapping section can be added to the URLSourceCredential section to change the following properties
+If an external system provides a download URL that cannot be accessed by the Hub using the address provided, a Mapping section can be added to the URLSourceCredential section to change the following properties
 
 • Protocol (for example, http, https)
 
-• Hostname (for example, the hostname that Reach is able to access the source at)
+• Hostname (for example, the hostname that Virtalis Hub is able to access the source at)
 
-• Port (for example, the port number that Reach can access the source on)
+• Port (for example, the port number that Virtalis Hub can access the source on)
 
-For example, a Windchill instance may see itself as having hostname windchill.test.local (and therefore generates a URL with that hostname). However, due to networking complications, Virtalis Reach may only be able to access the same instance via a different hostname such as windchill.testserver.local.
+For example, a Windchill instance may see itself as having hostname windchill.test.local (and therefore generates a URL with that hostname). However, due to networking complications, Virtalis Hub may only be able to access the same instance via a different hostname such as windchill.testserver.local.
 
 ```json
   {
@@ -218,19 +218,19 @@ Managing External File Sources and File Source Certificates
 
 Introduction
 
-The Virtalis Reach data processing pipeline can support integrations with third-party software by downloading files from external services. This section is designed to help a systems administrator manage those connections as well as any certificates required to make those connections happen.
+The Virtalis Hub data processing pipeline can support integrations with third-party software by downloading files from external services. This section is designed to help a systems administrator manage those connections as well as any certificates required to make those connections happen.
 
 Set Up the Deployment Shell
 Substitute and export the following variables:
 
 ```
-export REACH_NAMESPACE=<name of kubernetes namespace Virtalis Reach is deployed in>
+export HUB_NAMESPACE=<name of kubernetes namespace Virtalis Hub is deployed in>
 ```
 
-Navigate to the directory containing Reach installation files:
+Navigate to the directory containing Hub installation files:
 
 ```
-cd /home/root/Reach/k8s
+cd /home/root/Hub/k8s
 ```
 
 Load previous configuration:
@@ -342,5 +342,5 @@ Run the scripts:
 
 ```
 ./create-secrets.sh
-./install-reach.sh
+./install-hub.sh
 ```

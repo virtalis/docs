@@ -1,18 +1,18 @@
 # Change the Domain of an Existing Installation
 
-This section describes how to reconfigure an existing installation of Virtalis Reach to use a different domain. It assumes that you have already installed Virtalis Reach and your shell is in the directory containing the files that were downloaded during the installation. This is usually stored in the home directory, for example `/home/root/Reach/k8s`
+This section describes how to reconfigure an existing installation of Virtalis Hub to use a different domain. It assumes that you have already installed Virtalis Hub and your shell is in the directory containing the files that were downloaded during the installation. This is usually stored in the home directory, for example `/home/root/Hub/k8s`
 
 ## Set Up Variables
 
 Export the following variables:
 
 ```
-export REACH_NAMESPACE=reach
+export HUB_NAMESPACE=hub
 export SKIP_MIGRATIONS=1
-export REACH_VERSION=$(kubectl get secret reach-version -n $REACH_NAMESPACE  -o json | jq ".data.version" -r | base64 -d)
-export ACR_REGISTRY_NAME=$(kubectl get secret reach-install-config -n $REACH_NAMESPACE  -o json | jq ".data.ACR_REGISTRY_NAME" -r | base64 -d)
-export ACR_USERNAME=$(kubectl get secret reach-install-config -n $REACH_NAMESPACE  -o json | jq ".data.ACR_USERNAME" -r | base64 -d)
-export ACR_PASSWORD=$(kubectl get secret reach-install-config -n $REACH_NAMESPACE  -o json | jq ".data.ACR_PASSWORD" -r | base64 -d)
+export HUB_VERSION=$(kubectl get secret hub-version -n $HUB_NAMESPACE  -o json | jq ".data.version" -r | base64 -d)
+export ACR_REGISTRY_NAME=$(kubectl get secret hub-install-config -n $HUB_NAMESPACE  -o json | jq ".data.ACR_REGISTRY_NAME" -r | base64 -d)
+export ACR_USERNAME=$(kubectl get secret hub-install-config -n $HUB_NAMESPACE  -o json | jq ".data.ACR_USERNAME" -r | base64 -d)
+export ACR_PASSWORD=$(kubectl get secret hub-install-config -n $HUB_NAMESPACE  -o json | jq ".data.ACR_PASSWORD" -r | base64 -d)
 ```
 
 Load previous configuration:
@@ -24,7 +24,7 @@ Load previous configuration:
 Substitute and export the following variables:
 
 ```
-export REACH_DOMAIN=<new domain>
+export HUB_DOMAIN=<new domain>
 ```
 
 Apply Change
@@ -36,7 +36,7 @@ Apply Change
 Applying Manual Changes in Keycloak
 Navigate to `https://<new domain>/auth/admin` in your browser and log in to access the Keycloak admin panel.
 
-Navigate to `https://<new domain>/auth/admin/master/console/#/realms/reach/clients`
+Navigate to `https://<new domain>/auth/admin/master/console/#/realms/hub/clients`
 
 Open and edit the following clients from the list:
 
@@ -44,10 +44,10 @@ Open and edit the following clients from the list:
 file-import
 job-status
 project-author
-reach-client
+hub-client
 ```
 
-Staying on the default Settings section, edit any fields that contain the old domain to reflect the new domain, ensuring to keep the protocol and any arguments in the field. For example, edit fields containing reach.local to a new domain, reachnew.local:
+Staying on the default Settings section, edit any fields that contain the old domain to reflect the new domain, ensuring to keep the protocol and any arguments in the field. For example, edit fields containing hub.local to a new domain, hubnew.local:
 
 Press Save at the bottom of the individual client settings page.
 
@@ -58,12 +58,12 @@ Depending on your configuration, if you provision a tls certificate for your ing
 Delete old certificate:
 
 ```
-kubectl delete secret "${TLS_SECRET_NAME}" -n "${REACH_NAMESPACE}"
+kubectl delete secret "${TLS_SECRET_NAME}" -n "${HUB_NAMESPACE}"
 ```
 
 Create new certificate:
 
 ```
-kubectl create secret tls -n "${REACH_NAMESPACE}" \
+kubectl create secret tls -n "${HUB_NAMESPACE}" \
 "${TLS_SECRET_NAME}" --key="tls.key" --cert="tls.crt"
 ```

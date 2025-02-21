@@ -1,14 +1,14 @@
 # Automated Backup System
 
-Virtalis Reach comes with an automated back up system that allows you to restore to an earlier snapshot in the event of a disaster. We will install [Velero](https://velero.io/docs/v1.5/index.html) to back up the state of your Kubernetes Cluster and uses a custom built solution which leverages [Restic](https://restic.readthedocs.io/en/stable/) to back up the persistent data imported into Virtalis Reach.
+Virtalis Hub comes with an automated back up system that allows you to restore to an earlier snapshot in the event of a disaster. We will install [Velero](https://velero.io/docs/v1.5/index.html) to back up the state of your Kubernetes Cluster and uses a custom built solution which leverages [Restic](https://restic.readthedocs.io/en/stable/) to back up the persistent data imported into Virtalis Hub.
 
 You should consider creating regular backups of your buckets which hold the backed-up data in case of failure. This will bed one through your cloud provider or manually if you host your own bucket.
 
 Alternatively, you can consider using your own backup solution. A good option is the Persistent Volume Snapshot which creates a snapshot of a persistent volume at a point in time. The biggest caveat is that they’re only supported on a number of platforms such as Azure and AWS.
 
-If you opt in for a different solution to the one we provide, you have to be mindful of the fact that not all databases used by Virtalis Reach support live backups. This means that the databases have to be taken offline before backing up.
+If you opt in for a different solution to the one we provide, you have to be mindful of the fact that not all databases used by Virtalis Hub support live backups. This means that the databases have to be taken offline before backing up.
 
-The following databases in use by Virtalis Reach must be taken offline for the duration of the backup:
+The following databases in use by Virtalis Hub must be taken offline for the duration of the backup:
 
 - Minio
 - Neo4j
@@ -18,13 +18,13 @@ The following databases in use by Virtalis Reach must be taken offline for the d
 Export the variable:
 
 ```
-export REACH_NAMESPACE=reach
+export HUB_NAMESPACE=hub
 ```
 
-Navigate to the directory containing Reach installation files:
+Navigate to the directory containing Virtalis Hub installation files:
 
 ```
-cd /home/root/Reach/k8s
+cd /home/root/Hub/k8s
 ```
 
 ## Installation
@@ -35,8 +35,8 @@ Recommended:
 
 Follow the “Create S3 Bucket” and “Set permissions for Velero” sections from the link below and ensure that you create the following 2 buckets under your s3 bucket:
 
-- reach-restic
-- reach-velero
+- hub-restic
+- hub-velero
 
 GitHub - vmware-tanzu/velero-plugin-for-aws: Plugins to support Velero on AWS 
 
@@ -50,24 +50,24 @@ export S3_BUCKET_PROTOCOL=<http or https>
 export S3_BUCKET_REGION=<region>
 ```
 
-Not recommended - create an s3 bucket on the same cluster, alongside Virtalis Reach:
+Not recommended - create an s3 bucket on the same cluster, alongside Virtalis Hub:
 
-Customize the persistence.size if the total size of your data exceeds 256gb and change the storage class REACH_SC if needed:
+Customize the persistence.size if the total size of your data exceeds 256gb and change the storage class HUB_SC if needed:
 
 ```
-export REACH_SC=local-path
-kubectl create ns reach-backup
+export HUB_SC=local-path
+kubectl create ns hub-backup
 
 #check if pwgen is installed for the next step
 command -v pwgen
 
-kubectl create secret generic reach-s3-backup -n reach-backup \
+kubectl create secret generic hub-s3-backup -n hub-backup \
 --from-literal='access-key'=$(pwgen 30 1 -s | tr -d '\n') \
 --from-literal='secret-key'=$(pwgen 30 1 -s | tr -d '\n')
 
-helm upgrade --install reach-s3-backup bitnami/minio \
--n reach-backup --version 3.6.1 \
---set persistence.storageClass=$REACH_SC \
+helm upgrade --install hub-s3-backup bitnami/minio \
+-n hub-backup --version 3.6.1 \
+--set persistence.storageClass=$HUB_SC \
 --set persistence.size=256Gi \
 --set mode=standalone \
 --set resources.requests.memory='150Mi' \
@@ -77,22 +77,22 @@ helm upgrade --install reach-s3-backup bitnami/minio \
 --set disableWebUI=true \
 --set useCredentialsFile=true \
 --set volumePermissions.enabled=true \
---set defaultBuckets="reach-velero reach-restic" \
---set global.minio.existingSecret=reach-s3-backup
+--set defaultBuckets="hub-velero hub-restic" \
+--set global.minio.existingSecret=hub-s3-backup
 
 cat <<EOF > credentials-velero
 [default]
-aws_access_key_id=$(kubectl get secret reach-s3-backup \
--n reach-backup -o jsonpath="{.data.access-key}" | base64 --decode)
-aws_secret_access_key=$(kubectl get secret reach-s3-backup \
--n reach-backup -o jsonpath="{.data.secret-key}" | base64 --decode)
+aws_access_key_id=$(kubectl get secret hub-s3-backup \
+-n hub-backup -o jsonpath="{.data.access-key}" | base64 --decode)
+aws_secret_access_key=$(kubectl get secret hub-s3-backup \
+-n hub-backup -o jsonpath="{.data.secret-key}" | base64 --decode)
 EOF
 ```
 
 Export the address and port of the bucket you have created:
 
 ```
-export S3_BUCKET_ADDRESS=reach-s3-backup-minio.reach-backup.svc.cluster.local
+export S3_BUCKET_ADDRESS=hub-s3-backup-minio.hub-backup.svc.cluster.local
 export S3_BUCKET_PORT=9000
 export S3_BUCKET_PROTOCOL=http
 export S3_BUCKET_REGION=local
@@ -100,7 +100,7 @@ export S3_BUCKET_REGION=local
 
 ## Set Up Variables
 
-For the duration of this installation, you must navigate to the k8s folder that is downloadable by following the Virtalis ReachInstallation Guide.
+For the duration of this installation, you must navigate to the k8s folder that is downloadable by following the Virtalis Hub Installation Guide.
 
 Make scripts executable:
 
@@ -118,23 +118,23 @@ Export the following variables:
 export ACR_REGISTRY_NAME=virtaliscustomer
 ```
 
-Export the address of the reach-restic bucket:
+Export the address of the hub-restic bucket:
 
 ```
 export REPO_URL=s3:$S3_BUCKET_PROTOCOL://\
-$S3_BUCKET_ADDRESS:$S3_BUCKET_PORT/reach-restic
+$S3_BUCKET_ADDRESS:$S3_BUCKET_PORT/hub-restic
 ```
 
 Optional configuration variables:
 
 ```
-export MANAGED_TAG=<custom image tag for Virtalis Reach services>
+export MANAGED_TAG=<custom image tag for Virtalis Hub services>
 export DISABLE_CRON<seto to true to install without an automated cronSchedule>
 ```
 
 ## Velero Installation
 
-The following steps will assume you named your Velero bucket “reach-velero”.
+The following steps will assume you named your Velero bucket “hub-velero”.
 
 Add the VMware helm repository and update:
 
@@ -153,9 +153,9 @@ helm install velero vmware-tanzu/velero \
 =./credentials-velero \
 --set configuration.provider=aws \
 --set configuration.backupStorageLocation.name\
-=reach-velero \
+=hub-velero \
 --set configuration.backupStorageLocation.bucket\
-=reach-velero \
+=hub-velero \
 --set configuration.backupStorageLocation.config.region\
 =$S3_BUCKET_REGION \
 --set configuration.backupStorageLocation.config.s3Url\
@@ -188,7 +188,7 @@ Manually create a single backup to verify that the connection to the aws bucket 
 
 ```
 velero backup create test-backup-1 \
---storage-location=reach-velero --include-namespaces $REACH_NAMESPACE
+--storage-location=hub-velero --include-namespaces $HUB_NAMESPACE
 ```
 
 Watch the status of the backup until it’s finished, this should show up as complete if everything was set up correctly:
@@ -201,7 +201,7 @@ Create a scheduled backup:
 
 ```
 velero create schedule cluster-backup --schedule="45 23 * * 6" \
---storage-location=reach-velero --include-namespaces $REACH_NAMESPACE
+--storage-location=hub-velero --include-namespaces $HUB_NAMESPACE
 ```
 
 This schedule will run a backup every Saturday at 23:45PM.
@@ -212,15 +212,15 @@ The custom restic integration uses Kubernetes jobs to mount the data, encrypt it
 
 The scheduled data backup runs on every Friday at 23:45PM by default. This can be modified by editing the cronSchedule field in all values.yaml files located in `backup-restore/helmCharts/<release_name>/` with the exception of common-lib.
 
-All the performed backups are offline backups,therefore Virtalis Reach will be unavailable for that period as a number of databases have to be taken down.
+All the performed backups are offline backups,therefore Virtalis Hub will be unavailable for that period as a number of databases have to be taken down.
 
-Create an AWS bucket with the name “reach-restic” by following the same guide from the Velero section.
+Create an AWS bucket with the name “hub-restic” by following the same guide from the Velero section.
 
-Replace the keys and create a secret containing the reach-restic bucket credentials:
+Replace the keys and create a secret containing the hub-restic bucket credentials:
 
 ```
-kubectl create secret generic reach-restic-bucket-creds \
--n "$REACH_NAMESPACE" \
+kubectl create secret generic hub-restic-bucket-creds \
+-n "$HUB_NAMESPACE" \
 --from-literal='AWS_ACCESS_KEY'='<ACCESS_KEY>' \
 --from-literal='AWS_SECRET_KEY'='<SECRET_KEY>'
 ```
@@ -228,19 +228,19 @@ kubectl create secret generic reach-restic-bucket-creds \
 If you instead opted in to deploy an s3 bucket on the same cluster, run this instead:
 
 ```
-kubectl create secret generic reach-restic-bucket-creds \
--n "$REACH_NAMESPACE" \
---from-literal='AWS_ACCESS_KEY'=$(kubectl get secret reach-s3-backup \
--n reach-backup -o jsonpath="{.data.access-key}" | base64 --decode) \
---from-literal='AWS_SECRET_KEY'=$(kubectl get secret reach-s3-backup \
--n reach-backup -o jsonpath="{.data.secret-key}" | base64 --decode)
+kubectl create secret generic hub-restic-bucket-creds \
+-n "$HUB_NAMESPACE" \
+--from-literal='AWS_ACCESS_KEY'=$(kubectl get secret hub-s3-backup \
+-n hub-backup -o jsonpath="{.data.access-key}" | base64 --decode) \
+--from-literal='AWS_SECRET_KEY'=$(kubectl get secret hub-s3-backup \
+-n hub-backup -o jsonpath="{.data.secret-key}" | base64 --decode)
 ```
 
-Export the address of the reach-restic bucket:
+Export the address of the hub-restic bucket:
 
 ```
 export REPO_URL=s3:$S3_BUCKET_PROTOCOL://\
-$S3_BUCKET_ADDRESS:$S3_BUCKET_PORT/reach-restic
+$S3_BUCKET_ADDRESS:$S3_BUCKET_PORT/hub-restic
 ```
 
 Run the installation:
@@ -252,13 +252,13 @@ Run the installation:
 Check if all the -init-repository- jobs have completed:
 
 ```
-kubectl get pods -n $REACH_NAMESPACE | grep init-repository
+kubectl get pods -n $HUB_NAMESPACE | grep init-repository
 ```
 
 Query the list of repositories:
 
 ```
-kubectl get repository -n $REACH_NAMESPACE
+kubectl get repository -n $HUB_NAMESPACE
 ```
 
 The output should look something like this with the status of all repositories showing as Initialized:
@@ -276,7 +276,7 @@ vrdb-store              Initialized   0B     2021-03-01T10:22:00Z
 Once you are happy to move on, delete the completed job pods:
 
 ```
-kubectl delete jobs -n $REACH_NAMESPACE -l app=backup-restore-init-repository
+kubectl delete jobs -n $HUB_NAMESPACE -l app=backup-restore-init-repository
 ```
 
 Trigger a manual backup:
@@ -288,13 +288,13 @@ Trigger a manual backup:
 After a while, all the -triggered-backup- jobs should show up as Completed:
 
 ```
-kubectl get pods -n "$REACH_NAMESPACE" | grep triggered-backup
+kubectl get pods -n "$HUB_NAMESPACE" | grep triggered-backup
 ```
 
 Query the list of snapshots:
 
 ```
-kubectl get snapshot -n "$REACH_NAMESPACE"
+kubectl get snapshot -n "$HUB_NAMESPACE"
 ```
 
 The output should look something like this with the status of all snapshots showing as Completed:
@@ -312,7 +312,7 @@ vrdb-store-neo4j-core...   Completed   1c2...   2021...
 Once you are happy to move on, delete the completed job pods:
 
 ```
-kubectl delete jobs -n $REACH_NAMESPACE -l app=backup-restore-triggered-backup
+kubectl delete jobs -n $HUB_NAMESPACE -l app=backup-restore-triggered-backup
 ```
 
 ## Triggering a Manual Backup
@@ -337,7 +337,7 @@ Create a cluster resource level backup:
 
 ```
 velero backup create cluster-backup-$(date +"%m-%d-%Y") \
---storage-location=reach-velero --include-namespaces $REACH_NAMESPACE
+--storage-location=hub-velero --include-namespaces $HUB_NAMESPACE
 ```
 
 Check the status of the velero backup:
@@ -355,13 +355,13 @@ Create a database level backup:
 Check the status of the database backup:
 
 ```
-watch -n2 kubectl get snapshot -n "$REACH_NAMESPACE"
+watch -n2 kubectl get snapshot -n "$HUB_NAMESPACE"
 ```
 
 Once you are happy to move on, delete the completed job pods:
 
 ```
-kubectl delete jobs -n $REACH_NAMESPACE -l app=backup-restore-triggered-backup
+kubectl delete jobs -n $HUB_NAMESPACE -l app=backup-restore-triggered-backup
 ```
 
 ## Restoring Data
@@ -373,7 +373,7 @@ Plan your restoration by gathering a list of the snapshot IDs you will be restor
 Begin by querying the list of repositories:
 
 ```
-kubectl get repo -n "$REACH_NAMESPACE"
+kubectl get repo -n "$HUB_NAMESPACE"
 NAME                    STATUS        SIZE   CREATIONDATE
 artifact-binary-store   Initialized   12K    2021-07-02T12:03:26Z
 artifact-store          Initialized   527M   2021-07-02T12:03:29Z
@@ -401,7 +401,7 @@ Error: ARTIFACT_STORE_RESTORE_ID has not been exported. Please run 'kubectl get 
 Query available snapshots or use the commands returned in the output above to query by specific repositories:
 
 ```
-kubectl get snapshot -n "$REACH_NAMESPACE"
+kubectl get snapshot -n "$HUB_NAMESPACE"
 ```
 
 This should return a list of available snapshots:
@@ -425,7 +425,7 @@ kubectl get deploy -n ingress-nginx
 export NGINX_REPLICAS=<CURRENT_REPLICA_COUNT>
 ```
 
-Scale down the nginx ingress service to prevent people from accessing Virtalis Reach during the restoration process:
+Scale down the nginx ingress service to prevent people from accessing Virtalis Hub during the restoration process:
 
 ```
 kubectl scale deploy --replicas=0 ingress-nginx-ingress-controller \
@@ -447,8 +447,8 @@ Example:
 
 ```
 NAME            STATUS      ERRORS   WARNINGS   CREATED     EXPIRES   STORAGE LOCATION   SELECTOR
-test-backup-1   Completed   0        0          2022-0...   29d       reach-velero       <none>
-test-backup-2   Completed   0        0          2022-0...   29d       reach-velero       <none>
+test-backup-1   Completed   0        0          2022-0...   29d       hub-velero       <none>
+test-backup-2   Completed   0        0          2022-0...   29d       hub-velero       <none>
 ```
 
 Restore:
@@ -469,20 +469,20 @@ sed 's/-/_/g')_RESTORE_ID"; unset ${id_var}; done
 After a while, all the -triggered-restore- jobs should show up as Completed:
 
 ```
-kubectl get pods -n "$REACH_NAMESPACE" | grep triggered-restore
+kubectl get pods -n "$HUB_NAMESPACE" | grep triggered-restore
 ```
 
 Once you are happy to move on, delete the completed job pods:
 
 ```
-kubectl delete jobs -n $REACH_NAMESPACE \
+kubectl delete jobs -n $HUB_NAMESPACE \
 -l app=backup-restore-triggered-restore
 ```
 
 Watch and wait for all pods that are running to be Ready:
 
 ```
-watch -n2 kubectl get pods -n "$REACH_NAMESPACE"
+watch -n2 kubectl get pods -n "$HUB_NAMESPACE"
 ```
 
 Scale back nginx:
@@ -506,8 +506,8 @@ Example:
 
 ```
 NAME            STATUS      ERRORS   WARNINGS   CREATED     EXPIRES   STORAGE LOCATION   SELECTOR
-test-backup-1   Completed   0        0          2022-0...   29d       reach-velero       <none>
-test-backup-2   Completed   0        0          2022-0...   29d       reach-velero       <none>
+test-backup-1   Completed   0        0          2022-0...   29d       hub-velero       <none>
+test-backup-2   Completed   0        0          2022-0...   29d       hub-velero       <none>
 ```
 
 Delete a single backup:
@@ -523,10 +523,10 @@ velero backup delete test-backup-1
 ```
 
 Restic
-Get list of reach backups:
+Get list of Hub backups:
 
 ```
-kubectl get snapshot -n $REACH_NAMESPACE
+kubectl get snapshot -n $HUB_NAMESPACE
 ```
 
 Example:

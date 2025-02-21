@@ -1,6 +1,6 @@
 # Deploy the Monitoring Service Stack
 
-This section covers the deployment of various monitoring services which allow a Kubernetes Administrator to monitor the health, metrics, and logs for all cluster services including Reach.
+This section covers the deployment of various monitoring services which allow a Kubernetes Administrator to monitor the health, metrics, and logs for all cluster services including Virtalis Hub.
 
 List of services to be deployed:
 
@@ -23,13 +23,13 @@ Export the following environment variables which will be used throughout the ins
 ```
 export MONITORING_DOMAIN=<the domain monitoring services will be hosted on>
 export MONITORING_NAMESPACE=monitoring
-export MONITORING_TLS_SECRET=reach-tls-secret
+export MONITORING_TLS_SECRET=hub-tls-secret
 ```
 
-Navigate to the default Reach installation folder
+Navigate to the default Virtalis Hub installation folder
 
 ```
-cd /home/root/Reach/k8s
+cd /home/root/Hub/k8s
 ```
 
 Export the following if Grafana will be configured to use AAD for authentication:
@@ -210,14 +210,14 @@ kubectl exec $KIBANA_POD_NAME -n $MONITORING_NAMESPACE -- bash -c 'curl http://$
 kubectl exec $KIBANA_POD_NAME -n $MONITORING_NAMESPACE -- bash -c 'curl http://${ES_USERNAME}:${ES_PASSWORD}@0.0.0.0:5601/s/serilog/api/infra/log_source_configurations/default -X PATCH -H "Content-Type: application/json" -H "kbn-xsrf: reporting" --data-raw "{\"data\":{\"name\":\"Serilog\",\"logIndices\":{\"type\":\"index_name\",\"indexName\":\"logs-*\"},\"fields\":{\"tiebreaker\":\"_doc\",\"timestamp\":\"@timestamp\"},\"logColumns\":[{\"timestampColumn\":{\"id\":\"5e7f964a-be8a-40d8-88d2-fbcfbdca0e2f\"}},{\"messageColumn\":{\"id\":\"b645d6da-824b-4723-9a2a-e8cece1645c0\"}},{\"fieldColumn\":{\"id\":\"227c3f32-0980-4566-a06e-06a2e60b3a8c\",\"field\":\"fields.ApplicationContext\"}}]}}"'
 ```
 
-Scraping Virtalis Reach Services Using Prometheus
+Scraping Virtalis Hub Services Using Prometheus
 
 Export the following:
 
 ```
-export REACH_NAMESPACE=<name of kubernetes namespace Virtalis Reach is deployed in>
-export REACH_VERSION=$(kubectl get secret reach-version \
--n $REACH_NAMESPACE -o json \
+export HUB_NAMESPACE=<name of kubernetes namespace Virtalis Hub is deployed in>
+export HUB_VERSION=$(kubectl get secret hub-version \
+-n $HUB_NAMESPACE -o json \
 | jq ".data.version" -r | base64 -d)
 ```
 
@@ -226,8 +226,8 @@ Run the upgrade:
 ```
 . ./load-install-config.sh
 export PROMETHEUS_SCRAPE=true
-./install-reach.sh
-kubectl label namespace $REACH_NAMESPACE prometheus-scrape=true
+./install-hub.sh
+kubectl label namespace $HUB_NAMESPACE prometheus-scrape=true
 ```
 
 Accessing the Grafana frontend

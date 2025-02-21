@@ -1,25 +1,25 @@
 # Install the VirtalisPublish Plugin
 
-VirtalisPublish is a plugin for PTC’s Windchill PLM server software. It allows assemblies to be published to Virtalis Reach when Windchill detects that they have been modified. Once installed and and correctly configured, the general process is as follows.
+VirtalisPublish is a plugin for PTC’s Windchill PLM server software. It allows assemblies to be published to Virtalis Hub when Windchill detects that they have been modified. Once installed and and correctly configured, the general process is as follows.
 
 ## ‍Prerequisites
 
 The processes outlined in this document have been developed and tested on Windchill 11.1.
 
-Throughout this document the base installation folder of Windchill will be referred to as `<install-folder>`, an example would be D:\ptc\Windchill_11.1\Windchill.
+Throughout this document the base installation folder of Windchill will be referred to as `<install-folder>`, an example would be `D:\ptc\Windchill_11.1\Windchill`.
 
 Creo Elements/Pro (formerly Pro/Engineer) needs to be installed in the Windchill environment. This acts as the ‘Worker’ that Windchill’s Worker Agent will delegate the job of publishing a representation to, after a successful check-in event.
 
-It is assumed that you have already installed Virtalis Reach. After installing the plugin or making any configuration changes, the PTC Windchill service must be restarted for the changes to take effect.
+It is assumed that you have already installed Virtalis Hub. After installing the plugin or making any configuration changes, the PTC Windchill service must be restarted for the changes to take effect.
 
 ## Pre-Installation
 
-You must configure Virtalis Reach to allow for Windchill to talk to the Message Queue. The communication between Windchill and the message queue will be encrypted using TLS.
+You must configure Virtalis Hub to allow for Windchill to talk to the Message Queue. The communication between Windchill and the message queue will be encrypted using TLS.
 
 Export the variables replacing anything in `<>`:
 
 ```
-export REACH_NAMESPACE=<reach namespace>
+export HUB_NAMESPACE=<Hub namespace>
 ```
 
 ## ‍Load the Previous Configuration
@@ -44,7 +44,7 @@ Generate certs:
 
 ```
 docker run --rm \
--e REACH_DOMAIN=${REACH_DOMAIN} \
+-e HUB_DOMAIN=${HUB_DOMAIN} \
 -e MQ_CLIENT_KEY_PASS=${MQ_CLIENT_KEY_PASS} \
 -e TRUSTSTORE_PASSWORD=${TRUSTSTORE_PASSWORD} \
 -v /tmp/result:/tmp/result \
@@ -54,7 +54,7 @@ virtaliscustomer.azurecr.io/windchill-cert-generator:0.0.0
 Create a rabbitmq-certs secret from the generated certs:
 
 ```
-kubectl create secret generic rabbitmq-certs -n $REACH_NAMESPACE \
+kubectl create secret generic rabbitmq-certs -n $HUB_NAMESPACE \
 --from-file='ca.crt'=ca_certificate.pem \
 --from-file='tls.crt'=server_certificate.pem \
 --from-file='tls.key'=server_key.pem
@@ -62,13 +62,13 @@ kubectl create secret generic rabbitmq-certs -n $REACH_NAMESPACE \
 
 ## ‍Configure RabbitMQ
 
-Upgrade RabbitMQ (make sure you are inside the ~/k8s/ directory (default) or wherever else the installation files were downloaded to during the Virtalis Reach installation):
+Upgrade RabbitMQ (make sure you are inside the ~/k8s/ directory (default) or wherever else the installation files were downloaded to during the Virtalis Hub installation):
 
 ```
 MQ_EXPOSE_INGRESS=1 ./install-mq.sh
 ```
 
-Configure a file source for Windchill by referring to the Configuring External File Sources section of the Deploying Virtalis Reach document and run the script:
+Configure a file source for Windchill by referring to the Configuring External File Sources section of the Deploying Virtalis Hub document and run the script:
 
 ```
 ./create-secrets.sh
@@ -77,7 +77,7 @@ Configure a file source for Windchill by referring to the Configuring External F
 Check if port 5671 is exposed in the service definition:
 
 ```
-kubectl get svc message-queue-rabbitmq -n $REACH_NAMESPACE -o yaml
+kubectl get svc message-queue-rabbitmq -n $HUB_NAMESPACE -o yaml
 ```
 
 Under the port array you should find amqp-ssl:
@@ -101,7 +101,7 @@ If it is missing, add it to the service and also to the statefulset:
     port: 5671
     protocol: TCP
     targetPort: amqp-ssl
-kubectl edit statefulset message-queue-rabbitmq -n $REACH_NAMESPACE
+kubectl edit statefulset message-queue-rabbitmq -n $HUB_NAMESPACE
 ```
 
 Add the following entry under:
@@ -130,7 +130,7 @@ metadata:
   name: tcp-services
   namespace: ingress-nginx
 data:
-  5673: "$REACH_NAMESPACE/message-queue-rabbitmq:5671"
+  5673: "$HUB_NAMESPACE/message-queue-rabbitmq:5671"
 EOF
 ```
 
@@ -164,23 +164,23 @@ kubectl edit svc ingress-nginx-ingress-controller -n ingress-nginx
 
 ## ‍Create a Windchill User
 
-Replace `<WINDCHILL USER PASSWORD>` with a strong random generated password and replace `<REACH NAMESPACE>` with the namespace Virtalis Reach is deployed in and then run the command:
+Replace `<WINDCHILL USER PASSWORD>` with a strong random generated password and replace `<HUB NAMESPACE>` with the namespace Virtalis Hub is deployed in and then run the command:
 
 ```
-kubectl exec -n $REACH_NAMESPACE message-queue-rabbitmq-0 -- /bin/bash -c \
+kubectl exec -n $HUB_NAMESPACE message-queue-rabbitmq-0 -- /bin/bash -c \
 "rabbitmqctl add_user 'windchill' '<WINDCHILL USER PASSWORD>' && \
 rabbitmqctl set_permissions -p '/' 'windchill' '^$' '^(amq.default|delay.exchange)$' '^$'"
 ```
 
 ## ‍Create a Windchill Group
 
-In the keycloak admin panel, create a new group with the name “windchill” and add any users to it that will use the Windchill integration. Refer to https://www.virtalis.com/chapter/virtalis-reach-user-management for further information.
+In the keycloak admin panel, create a new group with the name “windchill” and add any users to it that will use the Windchill integration (see [User Management](../configure/user-management.mdx) for further information).
 
 ## Installation
 
 The plugin comes as a Zip file containing two main files:
 
-- VirtalisPublish.jar – this contains the compiled plugin code required to publish assemblies to Virtalis Reach.
+- VirtalisPublish.jar – this contains the compiled plugin code required to publish assemblies to Virtalis Hub.
 - virtalisPublish.properties – a configuration file for tailoring the plugin to your environment.
 
 To install, copy the files to the following locations:
@@ -188,7 +188,7 @@ To install, copy the files to the following locations:
 - VirtalisPublish.jar: `<install-folder>/codebase/WEB-INF/lib`
 - virtalisPublish.properties: `<install-folder>/codebase`
 
-The Zip file also comes with some third-party JAR files (one RabbitMQ AMQP jar required for posting messages to Virtalis Reach’s queue, and three Jackson jar files for JSON serialisation) that will be required if this is a first-time installation. They should also be copied to the `<install-folder>/codebase/WEB-INF/lib` folder if they aren’t already there.
+The Zip file also comes with some third-party JAR files (one RabbitMQ AMQP jar required for posting messages to Virtalis Hub’s queue, and three Jackson jar files for JSON serialisation) that will be required if this is a first-time installation. They should also be copied to the `<install-folder>/codebase/WEB-INF/lib` folder if they aren’t already there.
 
 ## Configuring Windchill
 
@@ -285,7 +285,7 @@ Example value: `txt`
 
 ‍Property name: download.use.http
 
-Description: If true, the download URL that gets built up and then sent in the message to Reach will begin with http. Otherwise (and also default) it will begin with https.
+Description: If true, the download URL that gets built up and then sent in the message to Virtalis Hub will begin with http. Otherwise (and also default) it will begin with https.
 
 Example value: `true/false`
 ‍
@@ -320,7 +320,7 @@ Example value: `true`
 
 ‍Property name: queue.host
 
-Description: The IP address or hostname of the Virtalis Reach queue to which NotificationMessages will be published after an assembly is checked-in.
+Description: The IP address or hostname of the Virtalis Hub queue to which NotificationMessages will be published after an assembly is checked-in.
 
 If using peer-verification (see below) this value must match either the CN or SAN fields in the server’s SSL certificate.
 
@@ -329,49 +329,49 @@ Example value: `123.456.789.098` or a hostname
 
 ‍Property name: queue.port
 
-Description: The port number needed to connect to the Virtalis Reach queue.
+Description: The port number needed to connect to the Virtalis Hub queue.
 
 Example value: `1234`
 
 
 ‍Property name: queue,name
 
-Description: The name of the Virtalis Reach queue to publish messages on. The value should never need changing from ‘changes’.
+Description: The name of the Virtalis Hub queue to publish messages on. The value should never need changing from ‘changes’.
 
 Example value: `changes`
 
 
 ‍Property name: queue.username
 
-Description: The username required to connect to the Virtalis Reach queue (this is windchill by default if you follow the Pre-installation steps).
+Description: The username required to connect to the Virtalis Hub queue (this is windchill by default if you follow the Pre-installation steps).
 
 Example value: `<queue-username>`
 
 
 ‍Property name: queue.password
 
-Description: The password required to connect to the Virtalis Reach queue.
+Description: The password required to connect to the Virtalis Hub queue.
 
 Example value: `<queue-password>`
 
 
 ‍Property name: queue.ssl
 
-Description: Whether to use SSL to connect to the Virtalis Reach queue. Setting this alone to true will encrypt the traffic between the Plugin and Virtalis Reach but will not perform peer-verification checks (see below). Nevertheless, this adds a layer of security.
+Description: Whether to use SSL to connect to the Virtalis Hub queue. Setting this alone to true will encrypt the traffic between the Plugin and Virtalis Hub but will not perform peer-verification checks (see below). Nevertheless, this adds a layer of security.
 
 Example value: `true/false`
 
 
 ‍Property name: queue.usePeerVerification
 
-Description: If set to true (and queue.ssl is also true), will attempt to perform peer verification when connecting to the Virtalis Reach queue. This adds more security but requires client keys to be installed. See the section on SSL/TLS.
+Description: If set to true (and queue.ssl is also true), will attempt to perform peer verification when connecting to the Virtalis Hub queue. This adds more security but requires client keys to be installed. See the section on SSL/TLS.
 
 Example value: `true/false`
 
 
 ‍Property name: queue.client.key
 
-Description: The client key. This file should be provided by a site administrator who provided the certificate used to secure the Virtalis Reach queue.
+Description: The client key. This file should be provided by a site administrator who provided the certificate used to secure the Virtalis Hub queue.
 
 `D:/ptc/Virtalis_Download/truststore/client_key.p12`
 
@@ -399,7 +399,7 @@ Example value: `<trust-store-password>`
 
 ‍Property name: exportable.item.filters
 
-Description: Regular expressions to limit which assemblies will be sent to Virtalis Reach. See the Filtering section for more information.
+Description: Regular expressions to limit which assemblies will be sent to Virtalis Hub. See the Filtering section for more information.
 
 Example value:
 
@@ -413,7 +413,7 @@ Example value:
 
 ‍Property name: groups
 
-Description: A comma-separated list of Virtalis Reach groups that the resulting asset will be available to (in Virtalis Reach).
+Description: A comma-separated list of Virtalis Hub groups that the resulting asset will be available to (in Virtalis Hub).
 
 Example value:
 
@@ -451,7 +451,7 @@ There should be a message similar to the following:
 [2021-03-19 14:39:19.834]  - co.uk.rootsolutions.virtalis.StandardCopyRepsService - co.uk.rootsolutions.virtalis.MessageSender Message sent
 ```
 
-This indicates that Windchill has posted a message to the Virtalis Reach queue and you should see an import job running in the jobs screen in Virtalis Reach
+This indicates that Windchill has posted a message to the Virtalis Hub queue and you should see an import job running in the jobs screen in Virtalis Hub
 
 If not, please refer to publisher.txt to see if there are any obvious error messages, the main Windchill logs, and the troubleshooting guide below.
 
@@ -511,10 +511,10 @@ root@master:~# ./mq.py
 INFO:pika.adapters.utils.connection_workflow:Pika version 1.1.0 connecting to ('10.209.65.143', 5673)
 INFO:pika.adapters.utils.io_services_utils:Socket connected: <socket.socket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.209.65.143', 45154), raddr=('10.209.65.143', 5673)>
 INFO:pika.adapters.utils.io_services_utils:SSL handshake completed successfully: <ssl.SSLSocket fd=6, family=AddressFamily.AF_INET, type=SocketKind.SOCK_STREAM, proto=6, laddr=('10.209.65.143', 45154), raddr=('10.209.65.143', 5673)>
-INFO:pika.adapters.utils.connection_workflow:Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd7c7550910>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd7c7550910> params=<ConnectionParameters host=reach.local port=5673 virtual_host=/ ssl=True>>).
-INFO:pika.adapters.utils.connection_workflow:AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd7c7550910> params=<ConnectionParameters host=reach.local port=5673 virtual_host=/ ssl=True>>
-INFO:pika.adapters.utils.connection_workflow:AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd7c7550910> params=<ConnectionParameters host=reach.local port=5673 virtual_host=/ ssl=True>>
-INFO:pika.adapters.blocking_connection:Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd7c7550910> params=<ConnectionParameters host=reach.local port=5673 virtual_host=/ ssl=True>>
+INFO:pika.adapters.utils.connection_workflow:Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd7c7550910>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd7c7550910> params=<ConnectionParameters host=hub.local port=5673 virtual_host=/ ssl=True>>).
+INFO:pika.adapters.utils.connection_workflow:AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd7c7550910> params=<ConnectionParameters host=hub.local port=5673 virtual_host=/ ssl=True>>
+INFO:pika.adapters.utils.connection_workflow:AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd7c7550910> params=<ConnectionParameters host=hub.local port=5673 virtual_host=/ ssl=True>>
+INFO:pika.adapters.blocking_connection:Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncSSLTransport object at 0x7fd7c7550910> params=<ConnectionParameters host=hub.local port=5673 virtual_host=/ ssl=True>>
 INFO:pika.adapters.blocking_connection:Created channel=1
 ```
 
