@@ -70,7 +70,7 @@ const config = {
         title: '',
         logo: {
           src: 'logo.svg',
-          width: 220,
+          width: 185,
         },
       items: [
         {
@@ -80,14 +80,17 @@ const config = {
           items: [
             {
               type: 'docSidebar',
+              label: 'Importers and Exporters',
               sidebarId: 'importersAndExportersSidebar',
             },
             {
               type: 'docSidebar',
+              label: 'Virtalis Hub and Web Viewer',
               sidebarId: 'virtalisHubAndWebViewerSidebar',
             },
             {
               type: 'docSidebar',
+              label: 'Visionary Render',
               sidebarId: 'visionaryRenderSidebar',
             },
           ],
@@ -99,10 +102,12 @@ const config = {
           items: [
             {
               type: 'docSidebar',
+              label: 'Virtalis Hub System Admin',
               sidebarId: 'virtalisHubSystemAdminSidebar',
             },
             {
               type: 'docSidebar',
+              label: 'Visionary Render Programming',
               sidebarId: 'visionaryRenderProgrammingSidebar',
             },
           ],
