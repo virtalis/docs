@@ -5,6 +5,7 @@
   --virtalis-color-darker-blue: rgb(11, 3, 92);
   --virtalis-color-light-navbar-text: rgb(213, 214, 255);
   --virtalis-color-dark-navbar-text: rgb(189, 190, 230);
+  --virtalis-color-orange: #e8a92c;
 
   --ifm-color-primary: #d66800;
   --ifm-color-primary-dark: #c15e00;
@@ -14,7 +15,7 @@
   --ifm-color-primary-lighter: #f67800;
   --ifm-color-primary-lightest: #ff8817;
 
-  --ifm-font-size-base: 18px;
+  --ifm-font-size-base: 17.5px;
   --ifm-font-color-base: var(--ifm-color-black);
   --ifm-code-font-size: 95%;
   --ifm-table-cell-padding: 0.5rem;
