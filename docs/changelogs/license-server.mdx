@@ -1,0 +1,127 @@
+---
+sidebar_position: 3
+description: 1.0.1 to 2025.1
+---
+
+# License Server
+
+## 2025.1
+
+*Released 2025-03-07*
+
+#### Added
+
+- Page to the installer to permit firewall rules to be set
+- Checks to prevent multiple instances from running at once
+
+#### Removed
+
+- Startup options as they did not work as intended and clashed with running services
+- Changelog (this has been moved to Virtalis Docs)
+- Unit test data in the `data/tests` directory
+
+#### Fixed
+
+- Server only works when someone is logged on to the machine hosting it
+
+---
+
+## 2024.3
+
+*Released 2024-11-22*
+
+#### Changed
+
+- Update the server to our latest SDK and build tools
+- Update jQuery and jQuery Color
+
+---
+
+## 2019.4
+
+*Released 2019-08-08*
+
+#### Removed
+
+- The license client (applications now interact with the license server directly)
+
+---
+
+## 2019.3
+
+*Released 2019-05-29*
+
+#### Added
+
+- Visual Studio 14.0 x64 redistributables to the installer to prevent a crash if they aren't already installed
+- Log file to license client in `%appdata%\Local\Virtalis\LicenseClient\Logs`
+- Version information to the web interface and installer
+
+#### Changed
+
+- Improved error reporting from the license server
+
+#### Fixed
+
+- License server shows a 404 error when revoking a floating license
+- License client now listens on localhost to prevent problems with changing network configuration
+- License client and server now attempt to bind to other ports if the requested port is unavailable
+- Submit button on the license server's import license dialog does not give any feedback to the user
+- MAC address is converted to lowercase when read from a file
+- Unable to import licenses from the license client
+- License server admin panel sometimes cannot be accessed
+- Various issues with the license server and client in Firefox and Edge
+
+---
+
+## 1.1
+
+*Released 2019-04-09*
+
+#### Added
+
+- Application name to the import license dialog of the license client
+
+#### Changed
+
+- Store the IP address used by the license client to talk to client apps in the `xml/registry` config, rather than hoping the app will pick the correct IP to try to connect to the license client with
+
+#### Removed
+
+- Naming restrictions on license files
+
+#### Fixed
+
+- Old version of the Visual Studio redistributables being installed
+- Visionary Render reports expired licenses as 'invalid' instead of 'expired'
+- Crash when saving config file if value is set to an empty string
+- STEP importer license not being found
+
+---
+
+## 1.0.1
+
+*Released 2015-09-18*
+
+#### Added
+
+- Revision number to the license MAC address information window
+- License features to the client balloon message and web interface to show which add-on licenses are in use
+- Balloon message when the server response takes longer than 1 second
+- "About" dialog with version information
+
+#### Changed
+
+- Installer automatically starts the license service and the uninstaller automatically stops it
+- Client now times out after 5 seconds without a response to its license request from the server instead of waiting forever
+
+#### Fixed
+
+- Crash that could occur in the license client
+- Deleting a local license from the web interface in the license client only works temporarily
+- Temporary license can expire and get cleaned up before the client requests a renewal
+- The same application not being able to request multiple licenses with different features
+- License server stalls when it reissues a reserved seat
+- License client can block Visionary Render
+- Add-on requests not working correctly
+- Spam being printed to the log

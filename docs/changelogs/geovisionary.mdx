@@ -1,9 +1,41 @@
 ---
 sidebar_position: 1
-description: 2019.2 to 2024.3.1
+description: 2019.2 to 2025.1
 ---
 
 # GeoVisionary
+
+## 2025.1
+
+*Released 2025-03-07*
+
+#### Added
+
+- ActiveMove tracking mode with various settings that can be configured
+- Tracking view tab to the Diagnostics window
+- Settings can be saved to and loaded from files with the .VRSetting extension
+
+#### Changed
+
+- Improve the performance of shadows in large scenes with animated objects
+- Stop rendering when nothing is changing in the scene to reduce GPU usage
+
+#### Removed
+
+- Changelogs and start menu links for the Visionary Render manual and programming guide (these have been moved to Virtalis Docs)
+
+#### Fixed
+
+- The following warning being shown on startup: “[W] Cache was not cleanly unmounted. Rebuilding a clean cache."
+- “Path does not exist” error when saving files to the root of a drive
+- Rain intensity setting no longer works
+- Double image in Oculus/SteamVR/WMR when moving the camera in a collaboration
+- Possible invalid mesh errors when creating shapes in a collaboration
+- Collision detection can cause Lua to crash
+- Crashes that could occur when using a HTC VIVE
+- Flickering in quad-buffered stereo mode
+
+---
 
 ## 2024.3.1
 

@@ -1,9 +1,48 @@
 ---
-sidebar_position: 4
-description: 1.0.1 to 2024.3.1
+sidebar_position: 5
+description: 1.0.1 to 2025.1
 ---
 
 # Visionary Render
+
+## 2025.1
+
+*Released 2025-03-07*
+
+#### Added
+
+- HTML documentation portal called 'Virtalis Docs' that contains all software manuals, guides and changelogs in one place. It can be accessed via the start menu, app menu, importers, F1 key or '?' icons on windows (for context-sensitive help)
+- ActiveMove tracking mode with various settings that can be configured
+- Tracking view tab to the Diagnostics window
+- Settings can be saved to and loaded from files with the .VRSetting extension
+- A tree view dialog to permit settings to be selected for saving and loading
+- Command-line option `-restoresettings` to merge a settings file immediately after the user settings are loaded
+- Support for showing images in tooltips
+
+#### Changed
+
+- Improve the performance of shadows in large scenes with animated objects
+- Stop rendering when nothing is changing in the scene to reduce GPU usage
+
+#### Removed
+
+- Changelogs and start menu links for the Visionary Render manual and programming guide (these have been moved to Virtalis Docs)
+
+#### Fixed
+
+- The following warning being shown on startup: “[W] Cache was not cleanly unmounted. Rebuilding a clean cache."
+- Prevent the view in render to texture nodes (such as the mirror in the start room) from looking too flat in HMDs or with stereo rendering enabled
+- “Path does not exist” error when saving files to the root of a drive
+- Tab completion doesn't work in the script editor
+- Rain intensity setting no longer works
+- Double image in Oculus/SteamVR/WMR when moving the camera in a collaboration
+- Possible invalid mesh errors when creating shapes in a collaboration
+- LuaSQL can throw an error message in scripts
+- Collision detection can cause Lua to crash
+- Crashes that could occur when using a HTC VIVE
+- Flickering in quad-buffered stereo mode
+
+---
 
 ## 2024.3.1
 
@@ -671,7 +710,7 @@ Visionary Render has been updated to reflect our new company brand identity
 
 #### Changed
 
-- Discontinues the standalone License Client and bundles functionality directly into apps. Improves the license dialog
+- Improve the license dialog when a correct license isn't found
 
 #### Fixed
 
