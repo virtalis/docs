@@ -8,6 +8,39 @@ Visionary Render has a transparent GUI that is rendered over the 3D scene. It su
 
 ![](/img/visionary-render/getting-started/user-interface/overview.png)
 
+## Application Menu
+
+Click on the Virtalis button at the top-left of the Toolbar to open the Application Menu.
+
+![](/img/visionary-render/getting-started/user-interface/app-menu.png)
+
+The main menu is shown in the left column, with any sub-menu options in the right column. A list of recent files and folders is displayed when no option is selected.
+
+:::note
+You can change the number of recent files to display in **Settings** > **User Interface** > **Files**.
+:::
+
+| Option | Description |
+|--------|-------------|
+| New | Start a new, empty scene (`Ctrl` + `N`). |
+| Open | Show a file open dialog to specify a `VRNative` or `VRText` file to load. |
+| Import | Merge a file (`Ctrl` + `Shift` + `O`) or overlay into your scene or import a file with an installed importer (`Ctrl` + `I`). |
+| Export | Export your scene to a format supported by an installed exporter. |
+| Save | Save the current scene with its existing name and location (`Ctrl` + `S`). |
+| Save As | Save the current scene with a different name, location, or format (`Ctrl` + `Shift` + `S`).<ul><li>**Visionary Render Scene** (`VRNative`, `VRText`) – save the scene with a different name or location.</li><li>**Monolithic Scene** (`VRNative`) – save the scene as a single monolithic file.</li><li>**Finished Monolithic Scene** (`VRNative`) – save the scene as a finished monolithic file for presentations.</li><li>**System Document** (`VRNative`) – save the scene as a system document.</li><li>**Scene Overlay** (`VRNative`) – save an overlay of the scene that can be loaded over an existing scene. Use this if you don’t have a developer license to save only direct children of the Scenes tree plus any viewpoints, annotations, groups, settings, lights and dynamic sections. Note that you can save changes to additional node types using the [Automatic Change Recorder](../tools/automatic-change-recorder.mdx).</li></ul> |
+| Upload To Virtalis Hub | Upload the current scene to Virtalis Hub to share it with other people in your organisation. |
+| Close | Close the current scene and return to the Start Room. |
+| Windows | <ul><li>**Properties** – view and edit properties of selected nodes (`Ctrl` + `P`).</li><li>**View Widget** – view and edit camera position and orientation (`Ctrl` + `U`).</li><li>**Script Editor** – view and edit Lua scripts and shaders (`Ctrl` + `L`).</li><li>**Diagnostics** – view statistics, logs, and support information (`Ctrl` + `D`).</li><li>**Animation Sequencer** – create and edit keyframe animations (`Ctrl` + `Q`).</li><li>**Gradient Editor** – create and edit gradients (`Ctrl` + `K`).</li><li>**Review** – view and edit annotations (`Ctrl` + `B`).</li><li>**Network** – find and connect to collaboration sessions (`Ctrl` + `J`).</li><li>**Search** – perform advanced search operations (`Ctrl` + `Shift` + `F`).</li><li>**Gallery** – import assets into your scene (`Ctrl` + `G`).</li><li>**Reset windows** – reset the windows to their initial positions and states.</li></ul> |
+| Settings | Open the Settings window (`F6`). |
+| Help | <ul><li>**User Manual** – open the compiled HTML version of this user manual (`F1`).</li><li>**About** – open the About dialog to see version and licensing information.</li><li>**Create Support Log(s)** – save the log to a file. A file dialog will be shown to permit you to choose a location and name for the file.</li></ul> When clustered, a directory browser will be shown instead to permit you to choose a location for all the cluster node logs to be saved. |
+| Exit | Exit the application (`Alt` + `F4`). |
+
+:::note
+When saving modifications to Library objects (materials, geometry, etc.), these may overwrite the original library files. Performing a Save As in the same directory as the original scene file will create a new copy of the scene file only. If this is not desirable (i.e. the libraries should not be shared), then the new filename needs to be in a different/new directory from the current scene file. This will then also save a copy of all the libraries in the new location.
+
+Alternatively, **Save As** > **Monolithic Scene** will automatically disable the archiving of all libraries and save the entire scene into one large file. **Save As** > **Finished Monolithic Scene** means extra confirmation is required for overwriting the file in the future and does not prompt for saving when it has been edited then closed.
+:::
+
 ## Windows
 
 ### Title Bar

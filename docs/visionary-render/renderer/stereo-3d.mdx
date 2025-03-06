@@ -1,0 +1,46 @@
+# Stereo 3D
+
+Visionary Render supports stereo 3D. It can be enabled from the ![](/img/visionary-render/renderer/stereo-3d/stereo1.png) button in the Toolbar or by pressing **F10**. Stereo is achieved by rendering the 3D view twice, once into each eye, at different camera angles.
+
+## Settings
+
+Stereo can be configured for the Settings window under `Renderer` > `General`.
+
+![](/img/visionary-render/renderer/stereo-3d/stereo2.png)
+
+The **Stereo 3D** setting can be used to enable or disable stereo and shares its state with the Toolbar button.
+
+### Mode
+
+Various types of stereo are supported - the **Mode** setting determines which type to use when stereo is enabled. It has the following options:
+
+| Option                     | Description                                                                                                                                                                                                    |
+|----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Quad Buffered              | This is the standard OpenGL stereo mode. It renders to back left and back right buffers if available. It requires an NVIDIA Quadro card with quad buffering support and a 3D-compatible display. *[default]* |
+| Side by Side: Square       | Left half of window is left eye, right half is right eye. Pixels are square.                                                                                                                                   |
+| Side by Side: Anamorphic   | Left half of window is left eye, right half is right eye. Pixels are 2:1 ratio.                                                                                                                                |
+| Top and Bottom: Square     | Top half of window is left eye, bottom half is right eye. Pixels are square.                                                                                                                                   |
+| Top and Bottom: Anamorphic | Top half of window is left eye, bottom half is right eye. Pixels are 2:1 ratio.                                                                                                                                |
+| HDMI Frame Packing (720p)  | Top-and-bottom 1280 x 720 mode with a 30-line gap, as per HDMI specification.                                                                                                                                  |
+| HDMI Frame Packing (1080p) | Top-and-bottom 1920 x 1080 mode with a 45-line gap, as per HDMI specification.                                                                                                                                 |
+| Left Only                  | Left channel only.                                                                                                                                                                                             |
+| Right Only                 | Right channel only.                                                                                                                                                                                            |
+| Mono                       | Stereo disabled.                                                                                                                                                                                               |
+
+### Optimisation
+
+Rendering the scene twice potentially halves performance, so there are some optimisations in place to try to mitigate that. These can be enabled from the Stereo Optimisation combo box.
+
+| Option              | Description                                                                                                                          |
+|---------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| None                | Don't apply any optimisation – i.e. just render each eye in sequence on the primary GPU. This is the slowest option.                 |
+| Single GPU Parallel | Single-pass stereo - render both eyes in parallel on the primary GPU. This requires an NVIDIA Pascal+ GPU.                           |
+| Dual GPU Parallel   | GPU multicast - render both eyes in parallel on two GPUs. This is the fastest option but requires two identical NVIDIA Pascal+ GPUs. |
+
+### Interpupillary Distance (IPD)
+
+IPD is the distance between the centres of the pupils in your eyes. The value of this setting affects how well the stereo effect is perceived.
+
+![](/img/visionary-render/renderer/stereo-3d/stereo3.png) ![](/img/visionary-render/renderer/stereo-3d/stereo4.png)
+
+It is normally defined by a loaded ViewConfig, and can be configured from **Users** > **Computer** > **ViewConfig** > **Camera** > **Eyes** as in the image above.

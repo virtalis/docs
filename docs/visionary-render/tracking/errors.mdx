@@ -1,0 +1,57 @@
+---
+sidebar_position: 3
+---
+
+# Errors
+
+The table below lists errors that you may encounter whilst setting up or using tracking devices, alongside their cause and possible resolution. If no resolution is listed, or all the steps fail, then you can [Submit a ticket](https://virtalis.freshdesk.com/support/tickets/new) to get help from our support team.
+
+| Error Message | Cause | Resolution |
+| --- | --- | --- |
+| Oculus Rift failed | Internal error in Oculus SDK | Ensure the Oculus Rift is connected to the PC and configured correctlyRestart the application |
+| Found -viewconfig command line option but license has not granted EditViewConfig permission | The application detected an attempt to load a custom view configuration file without the appropriate license | Custom view configuration requires an Immersive license |
+| Found tracker command line option but license has not granted tracking permission | The application detected an attempt to load a tracking configuration file without the appropriate license | Custom tracking configuration requires an Immersive license |
+| Failed to initialise tracker | The application could not configure the tracker from the specified custom tracking configuration file | Make sure the configuration is correctThere should be additional errors in the log describing the exact problem |
+| Failed to create Oculus environmentFailed to create SteamVR environmentFailed to create zSpace environmentFailed to create tracker environment | Internal application error |  |
+| Failed to read tracker config file | The XML configuration file provided is invalid | Make sure the tracking configuration is valid |
+| No tracker config file path specified | The -tracker option was specified on the command line, but no filename followed it | Specify a filename along with the -tracker parameter, e.g. -tracker device.xml |
+| Tracker error: device error | The tracker device could not be initialised. There may be more information in the error message specific to the device | Ensure the tracking XML is correct |
+| Tracker error: config not parsed | There were errors in the XML format of the configuration document | Ensure the contents of the tracking XML file are valid XML structures |
+| Tracker error: config empty | The config XML file is empty | Ensure the tracking XML file has valid configuration in it |
+| Tracker error: config attribute missing | The config XML is missing an attribute that is required | Ensure the tracking XML is correct |
+| Tracker error: config element missing | The config XML is missing a required element | Ensure the tracking XML is correct |
+| Tracker error: config invalid value | The config XML specifies an unexpected value | Ensure the tracking XML is correct |
+| ART could not initialize a local data port (no UDP connection) | The ART device did not respond to the connection attempt | Ensure the IP/Port is correctEnsure DTrack2 configuration is broadcasting to the machine running Visionary Render |
+| --- timeout while waiting for ART tracking data | The ART device did not respond to a request for data | The connection to the device may have been lost, or failed to begin with (see above) |
+| --- error while receiving / parsing ART tracking data | The ART device responded with invalid data | Restart the applicationRestart DTrack2Restart the ART device |
+| ART flystick id  is not available [verbose] | The tracking configuration specified a flystick body with an ID that does not exist | Ensure the tracking XML is correctThe correct body ID can be seen in DTrack2 |
+| ART flystick id  is out of range of the cameras [verbose] | The flystick is not visible by any of the ART cameras | Move the flystick back into the tracked area |
+| ART body id  is not available [verbose] | The tracking configuration specified a body with an ID that does not exist | Ensure the tracking XML is correctThe correct body ID can be seen in DTrack2 |
+| ART body id  is out of range of the cameras [verbose] | The body is not visible by any of the ART cameras | Move back into the tracked area |
+| ART: no valid body or flystick | The tracking configuration does not correctly link up to any ART bodies or flysticks | Ensure the tracking XML is correct |
+| [warning] Incomplete or badly formatted calibration file | Cyberglove calibration data is corrupt or missing | Recalibrate the glove |
+| [warning] Could not create directory to save cyberglove calibration /[warning] Could not write cyberglove calibration data to disk | The tracking driver could not save the glove calibration to disk, recalibration will be needed | Ensure Documents/VisionaryRender exists and is writable |
+| Failed to connect to serial device on port (mode) | The cyberglove driver could not connect to the glove over serial | Ensure the glove is connectedEnsure the glove is powered onEnsure the XML configuration specifies the correct serial port (defaults to COM0 if none specified)Ensure the Cyberglove DCU software is not runningEnsure no other application (or other instance of Visionary Render) is connected to the glove |
+| Failed to send stop request | The cyberglove initialisation attempted to reset the glove ready for new connections, but it failed | See above |
+| Request connection status failed | The cyberglove initialisation failed to query the glove for its status | See above |
+| Cyberglove status error: connected =, initialized = | The cyberglove reported an invalid status | See above |
+| Request version failed | The cyberglove initialisation failed to query the glove for its firmware version | See above |
+| Did not receive complete version message from the gloveExpected version message to be null terminated | The cyberglove only reported a partial firmware version | See above |
+| Firmware version reported as 0 | The cyberglove reported a firmware version of 0 | See above |
+| Request sensors failed | The cyberglove initialisation failed to query the number of sensors in the glove | See above |
+| Cyberglove reported 0 sensors | The cyberglove reported no sensors | See above |
+| Glove disconnected from CGIULost connection to glove | A protocol error caused the cyberglove driver to disconnect from the glove | Restart the applicationSee above |
+| Failed to actuate [cybertouch] | Vibration commands were sent to the glove, but it did not accept them | Vibration is only supported by the CyberTouch |
+| [fastrak] open fails | The fastrak driver was unable to connect to the specified serial port | Ensure the tracker XML configuration is correctEnsure nothing else is using the serial portTurn the device off and on again |
+| [fastrak] set metric mode fails | The fastrak driver was unable to switch the device into metric mode | See above |
+| [fastrak] write fails with  | The fastrak driver was unable to write commands to the device | See above |
+| [fastrak] read fails with  | The fastrak driver was unable to read data from the device | See above |
+| [fastrak] sensor out of range | The fastrak configuration XML specified a sensor with an index outside of the maximum supported value | Ensure the tracker XML configuration is correct |
+| [fastrak] Error reading  field | The fastrak driver was unable to read tracking data from the device | See above |
+| [handcontroller] open fails | The handcontroller driver was unable to connect to the specified serial port | Ensure the tracker XML configuration is correctEnsure nothing else is using the serial port |
+| [handcontroller] read fails with  | The handcontroller driver was unable to read data from the device | See above |
+| Failed to set station configuration on port, station | The intersense driver was unable to set the station configuration to Euler angles | Restart the device |
+| Vicon client connection timed out | The vicon driver was unable to connect to the specified hostname | Ensure the Vicon is connected via the networkEnsure the tracker XML is correctEnsure that Vicon Tracker3 is running and configured correctly |
+| SetAxisMapping:Colinear axesLeft handed axesUnknown result | The vicon driver attempted to set the axis mapping provided by the configuration XML and it was unsuccessful. | Ensure the tracker XML is correct |
+| Vicon data stream failing to read segment of subjectVicon data stream failing to read output of device | The vicon driver was unable to read tracking data from the specified subject | See above |
+| Index: - | The ZSpace driver encountered an error when configuring a target or display specified by the XML | Ensure the tracker XML is correct |

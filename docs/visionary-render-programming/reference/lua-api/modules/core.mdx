@@ -29,6 +29,7 @@ Core functions and types that can be used by Lua scripts and plugins.
 | void | **[vrAppCommandBind](#vrappcommandbind)**(string commandName, Any func)<br />Binds a lua function to an app command.  |
 | string | **[vrAppDir](#vrappdir)**()<br />Gets the Visionary Render application directory.  |
 | void | **[vrArrange](#vrarrange)**([vrnode](../classes/vrnode.mdx) targetNode, string type)<br />Arranges assemblies into a grid based on their bounds.  |
+| boolean | **[vrBakeMesh](#vrbakemesh)**([vrnode](../classes/vrnode.mdx) targetNode)<br />Converts deformable meshes to static meshes for export and upload. |
 | void | **[vrBuildCurveViewConfig](#vrbuildcurveviewconfig)**(number radius, number angle, number height, number segments, boolean smoothCurve, [vrnode](../classes/vrnode.mdx) user =nil, [vrnode](../classes/vrnode.mdx) camera, [vrnode](../classes/vrnode.mdx) screens =nil, [vrnode](../classes/vrnode.mdx) viewportLayout)<br />Creates or updates the PhysicalScreen and Viewport nodes for a curved screen.  |
 | void | **[vrCaptureCleanState](#vrcapturecleanstate)**()<br />Captures the current state of the Lua global environment.  |
 | void | **[vrCaptureViewpoint](#vrcaptureviewpoint)**([vrnode](../classes/vrnode.mdx) viewpoint, number size, string captureComplete, string textureCreate =0)<br />Captures the view from a specified viewpoint into a texture.  |
@@ -389,6 +390,22 @@ Arranges assemblies into a grid based on their bounds.
 * gridXZ
 * gridYZ 
 
+### vrBakeMesh
+
+```lua
+boolean vrBakeMesh(
+    vrnode targetNode
+)
+```
+
+Converts deformable meshes to static meshes for export and upload.
+
+**Parameters**: 
+
+  * **targetNode** The node of the visual you want to convert.
+
+**Return**: Whether the conversion was successful.
+
 ### vrBuildCurveViewConfig
 
 ```lua
@@ -490,7 +507,7 @@ Returns true or false if the specified mode is available.
 
   * **mode** Immersive mode value 
 
-**Return**: true if the mode is availble 
+**Return**: true if the mode is available 
 
 ### vrConstrainNodeToBounds
 
@@ -818,7 +835,7 @@ Extracts binary data from Texture or AudioBuffer nodes.
 
 **Parameters**: 
 
-  * **fromNode** The node to extract from - maybe be a single node or a library to search
+  * **fromNode** The node to extract from - may be a single node or a library to search
   * **path** Directory or file to save data to 
   * **overwrite** Whether to overwrite existing files on disk 
   * **...** Types to search for ('Texture' or 'AudioBuffer'); only required if fromNode is a different type

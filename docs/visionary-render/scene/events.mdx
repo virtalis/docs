@@ -1,0 +1,146 @@
+# Events
+
+Writing Lua scripts can be quite an involved process, so Visionary Render enables you to automatically generate common scripts using Events. An EventHandler can be attached to an Assembly, which then registers interest in certain Events. These events may have a Guard condition attached to them to filter for specific occurrences of these events.
+
+![](/img/visionary-render/scene/events/overview.png)
+
+To create an Event, right-click on a node and select **Create** > **Event** from the context menu. A default Key Press Event should be added as in the image above.
+
+## Event
+
+| Event             | Registers             | Description                                                                                                                                                                                                                                                                                                                                                                               |
+|-------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Activate          | __Other               | Fired when vrActivate is called. The caller of vrActivate can set the value of __Other to whatever is required inside this event. Also triggered by double clicking on some node types in the tree. |
+| Break             | __Other               | Fired when two objects stop touching each other in the scene. __Self is this object, __Other is the object that it touched. The guard condition can be set to an Assembly to only fire Break events for that Assembly instead of any node in the scene. Note: you’ll need to add a Collision node to __Self for this event to be fired.                                             |
+| Click             |                       | Fired when a 3D GUI item receives a full click (a press followed by a release)                                                                                                                                                                                                                                                                                                            |
+| Create            |                       | Fired when the node is created, loaded from file, or when the event script is compiled.                                                                                                                                                                                                                                                                                                   |
+| Double Click      |                       | Fired when a 3D GUI item receives a double click.                                                                                                                                                                                                                                                                                                                                         |
+| Enter             |                       | Fired when a fly-to operation arrives at the node.                                                                                                                                                                                                                                                                                                                                        |
+| Gesture Activated | __Gesture             | Fired when a gesture is made that matches one of the recorded ones.                                                                                                                                                                                                                                                                                                                       |
+| Key Press         | __KeyCode, __KeyState | Fired when a key on the keyboard is pressed, or the mouse is clicked, or a tracker button is pressed.                                                                                                                                                                                                                                                                                     |
+| Key Release       | __KeyCode, __KeyState | Fired when a key, mouse, or tracker button is released.                                                                                                                                                                                                                                                                                                                                   |
+| Leave             |                       | Fired when a subsequent fly-to operation flies somewhere else.                                                                                                                                                                                                                                                                                                                            |
+| Move              |                       | Fired when an assembly is moved in the scene.                                                                                                                                                                                                                                                                                                                                             |
+| Pose Entered      | __Pose, __PoseState   | Fired when a pose is made.                                                                                                                                                                                                                                                                                                                                                                |
+| Pose Left         | __Pose, __PoseState   | Fired when a pose is left.                                                                                                                                                                                                                                                                                                                                                                |
+| Press             |                       | Fired when a 3D GUI item is pressed (i.e. the cursor is held down).                                                                                                                                                                                                                                                                                                                       |
+| Release           |                       | Fired when a 3D GUI item is released.                                                                                                                                                                                                                                                                                                                                                     |
+| Rename            |                       | Fired when the node is renamed.                                                                                                                                                                                                                                                                                                                                                           |
+| Sequence          |                       | Fired when the sequencer reaches an event frame.                                                                                                                                                                                                                                                                                                                                          |
+| Time Step         | __TimeDelta           | Fired every frame.                                                                                                                                                                                                                                                                                                                                                                        |
+| Toggle            |                       | Fired when a 3D GUI item toggle state changes.                                                                                                                                                                                                                                                                                                                                            |
+| Touch             | __Other               | Fired when two objects touch each other in the scene. __Self is this object, __Other is the object that it touched. The guard condition can be set to an Assembly to only fire Touch events for that Assembly instead of any node in the scene. Note: you’ll need to add a Collision node to __Self for this event to be fired.                                                     |
+| View Deselect     | __Other               | Fired when a node is deselected. This otherwise behaves the same as View Select.                                                                                                                                                                                                                                                                                                          |
+| View Select       | __Other               | Fired when a node is selected. __Other contains the view selection node containing the selection. Note that selecting in the Scenes or Developer views will fire this event twice (once for each view, as the selection is synchronized).                                                                                                                                               |
+
+## Guard
+
+The Guard condition may be:
+
+- A key on the keyboard (modifiers can be used, e.g. `Ctrl`, `Alt`, `Shift`).
+- A time value in seconds.
+- An Assembly.
+
+## Action
+
+If an event occurs and the Guard condition is met, an Action is performed. Examples of typical actions include:
+
+- Activate a Snapshot
+- Play a Sequence
+- Fly to a Viewpoint
+- Change a Material
+- Execute a Lua Script 
+- Toggle the enabled state
+- Play a sound
+
+### Assembly
+
+All the Actions have been dragged and dropped onto the EventHandler property window from the Scenes, Libraries or Developer window. When dragging a node which Visionary Render is not sure what to do with it offers you a choice depending on the type of node that is dropped:
+
+![](/img/visionary-render/scene/events/assembly.png)
+
+| Action | Description |
+| --- | --- |
+| Disable | Set the Enabled state of the Assembly to OFF. |
+| Enable | Set the Enabled state of the Assembly to ON. |
+| Fly To | Fly the view to the Assembly location. |
+| Fly To Fit | Fly the view to bounding box of the Assembly. |
+| Look At | Rotate the view to look at the Assembly. |
+| Toggle | Toggle the Enabled state of the Assembly. |
+
+:::note
+The same actions are provided for Lights, Dynamic Sections and Viewpoints.
+:::
+
+### Snapshot
+
+When dragging a Snapshot, it will execute that snapshot.
+
+![](/img/visionary-render/scene/events/snapshot.png)
+
+### Sequence
+
+When dragging a Sequence from the Developer view or the Browser it will present these options:
+
+![](/img/visionary-render/scene/events/sequence.png)
+
+| Action | Description |
+| --- | --- |
+| Decrease Speed | Divide the current play speed by 2. |
+| Increase Speed | Increase the current play speed by a factor of 2. |
+| Pause | Pauses the sequence playback. |
+| Play Forward | Sets the sequence to be played forward and set the sequence playing. |
+| Play Reverse | Sets the sequence to be played backward and set the sequence playing. |
+| Seek to End | Set the current position to be the end of the sequence. |
+| Seek to Start | Set the current position to be the start of the sequence. |
+| Switch Direction | Toggles the current sequence playback direction. |
+| Toggle | Toggles the playing state of the sequence. |
+
+### Group
+
+When dragging a Group, it will present a menu to **Disable**, **Enable**, **Toggle** or **Execute** any of the Snapshots on that Group. The Group can be dragged from the Scenes, Developer or Browser tab.
+
+### Movie
+
+When dragging a Movie onto the Action it will **Pause**, **Play** or **Toggle**. The Movie can be dragged from the Library or Browser tabs.
+
+### Model
+
+When dragging a Model, it will simply change the Model used from its current one to the dropped Model. The script must be on an Assembly with a Visual for this to work. The Model can be dragged from the Browser or Libraries tab.
+
+### Material
+
+When dragging a Material onto the Action, it will present the following options:
+
+| Action | Description |
+| --- | --- |
+| Apply To Other | If the Event is touch or break, then the material is applied to the assembly that touched this assembly (the “other” assembly). Any other event causes undefined behaviour. |
+| Apply To This | Applies the material to the Visual as a Material Override. |
+| Clear From Other | If the Event is touch or break, then the material is cleared from the assembly that touched this assembly (the “other” assembly). Any other event causes undefined behaviour. |
+| Clear From This | Dragging any material and selecting this option will clear the Material Override from the Visual. |
+
+### AudioSound
+
+When dragging an AudioSound from the Developer tab, it will play the sound when the Event is triggered.
+
+![](/img/visionary-render/scene/events/audiosound.png)
+
+### AudioTrack
+
+When dragging an AudioTrack from the Developer tab onto an Action, it will offer the following options:
+
+![](/img/visionary-render/scene/events/audiotrack.png)
+
+| Action | Description |
+| --- | --- |
+| Play | Starts playing the sound at the last point it was paused. |
+| Pause | Pauses the playback of the sound. |
+| Stop | Resets it back to the start of the sound. |
+
+## Browser
+
+Scripts can also be navigated in the Browser. In the small and large icon views, the name of the script is shown beneath an icon. In the list view, event type, guard and parent assemblies are also shown.
+
+![](/img/visionary-render/scene/events/browser.png)
+
+Double-click on a script to open it in the Script Editor.

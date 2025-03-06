@@ -1,0 +1,83 @@
+---
+sidebar_position: 5
+---
+
+# Button Map
+
+The Button Map can be found in the Settings window. It permits you to assign actions to controller buttons and gestures. It has two pages: **Button Events** and **Gesture Events**. For buttons, any controller input can be used. For gestures, you can use a predefined gesture or record your own one. The actions can also be predefined or based on custom scripts.
+
+## Button Events
+
+![](/img/visionary-render/tracking/button-map/button-events.png)
+
+The **Button Events** page contains two lists of buttons: Application Global Buttons and Scene Event Buttons. Actions defined in the Application Global Buttons list will be active in any scene that you load, whereas actions defined in the Scene Event Buttons list will be active in the current scene only. The structure of the two lists is the same. If SteamVR is enabled, you can press the **Open SteamVR Bindings** button to access Steam's controller binding interface whilst immersed.
+
+### Columns
+
+![](/img/visionary-render/tracking/button-map/global-buttons.png)
+
+The lists are divided into 5 columns:
+
+| Column | Description                                                                                                                                                                                                                                                                       |
+|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Enable | Enable or disable the button and its action.                                                                                                                                                                                                                                      |
+| Action | The action to trigger when a button is pressed. There are several preset actions to select from in the drop-down list. Click on the header to switch between A-Z and Z-A alphabetical ordering.                                                                                   |
+| Button | The button that will trigger an action. Select the control and press any key, controller button, or mouse button to set it to what you pressed. Alternatively, select an option from the drop-down list. Click on the header to switch between A-Z and Z-A alphabetical ordering. |
+| Script | Click on this button to open the script for an action in the Script Editor.                                                                                                                                                                                                       |
+| Delete | Click on this button to delete an event.  
+
+### Add
+
+Click on **Add Button** to add a new button to the end of a list.
+
+### Reset to Default
+
+Click on **Reset to default** to reset all the mappings in a section to their default values. This will remove any custom mappings and restore the default mappings if they were deleted. A dialog will be shown to confirm that you wish to proceed.
+
+## Gesture Events
+
+![](/img/visionary-render/tracking/button-map/gesture-events.png)
+
+The **Gesture Events** page contains two lists of gestures: Application Global Gestures and Scene Event Gestures. Actions defined in the Application Global Gestures list will be active in any scene that you load, whereas actions defined in the Scene Event Gestures list will be active in the current scene only. The structure of the two lists is the same.
+
+### Columns
+
+![](/img/visionary-render/tracking/button-map/global-gestures.png)
+
+The lists are divided into 5 columns:
+
+| Column  | Description                                                                                                                                                                                    |
+|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Enable  | Enable or disable the gesture and its action.                                                                                                                                                  |
+| Action  | The action to trigger when a gesture is made. There are several pre-set actions to select from in the drop-down list. Click on the header to switch between A-Z and Z-A alphabetical ordering. |
+| Gesture | The gesture that will trigger an action. The drop-down list contains gestures to select from. Click on the header to switch between A-Z and Z-A alphabetical ordering.                         |
+| Script  | Click on this button to open the script for an action in the Script Editor.                                                                                                                    |
+| Delete  | Click on this button to delete an event.                                                                                                                                                       |
+
+### Add
+
+Click on **Add Gesture** to add a new gesture to the end of a list.
+
+### Reset to Default
+
+Click on **Reset to default** to reset all the mappings in a section to their default values. This will remove any custom mappings and restore the default mappings if they were deleted. A dialog will be shown to confirm that you wish to proceed.
+
+### Recording a Gesture
+
+![](/img/visionary-render/tracking/button-map/swipe.png)
+
+The controls beneath each list can be used to record custom gestures and poses. Enter a name in the **Name** field then press the **Record Gesture** button to bring up the dialog shown below.
+
+![](/img/visionary-render/tracking/button-map/gesture-recorder.png)
+
+Press and hold Spacebar whilst moving your hand to create a gesture. The gesture should be something obvious like opening and closing a fist. Small or indistinct gestures will probably not be recognised. Once the gesture has been recorded, it will be added to the list of gestures in the drop-down lists.
+
+### Recording a Pose
+
+![](/img/visionary-render/tracking/button-map/thumbs-up.png)
+
+Poses can be created in a similar manner to gestures. Enter a name in the **Name** field then press the **Record Pose** button to bring up the dialog shown below.
+
+![](/img/visionary-render/tracking/button-map/pose-recorder.png)
+
+Unlike a gesture, a pose is a single position of the hand such as a thumbs up. Currently, the use of poses is more specialised and requires scripts to be written to link them to actions.

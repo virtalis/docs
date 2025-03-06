@@ -76,7 +76,7 @@ description: 1.0.1 to 2025.1
 - Enable use of OpenXR mode with SteamVR's OpenXR runtime
 - Navigation between text boxes in the 3D GUI using the Tab key
 - Settings to control the visibility mask (when present) and mirror view in HMD tracking modes
-- An indication of the licence type currently in use to the title bar of the main Visionary Render window
+- An indication of the license type currently in use to the title bar of the main Visionary Render window
 - An option to GUI nodes to control whether the GUIs are visible from the back
 - A width option to Font nodes, allowing use of condensed/expanded fonts that stopped appearing as separate typefaces in version 2024.2
 - Colour properties to textured GUI styles
@@ -322,7 +322,7 @@ description: 1.0.1 to 2025.1
 
 - Adds Manikins - poseable human models with 1:1 scale that can be easily added to any scene. Body dimensions are individually configurable
 - Adds helpers for IK constraints
-- Adds links to third-party licence documents in the Help - About window
+- Adds links to third-party license documents in the Help - About window
 
 #### Changed
 
@@ -372,7 +372,6 @@ description: 1.0.1 to 2025.1
 
 - Fixes crash in spline physics code on cluster slave
 - Fixes a couple of potential crashes in tube splines without knots
-- Signs the installer for the license server
 - Fixes collision/selection of scaled splines
 - Fixes bounding box of rotated splines
 - Fixes tangent generation when changing a spline's material
@@ -450,8 +449,8 @@ description: 1.0.1 to 2025.1
 
 #### Fixed
 
-- Fixes issue where sessions can't be continued after reconnecting to the licence server
-- Fixes issue with licence client timing out too soon on slower networks
+- Fixes issue where sessions can't be continued after reconnecting to the license server
+- Fixes issue with license client timing out too soon on slower networks
 - Prevents error message from popping up when the VPN is not connected
 - Fixes issue with Connect View option not working in 2020.3 onwards
 - Fixes issue with view configs not saving XInputEnvironment links
@@ -1178,7 +1177,7 @@ New version number convention: Year.Release
 - Adds video stream texture node type that is able to receive and control video streams from ActiveView
 - Adds "On Startup" setting which can remember the user's preference of loading into the start room, last loaded scene, new scene, or custom scene (specified by path)
 - Adds "Select Parent" to tree context menus
-- Adds CTRL + F to focus the tree quick search bar
+- Adds Ctrl + F to focus the tree quick search bar
 - Adds Case Sensitive and Whole Word searching
 - Adds Label gui components (like a button but not clickable)
 - Adds a Fly to speed setting to the navigation options, to control the speed of fly-to
@@ -1216,7 +1215,7 @@ New version number convention: Year.Release
 - Adds support for tooltips on 3D GUI objects
 - Adds texture rotation controls to GUI styles involving textures
 - Adds the ability to choose the shape used for material previews
-- Adds the ability to clone objects with the PRS manipulator by holding CTRL while manipulating the object
+- Adds the ability to clone objects with the PRS manipulator by holding Ctrl while manipulating the object
 - Adds the ability to drag GUI components from the tree into other stacks
 - Adds the ability to link basic toggle and value properties directly to 3D GUI objects, using Property Links, without requiring event scripts
 - Adds the ability to switch between immersive configuration modes at runtime, beyond those provided by desktop immersion. Custom tracking configurations can be managed and selected in the settings window, subject to the presence of an Immersive license
@@ -1226,7 +1225,7 @@ New version number convention: Year.Release
 #### Changed
 
 - Automatically creates a viewport when creating a render to texture object, as it cannot function without one
-- Changes F8 measuring tool toggle to CTRL+1/2/3 for the Region Select / Measuring / Annotation tools
+- Changes F8 measuring tool toggle to Ctrl+1/2/3 for the Region Select / Measuring / Annotation tools
 - Changes colour picker controls to be popups instead of rollouts
 - Changes selection behaviour of tracked hand manipulation (laser off), so that a trigger press will deselect anything not being held by the other hand
 - Changes the default visibility of the stereo cursors on the end of tracked laser to 'Off' for desktop immersion configurations
@@ -1514,7 +1513,7 @@ New version number convention: Year.Release
 - Fixes a crash when attempting to cut an ancestor of the clipboard
 - Fixes issue where using the "Browse" option of link pickers while the browser was undocked caused strange behaviour
 - Fixes issue that was preventing the flushing of texture data to disk unless running in networked mode
-- Fixes issue where changes to desktop immersion mode and tracking status could be undone with CTRL + Z
+- Fixes issue where changes to desktop immersion mode and tracking status could be undone with Ctrl + Z
 - Fixes issue where undocked frames could be sized to zero and lost
 - Fixes a crash when triggering "Reset to defaults" on a collision object
 - Fixes a crash when deleting gestures
@@ -1555,7 +1554,7 @@ New version number convention: Year.Release
 - Adds a dropdown menu for Font nodes, allowing selection of font from any installed on the system
 - Adds a history entry when the snap-home tool animates an object back to its original position, to allow that animation to be undone
 - Adds a new control for the properties window to allow clearer editing of Texture and Material map transforms
-- Adds a preset action to the button map for "Position at Body". Defaults to CTRL + Space
+- Adds a preset action to the button map for "Position at Body". Defaults to Ctrl + Space
 - Adds a sequence recalculation when modifying a keyframe so that the scene representation can update immediately
 - Adds a setting "Separate Surfaces" which, when enabled, causes the Cube, Cone, and Cylinder geometric shapes to be generated with separate GeoGroups for each face
 - Adds a setting to globally disable the pivot visuals. This can be applied as a scene override to disable pivot visuals in a single scene
@@ -1577,7 +1576,7 @@ New version number convention: Year.Release
 - Adds inline editing controls to the Browser in list mode
 - Adds keyboard shortcuts to trigger flying to the preset view (Top, Side, etc) - defaults are ALT+1 through ALT+9
 - Adds new guard type for enter and leave events that can specify a radius to trigger the events when the camera is within range
-- Adds new orbit behaviour in which the orbit point is the cursor position, reset when CTRL is released
+- Adds new orbit behaviour in which the orbit point is the cursor position, reset when Ctrl is released
 - Adds object scaling and snapping to tracked manipulation tools when using the HTC Vive
 - Adds option to assembly tracks in a sequence to allow them to apply their keyframes in world or local space
 - Adds path length tolerance values to gestures, allowing the recogniser to identify the size of the gesture and compare it appropriately instead of normalising it. E.g. a small circle gesture and a big circle gesture will now be recognised as different gestures
@@ -1588,7 +1587,7 @@ New version number convention: Year.Release
 - Adds smoother fly-to animation
 - Adds support for dragging multiple selected assemblies into an annotation state at once
 - Adds support for flying to point clouds
-- Adds support for hyperlinks in metadata; CTRL + click opens the link in the default web browser
+- Adds support for hyperlinks in metadata; Ctrl + click opens the link in the default web browser
 - Adds the ability to split multiple sequence tracks in the same operation
 - Adds the application name and version to the license request dialog
 - Adds transparency to the immersive GUI background to provide a visual indication of its edges while still being able to see the scene behind it. Configurable in tool settings
@@ -1600,7 +1599,7 @@ New version number convention: Year.Release
 - Starting a cluster and loading custom view configurations using the -viewConfig shortcut parameter now requires an Immersive license
 - Changes the behaviour of Double Click - it no longer directly shows the properties window. Configurable in settings
 - Changes the default value of the Dynamic Section Size on Drop setting to 'ON' so that sections perform better on large models
-- Changes the full screen shortcut from CTRL + F to Alt + Enter - F11 remains unchanged
+- Changes the full screen shortcut from Ctrl + F to Alt + Enter - F11 remains unchanged
 - Manual navigation actions now cancel any fly-to animation, unless disabled by the setting "Navigation Cancels Fly To"
 - Restores default joystick left/right operation to rotate instead of strafe
 - Annotation comments are now stacked on the annotation marker instead of being separate, floating comments disconnected from the main annotation
@@ -1670,7 +1669,7 @@ New version number convention: Year.Release
 - Fixes issue where opening a script in the script editor could be undone, clearing the text editor
 - Fixes issue where opening a script while the editor window was minimized would not restore it to display the script
 - Fixes issue where read-only link property controls would still present a drop down box
-- Fixes issue where receiving data in a collaboration could be undone with CTRL + Z
+- Fixes issue where receiving data in a collaboration could be undone with Ctrl + Z
 - Fixes issue where rolled up colour picker controls representing completely transparent colours were not visible. They now display a checkerboard background
 - Fixes issue where screen flickered when pressing GUI buttons to move the camera
 - Fixes issue where search results list was truncated
@@ -1762,7 +1761,7 @@ New version number convention: Year.Release
 
 - Fixes graphical glitch in the file menu
 - Fixes issue where loading a different audio file with an identical modified date as the one currently loaded did not work
-- Fixes issue where CTRL + P would not toggle the properties window
+- Fixes issue where Ctrl + P would not toggle the properties window
 - Fixes issue where cubemaps could not be applied correctly in a material's reflection map slot
 - Fixes issue where selecting an item near the bottom of the browser list would cause it to incorrectly scroll the list
 - Fixes issue where the PRS manipulator toggle button on the immersive context menu was not functional
@@ -1872,7 +1871,7 @@ New version number convention: Year.Release
 - Adds support for zSpace
 - Adds laser highlighting and manipulation system
 - Adds ability to interact with the 2D GUI using a hand tracker
-- Adds modifier key capability to key events, which now supports events on things such as CTRL + 5, or SHIFT + V, etc
+- Adds modifier key capability to key events, which now supports events on things such as Ctrl + 5, or Shift + V, etc
 - Adds support for capped sections. Provides the ability to render cap geometry when enclosed geometry is sectioned
 - Adds ability to click through dynamic sections and change the method of selection
 - Adds ability to change colour and opacity of dynamic sections

@@ -9,7 +9,7 @@ The Geometry Operators provide a way to post-process meshes imported into Vision
 - GeoGroup
 - Mesh
 
-![](/img/visionary-render/tools/geom-ops/overview.png)
+![](/img/visionary-render/tools/geometry-operators/overview.png)
 
 | Button   | Description                                                                                                                                       |
 |----------|---------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -22,7 +22,7 @@ The Generate Normals operator calculates the normal vectors for each vertex of a
 
 - **Smoothing Threshold** *[default: 55.0]* – the smoothing threshold defines the threshold angle (in degrees) between polygonal edges after which the vertex normal will not be averaged with the surrounding normals. Modifying this angle can result in the faces being lit as individual surfaces, creating a faceted appearance to the mesh surface. An example of this can be seen below.
 
-![](/img/visionary-render/tools/geom-ops/normals.png)
+![](/img/visionary-render/tools/geometry-operators/normals.png)
 
 An example of the effect of the smoothing threshold setting on the ‘Generate Normals’ operator. The sphere on the left has a smoothing threshold of 35 degrees whilst the sphere on the right has a smoothing threshold of 5 degrees.
 
@@ -42,31 +42,31 @@ The Generate UVs operator calculates texture coordinates for each vertex on a me
 
 | Image | Description |
 | --- | --- |
-| ![](/img/visionary-render/tools/geom-ops/plane.png) | **Plane**<br/>Generates texture coordinates by projecting a plane onto the mesh. |
-| ![](/img/visionary-render/tools/geom-ops/box.png) | **Box**<br/>Generates texture coordinates by projecting a cube onto the mesh. |
-| ![](/img/visionary-render/tools/geom-ops/cylinder.png) | **Cylinder**<br/>Generates texture coordinates by projecting a cylinder onto the mesh. |
-| ![](/img/visionary-render/tools/geom-ops/sphere.png) | **Sphere**<br/>Generates texture coordinates by projecting a sphere onto the mesh. |
-| ![](/img/visionary-render/tools/geom-ops/linear.png) | **Linear**<br/>Generates texture coordinates by projecting a line onto the mesh. This can be used to apply gradient textures to geometry. |
+| ![](/img/visionary-render/tools/geometry-operators/plane.png) | **Plane**<br/>Generates texture coordinates by projecting a plane onto the mesh. |
+| ![](/img/visionary-render/tools/geometry-operators/box.png) | **Box**<br/>Generates texture coordinates by projecting a cube onto the mesh. |
+| ![](/img/visionary-render/tools/geometry-operators/cylinder.png) | **Cylinder**<br/>Generates texture coordinates by projecting a cylinder onto the mesh. |
+| ![](/img/visionary-render/tools/geometry-operators/sphere.png) | **Sphere**<br/>Generates texture coordinates by projecting a sphere onto the mesh. |
+| ![](/img/visionary-render/tools/geometry-operators/linear.png) | **Linear**<br/>Generates texture coordinates by projecting a line onto the mesh. This can be used to apply gradient textures to geometry. |
 
 - **Mapping Axis** *[default: X]* – the Mapping Axis setting allows you to specify which of the major axes (x, y, or z) the mapping shapes are orientated along. The images below show the effect that this has on various cubes.
 
-![](/img/visionary-render/tools/geom-ops/plane-mapping.png)
+![](/img/visionary-render/tools/geometry-operators/plane-mapping.png)
 
 A cube with a Plane mapping orientated along the x, y, and z axes.
 
-![](/img/visionary-render/tools/geom-ops/sphere-mapping.png)
+![](/img/visionary-render/tools/geometry-operators/sphere-mapping.png)
 
 A cube with a Sphere mapping orientated along the x, y, and z axes.
 
 - **UV Offset** *[default: (0.0, 0.0)]* – the UV offset parameter allows you to offset the texture coordinates from their default position. This can be used to adjust the position of textures on a mesh. An example of this setting being used in practice can be seen below.
 
-![](/img/visionary-render/tools/geom-ops/box-mapping.png)
+![](/img/visionary-render/tools/geometry-operators/box-mapping.png)
 
 An example of two cubes with a Box mapped texture coordinates applied them. The left cube has no offset specified, whilst the right cube has an offset of 0.1 on the horizontal axis and 0.1 on the vertical.
 
 - **UV Scale** *[default: (1.0, 1.0)]* – the UV scale parameter allows you to specify the size of the texture that is mapped to the mesh. If the WrapU and WrapV texture properties are set to GL_REPEAT and the scale of the texture is greater than 1, the texture will tile across the surfaces of the mesh. An example of this can be seen in the image below.
 
-![](/img/visionary-render/tools/geom-ops/uv-scale.png)
+![](/img/visionary-render/tools/geometry-operators/uv-scale.png)
 
 An example of two cubes with Box mapped texture coordinates applied to them. The left cube has a UV scale of 0, 0 applied, whilst the right has a UV scale of 3, 3 applied.
 
@@ -76,7 +76,7 @@ The Tessellate operator re-tessellates a selected mesh according to its Max Edge
 
 - **Max Edge Length** *[default: 0.05]* – specifies the maximum edge length of a polygon before it is split into a smaller triangle. An example of the tessellate operator acting on a coarsely meshed sphere can be seen below.
 
-![](/img/visionary-render/tools/geom-ops/tessellate.png)
+![](/img/visionary-render/tools/geometry-operators/tessellate.png)
 
 An example of the sphere that has been tessellated with the tessellate operator. The original sphere is shown on the left and the new sphere, tessellated with a Maximum Edge Length of 0.01, is shown on the right.
 

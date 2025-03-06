@@ -1,0 +1,70 @@
+# Camera
+
+The camera provides your window into the 3D world. It is synonymous to a physical camera in a movie or television program, except that you can control it.
+
+## Controls
+
+You can control the camera with the mouse, keyboard, SpaceMouse, or a tracking device such as the Oculus Rift or HTC Vive. The camera can be configured from the Settings window under `User Interface` > `Navigation`.
+
+### Mouse
+
+| Action                   | Description                                                                                                                                                                                                                                                                                       |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![](/img/visionary-render/scene/camera/mouse1.png)  | Hold down Middle button and move the mouse forward or backward to move in to or out from the current view, or left and right to swivel the view.                                                                                                                                                  |
+| ![](/img/visionary-render/scene/camera/mouse2.png)  | Hold down Middle + Right button and move the mouse to pan the view up or down, left or right.                                                                                                                                                                                                     |
+| ![](/img/visionary-render/scene/camera/mouse3.png)  | Hold down Shift + Middle button and move the mouse forward or backward to tilt the view, or left and right to swivel.                                                                                                                                                                             |
+| ![](/img/visionary-render/scene/camera/mouse4.png) | Hold down Ctrl + Middle button and move the mouse to orbit selected Assemblies left or right, up or down.                                                                                                                                                                                         |
+| ![](/img/visionary-render/scene/camera/mouse5.png) | Scroll the Mouse wheel to zoom in to or out from the cursor. Hold down Ctrl to increase the zoom speed or Shift to change the field of view instead (if the viewport supports this). Zooming can be enabled or disabled from the Settings window under `User Interface` > `Mouse` > `Scroll Wheel Zoom`. |
+
+### Keyboard
+
+| Action        | Keys                                                          | Action     | Keys                                                          |
+|---------------|---------------------------------------------------------------|------------|---------------------------------------------------------------|
+| Move Forward  | ![](/img/visionary-render/scene/camera/keyboard1.png)                                | Turn Left  | ![](/img/visionary-render/scene/camera/keyboard2.png)                                |
+| Move Backward | ![](/img/visionary-render/scene/camera/keyboard3.png)                                | Turn Right | ![](/img/visionary-render/scene/camera/keyboard4.png)                                |
+| Move Up       | ![](/img/visionary-render/scene/camera/keyboard5.png)                                | Move Left  | ![](/img/visionary-render/scene/camera/keyboard6.png) ![](/img/visionary-render/scene/camera/keyboard2.png) |
+| Move Down     | ![](/img/visionary-render/scene/camera/keyboard7.png)                                | Move Right | ![](/img/visionary-render/scene/camera/keyboard6.png) ![](/img/visionary-render/scene/camera/keyboard4.png) |
+| Look Up       | ![](/img/visionary-render/scene/camera/keyboard6.png) ![](/img/visionary-render/scene/camera/keyboard5.png) | Look Down  | ![](/img/visionary-render/scene/camera/keyboard6.png) ![](/img/visionary-render/scene/camera/keyboard7.png) |
+
+### SpaceMouse
+
+The view can also be manipulated with the puck of the SpaceMouse if you have one connected to your machine.
+
+| Action                   | Response                                        |
+|--------------------------|-------------------------------------------------|
+| ![](/img/visionary-render/scene/camera/spacemouse1.png) | Move the view forward or backward in the scene. |
+| ![](/img/visionary-render/scene/camera/spacemouse2.png) | Pan the view left or right in the scene.        |
+| ![](/img/visionary-render/scene/camera/spacemouse3.png) | Pan the view up or down in the scene.           |
+| ![](/img/visionary-render/scene/camera/spacemouse4.png) | Tilt the view to look up or down.               |
+| ![](/img/visionary-render/scene/camera/spacemouse5.png) | Swivel the view to look left or right.          |
+| ![](/img/visionary-render/scene/camera/spacemouse6.png) | Unassigned.                                     |
+
+The sensitivity of these movements can be configured from the SpaceMouse Properties page. To open this, ensure that the Visionary Render window is in focus, then right-click on the SpaceMouse start menu icon and select **Open 3Dconnexion Properties** from the context menu. Alternatively, press the **Menu** button on your SpaceMouse (if it has one).
+
+You should see a window like the one below. From here, you can configure the overall sensitivity of your SpaceMouse in Visionary Render. To configure the sensitivity of individual puck movements, click on the **Advanced Settings** button.
+
+![](/img/visionary-render/scene/camera/spacemouse7.png)
+
+## Context Menu
+
+The context menu for Assemblies contains some navigation options. Right-click on an Assembly in the Tree View or scene to show the context menu.
+
+![](/img/visionary-render/scene/camera/context-menu.png)
+
+### Fly To
+
+Select the **Fly to** option to fly the camera to a position that fills the screen with the selection. The orientation of the camera won't be changed.
+
+| ![](/img/visionary-render/scene/camera/flyto1.png) | ![](/img/visionary-render/scene/camera/flyto2.png) |
+|--------------------------|--------------------------|
+| Before                   | After                    |
+
+You can also fly to an object by holding `Alt` and clicking on it in the scene. Camera Fly To operations can be configured in the Settings window under `User Interface` > `Navigation`.
+
+### Look At
+
+Select the Look at option to rotate the camera to look directly at the selection. The position of the camera won't be changed.
+
+| ![](/img/visionary-render/scene/camera/lookat1.png) | ![](/img/visionary-render/scene/camera/lookat2.png) |
+|--------------------------|--------------------------|
+| Before                   | After                    |

@@ -1,0 +1,63 @@
+# Errors
+
+The table below lists errors that you may encounter whilst using the importers, alongside their cause and possible resolution. If no resolution is listed, or all the steps fail, then you can [Submit a ticket](https://virtalis.freshdesk.com/support/tickets/new) to get help from our support team.
+
+| Error Message | Cause | Resolution |
+| --- | --- | --- |
+| Hoops error:  | Internal error in the importer |  |
+| Cannot get pdf 3d streams for  | 3D PDF file does not appear to be a valid format | Import a different 3D PDF fileRe-save the 3D PDF file from the CAD package |
+| Cannot load HOOPs libraries from  | Importer is unable to load the third-party API libraries | Re-install the importer using the original setup package |
+| Invalid HOOPs license key | Internal error in the importer |  |
+| Invalid HOOPs DLL version | Incorrect third-party API version | Re-install the importer using the original setup package |
+| Filename not given | Import was triggered without specifying a file to import | Trigger the import from the File -> Import menu, and browse to a valid file to import |
+| Unsupported file format | The file specified is not supported by the importer and cannot be imported | Re-save the CAD file as a different format, one which is supported by the importer |
+| Could not load file . Hoops error code  | The third-party API could not load the file |  |
+| Imported , but HOOPs reported that the scene is missing some components | The third-party API could not load the entire scene, because it could not find, or process some parts |  |
+| Ignored metadata item  on  - type not supported | The specified assembly contains some metadata in a type that is not supported by the importer | Make sure metadata is saved in the file as one of the supported data types:IntRealTimeString |
+| Error loading entity model while attempting to get unit scale | The importer could not load the model associated with an assembly in the file |  |
+| Could not get hoops model from file  | The importer could not load the model associated with an assembly in the file |  |
+| Failed to create mesh  because it contains no vertices | The importer encountered a mesh with no vertices, so it skipped it | Make sure all meshes in the CAD file are valid |
+| Failed to create mesh  because it has no faces | The importer encountered a mesh with no faces (indexed triangles) so it skipped it | Make sure all meshes in the CAD file are valid |
+| Scene load failed:  () | Importer could not load the scene |  |
+| Assimp loaded  but reported an incomplete scene | The third-party API could not load the entire scene, because it could not find, or process some parts |  |
+| Could not initialise DAPI | The CreoView importer could not initialize the third-party API | Delete the recipe file from Documents/Visionary Render/recipe and try again |
+| Dapi failed to read file  | The CreoView importer could not read the specified file |  |
+| No structure given to store vectorised data | Internal error in the importer |  |
+| Dgn/Dwg InterfaceImpl::load: Error  | The importer encountered an error while loading the file |  |
+| Dgn/Dwg InterfaceImpl::load: Unexpected exception | Internal error in the importer |  |
+| Texture item  does not contain a texture map filename | The importer encountered a texture which does not specify any texture data or image file on disk | Make sure textures in the CAD file are correctly referencing image files |
+| Failed to find texture  | The importer encountered a texture but could not find the file it references on disk | Make sure textures exist on disk when CAD files reference them. |
+| Fault  Code:  Severity  | The Jt Importer encountered an error |  |
+| Could not open file  | The Jt importer could not open the CAD file | Make sure the specified file is a valid Jt file. |
+| Could not initialise traverser to parse jt scene | Internal error in the importer |  |
+| Part on  was not read successfully | The importer failed to import the specified part |  |
+| Unexpected jt entity type  while parsing  | The importer encountered an entity that is not supported |  |
+| Could not tessellate primitive on  | The importer failed to tessellate an object |  |
+| Empty jt node passed for transformation retrieve on  | Internal error in the importer |  |
+| Cannot read brep for part  | The importer could not read the BRep data for the specified part |  |
+| Unsupported or empty part type or empty part | The importer encountered a part that cannot process |  |
+| Error creating primitive | The importer could not process the data |  |
+| Faults found on body | The importer found errors during processing and will now list them below this message |  |
+| Could not create visual on : model  could not be found | Data translation could not find the model referenced by this assembly |  |
+| Empty structure given for translation of  | Internal error in the importer |  |
+| Translator validation failed while trying to import  | Internal error in the importer |  |
+| No  library node specified for build | Internal error in the importer |  |
+| Visual not found on  | Collision translation failed because the target assembly has no visual model |  |
+| Visual on  does not have a valid model | Collision translation failed because the target assembly has no visual model |  |
+| Empty vertex list in face for  | Model translation failed because the model has no vertices |  |
+|  texture item texture map  does not exist | A texture was translated but it has no texture data |  |
+| Failed to open BGF  | The Division importer was unable to open the specified BGF file | Make sure that all models referenced by the scene are available on disk. |
+|  is not a supported file type | The specified BGF file is not a valid Division file |  |
+| Unrecognised drawmode in BGF | A geogroup in the model specified a draw mode that is unsupported | Make sure draw modes are within the supported range:FillLinePoint |
+| Failed to find  | The Division importer was unable to find the specified file, referenced by the scene | Make sure that all resources referenced by the scene are available on disk |
+| Failed to load texture  | The Division importer was unable to load the specified texture file | Make sure the file exists on diskMake sure the file is a supported image format (JPG, PNG, BMP) |
+| Failed LoadLibrary | The importer plugin could not be loaded | Reinstall the plugin |
+| Could not open file to save  | The importer system could not write the default recipe file to the documents directory | Make sure there is enough hard disk spaceMake sure the documents directory is writable |
+| No license for  | The application was unable to find a valid license for this importer plugin | Make sure the system has a valid license, or connection to a license server providing a valid license |
+|  incompatible major version | The plugin interface has changed in a non-backward-compatible way; a new version of the importer is required | Install the latest version of the importer |
+|  did not provide a valid  | Internal importer plugin error |  |
+| VRPInit(void) failed | Internal importer plugin error |  |
+| Invalid recipe file | The importer could not read the recipe file | Ensure that the recipe file is formatted correctly |
+|  is neither a VR Plugin nor UData plugin | The plugin does not appear to be a valid importer, so it is being ignored |  |
+| No suitable importer found for  | The application could not find an importer capable of importing the specified file | Make sure an appropriate importer is installed |
+| Importer does not specify any supported extensions | Internal importer error |  |

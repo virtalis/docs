@@ -154,7 +154,13 @@ For the above example, the final directory structure should look something like 
   * `My_Plugin.dll`
   * `plugin.txt` containing the text `My_Plugin.dll`
 
-For more information about other locations where plugins may be located, see [Directories](../data-structure/directories.mdx).
+#### Additional Directories
+
+You can also keep your native plugins in the following directories:
+
+- `<install_root>/plugins`
+- `<install_root>/data/plugins`
+- `%VRTREE_PLUGINS_DIR%` (environment variable)
 
 ### Verifying a plugin has loaded
 
@@ -184,8 +190,6 @@ There are multiple licensing options.
 
 1. **Local Machine** - Tied to a MAC address, this license allows the plugin to access the API only when running on the specific machine it is licensed for. This is generally used for plugin development.
 2. **Site Wide** - Tied to a site license server, this license allows the plugin to access the API when running on any machine connected to a license server providing the site license.
-
-To get your API licenses, please contact [licensing@virtalis.com](mailto:licensing@virtalis.com).
 
 ### Implementation
 

@@ -1,0 +1,42 @@
+# Toolbar
+
+![](/img/visionary-render/windows/toolbar/overview.png)
+
+The Toolbar contains the Application Menu and various buttons like undo/redo and helpers. Most of the buttons represent tools that can be on or off. When activated, these are highlighted in blue. The buttons with a small white triangle at their bottom right contain drop-down menus. Click and hold left mouse button or right-click to show the menu.
+
+The Toolbar can't be closed because it contains the Application Menu, but it can be shown or hidden along with the rest of the GUI by pressing `Alt` + `Z`.
+
+## Buttons
+
+| Button | Description |
+|--------|-------------|
+| ![](/img/visionary-render/windows/toolbar/undo.png) | Undo the last operation in the application (`Ctrl` + `Z`). To see a description of the action(s) that will be undone, hover the cursor over the button. |
+| ![](/img/visionary-render/windows/toolbar/redo.png) | Redo the last operation in the application (`Ctrl` + `Y`). To see a description of the action(s) that will be redone, hover the cursor over the button. |
+| ![](/img/visionary-render/windows/toolbar/windows.png) | This drop-down menu shows or hides the various windows (Properties, Diagnostics, Gallery, etc.). Click on the button itself to show or hide all the windows other than the Toolbar (`Alt` + `Z` to hide all windows including the toolbar). |
+| ![](/img/visionary-render/windows/toolbar/select.png) | Region select intersected or encapsulated objects in the scene with left-click + drag (`Ctrl` + `1`). This is enabled by default. Drag from left to right to select encapsulated objects, and from right to left to select intersected objects. When the toolbar is narrow, this is combined with the measuring and annotation tools in a drop-down (Note: only one of these can be activated at a time). |
+| ![](/img/visionary-render/windows/toolbar/measure.png) | Measure distances between points by clicking on objects in the scene (`Ctrl` + `2`). |
+| ![](/img/visionary-render/windows/toolbar/annotate.png) | Annotate objects in the scene by clicking on them (`Ctrl` + `3`). |
+| ![](/img/visionary-render/windows/toolbar/prs.png) | Show the PRS manipulator to move, rotate and scale selected objects in the scene (`F9`). The drop-down menu provides options to show the position, rotation and scale manipulators individually. |
+| ![](/img/visionary-render/windows/toolbar/helpers.png) | Select the types of helper objects to display in the scene (light, probe, particle system, etc.) and whether to show all helpers (default), all helper icons, helpers for selected objects only, or no helpers. |
+| ![](/img/visionary-render/windows/toolbar/snap-home.png) | Snap selected objects in the scene when dragged near a previous transform (`F4`). |
+| ![](/img/visionary-render/windows/toolbar/mouse.png) | Move selected objects in the scene with right-click + drag (hold `Shift` to rotate). This is enabled by default. |
+| ![](/img/visionary-render/windows/toolbar/space-mouse.png) | Move and rotate selected objects in the scene with `Ctrl` + `SpaceMouse puck`. This is enabled by default. |
+| ![](/img/visionary-render/windows/toolbar/character.png) | Walk around the scene with the character controller. |
+| ![](/img/visionary-render/windows/toolbar/stream.png) | Enable video streaming over the network. The drop-down menu contains an option for showing the video streaming settings. |
+| ![](/img/visionary-render/windows/toolbar/capture.png) | Capture the screen as an image, image sequence or video (`PrtScn`). There’s also an option for showing the image capture settings. |
+| ![](/img/visionary-render/windows/toolbar/record.png) | Automatically add scene changes to a group and create a snapshot on save. |
+| ![](/img/visionary-render/windows/toolbar/isolate.png) | Isolate or unisolate the selected objects. |
+| ![](/img/visionary-render/windows/toolbar/headlight.png) | Enable or disable the headlight (`Ctrl` + `H`). This is a light that points in the view direction of the camera. It permits colours and materials to be observed without having to add lighting to a scene. The drop-down menu contains an option to enable Auto headlight mode. This enables the headlight whenever there is no other light in the 3D scene. An `A` symbol on the headlight button indicates that auto mode is in use. Auto mode is cancelled when the headlight is enabled or disabled manually. The colour and intensity of the headlight can be configured in **Settings** > **Renderer** > **Scene**. Auto headlight mode is enabled by default. |
+| ![](/img/visionary-render/windows/toolbar/stereo.png) | Enable or disable Stereo 3D (`F10`). The stereo mode can be changed in Settings > Renderer > General. |
+| ![](/img/visionary-render/windows/toolbar/solid.png) | Render mode to use for geometry in the scene, either Solid or Wireframe. |
+| ![](/img/visionary-render/windows/toolbar/tracking.png) | Enable or disable tracking (`F12`). This becomes a drop-down menu when the toolbar is narrow. It has 5 options: <ul><li>**Tracked Mouse Control** - Move the mouse with a tracked hand controller (`Ctrl` + `M`).</li><li>**Avatar Shadows** - Enable or disable avatar shadows.</li><li>**Level Camera** - Keep the camera level when tracking is enabled.</li><li>**Laser** - Show laser pointers on tracked controllers.</li><li>**AR Marker Tracking** - Track AR markers, if supported by the current tracking module.</li></ul> |
+| ![](/img/visionary-render/windows/toolbar/immersion.png) | Set the desktop immersion mode to None (i.e. Desktop), OpenXR, Oculus Touch, SteamVR, zSpace, HoloLens or Custom. |
+
+## License
+
+The text at the top-right of the toolbar shows which license mode Visionary Render is currently running in. This may be either:
+
+| Text | Description |
+|------|-------------|
+| RV   | Review License. This grants you permission to open scenes but not to directly edit and save your changes to them. |
+| DV   | Development License. This grants you full permission to edit scenes and save your changes to them. |
