@@ -70,7 +70,7 @@ const config = {
         title: '',
         logo: {
           src: 'logo.svg',
-          width: 185,
+          width: 186,
         },
       items: [
         {
@@ -121,7 +121,6 @@ const config = {
       ],
     },
     footer: {
-      style: 'dark',
       copyright: `Copyright © ${new Date().getFullYear()} Virtalis Ltd. All rights reserved.`,
     },
     prism: {

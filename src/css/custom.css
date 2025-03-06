@@ -1,11 +1,12 @@
 :root {
   --virtalis-color-light-blue: rgb(16, 6, 159);
-  --virtalis-color-lighter-blue: rgb(19, 9, 204);
-  --virtalis-color-dark-blue: rgb(13, 3, 114);
+  --virtalis-color-lighter-blue: rgb(21, 11, 217);
+  --virtalis-color-dark-blue: rgb(11, 3, 99);
   --virtalis-color-darker-blue: rgb(11, 3, 92);
   --virtalis-color-light-navbar-text: rgb(213, 214, 255);
   --virtalis-color-dark-navbar-text: rgb(189, 190, 230);
   --virtalis-color-orange: #e8a92c;
+  --virtalis-color-orange-light: #f3b63e;
 
   --ifm-color-primary: #d66800;
   --ifm-color-primary-dark: #c15e00;
@@ -15,10 +16,11 @@
   --ifm-color-primary-lighter: #f67800;
   --ifm-color-primary-lightest: #ff8817;
 
-  --ifm-font-size-base: 17.5px;
+  --ifm-font-size-base: 17px;
   --ifm-font-color-base: var(--ifm-color-black);
   --ifm-code-font-size: 95%;
   --ifm-table-cell-padding: 0.5rem;
+  --ifm-footer-background-color: rgb(242, 242, 242);
   --ifm-footer-padding-vertical: calc(var(--ifm-spacing-vertical));
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
@@ -31,19 +33,20 @@
   --ifm-color-primary-light: #ebb345;
   --ifm-color-primary-lighter: #ecb851;
   --ifm-color-primary-lightest: #f0c777;
-
+  
   --ifm-font-color-base: var(--ifm-color-white);
+  --ifm-footer-background-color: rgb(39, 39, 41);
 }
 
 /*a {
   transition: 0s;
 }*/
 
-/* @media (min-width: 997px) {
-  article {
+@media (min-width: 997px) {
+  main {
     margin-left: 14px;
   }
-} */
+}
 
 table {
   border-collapse: collapse;

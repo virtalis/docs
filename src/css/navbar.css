@@ -8,16 +8,16 @@
 }
 [data-theme='light'] .navbar__link {
   color: var(--ifm-color-white);
-  font-size: 90%;
+  font-size: 95%;
 }
 [data-theme='light'] .dropdown--active {
-  color: var(--virtalis-color-orange);
+  color: var(--virtalis-color-orange-light);
 }
 [data-theme='light'] .navbar__link:hover {
-  color: var(--virtalis-color-orange);
+  color: var(--virtalis-color-orange-light);
 }
 [data-theme='light'] .navbar__link--active {
-  color: var(--virtalis-color-orange);
+  color: var(--virtalis-color-orange-light);
 }
 [data-theme='light'] .navbar-sidebar {
   background-color: var(--ifm-color-white);
@@ -36,7 +36,7 @@
 }
 [data-theme='dark'] .navbar__link {
   color: var(--virtalis-color-off-white);
-  font-size: 90%;
+  font-size: 95%;
 }
 [data-theme='dark'] .dropdown--active {
   color: var(--ifm-color-primary);
