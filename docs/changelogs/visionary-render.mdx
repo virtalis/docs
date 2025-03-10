@@ -12,16 +12,18 @@ description: 1.0.1 to 2025.1
 #### Added
 
 - HTML documentation portal called "Virtalis Docs" that contains all software manuals, guides and changelogs in one place. It can be accessed via the start menu, app menu, importers, `F1` key or `?` icons on windows (for context-sensitive help)
-- ActiveMove tracking mode with various settings that can be configured
+- Standard tracking mode for Virtalis ActiveMove systems. This can be configured using various settings under **Tracking** > **Configuration**
 - Save and load user settings from files with the `.VRSetting` file extension
 - Command-line option `-restoresettings` to merge a settings file immediately after user settings are loaded
-- "Use Extra Framebuffer" setting to fix flickering that can occur with stereo 3D enabled
+- Standard ART tracking files to `data\tracking\art\target`. These can be loaded in the ART DTrack3 software when calibrating the tracking targets. These targets have the origins at standardised locations, i.e. at the tip of the flystick and on the underside of the bridge of the glasses
+- Command-line option `-tracking-mode` to permit the tracking mode to be set
 
 #### Changed
 
 - Improve the performance of shadows in large scenes with animated objects
-- Stop re-rendering static scenes to improve GUI responsiveness in large scenes and reduce CPU/GPU usage
+- Stop re-rendering static scenes to improve GUI responsiveness in large scenes and reduce CPU/GPU usage. This can be controlled with the "Stop Rendering When Static" setting in **Renderer** > **Performance**
 - Improve tracking on ART flystick and glasses and remove some inconsistent offsets on avatars (Note: If you use an ART system and your hand is now in the wrong location, please contact our support team)
+- Move the "Show Stereo Cursor" setting to **Tracking** > **Laser**
 
 #### Removed
 
@@ -31,6 +33,7 @@ description: 1.0.1 to 2025.1
 
 - The warning “[W] Cache was not cleanly unmounted. Rebuilding a clean cache." being shown on startup
 - The view in render to texture nodes (such as the mirror in the start room) looks too flat in HMDs or with stereo 3D enabled
+- Flickering that can occur with stereo 3D enabled. This can be controlled with the "Use Extra Framebuffer" setting in **Renderer** > **General**
 - “Path does not exist” error when saving files to the root of a drive
 - Tab completion doesn't work in the script editor
 - Rain intensity setting no longer works
@@ -40,6 +43,7 @@ description: 1.0.1 to 2025.1
 - View briefly goes blank when stereo 3D is enabled/disabled
 - Invalid mesh errors when creating shapes in a collaboration
 - Double image on Oculus, SteamVR and WMR when moving the camera in a collaboration
+- Shadows cast by splines do not update when knots are moved
 
 ---
 
