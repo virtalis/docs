@@ -1,12 +1,12 @@
 # Stereo 3D
 
-Visionary Render supports stereo 3D. It can be enabled from the ![](/img/visionary-render/renderer/stereo-3d/stereo1.png) button in the Toolbar or by pressing **F10**. Stereo is achieved by rendering the 3D view twice, once into each eye, at different camera angles.
+Visionary Render supports stereo 3D. It can be enabled from the ![](/img/visionary-render/renderer/stereo-3d/button.png) button in the Toolbar or by pressing **F10**. Stereo is achieved by rendering the 3D view twice, once into each eye, at different camera angles.
 
 ## Settings
 
-Stereo can be configured for the Settings window under `Renderer` > `General`.
+Stereo can be configured from the Settings window under **Renderer** > **General**.
 
-![](/img/visionary-render/renderer/stereo-3d/stereo2.png)
+![](/img/visionary-render/renderer/stereo-3d/settings.png)
 
 The **Stereo 3D** setting can be used to enable or disable stereo and shares its state with the Toolbar button.
 
@@ -37,10 +37,14 @@ Rendering the scene twice potentially halves performance, so there are some opti
 | Single GPU Parallel | Single-pass stereo - render both eyes in parallel on the primary GPU. This requires an NVIDIA Pascal+ GPU.                           |
 | Dual GPU Parallel   | GPU multicast - render both eyes in parallel on two GPUs. This is the fastest option but requires two identical NVIDIA Pascal+ GPUs. |
 
+### Use Extra Framebuffer
+
+This setting enables an additional off-screen framebuffer for rendering. You can enable this if you see flashes of the background colour, which typically occurs with stereo 3D enabled.
+
 ### Interpupillary Distance (IPD)
 
 IPD is the distance between the centres of the pupils in your eyes. The value of this setting affects how well the stereo effect is perceived.
 
-![](/img/visionary-render/renderer/stereo-3d/stereo3.png) ![](/img/visionary-render/renderer/stereo-3d/stereo4.png)
+![](/img/visionary-render/renderer/stereo-3d/tree.png) ![](/img/visionary-render/renderer/stereo-3d/properties.png)
 
 It is normally defined by a loaded ViewConfig, and can be configured from **Users** > **Computer** > **ViewConfig** > **Camera** > **Eyes** as in the image above.

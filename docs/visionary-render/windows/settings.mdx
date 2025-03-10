@@ -56,7 +56,7 @@ To unlock a setting, right-click on its name and select **Unlock** from the cont
 | ![](/img/visionary-render/windows/settings/reset.png) | Reset all user settings to their default values. A message box will appear to confirm this operation.             |
 | ![](/img/visionary-render/windows/settings/add-to-group.png) | Add all scene overrides to a new or existing group.                                                               |
 | ![](/img/visionary-render/windows/settings/add-to-gallery.png) | Add all scene overrides to the Gallery.                                                                           |
-| ![](/img/visionary-render/windows/settings/additional-options.png) | Show a context menu with options for performing the above operations on settings in the current category or page. |
+| ![](/img/visionary-render/windows/settings/additional-options.png) | Show a context menu with options for performing the above operations on settings in the current category or page. Also contains options for saving and loading settings. |
 
 ## Groups
 
@@ -66,4 +66,20 @@ Settings can be added to Groups to permit their values to be captured by Snapsho
 
 :::note
 Because Groups are scene items, only Scene Overrides can be added to Groups. If a setting doesn't already have a Scene Override, one will be automatically created before it is added to the Group.
+:::
+
+## Save and Load
+
+You can save and load user settings from files with the `.VRSetting` file extension. Select the `...` button and choose **Save user settings** from the menu.
+
+![](/img/visionary-render/windows/settings/save-and-load.png)
+
+A file browser will appear. Choose a name and location for the settings file then select **OK**. A tree view will appear as below. Choose the settings that you wish to save then select **OK**.
+
+![](/img/visionary-render/windows/settings/select.png)
+
+Your settings will now be saved to the specified file. You can load settings by following a similar process.
+
+:::tip
+If you need to automatically load a settings file when Visionary Render is initialised, use the `-restoresettings <file>` command-line argument, where `<file>` is an absolute path to a `.VRSetting` file to load.
 :::

@@ -1,10 +1,10 @@
-# Performance Settings
+# Performance
 
-Visionary Render exposes various settings that can be tweaked to improve the performance of the renderer (and therefore your scenes). The **Geometry Operators** and **Diagnostics** sections describe how to diagnose and optimise the models in your scenes. However, if your scene still isn't rendering quickly enough then this section will cover some additional renderer-specific settings that you can tweak to try and improve performance. These settings can be found in the Settings window (`F6`) under the **Renderer** category.
+Visionary Render has various settings that can be changed to improve the performance of the renderer (and therefore your scenes). The [Diagnostics](../windows/diagnostics.mdx) and [Geometry Operators](../tools/geometry-operators.mdx) pages describe how to find and improve any performance issues with models in your scene. However, if your scene still isn't rendering quickly enough then this page covers additional renderer settings that you can change. These settings can be found in the Settings window (`F6`) under the **Renderer** category.
 
-## General
+## General Settings
 
-![](/img/visionary-render/renderer/performance-settings/general.png)
+![](/img/visionary-render/renderer/performance/general.png)
 
 | Setting | Description |
 |---------|-------------|
@@ -13,27 +13,27 @@ Visionary Render exposes various settings that can be tweaked to improve the per
 | Display Sync | This can be used to synchronise rendering with the physical display. <ul><li>**Off** - Don't synchonise the renderer to the display refresh. - **On** - Synchonise the renderer to the display refresh. </li><li>**Default** - Use the system's default setting. *[default]* </li><li>**Adaptive** - Synchronise to each display refresh only when the renderer's frame rate is faster than the display's refresh rate. </li><li>**Adaptive (Half Refresh Rate)** - Synchronise to every other display refresh only when the renderer's frame rate is faster than half the display's refresh rate.</li></ul> |
 | Anti-aliasing | Method of anti-aliasing to use, in order to reduce jagged edges and flickering pixels. Options are listed in worst to best image quality order. <ul><li>**None** - No anti-aliasing at all (fastest/worst quality). *[default]* </li><li>**FXAA** - Fast Approximate Anti-aliasing, a post-process image-based edge smoothing method. </li><li>**MSAA x2** - 2x Multisampling. </li><li>**MSAA x4** - 4x Multisampling. </li><li>**MSAA x8** - 8x Multisampling. </li><li>**MSAA x16** - 16x Multisampling (slowest/best quality).</li></ul>|
 
-## Scene
+## Scene Settings
 
-![](/img/visionary-render/renderer/performance-settings/scene.png)
+![](/img/visionary-render/renderer/performance/scene.png)
 
 | Setting | Description |
 |---------|-------------|
 | Logarithmic Depth Buffer | Enable to reduce z-fighting (i.e. the flickering of polygons that gets worse the further away they are from the camera). Note: This can result in lower framerates. *[default: false]* |
 | Two-sided Lighting | Enable two-sided lighting, which lights objects from both sides using their inverted normal. Note: This can result in lower framerates. *[default: false]* |
 
-## Level of Detail
+## Level of Detail Settings
 
-![](/img/visionary-render/renderer/performance-settings/lod.png)
+![](/img/visionary-render/renderer/performance/lod.png)
 
 | Setting | Description |
 |---------|-------------|
 | LOD Scale | Scale to apply to level of detail distances in part geometry. A setting of 0 will disable all LOD effects. *[default: 1.0]* |
-| Coverage LOD | The level in the scene at which coverage LOD tests should be performed. Change this setting to apply a level of detail based on the screen space coverage of each object. If the object appears very small from your current viewpoint then it will not be rendered. If there is an Assembly in your scene that you do not want to be affected by Coverage LOD, open its properties and check the **Ignore Coverage LOD** property, as shown in the image below: ![](/img/visionary-render/renderer/performance-settings/properties.png)<br/>*[default: false]* |
+| Coverage LOD | The level in the scene at which coverage LOD tests should be performed. Change this setting to apply a level of detail based on the screen space coverage of each object. If the object appears very small from your current viewpoint then it will not be rendered. If there is an Assembly in your scene that you do not want to be affected by Coverage LOD, open its properties and check the **Ignore Coverage LOD** property, as shown in the image below: ![](/img/visionary-render/renderer/performance/properties.png)<br/>*[default: false]* |
 
-## Performance
+## Performance Settings
 
-![](/img/visionary-render/renderer/performance-settings/performance.png)
+![](/img/visionary-render/renderer/performance/performance.png)
 
 | Setting | Description |
 |---------|-------------|
@@ -43,7 +43,8 @@ Visionary Render exposes various settings that can be tweaked to improve the per
 | Shader Cache | Enable this to reduce the time spent building shaders by storing them on your local disk. *[default: true]* |
 | Save Shader Hashes | Save hashes of shader configurations to the Scene so that when reloaded the renderer can pre-compile all necessary shaders. This will lead to an increased load time but should help minimize any stuttering due to shader recompilation once the scene is loaded. *[default: false]* |
 | Point Cloud Cache Size | The percentage of total computer memory to make available for caching point clouds. If your scene contains point clouds then increasing this value could improve your frame rate if the cache limit is being reached. *[default: 100]* |
+| Stop Rendering When Static | Reduces CPU/GPU usage and improves GUI responsiveness by only re-rendering the 3D scene when changes to the scene or camera are detected. *[default: true]* |
 
-## Other
+## Other Settings
 
 There are various other renderer settings that can affect performance if enabled, such as Procedural Sky, High Dynamic Range, Ambient Occlusion, Screen Space Reflections and Image-based Lighting. If you require better performance then you can seek to reduce the quality of these settings if possible or disable them completely, although obviously this will affect the quality of the rendering and it will need to be weighed up against the gain in performance.
