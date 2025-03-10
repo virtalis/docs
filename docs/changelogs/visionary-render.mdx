@@ -11,36 +11,35 @@ description: 1.0.1 to 2025.1
 
 #### Added
 
-- HTML documentation portal called 'Virtalis Docs' that contains all software manuals, guides and changelogs in one place. It can be accessed via the start menu, app menu, importers, F1 key or '?' icons on windows (for context-sensitive help)
+- HTML documentation portal called "Virtalis Docs" that contains all software manuals, guides and changelogs in one place. It can be accessed via the start menu, app menu, importers, `F1` key or `?` icons on windows (for context-sensitive help)
 - ActiveMove tracking mode with various settings that can be configured
-- Tracking view tab to the Diagnostics window
-- Settings can be saved to and loaded from files with the .VRSetting extension
-- A tree view dialog to permit settings to be selected for saving and loading
-- Command-line option `-restoresettings` to merge a settings file immediately after the user settings are loaded
-- Support for showing images in tooltips
+- Save and load user settings from files with the `.VRSetting` file extension
+- Command-line option `-restoresettings` to merge a settings file immediately after user settings are loaded
+- "Use Extra Framebuffer" setting to fix flickering that can occur with stereo 3D enabled
 
 #### Changed
 
 - Improve the performance of shadows in large scenes with animated objects
-- Stop rendering when nothing is changing in the scene to reduce GPU usage
+- Stop re-rendering static scenes to improve GUI responsiveness in large scenes and reduce CPU/GPU usage
+- Improve tracking on ART flystick and glasses and remove some inconsistent offsets on avatars (Note: If you use an ART system and your hand is now in the wrong location, please contact our support team)
 
 #### Removed
 
-- Changelogs and start menu links for the Visionary Render manual and programming guide (these have been moved to Virtalis Docs)
+- Changelog, manual and programming guide (these have been moved to Virtalis Docs)
 
 #### Fixed
 
-- The following warning being shown on startup: “[W] Cache was not cleanly unmounted. Rebuilding a clean cache."
-- Prevent the view in render to texture nodes (such as the mirror in the start room) from looking too flat in HMDs or with stereo rendering enabled
+- The warning “[W] Cache was not cleanly unmounted. Rebuilding a clean cache." being shown on startup
+- The view in render to texture nodes (such as the mirror in the start room) looks too flat in HMDs or with stereo 3D enabled
 - “Path does not exist” error when saving files to the root of a drive
 - Tab completion doesn't work in the script editor
 - Rain intensity setting no longer works
-- Double image in Oculus/SteamVR/WMR when moving the camera in a collaboration
-- Possible invalid mesh errors when creating shapes in a collaboration
-- LuaSQL can throw an error message in scripts
+- LuaSQL/MySQL can spam error messages to the log when scripts are running
 - Collision detection can cause Lua to crash
 - Crashes that could occur when using a HTC VIVE
-- Flickering in quad-buffered stereo mode
+- View briefly goes blank when stereo 3D is enabled/disabled
+- Invalid mesh errors when creating shapes in a collaboration
+- Double image on Oculus, SteamVR and WMR when moving the camera in a collaboration
 
 ---
 
@@ -55,7 +54,7 @@ description: 1.0.1 to 2025.1
 
 #### Changed
 
-- Improve performance of the "Merge" geometry operator when merging large numbers of assemblies
+- Improve speed of the "Merge" geometry operator when merging lots of small parts
 - Improve loading speed of files with large numbers of metadata nodes
 
 #### Fixed

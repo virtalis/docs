@@ -12,16 +12,16 @@ description: 1.0.1 to 2025.1
 #### Added
 
 - Page to the installer to permit firewall rules to be set
-- Checks to prevent multiple instances from running at once
 
 #### Removed
 
-- Startup options as they did not work as intended and clashed with running services
+- "Start licence server on startup" option as modern Windows systems are better managed through service configuration
 - Changelog (this has been moved to Virtalis Docs)
 - Unit test data in the `data/tests` directory
 
 #### Fixed
 
+- Prevent multiple instances from running at once and show a warning if the server isn't run as a service
 - Server only works when someone is logged on to the machine hosting it
 
 ---

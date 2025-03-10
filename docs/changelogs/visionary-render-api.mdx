@@ -12,18 +12,14 @@ import TabItem from '@theme/TabItem';
 
 *Released 2025-03-07*
 
-#### Added
-
-- `vrBakeMesh` to convert deformable meshes to static meshes for export and upload
-
 #### Changed
 
+- `vrSetting` functions will continue to work when the setting they reference is moved
 - `vrSettingWrite` throws a warning instead of an error when attempting to write to a setting that no longer exists
-- Lua settings functions will continue to work when the setting they reference is moved
 
 #### Fixed
 
-- Make `vrExtractBinaryAssets` accept unversioned metanode names and deduce the metanode type automatically from the provided node if no explicit type is defined. Also added missing documentation for the 4th parameter
+- Make `vrExtractBinaryAssets` accept unversioned metanode names and deduce the metanode type automatically from the provided node if no explicit type is defined
 
 ---
 
@@ -51,7 +47,7 @@ import TabItem from '@theme/TabItem';
 
 #### Fixed
 
-- Prevent vrSettingCreate Lua functions from being able to create unnamed settings
+- Prevent `vrSettingCreate` functions from being able to create unnamed settings
 
 ---
 
