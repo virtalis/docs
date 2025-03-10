@@ -4,18 +4,18 @@ The table below lists errors that you may encounter whilst using the importers, 
 
 | Error Message | Cause | Resolution |
 | --- | --- | --- |
-| Hoops error:  | Internal error in the importer |  |
+| HOOPS error:  | Internal error in the importer |  |
 | Cannot get pdf 3d streams for  | 3D PDF file does not appear to be a valid format | Import a different 3D PDF fileRe-save the 3D PDF file from the CAD package |
-| Cannot load HOOPs libraries from  | Importer is unable to load the third-party API libraries | Re-install the importer using the original setup package |
-| Invalid HOOPs license key | Internal error in the importer |  |
-| Invalid HOOPs DLL version | Incorrect third-party API version | Re-install the importer using the original setup package |
+| Cannot load HOOPS libraries from  | Importer is unable to load the third-party API libraries | Re-install the importer using the original setup package |
+| Invalid HOOPS license key | Internal error in the importer |  |
+| Invalid HOOPS DLL version | Incorrect third-party API version | Re-install the importer using the original setup package |
 | Filename not given | Import was triggered without specifying a file to import | Trigger the import from the File -> Import menu, and browse to a valid file to import |
 | Unsupported file format | The file specified is not supported by the importer and cannot be imported | Re-save the CAD file as a different format, one which is supported by the importer |
-| Could not load file . Hoops error code  | The third-party API could not load the file |  |
-| Imported , but HOOPs reported that the scene is missing some components | The third-party API could not load the entire scene, because it could not find, or process some parts |  |
+| Could not load file . HOOPS error code  | The third-party API could not load the file |  |
+| Imported , but HOOPS reported that the scene is missing some components | The third-party API could not load the entire scene, because it could not find, or process some parts |  |
 | Ignored metadata item  on  - type not supported | The specified assembly contains some metadata in a type that is not supported by the importer | Make sure metadata is saved in the file as one of the supported data types:IntRealTimeString |
 | Error loading entity model while attempting to get unit scale | The importer could not load the model associated with an assembly in the file |  |
-| Could not get hoops model from file  | The importer could not load the model associated with an assembly in the file |  |
+| Could not get HOOPS model from file  | The importer could not load the model associated with an assembly in the file |  |
 | Failed to create mesh  because it contains no vertices | The importer encountered a mesh with no vertices, so it skipped it | Make sure all meshes in the CAD file are valid |
 | Failed to create mesh  because it has no faces | The importer encountered a mesh with no faces (indexed triangles) so it skipped it | Make sure all meshes in the CAD file are valid |
 | Scene load failed:  () | Importer could not load the scene |  |

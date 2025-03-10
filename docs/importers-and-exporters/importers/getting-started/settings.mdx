@@ -1,12 +1,16 @@
 ---
-sidebar_position: 4
+sidebar_position: 3
 ---
 
 # Settings
 
-The importer settings dialog can be used to configure an importer. It can be shown with the **Settings** option in the submenu or the **Show settings** checkbox in the file browser.
+You can use the importer settings dialog to configure your import. To open it, select **Import** > **Importer Name** > **Settings** from the Application Menu or the **Show settings** checkbox from the Import file browser.
 
 ![](/img/importers-and-exporters/importers/settings.png)
+
+:::note
+This page lists common settings that importers can have. Your importer may not contain all of these settings and may contain additional settings (see [Format Specific Setup](settings#format-specific-setup)).
+:::
 
 ## Buttons
 
@@ -36,10 +40,6 @@ All importers contain some standard sections such as Basic and Output, alongside
 | [Tessellation Setup](#tessellation-setup) | This section contains properties that affect scene mesh importing and triangulation. |
 | [Format Specific Setup](#format-specific-setup) | This section contains any additional properties specific to particular importers. |
 | [Materials](#materials) | This section contains material properties, such as the material colour to use when no material is found. |
-
-:::note
-This page lists all possible settings - the individual settings available to your importer will vary.
-:::
 
 ### Information
 
@@ -171,20 +171,20 @@ This page lists all possible settings - the individual settings available to you
 
 ### Format Specific Setup
 
-| Setting                          | Description                                                                            |
-|----------------------------------|----------------------------------------------------------------------------------------|
-| Cache Activation                 | (CatiaV6) Activate representation mode, which may be used with large CATIA V6 assemblies. *[default: false]* |
-| Cache Path                       | (CatiaV6) The folder for the load function to use as the cache folder. This is applied if cache activation is enabled. *[default: none]* |
-| Use File Tessellation            | (Inventor) Use the tessellation in the imported file instead of generating one. *[default: false]* |
-| Read Tessellation LOD            | (Jt) The LOD to retrieve from the imported file. There are 3 options:<ul><li>**Low** – the lowest level of tessellation available in the imported file.</li><li>**Medium** – the middle level of tessellation available in the imported file.</li><li>**High** – the highest level of tessellation available in the imported file. *[default]*</li></ul> |
-| Keep Parsed Entities             | (Parasolid) Keep parsed data to avoid parsing again when rewriting to Parasolid. |
-| Rendered Mode Colors             | (Rhino) Force rendered mode colours instead of shading mode colours. Default value is true. *[default: false]* |
-| Load All Configs Data            | (SolidWorks) Ask to load data, tree, attributes, representation and PMI for all configs. *[default: false]* |
-| Display Visible Datum            | (SolidWorks) Manage the visibility of datum entities. If Read Construction And References from General Setup section is off, this is ignored. |
-| Fit All                          | (Unigraphics) Compute camera views after a fit all process. *[default: false]* |
+| Setting | Importer | Description |
+|---|---|---|
+| Cache Activation                 | CatiaV6 | Activate representation mode, which may be used with large CATIA V6 assemblies. *[default: false]* |
+| Cache Path                       | CatiaV6 | The folder for the load function to use as the cache folder. This is applied if cache activation is enabled. *[default: none]* |
+| Use File Tessellation            | Inventor | Use the tessellation in the imported file instead of generating one. *[default: false]* |
+| Read Tessellation LOD            | Jt | The LOD to retrieve from the imported file. There are 3 options:<ul><li>**Low** – the lowest level of tessellation available in the imported file.</li><li>**Medium** – the middle level of tessellation available in the imported file.</li><li>**High** – the highest level of tessellation available in the imported file. *[default]*</li></ul> |
+| Keep Parsed Entities             | Parasolid | Keep parsed data to avoid parsing again when rewriting to Parasolid. |
+| Rendered Mode Colors             | Rhino | Force rendered mode colours instead of shading mode colours. Default value is true. *[default: false]* |
+| Load All Configs Data            | SolidWorks | Ask to load data, tree, attributes, representation and PMI for all configs. *[default: false]* |
+| Display Visible Datum            | SolidWorks | Manage the visibility of datum entities. If Read Construction And References from General Setup section is off, this is ignored. |
+| Fit All                          | Unigraphics | Compute camera views after a fit all process. *[default: false]* |
 
 :::note
-See the Format Specifics section for more format-specific settings.
+See [Format Specifics](../format-specifics/creo-importer.mdx) for additional settings and information about some of the importers.
 :::
 
 ### Materials
