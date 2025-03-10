@@ -7,30 +7,24 @@ const config = {
   title: 'Virtalis Docs',
   tagline: 'Documentation portal for Virtalis applications',
   favicon: 'favicon.ico',
-
-  // Set the production url of your site here
   url: 'https://www.docs.virtalis.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
-
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'virtalis', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
-
+  organizationName: 'virtalis',
+  projectName: 'docs',
   onBrokenLinks: 'throw',
   onBrokenAnchors: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
+  //plugins: [
+  //  require.resolve('docusaurus-lunr-search')
+  //],
+  future: {
+    experimental_router: 'hash',
+  },
   presets: [
     [
       'classic',
@@ -51,26 +45,16 @@ const config = {
       }),
     ],
   ],
-
-  plugins: [
-    require.resolve('docusaurus-lunr-search')
-  ],
-
-  //future: {
-  //  experimental_router: 'hash',
-  //},
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       colorMode: {
-        respectPrefersColorScheme: true,
+        defaultMode: 'dark',
       },
       navbar: {
-        title: '',
         logo: {
           src: 'logo.svg',
-          width: 186,
+          width: 184,
         },
       items: [
         {
