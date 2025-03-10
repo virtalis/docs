@@ -29,7 +29,6 @@ Core functions and types that can be used by Lua scripts and plugins.
 | void | **[vrAppCommandBind](#vrappcommandbind)**(string commandName, Any func)<br />Binds a lua function to an app command.  |
 | string | **[vrAppDir](#vrappdir)**()<br />Gets the Visionary Render application directory.  |
 | void | **[vrArrange](#vrarrange)**([vrnode](../classes/vrnode.mdx) targetNode, string type)<br />Arranges assemblies into a grid based on their bounds.  |
-| boolean | **[vrBakeMesh](#vrbakemesh)**([vrnode](../classes/vrnode.mdx) targetNode)<br />Converts deformable meshes to static meshes for export and upload. |
 | void | **[vrBuildCurveViewConfig](#vrbuildcurveviewconfig)**(number radius, number angle, number height, number segments, boolean smoothCurve, [vrnode](../classes/vrnode.mdx) user =nil, [vrnode](../classes/vrnode.mdx) camera, [vrnode](../classes/vrnode.mdx) screens =nil, [vrnode](../classes/vrnode.mdx) viewportLayout)<br />Creates or updates the PhysicalScreen and Viewport nodes for a curved screen.  |
 | void | **[vrCaptureCleanState](#vrcapturecleanstate)**()<br />Captures the current state of the Lua global environment.  |
 | void | **[vrCaptureViewpoint](#vrcaptureviewpoint)**([vrnode](../classes/vrnode.mdx) viewpoint, number size, string captureComplete, string textureCreate =0)<br />Captures the view from a specified viewpoint into a texture.  |
@@ -389,22 +388,6 @@ Arranges assemblies into a grid based on their bounds.
 * gridXY
 * gridXZ
 * gridYZ 
-
-### vrBakeMesh
-
-```lua
-boolean vrBakeMesh(
-    vrnode targetNode
-)
-```
-
-Converts deformable meshes to static meshes for export and upload.
-
-**Parameters**: 
-
-  * **targetNode** The node of the visual you want to convert.
-
-**Return**: Whether the conversion was successful.
 
 ### vrBuildCurveViewConfig
 
