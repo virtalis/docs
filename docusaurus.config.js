@@ -7,8 +7,8 @@ const config = {
   title: 'Virtalis Docs',
   tagline: 'Documentation portal for Virtalis applications',
   favicon: 'favicon.ico',
-  url: 'https://virtalis.github.io',
-  baseUrl: '/docs/',
+  url: 'https://docs.virtalis.com',
+  baseUrl: '/',
   organizationName: 'virtalis',
   projectName: 'docs',
   trailingSlash: false,
@@ -20,12 +20,6 @@ const config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  plugins: [
-    require.resolve('docusaurus-lunr-search')
-  ],
-  //future: {
-  //  experimental_router: 'hash',
-  //},
   presets: [
     [
       'classic',
@@ -46,6 +40,19 @@ const config = {
       }),
     ],
   ],
+  plugins: [
+    [
+      require.resolve('docusaurus-plugin-search-local'), {
+        hashed: true,
+        indexDocs: true,
+        indexPages: true,
+        highlightSearchTermsOnTargetPage: true,
+      },
+    ],
+  ],
+  //future: {
+  //  experimental_router: 'hash',
+  //},
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
