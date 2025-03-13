@@ -45,8 +45,7 @@ const config = {
       require.resolve('docusaurus-plugin-search-local'), {
         hashed: true,
         indexDocs: true,
-        indexPages: true,
-        highlightSearchTermsOnTargetPage: true,
+        docsRouteBasePath: '/',
       },
     ],
   ],
