@@ -41,6 +41,7 @@ const config = {
     ],
   ],
   plugins: [
+    'docusaurus-plugin-image-zoom',
     [
       require.resolve('docusaurus-plugin-search-local'), {
         hashed: true,
@@ -52,17 +53,14 @@ const config = {
   //future: {
   //  experimental_router: 'hash',
   //},
-  themeConfig:
+  themeConfig: {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      colorMode: {
-        defaultMode: 'dark',
+    navbar: {
+      logo: {
+        alt: 'Virtalis Docs Logo',
+        src: 'assets/logos/virtalis-docs.svg',
+        width: 184,
       },
-      navbar: {
-        logo: {
-          src: 'logo.svg',
-          width: 184,
-        },
       items: [
         {
           type: 'dropdown',
@@ -112,14 +110,35 @@ const config = {
       ],
     },
     footer: {
+      logo: {
+        alt: 'Virtalis Logo',
+        src: 'assets/logos/virtalis.svg',
+        srcDark: 'assets/logos/virtalis-dark.svg',
+        href: 'https://virtalis.com',
+        target: '_blank',
+        width: 140,
+      },
       copyright: `Copyright © ${new Date().getFullYear()} Virtalis Ltd. All rights reserved.`,
+    },
+    colorMode: {
+      defaultMode: 'dark',
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
       additionalLanguages: ['c', 'cmake', 'glsl', 'lua', 'json'],
     },
-  }),
+    zoom: {
+      selector: '.markdown :not(em) > img',
+      background: {
+        light: 'rgb(255, 255, 255)',
+        dark: 'rgb(50, 50, 50)'
+      },
+      config: {
+        // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
+      }
+    }
+  },
 };
 
 export default config;
