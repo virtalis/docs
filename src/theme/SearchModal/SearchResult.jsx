@@ -10,7 +10,9 @@ import { getStemmedPositions } from '../../utils/getStemmedPositions';
 import { getExternalURI } from '../../utils/getExternalURI';
 import { IconTitle, IconHeading, IconContent, IconAction, IconTreeInter, IconTreeLast, } from './icons';
 import styles from './index.module.css';
+
 const SEARCH_PARAM_HIGHLIGHT = '_highlight';
+
 function buildDestinationQueryParams(tokens) {
     if (tokens.length === 0) {
         return '';
@@ -21,6 +23,7 @@ function buildDestinationQueryParams(tokens) {
     });
     return params.toString();
 }
+
 function handleExternalSearchClick(doc, tokens, externalUriBase, shouldHighlight) {
     const queryParams = shouldHighlight
         ? buildDestinationQueryParams(tokens)
@@ -33,6 +36,7 @@ function handleExternalSearchClick(doc, tokens, externalUriBase, shouldHighlight
         tab.opener = null;
     }
 }
+
 const SearchResult = (props) => {
     const { isSelected, isHovered, searchResult, searchSource, setSelected, setHovered, onClick, } = props;
     const { document, type, page, metadata, tokens, isInterOfTree, isLastOfTree, } = searchResult;
@@ -81,24 +85,13 @@ const SearchResult = (props) => {
         <span className={styles.hitTitle} dangerouslySetInnerHTML={{
             __html: highlightStemmed(document.t, getStemmedPositions(metadata, 't'), tokens, searchResultContextMaxLength),
         }}/>
-
-        {isTitle ? (<span className={styles.hitPath}>{document.u}</span>) : (<>
-            <span className={styles.hitPath} dangerouslySetInnerHTML={{
-                __html: highlight(page.t ||
-                    // Todo(weareoutman): This is for EasyOps only.
-                    // istanbul ignore next
-                    (document.u.startsWith('/docs/api-reference/')
-                        ? 'API Reference'
-                        : ''), tokens),
-            }}/>
-
-            <small className={styles.urlPath}>{url}</small>
-          </>)}
+        {<span className={styles.hitPath}>{document.u}</span>}
       </span>
 
-      {searchSource === '' ? (<span className={styles.hitAction}>
+      {searchSource === '' && isHovered ? (<span className={styles.hitAction}>
           <IconAction />
-        </span>) : (<IconExternalLink height={15} width={15}/>)}
+        </span>) : ('')}
     </div>);
 };
+
 export default SearchResult;

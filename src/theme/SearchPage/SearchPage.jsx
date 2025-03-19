@@ -16,6 +16,7 @@ import LoadingRing from "../LoadingRing/LoadingRing";
 import { simpleTemplate } from "../../utils/simpleTemplate";
 import ErrorBoundary from "../ErrorBoundary";
 import styles from "./SearchPage.module.css";
+
 export default function SearchPage() {
     const { siteConfig: { baseUrl }, } = useDocusaurusContext();
     const { indexHash, removeDefaultStopWordFilter, translations } = usePluginData("docusaurus-plugin-search-local");
@@ -102,6 +103,7 @@ export default function SearchPage() {
       </ErrorBoundary>
     </Layout>);
 }
+
 function SearchResultItem({ searchResult: { document, type, page, tokens, metadata }, }) {
     const isTitle = type === 0;
     const isContent = type === 2;

@@ -46,7 +46,9 @@ const config = {
       require.resolve('docusaurus-plugin-search-local'), {
         hashed: true,
         indexDocs: true,
-        docsRouteBasePath: '/',
+        docsRouteBasePath: [ 'importers-and-exporters', 'virtalis-hub-and-web-viewer', 'virtalis-hub-system-admin', 'visionary-render', 'visionary-render-programming' ],
+        searchResultLimits: 50,
+        searchResultContextMaxLength: 40,
       },
     ],
   ],

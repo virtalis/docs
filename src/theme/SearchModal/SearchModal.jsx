@@ -10,6 +10,7 @@ import { IconSearch } from "./icons";
 import SearchResultList from "./SearchResultList";
 import SearchResultsSection from "./SearchResultsSection";
 import styles from "./index.module.css";
+
 const useKeyPress = function (targetKey, ref) {
     const [keyPressed, setKeyPressed] = useState(false);
     function downHandler({ key }) {
@@ -32,6 +33,7 @@ const useKeyPress = function (targetKey, ref) {
     });
     return keyPressed;
 };
+
 const SearchModal = ({ onClose, }) => {
     const { siteConfig: { baseUrl, title }, } = useDocusaurusContext();
     const { indexHash, removeDefaultStopWordFilter, searchResultLimits, translations, externalSearchSources: externalSourceConfigs, } = usePluginData("docusaurus-plugin-search-local");
@@ -184,7 +186,7 @@ const SearchModal = ({ onClose, }) => {
           <label>
             <IconSearch />
           </label>
-          <input type="search" name="q" className={styles.searchInput} aria-label="Search" placeholder="Search docs" onChange={(ev) => {
+          <input type="search" name="q" className={styles.searchInput} aria-label="Search" placeholder="" onChange={(ev) => {
             setSearchQuery(ev.target.value);
         }} ref={searchInput} value={searchQuery} autoComplete="off" autoFocus/>
         </div>
@@ -194,7 +196,7 @@ const SearchModal = ({ onClose, }) => {
 
         <div className={styles.searchResultsContainer}>
           {!searchQuery ? (<div className={styles.messageContainer}>
-              <p>Please provide a search query to show results.</p>
+              <p>Enter a search query</p>
             </div>) : (<SearchResultsSection heading={title}>
               {searchResults.length === 0 ? (<em className={styles.noDocsFoundMessage}>
                   {translations.no_documents_were_found}
@@ -209,13 +211,9 @@ const SearchModal = ({ onClose, }) => {
             return t;
         })}
 
-          {allSearchResults.length > 0 && (<section className={styles.searchResultsContainerFooter}>
-              <Link to={`/search?q=${searchQuery}`} onClick={onClose}>
-                See All Results
-              </Link>
-            </section>)}
         </div>
       </div>
     </div>);
 };
+
 export default SearchModal;

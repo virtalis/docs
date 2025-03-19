@@ -1,11 +1,11 @@
 .searchQueryInput {
-  border-radius: var(--ifm-global-radius);
-  border: var(--ifm-global-border-width) solid
-    var(--ifm-color-content-secondary);
-  font-size: var(--ifm-font-size-base);
+  border-radius: 6px;
+  border: none;
+  font-size: 1.2em;
   padding: 0.5rem;
   width: 100%;
-  background: #fff;
+  height: 50px;
+  background: var(--search-input-background-color);
   margin-bottom: 1rem;
 }
 
@@ -27,4 +27,9 @@
 .searchResultItemSummary {
   font-style: italic;
   margin: 0.5rem 0px 0px;
+}
+
+mark {
+  color: rgb(0, 0, 0);
+  background-color: #e2e82c;
 }

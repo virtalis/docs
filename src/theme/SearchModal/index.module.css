@@ -1,36 +1,50 @@
 :root {
   --search-local-result-height: 65px;
-  --search-local-result-shadow: 0 1px 3px 0 rgb(212, 217, 225);
+  --search-modal-background-color: rgb(255, 255, 255);
+  --search-input-background-color: rgb(242, 242, 242);
+
+  input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    height: 24px;
+    width: 24px;
+    margin-left: .4em;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'><path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>");
+    cursor: pointer;
+  }
 }
 
 html[data-theme="dark"] {
-  --search-local-result-shadow: none;
+  --search-modal-background-color: rgb(36, 37, 38);
+  --search-input-background-color: rgb(23, 23, 25);
+  /* --search-modal-background-color: rgb(35, 38, 47);
+  --search-input-background-color: rgb(23, 24, 28); */
+
+  input[type="search"]::-webkit-search-cancel-button {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'><path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/></svg>");
+  }
 }
 
-/* SearchModal Component */
 .searchModal {
   position: fixed;
   width: 100vw;
   height: 100vh;
   top: 0;
   left: 0;
-  background: rgba(94, 100, 112, 0.7);
+  background: rgba(80, 80, 85, 0.7);
+  backdrop-filter: blur(1px);
   z-index: 100000;
 }
 
 .searchModalContainer {
-  box-shadow: rgba(255, 255, 255, 0.5) 1px 1px 0px 0px inset,
-    rgb(85, 90, 100) 0px 3px 8px 0px;
-  background: var(--ifm-background-surface-color);
+  background: var(--search-modal-background-color);
   position: relative;
-
   flex-direction: column;
   margin: 60px auto auto;
-  border-radius: 6px;
-  width: 50%;
+  border-radius: 8px;
+  width: 40%;
   min-width: 400px;
   min-height: 200px;
-  border: 1px solid var(--ifm-color-primary-contrast-background);
+  padding: 1px;
 }
 
 .searchInputContainer {
@@ -39,18 +53,18 @@ html[data-theme="dark"] {
   height: 50px;
   align-items: center;
   box-shadow: var(--search-local-searchbox-shadow);
-  border-radius: 4px;
-  background-color: var(--ifm-navbar-search-input-background-color);
+  border-radius: 6px;
+  background-color: var(--search-input-background-color);
 }
 
 .searchInputContainer label {
   margin-left: 10px;
-  margin-right: 5px;
+  margin-right: 2px;
   display: flex;
 }
 
 .searchInputContainer label > svg {
-  stroke-width: 1.6;
+  stroke-width: 2;
 }
 
 .searchInputContainer > span {
@@ -71,25 +85,24 @@ html[data-theme="dark"] {
 
 .messageContainer {
   width: 100%;
-  height: 150px;
+  height: 100px;
   text-align: center;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .noDocsFoundMessage {
   display: flex;
   justify-content: space-around;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .searchResultsContainer {
   overflow-y: scroll;
   max-height: 400px;
-  padding-left: 12px;
-  padding-right: 12px;
+  padding: 0px 12px 12px 12px;
 }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
@@ -120,12 +133,7 @@ html[data-theme="dark"] {
 }
 
 .searchResultsContainerFooter a {
-  border-bottom: 1px solid;
-  color: inherit;
-}
-
-.searchResultsContainerFooter a:hover {
-  text-decoration: none;
+  color: var(--ifm-color-primary);
 }
 
 .loadingContainer {
@@ -140,7 +148,6 @@ html[data-theme="dark"] {
   height: 50px;
 }
 
-/* SearchResultSection Component */
 .searchResultsSection {
   max-height: 400px;
   padding-bottom: 4px;
@@ -151,7 +158,7 @@ html[data-theme="dark"] {
 }
 
 .searchResultsSectionHeader {
-  background: var(--ifm-background-surface-color);
+  background: var(--search-modal-background-color);
   font-size: 0.85em;
   font-weight: 600;
   line-height: 32px;
@@ -163,50 +170,56 @@ html[data-theme="dark"] {
   z-index: 2;
 }
 
-/* SearchResult Component */
 .searchResult {
   cursor: pointer;
-  background: var(--ifm-color-primary-contrast-background);
+  background: rgb(242, 242, 242);
   border-radius: 4px;
-  box-shadow: var(--search-local-result-shadow, 0 1px 3px 0 #d4d9e1);
   margin-bottom: 4px;
   padding: 0 var(--ifm-global-spacing);
   width: 100%;
   align-items: center;
-  color: var(--ifm-font-color-base);
+  color: var(--ifm-color-gray-600);
   display: flex;
   flex-direction: row;
   height: var(--search-local-result-height, 65px);
 }
 
 html[data-theme="dark"] .searchResult {
-  box-shadow: var(--search-local-result-shadow, none);
-  color: var(--ifm-font-color-base);
+  background: rgb(47, 48, 49);
+  color: var(--ifm-color-gray-400);
 }
 
 .cursor {
-  background-color: var(--ifm-color-primary) !important;
+  background-color: rgb(229, 229, 229) !important;
+}
+
+html[data-theme="dark"] .cursor {
+  background-color: rgb(58, 59, 60) !important;
 }
 
 .cursor > span {
-  color: #d4d9e1;
+  color: var(--ifm-color-black);
 }
 
+html[data-theme="dark"] .cursor > span {
+  color: var(--ifm-color-white);
+} 
+
 .cursor > .hitWrapper mark {
-  color: #d4d9e1;
+  color: var(--ifm-color-primary);
   text-decoration: underline;
 }
 
 .hitTree,
 .hitIcon,
 .hitPath {
-  color: var(--ifm-color-secondary-darkest);
+  color: var(--ifm-color-gray-600);
 }
 
 html[data-theme="dark"] .hitTree,
 html[data-theme="dark"] .hitIcon,
 html[data-theme="dark"] .hitPath {
-  color: var(--ifm-color-secondary-darkest);
+  color: var(--ifm-color-gray-400);
 }
 
 .hitTree {
@@ -217,13 +230,12 @@ html[data-theme="dark"] .hitPath {
 .hitTree > svg {
   height: var(--search-local-result-height, 56px);
   opacity: 0.5;
-  stroke-width: var(--search-local-icon-stroke-width, 1.4);
+  stroke-width: 2px;
   width: 24px;
 }
 
 .hitIcon {
-  stroke-width: var(--search-local-icon-stroke-width, 1.4);
-
+  stroke-width: 2px;
   height: 20px;
   width: 20px;
 }
@@ -260,10 +272,16 @@ html[data-theme="dark"] .hitPath {
 }
 
 .hitAction {
+  stroke-width: 2px;
   height: 20px;
   width: 20px;
 }
 
 .urlPath {
   font-size: 8px;
+  color: var(--ifm-color-gray-500);
+}
+
+html[data-theme="dark"] .urlPath {
+  color: var(--ifm-color-gray-500);
 }

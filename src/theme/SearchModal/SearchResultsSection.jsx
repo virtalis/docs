@@ -3,10 +3,12 @@ import Link from "@docusaurus/Link";
 import IconExternalLink from "@theme-original/Icon/ExternalLink";
 import { getExternalURI } from "../../utils/getExternalURI";
 import styles from "./index.module.css";
+
 function generateSectionLink(headingLink, query) {
     const qParams = new URLSearchParams([["q", query]]);
     return `${getExternalURI("/search", headingLink)}?${qParams.toString()}`;
 }
+
 const SearchResultsSection = (props) => {
     const { children, heading, headingLink, sectionQuery = "" } = props;
     return (<section className={styles.searchResultsSection}>
@@ -20,4 +22,5 @@ const SearchResultsSection = (props) => {
       {children}
     </section>);
 };
+
 export default SearchResultsSection;

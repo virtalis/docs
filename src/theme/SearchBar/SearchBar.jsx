@@ -6,7 +6,9 @@ import { SearchButton } from "./SearchButton";
 import SearchModal from "../SearchModal";
 import ErrorBoundary from "../ErrorBoundary";
 import Mark from "mark.js";
+
 const SEARCH_PARAM_HIGHLIGHT = "_highlight";
+
 function isEditingContent(event) {
     const element = event.target;
     const tagName = element.tagName;
@@ -15,6 +17,7 @@ function isEditingContent(event) {
         tagName === "SELECT" ||
         tagName === "TEXTAREA");
 }
+
 export default class SearchBarWrapper extends Component {
     render() {
         return (<ErrorBoundary>
@@ -22,6 +25,7 @@ export default class SearchBarWrapper extends Component {
       </ErrorBoundary>);
     }
 }
+
 export function SearchBar() {
     const { highlightSearchTermsOnTargetPage } = usePluginData("docusaurus-plugin-search-local");
     const [isOpen, setIsOpen] = useState(false);
