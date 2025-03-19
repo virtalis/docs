@@ -2,8 +2,8 @@
 
 [data-theme='light'] {
   --ifm-navbar-height: 3.5rem;
-  --ifm-navbar-background-color: var(--virtalis-color-light-blue);
-  --ifm-navbar-search-input-background-color: var(--virtalis-color-lighter-blue);
+  --ifm-navbar-background-color: var(--virtalis-color-blue);
+  --ifm-navbar-search-input-background-color: var(--virtalis-color-dark-blue);
   --ifm-navbar-search-input-color: var(--ifm-color-white);
 }
 [data-theme='light'] .navbar__link {
@@ -11,19 +11,19 @@
   font-size: 95%;
 }
 [data-theme='light'] .dropdown--active {
-  color: var(--virtalis-color-orange-light);
+  color: var(--virtalis-color-orange);
 }
 [data-theme='light'] .navbar__link:hover {
-  color: var(--virtalis-color-orange-light);
+  color: var(--virtalis-color-orange);
 }
 [data-theme='light'] .navbar__link--active {
-  color: var(--virtalis-color-orange-light);
+  color: var(--virtalis-color-orange);
 }
 [data-theme='light'] .navbar-sidebar {
   background-color: var(--ifm-color-white);
 }
 [data-theme='light'] .navbar-sidebar__brand {
-  background-color: var(--virtalis-color-light-blue);
+  background-color: var(--virtalis-color-blue);
 }
 
 /* Dark Mode */

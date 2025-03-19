@@ -22,12 +22,12 @@
   display: none;
 }
 [data-theme='light'] .toggleButton:hover {
-  background: var(--virtalis-color-lighter-blue);
+  background: var(--virtalis-color-light-blue);
 }
 
 [data-theme='dark'] .lightToggleIcon {
   display: none;
 }
 [data-theme='dark'] .toggleButton:hover {
-  background: var(--virtalis-color-light-blue);
+  background: var(--virtalis-color-blue);
 }

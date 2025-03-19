@@ -1,12 +1,9 @@
 :root {
-  --virtalis-color-light-blue: rgb(16, 6, 159);
-  --virtalis-color-lighter-blue: rgb(23, 12, 220);
+  --virtalis-color-blue: rgb(16, 6, 159);
+  --virtalis-color-light-blue: rgb(23, 12, 220);
   --virtalis-color-dark-blue: rgb(11, 3, 99);
-  --virtalis-color-darker-blue: rgb(7, 2, 60);
-  --virtalis-color-light-navbar-text: rgb(213, 214, 255);
-  --virtalis-color-dark-navbar-text: rgb(189, 190, 230);
+  --virtalis-color-darker-blue: rgb(6, 2, 55);
   --virtalis-color-orange: #e8a92c;
-  --virtalis-color-orange-light: #f3b63e;
 
   --ifm-color-primary: #d66800;
   --ifm-color-primary-dark: #c15e00;
@@ -16,10 +13,11 @@
   --ifm-color-primary-lighter: #f67800;
   --ifm-color-primary-lightest: #ff8817;
 
-  --ifm-background-color: rgb(242, 242, 242);
+  --ifm-background-color: rgb(238, 238, 240);
   --ifm-font-size-base: 17px;
   --ifm-font-color-base: var(--ifm-color-black);
   --ifm-code-font-size: 90%;
+  --ifm-transition-fast: 0;
   --ifm-table-cell-padding: 0.5rem;
   --ifm-footer-background-color: rgb(230, 230, 230);
   --ifm-footer-padding-vertical: calc(var(--ifm-spacing-vertical));
@@ -35,13 +33,11 @@
   --ifm-color-primary-lighter: #ecb851;
   --ifm-color-primary-lightest: #f0c777;
   
+  --ifm-background-color: rgb(17, 25, 39);
+  --ifm-background-surface-color: rgb(17, 25, 39);
   --ifm-font-color-base: var(--ifm-color-white);
   --ifm-footer-background-color: rgb(39, 39, 41);
 }
-
-/*a {
-  transition: 0s;
-}*/
 
 @media (min-width: 997px) {
   main {

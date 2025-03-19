@@ -131,8 +131,8 @@ const config = {
     zoom: {
       selector: '.markdown :not(em) > img',
       background: {
-        light: 'rgb(255, 255, 255)',
-        dark: 'rgb(50, 50, 50)'
+        light: 'rgb(238, 238, 240)',
+        dark: 'rgb(27, 27, 29)'
       },
       config: {
         // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
