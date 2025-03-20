@@ -42,15 +42,6 @@ const config = {
   ],
   plugins: [
     'docusaurus-plugin-image-zoom',
-    [
-      require.resolve('docusaurus-plugin-search-local'), {
-        hashed: true,
-        indexDocs: true,
-        docsRouteBasePath: [ 'importers-and-exporters', 'virtalis-hub-and-web-viewer', 'virtalis-hub-system-admin', 'visionary-render', 'visionary-render-programming' ],
-        searchResultLimits: 50,
-        searchResultContextMaxLength: 40,
-      },
-    ],
   ],
   //future: {
   //  experimental_router: 'hash',
@@ -124,6 +115,17 @@ const config = {
     },
     colorMode: {
       defaultMode: 'dark',
+    },
+    algolia: {
+      appId: 'N450QRS24Y',
+      apiKey: '6d071f4bcb063177305cacdb6e2d8fe9',
+      indexName: 'virtalis',
+      contextualSearch: true,
+      externalUrlRegex: 'external\\.com|domain\\.com',
+      searchParameters: {},
+      searchPagePath: 'search',
+      insights: false,
+      placeholder: '',
     },
     prism: {
       theme: prismThemes.github,
