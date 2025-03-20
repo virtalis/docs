@@ -3,8 +3,6 @@
 [data-theme='light'] {
   --ifm-navbar-height: 3.5rem;
   --ifm-navbar-background-color: var(--virtalis-color-blue);
-  --ifm-navbar-search-input-background-color: var(--virtalis-color-dark-blue);
-  --ifm-navbar-search-input-color: var(--ifm-color-white);
 }
 [data-theme='light'] .navbar__link {
   color: var(--ifm-color-white);
@@ -31,8 +29,6 @@
 [data-theme='dark'] {
   --ifm-navbar-height: 3.5rem;
   --ifm-navbar-background-color: var(--virtalis-color-dark-blue);
-  --ifm-navbar-search-input-background-color: var(--virtalis-color-darker-blue);
-  --ifm-navbar-search-input-color: var(--virtalis-color-off-white);
 }
 [data-theme='dark'] .navbar__link {
   color: var(--virtalis-color-off-white);

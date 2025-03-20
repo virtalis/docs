@@ -8,7 +8,6 @@
   background: var(--docsearch-searchbox-focus-background);
   color: var(--docsearch-text-color);
   margin-bottom: 0.5rem;
-  transition: border var(--ifm-transition-fast) ease;
 }
 
 .searchQueryInput:focus,

@@ -13,13 +13,13 @@
   --ifm-color-primary-lighter: #f67800;
   --ifm-color-primary-lightest: #ff8817;
 
-  --ifm-background-color: rgb(238, 238, 240);
+  --ifm-background-color: rgb(255, 255, 255);
   --ifm-font-size-base: 17px;
   --ifm-font-color-base: var(--ifm-color-black);
   --ifm-code-font-size: 90%;
   --ifm-transition-fast: 0;
   --ifm-table-cell-padding: 0.5rem;
-  --ifm-footer-background-color: rgb(230, 230, 230);
+  --ifm-footer-background-color: rgb(242, 242, 242);
   --ifm-footer-padding-vertical: calc(var(--ifm-spacing-vertical));
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
@@ -58,4 +58,24 @@ th, td {
 
 .footer {
   font-size: 80%;
+}
+
+::selection {
+  background-color: var(--virtalis-color-light-blue);
+  color: var(--ifm-color-white);
+}
+
+::-moz-selection {
+  background-color: var(--virtalis-color-light-blue);
+  color: var(--ifm-color-white);
+}
+
+[data-theme='dark'] ::selection {
+  background-color: var(--virtalis-color-blue);
+  color: var(--ifm-color-white);
+}
+
+[data-theme='dark'] ::-moz-selection {
+  background-color: var(--virtalis-color-blue);
+  color: var(--ifm-color-white);
 }
