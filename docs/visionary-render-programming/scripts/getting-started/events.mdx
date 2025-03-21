@@ -10,8 +10,8 @@ Visionary Render can automatically generate common scripts using Events. To crea
 
 An Event consists of an EventHandler node with a child EventScript node. To edit the script, show the properties of the EventHandler node and click on the Script cell in the Action column. This will open the script in the Script Editor. 
 
-:::note
-Visionary Render provides a drag and drop interface to automatically generate some basic script actions. These are covered in the Visionary Render User Manual.
+:::tip
+Visionary Render also provides a drag and drop interface to automatically generate basic script actions. These are covered in the [Visionary Render Manual](../../../visionary-render/scene/events).
 :::
 
 ## Guards
@@ -71,6 +71,6 @@ There are various types of event that can trigger a script to execute. The table
 | View Deselect     | `__Other`                 | Fired when a node is deselected. `__Other` contains the view selection node containing the selection. Note: selecting in the Scenes or Developer tree will fire this event twice (once for each view, as the selection is synchronised). |
 | View Select       | `__Other`                 | Fired when a node is selected. `__Other` contains the view selection node containing the selection. Note: selecting in the Scenes or Developer tree will fire this event twice (once for each view, as the selection is synchronised). |
 
-:::note
+:::warning
 Execution order is undefined for events that are fired together on the same node. The only exception is that Create events are executed before other types of event.
 :::

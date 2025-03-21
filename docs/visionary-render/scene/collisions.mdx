@@ -77,6 +77,6 @@ This will add a Collision node, Touch Script and Break Script to the Assembly an
 
 When the part is moved, any object it collides with will be turned white whilst it is in contact. This colour can be changed as per changing any material colour.
 
-:::note
+:::warning
 The Detect Clashes script was modified in the 2023.1 release to handle simultaneous collisions and other edge cases. This change is not automatic for existing scenes so any Touch events created before this release should be updated to use tools.clashDetectionTouch(__Self, __Other, __Script). Any Break events should be updated to use tools.clashDetectionBreak(__Self, __Other).
 :::

@@ -37,7 +37,7 @@ OpenXR is a new immersive mode in 2023.1 that currently supports the following r
 - Windows Mixed Reality
 - HTC Vive
 
-:::note
+:::warning
 SteamVR is not currently supported. Other runtimes not listed may still work but we can't make any guarantees.
 :::
 
@@ -49,8 +49,8 @@ To use any OpenXR-compatible headset with Visionary Render, follow these steps:
 4. The headset will now initialise.
 5. There are no other settings. The application will remember the display mode and above settings at exit and will start up with **OpenXR** mode enabled automatically from now on.
 
-:::note
-If input for your controller or device is awkward or not working, get in touch with us and we can fix it using the bindings in data/openxr/actionBindings.json. We have no way to know nor test the proper bindings for all devices in advance.
+:::tip
+If input for your controller or device is awkward or not working, get in touch with us and we can fix it using the bindings in `data/openxr/actionBindings.json`. We have no way to know nor test the proper bindings for all devices in advance.
 :::
 
 ## Oculus Touch
@@ -65,7 +65,7 @@ To use the Oculus Rift with Visionary Render, follow these steps:
 6. There are no further settings. The application will remember the display mode at exit and will start up with **Oculus Rift** mode enabled automatically from now on.
 
 :::note
-As of the 2023.1 release, the Oculus immersive mode has been renamed Oculus Legacy and can only be accessed from Settings/Tracking/Configuration/Mode. Scripts can still use vrEnableNodeWhenOculusAvailable(vrnode node).
+As of the 2023.1 release, the Oculus immersive mode has been renamed Oculus Legacy and can only be accessed from `Settings/Tracking/Configuration/Mode`. Scripts can still use `vrEnableNodeWhenOculusAvailable(vrnode node)`.
 :::
 
 ## SteamVR
@@ -97,7 +97,7 @@ To use the zSpace with Visionary Render, follow these steps:
 
 ## HoloLens 2
 
-:::note
+:::warning
 As of the 2021.3 release, Visionary Render supports the HoloLens 2 and no longer supports the original HoloLens.
 :::
 
@@ -111,7 +111,7 @@ To use the HoloLens 2 with Visionary Render, follow these steps:
 6. Visionary Render should now connect to the HoloLens and the HoloLens should switch to displaying your scene. The connection status window will tell you the current connection status.
 7. If you need to reconnect at any time you can do so by pressing the Reconnect button on the connection status window. If a loss of connection is detected then Visionary Render will automatically try to reconnect to the HoloLens. ![](/img/visionary-render/tracking/getting-started/dialog.png)
 
-:::note
+:::tip
 See [Augmented Reality](augmented-reality.mdx) for information on using the HoloLens 2.
 :::
 
