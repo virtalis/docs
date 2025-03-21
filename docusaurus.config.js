@@ -17,8 +17,8 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'en-GB',
+    locales: ['en-GB'],
   },
   presets: [
     [
@@ -29,6 +29,8 @@ const config = {
           routeBasePath: '/',
           sidebarPath: './sidebars.js',
           editUrl: 'https://github.com/virtalis/docs/tree/master/',
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: false,
         },
         theme: {
           customCss: [
