@@ -3,40 +3,61 @@
   --virtalis-color-light-blue: rgb(23, 12, 220);
   --virtalis-color-dark-blue: rgb(11, 3, 99);
   --virtalis-color-darker-blue: rgb(6, 2, 55);
-  --virtalis-color-orange: #e8a92c;
+  --virtalis-color-orange: rgb(232, 169, 44);
 
-  --ifm-color-primary: #d66800;
-  --ifm-color-primary-dark: #c15e00;
-  --ifm-color-primary-darker: #b65800;
-  --ifm-color-primary-darkest: #964900;
-  --ifm-color-primary-light: #eb7200;
-  --ifm-color-primary-lighter: #f67800;
-  --ifm-color-primary-lightest: #ff8817;
+  --ifm-color-primary: rgb(214, 104, 0);
+  --ifm-color-primary-dark: rgb(193, 94, 0);
+  --ifm-color-primary-darker: rgb(182, 88, 0);
+  --ifm-color-primary-darkest: rgb(150, 73, 0);
+  --ifm-color-primary-light: rgb(235, 114, 0);
+  --ifm-color-primary-lighter: rgb(246, 120, 0);
+  --ifm-color-primary-lightest: rgb(255, 136, 23);
 
-  --ifm-background-color: rgb(255, 255, 255);
-  --ifm-font-size-base: 17px;
+  --ifm-color-gray-100: rgb(245, 246, 254);
+  --ifm-color-gray-200: rgb(235, 237, 246);
+  --ifm-color-gray-300: rgb(218, 221, 232);
+  --ifm-color-gray-400: rgb(204, 208, 216);
+  --ifm-color-gray-500: rgb(190, 195, 202);
+  --ifm-color-gray-600: rgb(141, 148, 156);
+  --ifm-color-gray-700: rgb(96, 103, 108);
+  --ifm-color-gray-800: rgb(68, 73, 78);
+  --ifm-color-gray-900: rgb(28, 30, 36);
+
+  --ifm-color-secondary: rgb(68, 73, 86);
+  --ifm-color-secondary-dark: rgb(61, 66, 77);
+  --ifm-color-secondary-darker: rgb(58, 62, 73);
+  --ifm-color-secondary-darkest: rgb(48, 51, 60);
+  --ifm-color-secondary-light: rgb(75, 80, 95);
+  --ifm-color-secondary-lighter: rgb(78, 84, 99);
+  --ifm-color-secondary-lightest: rgb(88, 95, 112);
+  --ifm-color-content-secondary: rgb(68, 73, 86);
+
+  --ifm-background-color: rgb(248, 250, 255);
+  --ifm-footer-background-color: var(--ifm-color-gray-200);
+  --ifm-footer-padding-vertical: 0.75rem;
+  --ifm-hover-overlay: rgba(0, 4, 12, 0.05);
   --ifm-font-color-base: var(--ifm-color-black);
+  --ifm-font-size-base: 17px;
   --ifm-code-font-size: 90%;
-  --ifm-transition-fast: 0;
-  --ifm-table-cell-padding: 0.5rem;
-  --ifm-footer-background-color: rgb(242, 242, 242);
-  --ifm-footer-padding-vertical: calc(var(--ifm-spacing-vertical));
+  --ifm-transition-fast: 0s;
+  --ifm-transition-timing-default: 0s;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
 [data-theme='dark'] {
-  --ifm-color-primary: #e8a92c;
-  --ifm-color-primary-dark: #e09d18;
-  --ifm-color-primary-darker: #d49417;
-  --ifm-color-primary-darkest: #ae7a13;
-  --ifm-color-primary-light: #ebb345;
-  --ifm-color-primary-lighter: #ecb851;
-  --ifm-color-primary-lightest: #f0c777;
+  --ifm-color-primary: rgb(232, 169, 44);
+  --ifm-color-primary-dark: rgb(224, 157, 24);
+  --ifm-color-primary-darker: rgb(212, 148, 23);
+  --ifm-color-primary-darkest: rgb(174, 122, 19);
+  --ifm-color-primary-light: rgb(235, 179, 69);
+  --ifm-color-primary-lighter: rgb(236, 184, 81);
+  --ifm-color-primary-lightest: rgb(240, 199, 119);
   
-  --ifm-background-color: rgb(17, 25, 39);
-  --ifm-background-surface-color: rgb(17, 25, 39);
+  --ifm-background-color: rgb(18, 20, 28) !important;
+  --ifm-background-surface-color: rgb(17, 25, 39) !important;
+  --ifm-footer-background-color: rgb(34, 38, 46) !important;
+  --ifm-hover-overlay: rgba(0, 4, 12, 0.05);
   --ifm-font-color-base: var(--ifm-color-white);
-  --ifm-footer-background-color: rgb(39, 39, 41);
 }
 
 @media (min-width: 997px) {
@@ -53,7 +74,7 @@ table {
 
 th, td {
   text-align: left;
-  padding: 8px;
+  padding: 6px !important;
 }
 
 .footer {

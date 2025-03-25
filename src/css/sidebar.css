@@ -15,3 +15,7 @@
   background: var(--ifm-menu-link-sublist-icon) 50%/1.5rem 1.5rem;
   size: 55%;
 }
+
+.menu__link:hover, a {
+  transition: none !important;
+}

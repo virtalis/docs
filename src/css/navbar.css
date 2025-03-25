@@ -8,12 +8,8 @@
   color: var(--ifm-color-white);
   font-size: 95%;
 }
-[data-theme='light'] .dropdown--active {
-  color: var(--virtalis-color-orange);
-}
-[data-theme='light'] .navbar__link:hover {
-  color: var(--virtalis-color-orange);
-}
+[data-theme='light'] .dropdown--active,
+[data-theme='light'] .navbar__link:hover,
 [data-theme='light'] .navbar__link--active {
   color: var(--virtalis-color-orange);
 }
@@ -34,12 +30,8 @@
   color: var(--virtalis-color-off-white);
   font-size: 95%;
 }
-[data-theme='dark'] .dropdown--active {
-  color: var(--ifm-color-primary);
-}
-[data-theme='dark'] .navbar__link:hover {
-  color: var(--ifm-color-primary);
-}
+[data-theme='dark'] .dropdown--active,
+[data-theme='dark'] .navbar__link:hover,
 [data-theme='dark'] .navbar__link--active {
   color: var(--ifm-color-primary);
 }
