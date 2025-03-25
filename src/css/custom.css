@@ -79,3 +79,31 @@ th, td {
   background-color: var(--virtalis-color-blue);
   color: var(--ifm-color-white);
 }
+
+[data-theme='light'] .card {
+  --ifm-link-color: var(--ifm-color-emphasis-800);
+  --ifm-link-hover-color: var(--ifm-color-black);
+  background-color: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  transition: none;
+  box-shadow: none;
+}
+
+[data-theme='light'] .card:hover {
+  box-shadow: none;
+}
+
+[data-theme='dark'] .card {
+  --ifm-link-color: var(--ifm-color-emphasis-600);
+  --ifm-link-hover-color: var(--ifm-color-white);
+  background-color: var(--ifm-color-emphasis-100);
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 8px;
+  transition: none;
+  box-shadow: none;
+}
+
+[data-theme='dark'] .card:hover {
+  box-shadow: none;
+}
