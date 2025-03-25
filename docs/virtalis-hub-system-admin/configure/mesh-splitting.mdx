@@ -28,6 +28,6 @@ It is possible to adjust the threshold at which Mesh Splitting is performed. By 
 TranslatorServiceConfiguration__MeshSplitTriangleThreshold
 ```
 
-:::danger
+:::warning
 There are no sanity checks on this value. For example, if an administrator sets this to 10 then it will split up practically every single mesh in a scene and result in extremely poor performance of not only the rendering but also importing and publishing.
 :::

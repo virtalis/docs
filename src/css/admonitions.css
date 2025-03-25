@@ -1,0 +1,136 @@
+[data-theme='light'] {
+  --note-background: rgb(232, 230, 250);
+  --note-highlight: rgb(240, 238, 255);
+  --note-foreground: rgb(33, 29, 62);
+  --note-border: rgb(74, 67, 178);
+  --note-link: rgb(27, 17, 170);
+  --note-link-hover: rgb(27, 17, 170);
+
+  --tip-background: rgb(223, 255, 223);
+  --tip-highlight: rgb(231, 252, 231);
+  --tip-foreground: rgb(4, 47, 4);
+  --tip-border: rgb(1, 139, 1);
+  --tip-link: rgb(1, 150, 1);
+  --tip-link-hover: rgb(1, 150, 1);
+
+  --info-background: rgb(224, 247, 255);
+  --info-highlight: rgb(232, 249, 255);
+  --info-foreground: rgb(22, 48, 56);
+  --info-border: rgb(61, 139, 165);
+  --info-link: rgb(2, 137, 183);
+  --info-link-hover: rgb(2, 137, 183);
+
+  --warning-background: rgb(255, 242, 211);
+  --warning-highlight: rgb(253, 243, 219);
+  --warning-foreground: rgb(55, 41, 11);
+  --warning-border: rgb(173, 127, 36);
+  --warning-link: rgb(158, 116, 1);
+  --warning-link-hover: rgb(158, 116, 1);
+
+  --danger-background: rgb(255, 222, 224);
+  --danger-highlight: rgb(254, 228, 230);
+  --danger-foreground: rgb(54, 19, 21);
+  --danger-border: rgb(177, 40, 44);
+  --danger-link: rgb(159, 0, 5);
+  --danger-link-hover: rgb(159, 0, 5);
+}
+
+[data-theme='dark'] {
+  --note-background: rgb(33, 29, 62);
+  --note-highlight: rgb(46, 42, 95);
+  --note-foreground: rgb(231, 229, 255);
+  --note-border: rgb(74, 67, 178);
+  --note-link: rgb(128, 122, 239);
+  --note-link-hover: rgb(128, 122, 239);
+
+  --tip-background: rgb(4, 47, 4);
+  --tip-highlight: rgb(0, 68, 0);
+  --tip-foreground: rgb(223, 255, 223);
+  --tip-border: rgb(1, 139, 1);
+  --tip-link: rgb(86, 203, 86);
+  --tip-link-hover: rgb(86, 203, 86);
+
+  --info-background: rgb(22, 48, 56);
+  --info-highlight: rgb(31, 69, 82);
+  --info-foreground: rgb(224, 247, 255);
+  --info-border: rgb(61, 139, 165);
+  --info-link: rgb(100, 201, 235);
+  --info-link-hover: rgb(100, 201, 235);
+
+  --warning-background: rgb(55, 41, 11);
+  --warning-highlight: rgb(80, 57, 15);
+  --warning-foreground: rgb(255, 242, 211);
+  --warning-border: rgb(173, 127, 36);
+  --warning-link: rgb(219, 175, 55);
+  --warning-link-hover: rgb(219, 175, 55);
+
+  --danger-background: rgb(54, 19, 21);
+  --danger-highlight: rgb(81, 18, 21);
+  --danger-foreground: rgb(255, 222, 224);
+  --danger-border: rgb(177, 40, 44);
+  --danger-link: rgb(218, 76, 81);
+  --danger-link-hover: rgb(218, 76, 81);
+}
+
+.alert {
+  border-radius: 0px;
+  box-shadow: none;
+}
+
+.alert a:active, 
+.alert a:focus, 
+.alert a:hover {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1.5px;
+  text-decoration-color: var(--ifm-link-hover-color);
+}
+
+.alert--secondary {
+  --ifm-alert-background-color: var(--note-background);
+  --ifm-alert-background-color-highlight: var(--note-highlight);
+  --ifm-alert-foreground-color: var(--note-foreground);
+  --ifm-alert-border-color: var(--note-border);
+  --ifm-link-color: var(--note-link);
+  --ifm-link-hover-color: var(--note-link-hover);
+  --ifm-link-decoration: none;
+}
+
+.alert--success {
+  --ifm-alert-background-color: var(--tip-background);
+  --ifm-alert-background-color-highlight: var(--tip-highlight);
+  --ifm-alert-foreground-color: var(--tip-foreground);
+  --ifm-alert-border-color: var(--tip-border);
+  --ifm-link-color: var(--tip-link);
+  --ifm-link-hover-color: var(--tip-link-hover);
+  --ifm-link-decoration: none;
+}
+
+.alert--info {
+  --ifm-alert-background-color: var(--info-background);
+  --ifm-alert-background-color-highlight: var(--info-highlight);
+  --ifm-alert-foreground-color: var(--info-foreground);
+  --ifm-alert-border-color: var(--info-border);
+  --ifm-link-color: var(--info-link);
+  --ifm-link-hover-color: var(--info-link-hover);
+  --ifm-link-decoration: none;
+}
+
+.alert--warning {
+  --ifm-alert-background-color: var(--warning-background);
+  --ifm-alert-background-color-highlight: var(--warning-highlight);
+  --ifm-alert-foreground-color: var(--warning-foreground);
+  --ifm-alert-border-color: var(--warning-border);
+  --ifm-link-color: var(--warning-link);
+  --ifm-link-hover-color: var(--warning-link-hover);
+  --ifm-link-decoration: none;
+}
+
+.alert--danger {
+  --ifm-alert-background-color: var(--danger-background);
+  --ifm-alert-background-color-highlight: var(--danger-highlight);
+  --ifm-alert-foreground-color: var(--danger-foreground);
+  --ifm-alert-border-color: var(--danger-border);
+  --ifm-link-color: var(--danger-link);
+  --ifm-link-hover-color: var(--danger-link-hover);
+  --ifm-link-decoration: none;
+}

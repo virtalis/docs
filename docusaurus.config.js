@@ -34,6 +34,7 @@ const config = {
         },
         theme: {
           customCss: [
+            require.resolve('./src/css/admonitions.css'),
             require.resolve('./src/css/custom.css'),
             require.resolve('./src/css/navbar.css'),
             require.resolve('./src/css/sidebar.css'),
