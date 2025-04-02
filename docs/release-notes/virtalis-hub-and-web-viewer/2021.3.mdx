@@ -1,0 +1,79 @@
+---
+sidebar_position: 999
+---
+
+# 2021.3
+
+We’re pleased to announce the release of Virtalis Reach 2021.3.
+
+## Key Enhancements
+
+### New Layout
+
+Perhaps the most immediately noticeable change is the new layout. In order to clean up the GUI and give us space to grow the functionality of Virtalis Reach, we’ve introduced the concept of 'modes'.
+
+Modes relate to common use cases and present functionality relevant to them. This also raises the possibility of ‘locking down’ access to particular modes at future releases. For example, it may be the case that you don’t want to expose the review, comments or version history modes to anyone accessing training material.
+
+In this release, the modes are as follows:
+
+#### View
+
+Allows you to navigation around the visualisation. We’ve introduced a new ‘view perspective’ feature. Clicking this option will take the camera position to the same location and orientation the comment author had when they pressed ‘Send’. 
+
+:::note
+This will not change the visibility of anything in the product tree, and any components that had been disabled by the original author at the time of writing will not be automatically disabled by the ‘view perspective’ action.
+:::
+
+#### Review
+
+(In addition to View) Allows you to access and interaction with the product tree, and to select and highlight components.
+
+#### Comment
+
+(In addition to View) Allows you to create a new comment thread, review existing comments and add replies.
+
+To better support teams working together on iterative designs, we’ve introduced the ability to create and add to comment threads. Comments can be related to specific points on the geometry by clicking an ‘add comment’ icon and then using the cursor to select the relevant place on the geometry.
+
+A new thread pane will then open on the right-hand side of the window where you can add both a title and remarks.
+
+You can use the ‘Comment’ markers and ‘Threads’ pane to aid both locating markers and understanding what the comment author was seeing at the time of making the comment.
+
+#### Version History
+
+You can view the publication history of the visualisation and, if required, open earlier revisions.
+
+## New Features
+
+### Microsoft Hololens 2 Support
+
+Virtalis Reach is built upon the WebXR standard which is embraced by a huge number of XR peripheral manufacturers—one of those being Microsoft.
+
+In this release, we’ve validated the Hololens 2 (HL2) as a basic ‘see-through’ viewer.
+
+At the time of this release, there is no support for physical markers, ‘Air Tap’ or many of the other features of the HL2 device. However, building upon this initial release is very much part of the Virtalis Reach roadmap.
+
+Please contact us to discuss your use cases for the HL2 to help us prioritise appropriately.
+
+### Siemens Teamcenter Integration
+
+We’ve developed a publishing tool for the Siemens Teamcenter Product Lifecycle Management (PLM) product which will allow users to automate the publishing of visualisation updates based upon existing Teamcenter paradigms such as workflows, revision rules and PLMXML export. As a result, you are now able to define how different visualisations are published to different projects with an extremely high degree of control.
+
+### User Selection Visible to All
+
+In this release, everyone in a collaborative session will be able to see what each participant has selected. 
+
+The colour of the highlight will match the helmet colour of the person’s avatar. In the case that more than one person selects a component, the highlight colour will cycle between that of each corresponding avatar.
+
+### Configurable Navigation Speed
+
+Virtalis Reach needs to deal with scenes of vastly different scales—from precision parts a few mm across to entire processing plants of many kilometres.
+
+Apart from any other complexity this creates, it does mean that a single navigation speed is not going to be appropriate for all cases. This release introduces a configurable speed that you can adjust via a slider in the settings panel.
+
+### Settings Panel and Movement Speed Slider
+
+Scene authors are now able to set the initial base speed. Setting this to 0m/s will effectively lock out the slider, which may be a useful option in training or more scripted scenarios.
+
+:::note
+See the [Changelog](../../changelogs/virtalis-hub-and-web-viewer#20213) for a complete list of resolved issues and changes.
+:::

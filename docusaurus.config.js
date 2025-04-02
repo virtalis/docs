@@ -99,6 +99,12 @@ const config = {
         },
         {
           type: 'docSidebar',
+          sidebarId: 'releaseNotesSidebar',
+          position: 'left',
+          label: 'Release Notes',
+        },
+        {
+          type: 'docSidebar',
           sidebarId: 'changelogsSidebar',
           position: 'left',
           label: 'Changelogs',

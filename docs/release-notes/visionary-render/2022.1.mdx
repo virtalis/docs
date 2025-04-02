@@ -1,0 +1,36 @@
+---
+sidebar_position: 998
+---
+
+# 2022.1
+
+Thank you for downloading Visionary Render 2022.1. This release introduces new features and addresses various issues reported by customers. 
+
+## What's New in This Release
+
+### Splines and Spline Helpers
+
+The editing of splines has been improved in Visionary Render through the addition of spline helpers in the scene. Spline helpers are rendered by default and allow you to more easily adjust the shape of the spline. We have also made various improvements and fixes to tube splines and added support for gradients that show the curvature of the spline.
+
+The user manual has been updated to include a new chapter on splines and spline helpers. 
+
+### Improved Revit Importer
+
+The import method for Revit files has been revised. Revit models are now imported with greater fidelity to ensure that imported data structures are faithful to the input. The Revit manual has been updated to include descriptions of the new importer properties.
+
+### Cluster Installation
+
+Installing Visionary Render on a cluster is now easier to achieve as you no longer have to manually install the MSVC (Microsoft Visual C++) redistributable libraries on slave machines. The Visionary Render installer provides an option for the redistributable libraries on the master to be shared with the slave machines.
+
+## Resolved Issues
+
+Defects, or bugs, are an unfortunate, but inevitable occurrence in any software product. At Virtalis we work hard to maintain and improve the quality of our codebase and resolve as many reported issues as we can, as quickly as we can. We have identified and resolved 7 issues as part of our internal testing for the 2022.1 release. This number includes the 2 customer issues detailed in the below table.
+
+| ID | Summary |
+|---|---|
+| 9980 | User manual contains no information about splines and knots. |
+| 11860 | Pointcloud converter fails to launch. |
+
+:::note
+See the [Changelog](../../changelogs/visionary-render#20221) for a complete list of resolved issues and changes.
+:::

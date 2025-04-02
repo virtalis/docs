@@ -1,0 +1,43 @@
+---
+sidebar_position: 997
+---
+
+# 2021.5
+
+We’re pleased to announce the release of Virtalis Reach 2021.5.
+
+The most notable enhancement is the ability to use the immersive controllers of your Head Mounted Display (HMD) to interact with the 3D scene when in WebXR mode. However, there are also a number of other changes and updates which are worthy of note.
+
+## New Features
+
+### Immersive Picking
+
+Upon entering WebXR mode in a visualisation, you will find that their immersive controllers are now able to select assemblies as well as interact with GUIs and canvases via the ‘lasers’ extending from them. For convenience, these lasers are colour matched to their own avatar’s helmet, making it easier for collaborators to work together in a single visualisation.
+
+### Mesh Splitting Default: On
+
+The mesh splitting functionality was introduced as an experimental feature at 2021.4 as a means to make better use of GPU resources when rendering a scene on the client device. We’re now pleased to be able to make the feature available as the default setting following an extended evaluation.
+
+:::note
+You can turn mesh-splitting off via the instructions given in the System Admin Guide.
+:::
+
+### Project & User Administration
+
+2021.5 sees a number of developments around how projects and users can be administered.
+
+#### Compatibility with Azure Active Directory (AAD) Groups
+
+It is now possible to integrate with AAD groups in Keycloak. This means that existing AAD groups can be used as the basis for designating access and permissions in Virtalis Reach.
+
+#### Removed Ability to Change Groups When Updating an Asset
+
+Previously, it was possible to change the groups associated with a particular asset when updating. This had the potential to create inconsistencies downstream when project permissions were also factored in.
+
+#### Ability to Use Special Characters in Project Names
+
+You are no longer restricted to using alpha-numeric characters when choosing a project name.
+
+:::note
+See the [Changelog](../../changelogs/virtalis-hub-and-web-viewer#20215) for a complete list of resolved issues and changes.
+:::

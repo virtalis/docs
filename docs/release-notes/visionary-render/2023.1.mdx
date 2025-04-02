@@ -1,0 +1,58 @@
+---
+sidebar_position: 994
+---
+
+# 2023.1
+
+Thank you for downloading Visionary Render 2023.1. In this release, we have implemented the OpenXR standard, which enables a wider range of XR hardware to work with Visionary Render, giving you more choice and better performance. We’ve added a default female manikin template for streamlined ergonomic assessments and also refined the detect clashes feature to improve ease of use and improve your engineering workflows. Additionally, we have addressed several customer-reported issues to ensure a more stable and reliable software experience. 
+
+## What's New in This Release
+
+### OpenXR Immersive Mode
+
+With the implementation of the OpenXR standard, Visionary Render will now be able to support a wider range of XR hardware, providing more choice and a better experience over the longer term. OpenXR simplifies the setup and configuration process, making it more user-friendly and accessible to a wider audience. Additionally, the standard optimises for device performance, resulting in smoother and more immersive XR experiences. While the standard is still new, you can expect us to add more devices and support as it matures with forthcoming releases of Visionary Render.
+
+The following runtimes are officially supported:
+- Oculus
+- Windows Mixed Reality
+- HTC Vive
+
+:::note
+OpenXR is an alternative immersive mode that complements the pre-existing options, which remain accessible from the dropdown menu. SteamVR is not currently supported through OpenXR. Other runtimes not listed may still work but we can’t make any guarantees about reliability or stability.
+:::
+
+### Manikin Improvements
+
+- You can now access a default female template from the manikin properties panel. Effortlessly switch between the default male and female templates while maintaining the pose you’ve set.
+- Manikins can now be filtered in the browser tab, allowing you to easily find and work with the various manikins in your scene. 
+- In immersive mode you can now grab and position the manikin targets with the avatar’s hands, making it much easier to precisely control the positioning of the targets. 
+- Manikin targets can now be dragged and dropped, within the scene or from the tree, to snap to surfaces.
+- We’ve added a new button so that you can easily reset any anthropometric data changes to default values.
+
+### Noteworthy Feature Upgrades
+
+- Detect clashes enhancement. You are now able to put several objects into clash simultaneously. The improved script now makes it easier to handle clash detection and resolution when inspecting designs.
+- The ‘delete unused assets’ button is now contextual. It will only be visible for assets, not instances, in the scene tree
+- PDF and Microsoft Word documents loaded into Visionary Render now behave in a more stable fashion. The scrollbar on embedded documents now snaps to pages, and the scrollbar buttons advance on a per-page basis, making advancing in a document much easier and less error-prone. The scrollbar will no longer shrink to an unusable size when a large multi-page document is loaded.
+
+## Resolved Issues
+
+Defects or bugs are an unfortunate but inevitable occurrence in any software product. At Virtalis, we work hard to maintain and improve the quality of our codebase, and we strive to resolve as many reported issues as quickly as possible. As part of our internal testing for the 2023.1 release, we have identified and resolved 21 issues. This number includes the 6 customer-reported issues detailed in the table below.
+
+| ID | Summary |
+|---|---|
+| 13122 | Fixes issue with the 'Detect Clashes' context menu option removing material overrides. |
+| 2658 | Fixes issue where scene GUIs can become unresponsive when dragging out of the 3D scene. |
+| 1856 | Fixes crash that could occur when adding a keyframe to a property track of a sequence. |
+| 2332 | Fixes crash when loading a scene with a snapshot of a PDF node in it. |
+| 2275 | Fixes issue with the Revit importer bringing in data at a 90 degree angle. |
+| 2030 | Permits the sequencer to capture keyframes whilst immersed. |
+
+:::note
+See the [Changelog](../../changelogs/visionary-render#20231) for a complete list of resolved issues and changes.
+:::
+
+## Known Issues
+
+- SteamVR devices will not work through OpenXR.
+- The detect clashes update is not automatic for older scenes using the previous version of the script. These scenes will continue to function, but to use the new functionality any Touch events created prior to the 2023.1 release will have to be updated manually (see user manual for more detail).

@@ -1,0 +1,37 @@
+---
+sidebar_position: 990
+---
+
+# 2024.2
+
+Thank you for downloading GeoVisionary 2024.2. This release addresses three pivotal areas to enhance your experience and fulfil essential requirements. We've concentrated on resolving customer-reported issues, implementing specific user requests, and performing critical maintenance to bolster our core capabilities.
+
+We are confident that this release will significantly enhance your workflow and experience with GeoVisionary.
+
+## What's New in This Release
+
+### Upgraded Networking Controls
+
+We've introduced a new feature that gives you more control over your networking capabilities. You can now disable networking in the interface, without the need to restart the application. We've also added a `vrDisableNetwork` Lua function, complementing the existing `vrEnableNetwork` function so that it is also script accessible.
+
+### Enhanced Global Compatibility with UTF-8 Support
+
+We've implemented comprehensive UTF-8 support throughout GeoVisionary, bringing significant improvements to text handling capabilities. This update offers key benefits for our users:
+
+- **Seamless interoperability:** This update ensures smooth integration between GeoVisionary, Virtalis Hub, and the Web Viewer, creating a more cohesive ecosystem.
+- **Improved handling of special characters:** It is particularly beneficial for those regularly working with multilingual data sets. This enhancement also paves the way for easier future integration with PLM systems (via the Hub).
+- **Enhanced data integrity:** UTF-8 support ensures all characters are represented accurately, preserving the integrity of your data upon import. 
+
+## Resolved Issues
+
+Defects or bugs are an unfortunate but inevitable occurrence in any software product. At Virtalis, we work hard to maintain and improve the quality of our codebase, and we strive to resolve as many reported issues as quickly as possible. As part of our internal testing for the 2024.2 release, we identified and resolved 24 issues, of which 3 were reported by customers. Details are provided in the table below.
+
+| ID | Summary |
+|---|---|
+| FUS-3043 | Fixes incorrect shading of terrain when using height exaggeration. |
+| FUS-3097 | Fixes missing segments of boreholes when the geometry and property intervals are different. |
+| FUS-3415 | Fixes an issue where terrain overlay layers were rendered with an opaque black/grey background. |
+
+:::note
+See the [Changelog](../../changelogs/geovisionary#20242) for a complete list of resolved issues and changes.
+:::

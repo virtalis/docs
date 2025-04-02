@@ -1,0 +1,73 @@
+---
+sidebar_position: 996
+---
+
+# 2022.2
+
+Thank you for downloading Visionary Render 2022.2. The focus for this release has been on making ergonomic design decisions easier through the introduction of the manikin functionality. The notable new feature is the ability to create a fully rigged manikin directly in a scene. The manikin is rigged with a series of interconnected bones which allows the user to control the human model as needed. Manikins can easily be positioned into relevant and representative poses through the use of inverse and forward kinematics. Manikin bones can also be individually scaled in order to approximate relevant anthropometric measurements and datasets.
+
+## What's New in This Release
+
+### Create a Manikin
+
+You can now create a 1:1 scale manikin directly in a Visionary Render scene. 
+
+### Inverse Kinematics (IK) Targets for Posing
+
+You will find it easy to control the position and rotation of various body parts of the manikin by manipulating IK targets. When the user moves a selected IK target, the target and the manikin limbs will respond by moving accordingly. 
+
+### Forward Kinematics (FK) for Fine-grained Control
+
+Toggling IK mode off, in the manikin properties panel, allows users to individually control the bone rotations in order to get precise poses and movements captured in the scene. The fingers of the manikin are articulated and can be simply controlled by default where all fingers follow a parent bone helper. Fingers can also be controlled separately at each individual joint. 
+
+### Manikin Colour Properties
+
+Edit the colours for hair, skin, and clothing to allow for easy identification and matching of the manikin to the intended scene. 
+
+### Individual Bone Scaling
+
+The total height (in metres) of the manikin can be adjusted to match a design specification. Furthermore each bone can be individually scaled in order to correspond to anthropometric data being worked with. 
+
+### Body Segment Thickness Adjustments
+
+Control the scale thickness of individual body segments to get a more representative model.
+
+### Constraints and Ranges of Motion
+
+Pose the manikin easily within physically plausible and human-like limits. The ranges of motion on all joints are constrained and based on real human ranges of motion.
+
+### Enhanced Measurement Tool
+
+Obtain accurate manikin measurements. The measurement tool updates with live values as manikin bone lengths are scaled. Compare individual measurements with your source data directly to create representative models in your scene.
+
+### Adding Tools to Manikin 
+
+Easily drag tools, PPE, and other accessories to the manikin as sub-assemblies of hands, head, feet, etc. These accessories will naturally follow the IK targets as they move and allow you to pose and arrange your manikin just as you need it. 
+
+### Position at Body in Immersive Mode
+
+Rapidly place the manikin at the user’s position in the scene while retaining any IK or FK pose adjustments that have been made. 
+
+### Directional Light Helper Updated
+
+The directional light helper has been changed to clearly demonstrate the direction of the light. The user manual has been updated to show the new helper. 
+
+### User Manual 
+
+The user manual has been updated to include a new chapter on manikins and manikin helpers. The chapter includes tips and examples of how to easily pose the manikin. 
+
+## Resolved Issues
+
+Defects, or bugs, are an unfortunate, but inevitable occurrence in any software product. At Virtalis we work hard to maintain and improve the quality of our codebase and resolve as many reported issues as we can, as quickly as we can. We have identified and resolved 7 issues as part of our internal testing for the 2022.2 release. This number includes the 1 customer issue detailed in the below table.
+
+| ID | Summary |
+|---|---|
+| 12626 | Restores the option in the context menu to remove objects from groups. |
+
+:::note
+See the [Changelog](../../changelogs/visionary-render#20222) for a complete list of resolved issues and changes.
+:::
+
+## Known Limitations
+
+- **Manikin animation:** In the current release, while both bone and target nodes can be added to the animation sequencer, only targets can be animated. This method may give unreliable results and is best used for uncomplicated animations. 

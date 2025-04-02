@@ -1,0 +1,60 @@
+---
+sidebar_position: 990
+---
+
+# 2024.2
+
+Thank you for downloading Visionary Render 2024.2. This release addresses three pivotal areas to enhance your experience and fulfil essential requirements. We've concentrated on resolving customer-reported issues, implementing specific user requests, and performing critical maintenance to bolster our core capabilities.
+
+We are confident that this release will significantly enhance your workflow and experience with Visionary Render.
+
+## What's New in This Release
+
+### Improved TransformLinks in Collaboration
+
+We've made significant improvements to the behaviour of Transform links during collaborative sessions, addressing key issues that affected smooth interaction. In collaboration, transform links now update instantly for all users, removing the previous 'rubber banding' effect experienced. Transform links will also now continue to work even after the user who created them leaves the session.
+
+### Upgraded Networking Controls
+
+We've introduced a new feature that gives you more control over your networking capabilities. You can now disable networking in the interface, without the need to restart the application. We've also added a `vrDisableNetwork` Lua function, complementing the existing `vrEnableNetwork` function so that it is also script accessible.
+
+### Extended Render-to-Texture Capabilities
+
+We've improved the flexibility and control of RenderToTexture nodes, offering you more options for creating high-quality visualisations. With the new transparency control option, you can specify whether the background should be transparent in RenderToTexture outputs. We've also replaced the previous texture format options with separate controls for HDR (High Dynamic Range) and Tone Mapping. This change gives you finer control over the visual quality and dynamic range of your rendered textures.
+
+### Improved Snapshot Functionality for Sequences
+
+We've improved our snapshot feature to offer more precise control over capturing the state of sequences in your scenes. You can now choose to include the current position of sequences in your snapshots. This enhancement allows for more accurate preservation of dynamic scene states.
+
+### Enhanced Global Compatibility with UTF-8 Support
+
+We've implemented comprehensive UTF-8 support throughout Visionary Render, bringing significant improvements to text handling capabilities. This update offers key benefits for our users:
+
+- **Seamless interoperability:** This update ensures smooth integration between Visionary Render, Virtalis Hub, and the Web Viewer, creating a more cohesive ecosystem.
+- **Improved handling of special characters:** It is particularly beneficial for those regularly working with multilingual data sets. This enhancement also paves the way for easier future integration with PLM systems (via the Hub).
+- **Enhanced data integrity:** UTF-8 support ensures all characters are represented accurately, preserving the integrity of your data upon import. 
+
+## Importers and Exporters
+
+| Importer | Version Support Added |
+|---|---|
+| NX | 2312 |
+| Parasolid | 36.1 |
+| Rhino | 8 |
+
+## Resolved Issues
+
+Defects or bugs are an unfortunate but inevitable occurrence in any software product. At Virtalis, we work hard to maintain and improve the quality of our codebase, and we strive to resolve as many reported issues as quickly as possible. As part of our internal testing for the 2024.2 release, we identified and resolved 24 issues, of which 6 were reported by customers. Details are provided in the table below.
+
+| ID | Summary |
+|---|---|
+| FUS-2985 | Fixes an issue where the background is ignored when render to texture is placed on an image panel. |
+| FUS-2998 | Disallows creation of pivots on assemblies with locked constraints as this previously generated an error. |
+| FUS-3352 | Fixes an issue where the user’s height is lost when teleporting in OpenXR mode. |
+| FUS-3422 | Fixes a crash when a closed spline in "tube" mode has exactly one knot. |
+| FUS-3431 | Fixes a crash when enabling OpenXR mode with the Collision - Debug Draw setting enabled. |
+| FUS-3445 | Fixes errors when loading the fullbody female and zSpace avatars. |
+
+:::note
+See the [Changelog](../../changelogs/visionary-render#20242) for a complete list of resolved issues and changes.
+:::

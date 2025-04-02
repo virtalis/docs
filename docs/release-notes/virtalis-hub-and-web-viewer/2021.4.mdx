@@ -1,0 +1,37 @@
+---
+sidebar_position: 998
+---
+
+# 2021.4
+
+We’re pleased to announce the release of Virtalis Reach 2021.4.
+
+The headline feature for this release is the addition of web canvas support, but we have also included an experimental feature (mesh splitting) which is explained in more detail below.
+
+## New Features
+
+### Web Canvas Support
+
+Embedding web canvasses within Virtalis Reach allows scenes to be enriched in a number of different dimensions. For example, users can take advantage of rich 2D user interfaces (UIs), slide shows or videos can be embedded in visualisations, connections to live data feeds can be established and displayed. The canvas allows a wide range of functions and features to be enabled which will increase the utility of Virtalis Reach across a range of domains.
+
+### Mesh Splitting (Beta)
+
+The intent of the mesh splitting feature is to make more intelligent use of the ‘triangle budget’, the raw material from which our visualisations are created.
+
+Consider a single piece of geometry, for example a long cylinder. Rendering this in Virtalis Reach means creating a ‘mesh’ of triangles which approximate the outline and shape of the cylinder. The more triangles in that mesh, the higher the fidelity of the output as a representation of the original geometry. 
+
+Obviously, there is a cost to using denser meshes; more triangles means more work for the client device to do. Moreover, it’s not always the case that the use of a high triangle count mesh is justified: the further a piece of geometry is from the camera, the less resolution is required, or is perhaps even possible as the component appears smaller, relatively. 
+
+Back to our long cylinder. Without mesh splitting, this single piece of geometry would have one single mesh applied to it which would extend from the end of it closest to the camera (where a high resolution is justified) way off to the far end where a much lower resolution is appropriate. What mesh splitting allows us to do is intelligently sub-divide the geometry to meshes of different resolution such that an appropriate density is used along its length.
+
+The result is a more efficient use of computational resources and geometry being rendered at the appropriate resolution across its entire length.
+
+Pre-release testing of this feature has left us extremely confident that mesh splitting is ticking all the boxes we need it to. Nevertheless, we have chosen to disable this feature by default in the 2021.4 release. This decision mainly reflects the fact that one issue we were not able to resolve in time for the release was that of selecting a single piece of geometry which had been split. Consider our cylinder again: in a product tree, it would appear as a single node. However, if our mesh splitting algorithm were to divide it into four zones, selecting a location on the cylinder in Virtalis Reach would only highlight one of those four zones, not the entire cylinder.
+
+Our judgement was that this was not something we should enable as the default as it’s obviously at odds with the original product tree structure. We will resolve this issue by the next release.
+
+Nevertheless, we do think the mesh splitting algorithm is extremely valuable and wanted to give customers the opportunity to take advantage of it should they wish to. Thus, if you have scenes where you think mesh splitting could prove advantageous, please consider enabling the feature and seeing what improvements it offers. Instructions on configuring the mesh splitter can be found on our documentation page. Speaking of which…
+
+:::note
+See the [Changelog](../../changelogs/virtalis-hub-and-web-viewer#20214) for a complete list of resolved issues and changes.
+:::

@@ -1,0 +1,37 @@
+---
+sidebar_position: 995
+---
+
+# 2022.3
+
+Thank you for downloading GeoVisionary 2022.3. This release introduces new features and addresses issues reported by customers.
+
+## Key Changes
+
+### Render Performance
+
+In this release we have improved the rendering performance for scenes which contain many thousands of small meshes, enabling GeoVisionary to more fully utilise the capability of high-end GPUs. Depending on the nature of your scene and hardware this can more than double the frame rate in some cases, compared to GeoVisionary 2022.2.
+
+### Snap Rotation
+
+There is a new option under navigation settings to enable snap rotate in immersive mode. This setting is a movement style which may reduce motion sickness for sensitive users. 
+
+### Collaboration Connection Speed
+
+The data sent and received over the network for users who already have the scene open has been reduced and the connection process is now much faster. 
+
+## Resolved Issues
+
+Defects, or bugs, are an unfortunate, but inevitable occurrence in any software product. At Virtalis we work hard to maintain and improve the quality of our codebase and resolve as many reported issues as we can, as quickly as we can. We have identified and resolved 5 issues as part of our internal testing for the 2022.3 release. 
+
+| ID | Summary |
+|---|---|
+| | Point clouds now appear correctly behind 3D GUI elements |
+| | The mouse cursor no longer displays incorrect behaviours when adjusting tracks in an animation sequence |
+| | Fixed crashes experienced when undoing an action while also dragging tracks in the animation sequencer |
+| | Fixed incorrect relative paths in Point Cloud and Texture filenames after loading a file from an older version of GeoVisionary |
+| | The setting to turn on/off shadows under Settings>Tracking>Avatar is now respected by the Meta Quest and works as expected |
+
+:::note
+See the [Changelog](../../changelogs/geovisionary#20223) for a complete list of resolved issues and changes.
+:::

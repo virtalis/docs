@@ -1,0 +1,53 @@
+---
+sidebar_position: 992
+---
+
+# 2023.1
+
+We're excited to announce the release of Virtalis Reach 2023.1, which includes several new features, enhancements, and security updates that improves the overall functionality and performance of the software. 
+
+## New Features
+
+### Hand Menu 
+
+We’ve added a new hand menu that significantly enhances interactions in immersive mode. The hand menu gives you access to a range of tools that will vastly improve your immersive experience and provide greater control over your VR experience. This change is designed to enhance the user experience by providing more streamlined and efficient tool management.
+
+Key features of the hand menu include:
+
+- An inspect submenu that contains selection, grab and move, and restore position functions
+- A toolbox to set teleport and left-handed modes
+- A help menu to learn more about all available features and relaunch the onboarding tutorial
+- An exit button to conveniently disconnect XR mode
+
+### Onboarding Tutorial 
+
+We've added an onboarding tutorial to the immersive mode of Virtalis Reach to teach you the basics via guided steps if you're new to our software. The tutorial provides clear and concise instructions to enhance your experience and ensure that you can make the most of what Virtalis Reach has to offer
+
+### Restore Tool 
+
+We’ve introduced a new restore tool that enables you to quickly return moved objects to their original positions with a single click. You have the option to individually restore moved objects or restore all objects at once with the click of a button.
+
+### Teleport Tool Enhancement 
+
+The teleport control in Virtalis Reach has been updated to allow you to use the teleport tool at the same time as the picking and grab and move tools by simply pressing ‘forward' on the analogue stick (or trackpad). We’ve also made the teleport grid larger for improved visibility and ease of use.
+
+### Default Lighting Rig  
+
+We've reduced the number of lights on the default lighting rig from four to two to potentially minimise frame rate issues and enhance the overall visualisation experience. 
+
+### Device Updates 
+
+Virtalis Reach now supports the PICO 4 headset, enabling you to switch to immersive mode with this device. We have also improved the stipple effect performance to ensure uniformity across all devices. To accomplish this, we have changed the stipple effect to a solid 50% user colour on all devices, which resolves a previous issue experienced on the VIVE Focus 3.
+
+### Security Updates 
+
+We've updated the Reach Client to use the latest .NET 6.0 runtime for enhanced performance, increased security, and better compatibility. We've also fixed a security issue in Virtalis Reach by marking Lua functions in a visualisation that are intended to be called via sendLuaFunc, ensuring that only authorised users can access scripts. More specifically we’ve restricted the scope of sendLuaFunc() by requiring exported functions to be prefixed with __webcall_.
+
+## Known Issues
+
+- When using an Oculus or Meta HMD with a PC and the Chrome browser, the Oculus app on PC must be running version 50. To obtain version 50, you must join the Public Test Channel within the Oculus application by going to Settings, Beta, and selecting Public Test Channel. This is effective as of February 27th, 2023.
+- If you are using different manufacturers' headsets on one PC for PC VR, you will need to set the OpenXR runtime within the Oculus or SteamVR app depending on which one you are using.
+
+:::note
+See the [Changelog](../../changelogs/virtalis-hub-and-web-viewer#20231) for a complete list of resolved issues and changes.
+:::

@@ -1,0 +1,63 @@
+---
+sidebar_position: 993
+---
+
+# 2023.2
+
+Thank you for downloading Visionary Render 2023.2. This release concentrates on three key areas. First, for HoloLens 2 users, we are thrilled to announce an exciting new step forward with Visionary Render’s Augmented Reality (AR) capability in our latest update. Our new AR marker tracking capability will allow you to foster easier communication in training and design reviews, as well as manipulate complex models by integrating real-world objects with their augmented reality counterparts. This new feature broadens the scope for dynamic layout planning, interactive ‘X-Ray’ views, and enhanced engineering design reviews. Collaborate in real-time with team members and share immersive AR views of projects to streamline your project execution. 
+
+Second, we have continued with our key theme of delivering performance enhancements and have some welcome contributions that will see smaller file sizes, more efficient memory usage, and improved rendering quality. 
+
+Third, we have addressed several issues reported by customers and implemented key fixes to ensure a better experience with Visionary Render. 
+
+This release also sees the welcome addition of a brand new Autodesk Navisworks importer. You can import various data that have been exported from Navisworks directly into Visionary Render, saving time and preventing possible feature loss. 
+
+## What's New in This Release
+
+### HoloLens 2 AR Markers
+
+We've added new capabilities for aligning virtual objects to real-world locations using the HoloLens 2. By scanning QR code markers placed around your physical environment, you can precisely match the position of 3D models to those markers seen through your headset. This allows entire scenes or individual components to be overlaid onto real objects and locations. As you move around, the virtual content stays fixed to the appropriate marker points. Multiple users with headsets can independently align to the same markers for collaborative AR experiences. Whether prototyping designs, training personnel, or staging virtual events, you can now seamlessly integrate 3D content with the real world.
+
+Further to this, our HoloLens implementation in Visionary Render now uses the OpenXR standard as default and this ensures stability, performance, and ease of update in the future. 
+
+### Performance Improvements
+
+You'll notice quicker load times when working with VRNative and VRText files after updating to this release. We've made some changes to reduce the file size and loading times for these files. Now, when you save a file, it will automatically omit any default values, resulting in smaller files with less redundant information. This means faster loading of files without any change to their functionality. 
+
+In addition to that, we've improved how the physics system handles complex 3D models to make it more memory efficient. Previously, certain detailed models could cause the physics memory use to balloon up and slow things down. We've tweaked the values so now those complex models take up much less memory. This enables the loading and simulation of larger and more detailed scenes without incurring excessive memory costs. If you work with detailed CAD models or scanned objects then you will notice a performance boost. 
+
+### Quality of Life Updates
+
+You can now add both male and female manikins directly to the gallery.
+
+The visual quality of the immersive GUI has been improved when using a HMD. Previously, the GUI could appear flickery and distorted when moving your head in VR. We've optimised the settings to reduce aliasing while keeping text and icons looking sharp. The immersive GUI now remains crisp and readable even when moving around in VR, improving usability and visual comfort. 
+
+## Importers and Exporters
+
+A new Autodesk Navisworks importer (2012-2024) is now available. We have optimised the memory usage specifically during the metadata import process from various file formats. Metadata structures are now also more faithfully preserved on import. You may also notice a faster import speed with several of our importers based on a key update to our importer system.
+
+We are pleased to announce that this update also includes support for Simplified Representations (Simple Reps) for the PTC Creo importer. This focused implementation enhances the way in which views within CAD scenes are managed and interacted with. 
+
+### Version Support Added
+
+| Importer | Version Support Added |
+|---|---|
+| Creo View | Creo View 10 |
+| Autodesk Navisworks | 2012 - 2024 |
+
+## Resolved Issues
+
+Defects or bugs are an unfortunate but inevitable occurrence in any software product. At Virtalis, we work hard to maintain and improve the quality of our codebase, and we strive to resolve as many reported issues as quickly as possible. As part of our internal testing for the 2023.2 release, we identified and resolved 23 issues, of which 6 were reported by customers. Details are provided in the table below.
+
+| ID | Summary |
+|---|---|
+| 2358 | Fixes issue with models popping in and out of view based on what the left eye can see when using a HMD with occlusion culling enabled. Also improves the performance of occlusion culling in mono views. |
+| FUS-3047 | Fixes a crash that could occur when loading a scene with a model with invalid indices. |
+| FUS-3094 | Fixes issue with tooltips on Scene GUI buttons only appearing once. |
+| FUS-2809 | Fixes issues with viewpoints and reimporting Simple Reps in the Creo importer. |
+| FUS-3095 | Fixes issue with the JT Importer not bringing in metadata for certain types of metanodes. |
+| FUS-2793 | Significantly reduces the amount of memory used by the physics system in scenes with lots of meshes. |
+
+:::note
+See the [Changelog](../../changelogs/visionary-render#20232) for a complete list of resolved issues and changes.
+:::
