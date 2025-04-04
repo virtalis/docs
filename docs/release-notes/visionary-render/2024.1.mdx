@@ -1,5 +1,6 @@
 ---
 sidebar_position: 992
+toc_max_heading_level: 4
 ---
 
 # 2024.1
@@ -10,11 +11,19 @@ First, Visionary Render now supports the direct upload of assets and download of
 
 Second, we have focused on a small set of key issues reported internally and by customers, and we are confident that these changes will be welcomed. 
 
-## Virtalis Hub Integration
+## What's New in This Release?
+
+### Virtalis Hub Integration
 
 The Virtalis Hub is a fully owned and managed solution (on-prem or private cloud) to centrally control visualisation data. Visionary Render remains the rich studio product for power users and this new integration allows for unprecedented ease in sharing scenes across multiple Visionary Render installations or via a web-based client. 
 
-Key benefits to this approach:
+With the integration you can:
+
+- Upload scenes directly to Virtalis Hub from within Visionary Render.
+- Stream scenes from Virtalis Hub to Visionary Render, while maintaining the functionality of decorations and enhancements of scripts, GUIs, manikins, etc.
+- Share scenes with others via a web-based viewer, enabling easy access without requiring specialist hardware or software installation.
+
+#### Key Benefits
 
 - **Integrated Data Sharing:** Visionary Render now allows you to upload or directly stream visualisation data from your instance of the Virtalis Hub.
 - **Full Scene Engagement:** You can interact with Virtalis Hub scenes in Visionary Render as usual, with all scripts, GUIs, and other functionalities operational.​
@@ -29,23 +38,15 @@ While Visionary Render 2024.1 supports uploading scenes to Virtalis Hub, it curr
 Access to the Virtalis Hub and web viewer are sold separately from your Visionary Render purchase.
 :::
 
-### Virtalis Hub: Streaming Download 
-
-Directly stream your project from the Virtalis Hub and all your enhancements (e.g. animated sequences) and decorations (e.g. GUIs, lighting, scripts, manikins) will be preserved just as you saved them. For a seamless and secure experience, every session is authenticated using your Identity and Access Management (IAM) policies set on the Virtalis Hub. Any upload or download from the Hub will prompt a required login for that particular session. 
-
-### Virtalis Hub: Upload
+#### Upload
 
 We have introduced a reliable and efficient file upload mechanism, that enables the upload of large files by automatically segmenting them into manageable chunks. If your internet connection becomes unstable, only a small part of the file needs to be present, not the whole thing. 
 
-## Key Changes
+#### Download 
 
-### Virtalis Hub Integration
+Directly stream your project from the Virtalis Hub and all your enhancements (e.g. animated sequences) and decorations (e.g. GUIs, lighting, scripts, manikins) will be preserved just as you saved them. For a seamless and secure experience, every session is authenticated using your Identity and Access Management (IAM) policies set on the Virtalis Hub. Any upload or download from the Hub will prompt a required login for that particular session. 
 
-- Upload scenes directly to Virtalis Hub from within Visionary Render.
-- Stream scenes from Virtalis Hub to Visionary Render, while maintaining the functionality of decorations and enhancements of scripts, GUIs, manikins, etc.
-- Share scenes with others via a web-based viewer, enabling easy access without requiring specialist hardware or software installation.
-
-### Improved Performance
+### Performance Improvements
 
 - Experience faster saving for scenes with a large number of models, improving efficiency and productivity.
 
@@ -62,7 +63,7 @@ We have introduced a reliable and efficient file upload mechanism, that enables 
 For passthrough, the base functionality is currently in beta from Meta, and requires a developer account for access. We recommend using a cabled connection with your headset for optimal performance.
 :::
 
-## Importers and Exporters
+### Importers and Exporters
 
 | Importer | Version Support Added |
 |---|---|
