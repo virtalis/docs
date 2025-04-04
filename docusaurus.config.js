@@ -56,18 +56,23 @@ const config = {
       logo: {
         alt: 'Virtalis Docs Logo',
         src: 'assets/logos/virtalis-docs.svg',
-        width: 184,
+        width: 172,
       },
       items: [
         {
           type: 'dropdown',
           position: 'left',
-          label: 'Manuals',
+          label: 'User Manuals',
           items: [
             {
               type: 'docSidebar',
               label: 'Importers and Exporters',
               sidebarId: 'importersAndExportersSidebar',
+            },
+            {
+              type: 'docSidebar',
+              label: 'License Server',
+              sidebarId: 'licenseServerSidebar',
             },
             {
               type: 'docSidebar',
@@ -84,7 +89,7 @@ const config = {
         {
           type: 'dropdown',
           position: 'left',
-          label: 'Guides',
+          label: 'Technical Guides',
           items: [
             {
               type: 'docSidebar',

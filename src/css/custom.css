@@ -1,27 +1,27 @@
 :root {
-  --virtalis-color-blue: rgb(16, 6, 159);
-  --virtalis-color-light-blue: rgb(23, 12, 220);
-  --virtalis-color-dark-blue: rgb(11, 3, 99);
-  --virtalis-color-darker-blue: rgb(6, 2, 55);
+  --virtalis-color-blue: rgb(30, 22, 141);
+  --virtalis-color-light-blue: rgb(39, 29, 189);
+  --virtalis-color-dark-blue: rgb(21, 14, 93);
+  --virtalis-color-darker-blue: rgb(11, 8, 45);
   --virtalis-color-orange: rgb(232, 169, 44);
 
-  --ifm-color-primary: rgb(214, 104, 0);
-  --ifm-color-primary-dark: rgb(193, 94, 0);
-  --ifm-color-primary-darker: rgb(182, 88, 0);
-  --ifm-color-primary-darkest: rgb(150, 73, 0);
-  --ifm-color-primary-light: rgb(235, 114, 0);
-  --ifm-color-primary-lighter: rgb(246, 120, 0);
-  --ifm-color-primary-lightest: rgb(255, 136, 23);
+  --ifm-color-primary: #e67205;
+  --ifm-color-primary-dark: #cf6705;
+  --ifm-color-primary-darker: #c36104;
+  --ifm-color-primary-darkest: #a15004;
+  --ifm-color-primary-light: #fa7e09;
+  --ifm-color-primary-lighter: #fa8414;
+  --ifm-color-primary-lightest: #fb9637;
 
-  --ifm-color-gray-100: rgb(245, 246, 254);
-  --ifm-color-gray-200: rgb(235, 237, 246);
-  --ifm-color-gray-300: rgb(218, 221, 232);
-  --ifm-color-gray-400: rgb(204, 208, 216);
-  --ifm-color-gray-500: rgb(190, 195, 202);
-  --ifm-color-gray-600: rgb(141, 148, 156);
-  --ifm-color-gray-700: rgb(96, 103, 108);
-  --ifm-color-gray-800: rgb(68, 73, 78);
-  --ifm-color-gray-900: rgb(28, 30, 36);
+  --ifm-color-gray-100: rgb(245, 246, 250);
+  --ifm-color-gray-200: rgb(235, 237, 240);
+  --ifm-color-gray-300: rgb(218, 221, 230);
+  --ifm-color-gray-400: rgb(204, 208, 212);
+  --ifm-color-gray-500: rgb(190, 195, 200);
+  --ifm-color-gray-600: rgb(141, 148, 154);
+  --ifm-color-gray-700: rgb(96, 103, 106);
+  --ifm-color-gray-800: rgb(68, 73, 76);
+  --ifm-color-gray-900: rgb(28, 30, 34);
 
   --ifm-color-secondary: rgb(68, 73, 86);
   --ifm-color-secondary-dark: rgb(61, 66, 77);
@@ -32,11 +32,9 @@
   --ifm-color-secondary-lightest: rgb(88, 95, 112);
   --ifm-color-content-secondary: rgb(68, 73, 86);
 
-  --ifm-background-color: rgb(248, 250, 255);
-  --ifm-footer-background-color: var(--ifm-color-gray-200);
-  --ifm-footer-padding-vertical: 0.75rem;
+  --ifm-background-color: rgb(255, 255, 255);
   --ifm-hover-overlay: rgba(0, 4, 12, 0.05);
-  --ifm-font-color-base: var(--ifm-color-black);
+  --ifm-font-color-base: rgb(35, 36, 38);
   --ifm-font-size-base: 17px;
   --ifm-code-font-size: 90%;
   --ifm-transition-fast: 0s;
@@ -52,20 +50,11 @@
   --ifm-color-primary-light: rgb(235, 179, 69);
   --ifm-color-primary-lighter: rgb(236, 184, 81);
   --ifm-color-primary-lightest: rgb(240, 199, 119);
-  
-  --ifm-background-color: rgb(18, 20, 28) !important;
-  --ifm-background-surface-color: rgb(17, 25, 39) !important;
-  --ifm-footer-background-color: rgb(34, 38, 46) !important;
-  --ifm-hover-overlay: rgba(0, 4, 12, 0.05);
-  --ifm-font-color-base: var(--ifm-color-white);
-}
 
-iframe {
-  width: 100%;
-  height: 100%;
-  max-width: 640px;
-  max-height: 360px;
-  aspect-ratio: 16/9;
+  --ifm-background-color: rgb(16, 18, 22) !important;
+  --ifm-background-surface-color: rgb(17, 25, 39) !important;
+  --ifm-hover-overlay: rgba(0, 4, 12, 0.05);
+  --ifm-font-color-base: rgb(234, 235, 238);
 }
 
 @media (min-width: 997px) {
@@ -85,28 +74,12 @@ th, td {
   padding: 6px !important;
 }
 
-.footer {
-  font-size: 80%;
-}
-
-::selection {
-  background-color: var(--virtalis-color-light-blue);
-  color: var(--ifm-color-white);
-}
-
-::-moz-selection {
-  background-color: var(--virtalis-color-light-blue);
-  color: var(--ifm-color-white);
-}
-
-[data-theme='dark'] ::selection {
-  background-color: var(--virtalis-color-blue);
-  color: var(--ifm-color-white);
-}
-
-[data-theme='dark'] ::-moz-selection {
-  background-color: var(--virtalis-color-blue);
-  color: var(--ifm-color-white);
+iframe {
+  width: 100%;
+  height: 100%;
+  max-width: 640px;
+  max-height: 360px;
+  aspect-ratio: 16/9;
 }
 
 [data-theme='light'] .card {
@@ -135,4 +108,24 @@ th, td {
 
 [data-theme='dark'] .card:hover {
   box-shadow: none;
+}
+
+::selection {
+  background-color: var(--virtalis-color-light-blue);
+  color: var(--ifm-color-white);
+}
+
+::-moz-selection {
+  background-color: var(--virtalis-color-light-blue);
+  color: var(--ifm-color-white);
+}
+
+[data-theme='dark'] ::selection {
+  background-color: var(--virtalis-color-blue);
+  color: var(--ifm-color-white);
+}
+
+[data-theme='dark'] ::-moz-selection {
+  background-color: var(--virtalis-color-blue);
+  color: var(--ifm-color-white);
 }

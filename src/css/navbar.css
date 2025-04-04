@@ -6,7 +6,7 @@
 }
 [data-theme='light'] .navbar__link {
   color: var(--ifm-color-white);
-  font-size: 95%;
+  font-size: 92%;
 }
 [data-theme='light'] .dropdown--active,
 [data-theme='light'] .navbar__link:hover,
@@ -28,7 +28,7 @@
 }
 [data-theme='dark'] .navbar__link {
   color: var(--virtalis-color-off-white);
-  font-size: 95%;
+  font-size: 92%;
 }
 [data-theme='dark'] .dropdown--active,
 [data-theme='dark'] .navbar__link:hover,
