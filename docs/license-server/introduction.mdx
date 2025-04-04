@@ -1,0 +1,16 @@
+---
+sidebar_position: 1
+---
+
+# Introduction
+
+The license server manages network licenses for our native applications. It runs in the background as a service and permits licenses to be imported and managed via a web interface.
+
+![](/img/license-server/view.png)
+
+## Types of License
+
+There are two types of license that Virtalis applications can use:
+
+- **Local** - A license file tied to a single machine (MAC address) is installed on the machine that will be running the software. No network connection or additional software are required.
+- **Network** - A “floating” license file is installed on a server that can be connected to by many client machines. The floating license is tied to server, also by MAC address, but can be issued to any machine that requests a seat from the server. Floating licenses have one or more seats that can be in use at any one time, shared between client machines. The server machine must be running the License Server application.
