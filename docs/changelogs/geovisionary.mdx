@@ -65,11 +65,40 @@ description: 2019.2 to 2025.1
 
 *Released 2024-07-08*
 
+#### Added
+
+- Button to the Networking window to disable networking after it has been enabled
+
+#### Changed
+
+- Text encoding to UTF-8 to improve support for different languages and for compatibility with Virtalis Hub
+- OpenXR reference space from "local" to "stage" so that floor level is respected when using the navigation tools
+
 #### Fixed
 
+- Errors when avatars are loaded in collaboration, including a crash when another user is using an Oculus/Meta Quest avatar
+- Duplicate options from the link picker control's "new" menu that created nodes of an incorrect version
 - Incorrect terrain shading whilst using height exaggeration
 - Terrain overlay layers being rendered with an opaque black/grey background
 - Missing borehole segments when the geometry and property intervals are different
+- Crash when enabling OpenXR mode with the Collision/Debug Draw setting enabled
+- Crash when loading a scene containing scripts made in an older version of GeoVisionary
+- Errors when loading the fullbody female and zSpace avatars
+
+---
+
+## 2024.1.1
+
+*Released 2024-04-01*
+
+#### Changed
+
+- Improve reporting of errors from Virtalis Hub uploads and downloads
+
+#### Fixed
+
+- Issues with uploading and downloading large Virtalis Hub scenes due to excessive numbers of simultaneous connections
+- Avoid using a Virtalis Hub server as the initial directory in the file browser as this could trigger unwanted login prompts
 
 ---
 
@@ -79,12 +108,28 @@ description: 2019.2 to 2025.1
 
 #### Added
 
+- Upload your scenes to Virtalis Hub using the App Menu > Upload to Virtalis Hub option
+- Download scenes from Virtalis Hub directly to GeoVisionary
 - Support for terrain clipping using dynamic sections
 - Start menu shortcut for the Visionary Render Programming Guide
+- Alternative connection mode for the HoloLens 2 that permits the headset to connect to the PC using a QR code
+- Support for the XR_FB_passthrough extension in OpenXR, which permits passthrough to be enabled when using the Quest Link in developer mode. Also adds adjustable background opacity in AR
+
+#### Changed
+
+- Improve save speed for scenes with a very large number of models in a library
+- Improve the speed of rendering particle systems in stereo
 
 #### Fixed
 
 - HoloLens 2 is unsupported
+- Crash when toggling the Edit Pivot mode button
+- Crash when rendering the first frame of a complex scene
+- UI settings and window positions aren't restored after restarting GeoVisionary
+- Whole scene could disappear when changing World Scale via the controllers in a headset
+- Occlusion culling issues that could lead to flickering geometry
+- The message 'OpenXR lists 0 API layers' is repeated in the log
+- Occlusion culling failed to cull occluded objects that are visible in only one eye when rendering in stereo
 
 ---
 
@@ -100,6 +145,39 @@ description: 2019.2 to 2025.1
 #### Fixed
 
 - Scene GUI has artefacts when visible at the same time as a voxel model
+- Crash that could occur when loading a scene with a model with invalid indices
+- Tracking/Configuration settings page can have missing settings
+
+---
+
+## 2023.1
+
+*Released 2023-04-26*
+
+#### Added
+
+- Adds support for OpenXR, which is a new open standard for handling AR and VR on platforms and devices
+
+#### Changed
+
+- Sequencer can now capture keyframes whilst immersed
+- Avatars can now grab nodes with their hands when no controller visuals are present
+- Compressed image data can now be stored in Texture nodes
+
+#### Removed
+
+- Oculus tracking mode as it was often being used by mistake instead of Oculus Touch
+- Old anthropometrics files from the data directory
+
+#### Fixed
+
+- Makes scrolling to selected items in the tree view more reliable
+- Fixes issue where scene GUIs can become unresponsive when dragging out of the 3D scene
+- Fixes crash that could occur when adding a keyframe to a property track of a sequence
+- Fixes crash that could occur when disconnecting an Oculus headset with overlapped culling enabled
+- Fixes crash when loading a scene with a snapshot of a PDF node in it
+- Fixes crash that could occur when a sphere collision object and a mesh collision object had identical positions
+- Ensures the Display Sync setting is applied correctly when leaving immersive mode
 
 ---
 
@@ -107,10 +185,44 @@ description: 2019.2 to 2025.1
 
 *Released 2022-11-02*
 
+#### Added
+
+- Immersive snap rotation option to improve comfort in VR by rotating the camera in fixed increments
+
+#### Changed
+
+- Improves rendering performance in scenes with large numbers of small meshes
+
+#### Removed
+
+- Duplicate 'Remove from Group' menu entries
+
 #### Fixed
 
 - Point clouds appear in front of transparent objects in the right eye in stereo
 - Point cloud and texture filenames have wrong relative paths after loading files from older versions of GeoVisionary
+- Crash and inconsistent behaviour in the Animation Sequencer due to scaling handles not being deleted
+- Crash in the Animation Sequencer when undoing while dragging
+- Restore the functionality of ActiveView Light Texture (NetPlayerTexture)
+
+---
+
+## 2022.2
+
+*Released 2022-07-08*
+
+#### Added
+
+- Manikins - poseable human models with 1:1 scale that can be easily added to any scene. Body dimensions are individually configurable
+- Links to third-party license documents in the Help - About window
+
+#### Changed
+
+- Improves collision detection with deformable meshes, which enables accurate picking of deformable meshes with the mouse and tracked controllers
+
+#### Fixed
+
+- "Remove from Group" option on the context menu
 
 ---
 
@@ -125,6 +237,29 @@ description: 2019.2 to 2025.1
 
 ---
 
+## 2022.1
+
+*Released 2022-01-24*
+
+#### Added
+
+- A new helper for splines
+- A UV channel property to gradients and permits splines curvature to be displayed in it
+
+#### Changed
+
+- Makes helper markers easier to select, particularly in a tracked environment
+
+#### Fixed
+
+- Event handlers are called twice after being restored from the recycle bin (with possible crash)
+- Clicking on a marker in "show helpers for selected" mode hides the helpers
+- Enabling/disabling lighting has no effect when deferred rendering is enabled
+- Helper markers can't be selected from above in a tracked environment
+- Logging so that failures in the plugin sandbox can be understood
+
+---
+
 ## 2021.3.1
 
 *Released 2021-11-29*
@@ -135,9 +270,34 @@ description: 2019.2 to 2025.1
 
 ---
 
+## 2021.3
+
+*Released 2021-10-07*
+
+#### Added
+
+- Ability to create editable text boxes in the scene GUI
+
+#### Changed
+
+- Optimises memory access to improve performance
+- Limits dispatch of move events to improve the performance of animating objects
+
+#### Fixed
+
+- Fixes issue where the Hololens 2 doesn't receive the depth buffer via Holographic Remoting
+- Updates the Microsoft Visual C++ redistributables in the installer
+- Removes log spam when isolating/unisolating a selection
+
+---
+
 ## 2021.2
 
 *Released 2021-07-12*
+
+#### Added
+
+- Filter to the Layers and Developer tabs for highlighting disabled nodes
 
 #### Fixed
 
@@ -150,11 +310,19 @@ description: 2019.2 to 2025.1
 
 *Released 2021-04-01*
 
+#### Added
+
+- New settings for pivots to Tools/Pivots and improves and fixes bugs with the PRS and pivot visuals
+- Isolate/unisolate button to the toolbar to hide/unhide all but the selected geometry in the scene
+
 #### Fixed
 
 - Crash when opening multiple animated point cloud projects
 - Point cloud paths are lost when a 2020.2 scene is converted to 2020.3
 - Animated point clouds use more memory each time they are played
+- Occasional crash on exit when tracking is enabled
+- Crash when the Create button is pressed in the Sequencer
+- Crash when the scene is saved by right-clicking on the Scenes node and choosing 'Save Selection'
 
 ---
 
@@ -181,13 +349,23 @@ description: 2019.2 to 2025.1
 
 ---
 
+## 2020.1.1
+
+*Released 2020-05-21*
+
+#### Fixed
+
+- Issues with collaboration and video streaming over a VPN. GeoVisionary now listens for incoming connections on selected virtual network adapters
+
+---
+
 ## 2020.1
 
 *Released 2020-03-18*
 
 #### Changed
 
-- Update the GUI theme
+- Update the GUI theme to match new company branding
 
 #### Fixed
 
