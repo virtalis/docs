@@ -1,0 +1,26 @@
+---
+sidebar_position: 999
+toc_max_heading_level: 4
+---
+
+# 2019.4
+
+Thank you for downloading Visionary Render 2019.4. This release presents a new user interface theme aligning with our new company brand identity. It also improves software stability and addresses customer reported issues.
+
+## What's New in This Release?
+
+### License Client
+
+The standalone License Client application has been discontinued and its functionality is now built into Visionary Render and other Virtalis applications. This simplifies the process for obtaining and validating licenses, which improves the software reliability and quality in some situations, such as when running within virtual machines or in complex networks.
+
+Applications will now authenticate local license files and talk to a License Server directly. The License Client application is no longer needed and should be uninstalled unless you need to continue using earlier versions of Visionary Render. The License Server application must also be updated to be compatible with this version if it is also in use at your site.
+
+The license dialog has been updated to include a "Connect to Server" button, this will automatically grant access to the application when a valid server and license are available.
+
+## Known Issues
+
+SteamVR based devices such as HTC Vive and Windows Mixed Reality can exhibit display abnormalities when used in conjunction with the Single GPU Parallel Stereo Optimisation mode introduced with 2019.1. This mode is now disabled by default, whereas previously it would default to the highest optimisation setting.
+
+:::note
+Oculus devices are not affected, and Dual GPU Parallel mode continues to work for all supported HMDs.
+:::

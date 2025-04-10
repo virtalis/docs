@@ -1,0 +1,43 @@
+---
+sidebar_position: 993
+toc_max_heading_level: 4
+---
+
+# 2021.2
+
+Thank you for downloading Visionary Render 2021.2.
+
+## What's New in This Release?
+
+### Event Observers and Custom Settings
+
+Allowing you to subscribe to particular, or all, events on any node in the tree means that much code duplication can be avoided. This is relevant in a range of scenarios including monitoring touch/break events or press/click events on programmatically generated GUIs.
+
+It is now also possible to allow a single observer to accept multiple inputs, further streamlining the coding effort when using the Lua API.
+
+It is now also possible to add a setting to the user registry via Lua. This has a number of potential uses, not least the ability to set the address of an external server for Visionary Render to access.
+
+### Show Disabled Objects in Tree
+
+A convenience factor, but an important one. It can be difficult to see what assemblies have been disabled, particularly in large, complex product trees. It is now possible to apply a filter to show just this, allowing you to work much more effectively.
+
+### Support for Projection onto Curved Screens
+
+It’s now possible for you to configure a two-dimensional curved projection of Visionary Render. The approach is to apply a warp to the standard rectangular rendering at the post-processing stage. Please contact support or your account representative for more details on configuring this feature.
+
+## Resolved Issues
+
+Defects, or bugs, are an unfortunate, but inevitable occurrence in any software product. At Virtalis we work hard to maintain and improve the quality of our codebase and resolve as many reported issues as we can, as quickly as we can. We have identified and resolved 14 issues as part of our internal testing for the 2021.2 release. This number includes the 6 customer issues detailed in the below table.
+
+| ID | Summary |
+|---|---|
+| 11163 | Script crashes in 2021.1 but not previous versions |
+| 10882 | Obj import error: No object detected to attach a new mesh instance |
+| 10843 | Connect View is not working in 2020.3 onwards |
+| 10150 | License client timing out too soon for slower networks |
+| 10527 | View configs don't keep XInputEnvironment links on start up |
+| 9411 | Can't continue session after reconnecting to license server |
+
+:::note
+See the [Changelog](../../changelogs/visionary-render#20212) for a complete list of resolved issues and changes.
+:::

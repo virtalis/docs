@@ -1,0 +1,71 @@
+---
+sidebar_position: 998
+toc_max_heading_level: 4
+---
+
+# 2019.5
+
+Thank you for downloading Visionary Render 2019.5. In order to better support customers working with scenes based in a marine environment, this release contains a number of enhancements based around the rendering of water, or objects in and around water. Beyond this, the release addresses a number of customer reported issues. 
+
+## What's New in This Release?
+
+### Ocean and Water Effects
+
+Creating immersive visualisations in an offshore or underwater environment requires that Visionary Render process some complex optical physics and environmental effects. A summary of the new features available at 2019.5 is given below. 
+
+#### Ocean Reflection
+
+The reflection of objects on or around a body of water is correctly represented in order to capture ambient lighting, sea state and other ambient conditions. The result is a realistic representation of the reflective properties off a water surface. 
+
+![](/img/release-notes/visionary-render/2019.5-1.png)
+<br/>*Figure 1: Reflection on the surface of water.*
+
+#### Ocean Scattering and Extinction
+
+As light travels through any fluid medium, including the atmosphere, its propagation is affected by absorption and scattering by the molecules in that medium. We tend not to think about it in the atmosphere as it’s our day to day experience, but atmospheric scattering of white light is precisely why the sky appears blue. Similarly, the ocean appears blue because it absorbs the wavelengths of light at the red end of the spectrum and so reflects blue back to the observer. 
+
+The appearance of the underwater environment will be a function of ambient lighting conditions and water depth, with the impact of both phenomena increasing with depth. 
+
+![](/img/release-notes/visionary-render/2019.5-2.png)
+<br/>*Figure 2: Scattering and extinction in an underwater scene.*
+
+#### Underwater Optical Caustics
+
+In this context, a caustic is the reflection of an envelope of light rays that have been reflected or refracted by the boundary between the atmosphere and the body of water. If a submerged object or the sea-bed is close enough to the surface that the effect hasn’t been attenuated by the water in between, the effect can be seen as rippling patches of light and dark. 
+
+In the current implementation, the prevailing sea-state will not impact the appearance of the caustics and will be a function of ambient light alone. 
+
+![](/img/release-notes/visionary-render/2019.5-3.png)
+<br/>*Figure 3: Optical caustics can be seen on the seabed and the deck and superstructure of the sunken vessel.*
+
+#### Align Sea State to Prevailing Conditions
+
+The Douglas Scale, also known as the international sea and swell scale, defines the height of waves as well as the swell of the sea. In 2019.5 it is possible to define the observed sea state by choosing the appropriate entry on the Douglas scale 
+
+### Render Splines as Textured Cylinders
+
+In order to realise the appearance of rope, cable or hose the spline needs to be rendered as a continuous 3D cylinder with suitable texture coordinates. The 2019.5 release facilitates this by allowing spline animations from the 3DSMAX tool to be brought into Visionary Render. 
+
+## Resolved Issues
+
+Defects, or bugs, are an unfortunate, but inevitable occurrence in any software product. At Virtalis we work hard to maintain and improve the quality of our code base and resolve as many reported issues as we can, as quickly as we can. The table below covers those issues reported from the field that have been resolved at 2019.5.
+
+| ID | Summary |
+|---|---|
+| 741 | Crash on cluster loading DocsPlugin.dll |
+| 422/404/350 | Enable Pivot Visual doesn't work on newly created pivots |
+| 431 | CreoView Importer doesn't bring through enough metadata |
+| 765 | Crash on importing FBX file |
+| 875/858 | Property rollouts not displaying any properties |
+| 856 | Overlapped culling prevents Point clouds from being rendered |
+| 695 | CreoView importer enabling merge geo-groups does not fully optimise the models |
+
+:::note
+See the [Changelog](../../changelogs/visionary-render#20195) for a complete list of resolved issues and changes.
+:::
+
+## Removed Features
+
+### Ogre Importer
+
+We periodically review the status of our supported file formats in order to ensure that we’re managing those that are of most value to our customers. In the most recent such review we concluded that continuing to support Ogre offers no value to our target markets. Accordingly, it is not offered as an option from 2019.5 onward. 

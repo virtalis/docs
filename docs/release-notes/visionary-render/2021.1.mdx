@@ -1,0 +1,41 @@
+---
+sidebar_position: 994
+toc_max_heading_level: 4
+---
+
+# 2021.1
+
+Thank you for downloading Visionary Render 2021.1.
+
+## What's New in This Release?
+
+### Incremental Gains
+
+Having said that the intent here was to address disparate, but valuable, tickets a theme did nevertheless emerge: the API and scripting. Some highlights:
+
+- Create meta-nodes from Lua scripts: allows the creation of custom data structures within the tree structure in the most optimised form.
+- Create/observe settings using the C API: it’s now much easier to create a GUI in which you can enter some configuration details (perhaps the address of an external web server) or present the information from such a server back to you.
+- Downloading data describing geometry or textures from a server, adding them to a scene or animating geometry in a scene is now much more efficient.
+- More generally, you should find using the script API engine a more rewarding experience.
+
+Beyond this domain, we’ve improved the way the PRS manipulator scales and added some new setting options to Tools/Pivots. It’s also now possible to ‘un-isolate’ geometry from the toolbar. We had received feedback that it could be difficult to remember which nodes had been isolated in order to go back and un-isolate them. This enhancement will un-isolate any nodes in the scene that have been hidden.
+
+## Resolved Issues
+
+Defects, or bugs, are an unfortunate, but inevitable occurrence in any software product. At Virtalis we work hard to maintain and improve the quality of our codebase and resolve as many reported issues as we can, as quickly as we can. We have identified and resolved 21 issues as part of our internal testing for the 2021.1 release. This number includes the customer issues in the below table. 
+
+| ID | Summary |
+|---|---|
+| 9768 | Create button in Animation Sequencer causes crash |
+| 9685 | Use of extended ASCII characters on GUI elements causes a crash |
+| 10028 | HOOPS importers failing to import on German PCs |
+| 8668 | Size on Drop setting does not seem to do anything |
+| 9995 | Deformable meshes still selectable with a disabled system collision override |
+| 9991 | JT file fails to import with JT importer |
+| 9720/10220 | Point-cloud path not retained between 2020.2 and 2020.3 |
+| 9693 | Errors relating to voice chat should only appear when networking and voice chat is enabled |
+| 9581 | HMDs default to rotate around controller |
+
+:::note
+See the [Changelog](../../changelogs/visionary-render#20211) for a complete list of resolved issues and changes.
+:::

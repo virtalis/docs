@@ -1,0 +1,42 @@
+---
+sidebar_position: 996
+toc_max_heading_level: 4
+---
+
+# 2020.2
+
+Thank you for downloading Visionary Render 2020.2. This release is focused on two main themes in addition to the usual maintenance and update quota: collaborative sessions and addition of support for the Noitom Hi5 glove.
+
+## What's New in This Release?
+
+### Collaborative Sessions
+
+Being able to work alongside others in a virtual environment is a key benefit of virtual reality and is a fundamental component of the value Visionary Render brings. We have taken the opportunity at this release to take a close review of how Visionary Render currently delivers on this front and to extend and enhance the experience further. We’ve attacked this from an end user perspective and paid particular attention to collaborative training scenarios. In doing so, we’ve invested in two major themes:
+
+- Multiple participants interacting with objects within the visualisation. Creating scenes in which users are required to pick up, put down or hand over objects is much more straightforward at 2020.2.
+- Ensuring that scripts, interfaces and actions within a scene can be executed by a specific user. A number of areas within the code base have been refactored and adapted in order that the end user experience is more performant and responds to the actions of all users within the visualisation.
+
+Complementing the above work are the following two enhancements:
+
+- Undo/redo now has a readable history so that it’s clear exactly which actions will be affected.
+- We’ve added an Auto-headlight mode. This enables the headlight whenever there is no other light in the scene. This can be enabled/disabled from the headlight button in the Toolbar. The colour and intensity of the light is configurable.
+
+### Noitom Hi5 Glove Support
+
+The Hi5 allows you to interact within immersive scenes in a more intuitive manner, makes for more accurate spatial assessments and enables a more refined collision detection experience.
+
+![](/img/release-notes/visionary-render/2020.2-1.png)
+<br/>*Figure 1: New avatar model which can articulate individual digits complements the new Hi5 integration.*
+
+## Resolved Issues
+
+Defects, or bugs, are an unfortunate, but inevitable occurrence in any software product. At Virtalis we work hard to maintain and improve the quality of our code base and resolve as many reported issues as we can, as quickly as we can. Alongside 28 issues that have been identified and resolved as part of our own internal automated testing and fixing at the 2020.2 release, the below table lists those issues reported from the field that have been resolved.
+
+| ID | Summary |
+|---|---|
+| 508 | First user to click on a GUI button in collaboration "takes control" and other users are unable to use the button |
+| 494 | Tab doesn't work in the script editor |
+
+:::note
+See the [Changelog](../../changelogs/visionary-render#20202) for a complete list of resolved issues and changes.
+:::

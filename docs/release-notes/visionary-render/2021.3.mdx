@@ -1,0 +1,35 @@
+---
+sidebar_position: 992
+toc_max_heading_level: 4
+---
+
+# 2021.3
+
+Thank you for downloading Visionary Render 2021.3. This release is focused on further enhancing the performance of the software, particularly on scenes comprising of many assemblies within a complex product tree; something commonly experienced by those working on engineering projects.
+
+We’ve also introduced support for the Microsoft HoloLens 2 and created an editable text box feature. This is on top of resolving some customer reported issues and updating/maintaining our CAD importer suite to ensure it’s compatible with the latest releases from the CAD vendors.
+
+## What's New in This Release?
+
+### Performance Improvements
+
+Our focus has been on "in scene" performance, and we have made changes across a number of areas, from memory handling to managing animations of complex structures. The result of these improvements is a very significant increase to the rendering speed, and in the best cases the frame rate is double that of 2021.2. The scale of the improvement depends on the structure of the data in the scene and the best improvements are seen on complex tree hierarchies with many individual parts.
+
+Beyond this, we’ve updated the user manual with more information as to how you can customise your settings to maximise the performance you get from Visionary Render.
+
+### Microsoft HoloLens 2 Support
+
+It is now possible to remotely render visualisations to the Microsoft HoloLens 2 from Visionary Render. The initial implementation allows the device to be used similar to other HMDs, with future support for HoloLens 2 specific features being continually evaluated.
+
+### Editable Text Boxes
+
+Editable text boxes can by styled similarly to other in-scene GUI components, and work with existing script events to support a number of possible use cases, including:
+
+- Responses to situations/issues/questions in training scenarios
+- Interactive GUIs in simulations/training
+- Accessing scenario specific data from external sources
+- Virtual notebooks
+
+:::note
+This version of Visionary Render requires new versions of the Microsoft C++ Runtime, which is installed automatically. However, if you are using a cluster, you will need to install the runtime manually on the rest of the computers in the cluster. If this is not possible please contact our support team for assistance.
+:::

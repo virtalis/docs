@@ -1,0 +1,55 @@
+---
+sidebar_position: 995
+toc_max_heading_level: 4
+---
+
+# 2020.3
+
+Thank you for downloading Visionary Render 2020.3. The highlights of this release are the updates to collaboration, SteamVR and Point Clouds.
+
+## What's New in This Release?
+
+### Collaborative Sessions
+
+2020.2 saw several enhancements delivered in this area, but we also uncovered scope for work that we felt was valuable yet had no time to deliver at that release. Hence, we chose to undertake a follow up initiative at 2020.3 that addressed the following topics:
+
+#### Connection and Performance
+
+We have streamlined the processes that run whenever users connect to a collaborative session to reduce the time to connect and remove any stuttering or temporary freezes when others join a session. We also added a disconnect button.
+
+#### Collaborative Session Experience
+
+You can now add your own computer or usernames to the tree view, which makes it much easier to identify who is in the session. We have also added an integrated voice chat feature that permits the attendees in a collaborative session to speak to one another without having to use any third-party tools.
+
+### Immersive Device Support
+
+Supporting the ever-increasing range of head mounted displays can prove a challenging task as it typically means explicitly validating that the associated controllers and their inputs are behaving as expected. 2020.3 sees us add support for the SteamVR Input API, which permits you to create controller bindings for use in Visionary Render. These can be created directly in the SteamVR application using the GUI specifically created for this task.
+
+:::note
+If you previously created your own controller mappings then you can continue to use those at 2020.3 if you wish.
+:::
+
+![](/img/release-notes/visionary-render/2020.3-1.png)
+<br/>*Figure 1: The new controller binding interface makes it easier to work with SteamVR devices.*
+
+### Filter Point Clouds Between Minima and Maxima
+
+You can now filter your point cloud data between minimum and maximum values, which offers at least two advantages. Firstly, it removes noise as very low or high values in a particular range are often inaccurate.
+
+Secondly, it allows you to understand the distribution of a particular property in that space better by being able to filter out and highlight ranges of interest.
+
+![](/img/release-notes/visionary-render/2020.3-2.png)
+<br/>*Figure 2: Filter and adjust the visible range of point clouds from within the GUI.*
+
+## Resolved Issues
+
+Defects, or bugs, are an unfortunate, but inevitable occurrence in any software product. At Virtalis we work hard to maintain and improve the quality of our codebase and resolve as many reported issues as we can, as quickly as we can. We have identified and resolved 19 issues as part of our internal testing for the 2020.3 release. Additionally, the below table lists resolved issues that were reported in the field.
+
+| ID | Summary |
+|---|---|
+| 500 | Fixes an issue where connecting the view with a collaborator while using a custom view config could result in a blank view after the application is restarted |
+| 9547 | Fixes an issue with the full-body avatar's arms not following the tracked hands |
+
+:::note
+See the [Changelog](../../changelogs/visionary-render#20203) for a complete list of resolved issues and changes.
+:::
