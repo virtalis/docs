@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkvirtalis_docs=self.webpackChunkvirtalis_docs||[]).push([[140],{82481:e=>{e.exports=JSON.parse('{"categoryGeneratedIndex":{"title":"Changelogs","slug":"changelogs","permalink":"/changelogs","sidebar":"changelogsSidebar","navigation":{"next":{"title":"GeoVisionary","permalink":"/changelogs/geovisionary"}}}}')}}]);
