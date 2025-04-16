@@ -46,6 +46,45 @@ const config = {
   ],
   plugins: [
     'docusaurus-plugin-image-zoom',
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            from: '/importers-and-exporters/introduction',
+            to: '/importers-and-exporters',
+          },
+          {
+            from: '/virtalis-hub-and-web-viewer/introduction',
+            to: '/virtalis-hub-and-web-viewer',
+          },
+          {
+            from: '/virtalis-hub-system-admin/introduction',
+            to: '/virtalis-hub-system-admin',
+          },
+          {
+            from: '/visionary-render/introduction',
+            to: '/visionary-render',
+          },
+          {
+            from: '/visionary-render-programming/introduction',
+            to: '/visionary-render-programming',
+          },
+          {
+            from: '/release-notes/geovisionary',
+            to: '/release-notes/geovisionary/2025.1',
+          },
+          {
+            from: '/release-notes/virtalis-hub-and-web-viewer',
+            to: '/release-notes/virtalis-hub-and-web-viewer/2025.1',
+          },
+          {
+            from: '/release-notes/visionary-render',
+            to: '/release-notes/visionary-render/2025.1',
+          },
+        ],
+      },
+    ],
   ],
   //future: {
   //  experimental_router: 'hash',
