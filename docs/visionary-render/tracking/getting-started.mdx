@@ -43,11 +43,19 @@ SteamVR is not currently supported. Other runtimes not listed may still work but
 
 To use any OpenXR-compatible headset with Visionary Render, follow these steps:
 
+<Steps>
+
 1. Ensure the headset is turned on and connected to the PC, and OpenXR mode is enabled.
-2. Launch Visionary Render in standard desktop mode (i.e. no **-viewConfig** or **-tracker** parameters).
+
+2. Launch Visionary Render in standard desktop mode (i.e. no `-viewConfig` or `-tracker` parameters).
+
 3. Open a scene and select the **OpenXR** option from the tracking menu in the Toolbar.
+
 4. The headset will now initialise.
+
 5. There are no other settings. The application will remember the display mode and above settings at exit and will start up with **OpenXR** mode enabled automatically from now on.
+
+</Steps>
 
 :::tip
 If input for your controller or device is awkward or not working, get in touch with us and we can fix it using the bindings in `data/openxr/actionBindings.json`. We have no way to know nor test the proper bindings for all devices in advance.
@@ -57,12 +65,21 @@ If input for your controller or device is awkward or not working, get in touch w
 
 To use the Oculus Rift with Visionary Render, follow these steps:
 
+<Steps>
+
 1. Ensure the Oculus Rift is connected to the PC and the latest Oculus Runtimes are installed.
-2. Launch Visionary Render in standard desktop mode (i.e. no **-viewConfig** or **-tracker** parameters).
+
+2. Launch Visionary Render in standard desktop mode (i.e. no `-viewConfig` or `-tracker` parameters).
+
 3. If in the Start Room, press the glowing **VR** on the main UI stand. Otherwise select the **Oculus** option from the tracking menu in the Toolbar.
+
 4. The Oculus Rift will now initialise.
+
 5. The **Viewport** button in the **Options** rollout will become available to toggle the main window viewport. Turning this off can improve performance in the headset.
+
 6. There are no further settings. The application will remember the display mode at exit and will start up with **Oculus Rift** mode enabled automatically from now on.
+
+</Steps>
 
 :::note
 As of the 2023.1 release, the Oculus immersive mode has been renamed Oculus Legacy and can only be accessed from `Settings/Tracking/Configuration/Mode`. Scripts can still use `vrEnableNodeWhenOculusAvailable(vrnode node)`.
@@ -72,28 +89,47 @@ As of the 2023.1 release, the Oculus immersive mode has been renamed Oculus Lega
 
 To use any SteamVR-compatible headset with Visionary Render (such as HTC Vive, Valve Index or Windows Mixed Reality) follow these steps:
 
+<Steps>
+
 1. Ensure the headset is connected to the PC, and SteamVR is installed and running.
-2. Launch Visionary Render in standard desktop mode (i.e. no **-viewConfig** or **-tracker** parameters).
+
+2. Launch Visionary Render in standard desktop mode (i.e. no `-viewConfig` or `-tracker` parameters).
+
 3. If in the Start Room, press the glowing **VR** on the main UI stand. Otherwise select the **SteamVR** option from the tracking menu in the Toolbar.
+
 4. The headset will now initialise.
-5. In the Settings window (**F6**), on the **Tracking** tab, some additional options are available below the tracking dropdown box:
+
+5. In the Settings window (`F6`), on the **Tracking** tab, some additional options are available below the tracking dropdown box:
     - **Tracking Universe** - specify whether the HTC Vive is being used Seated or Standing.
     - **Enable Visuals** - draws the virtual representations of the Wand controllers and Lighthouses in the scene.
     - **Reset Tracking Origin** - press this when using the Seated Tracking Universe to centre yourself in your seated position.
-6. The **Viewport** button in the **Options** rollout will become available to toggle the main window viewport. Turning this off can improve performance in the headset.
+
+6. The **Viewport** button in the Options rollout will become available to toggle the main window viewport. Turning this off can improve performance in the headset.
+
 7. There are no other settings. The application will remember the display mode and above settings at exit and will start up with **SteamVR** mode enabled automatically from now on.
+
+</Steps>
 
 ## zSpace
 
 To use the zSpace with Visionary Render, follow these steps:
 
+<Steps>
+
 1. Ensure the zSpace is connected to the PC and calibrated with the zSpace application.
-2. Launch Visionary Render in standard desktop mode (i.e. no **-viewConfig** or **-tracker** parameters).
+
+2. Launch Visionary Render in standard desktop mode (i.e. no `-viewConfig` or `-tracker` parameters).
+
 3. If in the Start Room, press the glowing **VR** on the main UI stand. Otherwise select the **zSpace** option from the tracking menu in the Toolbar.
+
 4. The zSpace will now initialise.
-5. In the Settings window (**F6**), on the **Tracking** tab, an additional option is available below the tracking dropdown box:
+
+5. In the Settings window (`F6`), on the **Tracking** tab, an additional option is available below the tracking dropdown box:
     - **Eye IPD** - manually adjust the stereo eye separation on the zSpace display.
+
 6. There are no other settings. The application will remember the display mode and above settings at exit and will start up with **zSpace** mode enabled automatically from now on.
+
+</Steps>
 
 ## HoloLens 2
 
@@ -103,16 +139,28 @@ As of the 2021.3 release, Visionary Render supports the HoloLens 2 and no longer
 
 To use the HoloLens 2 with Visionary Render, follow these steps:
 
-1. Ensure the HoloLens is connected - by Wi-Fi - to the same network as the PC you are running Visionary Render on.
-2. Open the Microsoft Store on the HoloLens and install the Holographic Remoting Player app.
-3. Start the Holographic Remoting Player on the HoloLens - it will display the IP address of the HoloLens then wait for a connection to be established.
-4. In Visionary Render, enable the HoloLens desktop immersion mode via the Toolbar or Settings window. Once enabled, the connection status window below will be displayed.
-5. If this is your first time using HoloLens Remoting, click the Settings button on the connection status window and input your HoloLens IP as displayed by the HoloLens 2 Remoting Player.
-6. Visionary Render should now connect to the HoloLens and the HoloLens should switch to displaying your scene. The connection status window will tell you the current connection status.
-7. If you need to reconnect at any time you can do so by pressing the Reconnect button on the connection status window. If a loss of connection is detected then Visionary Render will automatically try to reconnect to the HoloLens. ![](/img/visionary-render/tracking/getting-started/dialog.png)
+<Steps>
 
-:::tip
-See [Augmented Reality](augmented-reality.mdx) for information on using the HoloLens 2.
+1. Ensure the HoloLens is connected - by Wi-Fi - to the same network as the PC you are running Visionary Render on.
+
+2. Open the Microsoft Store on the HoloLens and install the Holographic Remoting Player app.
+
+3. Start the Holographic Remoting Player on the HoloLens - it will display the IP address of the HoloLens then wait for a connection to be established.
+
+4. In Visionary Render, enable the HoloLens desktop immersion mode via the Toolbar or Settings window. Once enabled, the connection status window below will be displayed.
+
+5. If this is your first time using HoloLens Remoting, click the Settings button on the connection status window and input your HoloLens IP as displayed by the HoloLens 2 Remoting Player.
+
+6. Visionary Render should now connect to the HoloLens and the HoloLens should switch to displaying your scene. The connection status window will tell you the current connection status.
+
+7. If you need to reconnect at any time you can do so by pressing the Reconnect button on the connection status window. If a loss of connection is detected then Visionary Render will automatically try to reconnect to the HoloLens.
+
+   ![](/img/visionary-render/tracking/getting-started/dialog.png)
+
+</Steps>
+
+:::note
+See [Augmented Reality](augmented-reality.mdx) for more information on using the HoloLens 2.
 :::
 
 ## Disabled

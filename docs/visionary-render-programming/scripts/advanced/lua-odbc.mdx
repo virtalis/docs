@@ -2,18 +2,33 @@
 
 ## Installing a MySQL server (optional, when you don't already have one)
 
+<Steps>
+
 1. Install a [mysql server](https://dev.mysql.com/downloads/mysql/) on your machine or on a network. 
+
 2. Run "MySQL 5.5 Command Line Client" from the start menu.
+
 3. Create a database by typing "CREATE DATABASE myDataBase;" and pressing enter.
+
+</Steps>
 
 ## Installing and setting up the ODBC driver.
 
+<Steps>
+
 1. Download and install the [MySQL ODBC driver](https://dev.mysql.com/downloads/connector/odbc/) from 
+
 2. Run "Data Sources (ODBC)" from the start menu.
+
 3. Go to the "System DSN" tab.
+
 4. Click the "Add" button.
+
 5. Enter the connection settings for your MySQL database (make sure you made a database first).
+
 6. The "Data Source Name" is the name you must use when connecting to this database using odbc in lua.
+
+</Steps>
 
 ## Example Code
 
