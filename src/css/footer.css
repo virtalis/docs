@@ -1,10 +1,10 @@
 :root {
-  --ifm-footer-background-color: var(--ifm-color-gray-200);
+  --ifm-footer-background-color: var(--ifm-color-gray-150);
   --ifm-footer-padding-vertical: calc(var(--ifm-spacing-vertical));
 }
 
 [data-theme='dark'] {
-  --ifm-footer-background-color: rgb(30, 34, 40) !important;
+  --ifm-footer-background-color: var(--ifm-color-black);
 }
 
 .footer {

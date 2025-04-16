@@ -1,43 +1,72 @@
 :root {
-  --virtalis-color-blue: rgb(30, 22, 141);
-  --virtalis-color-light-blue: rgb(39, 29, 189);
-  --virtalis-color-dark-blue: rgb(21, 14, 93);
-  --virtalis-color-darker-blue: rgb(11, 8, 45);
+  --virtalis-color-blue: rgba(20, 15, 120, 0.9);
+  --virtalis-color-blue-highlight: rgb(44, 33, 193);
+  --virtalis-color-light-blue: rgb(40, 30, 180);
+  --virtalis-color-lighter-blue: rgb(48, 36, 229);
+  --virtalis-color-dark-blue: rgb(20, 15, 85, 0.9);
+  --virtalis-color-dark-blue-highlight: rgba(25, 18, 143, 0.9);
+  --virtalis-color-darker-blue: rgb(12, 8, 58);
+  --virtalis-color-darkest-blue: rgb(7, 5, 33);
   --virtalis-color-orange: rgb(232, 169, 44);
 
-  --ifm-color-primary: #e67205;
-  --ifm-color-primary-dark: #cf6705;
-  --ifm-color-primary-darker: #c36104;
-  --ifm-color-primary-darkest: #a15004;
-  --ifm-color-primary-light: #fa7e09;
-  --ifm-color-primary-lighter: #fa8414;
-  --ifm-color-primary-lightest: #fb9637;
+  --ifm-color-primary: rgb(230, 114, 5);
+  --ifm-color-primary-dark: rgb(207, 103, 5);
+  --ifm-color-primary-darker: rgb(195, 97, 4);
+  --ifm-color-primary-darkest: rgb(161, 80, 4);
+  --ifm-color-primary-light: rgb(250, 126, 9);
+  --ifm-color-primary-lighter: rgb(250, 132, 20);
+  --ifm-color-primary-lightest: rgb(251, 150, 55);
 
-  --ifm-color-gray-100: rgb(245, 246, 250);
-  --ifm-color-gray-200: rgb(235, 237, 240);
-  --ifm-color-gray-300: rgb(218, 221, 230);
-  --ifm-color-gray-400: rgb(204, 208, 212);
-  --ifm-color-gray-500: rgb(190, 195, 200);
-  --ifm-color-gray-600: rgb(141, 148, 154);
-  --ifm-color-gray-700: rgb(96, 103, 106);
-  --ifm-color-gray-800: rgb(68, 73, 76);
-  --ifm-color-gray-900: rgb(28, 30, 34);
+  --ifm-color-gray-100: rgb(245, 245, 245);
+  --ifm-color-gray-150: rgb(235, 235, 235);
+  --ifm-color-gray-200: rgb(225, 225, 225);
+  --ifm-color-gray-300: rgb(200, 200, 200);
+  --ifm-color-gray-350: rgb(190, 190, 190);
+  --ifm-color-gray-400: rgb(180, 180, 180);
+  --ifm-color-gray-450: rgb(165, 165, 165);
+  --ifm-color-gray-500: rgb(150, 150, 150);
+  --ifm-color-gray-550: rgb(135, 135, 135);
+  --ifm-color-gray-600: rgb(120, 120, 120);
+  --ifm-color-gray-650: rgb(105, 105, 105);
+  --ifm-color-gray-700: rgb(90, 90, 90);
+  --ifm-color-gray-750: rgb(75, 75, 75);
+  --ifm-color-gray-800: rgb(60, 60, 60);
+  --ifm-color-gray-850: rgb(45, 45, 45);
+  --ifm-color-gray-900: rgb(30, 30, 30);
+  --ifm-color-gray-950: rgb(15, 15, 15);
 
-  --ifm-color-secondary: rgb(68, 73, 86);
+  /* --ifm-color-secondary: rgb(68, 73, 86);
   --ifm-color-secondary-dark: rgb(61, 66, 77);
   --ifm-color-secondary-darker: rgb(58, 62, 73);
   --ifm-color-secondary-darkest: rgb(48, 51, 60);
   --ifm-color-secondary-light: rgb(75, 80, 95);
   --ifm-color-secondary-lighter: rgb(78, 84, 99);
   --ifm-color-secondary-lightest: rgb(88, 95, 112);
-  --ifm-color-content-secondary: rgb(68, 73, 86);
+  --ifm-color-content-secondary: rgb(68, 73, 86); */
 
-  --ifm-background-color: rgb(255, 255, 255);
-  --ifm-hover-overlay: rgba(0, 4, 12, 0.05);
-  --ifm-font-color-base: rgb(35, 36, 38);
+  --ifm-toc-link-color: var(--ifm-color-gray-700);
+  --ifm-toc-padding-vertical: 0rem;
+  /* --ifm-toc-padding-horizontal: 1rem; */
+
+  --ifm-tabs-color: var(--ifm-font-color-secondary);
+  --ifm-tabs-color-active: var(--ifm-color-primary);
+  --ifm-tabs-color-active-border: var(--ifm-tabs-color-active);
+  --ifm-tabs-padding-horizontal: 1rem;
+  --ifm-tabs-padding-vertical: 0.5rem;
+
+  /* --ifm-font-family-base: Roboto, system-ui, -apple-system, Segoe UI, Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --ifm-font-family-monospace: Roboto Mono, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; */
+
+  --ifm-background-color: var(--ifm-color-white);
+  --ifm-color-primary-contrast-background: var(--ifm-color-gray-900);
+  --ifm-font-color-base: var(--ifm-color-gray-800);
   --ifm-font-size-base: 17px;
+  --ifm-line-height-base: 1.5rem;
+  --ifm-heading-color: var(--ifm-color-black);
+  --ifm-heading-font-weight: 500;
   --ifm-code-font-size: 90%;
   --ifm-transition-fast: 0s;
+  --ifm-transition-slow: 0s;
   --ifm-transition-timing-default: 0s;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
@@ -51,17 +80,27 @@
   --ifm-color-primary-lighter: rgb(236, 184, 81);
   --ifm-color-primary-lightest: rgb(240, 199, 119);
 
-  --ifm-background-color: rgb(16, 18, 22) !important;
-  --ifm-background-surface-color: rgb(17, 25, 39) !important;
-  --ifm-hover-overlay: rgba(0, 4, 12, 0.05);
-  --ifm-font-color-base: rgb(234, 235, 238);
+  --ifm-background-color: rgb(20, 20, 20) !important;
+  --ifm-background-surface-color: var(--ifm-color-gray-900) !important;
+  --ifm-font-color-base: var(--ifm-color-gray-400);
+  --ifm-heading-color: var(--ifm-color-gray-100);
+  --ifm-toc-link-color: var(--ifm-color-gray-550);
 }
 
 @media (min-width: 997px) {
   main {
-    margin-left: 14px;
+    margin-left: 20px;
   }
 }
+/* 
+article {
+  background-image: url("/assets/logos/virtalis.svg");
+  background-repeat: no-repeat;
+  background-size: 600px 600px;
+  background-attachment: fixed;
+  background-position: center;
+  background-blend-mode: lighten;
+} */
 
 table {
   border-collapse: collapse;
@@ -77,8 +116,8 @@ th, td {
 iframe {
   width: 100%;
   height: 100%;
-  max-width: 640px;
-  max-height: 360px;
+  max-width: 560px;
+  max-height: 340px;
   aspect-ratio: 16/9;
 }
 

@@ -38,7 +38,7 @@
 [data-theme='dark'] {
   --note-background: rgb(33, 29, 62);
   --note-highlight: rgb(46, 42, 95);
-  --note-foreground: rgb(231, 229, 255);
+  --note-foreground: rgb(219, 216, 255);
   --note-border: rgb(74, 67, 178);
   --note-link: rgb(128, 122, 239);
   --note-link-hover: rgb(128, 122, 239);

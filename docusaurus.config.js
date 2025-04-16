@@ -95,7 +95,7 @@ const config = {
       logo: {
         alt: 'Virtalis Docs Logo',
         src: 'assets/logos/virtalis-docs.svg',
-        width: 172,
+        width: 180,
       },
       items: [
         {
@@ -233,8 +233,8 @@ const config = {
     zoom: {
       selector: '.markdown :not(em) > img',
       background: {
-        light: 'rgb(238, 238, 240)',
-        dark: 'rgb(27, 27, 29)'
+        light: 'rgb(240, 240, 240)',
+        dark: 'rgb(30, 30, 30)'
       },
       config: {
         // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
