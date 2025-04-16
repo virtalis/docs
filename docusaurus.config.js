@@ -41,6 +41,13 @@ const config = {
             require.resolve('./src/css/sidebar.css'),
           ],
         },
+        googleTagManager: {
+          containerId: 'GTM-KBWDPQHK',
+        },
+        gtag: {
+          trackingID: 'G-98F5PV30KY',
+          anonymizeIP: true,
+        },
       }),
     ],
   ],
