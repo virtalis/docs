@@ -1,15 +1,24 @@
-import React from 'react';
+import React, {type ReactNode} from 'react';
 import clsx from 'clsx';
 import useIsBrowser from '@docusaurus/useIsBrowser';
 import {translate} from '@docusaurus/Translate';
 import IconLightMode from '@theme/Icon/LightMode';
 import IconDarkMode from '@theme/Icon/DarkMode';
+import type {Props} from '@theme/ColorModeToggle';
+
 import styles from './styles.module.css';
-function ColorModeToggle({className, buttonClassName, value, onChange}) {
+
+function ColorModeToggle({
+  className,
+  buttonClassName,
+  value,
+  onChange,
+}: Props): ReactNode {
   const isBrowser = useIsBrowser();
+
   const title = translate(
     {
-      message: '',
+      message: 'Switch between light and dark mode (currently {mode})',
       id: 'theme.colorToggle.ariaLabel',
       description: 'The ARIA label for the navbar color mode toggle',
     },
@@ -28,6 +37,7 @@ function ColorModeToggle({className, buttonClassName, value, onChange}) {
             }),
     },
   );
+
   return (
     <div className={clsx(styles.toggle, className)}>
       <button
@@ -42,7 +52,8 @@ function ColorModeToggle({className, buttonClassName, value, onChange}) {
         disabled={!isBrowser}
         title={title}
         aria-label={title}
-        aria-live="polite">
+        aria-live="polite"
+        aria-pressed={value === 'dark' ? 'true' : 'false'}>
         <IconLightMode
           className={clsx(styles.toggleIcon, styles.lightToggleIcon)}
         />
@@ -53,4 +64,5 @@ function ColorModeToggle({className, buttonClassName, value, onChange}) {
     </div>
   );
 }
+
 export default React.memo(ColorModeToggle);

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {type ReactNode} from 'react';
+import type {Props} from '@theme/Icon/Menu';
+
 export default function IconMenu({
   width = 35,
   height = 30,
   className,
   ...restProps
-}) {
+}: Props): ReactNode {
   return (
     <svg
       className={className}

@@ -1,9 +1,8 @@
-// @ts-check
-
 import {themes as prismThemes} from 'prism-react-renderer';
+import type {Config} from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
 
-/** @type {import('@docusaurus/types').Config} */
-const config = {
+const config: Config = {
   title: 'Virtalis Docs',
   tagline: 'Documentation portal for Virtalis applications',
   favicon: 'favicon.ico',
@@ -23,22 +22,21 @@ const config = {
   presets: [
     [
       'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         docs: {
           routeBasePath: '/',
-          sidebarPath: './sidebars.js',
+          sidebarPath: './sidebars.ts',
           editUrl: 'https://github.com/virtalis/docs/tree/master/',
           showLastUpdateTime: true,
           showLastUpdateAuthor: false,
         },
         theme: {
           customCss: [
-            require.resolve('./src/css/admonitions.css'),
-            require.resolve('./src/css/custom.css'),
-            require.resolve('./src/css/footer.css'),
-            require.resolve('./src/css/navbar.css'),
-            require.resolve('./src/css/sidebar.css'),
+            './src/css/admonitions.css',
+            './src/css/footer.css',
+            './src/css/main.css',
+            './src/css/navbar.css',
+            './src/css/sidebar.css',
           ],
         },
         googleTagManager: {
@@ -48,7 +46,7 @@ const config = {
           trackingID: 'G-98F5PV30KY',
           anonymizeIP: true,
         },
-      }),
+      } satisfies Preset.Options,
     ],
   ],
   plugins: [
@@ -97,7 +95,6 @@ const config = {
   //  experimental_router: 'hash',
   //},
   themeConfig: {
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     navbar: {
       logo: {
         alt: 'Virtalis Docs Logo',
@@ -203,16 +200,16 @@ const config = {
         {
           items: [
             {
-              html: `<a href="https://virtalis.com" target="_blank" rel="noreferrer noopener" aria-label="Virtalis Homepage"><img src="/assets/logos/virtalis.svg" class="footer__icon"/></a>`,
+              html: `<a href="https://virtalis.com" target="_blank" rel="noreferrer noopener" aria-label="Virtalis Homepage"><img src="/assets/logos/virtalis.svg" alt="Virtalis Logo" class="footer__icon"/></a>`,
             },
             {
-              html: `<a href="https://github.com/virtalis" target="_blank" rel="noreferrer noopener" aria-label="Virtalis GitHub"><img src="/assets/logos/github.svg" class="footer__icon"/></a>`,
+              html: `<a href="https://github.com/virtalis" target="_blank" rel="noreferrer noopener" aria-label="Virtalis GitHub"><img src="/assets/logos/github.svg" alt="GitHub Logo" class="footer__icon"/></a>`,
             },
             {
-              html: `<a href="https://www.linkedin.com/company/virtalis/" target="_blank" rel="noreferrer noopener" aria-label="Virtalis LinkedIn"><img src="/assets/logos/linkedin.svg" class="footer__icon"/></a>`,
+              html: `<a href="https://www.linkedin.com/company/virtalis/" target="_blank" rel="noreferrer noopener" aria-label="Virtalis LinkedIn"><img src="/assets/logos/linkedin.svg" alt="LinkedIn Logo" class="footer__icon"/></a>`,
             },
             {
-              html: `<a href="https://www.youtube.com/@VirtalisReality" target="_blank" rel="noreferrer noopener" aria-label="Virtalis YouTube"><img src="/assets/logos/youtube.svg" class="footer__icon"/></a>`,
+              html: `<a href="https://www.youtube.com/@VirtalisReality" target="_blank" rel="noreferrer noopener" aria-label="Virtalis YouTube"><img src="/assets/logos/youtube.svg" alt="YouTube Logo" class="footer__icon"/></a>`,
             },
           ],
         },
@@ -247,7 +244,7 @@ const config = {
         // options you can specify via https://github.com/francoischalifour/medium-zoom#usage
       }
     }
-  },
+  } satisfies Preset.ThemeConfig,
 };
 
 export default config;

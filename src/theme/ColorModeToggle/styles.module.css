@@ -11,23 +11,27 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  transition: background var(--ifm-transition-fast);
 }
 
 .toggleButtonDisabled {
   cursor: not-allowed;
 }
 
-[data-theme='light'] .darkToggleIcon {
-  display: none;
-}
-[data-theme='light'] .toggleButton:hover {
-  background: var(--virtalis-color-light-blue);
-}
-
+[data-theme='light'] .darkToggleIcon,
 [data-theme='dark'] .lightToggleIcon {
   display: none;
 }
+
+[data-theme='light'] .toggleButton:hover {
+  background: var(--virtalis-color-blue-highlight);
+}
 [data-theme='dark'] .toggleButton:hover {
-  background: var(--virtalis-color-blue);
+  background: var(--virtalis-color-dark-blue-highlight);
+}
+
+[data-theme='light'] .toggleButton {
+  color: white;
+}
+[data-theme='dark'] .toggleButton {
+  color: var(--ifm-color-gray-100);
 }
