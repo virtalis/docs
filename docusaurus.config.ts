@@ -3,6 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
+
   title: 'Virtalis Docs',
   tagline: 'Documentation portal for Virtalis applications',
   favicon: 'favicon.ico',
@@ -15,10 +16,15 @@ const config: Config = {
   onBrokenAnchors: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
+  //future: {
+  //  experimental_router: 'hash',
+  //},
+
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
+
   presets: [
     [
       'classic',
@@ -37,6 +43,7 @@ const config: Config = {
             './src/css/main.css',
             './src/css/navbar.css',
             './src/css/sidebar.css',
+            './src/css/youtube.css',
           ],
         },
         googleTagManager: {
@@ -49,6 +56,7 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
+
   plugins: [
     'docusaurus-plugin-image-zoom',
     [
@@ -91,9 +99,7 @@ const config: Config = {
       },
     ],
   ],
-  //future: {
-  //  experimental_router: 'hash',
-  //},
+
   themeConfig: {
     navbar: {
       logo: {
@@ -160,6 +166,7 @@ const config: Config = {
         },
       ],
     },
+
     footer: {
       links: [
         {
@@ -215,9 +222,11 @@ const config: Config = {
         },
       ],
     },
+
     colorMode: {
       defaultMode: 'dark',
     },
+
     algolia: {
       appId: 'N450QRS24Y',
       apiKey: '6d071f4bcb063177305cacdb6e2d8fe9',
@@ -229,11 +238,13 @@ const config: Config = {
       insights: false,
       placeholder: '',
     },
+
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
       additionalLanguages: ['c', 'cmake', 'glsl', 'lua', 'json'],
     },
+
     zoom: {
       selector: '.markdown :not(em) > img',
       background: {
