@@ -24,24 +24,24 @@ Visionary Render has the ability change how the scenes appear by using lights. M
 
 Ambient colour is the colour of an object where it is in shadow. This colour is what the object reflects when illuminated by ambient light rather than direct light. Position and rotation have no effect on this light source.
 
-| Property        | Description                                                                    |
-|-----------------|--------------------------------------------------------------------------------|
-| Enabled         | Standard enabled/disabled setting.                                             |
-| Type            | Indicates what type of light it is.                                            |
-| Colour          | Simple colour of the light – specified in red, green, and blue components.     |
-| Intensity       | An indication of how bright the light is. Normal range is between 0.0 and 1.0. |
+| Property        | Description                                                                                                              |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------|
+| Enabled         | Standard enabled/disabled setting.                                                                                       |
+| Type            | Indicates what type of light it is.                                                                                      |
+| Colour          | Simple colour of the light – specified in red, green, and blue components.                                               |
+| Intensity       | An indication of how bright the light is. Normal range is between 0.0 and 1.0, unless inverse square falloff is enabled. |
 
 ### Directional Light
 
 Like sunlight; parallel rays of light from a source at infinity that do not diminish with distance. Position is ignored with this light, only rotation affects this light source.
 
-| Property        | Description                                                                                                |
-|-----------------|------------------------------------------------------------------------------------------------------------|
-| Enabled         | Standard enabled/disabled setting.                                                                         |
-| Type            | Indicates what type of light it is.                                                                        |
-| Colour          | Simple colour of the light – specified in red, green, and blue components.                                 |
-| Intensity       | An indication of how bright the light is. Normal range is between 0.0 and 1.0.                             |
-| Cast Shadows    | Indicates whether this light will cast shadows – when enabled, additional shadow properties will be shown. |
+| Property        | Description                                                                                                              |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------|
+| Enabled         | Standard enabled/disabled setting.                                                                                       |
+| Type            | Indicates what type of light it is.                                                                                      |
+| Colour          | Simple colour of the light – specified in red, green, and blue components.                                               |
+| Intensity       | An indication of how bright the light is. Normal range is between 0.0 and 1.0, unless inverse square falloff is enabled. |
+| Cast Shadows    | Indicates whether this light will cast shadows – when enabled, additional shadow properties will be shown.               |
 
 ### Point Light
 
@@ -52,10 +52,9 @@ A point light source is like a light bulb – light from all directions. Rotatio
 | Enabled                | Standard enabled/disabled setting.                                                                                                                               |
 | Type                   | Indicates what type of light it is.                                                                                                                              |
 | Colour                 | Simple colour of the light – specified in red, green, and blue components.                                                                                       |
-| Intensity              | An indication of how bright the light is. Normal range is between 0.0 and 1.0.                                                                                   |
+| Intensity              | An indication of how bright the light is. Normal range is between 0.0 and 1.0, unless inverse square falloff is enabled.                                         |
 | Radius                 | Distance at which the light fades to black, if 0 then no fade, infinite                                                                                          |
 | Inverse Square Falloff | When Inverse Square Falloff is enabled, the intensity of the light diminishes in a realistic manner as the distance from the light to the lit surface increases. |
-| Visible in Iray        | Whether to enable this light when rendering the scene in Iray.                                                                                                   |
 | Cast Shadows           | Indicates whether this light will cast shadows – when enabled, additional shadow properties will be shown.                                                       |
 
 ### Spot Light
@@ -67,7 +66,7 @@ Shines in a cone from a source set by the Assembly’s position. You can specify
 | Enabled                | Standard enabled/disabled setting.                                                                                                                                              |
 | Type                   | Indicates what type of light it is.                                                                                                                                             |
 | Colour                 | Simple colour of the light – specified in red, green, and blue components.                                                                                                      |
-| Intensity              | An indication of how bright the light is. Normal range is between 0.0 and 1.0.                                                                                                  |
+| Intensity              | An indication of how bright the light is. Normal range is between 0.0 and 1.0, unless inverse square falloff is enabled.                                                        |
 | Spread Angle           | Angle of the arc of light – in degrees.                                                                                                                                         |
 | Softness               | Changes how hard or software the shadow edges appear. The larger the number the software more diffused the shadows, the smaller the number the sharper the shadow edges appear. |
 | Radius                 | Distance at which the light fades to black, if 0 then no fade, infinite. Distance is in metres.                                                                                 |
@@ -212,9 +211,9 @@ Lights in Visionary Render have “Helpers” which indicate the position, rotat
 
 ![](/img/visionary-render/renderer/lights/helpers.png)
 
-| Helper                                | Description                                                                                                                 |
-|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
-| ![](/img/visionary-render/renderer/lights/spot-light.png) | Spot light icon and helper showing direction and spread angle                                                               |
+| Helper                                | Description                                                                                                                                      |
+|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![](/img/visionary-render/renderer/lights/spot-light.png) | Spot light icon and helper showing direction and spread angle                                                                |
 | ![](/img/visionary-render/renderer/lights/point-light.png) | Point light icon and helper show the location and radius of the spread – no indication of direction as its omnidirectional. |
-| ![](/img/visionary-render/renderer/lights/directional-light.png) | Directional light icon – show direction.                                                                                    |
-| ![](/img/visionary-render/renderer/lights/ambient-light.png) | Ambient light icon – no direction as its global illumination without direction.                                             |
+| ![](/img/visionary-render/renderer/lights/directional-light.png) | Directional light icon – show direction.                                                                              |
+| ![](/img/visionary-render/renderer/lights/ambient-light.png) | Ambient light icon – no direction as its global illumination without direction.                                           |
