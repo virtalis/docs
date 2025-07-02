@@ -28,7 +28,8 @@ Core functions and types that can be used by Lua scripts and plugins.
 | void | **[vrAppCommandAdd](#vrappcommandadd)**(string commandName)<br />Adds an app command and binds a lua function call to it.  |
 | void | **[vrAppCommandBind](#vrappcommandbind)**(string commandName, Any func)<br />Binds a lua function to an app command.  |
 | string | **[vrAppDir](#vrappdir)**()<br />Gets the Visionary Render application directory.  |
-| void | **[vrArrange](#vrarrange)**([vrnode](../classes/vrnode.mdx) targetNode, string type)<br />Arranges assemblies into a grid based on their bounds.  |
+| void | **[vrArrange](#vrarrange)**([vrnode](../classes/vrnode.mdx) targetNode, string type)<br />Arranges assemblies into a grid based on their bounds. |
+| boolean | **[vrBakeMesh](#vrbakemesh)**([vrnode](../classes/vrnode.mdx) targetNode)<br />Converts deformable meshes to static meshes for export and upload. |
 | void | **[vrBuildCurveViewConfig](#vrbuildcurveviewconfig)**(number radius, number angle, number height, number segments, boolean smoothCurve, [vrnode](../classes/vrnode.mdx) user =nil, [vrnode](../classes/vrnode.mdx) camera, [vrnode](../classes/vrnode.mdx) screens =nil, [vrnode](../classes/vrnode.mdx) viewportLayout)<br />Creates or updates the PhysicalScreen and Viewport nodes for a curved screen.  |
 | void | **[vrCaptureCleanState](#vrcapturecleanstate)**()<br />Captures the current state of the Lua global environment.  |
 | void | **[vrCaptureViewpoint](#vrcaptureviewpoint)**([vrnode](../classes/vrnode.mdx) viewpoint, number size, string captureComplete, string textureCreate =0)<br />Captures the view from a specified viewpoint into a texture.  |
@@ -74,6 +75,7 @@ Core functions and types that can be used by Lua scripts and plugins.
 | string | **[vrGetCommandLineSwitchValue](#vrgetcommandlineswitchvalue)**(string name)<br />Returns the value of a command line switch.  |
 | table | **[vrGetContactPoints](#vrgetcontactpoints)**([vrnode](../classes/vrnode.mdx) nodeA, [vrnode](../classes/vrnode.mdx) nodeB)<br />Returns a list of contact points and normals between two nodes.  |
 | [vrvec3](../classes/vrvec3.mdx) | **[vrGetCursorPosition](#vrgetcursorposition)**()<br />Get the mouse cursor's current position.  |
+| table | **[vrGetDirectoryContents](#vrgetdirectorycontents)**(string path, string filter, boolean includeFolders, boolean includeFiles)<br />Gets the contents of a directory. |
 | void | **[vrGetGradientColourAt](#vrgetgradientcolourat)**([vrnode](../classes/vrnode.mdx) gradientNode, number value)<br />Gets the gradient colour (as RGB value) at the specified position.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrGetHoldingUser](#vrgetholdinguser)**([vrnode](../classes/vrnode.mdx) node)<br />Return the user that is holding the node.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrGetIconsLibrary](#vrgeticonslibrary)**(boolean create =true)<br />Gets the library in which browser icons are stored.  |
@@ -96,7 +98,7 @@ Core functions and types that can be used by Lua scripts and plugins.
 | void | **[vrGroupAddMember](#vrgroupaddmember)**([vrnode](../classes/vrnode.mdx) groupNode, [vrnode](../classes/vrnode.mdx) memberNode)<br />Adds a node to the specified group.  |
 | void | **[vrGroupHasNodeOfType](#vrgrouphasnodeoftype)**([vrnode](../classes/vrnode.mdx) groupNode, string metaType)<br />Checks whether a group contains a node of a specified type.  |
 | void | **[vrGroupRemoveMember](#vrgroupremovemember)**([vrnode](../classes/vrnode.mdx) groupNode, [vrnode](../classes/vrnode.mdx) memberNode)<br />Removes a node from the specified group.  |
-| [vrnode](../classes/vrnode.mdx) | **[vrGroupSnapshot](#vrgroupsnapshot)**([vrnode](../classes/vrnode.mdx) groupNode)<br />Creates a snapshot of the specified group.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrGroupSnapshot](#vrgroupsnapshot)**([vrnode](../classes/vrnode.mdx) groupNode, [vrnode](../classes/vrnode.mdx) snapNode)<br />Creates a snapshot of the specified group.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrGroupsRoot](#vrgroupsroot)**(boolean noCreate =false)<br />Gets the Groups root node under the Scenes tree.  |
 | void | **[vrHasLicenceFeature](#vrhaslicencefeature)**(string featureName)<br />Checks whether a licence feature is available.  |
 | boolean | **[vrHasPermission](#vrhaspermission)**(string permission, [vrnode](../classes/vrnode.mdx) originatorNode =nil)<br />Queries whether or not we have a named permission.  |
@@ -122,10 +124,10 @@ Core functions and types that can be used by Lua scripts and plugins.
 | void | **[vrLoadPlugin](#vrloadplugin)**(string pluginName, string pluginVersion, string pluginInternalName, string pluginDir) |
 | [vrnode](../classes/vrnode.mdx) | **[vrLocalUserNode](#vrlocalusernode)**()<br />Returns the local user's node.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrMakeArrow](#vrmakearrow)**([vrnode](../classes/vrnode.mdx) parent, string name, number length, number width, number centreBias)<br />Creates an arrow shape.  |
-| [vrnode](../classes/vrnode.mdx) | **[vrMakeBox](#vrmakebox)**([vrnode](../classes/vrnode.mdx) parent, string name, number width, number height, number depth)<br />Creates a box shape.  |
-| [vrnode](../classes/vrnode.mdx) | **[vrMakeCylinder](#vrmakecylinder)**([vrnode](../classes/vrnode.mdx) parent, string name, number bottomRadius, number topRadius, number height)<br />Creates a cylinder shape.  |
-| [vrnode](../classes/vrnode.mdx) | **[vrMakeEllipsoid](#vrmakeellipsoid)**([vrnode](../classes/vrnode.mdx) parent, string name, number radiusX, number radiusY, number radiusZ)<br />Creates an ellipsoid shape.  |
-| [vrnode](../classes/vrnode.mdx) | **[vrMakePlane](#vrmakeplane)**([vrnode](../classes/vrnode.mdx) parent, string name, number hsize, number vsize)<br />Creates a plane shape.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrMakeBox](#vrmakebox)**([vrnode](../classes/vrnode.mdx) parent, string name, number width, number height, number depth, number stacks, number slices, boolean reverseWinding)<br />Creates a box shape.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrMakeCylinder](#vrmakecylinder)**([vrnode](../classes/vrnode.mdx) parent, string name, number bottomRadius, number topRadius, number height, number stacks, number slices, boolean reverseWinding)<br />Creates a cylinder shape.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrMakeEllipsoid](#vrmakeellipsoid)**([vrnode](../classes/vrnode.mdx) parent, string name, number radiusX, number radiusY, number radiusZ, number stacks, number slices, boolean reverseWinding)<br />Creates an ellipsoid shape.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrMakePlane](#vrmakeplane)**([vrnode](../classes/vrnode.mdx) parent, string name, number hsize, number vsize, number stacks, number slices, boolean reverseWinding, boolean doubleSided)<br />Creates a plane shape.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrMakeTorus](#vrmaketorus)**([vrnode](../classes/vrnode.mdx) parent, string name, number radius, number rez, number ringRadius, number ringRez)<br />Creates a torus shape.  |
 | boolean | **[vrModifierPressed](#vrmodifierpressed)**(number id)<br />Tests whether any modifier keys are pressed.  |
 | void | **[vrNetworkSetRetryConnect](#vrnetworksetretryconnect)**(boolean allowRetry)<br />Sets whether failed calls to vrLinkNetwork should retry until the user manual aborts them.  |
@@ -170,7 +172,7 @@ Core functions and types that can be used by Lua scripts and plugins.
 | table | **[vrSubDirs](#vrsubdirs)**(string path)<br />Gets the subdirectories of a directory.  |
 | void | **[vrToggleProjection](#vrtoggleprojection)**()<br />Toggles the current viewport between perspective and orthographic views.  |
 | void | **[vrToggleToolEnabled](#vrtoggletoolenabled)**(string toolName, [vrnode](../classes/vrnode.mdx) userNode =nil)<br />Toggles the Enabled state of a named Tool.  |
-| void | **[vrTrackedCursorGetTouchedAssembly](#vrtrackedcursorgettouchedassembly)**()<br />Gets the first assembly currently under the tracked cursor.  |
+| void | **[vrTrackedCursorGetTouchedAssembly](#vrtrackedcursorgettouchedassembly)**(number index)<br />Gets the first assembly currently under the tracked cursor.  |
 | void | **[vrUnloadPlugin](#vrunloadplugin)**(string pluginInfo) |
 | string | **[vrUserDocumentsDir](#vruserdocumentsdir)**()<br />Gets the current user's documents directory.  |
 | string | **[vrUserPluginsDir](#vruserpluginsdir)**()<br />Gets the current applications users plug-ins directory.  |
@@ -388,6 +390,22 @@ Arranges assemblies into a grid based on their bounds.
 * gridXY
 * gridXZ
 * gridYZ 
+
+### vrBakeMesh
+
+```lua
+void vrBakeMesh(
+    vrnode targetNode
+)
+```
+
+Converts deformable meshes to static meshes for export and upload.
+
+**Parameters**: 
+
+  * **targetNode** The node of the visual you want to convert
+
+**Return**: true if the conversion was successful.
 
 ### vrBuildCurveViewConfig
 
@@ -1025,6 +1043,28 @@ Get the mouse cursor's current position.
 
 **Return**: World position of the mouse cursor 
 
+### vrGetDirectoryContents
+
+```lua
+table vrGetDirectoryContents(
+    string path,
+    string filter,
+    boolean includeFolders,
+    boolean includeFiles
+)
+```
+
+Gets the contents of a directory.
+
+**Parameters**: 
+
+  * **path** Path to the directory to scan
+  * **filter** A list of filters separated by '|', e.g. '\*.jpg|\*.png' *[default: nil]*
+  * **includeFolders** Should folders be included in the results *[default: false]*
+  * **includeFiles** Should files be included in the results *[default: true]*
+
+**Return**: A table of tables where each subtable contains details of one file/folder in the specified directory: 'name', 'path', 'size' and 'isFolder'
+
 ### vrGetGradientColourAt
 
 ```lua
@@ -1305,7 +1345,8 @@ Removes a node from the specified group.
 
 ```lua
 vrnode vrGroupSnapshot(
-    vrnode groupNode
+    vrnode groupNode,
+    vrnode snapNode
 )
 ```
 
@@ -1314,6 +1355,7 @@ Creates a snapshot of the specified group.
 **Parameters**: 
 
   * **groupNode** The group node 
+  * **snapNode** The existing snapshot node that will be replaced if specified *[default: nil]*
 
 **Return**: The snapshot node that was created/updated 
 
@@ -1633,7 +1675,10 @@ vrnode vrMakeBox(
     string name,
     number width,
     number height,
-    number depth
+    number depth,
+    number stacks,
+    number slices,
+    boolean reverseWinding
 )
 ```
 
@@ -1647,7 +1692,10 @@ vrnode vrMakeCylinder(
     string name,
     number bottomRadius,
     number topRadius,
-    number height
+    number height,
+    number stacks,
+    number slices,
+    boolean reverseWinding
 )
 ```
 
@@ -1661,7 +1709,10 @@ vrnode vrMakeEllipsoid(
     string name,
     number radiusX,
     number radiusY,
-    number radiusZ
+    number radiusZ,
+    number stacks,
+    number slices,
+    boolean reverseWinding
 )
 ```
 
@@ -1675,6 +1726,10 @@ vrnode vrMakePlane(
     string name,
     number hsize,
     number vsize
+    number stacks,
+    number slices,
+    boolean reverseWinding,
+    boolean doubleSided
 )
 ```
 
@@ -2291,10 +2346,16 @@ Toggles the Enabled state of a named Tool.
 ### vrTrackedCursorGetTouchedAssembly
 
 ```lua
-void vrTrackedCursorGetTouchedAssembly()
+void vrTrackedCursorGetTouchedAssembly(
+    number index
+)
 ```
 
 Gets the first assembly currently under the tracked cursor. 
+
+**Parameters**: 
+
+  * **index** The index of the hand to check, 0 = left hand, 1 = right hand [default: 1]
 
 ### vrUnloadPlugin
 

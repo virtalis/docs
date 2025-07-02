@@ -27,12 +27,12 @@ Functions for interacting with the tree views.
 | [vrnode](../classes/vrnode.mdx) | **[vrSelectPrevious](#vrselectprevious)**(number distance =1)<br />Navigates to the previous selection.  |
 | void | **[vrSetSelectedTreeFrame](#vrsetselectedtreeframe)**(string name)<br />Sets the currently selected tree view frame by name.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrSystemLibsNode](#vrsystemlibsnode)**()<br />Returns the SystemsLib node from the tree.  |
-| [vrnode](../classes/vrnode.mdx) | **[vrTreeControlRangeSelect](#vrtreecontrolrangeselect)**([vrnode](../classes/vrnode.mdx) view =nil)<br />Selects or deselects all nodes between the specified node and the last selected node without affecting the rest of the selection.  |
-| [vrnode](../classes/vrnode.mdx) | **[vrTreeControlSelect](#vrtreecontrolselect)**([vrnode](../classes/vrnode.mdx) view =nil)<br />Selects (or deselects the currently selected) node without affecting the rest of the selection.  |
-| [vrnode](../classes/vrnode.mdx) | **[vrTreeRangeSelect](#vrtreerangeselect)**([vrnode](../classes/vrnode.mdx) view =nil)<br />Selects all nodes between the specified node and the last selected node.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrTreeControlRangeSelect](#vrtreecontrolrangeselect)**([vrnode](../classes/vrnode.mdx) view =nil, vrnode node =nil)<br />Selects or deselects all nodes between the specified node and the last selected node without affecting the rest of the selection.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrTreeControlSelect](#vrtreecontrolselect)**([vrnode](../classes/vrnode.mdx) view =nil, vrnode node =nil)<br />Selects (or deselects the currently selected) node without affecting the rest of the selection.  |
+| [vrnode](../classes/vrnode.mdx) | **[vrTreeRangeSelect](#vrtreerangeselect)**([vrnode](../classes/vrnode.mdx) view =nil, vrnode node =nil)<br />Selects all nodes between the specified node and the last selected node.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrTreeRoot](#vrtreeroot)**()<br />Returns the root node.  |
 | table | **[vrTreeSearch](#vrtreesearch)**([vrnode](../classes/vrnode.mdx) startNode, string searchQuery)<br />Searches the tree and returns a table of results matching the query.  |
-| [vrnode](../classes/vrnode.mdx) | **[vrTreeSelect](#vrtreeselect)**([vrnode](../classes/vrnode.mdx) view =nil)<br />Selects the specified node in the specified view (or any view if nil).  |
+| [vrnode](../classes/vrnode.mdx) | **[vrTreeSelect](#vrtreeselect)**([vrnode](../classes/vrnode.mdx) view =nil, vrnode node =nil)<br />Selects the specified node in the specified view (or any view if nil).  |
 | void | **[vrTreeViewSelectionCollapse](#vrtreeviewselectioncollapse)**(string view)<br />Collapses the current selection.  |
 | void | **[vrTreeViewSelectionCollapseAll](#vrtreeviewselectioncollapseall)**(string view)<br />Collapses the current selection and its descendants.  |
 | void | **[vrTreeViewSelectionExpand](#vrtreeviewselectionexpand)**(string view)<br />Expands the current selection.  |
@@ -279,7 +279,8 @@ Returns the SystemsLib node from the tree.
 
 ```lua
 vrnode vrTreeControlRangeSelect(
-    vrnode view =nil
+    vrnode view =nil,
+    vrnode node =nil
 )
 ```
 
@@ -291,7 +292,8 @@ Selects or deselects all nodes between the specified node and the last selected 
 
 ```lua
 vrnode vrTreeControlSelect(
-    vrnode view =nil
+    vrnode view =nil,
+    vrnode node =nil
 )
 ```
 
@@ -303,7 +305,8 @@ Selects (or deselects the currently selected) node without affecting the rest of
 
 ```lua
 vrnode vrTreeRangeSelect(
-    vrnode view =nil
+    vrnode view =nil,
+    vrnode node =nil
 )
 ```
 
@@ -341,7 +344,8 @@ Searches the tree and returns a table of results matching the query.
 
 ```lua
 vrnode vrTreeSelect(
-    vrnode view =nil
+    vrnode view =nil,
+    vrnode node =nil
 )
 ```
 

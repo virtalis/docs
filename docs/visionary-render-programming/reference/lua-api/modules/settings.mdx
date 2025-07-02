@@ -27,10 +27,10 @@ Functions for accessing settings.
 | [vrnode](../classes/vrnode.mdx) | **[vrSettingGetSceneRoot](#vrsettinggetsceneroot)**()<br />Gets the root of the settings overrides in the scenes tree if it exists.  |
 | Any | **[vrSettingRead](#vrsettingread)**(string path, [vrnode](../classes/vrnode.mdx) user =nil)<br />Reads the value of a setting.  |
 | boolean | **[vrSettingRemoveFromScene](#vrsettingremovefromscene)**(string path)<br />Removes a scene setting.  |
-| void | **[vrSettingSetCaption](#vrsettingsetcaption)**(string path, string caption)<br />Assigns a custom caption to a setting, allowing the text displayed in user interface to be different from the setting name.  |
-| void | **[vrSettingSetFilter](#vrsettingsetfilter)**(string path, string filter)<br />Assigns a filter to a setting. The meaning of the filter depends on the setting type.  |
-| void | **[vrSettingSetStep](#vrsettingsetstep)**(string path, number step)<br />Assigns a step size to a numerical setting.  |
-| void | **[vrSettingSetType](#vrsettingsettype)**(string path, string type)<br />Assigns a type to a setting, which determines how the setting is presented in the user interface.  |
+| void | **[vrSettingSetCaption](#vrsettingsetcaption)**(string path, string caption, vrnode user)<br />Assigns a custom caption to a setting, allowing the text displayed in user interface to be different from the setting name.  |
+| void | **[vrSettingSetFilter](#vrsettingsetfilter)**(string path, string filter, vrnode user)<br />Assigns a filter to a setting. The meaning of the filter depends on the setting type.  |
+| void | **[vrSettingSetStep](#vrsettingsetstep)**(string path, number step, vrnode user)<br />Assigns a step size to a numerical setting.  |
+| void | **[vrSettingSetType](#vrsettingsettype)**(string path, string type, vrnode user)<br />Assigns a type to a setting, which determines how the setting is presented in the user interface.  |
 | void | **[vrSettingWrite](#vrsettingwrite)**(string path, Any value, [vrnode](../classes/vrnode.mdx) user =nil)<br />Writes the value of a setting.  |
 
 ## Functions Documentation
@@ -326,7 +326,8 @@ Removes a scene setting.
 ```lua
 void vrSettingSetCaption(
     string path,
-    string caption
+    string caption,
+    vrnode user
 )
 ```
 
@@ -336,13 +337,15 @@ Assigns a custom caption to a setting, allowing the text displayed in user inter
 
   * **path** Path to the setting (relative to the registry root) 
   * **caption** The caption to be displayed in the user interface 
-
+  * **user** The user that this setting belongs to (defaults to the current user)
+  
 ### vrSettingSetFilter
 
 ```lua
 void vrSettingSetFilter(
     string path,
-    string filter
+    string filter,
+    vrnode user
 )
 ```
 
@@ -352,13 +355,15 @@ Assigns a filter to a setting. The meaning of the filter depends on the setting 
 
   * **path** Path to the setting (relative to the registry root) 
   * **filter** List of allowable file extensions for a file property or node types for a link property 
+  * **user** The user that this setting belongs to (defaults to the current user)
 
 ### vrSettingSetStep
 
 ```lua
 void vrSettingSetStep(
     string path,
-    number step
+    number step,
+    vrnode user
 )
 ```
 
@@ -368,13 +373,15 @@ Assigns a step size to a numerical setting.
 
   * **path** Path to the setting (relative to the registry root) 
   * **step** The step size 
+  * **user** The user that this setting belongs to (defaults to the current user)
 
 ### vrSettingSetType
 
 ```lua
 void vrSettingSetType(
     string path,
-    string type
+    string type,
+    vrnode user
 )
 ```
 
@@ -384,6 +391,7 @@ Assigns a type to a setting, which determines how the setting is presented in th
 
   * **path** Path to the setting (relative to the registry root) 
   * **type** The type name (e.g. 'image', 'file', 'slider', 'colour', 'rect', 'sphere', 'matrix', etc.) 
+  * **user** The user that this setting belongs to (defaults to the current user)
 
 ### vrSettingWrite
 

@@ -19,7 +19,7 @@ Functions for interacting with bodies.
 | void | **[vrBodyFlyToFit](#vrbodyflytofit)**([vrnode](../classes/vrnode.mdx) node, number time, number fillFraction =CameraFlyManager::Fill_Default, boolean immersive =false, boolean addToStack =false)<br />Flies the body to a position where it can see the whole of node from that angle, over time seconds.  |
 | void | **[vrBodyFlyToFitBounds](#vrbodyflytofitbounds)**([vrnode](../classes/vrnode.mdx) node, number time, number fillFraction =1.0)<br />Flies the body to a position where it can see the whole of node, over time seconds.  |
 | void | **[vrBodyFlyToFitSphere](#vrbodyflytofitsphere)**([vrvec3](../classes/vrvec3.mdx) center, number radius, number time, number fillFraction =1.0)<br />Flies the body to a position where it can see the whole of a bounding sphere, over time seconds.  |
-| void | **[vrBodyFlyToLookAt](#vrbodyflytolookat)**([vrnode](../classes/vrnode.mdx) node =nil, number time, [vrvec3](../classes/vrvec3.mdx) direction)<br />Flies the body to a position where it is looking at the selected object from the specified direction, over time seconds.  |
+| void | **[vrBodyFlyToLookAt](#vrbodyflytolookat)**([vrnode](../classes/vrnode.mdx) node =nil, number time, [vrvec3](../classes/vrvec3.mdx) direction, number fillFraction)<br />Flies the body to a position where it is looking at the selected object from the specified direction, over time seconds.  |
 | void | **[vrBodyFlyToWorldPos](#vrbodyflytoworldpos)**([vrvec3](../classes/vrvec3.mdx) pos, [vrvec3](../classes/vrvec3.mdx) rot, number time, boolean fadeInOut =false, boolean addToStack =false, [vrnode](../classes/vrnode.mdx) user =nil)<br />Flies the body to a specific position and rotation, over time seconds.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrBodyGetViewConnection](#vrbodygetviewconnection)**()<br />Returns the object to which the view is currently connected.  |
 | [MULTI](../classes/multi.mdx)< [vrvec3](../classes/vrvec3.mdx), [vrvec3](../classes/vrvec3.mdx) > | **[vrBodyGetWorldPos](#vrbodygetworldpos)**([vrnode](../classes/vrnode.mdx) user =nil)<br />Gets the user's body position and rotation.  |
@@ -33,7 +33,7 @@ Functions for interacting with bodies.
 | void | **[vrBodyStepForward](#vrbodystepforward)**(number time, boolean fadeInOut)<br />Steps forward to the next viewport or camera position.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrGetBody](#vrgetbody)**([vrnode](../classes/vrnode.mdx) user =nil)<br />Gets the body currently controlling the user's view.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrGetLocalBody](#vrgetlocalbody)**()<br />Gets the local body, regardless of any remote connections.  |
-| void | **[vrPositionAtBody](#vrpositionatbody)**([vrnode](../classes/vrnode.mdx) node)<br />Moves a node to the user's current position and orientation.  |
+| void | **[vrPositionAtBody](#vrpositionatbody)**([vrnode](../classes/vrnode.mdx) node, [vrnode](../classes/vrnode.mdx) user)<br />Moves a node to the specified user's current position and orientation.  |
 
 ## Functions Documentation
 
@@ -198,6 +198,7 @@ Flies the body to a position where it is looking at the selected object from the
   * **node** The node to fly to 
   * **time** The number of seconds to fly 
   * **direction** A unit direction vector in world coordinates 
+  * **fillFraction** defines how much of the screen the object will take up. 0.0 to 1.0
 
 ### vrBodyFlyToWorldPos
 
@@ -380,12 +381,14 @@ Gets the local body, regardless of any remote connections.
 
 ```lua
 void vrPositionAtBody(
-    vrnode node
+    vrnode node,
+    vrnode user
 )
 ```
 
-Moves a node to the user's current position and orientation. 
+Moves a node to the specified user's current position and orientation. 
 
 **Parameters**: 
 
   * **node** The node to move 
+  * **user** The user whose position the node should match (defaults to local user)

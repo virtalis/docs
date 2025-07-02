@@ -11,7 +11,7 @@ Functions for interacting with the Visionary Render GUI.
 
 | Type           | Name           |
 | -------------- | -------------- |
-| void | **[vrAddToolbarButton](#vraddtoolbarbutton)**([vrnode](../classes/vrnode.mdx) toolbarNode, [vrnode](../classes/vrnode.mdx) groupNode, string name, number type, string caption, string icon, string command, string userString, string clusterScope, string statusTxt)<br />Adds a button to a toolbar dock group.  |
+| void | **[vrAddToolbarButton](#vraddtoolbarbutton)**([vrnode](../classes/vrnode.mdx) toolbarNode, [vrnode](../classes/vrnode.mdx) groupNode, string name, number type, string caption, string icon, string command, string userString, string clusterScope, string statusTxt, boolean showInfo)<br />Adds a button to a toolbar dock group.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrAddToolbarButtonGroup](#vraddtoolbarbuttongroup)**([vrnode](../classes/vrnode.mdx) toolbarUINode, string groupName, boolean hasScrollBar =true)<br />Adds a new group for toolbar buttons to be attached to.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrAddToolbarDock](#vraddtoolbardock)**([vrnode](../classes/vrnode.mdx) notebookNode, string tabName, string tabIcon)<br />Adds a docked window to a notebook that toolbars can be added to.  |
 | void | **[vrCloseNotebookPane](#vrclosenotebookpane)**(string notebookName, string paneName)<br />Closes the specified pane of the given notebook.  |
@@ -49,11 +49,11 @@ Functions for interacting with the Visionary Render GUI.
 | void | **[vrShowSequence](#vrshowsequence)**([vrnode](../classes/vrnode.mdx) selection)<br />Shows the specified sequence in the sequencer window.  |
 | void | **[vrShowSequencer](#vrshowsequencer)**([vrnode](../classes/vrnode.mdx) selection)<br />Shows the sequencer window.  |
 | void | **[vrShowSettingsWindow](#vrshowsettingswindow)**([vrnode](../classes/vrnode.mdx) selection =nil, number tabIndex =-1)<br />Pops up the application settings for the specified settings group.  |
-| void | **[vrToggleGUIEnabled](#vrtoggleguienabled)**([vrnode](../classes/vrnode.mdx) userNode =nil)<br />Toggles the visibility of the windows over the 3D scene.  |
+| void | **[vrToggleGUIEnabled](#vrtoggleguienabled)**([vrnode](../classes/vrnode.mdx) userNode =nil, [vrnode](../classes/vrnode.mdx) excludeNode =nil)<br />Toggles the visibility of the windows over the 3D scene.  |
 | boolean | **[vrToggleNotebookPane](#vrtogglenotebookpane)**(string notebookName, string paneName)<br />If the current pane is visible it will be hidden, if it's hidden it will be made visible (and selected).  |
 | void | **[vrToggleSubtreeStats](#vrtogglesubtreestats)**()<br />Toggles the subtree stats display in the properties window.  |
 | void | **[vrUpdateMenu](#vrupdatemenu)**([vrnode](../classes/vrnode.mdx) uinode)<br />Create menu item frames for children of the menu node.  |
-| void | **[vrUpdateSelectionHistoryMenu](#vrupdateselectionhistorymenu)**([vrnode](../classes/vrnode.mdx) menu)<br />Updates a menu to display the current selection history.  |
+| void | **[vrUpdateSelectionHistoryMenu](#vrupdateselectionhistorymenu)**([vrnode](../classes/vrnode.mdx) menu, vrnode user)<br />Updates a menu to display the current selection history.  |
 
 ## Functions Documentation
 
@@ -70,7 +70,8 @@ void vrAddToolbarButton(
     string command,
     string userString,
     string clusterScope,
-    string statusTxt
+    string statusTxt,
+    boolean showInfo
 )
 ```
 
@@ -88,6 +89,7 @@ Adds a button to a toolbar dock group.
   * **userString** The user parameters for the lua command. 
   * **clusterScope** The cluster scope of the button. 
   * **statusTxt** The status text displayed while hovering over the button 
+  * **showInfo** Whether to show the status text below the button caption at all times 
 
 ### vrAddToolbarButtonGroup
 
@@ -293,7 +295,9 @@ Pops up the tools window.
 
 ```lua
 void vrPresentMessage(
-    string msg
+    string msg,
+    number type,
+    boolean closeOnIgnore
 )
 ```
 
@@ -302,6 +306,8 @@ Presents a message box to the user.
 **Parameters**: 
 
   * **msg** The message to display 
+  * **type** The type of message box: 0 = info *[default]*, 1 = warning, 3 = error
+  * **closeOnIgnore** Whether the message can be dismissed by clicking its background *[default: true]*
 
 ### vrProgressBegin
 
@@ -626,7 +632,8 @@ Pops up the application settings for the specified settings group.
 
 ```lua
 void vrToggleGUIEnabled(
-    vrnode userNode =nil
+    vrnode userNode =nil,
+    vrnode excludeNode =nil
 )
 ```
 
@@ -634,7 +641,8 @@ Toggles the visibility of the windows over the 3D scene.
 
 **Parameters**: 
 
-  * **userNode** user whose gui should be affected (defaults to local user) 
+  * **userNode** User whose GUI should be affected (defaults to local user) 
+  * **excludeNode** Optional UIDefinition node to exclude from this action
 
 ### vrToggleNotebookPane
 
@@ -680,7 +688,8 @@ Create menu item frames for children of the menu node.
 
 ```lua
 void vrUpdateSelectionHistoryMenu(
-    vrnode menu
+    vrnode menu,
+    vrnode user
 )
 ```
 
