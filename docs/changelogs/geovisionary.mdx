@@ -1,9 +1,43 @@
 ---
 sidebar_position: 1
-description: 2019.2 to 2025.1
+description: 2019.2 to 2025.2
 ---
 
 # GeoVisionary
+
+## 2025.2
+
+*Released 2025-07-04*
+
+#### Added
+
+- Support for CUDA 12 and above
+- Chromium web browser that can be attached to scene objects via a texture
+- Hand and finger tracking when an immersive license is present
+- Search bar to the settings window
+- Line numbers to the script editor
+
+#### Changed
+
+- Optimised the renderer to reduce CPU usage, especially in complex scenes with non-instanced rendering
+
+#### Removed
+
+- Subdirectories and uninstaller from the start menu shortcuts
+
+#### Fixed
+
+- Crash when creating a light or reflection probe with probe helpers enabled
+- Adding pivots to objects causes their transforms to be incorrect
+- Text of disabled nodes in the tree is unreadable when selected or filtered
+- Script editor line count can become incorrect when the window is moved
+- Crosses on the colour picker can occasionally be rendered as solid black squares
+- Cursor flickers when highlighting text in text edit boxes
+- 'View Captured Files' button in screen capture tool doesn't work when the directory includes non-ASCII characters
+- 'Delete unused materials' doesn't always work as expect and can delete textures and materials with instances
+- Setting 'Max Displayed' for bounding box to 1 causes the bounding box to be offset
+
+---
 
 ## 2025.1
 

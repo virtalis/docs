@@ -1,9 +1,55 @@
 ---
 sidebar_position: 5
-description: 1.0.1 to 2025.1
+description: 1.0.1 to 2025.2
 ---
 
 # Visionary Render
+
+## 2025.2
+
+*Released 2025-07-04*
+
+#### Added
+
+- Chromium web browser that can be attached to scene objects via a texture
+- Hand and finger tracking when an immersive license is present
+- Manikins can be converted to baked geometry and vice versa
+- Deformable meshes can be converted to baked meshes and vice versa
+- Vertex and surface snapping on tree view drag and drop or PRS pivot placement
+- Search bar to the settings window
+- Search bar to the local copy of Virtalis Docs that works when your machine has an internet connection
+- Line numbers to the script editor
+- 'Override Materials' setting to control whether solid selection highlighting makes objects transparent
+- Settings for changing the laser colour
+
+#### Changed
+
+- Optimised the renderer to reduce CPU usage, especially in complex scenes with non-instanced rendering
+- Replace 'Add Data To' combo box in Merge Settings with 'Add Data to Parent' and 'Add Data to Branch' check boxes
+- Replace 'Post Merge Filtering' combo box in Merge Settings with 'Disable Removed' and 'Delete Removed' check boxes
+
+#### Removed
+
+- Subdirectories and uninstaller from the start menu shortcuts
+
+#### Fixed
+
+- Crash when creating a light or reflection probe with probe helpers enabled
+- Crash when a collision occurs with 'Vibrate on touch' enabled and the avatar is disabled
+- Adding pivots to objects causes their transforms to be incorrect
+- Text of disabled nodes in the tree is unreadable when selected or filtered
+- 'Merge alongside existing' setting renames existing nodes with the same name
+- 'Delete Removed' merge setting does not delete removed objects
+- Unnecessary data is left on nodes following a merge and should be cleaned up
+- Script editor line count can become incorrect when the window is moved
+- Crosses on the colour picker can occasionally be rendered as solid black squares
+- Cursor flickers when highlighting text in text edit boxes
+- 'View Captured Files' button in screen capture tool doesn't work when the directory includes non-ASCII characters
+- GUI cursor position can be wrong in a HMD with a custom viewport
+- 'Delete unused materials' doesn't always work as expect and can delete textures and materials with instances
+- Setting 'Max Displayed' for bounding box to 1 causes the bounding box to be offset
+
+---
 
 ## 2025.1
 
