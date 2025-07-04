@@ -1,22 +1,22 @@
 :root {
   --docsearch-primary-color: var(--ifm-color-primary);
   --docsearch-text-color: var(--ifm-font-color-base);
-  --docsearch-muted-color: var(--ifm-color-gray-800);
+  --docsearch-muted-color: var(--ifm-color-gray-700);
   --docsearch-container-background: rgba(84, 88, 97, 0.7);
-  --docsearch-modal-background: rgb(240, 241, 248);
+  --docsearch-modal-background: var(--ifm-color-emphasis-100);
   --docsearch-modal-shadow: none;
-  --docsearch-searchbox-background: var(--virtalis-color-dark-blue);
+  --docsearch-searchbox-background: var(--virtalis-color-darker-blue);
   --docsearch-searchbox-focus-background: var(--ifm-color-white);
   --docsearch-searchbox-shadow: inset 0 0 0 2px var(--virtalis-color-orange);
   --docsearch-hit-color: var(--ifm-font-color-base);
   --docsearch-hit-active-color: var(--ifm-color-white);
-  --docsearch-hit-background: var(--ifm-color-white);
+  --docsearch-hit-background: var(--ifm-color-emphasis-200);
   --docsearch-hit-shadow: none;
   --docsearch-icon-stroke-width: 2;
-  --docsearch-key-gradient: var(--ifm-color-emphasis-500);
+  --docsearch-key-gradient: var(--ifm-color-emphasis-300);
   --docsearch-key-shadow: none;
   --docsearch-key-pressed-shadow: none;
-  --docsearch-footer-background: rgb(224, 226, 235);
+  --docsearch-footer-background: var(--ifm-footer-background-color);
   --docsearch-footer-shadow: none;
 }
 
@@ -27,11 +27,11 @@
   --docsearch-container-background: rgba(84, 88, 97, 0.7);
   --docsearch-modal-background: var(--ifm-background-color);
   --docsearch-modal-shadow: none;
-  --docsearch-searchbox-background: var(--virtalis-color-darker-blue);
+  --docsearch-searchbox-background: var(--ifm-color-black);
   --docsearch-searchbox-focus-background: var(--ifm-color-black);
   --docsearch-hit-color: var(--ifm-font-color-base);
   --docsearch-hit-active-color: var(--ifm-color-white);
-  --docsearch-hit-background: var(--ifm-color-black);
+  --docsearch-hit-background: var(--ifm-color-emphasis-100);
   --docsearch-hit-shadow: none;
   --docsearch-key-gradient: var(--ifm-color-emphasis-200);
   --docsearch-key-shadow: none;
@@ -54,14 +54,7 @@
 .DocSearch-Button:focus,
 .DocSearch-Button:hover {
   color: var(--ifm-color-white);
-  background: var(--virtalis-color-dark-blue);
-}
-
-[data-theme='dark'] .DocSearch-Button:active,
-[data-theme='dark'] .DocSearch-Button:focus,
-[data-theme='dark'] .DocSearch-Button:hover {
-  color: var(--ifm-color-white);
-  background: var(--virtalis-color-darker-blue);
+  background: var(--ifm-color-black);
 }
 
 .DocSearch-Container {

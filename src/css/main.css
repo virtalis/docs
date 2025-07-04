@@ -94,19 +94,10 @@
 }
 
 @media (min-width: 997px) {
-  article {
+  main {
     margin-left: 20px;
   }
 }
-/* 
-article {
-  background-image: url("/assets/logos/virtalis.svg");
-  background-repeat: no-repeat;
-  background-size: 600px 600px;
-  background-attachment: fixed;
-  background-position: center;
-  background-blend-mode: lighten;
-} */
 
 table {
   border-collapse: collapse;
