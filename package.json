@@ -1,6 +1,6 @@
 {
   "name": "virtalis-docs",
-  "version": "2025.1",
+  "version": "2025.2",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
