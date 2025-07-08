@@ -1,32 +1,44 @@
 # Local License
 
-When you run Visionary Render or another Virtalis application for the first time, you will see the following dialog:
+A local license is a license file tied to a single machine (MAC address) that's installed on the machine that will be running the software. No network connection or additional software is required.
 
-![](/img/license-server/import.png)
+## Setup
 
-## Import
+<Steps>
 
-Press the **Import License File** button to open a file dialog and locate your license, which should have been issued to you by a member of Virtalis staff. If the license file is valid, the dialog will close and the application will continue.
+1. Run Visionary Render or another Virtalis application. You will see the following dialog:
+
+   ![](/img/license-server/import.png)
+
+2. If you do not yet have a license, copy the text in the dialog as instructed and email it to licensing@virtalis.com.
+
+3. If you have a license file, press the **Import License File** button to open a file dialog and browse for your license. If the license file is valid, the dialog will close and the application will start. From this point, you should no longer see the license dialog on startup until your license expires.
+
+</Steps>
 
 ## Configure
 
-Each licensed Virtalis application has a System Tray icon. You can change the licensing configuration when the application is running by right clicking on the icon and selecting **Launch Admin Panel** from the context menu.
+### Admin Panel
 
-## Multiple Users
+You can configure licenses via the Admin Panel web interface. To open it, run the application, then right-click on the System Tray icon as below and choose **Launch Admin Panel** from the context menu.
 
-To permit multiple users to login and automatically pick up the licence information, create a single accessible directory.
-By default, the information is stored in the following directories:
+![](/img/license-server/system-tray.png)
 
-- `C:\Windows\System32\config\systemprofile\AppData\Local\Virtalis\LicenseServer`
-- `C:\Windows\System32\config\systemprofile\AppData\Local\Virtalis\LicenseServerUtils`
+You should now see the below page in your default browser. From here, you can view a list of available licenses, import new ones, connect to a license server, or configure the license settings for this application.
 
-### Custom Directories
+![](/img/license-server/client.png)
 
-You can overwrite the default directories with the environment variables `VRLICENSEDATASDIR` and `VRLICENSEUTILSDIR`. These should be set to a path that is accessible to all users, such as:
+### Multiple Users
+
+If the machine has multiple users who need to access the license, you will need to change the default data directory to a shared location. By default, the license data is stored at the following user-specific directory:
+
+- `C:\Windows\System32\config\systemprofile\AppData\Local\Virtalis\licenseutils`
+
+You can overwrite this directory with the `VRLICENSEUTILSDIR` environment variable. This should be set to a path that is accessible to all users, such as:
 
 | Env. Variable | Value |
 |---|---|
-| VRLICENSEDATADIR | `C:\Virtalis\Licenses\data` |
 | VRLICENSEUTILSDIR | `C:\Virtalis\Licenses` |
 
-These directories and any subdirectories will be created the next time you run Visionary Render or another Virtalis application. From this point, the application will use the license utils directory located in this path so all users will automatically pick up `LicenceClient.xml` and connect to the server.
+The directory will be created and used the next time you run the application, and will permit all users on the machine to 
+automatically use `LicenceClient.xml` to run the application.
