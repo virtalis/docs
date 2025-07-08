@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkvirtalis_docs=self.webpackChunkvirtalis_docs||[]).push([[15088],{59625:e=>{e.exports=JSON.parse('{"categoryGeneratedIndex":{"title":"Release Notes","slug":"release-notes","permalink":"/release-notes","sidebar":"releaseNotesSidebar","navigation":{"next":{"title":"2025.1","permalink":"/release-notes/geovisionary/2025.1"}}}}')}}]);

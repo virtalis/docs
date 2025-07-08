@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkvirtalis_docs=self.webpackChunkvirtalis_docs||[]).push([[52634],{29179:(r,s,e)=>{e.r(s),e.d(s,{default:()=>a});e(96540);var i=e(56347),t=e(74848);function a(){return(0,t.jsx)(i.rd,{to:"/visionary-render"})}}}]);
