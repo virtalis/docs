@@ -1,0 +1,114 @@
+---
+sidebar_position: 978
+---
+
+# 2025.2
+
+Thank you for downloading Visionary Render 2025.2. This release focuses on deepening immersion for XR workflows, streamlining everyday configuration tasks, and strengthening the fidelity of exported data for downstream processes.
+
+A new in‑scene Chromium browser brings live dashboards, documentation and portals directly into the scene. Instant search in settings, vertex and surface snapping, and personal laser colours streamline everyday setup and experience.
+
+Manikin geometry can now be ‘baked’ for JT export, and a suite of targeted merge, import and asset‑cleanup fixes keeps assemblies aligned with their source CAD.
+
+## What's New in This Release?
+
+### Immersive Web Browser
+
+We have embedded a modern Chromium‑based web browser that can be attached to any object as a live texture or used in an image panel. Engineers can bring design portals, manufacturing dashboards or documentation directly into the scene, enabling in‑context decision‑making without leaving XR.
+
+Key benefits of the immersive web browser:
+
+- Render secure internal or public web content directly inside the scene.
+- Insert video content, including those hosted on YouTube.
+- Interact using standard mouse/keyboard or VR pointer input, including text entry and scroll gestures.
+- Support for multiple independent browser instances.
+
+:::note
+Installing browser extensions is not supported.
+:::
+
+### Experimental Hand Tracking (Immersive Licence Required)
+
+Native OpenXR hand and finger tracking is now available as an experimental feature for customers with an Immersive licence.
+
+Highlights:
+
+- Automatic fallback to controllers when hands leave the tracking volume.
+- Per‑user enable switch in Settings > Tracking > Configuration.
+
+:::warning
+Because device implementations vary, this feature is not yet recommended for production workflows. Please send feedback to help us harden the feature for general usage.
+:::
+
+### Unified Search inside Settings
+
+A new search box at the top left of the Settings Window lets you jump directly to any setting by name or keyword. Press Ctrl+F (or click in the search box) and start typing. Matching search results expand in the dropdown as you type, which saves time during configuration.
+
+### Vertex Snapping for Precise Assembly
+
+Drag‑and‑drop operations in the tree view and PRS gizmo placement now respect vertex and surface snap targets. This allows more accurate alignment of parts when assembling your scenes.
+
+### Baking Manikin Meshes for JT Export 
+
+Visionary Render can now convert manikins into lightweight baked meshes, preserving pose and anthropometric scaling for ergonomic studies downstream. The key benefit to this is that manikins will now appear in JT exports as they were posed in the scene. 
+
+### Customisable Laser Colour
+
+Personalise collaboration sessions by choosing the hue and saturation of your VR pointer laser. The colour persists per user profile and is visible to all participants, helping quick identification.
+
+![](/img/release-notes/visionary-render/2025.2-1.png)
+
+### Line Numbers in the Script Editor
+
+The Lua script editor now shows a dynamic gutter of line numbers that updates as you add or remove code. Line numbers are not copied to the clipboard, so you can still paste clean code into external tools.
+
+![](/img/release-notes/visionary-render/2025.2-2.png)
+
+### Importers and Exporters
+
+| Importer | Version Support Added |
+|---|---|
+| CATIA | V5 2025 |
+| 3DXML | 2025 |
+| Inventor | 2026 |
+| STEP | AP 242 Ed2 and Ed3 |
+| IFC | 4x3 (Beta) |
+| Parasolid | 37.1 |
+
+## Notable Bug Fixes
+
+#### Consistent 'Delete Unused Assets' in Libraries 
+
+The Delete Unused Assets command in the Libraries view now removes all unreferenced models, textures and materials, mirroring the behaviour of the equivalent action in the Browser tab. When run at the root it cleans the entire asset library; when run on a subfolder it cleans only its descendants. This ensures predictable housekeeping regardless of where you trigger the command.
+
+#### Reliable 'Merge alongside existing'
+
+Merging scenes that contain nodes with identical names now preserves the position, rotation and scale of existing nodes instead of overwriting them with the incoming transform.
+
+#### Accurate 'Delete Removed' cleanup 
+
+The Delete Removed option in Merge Settings now properly removes or disables nodes that are absent from the updated CAD data. When teams import incremental revisions, superseded parts are cleaned up automatically so the digital mock‑up stays aligned with the source model.
+
+#### Preserved hierarchy for VRML import 
+
+The VRML importer now includes a new “Import sets as assemblies” option, which expands sets to expose the full CAD hierarchy on import.
+
+## Resolved Issues
+
+We continue to focus on addressing issues you report and improving the quality of Visionary Render. In this release we identified and resolved 67 issues, 23 of which were reported as bugs and 9 were raised directly by customers. 
+
+| ID | Summary |
+|---|---|
+| FUS-2715 | 'Merge alongside existing' overwrites existing nodes when their names match incoming nodes |
+| FUS-2986 | ‘Delete Removed’ merge setting does not remove objects deleted from imported CAD data |
+| FUS-3440 | VRML file import does not preserve the original tree structure |
+| FUS-3510 | ‘Delete Unused Assets’ deletes textures and materials that still have active instances |
+| FUS-3618 | Splines fail to show correct gradient bending when a dynamic section exists in the scene |
+| FUS-3693 | CreoView importer does not import part materials correctly from pvz files |
+| FUS-3722 | Creating a pivot at the visual origin moves objects incorrectly and undo fails to restore |
+| FUS-3728 | Script editor line count updates incorrectly when the window is moved |
+| FUS-3731 | Solid selection highlighting no longer invokes transparency in Visionary Render 2025.1 |
+
+:::note
+See the [Changelog](../../changelogs/visionary-render#20252) for a complete list of resolved issues and changes.
+:::
