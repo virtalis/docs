@@ -14,7 +14,7 @@
 
 
 <link rel="search" type="application/opensearchdescription+xml" title="Virtalis Docs" href="/opensearch.xml"><link rel="stylesheet" href="/assets/css/styles.6350f981.css">
-<script src="/assets/js/runtime~main.a67e4f5f.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.cb96407a.js" defer="defer"></script>
 <script src="/assets/js/main.9a396758.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -27,66 +27,66 @@
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="tracking">Tracking<a href="#tracking" class="hash-link" aria-label="Direct link to Tracking" title="Direct link to Tracking">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="scene">Scene<a href="#scene" class="hash-link" aria-label="Direct link to Scene" title="Direct link to Scene">​</a></h3>
 <p>You can use a single QR code to locate your virtual scene in the real world.</p>
-<ol class="steps_WbFF"><li><div class="stepContent__b86"><li>
+<ol class="steps_WbFF"><li><div class="stepContent__b86">
 <p>Load/import the 3D model that you want to use in AR.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Enable helpers using the toolbar or the Settings window (<strong>User Interface</strong> &gt; <strong>Helpers</strong> &gt; <strong>Helper Visibility Mode</strong>). Also ensure that the AR Helpers category is enabled by right-clicking on the toolbar button or checking the Show AR Helpers setting.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>In the Developer tree view, right-click on the Scenes node and choose <strong>Create</strong> &gt; <strong>View/Tracking Nodes</strong> &gt; <strong>AR Marker</strong>. A QR code helper and small white sphere will appear.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Enable the PRS Manipulator and move the helper to a known position and orientation in the scene. When placing the marker on a vertical surface, keep the Y (green) axis pointing upwards.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>In the Properties window, enter a name in the ID property of the ARMarker node. This can be any text and/or number, but it&#x27;s best to avoid long names as these will produce more complex QR codes that are harder for the headset to identify.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Right-click on the ARMarker node in the tree view and choose &quot;Generate QR code&quot; from the menu. This will show a file browser allowing you to save an image of the generated QR code. The default image format is PNG as it is widely supported but you can also choose SVG format to generate a vector image that will scale more cleanly up to large sizes.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Print the generated QR code. It is recommended to print at a reasonably large size, e.g. at least 20cm (8 inches), so that the headset can identify the QR code from a distance.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Attach the printed QR code to the real-world location matching the location chosen in step 4. Note that the orientation is important - the corner without a large square is the bottom-right. The top-left corner is the origin of the QR code and corresponds to the position of the ARMarker node in the Visionary Render scene. The top edge of the QR code is aligned to the X axis in Visionary Render. The image below shows the correct orientation for a QR code.</p>
 <p><img decoding="async" loading="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUQAAAFECAMAAABoNLf0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADeUExURf///z4+PiEhIV1dXYCAgOPj435+fjw8PAAAAEVFRW1tbd/f32trax8fH5GRkUdHR7e3t93d3ZOTk7m5uSAgIFxcXKCgoAkJCbCwsH9/fxEREcDAwOrq6srKytXV1evr697e3qqqqigoKDIyMhISEh0dHefn54aGhmlpaRcXF5+fn05OToeHh4GBgfDw8D8/PycnJxMTE56envX19cHBwRgYGOLi4n19faGhoRYWFi0tLYiIiFVVVVNTU2pqai4uLl9fXz09Pc/Pzzk5ORoaGsLCwl5eXuHh4Ts7OwAAAHCGjWkAAABKdFJOU/////////////////////////////////////////////////////////////////////////////////////////////////8AWiu/GwAAAAlwSFlzAAAh1QAAIdUBBJy0nQAACk9JREFUeF7tnbFy6soSRSkiE7rIqDrBLRJHDk7iwOf/v+v2fW+hbpe6htFRSwixF3aye2YEW3sGCyH5IIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIaq4HgtgLAPhePyDcDh8X5BSaHQ4fA7NvlByaDSLK2NVcXwrgLEMhLe3E8Lh8IGSQ6PD4R3h7e0DJYdGswh7vYSXNPHCWFUsb+IXSg6NlMSnS6JMLOD5prOS2AdjGQhK4nQYy0BQEqfDWAbCy5qI0A/9DAQDIfKbUr4thHyKnajlW0Doh35LTmeEfuhnIBgIkW9Kd0zM0rGUic+cxAuKTHToZyAYCJHOJGo6DyBEOtdEJXEAIaIktqCfgWAgRLQmtqCfgWAgRPTu3IJ+BoKBENF0bkE/A8FAiLzoGwtCzplG+ctByA/73lHSLfgL+40SoWQgGAiHwxkhh0YGwo5N9Cn2jRKhZCAYCH9h4hrTGSFHSRyjJBagJBawQROXT+ILTOflk/gC01lJvKE1sUXbxOPxv+8l2a9/oSkzkUb2S+nHdB4GoWRQMhAMhP1N54TMRIdSno7Ow769JTGh08QsHUuZqCQOICiJPsiaSdytiWsmcbfTWUlsoTVxzB6SqHfnAYT9JfH3N49/EKKJX0PVH5SMQfIt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" width="324" height="324" class="img_ev3q"></p>
-</li></div></li></ol>
+</div></li></ol>
 <div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 32 32"><path fill="currentColor" d="M16 5.00009C12.6913 5.00009 10 7.6914 10 11.0002C10 11.5527 10.4475 12.0002 11 12.0002C11.5525 12.0002 12 11.5527 12 11.0002C12 8.79393 13.795 7.00013 16 7.00013C16.5525 7.00013 17 6.55262 17 6.00011C17 5.4476 16.5525 5.00009 16 5.00009ZM11.0037 28.6987C11.0037 28.8955 11.0619 29.0873 11.1712 29.2512L12.7031 31.5538C12.8888 31.8324 13.2013 32 13.5356 32H18.4637C18.7987 32 19.1113 31.8324 19.2963 31.5538L20.8282 29.2512C20.9368 29.0873 20.995 28.8949 20.9956 28.6987L20.9988 25.9999H11.0012L11.0037 28.6987ZM16 0C9.6075 0 5 5.18572 5 11.0002C5 13.7734 6.02812 16.3034 7.7225 18.2366C8.7625 19.4235 10.3938 21.9116 10.9988 23.9967V24.0005H13.9987V23.9931C13.9981 23.6948 13.9538 23.3986 13.8644 23.1136C13.515 22.0004 12.4381 19.0654 9.97876 16.2591C8.695 14.7947 8.00874 12.9371 8.00312 11.0002C7.99062 6.39762 11.7325 3.00006 16 3.00006C20.4112 3.00006 24 6.58886 24 11.0002C24 12.9359 23.2976 14.8034 22.0218 16.2591C19.5775 19.0472 18.4956 21.976 18.1406 23.1004C18.049 23.3894 18.0022 23.6908 18.0019 23.9943V24.0005H21.0018V23.9973C21.6068 21.9116 23.2382 19.4235 24.2782 18.2372C25.9718 16.3034 27 13.7734 27 11.0002C27 4.92509 22.075 0 16 0Z"></path><path fill="currentColor" d="M13.3602 31.948C13.2443 31.9247 13.0823 31.8617 13.0003 31.8079C12.828 31.695 11.1801 29.2511 11.0794 28.959C11.0352 28.8308 11.012 28.2913 11.012 27.392V26.0205H15.9887H20.9653L20.9483 27.53L20.9313 29.0395L20.0906 30.3046C19.6282 31.0004 19.1883 31.6246 19.1131 31.6918C18.7942 31.9766 18.8456 31.9716 16.1298 31.9813C14.7225 31.9863 13.476 31.9713 13.3602 31.948Z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>When using AR in a large space, you can add multiple AR markers at different locations for better accuracy. Visionary Render will use the one most recently detected by the headset to control the camera.</p></div></div>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="object">Object<a href="#object" class="hash-link" aria-label="Direct link to Object" title="Direct link to Object">​</a></h3>
 <p>You can also attach markers to moveable objects within a scene. You should setup at least one marker to locate the scene as a whole, as discussed, before adding markers to moveable objects. This is essential when using multiple HoloLenses in collaboration to ensure everyone is working in the same space.</p>
 <p>Firstly, you need to create the AR marker. There are two ways to do this:</p>
-<ol class="steps_WbFF"><li><div class="stepContent__b86"><li>
+<ol class="steps_WbFF"><li><div class="stepContent__b86">
 <p>In the Developer tree view, right-click on the object&#x27;s Assembly node and choose <strong>Create</strong> &gt; <strong>View/Tracking Nodes</strong> &gt; <strong>AR Marker</strong>.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Move the marker in the scene onto the surface of the object that you want to track.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>In the Properties window, enter a unique ID for the ARMarker.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Change the ARMarker&#x27;s Mode to &quot;Object&quot;, then drag and drop the root assembly of the moveable object into the Target property.</p>
-</li></div></li></ol>
+</div></li></ol>
 <p>OR</p>
-<ol class="steps_WbFF"><li><div class="stepContent__b86"><li>
+<ol class="steps_WbFF"><li><div class="stepContent__b86">
 <p>In the Developer tree view, right-click on the Scenes node and choose <strong>Create</strong> &gt; <strong>View/Tracking Nodes</strong> &gt; <strong>AR Marker</strong>.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>In the Properties window, enter a unique ID for the ARMarker.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Change the ARMarker&#x27;s Mode to &quot;Object&quot;, then reparent the root assembly of the moveable object to the ARMarker.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Move the object in the scene to where the marker is located.</p>
-</li></div></li></ol>
+</div></li></ol>
 <p>Finally, to set up the QR code:</p>
-<ol class="steps_WbFF"><li><div class="stepContent__b86"><li>
+<ol class="steps_WbFF"><li><div class="stepContent__b86">
 <p>Right-click on the ARMarker node in the tree view and choose &quot;Generate QR code&quot; from the menu. Save and print the generated image as described above.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Attach the printed QR code to the object. Note that a HoloLens expects the QR code to be on a flat surface and may struggle to track a QR code on a curve.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Enable AR marker tracking. When the QR code is detected by the headset, the object will be moved so that the virtual marker aligns with the real-world QR code.</p>
-</li></div></li></ol>
+</div></li></ol>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="hololens-2">HoloLens 2<a href="#hololens-2" class="hash-link" aria-label="Direct link to HoloLens 2" title="Direct link to HoloLens 2">​</a></h2>
 <p>To view your scene in the HoloLens 2:</p>
-<ol class="steps_WbFF"><li><div class="stepContent__b86"><li>
+<ol class="steps_WbFF"><li><div class="stepContent__b86">
 <p>Enable the HoloLens desktop immersion mode (see <a href="/visionary-render/tracking/getting-started#hololens-2">HoloLens 2</a>).</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Enable AR marker tracking using the toolbar (in the Tracking group/rollout) or the Settings window (<strong>Tracking</strong> &gt; <strong>Augmented Reality</strong> &gt; <strong>Marker Tracking</strong>).</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Put the headset on and look at a physical QR code. Once recognised by the headset, you should see a blue square containing the content of the QR code overlaid on the physical QR code. If a matching ARMarker node is found in the Visionary Render scene, your camera will be automatically positioned so that the virtual marker aligns with the real-world marker. Note that this means it is not possible to move the camera using the navigator tools while AR marker tracking is in use. Also note that Visionary Render will avoid pitching or rolling the camera, keeping the world upright regardless of the rotation of the QR code.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>If necessary, adjust the position or orientation of the ARMarker node to fine-tune the alignment of the real and virtual worlds.</p>
-</li></div></li></ol>
+</div></li></ol>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="tips">Tips<a href="#tips" class="hash-link" aria-label="Direct link to Tips" title="Direct link to Tips">​</a></h2>
 <ul>
 <li>Using only numbers, uppercase letters, spaces and the symbols <code>$%*+-./</code> in an ARMarker&#x27;s ID property will allow the QR code to use a more efficient encoding mode, allowing longer names to be encoded into a smaller QR code and/or better error correction. Using IDs of around 10 characters or less will allow the smallest QR code size to be used along with a good level of error correction.</li>
@@ -105,21 +105,21 @@
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="reverse-connection-mode">Reverse Connection Mode<a href="#reverse-connection-mode" class="hash-link" aria-label="Direct link to Reverse Connection Mode" title="Direct link to Reverse Connection Mode">​</a></h2>
 <p>The Hololens has a reverse connection mode that permits you to connect to your machine from the HoloLens.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="setup">Setup<a href="#setup" class="hash-link" aria-label="Direct link to Setup" title="Direct link to Setup">​</a></h3>
-<ol class="steps_WbFF"><li><div class="stepContent__b86"><li>
+<ol class="steps_WbFF"><li><div class="stepContent__b86">
 <p>Start Visionary Render and enable HoloLens mode.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Press the Settings button in the HoloLens connection status window.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>In the settings window, change HoloLens Connection Mode to Listen. (Leave the HoloLens Listen IP box empty unless you experience problems due to your PC being connected to multiple networks.)</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Press the Generate QR code button in the HoloLens connection status window. This will generate a QR code containing ms-holographic-remoting://HOSTNAME where HOSTNAME is the name of your PC. Save and print the image.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Put on the HoloLens and look at the printed QR code. You don’t need to start the Holographic Remote app first (but it will also work if you do).</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Either push the virtual button that appears or say “connect”.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>The HoloLens will now attempt to connect to the PC running Visionary Render.</p>
-</li></div></li></ol>
+</div></li></ol>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="troubleshooting">Troubleshooting<a href="#troubleshooting" class="hash-link" aria-label="Direct link to Troubleshooting" title="Direct link to Troubleshooting">​</a></h3>
 <ul>
 <li>The firewall on the PC may need to be configured to allow incoming connections on ports 8265 and 8266.</li>
@@ -136,19 +136,19 @@
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="passthrough">Passthrough<a href="#passthrough" class="hash-link" aria-label="Direct link to Passthrough" title="Direct link to Passthrough">​</a></h2>
 <p>The HoloLens supports passthrough, which permits you to view the real world around you whilst still viewing your hologram.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="setup-1">Setup<a href="#setup-1" class="hash-link" aria-label="Direct link to Setup" title="Direct link to Setup">​</a></h3>
-<ol class="steps_WbFF"><li><div class="stepContent__b86"><li>
+<ol class="steps_WbFF"><li><div class="stepContent__b86">
 <p>In the Oculus desktop app, go to Settings/Beta and enable “Developer runtime features” and “Pass-through over Oculus Link”.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Start Quest Link on your headset.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Start Visionary Render and switch to OpenXR mode.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Load a scene or create some geometry.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Go to Settings/Tracking/Augmented Reality and enable Show Environment. The real world should be visible in your headset instead of the scene background/sky.</p>
-</li></div></li><li><div class="stepContent__b86"><li>
+</div></li><li><div class="stepContent__b86">
 <p>Adjust the Background Opacity setting. This should blend smoothly between the real world and the scene background/sky.</p>
-</li></div></li></ol>
+</div></li></ol>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="settings">Settings<a href="#settings" class="hash-link" aria-label="Direct link to Settings" title="Direct link to Settings">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="augmented-reality-1">Augmented Reality<a href="#augmented-reality-1" class="hash-link" aria-label="Direct link to Augmented Reality" title="Direct link to Augmented Reality">​</a></h3>
 <p><img decoding="async" loading="lazy" src="/assets/images/tracking-settings-d0f8df7f526fc643dd3883ed0655513b.png" width="853" height="572" class="img_ev3q"></p>
