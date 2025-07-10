@@ -46,13 +46,13 @@ const config: Config = {
             './src/css/youtube.css',
           ],
         },
-        googleTagManager: {
-          containerId: 'GTM-KBWDPQHK',
-        },
-        gtag: {
-          trackingID: 'G-98F5PV30KY',
-          anonymizeIP: true,
-        },
+        // googleTagManager: {
+        //   containerId: 'GTM-KBWDPQHK',
+        // },
+        // gtag: {
+        //   trackingID: 'G-98F5PV30KY',
+        //   anonymizeIP: true,
+        // },
       } satisfies Preset.Options,
     ],
   ],
