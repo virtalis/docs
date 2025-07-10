@@ -216,7 +216,7 @@ const config: Config = {
               html: `<a href="https://www.linkedin.com/company/virtalis/" target="_blank" rel="noreferrer noopener" aria-label="Virtalis LinkedIn"><img src="/assets/logos/linkedin.svg" alt="LinkedIn Logo" class="footer__icon"/></a>`,
             },
             {
-              html: `<a href="https://www.youtube.com/@VirtalisReality" target="_blank" rel="noreferrer noopener" aria-label="Virtalis YouTube"><img src="assets/logos/youtube.svg" alt="YouTube Logo" class="footer__icon"/></a>`,
+              html: `<a href="https://www.youtube.com/@VirtalisReality" target="_blank" rel="noreferrer noopener" aria-label="Virtalis YouTube"><img src="/assets/logos/youtube.svg" alt="YouTube Logo" class="footer__icon"/></a>`,
             },
           ],
         },
