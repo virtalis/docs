@@ -85,7 +85,7 @@ const config: Config = {
           },
           {
             from: '/release-notes/geovisionary',
-            to: '/release-notes/geovisionary/2025.1',
+            to: '/release-notes/geovisionary/2025.2',
           },
           {
             from: '/release-notes/virtalis-hub-and-web-viewer',
@@ -93,7 +93,7 @@ const config: Config = {
           },
           {
             from: '/release-notes/visionary-render',
-            to: '/release-notes/visionary-render/2025.1',
+            to: '/release-notes/visionary-render/2025.2',
           },
         ],
       },
@@ -207,13 +207,13 @@ const config: Config = {
         {
           items: [
             {
-              html: `<a href="https://virtalis.com" target="_blank" rel="noreferrer noopener" aria-label="Virtalis Homepage"><img src="assets/logos/virtalis.svg" alt="Virtalis Logo" class="footer__icon"/></a>`,
+              html: `<a href="https://virtalis.com" target="_blank" rel="noreferrer noopener" aria-label="Virtalis Homepage"><img src="/assets/logos/virtalis.svg" alt="Virtalis Logo" class="footer__icon"/></a>`,
             },
             {
-              html: `<a href="https://github.com/virtalis" target="_blank" rel="noreferrer noopener" aria-label="Virtalis GitHub"><img src="assets/logos/github.svg" alt="GitHub Logo" class="footer__icon"/></a>`,
+              html: `<a href="https://github.com/virtalis" target="_blank" rel="noreferrer noopener" aria-label="Virtalis GitHub"><img src="/assets/logos/github.svg" alt="GitHub Logo" class="footer__icon"/></a>`,
             },
             {
-              html: `<a href="https://www.linkedin.com/company/virtalis/" target="_blank" rel="noreferrer noopener" aria-label="Virtalis LinkedIn"><img src="assets/logos/linkedin.svg" alt="LinkedIn Logo" class="footer__icon"/></a>`,
+              html: `<a href="https://www.linkedin.com/company/virtalis/" target="_blank" rel="noreferrer noopener" aria-label="Virtalis LinkedIn"><img src="/assets/logos/linkedin.svg" alt="LinkedIn Logo" class="footer__icon"/></a>`,
             },
             {
               html: `<a href="https://www.youtube.com/@VirtalisReality" target="_blank" rel="noreferrer noopener" aria-label="Virtalis YouTube"><img src="assets/logos/youtube.svg" alt="YouTube Logo" class="footer__icon"/></a>`,
