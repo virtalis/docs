@@ -3,6 +3,10 @@ sidebar_position: 988
 toc_max_heading_level: 4
 ---
 
+```mdx-code-block
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
+```
+
 # 2022.2
 
 Thank you for downloading Visionary Render 2022.2. The focus for this release has been on making ergonomic design decisions easier through the introduction of the manikin functionality. The notable new feature is the ability to create a fully rigged manikin directly in a scene. The manikin is rigged with a series of interconnected bones which allows the user to control the human model as needed. Manikins can easily be positioned into relevant and representative poses through the use of inverse and forward kinematics. Manikin bones can also be individually scaled in order to approximate relevant anthropometric measurements and datasets.
@@ -13,25 +17,33 @@ Thank you for downloading Visionary Render 2022.2. The focus for this release ha
 
 You can now create a 1:1 scale manikin directly in your Visionary Render scenes. 
 
-<iframe src="https://www.youtube-nocookie.com/embed/kWnOLA-nMFg" allow="clipboard-write; fullscreen" title="Visionary Render - Manikin Demo - Manikin Snapshot" loading="lazy"/>
+```mdx-code-block
+<LiteYouTubeEmbed id="kWnOLA-nMFg" params="autoplay=1&autohide=1&showinfo=0&rel=0" title="Visionary Render - Manikin Demo - Manikin Snapshot" poster="maxresdefault" webp />
+```
 
 ### Inverse Kinematics (IK) Targets for Posing
 
 You will find it easy to control the position and rotation of various body parts of the manikin by manipulating IK targets. When you move a selected IK target, the target and the manikin limbs will respond by moving accordingly. 
 
-<iframe src="https://www.youtube-nocookie.com/embed/Hekq_NFs5R8" allow="clipboard-write; fullscreen" title="Visionary Render - Manikin Demo - Posing" loading="lazy"/>
+```mdx-code-block
+<LiteYouTubeEmbed id="Hekq_NFs5R8" params="autoplay=1&autohide=1&showinfo=0&rel=0" title="Visionary Render - Manikin Demo - Posing" poster="maxresdefault" webp />
+```
 
 ### Forward Kinematics (FK) for Fine-grained Control
 
 Toggling IK mode off, in the manikin properties panel, allows you to individually control the bone rotations in order to get precise poses and movements captured in the scene. The fingers of the manikin are articulated and can be simply controlled by default where all fingers follow a parent bone helper. Fingers can also be controlled separately at each individual joint. 
 
-<iframe src="https://www.youtube-nocookie.com/embed/ydGcJCOMXqU" allow="clipboard-write; fullscreen" title="Visionary Render - Manikin Demo - IKFK" loading="lazy"/>
+```mdx-code-block
+<LiteYouTubeEmbed id="ydGcJCOMXqU" params="autoplay=1&autohide=1&showinfo=0&rel=0" title="Visionary Render - Manikin Demo - IKFK" poster="maxresdefault" webp />
+```
 
 ### Manikin Colour Properties
 
 Edit the colours for hair, skin, and clothing to allow for easy identification and matching of the manikin to the intended scene. 
 
-<iframe src="https://www.youtube-nocookie.com/embed/gJ0cFOdeqOo" allow="clipboard-write; fullscreen" title="Visionary Render - Manikin Demo - Colour" loading="lazy"/>
+```mdx-code-block
+<LiteYouTubeEmbed id="gJ0cFOdeqOo" params="autoplay=1&autohide=1&showinfo=0&rel=0" title="Visionary Render - Manikin Demo - Colour" poster="maxresdefault" webp />
+```
 
 ### Individual Bone Scaling
 
@@ -41,31 +53,41 @@ The total height (in metres) of the manikin can be adjusted to match a design sp
 
 Control the scale thickness of individual body segments to get a more representative model.
 
-<iframe src="https://www.youtube-nocookie.com/embed/8A_hiKzLhJw" allow="clipboard-write; fullscreen" title="Visionary Render - Manikin Demo - Bones" loading="lazy"/>
+```mdx-code-block
+<LiteYouTubeEmbed id="8A_hiKzLhJw" params="autoplay=1&autohide=1&showinfo=0&rel=0" title="Visionary Render - Manikin Demo - Bones" poster="maxresdefault" webp />
+```
 
 ### Constraints and Ranges of Motion
 
 Pose the manikin easily within physically plausible and human-like limits. The ranges of motion on all joints are constrained and based on real human ranges of motion.
 
-<iframe src="https://www.youtube-nocookie.com/embed/MVLwZ1BU7G0" allow="clipboard-write; fullscreen" title="Visionary Render - Manikin Demo - Constraints" loading="lazy"/>
+```mdx-code-block
+<LiteYouTubeEmbed id="MVLwZ1BU7G0" params="autoplay=1&autohide=1&showinfo=0&rel=0" title="Visionary Render - Manikin Demo - Constraints" poster="maxresdefault" webp />
+```
 
 ### Enhanced Measurement Tool
 
 Obtain accurate manikin measurements. The measurement tool updates with live values as manikin bone lengths are scaled. Compare individual measurements with your source data directly to create representative models in your scene.
 
-<iframe src="https://www.youtube-nocookie.com/embed/l9_Qvo-VY3o" allow="clipboard-write; fullscreen" title="Visionary Render - Manikin Demo - Anthromeasure" loading="lazy"/>
+```mdx-code-block
+<LiteYouTubeEmbed id="l9_Qvo-VY3o" params="autoplay=1&autohide=1&showinfo=0&rel=0" title="Visionary Render - Manikin Demo - Anthromeasure" poster="maxresdefault" webp />
+```
 
 ### Adding Tools to Manikin 
 
 Easily drag tools, PPE, and other accessories to the manikin as sub-assemblies of hands, head, feet, etc. These accessories will naturally follow the IK targets as they move and allow you to pose and arrange your manikin just as you need it. 
 
-<iframe src="https://www.youtube-nocookie.com/embed/K889DDxUjiI" allow="clipboard-write; fullscreen" title="Visionary Render - Manikin Demo - Adding Tools" loading="lazy"/>
+```mdx-code-block
+<LiteYouTubeEmbed id="K889DDxUjiI" params="autoplay=1&autohide=1&showinfo=0&rel=0" title="Visionary Render - Manikin Demo - Adding Tools" poster="maxresdefault" webp />
+```
 
 ### Position at Body in Immersive Mode
 
 Rapidly place the manikin at the user’s position in the scene while retaining any IK or FK pose adjustments that have been made. 
 
-<iframe src="https://www.youtube-nocookie.com/embed/s-uajdPrP0Y" allow="clipboard-write; fullscreen" title="Visionary Render - Manikin Demo - Position at Body" loading="lazy"/>
+```mdx-code-block
+<LiteYouTubeEmbed id="s-uajdPrP0Y" params="autoplay=1&autohide=1&showinfo=0&rel=0" title="Visionary Render - Manikin Demo - Position at Body" poster="maxresdefault" webp />
+```
 
 ### Directional Light Helper
 
