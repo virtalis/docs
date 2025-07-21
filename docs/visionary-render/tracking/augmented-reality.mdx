@@ -1,7 +1,3 @@
----
-sidebar_position: 6
----
-
 # Augmented Reality
 
 Visionary Render supports Augmented Reality (AR) via headsets such as the HoloLens 2. This section will guide you through the process of setting up a scene for AR usage with the HoloLens 2, which provides tracking via QR codes.
@@ -200,6 +196,7 @@ The HoloLens supports passthrough, which permits you to view the real world arou
 | Setting | Description |
 | --- | --- |
 | Show Environment | Controls visibility of the real world when using a headset that supports video passthrough. *[default: false]* |
+| Background Opacity | Controls the opacity of the scene background/sky when using a headset with a transparent display or video passthrough. *[default: 0.0]* |
 | Marker Tracking | Enables tracking of AR markers such as QR codes, if supported by the current tracking mode and hardware. *[default: false]* |
 | Ownership Time | The number of seconds that a user keeps exclusive control of an object linked to an AR marker after the marker is detected by their headset. *[default: 5.0]* |
 
