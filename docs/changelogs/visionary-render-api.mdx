@@ -10,11 +10,11 @@ import TabItem from '@theme/TabItem';
 
 ## 2025.3
 
-*Released 2025-10-31*
+*Released 2025-11-12*
 
 #### Added
 
-- Missing Lua observer callbacks to `vrAddNodeObserver` and `vrAddMetaNodeObserver` to support better node event tracking
+- Missing Lua observer callbacks (`nodeChildAdded`, `nodeChildRemoved`, `nodePathChanged`, `nodeValuesChanged`, `nodeLinkAdded`, `nodeLinkRemoved`, and `nodeCloned`) to `vrAddNodeObserver` and `vrAddMetaNodeObserver` to support better node event tracking and bring the Lua API in line with the C API
 - `vrNodeGetUUID` function to get the UUID of a node
 - `vrCompressTexture` function to apply DXT compression to a texture
 - `vrCanCompressTexture` function to determine whether DXT compression can be applied to a texture

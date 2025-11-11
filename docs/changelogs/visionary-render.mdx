@@ -7,33 +7,36 @@ description: 1.0.1 to 2025.3
 
 ## 2025.3
 
-*Released 2025-10-31*
+*Released 2025-11-12*
 
 #### Added
 
 - Trackers are automatically recognised without custom view configs, XML edits, or scene restarts in OpenXR mode
-- Textures can be compressed or rescaled to reduce load times and overall scene size
 
 #### Changed
 
-- Web browser textures can be quickly setup with a 1920×1080 default size and predictable resizing
+- Web browser textures can be quickly setup with a 1920 x 1080 default size and predictable resizing
+- Enter and leave events are now triggered from the HMD position not the centre of the playspace
 - Improve default settings in start room
 
 #### Fixed
 
 - Crash when there are more than 64 levels of transformed assemblies
+- Crash when opening a scene with a web browser in it via the 'Open with' context menu in Windows
+- Crash that could occur when pressing Tab a shader in the Script Editor
 - Parent object is moved when creating a pivot at its visual centre
 - Pivot visual changes size when moved and when zooming in or out
-- Crash when opening a scene with a web browser in it via the 'Open with' context menu in Windows
 - Issues with controller and avatar in Oculus Touch runtime in a blank scene
 - Vertex snapping doesn't work on assemblies with pivots
 - Visual quality is more stable in very large and very small scenes
 - Start room buttons do not respond to touch events
 - Log errors when a web browser texture is resized
+- Some view filters (i.e. the torch view filter) did not work
 - Scene is not updated when a surface shader is changed
 - Scene is not updated when the Sun/Cascading Shadows settings are changed
-- Cannot use the grip buttons for navigation in OpenXR mode
 - Camera is not kept level in OpenXR mode
+- Visual previews are incorrect when ancestors have transforms 
+- Incorrect version of Windows could be reported in the logs
 
 ---
 
