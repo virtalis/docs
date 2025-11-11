@@ -1,0 +1,85 @@
+---
+sidebar_position: 976
+---
+
+# 2025.3
+
+Thank you for downloading Visionary Render 2025.3. This release delivers visible improvements to rendering, immersive tracking, and interaction. You will see cleaner visuals in large scenes, simpler plug-and-play tracking in OpenXR mode, and more predictable VR interaction.
+
+## What's New in This Release?
+
+### Rendering Improvements
+
+Visual quality is more stable across very large and very small scenes. Visionary Render now natively handles extreme depth ranges, from close-up detail work to distant terrain, without z-fighting. You no longer need to fine-tune near and far clip planes.
+
+The old Logarithmic Depth Buffer option has been removed. Very large clip plane values are directly supported without the performance hit that the logarithmic option could casue.
+
+### Tracking System Overhaul (Immersive Licence in OpenXR Mode)
+
+1. We’ve added support for HTC Vive Trackers in OpenXR mode (Immersive Licence required). These will appear as nodes under [User]/ViewConfig/Camera/OpenXR when they are detected. If you want an object in your scene to move with the tracker, for example, create a TransformLink and connect it to the detected Tracker.
+
+2. This release introduces a simplified structure for tracking configurations, currently available in OpenXR mode only. Other modes will receive this update in future releases.
+
+Notable changes for script and plugin developers:
+
+- Node types and names within the Camera node have changed
+- The new Tracker node type replaces TrackerPRSLink
+- Tracker inputs are now under the ViewConfig node rather than [User]/Inputs/Tracker
+
+:::note
+Existing custom view and tracking configurations remain fully supported without any modifications needed.
+:::
+
+### VR Interaction Updates (Immersive Licence)
+
+Hand-tracking interaction with 3D GUI elements now responds directly to fingertip contact, improving speed and reliability. Enter and leave events are triggered from head position.
+
+### Texture Compression and Scaling
+
+You can now automate texture compression and rescaling through Lua functions. Making this script-accessible allows these operations to be applied programmatically across assets, making batch processing and workflow integration easier.
+
+### Lua Scripting Enhancements
+
+`vrAddNodeObserver` and `vrAddMetaNodeObserver` now accept additional keys so you can register callbacks for all supported observer events. Specify the keys you want to observe and provide the associated Lua functions. This exposes creation, deletion, parenting, linking and cloning events without requiring C++.
+
+| Node observer keys | Metanode observer keys |
+|---|---|
+| addChild | nodeChildAdded |
+| removeChild | nodeChildRemoved |
+| parentChanged | nodePathChanged |
+| pathChanged | |
+| renameNode | |
+| valuesChanged | nodeValuesChanged |
+| addLink | nodeLinkAdded |
+| removeLink | nodeLinkRemoved |
+| cloned | nodeCloned |
+
+### General Workflow Updates
+
+- **Web browser rig:** In the Developer tree context menu under Create > Media there is a new one-click setup for a browser rig. The default size is 1920 x 1080 but it is easily resizable.
+- **Pivots and snapping:** Snap-to-vertex and pivot behaviour are now consistent across tools.
+
+### Importers and Exporters
+
+| Importer | Version Support Added |
+|---|---|
+| Parasolid | 38 |
+| Design | 7, 8 |
+| Drawing | 1.14.02 - 2025.x |
+| Siemens Unigraphics (NX) | NX2506 |
+| NavisWorks | 2026 |
+| Creo | 12.4.0.0 |
+| Max Exporter | 2026 |
+
+## Resolved Issues
+
+We continue to focus on addressing issues you report and improving the quality of Visionary Render. In this release we identified and resolved 45 issues, 11 of which were reported as bugs and 2 were raised directly by customers. 
+
+| ID | Summary |
+|---|---|
+| FUS-3815 | Added missing Lua observer callbacks to support better node event tracking |
+| FUS-3816 | Added tools for compressing and scaling imported textures for faster loading |
+
+:::note
+See the [Changelog](../../changelogs/visionary-render#20253) for a complete list of resolved issues and changes.
+:::

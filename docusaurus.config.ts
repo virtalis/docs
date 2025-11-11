@@ -85,7 +85,7 @@ const config: Config = {
           },
           {
             from: '/release-notes/geovisionary',
-            to: '/release-notes/geovisionary/2025.2',
+            to: '/release-notes/geovisionary/2025.3',
           },
           {
             from: '/release-notes/virtalis-hub-and-web-viewer',
@@ -93,7 +93,7 @@ const config: Config = {
           },
           {
             from: '/release-notes/visionary-render',
-            to: '/release-notes/visionary-render/2025.2',
+            to: '/release-notes/visionary-render/2025.3',
           },
         ],
       },
