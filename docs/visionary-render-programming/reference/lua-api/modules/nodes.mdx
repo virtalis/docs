@@ -88,6 +88,7 @@ Functions for interacting with nodes.
 | [vrnode](../classes/vrnode.mdx) | **[vrNodeGetSibling](#vrnodegetsibling)**([vrnode](../classes/vrnode.mdx) node, string metaType =0, string name =0)<br />Gets the sibling (adjacent) node to a node.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrNodeGetTail](#vrnodegettail)**([vrnode](../classes/vrnode.mdx) node, string metaType =0, string name =0)<br />Gets the last child of a node.  |
 | table | **[vrNodeGetTraits](#vrnodegettraits)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the list of traits that this node has. Can also be thought of as the base class of a node (e.g. Texture, Viewport, etc). This function is expensive and can affect performance. To check a specific trait use vrNodeHasTrait.  |
+| string | **[vrNodeGetUUID](#vrnodegetuuid)**([vrnode](../classes/vrnode.mdx) node)<br />Gets the uuid of a node.  |
 | Any | **[vrNodeGetValue](#vrnodegetvalue)**([vrnode](../classes/vrnode.mdx) node, string propName)<br />Gets the value of a property of a node.  |
 | Any | **[vrNodeGetValueByIndex](#vrnodegetvaluebyindex)**([vrnode](../classes/vrnode.mdx) node, number idx)<br />Gets the value of a property of a node finding the property by its index.  |
 | boolean | **[vrNodeHasTrait](#vrnodehastrait)**([vrnode](../classes/vrnode.mdx) node, string traitName)<br />Checks if the node is of a type with a specific trait. This is a lot faster than vrNodeGetTraits.  |
@@ -1365,6 +1366,22 @@ Gets the list of traits that this node has. Can also be thought of as the base c
   * **node** Node to get the traits of 
 
 **Return**: Array of traits that this node has 
+
+### vrNodeGetUUID
+
+```lua
+string vrNodeGetUUID(
+    vrnode node
+)
+```
+
+Gets the uuid of a node.
+
+**Parameters**: 
+
+  * **node** vrnode The node to get the uuid of
+
+**Return**: string The uuid of the node
 
 ### vrNodeGetValue
 

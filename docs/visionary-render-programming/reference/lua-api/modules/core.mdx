@@ -31,12 +31,15 @@ Core functions and types that can be used by Lua scripts and plugins.
 | void | **[vrArrange](#vrarrange)**([vrnode](../classes/vrnode.mdx) targetNode, string type)<br />Arranges assemblies into a grid based on their bounds. |
 | boolean | **[vrBakeMesh](#vrbakemesh)**([vrnode](../classes/vrnode.mdx) targetNode)<br />Converts deformable meshes to static meshes for export and upload. |
 | void | **[vrBuildCurveViewConfig](#vrbuildcurveviewconfig)**(number radius, number angle, number height, number segments, boolean smoothCurve, [vrnode](../classes/vrnode.mdx) user =nil, [vrnode](../classes/vrnode.mdx) camera, [vrnode](../classes/vrnode.mdx) screens =nil, [vrnode](../classes/vrnode.mdx) viewportLayout)<br />Creates or updates the PhysicalScreen and Viewport nodes for a curved screen.  |
+| boolean | **[vrCanCompressTexture](#vrcancompresstexture)**([vrnode](../classes/vrnode.mdx) node)<br />Determines whether DXT compression can be applied to a texture.  |
+| boolean | **[vrCanScaleTexture](#vrcanscaletexture)**([vrnode](../classes/vrnode.mdx) node)<br />Determines whether a texture can be scaled.  |
 | void | **[vrCaptureCleanState](#vrcapturecleanstate)**()<br />Captures the current state of the Lua global environment.  |
 | void | **[vrCaptureViewpoint](#vrcaptureviewpoint)**([vrnode](../classes/vrnode.mdx) viewpoint, number size, string captureComplete, string textureCreate =0)<br />Captures the view from a specified viewpoint into a texture.  |
 | boolean | **[vrClearSelection](#vrclearselection)**([vrnode](../classes/vrnode.mdx) selectionGroup)<br />Clears the selection in the specified selection group.  |
 | void | **[vrClusterMaster](#vrclustermaster)**()<br />Returns true if the local user is a cluster master.  |
 | void | **[vrClusterSlave](#vrclusterslave)**()<br />Returns true if the local user is a cluster slave.  |
 | boolean | **[vrConfigModeAvailable](#vrconfigmodeavailable)**(number mode =CM_MODE_COUNT)<br />Returns true or false if the specified mode is available.  |
+| void | **[vrCompressTexture](#vrcompresstexture)**([vrnode](../classes/vrnode.mdx) node)<br />Applies DXT compression to a texture.  |
 | void | **[vrConstrainNodeToBounds](#vrconstrainnodetobounds)**([vrnode](../classes/vrnode.mdx) node =nil, [vrbox](../classes/vrbox.mdx) bbox =nil)<br />Constrains a node with a TransformLimit to a bounding box.  |
 | void | **[vrCopyBitmap](#vrcopybitmap)**([vrnode](../classes/vrnode.mdx) node)<br />Copies the texture data from a node onto the Windows clipboard.  |
 | void | **[vrCopySelectionToClipboard](#vrcopyselectiontoclipboard)**([vrnode](../classes/vrnode.mdx) selectionToCopy)<br />Copies the specified selection group to the clipboard.  |
@@ -155,6 +158,7 @@ Core functions and types that can be used by Lua scripts and plugins.
 | string | **[vrRequestSaveFile](#vrrequestsavefile)**(string caption =0, string initialDir =0, string filterStr =0, string defaultExt =0, string defaultFile =0)<br />Invokes a dialog to save a file.  |
 | void | **[vrRescalePRSManipulator](#vrrescaleprsmanipulator)**()<br />Refreshes the scale of the PRS manipulator.  |
 | void | **[vrRevertToCleanState](#vrreverttocleanstate)**()<br />Restores the captured state of the Lua global environment.  |
+| void | **[vrScaleTexture](#vrscaletexture)**([vrnode](../classes/vrnode.mdx) node, number scaleX, number scaleY =0.0)<br />Scales a texture by the specified factor.  |
 | void | **[vrSearchView](#vrsearchview)**(string view, string searchString)<br />Sets the search query for a specified view.  |
 | void | **[vrSetAppQuitHook](#vrsetappquithook)**(string luaFunc)<br />Specify a lua function to be called when user tries to quit the application.  |
 | void | **[vrSetConfigMode](#vrsetconfigmode)**(number mode =CM_MODE_COUNT)<br />Sets the config to the specified mode, if its available.  |
@@ -267,13 +271,19 @@ Adds an observer of events from a MetaNode. This notifies the script whenever a 
   * **uniqueID** A unique ID for this observer. Use this with vrRemoveObserver. 
   * **metaNode** The type of node to observe. 
   * **callbacks** Table of callbacks. Each value can be a string name of a global function or a lua function object. Possible keys are:
-
-* nodeCreated - called when a node is created. This function should have a signature of function(meta, newnode).
-* nodeRenamed - called when a node's name is changed. This function should have a signature of function(meta, node).
-* nodeParentChanged - called when a node's parent is changed. This function should have a signature of function(meta, node, oldParent, newParent).
-* nodeAddingToRecycleBin - called when a node is added to the recycle bin. This function should have a signature of function(meta, node).
-* nodeRestoredFromRecycleBin - called when a node is restored from the recycle bin, e.g. with an undo command. This function should have a signature of function(meta, node).
-* nodeDestroying - called when a node is finally deleted, usually when closing the scene. You are more likely to want nodeAddingToRecycleBin. This function should have a signature of function(meta, node). 
+    * nodeCreated - called when a node is created. This function should have a signature of function(meta, newnode).
+    * nodeRenamed - called when a node's name is changed. This function should have a signature of function(meta, node).
+    * nodeParentChanged - called when a node's parent is changed. This function should have a signature of function(meta, node, oldParent, newParent).
+    * nodeAddingToRecycleBin - called when a node is added to the recycle bin. This function should have a signature of function(meta, node).
+    * nodeRestoredFromRecycleBin - called when a node is restored from the recycle bin, e.g. with an undo command. This function should have a signature of function(meta, node).
+    * nodeDestroying - called when a node is finally deleted, usually when closing the scene. You are more likely to want nodeAddingToRecycleBin. This function should have a signature of function(meta, node). 
+    * nodeChildAdded - called when a new child was added to a node. This function should have a signature of function(meta, parent, child).
+    * nodeChildRemoved - called when a child was unlinked from a node. This function should have a signature of function(meta, parent, child).
+    * nodePathChanged - called when the node or one of its ancestors has been re-parented. This function should have a signature of function(meta, node).
+    * nodeValuesChanged - called when he values of a node have changed. This function should have a signature of function(meta, node).
+    * nodeLinkAdded - called when a property link was set between nodes. This function should have a signature of function(meta, from, to).
+    * nodeLinkRemoved - called when a property link between nodes was removed. This function should have a signature of function(meta, from, to).
+    * nodeCloned - called when a node was cloned. This function should have a signature of function(meta, orig, clone).
 
 ### vrAddNodeObserver
 
@@ -291,12 +301,19 @@ Adds an observer of events from a node. This notifies the script in certain circ
 
   * **uniqueID** A unique ID for this observer. Use this with vrRemoveObserver. 
   * **node** The node to observe. 
-  * **callbacks** Table of callbacks. Each value can be a string name of a global function, or a lua function object, and should have a signature of function(node). Possible keys are:
-
-* valuesChanged - called when any of the node values change.
-* addingToRecycleBin - called when the node is sent to the recycle bin.
-* restoredFromRecycleBin - called when the node is restored from the recycle bin, e.g. with an undo command.
-* destroying - called when the node is finally deleted, usually when closing the scene. You are more likely to want addingToRecycleBin. 
+  * **callbacks** table Table of callbacks. Each value can be a string name of a global function, or a lua function object. Possible keys are:
+    * valuesChanged - called when any of the node values change and should have a signature of function(node).
+    * addingToRecycleBin - called when the node is sent to the recycle bin and should have a signature of function(node).
+    * restoredFromRecycleBin - called when the node is restored from the recycle bin, e.g. with an undo command and should have a signature of function(node).
+    * destroying - called when the node is finally deleted, usually when closing the scene and should have a signature of function(node). You are more likely to want addingToRecycleBin.
+    * addChild - called when a new child was added to a node and should have a signature of function(parent, child).
+    * removeChild - called when  a child was unlinked from a node and should have a signature of function(parent, child).
+    * parentChanged - called when a node's parent was changed and should have a signature of function(npde,newParent, oldParent).
+    * pathChanged - called when a node or one of its ancestors has been re-parented and should have a signature of function(node).
+    * renameNode - called when a node has just been renamed and should have a signature of function(node).
+    * addLink - called when a property link was set between nodes and should have a signature of function(toNode, fromNode).
+    * removeLink - called when a property link between nodes was removed and should have a signature of function(toNode, fromNode).
+    * cloned - called when a node has been cloned and should have a signature of function(orig, cloned).
 
 ### vrAddSettingObserver
 
@@ -434,6 +451,38 @@ Creates or updates the PhysicalScreen and Viewport nodes for a curved screen.
   * **smoothCurve** Whether to apply distortion to wrap the image onto a smoothly curved screen, or leave the segments facetted 
   * **user** The user to create the configuration for 
 
+### vrCanCompressTexture
+
+```lua
+boolean vrCanCompressTexture(
+    vrnode node
+)
+```
+
+Determines whether DXT compression can be applied to a texture.
+
+**Parameters**: 
+
+  * **node** vrnode The texture to compress
+
+**Return**: true if the texture can be compressed
+
+### vrCanScaleTexture
+
+```lua
+boolean vrCanScaleTexture(
+    vrnode node
+)
+```
+
+Determines whether a texture can be scaled.
+
+**Parameters**: 
+
+  * **node** vrnode The texture to scale
+
+**Return**: true if the texture can be scaled
+
 ### vrCaptureCleanState
 
 ```lua
@@ -493,6 +542,20 @@ void vrClusterSlave()
 ```
 
 Returns true if the local user is a cluster slave.
+
+### vrCompressTexture
+
+```lua
+void vrCompressTexture(
+    vrnode node
+)
+```
+
+Applies DXT compression to a texture.
+
+**Parameters**: 
+
+  * **node** vrnode The texture to compress
 
 ### vrConfigModeAvailable
 
@@ -2099,6 +2162,24 @@ void vrRevertToCleanState()
 ```
 
 Restores the captured state of the Lua global environment. 
+
+### vrScaleTexture
+
+```lua
+void vrScaleTexture(
+    vrnode node,
+    number scaleX,
+    number scaleY =0.0
+)
+```
+
+Scales a texture by the specified factor.
+
+**Parameters**: 
+
+  * **node** vrnode The texture to scale
+  * **scaleX** number The horizontal scale factor
+  * **scaleY** number The vertical scale factor
 
 ### vrSearchView
 
