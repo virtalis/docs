@@ -65,6 +65,12 @@ You can now automate texture compression and rescaling through Lua functions. Ma
 - **Web browser rig:** In the Developer tree context menu under Create > Media there is a new one-click setup for a browser rig. The default size is 1920 x 1080 but it is easily resizable.
 - **Pivots and snapping:** Snap-to-vertex and pivot behaviour are now consistent across tools.
 
+:::warning
+GeoVisionary 2025.2 and earlier used the OpenGL standard depth range of -1 (near) to 1 (far) in normalised device coordinates, and 0 (near) to 1 (far) in the depth buffer (window coordinates). From 2025.3, GeoVisionary uses a reversed range of 1 (near) to 0 (far) in both cases for better precision.
+
+Any view shaders using the result of getDepth() directly, or using the projection matrix, may need updating to handle the new range. View shaders using getDistance() or getEyePos() are unaffected as the conversion is handled internally, but will benefit from improved precision.
+:::
+
 ## Resolved Issues
 
 We continue to focus on addressing issues you report and improving the quality of GeoVisionary. In this release we identified and resolved 45 issues, 11 of which were reported as bugs and 2 were raised directly by customers.
