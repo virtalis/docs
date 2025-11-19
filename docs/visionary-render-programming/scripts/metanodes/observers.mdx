@@ -61,8 +61,8 @@ The function takes a map of callback functions. These will be called in response
 | Key                           | Callback                                                            | Callback Signature                        |
 | ----------------------------- | ------------------------------------------------------------------- | ----------------------------------------- |
 | `valuesChanged`               | Called in response to a property's value being changed.             | function(node)                            |
-| `addingToRecycleBin`          | Called in repsonse to the node being sent to the recycle bin.       | function(node)                            |
-| `restoredFromRecycleBin`      | Called in repsonse to the node being returned from the recycle bin. | function(node)                            |
+| `addingToRecycleBin`          | Called in response to the node being sent to the recycle bin.       | function(node)                            |
+| `restoredFromRecycleBin`      | Called in response to the node being returned from the recycle bin. | function(node)                            |
 | `nodeDestroyed`               | Called in response to the node being destroyed.                     | function(node)                            |
 
 <Tabs>
@@ -123,10 +123,10 @@ The function takes a map of callback functions. These will be called in response
 | Key                           | Callback                                                          | Callback Signature                          |
 | ----------------------------- | ----------------------------------------------------------------- | ------------------------------------------- |
 | `nodeCreated`                 | Called in response to a node being created.                       | function(meta, node)                        |
-| `nodeRenamed`                 | Called in repsonse to a node being renamed.                       | function(meta, node)                        |
+| `nodeRenamed`                 | Called in response to a node being renamed.                       | function(meta, node)                        |
 | `nodeParentChanged`           | Called in response to a node being moved.                         | function(meta, node, oldParent, newParent)  |
-| `nodeAddingToRecycleBin`      | Called in repsonse to a node being sent to the recycle bin.       | function(meta, node)                        |
-| `nodeRestoredFromRecycleBin`  | Called in repsonse to a node being returned from the recycle bin. | function(meta, node)                        |
+| `nodeAddingToRecycleBin`      | Called in response to a node being sent to the recycle bin.       | function(meta, node)                        |
+| `nodeRestoredFromRecycleBin`  | Called in response to a node being returned from the recycle bin. | function(meta, node)                        |
 | `nodeDestroying`              | Called in response to a node being destroyed.                     | function(meta, node)                        |
 
 <Tabs>
