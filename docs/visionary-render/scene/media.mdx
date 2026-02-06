@@ -1,8 +1,15 @@
 # Media
 
-Visionary Render can import various audio, video, and document file formats into your scenes.
+Visionary Render permits you to insert various audio, video, and document file formats into your scenes, including WAV, MP4, DOCX and PDF.
 
 ## Audio
+
+Visionary Render provides audio support through its audio buffer node and can introduce positional and distance-attenuated sound 
+into your scenes using two systems: audio sounds and audio tracks. Positional sound means the audio originates from a specific point in the scene and is heard relative to your camera position. Distance attenuation refers to the volume reduction applied based on how far the sound source is from the camera.
+
+:::note
+Positional and distance-attenuated audio only work with mono (single-channel) audio files. Stereo files do not support these spatial audio effects.
+:::
 
 ### Supported File Formats
 
@@ -25,40 +32,57 @@ To add audio to your scene, you must first create an audio buffer in the Librari
 
 Now click on the `...` button in the Properties window to browse for an audio file on your machine. Once you have added a file, a play button will appear in the Properties window to permit you to sample the audio file.
 
-### Audio Sound/Track
+### Audio Sound
 
-An audio buffer can be used in your scene by creating an AudioSound or AudioTrack. To do this, right-click on the Scenes node in the Developer tree and select **Create** > **Media** from the context menu.
+An audio sound is designed for sound effects that are relatively short and played once. There is no way to stop playing back an audio sound once it has started. You also cannot adjust its volume, modify any of its properties, or even move it in 3D space once it has started playing. Any property changes made to the audio sound component will affect future activations, not sounds that are already playing.
+
+Apart from this behavior, it functions similarly to an audio track. Audio sound is best suited for sound effects such as gunshots, door knocks, impacts, or other quick sound cues where no runtime control is required.
+
+#### Create
+
+After creating an audio buffer, right-click on the Scenes node in the Developer tree and select **Create** > **Media** > **Audio Track** from the context menu to create an audio sound.
 
 ![](/img/visionary-render/scene/media/audio-sound.png)
 
-An AudioSound is designed for sound effects that are relatively short and played once (such as a car horn or gunfire). There is no way to stop playing back an AudioSound once it has started.
+:::tip
+It is often good practice to place audio sounds and audio tracks under an Assembly to ensure they are correctly placed in the scene, unless the sound is attached to the camera.
+:::
 
-An AudioTrack is designed for longer background sounds that are typically looped (such as music or environmental noise like traffic). It has more control over playback.
-
-#### Audio Sound Properties
+#### Properties
 
 ![](/img/visionary-render/scene/media/audio-sound-properties.png)
 
-| Property           | Description                                                                                                                                                                                                                                                                                                                                                                |
-|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Audio Buffer       | Link to an AudioBuffer in the Library tree whose audio file should be played.                                                                                                                                                                                                                                                                                              |
-| Activate           | (AudioSound) Plays the sound back once just now. The sound will play until it is finished.                                                                                                                                                                                                                                                                                 |
-| Volume             | The volume of the sound.                                                                                                                                                                                                                                                                                                                                                   |
+| Property | Description |
+|---|---|
+| Audio Buffer | Link to an AudioBuffer in the Library tree whose audio file should be played. |
+| Activate | Plays the sound back once just now. The sound will play until it is finished. |
+| Volume | The volume of the sound. |
 | Position At Camera | Whether to make the sound relative to a location. The audio node should be attached to an assembly in the scene to set its location. When positioned, the volume of the audio will vary depending on how far the camera is from it. It will also pan as appropriate when it is to the left or right of the camera. Note that the audio file must be mono for this to work. |
-| Transform Mode     | Make the sound relative to the World or a Parent node. World is the absolute world location of the assembly that the audio is attached to. Parent is the location of the assembly relative to its parent.                                                                                                                                                                  |
+| Transform Mode | Make the sound relative to the World or a Parent node. World is the absolute world location of the assembly that the audio is attached to. Parent is the location of the assembly relative to its parent. |
 
-#### Audio Track Properties
+### Audio Track
+
+Audio tracks function as reusable audio playback components. They reserve the necessary audio resources for as long as the track node exists and provide basic playback controls such as start, pause, and stop through their state property. Because the audio sources remain allocated for the track’s entire lifecycle, any changes made to the node’s properties - such as volume, looping, 
+or other parameters - take effect immediately on the currently playing audio. Audio tracks are ideal for continuous or ambient sounds, especially those positioned at the listener or camera, such as looping rain, wind, or other environmental effects.
+
+#### Create
+
+After creating an audio buffer, right-click on the Scenes node in the Developer tree and select **Create** > **Media** > **Audio Track** from the context menu to create an audio track.
+
+![](/img/visionary-render/scene/media/audio-sound.png)
+
+#### Properties
 
 ![](/img/visionary-render/scene/media/audio-track-properties.png)
 
-| Property           | Description                                                                                                                                                                                                                                                                                                                                                                |
-|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Audio Buffer       | Link to an AudioBuffer in the Library tree whose audio file should be played.                                                                                                                                                                                                                                                                                              |
-| State              | (AudioTrack) The current state of the track (**Stopped**, **Playing** or **Paused**).                                                                                                                                                                                                                                                                                      |
-| Volume             | The volume of the sound.                                                                                                                                                                                                                                                                                                                                                   |
-| Loop               | (AudioTrack) Whether to loop the track.                                                                                                                                                                                                                                                                                                                                    |
+| Property |Description |
+|---|---|
+| Audio Buffer | Link to an AudioBuffer in the Library tree whose audio file should be played. |
+| State | The current state of the track (**Stopped**, **Playing** or **Paused**). |
+| Volume | The volume of the sound. |
+| Loop | Whether to loop the track. |
 | Position At Camera | Whether to make the sound relative to a location. The audio node should be attached to an assembly in the scene to set its location. When positioned, the volume of the audio will vary depending on how far the camera is from it. It will also pan as appropriate when it is to the left or right of the camera. Note that the audio file must be mono for this to work. |
-| Transform Mode     | Make the sound relative to the World or a Parent node. World is the absolute world location of the assembly that the audio is attached to. Parent is the location of the assembly relative to its parent.                                                                                                                                                                  |
+| Transform Mode | Make the sound relative to the World or a Parent node. World is the absolute world location of the assembly that the audio is attached to. Parent is the location of the assembly relative to its parent. |
 
 The audio can be now triggered from a Lua script, Event, or directly through the Properties window.
 
@@ -107,13 +131,13 @@ Video files can be played back within a 3D scene. A movie resource can be create
 
 ![](/img/visionary-render/scene/media/movie1.png) ![](/img/visionary-render/scene/media/movie2.png)
 
-| Property     | Description                                                                                                                          |
-|--------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| Filename/URL | The relative filename of the movie file.                                                                                             |
-| Playing      | Is the movie currently playing?                                                                                                      |
-| Repeat       | Loop the movie around when the end is reached.                                                                                       |
-| Position     | Normalised position in the movie (i.e. a value from 0.0 to 1.0).                                                                     |
-| Volume       | Normalised volume of the movie (0.0 = no volume, 1.0 = volume level within the movie file).                                          |
+| Property | Description |
+|---|---|
+| Filename/URL | The relative filename of the movie file. |
+| Playing | Is the movie currently |
+| Repeat | Loop the movie around when the end is reached. |
+| Position | Normalised position in the movie (i.e. a value from 0.0 to 1.0). |
+| Volume | Normalised volume of the movie (0.0 = no volume, 1.0 = volume level within the movie file). |
 | Colour Space | Colour space of the source file. Can be either sRGB (gamma curve colour space - Default) or Linear RGB (colour intensity is linear). |
 
 ![](/img/visionary-render/scene/media/movie3.png)
@@ -156,11 +180,11 @@ Another method of using the Movie is to use it in a Material in the Colour Map c
 
 How the Movie appears on the Model will depend on the UV coordinates. The UV coordinates are used to control what section of the movie is displayed. These can be modified using the Geometry Operators and the material Map Matrix.
 
-| Screenshot                             | Description                                                                                           |
-|----------------------------------------|-------------------------------------------------------------------------------------------------------|
-| ![](/img/visionary-render/scene/media/material2.png) | Normal UV mapping – simple 1:1. The Map Matrix is left as the default.                                |
+| Screenshot | Description |
+|---|---|
+| ![](/img/visionary-render/scene/media/material2.png) | Normal UV mapping – simple 1:1. The Map Matrix is left as the default. |
 | ![](/img/visionary-render/scene/media/material3.png) | Zoomed in on a specific portion of the movie. The Map Matrix has had the scale and position modified. |
-| ![](/img/visionary-render/scene/media/material4.png) | Movie rotation 90º. The Map Matrix has a rotation added in the Z axis and translated in the Y axis.   |
+| ![](/img/visionary-render/scene/media/material4.png) | Movie rotation 90º. The Map Matrix has a rotation added in the Z axis and translated in the Y axis. |
 
 Multiple materials can reference the same Movie instance. When the Movie is played, all materials using that movie will show the movie playing.
 
