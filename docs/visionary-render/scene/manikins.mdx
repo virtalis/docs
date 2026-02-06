@@ -26,7 +26,7 @@ Where possible, the ranges of motion have been based on the medical textbook Net
 
 Right-click the VR Scenes Tree and select **Create** > **Manikin** from the context menu.
 
-![](/img/visionary-render/scene/manikins/create.png)
+![](/img/visionary-render/scene/manikins/create.png) 
 
 ## Properties
 
@@ -47,14 +47,8 @@ Use the Properties window (`Ctrl` + `P`) to configure the manikin.
 | Shoe Colour | Change the shoe colour of the manikin. |
 | Height | Change the height of the manikin (in metres). |
 | Reset Anthropometrics | Reset the anthropometric data to its default values. |
-| Advanced | Adjust these values to alter the size of a body segment by uniformly scaling the segment. The measurement is the length of each segment. The [Measuring Tool](../tools/measuring.mdx) can be used to verify anthropometric measurements on the manikin model when using **Advanced** Properties. |
-| Thickness | Adjust the thicknesses of the body segment by scaling in the x and z dimensions. The length of the bones will not be altered. Unlike the other values, these are scale factors rather than absolute measurements. The value of the slider is a scale factor (for example, a thickness of 2 would be twice as thick as 1). |
-
-## Browser
-
-Manikins can be viewed and edited in the browser. The small and large icon views show an image of each manikin in the scene whilst the list view shows and permits the below properties to be edited.
-
-![](/img/visionary-render/scene/manikins/browser.png)
+| Advanced | <ul><li>**Controlled By User** - The user who is currently in control of this manikin, if any.</li><li>**Body Part Dimensions** - Adjust these values to change the size of a body segment by uniformly scaling the segment. The measurement is the length of each segment. The [Measuring Tool](../tools/measuring.mdx) can be used to verify anthropometric measurements on the manikin model when using **Advanced** Properties.</li></ul> |
+| Advanced > Thickness | Adjust the thicknesses of the body segment by scaling in the x and z dimensions. The length of the bones will not be altered. Unlike the other values, these are scale factors rather than absolute measurements. The value of the slider is a scale factor (for example, a thickness of 2 would be twice as thick as 1). |
 
 ## Target and Bone Helpers
 
@@ -64,7 +58,7 @@ Helpers can be enabled or disabled using the Manikin Helpers option from the Too
 
 ![](/img/visionary-render/scene/manikins/toolbar.png)
 
-![](/img/visionary-render/scene/manikins/settings.png)
+![](/img/visionary-render/scene/manikins/helper-settings.png)
 
 ### Target Helpers
 
@@ -134,11 +128,31 @@ To grip imported objects such as tools in the manikin's hands, the object must b
 
 ![](/img/visionary-render/scene/manikins/hands5.png)
 
-## Immersive Mode
+:::note
+When working in immersive mode (either via a HMD or one of our supported tracking systems in an immersive facility), you can still manipulate and manoeuvre the manikin via the Target or Bone Helpers as described above. You can also control manikins directly from your tracking system or make use of Position at Body.
+:::
 
-When working in immersive mode (either via a HMD or one of our supported tracking systems in an immersive facility) it is still possible to manipulate and manoeuvre the manikin via the Target or Bone Helpers as described above.
+## Immersive Context Menu
 
-### Position at Body
+Open the [Immersive Context Menu](../tracking/immersive-context-menu) by right-clicking when immersed (or Alt + right-click from a desktop) and choose the **Manikins** category. You will see some controls at the top with a list of manikins in the scene below.
+
+![](/img/visionary-render/scene/manikins/icm.png)
+
+### Controls
+
+| Property | Description |
+| --- | --- |
+| Control | When enabled, select a manikin with the laser pointer to change its pose with your tracking system. |
+| Remote | Control the manikin remotely by not locking the camera to its position. |
+| Release | Release control of all manikins. |
+| Delay | Number of seconds to wait before releasing control. Use this time to leave manikins in a desired pose. |
+| Calibrate | Configure the tracking system used to control the manikins. |
+
+### List of Manikins
+
+Below the controls are a list of manikins in the scene. Each tile shows the name of the manikin and a 3D preview to help you to identify manikins by their appearance. Click on a manikin to fly to it in the scene.
+
+## Position at Body
 
 The Position At Body tool will place the manikin's head and hands in the same position and orientation as those of the user when triggered. This can also be triggered from a script using the vrPositionAtBody command.
 
@@ -147,3 +161,19 @@ The rest of the manikin's body will be unchanged from its pose prior to the posi
 ## Bake Meshes
 
 If you have any manikins in your scene that you wish to export, such as with the JT Exporter, right-click on them in the tree and choose **Bake Meshes** from the context menu. This will convert them to Assemblies and Visuals, whilst preserving pose and anthropometric scaling, so that they can be exported.
+
+## Browser
+
+Manikins can be viewed and edited in the browser. The small and large icon views show an image of each manikin in the scene whilst the list view shows and permits the below properties to be edited.
+
+![](/img/visionary-render/scene/manikins/browser.png)
+
+## Settings
+
+You can edit manikin settings under **Settings** > **Tracking** > **Manikins**. This page enables you to calibrate your tracking system if you are immersed (which can also be accessed via the immersive context menu). The Advanced drop-down contains translation and orientation offsets to apply to various body parts. 
+
+:::warning
+The offsets are set during the calibration process so it's better not to tweak them unless you know what you're doing and require finer control over calibration.
+:::
+
+![](/img/visionary-render/scene/manikins/manikin-settings.png)
