@@ -19,12 +19,6 @@ Core functions and types that can be used by Lua scripts and plugins.
 | -------------- | -------------- |
 | void | **[vrAbortScript](#vrabortscript)**(string name)<br />Aborts a suspended script.  |
 | void | **[vrActivate](#vractivate)**([vrnode](../classes/vrnode.mdx) Self, [vrnode](../classes/vrnode.mdx) Other =nil)<br />Invokes the Activate event of a Node optionally setting the __Other register.  |
-| void | **[vrAddEventObserver](#vraddeventobserver)**(string uniqueID, string eventType, [vrnode](../classes/vrnode.mdx) node, Any callback)<br />Adds an observer and callback function to execute for events (e.g. 'Activate', 'Touch', 'Break', 'Click', 'DoubleClick', etc.)  |
-| void | **[vrAddGlobalEventObserver](#vraddglobaleventobserver)**(string uniqueID, string eventType, Any callback)<br />Adds an observer and callback function to execute for global events (e.g. 'KeyPress', 'KeyRelease', 'PoseEntered', 'PoseLeft', etc.)  |
-| void | **[vrAddMetaNodeObserver](#vraddmetanodeobserver)**(string uniqueID, string metaNode, table callbacks)<br />Adds an observer of events from a MetaNode. This notifies the script whenever a node of type metaNode is created.  |
-| void | **[vrAddNodeObserver](#vraddnodeobserver)**(string uniqueID, node node, table callbacks)<br />Adds an observer of events from a node. This notifies the script in certain circumstances - see the callbacks parameter.  |
-| void | **[vrAddSettingObserver](#vraddsettingobserver)**(string key, Any callback, string settingPath, [vrnode](../classes/vrnode.mdx) user =nil)<br />Adds an observer of a setting. This notifies the script whenever the setting changes.  |
-| void | **[vrAddTransformNodeObserver](#vraddtransformnodeobserver)**(string uniqueID, Any transformCallback, Any enabledCallback, [vrnode](../classes/vrnode.mdx) node, [vrnode](../classes/vrnode.mdx) user =nil)<br />Add an observer to the SGNode of a vrtree node.  |
 | void | **[vrAppCommandAdd](#vrappcommandadd)**(string commandName)<br />Adds an app command and binds a lua function call to it.  |
 | void | **[vrAppCommandBind](#vrappcommandbind)**(string commandName, Any func)<br />Binds a lua function to an app command.  |
 | string | **[vrAppDir](#vrappdir)**()<br />Gets the Visionary Render application directory.  |
@@ -150,7 +144,6 @@ Core functions and types that can be used by Lua scripts and plugins.
 | void | **[vrReleaseObjectFromTrackedHand](#vrreleaseobjectfromtrackedhand)**([vrnode](../classes/vrnode.mdx) target =nil, number handIndex =-1, [vrnode](../classes/vrnode.mdx) user =nil)<br />Releases a node attached to the hand. This works in conjunction with vrGrabObjectWithTrackedHand and the TrackedManipulatorTool.  |
 | void | **[vrReloadAudio](#vrreloadaudio)**([vrnode](../classes/vrnode.mdx) node)<br />Finds audio nodes and reloads the audio data from the associated files.  |
 | void | **[vrReloadTextures](#vrreloadtextures)**([vrnode](../classes/vrnode.mdx) node)<br />Recursively finds texture nodes and reloads the texture data from the associated files.  |
-| void | **[vrRemoveObserver](#vrremoveobserver)**(string uniqueID)<br />Removes an observer.  |
 | void | **[vrRemoveRecentItem](#vrremoverecentitem)**(string file, string nodeName)<br />Removes a recent file, folder or import from the corresponding list.  |
 | void | **[vrRemoveTransformLimits](#vrremovetransformlimits)**([vrnode](../classes/vrnode.mdx) node, string type)<br />Removes the TransformLimits on a node.  |
 | string | **[vrRequestFolder](#vrrequestfolder)**(string caption =0, string initialDir =0)<br />Invokes a dialog to select a folder.  |
@@ -215,146 +208,6 @@ Invokes the Activate event of a Node optionally setting the __Other register.
 
   * **Self** The node to put in the __Self register of the activated event 
   * **Other** The node to put in the __Other register of the activated event 
-
-### vrAddEventObserver
-
-```lua
-void vrAddEventObserver(
-    string uniqueID,
-    string eventType,
-    vrnode node,
-    Any callback
-)
-```
-
-Adds an observer and callback function to execute for events (e.g. 'Activate', 'Touch', 'Break', 'Click', 'DoubleClick', etc.) 
-
-**Parameters**: 
-
-  * **uniqueID** A unique ID for use in [vrRemoveObserver()](#vrremoveobserver)
-  * **eventType** The type of event to observe, such as 'Activate' or 'Touch' 
-  * **node** The node to observe for new events 
-  * **callback** A Lua function to call when events are activated. This function should have a signature of function(). It can be a string name of a global function or a Lua function object 
-
-### vrAddGlobalEventObserver
-
-```lua
-void vrAddGlobalEventObserver(
-    string uniqueID,
-    string eventType,
-    Any callback
-)
-```
-
-Adds an observer and callback function to execute for global events (e.g. 'KeyPress', 'KeyRelease', 'PoseEntered', 'PoseLeft', etc.) 
-
-**Parameters**: 
-
-  * **uniqueID** A unique ID for use in [vrRemoveObserver()](#vrremoveobserver)
-  * **eventType** The type of global event to observe, such as 'KeyPress' or 'PoseEntered' 
-  * **callback** A Lua function to call when global events are activated. This function should have a signature of function(). It can be a string name of a global function or a Lua function object 
-
-### vrAddMetaNodeObserver
-
-```lua
-void vrAddMetaNodeObserver(
-    string uniqueID,
-    string metaNode,
-    table callbacks
-)
-```
-
-Adds an observer of events from a MetaNode. This notifies the script whenever a node of type metaNode is created. 
-
-**Parameters**: 
-
-  * **uniqueID** A unique ID for this observer. Use this with vrRemoveObserver. 
-  * **metaNode** The type of node to observe. 
-  * **callbacks** Table of callbacks. Each value can be a string name of a global function or a lua function object. Possible keys are:
-    * nodeCreated - called when a node is created. This function should have a signature of function(meta, newnode).
-    * nodeRenamed - called when a node's name is changed. This function should have a signature of function(meta, node).
-    * nodeParentChanged - called when a node's parent is changed. This function should have a signature of function(meta, node, oldParent, newParent).
-    * nodeAddingToRecycleBin - called when a node is added to the recycle bin. This function should have a signature of function(meta, node).
-    * nodeRestoredFromRecycleBin - called when a node is restored from the recycle bin, e.g. with an undo command. This function should have a signature of function(meta, node).
-    * nodeDestroying - called when a node is finally deleted, usually when closing the scene. You are more likely to want nodeAddingToRecycleBin. This function should have a signature of function(meta, node). 
-    * nodeChildAdded - called when a new child was added to a node. This function should have a signature of function(meta, parent, child).
-    * nodeChildRemoved - called when a child was unlinked from a node. This function should have a signature of function(meta, parent, child).
-    * nodePathChanged - called when the node or one of its ancestors has been re-parented. This function should have a signature of function(meta, node).
-    * nodeLinkAdded - called when a property link was set between nodes. This function should have a signature of function(meta, from, to).
-    * nodeLinkRemoved - called when a property link between nodes was removed. This function should have a signature of function(meta, from, to).
-    * nodeCloned - called when a node was cloned. This function should have a signature of function(meta, orig, clone).
-
-### vrAddNodeObserver
-
-```lua
-void vrAddNodeObserver(
-    string uniqueID,
-    node node,
-    table callbacks
-)
-```
-
-Adds an observer of events from a node. This notifies the script in certain circumstances - see the callbacks parameter. 
-
-**Parameters**: 
-
-  * **uniqueID** A unique ID for this observer. Use this with vrRemoveObserver. 
-  * **node** The node to observe. 
-  * **callbacks** table Table of callbacks. Each value can be a string name of a global function, or a lua function object. Possible keys are:
-    * valuesChanged - called when any of the node values change and should have a signature of function(node).
-    * addingToRecycleBin - called when the node is sent to the recycle bin and should have a signature of function(node).
-    * restoredFromRecycleBin - called when the node is restored from the recycle bin, e.g. with an undo command and should have a signature of function(node).
-    * destroying - called when the node is finally deleted, usually when closing the scene and should have a signature of function(node). You are more likely to want addingToRecycleBin.
-    * addChild - called when a new child was added to a node and should have a signature of function(parent, child).
-    * removeChild - called when  a child was unlinked from a node and should have a signature of function(parent, child).
-    * parentChanged - called when a node's parent was changed and should have a signature of function(npde,newParent, oldParent).
-    * pathChanged - called when a node or one of its ancestors has been re-parented and should have a signature of function(node).
-    * renameNode - called when a node has just been renamed and should have a signature of function(node).
-    * addLink - called when a property link was set between nodes and should have a signature of function(toNode, fromNode).
-    * removeLink - called when a property link between nodes was removed and should have a signature of function(toNode, fromNode).
-    * cloned - called when a node has been cloned and should have a signature of function(orig, cloned).
-
-### vrAddSettingObserver
-
-```lua
-void vrAddSettingObserver(
-    string key,
-    Any callback,
-    string settingPath,
-    vrnode user =nil
-)
-```
-
-Adds an observer of a setting. This notifies the script whenever the setting changes. 
-
-**Parameters**: 
-
-  * **key** A unique key for this observer. Use this with vrRemoveObserver 
-  * **callback** Lua function to call when a node is created. This function should have a signature of function(value). This can be a string name of a global function, or a Lua function object 
-  * **settingPath** Path to the setting to observe (relative to the registry root) 
-  * **user** The user that this observer belongs to (defaults to the current user) 
-
-### vrAddTransformNodeObserver
-
-```lua
-void vrAddTransformNodeObserver(
-    string uniqueID,
-    Any transformCallback,
-    Any enabledCallback,
-    vrnode node,
-    vrnode user =nil
-)
-```
-
-Add an observer to the SGNode of a vrtree node. 
-
-**Parameters**: 
-
-  * **uniqueID** A unique ID for this observer. Use this with vrRemoveObserver. 
-  * **transformCallback** Lua function to call when the nodes transform changes. This function should have a signature of function(node, transform). This can be a string name of a global function, or a lua function object 
-  * **enabledCallback** Lua function to call when the nodes enabled state changes. This function should have a signature of function(node, enabled). This can be a string name of a global function, or a lua function object 
-  * **node** The node to observe. 
-  * **user** THe user associated with this observer. 
 
 ### vrAppCommandAdd
 
@@ -2035,20 +1888,6 @@ Recursively finds texture nodes and reloads the texture data from the associated
 **Parameters**: 
 
   * **node** The node to start searching from. Can be an individual texture node. 
-
-### vrRemoveObserver
-
-```lua
-void vrRemoveObserver(
-    string uniqueID
-)
-```
-
-Removes an observer. 
-
-**Parameters**: 
-
-  * **uniqueID** The unique ID specified when adding the observer. 
 
 ### vrRemoveRecentItem
 
