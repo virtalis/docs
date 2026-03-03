@@ -11,10 +11,15 @@ description: 1.0.1 to 2026.1
 
 #### Added
 
+- Support for Pico Motion Trackers in OpenXR mode
 - Ability to take control of manikins via the immersive context menu
 - Ability to change the current audio device without having to restart Visionary Render for changes to take effect
 - Image stabilisation and zoom settings for headset output
 - Improve the appearance of shadows by supporting Horizon-Based Ambient Occlusion (NVIDIA HBAO+)
+
+#### Changed
+
+- Update OpenAL to 1.24.3 
 
 #### Fixed
 
@@ -23,8 +28,10 @@ description: 1.0.1 to 2026.1
 - Show properties context menu option fails with Lua error
 - No text visible when typing into password field of ActiveView Light
 - Render to Texture does not work
-- When the Oculus runtime is started in OpenXR, raw joystick positions and buttons are lost
+- Joystick positions and buttons are lost when the Oculus runtime is started in OpenXR mode
 - Gallery component items don't show up on the live previews
+- Snap Home tool does not restore correct transforms after file load
+- Group members do not show from Developer tree selection
 
 ---
 
