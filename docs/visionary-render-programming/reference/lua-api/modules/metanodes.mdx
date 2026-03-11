@@ -29,7 +29,6 @@ Functions for interacting with metanodes.
 | void | **[vrAddPropertyMat4d](#vraddpropertymat4d)**(string metaName, string propName)<br />Adds a new mat4d property to an unfinished metanode.  |
 | void | **[vrAddPropertyMat4f](#vraddpropertymat4f)**(string metaName, string propName)<br />Adds a new mat4f property to an unfinished metanode.  |
 | void | **[vrAddPropertyMat4w](#vraddpropertymat4w)**(string metaName, string propName)<br />Adds a new mat4w property to an unfinished metanode.  |
-| void | **[vrAddPropertyObserver](#vraddpropertyobserver)**(string key, Any valueChangedCallback, string metaName, string propNames, [vrnode](../classes/vrnode.mdx) user =nil)<br />Adds an observer of one or more properties of a metanode. The callback function will be executed once per update whenever the value of a specified property is changed.  |
 | void | **[vrAddPropertyString](#vraddpropertystring)**(string metaName, string propName, string defaultVal =0)<br />Adds a new string property to an unfinished metanode.  |
 | void | **[vrAddPropertyVec2d](#vraddpropertyvec2d)**(string metaName, string propName, number defaultX =0.0, number defaultY =0.0, number minX =VR_DOUBLE_MIN, number minY =VR_DOUBLE_MIN, number maxX =VR_DOUBLE_MAX, number maxY =VR_DOUBLE_MAX)<br />Adds a new vec2d property to an unfinished metanode.  |
 | void | **[vrAddPropertyVec2f](#vraddpropertyvec2f)**(string metaName, string propName, number defaultX =0.0, number defaultY =0.0, number minX =VR_FLOAT_MIN, number minY =VR_FLOAT_MIN, number maxX =VR_FLOAT_MAX, number maxY =VR_FLOAT_MAX)<br />Adds a new vec2f property to an unfinished metanode.  |
@@ -400,28 +399,6 @@ Adds a new mat4w property to an unfinished metanode.
 
   * **metaName** The name of the metanode 
   * **propName** The name of the property 
-
-### vrAddPropertyObserver
-
-```lua
-void vrAddPropertyObserver(
-    string key,
-    Any valueChangedCallback,
-    string metaName,
-    string propNames,
-    vrnode user =nil
-)
-```
-
-Adds an observer of one or more properties of a metanode. The callback function will be executed once per update whenever the value of a specified property is changed. 
-
-**Parameters**: 
-
-  * **key** A unique key for this observer. This can be passed to the vrRemoveObserver function to remove this observer 
-  * **valueChangedCallback** A Lua function to execute whenever a specified property is changed. This function should have a signature like "function(node, value1, ...)" - i.e. with a value argument for each observed property. It can be a string name of a global function or a Lua function object 
-  * **metaName** The name of the metanode to observe for property changes (i.e. "Assembly") 
-  * **propNames** A comma-separated list of properties to observe (e.g. "Enabled" or "Enabled,Transform") 
-  * **user** The user associated with this observer (optional - defaults to current user) 
 
 ### vrAddPropertyString
 

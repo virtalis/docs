@@ -8,9 +8,7 @@ import TabItem from '@theme/TabItem';
 
 # Observers
 
-These functions allow callbacks to be performed in response to nodes being updated.
-
-The defined callbacks will take place following the execution of the script, or during a [vrYield](../../reference/lua-api/modules/core.mdx#vryield).
+These functions allow callbacks to be performed in response to nodes being updated. The defined callbacks will take place following the execution of the script, or during a [vrYield](core.mdx#vryield).
 
 ## Functions
 
@@ -20,6 +18,7 @@ The defined callbacks will take place following the execution of the script, or 
 | void | **[vrAddGlobalEventObserver](#vraddglobaleventobserver)**(string uniqueID, string eventType, Any callback)<br />Adds an observer and callback function to execute for global events (e.g. 'KeyPress', 'KeyRelease', 'PoseEntered', 'PoseLeft', etc.)  |
 | void | **[vrAddMetaNodeObserver](#vraddmetanodeobserver)**(string uniqueID, string metaNode, table callbacks)<br />Adds an observer of events from a MetaNode. This notifies the script whenever a node of type metaNode is created.  |
 | void | **[vrAddNodeObserver](#vraddnodeobserver)**(string uniqueID, node node, table callbacks)<br />Adds an observer of events from a node. This notifies the script in certain circumstances - see the callbacks parameter.  |
+| void | **[vrAddPropertyObserver](#vraddpropertyobserver)**(string key, Any valueChangedCallback, string metaName, string propNames, [vrnode](../classes/vrnode.mdx) user =nil)<br />Adds an observer of one or more properties of a metanode. The callback function will be executed once per update whenever the value of a specified property is changed.  |
 | void | **[vrAddSettingObserver](#vraddsettingobserver)**(string key, Any callback, string settingPath, [vrnode](../classes/vrnode.mdx) user =nil)<br />Adds an observer of a setting. This notifies the script whenever the setting changes.  |
 | void | **[vrAddTransformNodeObserver](#vraddtransformnodeobserver)**(string uniqueID, Any transformCallback, Any enabledCallback, [vrnode](../classes/vrnode.mdx) node, [vrnode](../classes/vrnode.mdx) user =nil)<br />Add an observer to the SGNode of a vrtree node.  |
 | void | **[vrRemoveObserver](#vrremoveobserver)**(string uniqueID)<br />Removes an observer.  |
@@ -41,7 +40,7 @@ Adds an observer and callback function to execute for events (e.g. 'Activate', '
 
 **Parameters**: 
 
-  * **uniqueID** A unique ID for use in [vrRemoveObserver()](#vrremoveobserver)
+  * **uniqueID** A unique ID for use in [vrRemoveObserver](#vrremoveobserver)
   * **eventType** The type of event to observe, such as 'Activate' or 'Touch' 
   * **node** The node to observe for new events 
   * **callback** A Lua function to call when events are activated. This function should have a signature of function(). It can be a string name of a global function or a Lua function object 
@@ -60,7 +59,7 @@ Adds an observer and callback function to execute for global events (e.g. 'KeyPr
 
 **Parameters**: 
 
-  * **uniqueID** A unique ID for use in [vrRemoveObserver()](#vrremoveobserver)
+  * **uniqueID** A unique ID for use in [vrRemoveObserver](#vrremoveobserver)
   * **eventType** The type of global event to observe, such as 'KeyPress' or 'PoseEntered' 
   * **callback** A Lua function to call when global events are activated. This function should have a signature of function(). It can be a string name of a global function or a Lua function object 
 
@@ -94,215 +93,7 @@ Adds an observer of events from a MetaNode. This notifies the script whenever a 
     * nodeLinkRemoved - called when a property link between nodes was removed. This function should have a signature of function(meta, from, to).
     * nodeCloned - called when a node was cloned. This function should have a signature of function(meta, orig, clone).
 
-### vrAddNodeObserver
-
-```lua
-void vrAddNodeObserver(
-    string uniqueID,
-    node node,
-    table callbacks
-)
-```
-
-Adds an observer of events from a node. This notifies the script in certain circumstances - see the callbacks parameter. 
-
-**Parameters**: 
-
-  * **uniqueID** A unique ID for this observer. Use this with vrRemoveObserver. 
-  * **node** The node to observe. 
-  * **callbacks** table Table of callbacks. Each value can be a string name of a global function, or a lua function object. Possible keys are:
-    * valuesChanged - called when any of the node values change and should have a signature of function(node).
-    * addingToRecycleBin - called when the node is sent to the recycle bin and should have a signature of function(node).
-    * restoredFromRecycleBin - called when the node is restored from the recycle bin, e.g. with an undo command and should have a signature of function(node).
-    * destroying - called when the node is finally deleted, usually when closing the scene and should have a signature of function(node). You are more likely to want addingToRecycleBin.
-    * addChild - called when a new child was added to a node and should have a signature of function(parent, child).
-    * removeChild - called when  a child was unlinked from a node and should have a signature of function(parent, child).
-    * parentChanged - called when a node's parent was changed and should have a signature of function(npde,newParent, oldParent).
-    * pathChanged - called when a node or one of its ancestors has been re-parented and should have a signature of function(node).
-    * renameNode - called when a node has just been renamed and should have a signature of function(node).
-    * addLink - called when a property link was set between nodes and should have a signature of function(toNode, fromNode).
-    * removeLink - called when a property link between nodes was removed and should have a signature of function(toNode, fromNode).
-    * cloned - called when a node has been cloned and should have a signature of function(orig, cloned).
-
-### vrAddSettingObserver
-
-```lua
-void vrAddSettingObserver(
-    string key,
-    Any callback,
-    string settingPath,
-    vrnode user =nil
-)
-```
-
-Adds an observer of a setting. This notifies the script whenever the setting changes. 
-
-**Parameters**: 
-
-  * **key** A unique key for this observer. Use this with vrRemoveObserver 
-  * **callback** Lua function to call when a node is created. This function should have a signature of function(value). This can be a string name of a global function, or a Lua function object 
-  * **settingPath** Path to the setting to observe (relative to the registry root) 
-  * **user** The user that this observer belongs to (defaults to the current user) 
-
-### vrAddTransformNodeObserver
-
-```lua
-void vrAddTransformNodeObserver(
-    string uniqueID,
-    Any transformCallback,
-    Any enabledCallback,
-    vrnode node,
-    vrnode user =nil
-)
-```
-
-Add an observer to the SGNode of a vrtree node. 
-
-**Parameters**: 
-
-  * **uniqueID** A unique ID for this observer. Use this with vrRemoveObserver. 
-  * **transformCallback** Lua function to call when the nodes transform changes. This function should have a signature of function(node, transform). This can be a string name of a global function, or a lua function object 
-  * **enabledCallback** Lua function to call when the nodes enabled state changes. This function should have a signature of function(node, enabled). This can be a string name of a global function, or a lua function object 
-  * **node** The node to observe. 
-  * **user** THe user associated with this observer. 
-
-### vrRemoveObserver
-
-```lua
-void vrRemoveObserver(
-    string uniqueID
-)
-```
-
-Removes an observer. 
-
-**Parameters**: 
-
-  * **uniqueID** The unique ID specified when adding the observer. 
-
-
-
-## vrAddPropertyObserver
-
-Adds an observer to monitor and respond to value changes for a single property.
-
-<Tabs>
-<TabItem value="script" label="Script">
-
-```lua
-local myNode = vrCreateNode("Assembly", "ObservedNode", vrScenesNode())
-vrYield(0)
-
-local myCallback = function(node, value)
-  print(node:getName() .. " enabled: " .. tostring(value))
-end
-
-vrAddPropertyObserver(
-  "enabledObserver",
-  myCallback,
-  "Assembly",
-  "Enabled"
-)
-
-myNode.Enabled = false
-vrYield(0)
-
-myNode.Enabled = true
-vrYield(0)
-
-vrRemoveObserver("enabledObserver")
-vrDeleteNode(myNode)
-```
-
-</TabItem>
-<TabItem value="output" label="Output">
-
-```
-Running...
-ObservedNode enabled: false
-ObservedNode enabled: true
-Ended.
-```
-
-</TabItem>
-</Tabs>
-
-## vrAddNodeObserver
-
-Adds an observer to monitor and respond to changes on a Node.
-
-The function takes a map of callback functions. These will be called in response to the appropriate changes.
-
-| Key                           | Callback                                                            | Callback Signature                        |
-| ----------------------------- | ------------------------------------------------------------------- | ----------------------------------------- |
-| `valuesChanged`               | Called in response to a property's value being changed.             | function(node)                            |
-| `addingToRecycleBin`          | Called in response to the node being sent to the recycle bin.       | function(node)                            |
-| `restoredFromRecycleBin`      | Called in response to the node being returned from the recycle bin. | function(node)                            |
-| `nodeDestroyed`               | Called in response to the node being destroyed.                     | function(node)                            |
-
-<Tabs>
-<TabItem value="script" label="Script">
-
-```lua
-local myNode = vrCreateNode("Assembly", "ObservedNode", vrScenesNode())
-vrYield(0)
-
-local callbackMap = {
-  valuesChanged = function(node)
-    print(node:getName() .. " enabled: " .. tostring(node.Enabled))
-  end,
-
-  addingToRecycleBin = function(node)
-    print(node:getName() .. " removed")
-  end
-}
-
-vrAddNodeObserver(
-  "nodeObserver",
-  myNode,
-  callbackMap
-)
-
-myNode.Enabled = false
-vrYield(0)
-
-myNode.Enabled = true
-vrYield(0)
-
-vrDeleteNode(myNode)
-vrYield(0)
-
-vrRemoveObserver("nodeObserver")
-```
-
-</TabItem>
-<TabItem value="output" label="Output">
-
-```
-Running...
-ObservedNode enabled: false
-ObservedNode enabled: true
-ObservedNode removed
-Ended.
-```
-
-</TabItem>
-</Tabs>
-
-## vrAddMetaNodeObserver
-
-Adds an observer to monitor and respond to changes on instances of a MetaNode.
-
-The function takes a map of callback functions. These will be called in response to the appropriate changes.
-
-| Key                           | Callback                                                          | Callback Signature                          |
-| ----------------------------- | ----------------------------------------------------------------- | ------------------------------------------- |
-| `nodeCreated`                 | Called in response to a node being created.                       | function(meta, node)                        |
-| `nodeRenamed`                 | Called in response to a node being renamed.                       | function(meta, node)                        |
-| `nodeParentChanged`           | Called in response to a node being moved.                         | function(meta, node, oldParent, newParent)  |
-| `nodeAddingToRecycleBin`      | Called in response to a node being sent to the recycle bin.       | function(meta, node)                        |
-| `nodeRestoredFromRecycleBin`  | Called in response to a node being returned from the recycle bin. | function(meta, node)                        |
-| `nodeDestroying`              | Called in response to a node being destroyed.                     | function(meta, node)                        |
+**Example**: 
 
 <Tabs>
 <TabItem value="script" label="Script">
@@ -364,9 +155,195 @@ Ended.
 </TabItem>
 </Tabs>
 
-## vrAddTransformNodeObserver
+### vrAddNodeObserver
 
-Adds an observer to monitor and respond to the transform related value changes of a Node.
+```lua
+void vrAddNodeObserver(
+    string uniqueID,
+    node node,
+    table callbacks
+)
+```
+
+Adds an observer of events from a node. This notifies the script in certain circumstances - see the callbacks parameter. 
+
+**Parameters**: 
+
+  * **uniqueID** A unique ID for this observer. Use this with vrRemoveObserver. 
+  * **node** The node to observe. 
+  * **callbacks** table Table of callbacks. Each value can be a string name of a global function, or a lua function object. Possible keys are:
+    * valuesChanged - called when any of the node values change and should have a signature of function(node).
+    * addingToRecycleBin - called when the node is sent to the recycle bin and should have a signature of function(node).
+    * restoredFromRecycleBin - called when the node is restored from the recycle bin, e.g. with an undo command and should have a signature of function(node).
+    * destroying - called when the node is finally deleted, usually when closing the scene and should have a signature of function(node). You are more likely to want addingToRecycleBin.
+    * addChild - called when a new child was added to a node and should have a signature of function(parent, child).
+    * removeChild - called when  a child was unlinked from a node and should have a signature of function(parent, child).
+    * parentChanged - called when a node's parent was changed and should have a signature of function(npde,newParent, oldParent).
+    * pathChanged - called when a node or one of its ancestors has been re-parented and should have a signature of function(node).
+    * renameNode - called when a node has just been renamed and should have a signature of function(node).
+    * addLink - called when a property link was set between nodes and should have a signature of function(toNode, fromNode).
+    * removeLink - called when a property link between nodes was removed and should have a signature of function(toNode, fromNode).
+    * cloned - called when a node has been cloned and should have a signature of function(orig, cloned).
+
+**Example**:
+
+<Tabs>
+<TabItem value="script" label="Script">
+
+```lua
+local myNode = vrCreateNode("Assembly", "ObservedNode", vrScenesNode())
+vrYield(0)
+
+local callbackMap = {
+  valuesChanged = function(node)
+    print(node:getName() .. " enabled: " .. tostring(node.Enabled))
+  end,
+
+  addingToRecycleBin = function(node)
+    print(node:getName() .. " removed")
+  end
+}
+
+vrAddNodeObserver(
+  "nodeObserver",
+  myNode,
+  callbackMap
+)
+
+myNode.Enabled = false
+vrYield(0)
+
+myNode.Enabled = true
+vrYield(0)
+
+vrDeleteNode(myNode)
+vrYield(0)
+
+vrRemoveObserver("nodeObserver")
+```
+
+</TabItem>
+<TabItem value="output" label="Output">
+
+```
+Running...
+ObservedNode enabled: false
+ObservedNode enabled: true
+ObservedNode removed
+Ended.
+```
+
+</TabItem>
+</Tabs>
+
+### vrAddPropertyObserver
+
+```lua
+void vrAddPropertyObserver(
+    string key,
+    Any valueChangedCallback,
+    string metaName,
+    string propNames,
+    vrnode user =nil
+)
+```
+
+Adds an observer of one or more properties of a metanode. The callback function will be executed once per update whenever the value of a specified property is changed. 
+
+**Parameters**: 
+
+  * **key** A unique key for this observer. This can be passed to the vrRemoveObserver function to remove this observer 
+  * **valueChangedCallback** A Lua function to execute whenever a specified property is changed. This function should have a signature like "function(node, value1, ...)" - i.e. with a value argument for each observed property. It can be a string name of a global function or a Lua function object 
+  * **metaName** The name of the metanode to observe for property changes (i.e. "Assembly") 
+  * **propNames** A comma-separated list of properties to observe (e.g. "Enabled" or "Enabled,Transform") 
+  * **user** The user associated with this observer (optional - defaults to current user) 
+
+**Example**: 
+
+<Tabs>
+<TabItem value="script" label="Script">
+
+```lua
+local myNode = vrCreateNode("Assembly", "ObservedNode", vrScenesNode())
+vrYield(0)
+
+local myCallback = function(node, value)
+  print(node:getName() .. " enabled: " .. tostring(value))
+end
+
+vrAddPropertyObserver(
+  "enabledObserver",
+  myCallback,
+  "Assembly",
+  "Enabled"
+)
+
+myNode.Enabled = false
+vrYield(0)
+
+myNode.Enabled = true
+vrYield(0)
+
+vrRemoveObserver("enabledObserver")
+vrDeleteNode(myNode)
+```
+
+</TabItem>
+<TabItem value="output" label="Output">
+
+```
+Running...
+ObservedNode enabled: false
+ObservedNode enabled: true
+Ended.
+```
+
+</TabItem>
+</Tabs>
+
+### vrAddSettingObserver
+
+```lua
+void vrAddSettingObserver(
+    string key,
+    Any callback,
+    string settingPath,
+    vrnode user =nil
+)
+```
+
+Adds an observer of a setting. This notifies the script whenever the setting changes. 
+
+**Parameters**: 
+
+  * **key** A unique key for this observer. Use this with vrRemoveObserver 
+  * **callback** Lua function to call when a node is created. This function should have a signature of function(value). This can be a string name of a global function, or a Lua function object 
+  * **settingPath** Path to the setting to observe (relative to the registry root) 
+  * **user** The user that this observer belongs to (defaults to the current user) 
+
+### vrAddTransformNodeObserver
+
+```lua
+void vrAddTransformNodeObserver(
+    string uniqueID,
+    Any transformCallback,
+    Any enabledCallback,
+    vrnode node,
+    vrnode user =nil
+)
+```
+
+Add an observer to the SGNode of a vrtree node. 
+
+**Parameters**: 
+
+  * **uniqueID** A unique ID for this observer. Use this with vrRemoveObserver. 
+  * **transformCallback** Lua function to call when the nodes transform changes. This function should have a signature of function(node, transform). This can be a string name of a global function, or a lua function object 
+  * **enabledCallback** Lua function to call when the nodes enabled state changes. This function should have a signature of function(node, enabled). This can be a string name of a global function, or a lua function object 
+  * **node** The node to observe. 
+  * **user** THe user associated with this observer. 
+
+**Example**: 
 
 <Tabs>
 <TabItem value="script" label="Script">
@@ -424,3 +401,17 @@ Ended.
 
 </TabItem>
 </Tabs>
+
+### vrRemoveObserver
+
+```lua
+void vrRemoveObserver(
+    string uniqueID
+)
+```
+
+Removes an observer. 
+
+**Parameters**: 
+
+  * **uniqueID** The unique ID specified when adding the observer. 
