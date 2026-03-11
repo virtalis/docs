@@ -39,9 +39,9 @@ the pixel is you need to call the 'getColour()' function, which returns a value 
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
   fragColor = getColour();
-  fragColor += getColour(fragcoord.x+1.0, fragCoord.y);
-  fragColor += getColour(fragcoord.x+1.0, fragCoord.y+1.0);
-  fragColor += getColour(fragcoord.x, fragCoord.y+1.0);
+  fragColor += getColour(fragCoord.x+1.0, fragCoord.y);
+  fragColor += getColour(fragCoord.x+1.0, fragCoord.y+1.0);
+  fragColor += getColour(fragCoord.x, fragCoord.y+1.0);
   fragColor /= 4.0;
 }
 ```
