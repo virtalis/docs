@@ -10,16 +10,17 @@ import TabItem from '@theme/TabItem';
 
 ## 2026.1
 
-*Released 2026-02-16*
+*Released 2026-03-16*
 
 #### Added
 
-- `vrControlManikinTargets` function to permit a specified user (or local user if none specified) to possess a manikin
-- `vrReleaseMankin` function to permit a manikin to be released from a user (either the user or manikin can be passed as an argument)
+- [vrControlManikinTargets](../visionary-render-programming/reference/lua-api/modules/core.mdx#vrcontrolmanikintargets) - Take control of a manikin with a specified user (or local user if none specified)
+- [vrReleaseManikin](../visionary-render-programming/reference/lua-api/modules/core.mdx#vrreleasemanikin) - Releases a manikin from the user who is controlling it
 
 #### Fixed
 
 - Crash when there are more than 64 levels of transformed assemblies
+- Pivots are not created at the origin when requested
 
 ---
 
@@ -29,12 +30,12 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- Missing Lua observer callbacks to `vrAddNodeObserver` and `vrAddMetaNodeObserver` to support better node event tracking and bring the Lua API in line with the C API
-- `vrNodeGetUUID` function to get the UUID of a node
-- `vrCompressTexture` function to apply DXT compression to a texture
-- `vrCanCompressTexture` function to determine whether DXT compression can be applied to a texture
-- `vrScaleTexture` function to scale a texture by a specified factor
-- `vrCanScaleTexture` function to determine whether a texture can be scaled
+- Missing Lua observer callbacks to [vrAddNodeObserver](../visionary-render-programming/reference/lua-api/modules/observers.mdx#vraddnodeobserver) and [vrAddMetaNodeObserver](../visionary-render-programming/reference/lua-api/modules/observers.mdx#vraddmetanodeobserver) to support better node event tracking and bring the Lua API in line with the C API
+- [vrNodeGetUUID](../visionary-render-programming/reference/lua-api/modules/nodes.mdx#vrnodegetuuid) to get the UUID of a node
+- [vrCompressTexture](../visionary-render-programming/reference/lua-api/modules/core.mdx#vrcompresstexture) to apply DXT compression to a texture
+- [vrCanCompressTexture](../visionary-render-programming/reference/lua-api/modules/core.mdx#vrcancompresstexture) to determine whether DXT compression can be applied to a texture
+- [vrScaleTexture](../visionary-render-programming/reference/lua-api/modules/core.mdx#vrscaletexture) to scale a texture by a specified factor
+- [vrCanScaleTexture](../visionary-render-programming/reference/lua-api/modules/core.mdx#vrcanscaletexture) to determine whether a texture can be scaled
 
 ---
 
@@ -44,13 +45,13 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- `vrBakeMesh` function to convert deformable meshes to static meshes for export and upload
-- `vrGetDirectoryContents` function to return the files and folders in a directory as a table of tables
+- [vrBakeMesh](../visionary-render-programming/reference/lua-api/modules/core.mdx#vrbakemesh) to convert deformable meshes to static meshes for export and upload
+- [vrGetDirectoryContents](../visionary-render-programming/reference/lua-api/modules/core.mdx#vrgetdirectorycontents) to return the files and folders in a directory as a table of tables
 - Missing documentation for various optional parameters
 
 #### Fixed
 
-- `vrShowGUIFrame` ignores its `show` parameter and can't be used to hide the GUI
+- [vrShowGUIFrame](../visionary-render-programming/reference/lua-api/modules/gui.mdx#vrshowguiframe) ignores its `show` parameter and can't be used to hide the GUI
 
 ---
 
@@ -60,12 +61,12 @@ import TabItem from '@theme/TabItem';
 
 #### Changed
 
-- `vrSetting` functions will continue to work when the setting they reference is moved
-- `vrSettingWrite` throws a warning instead of an error when attempting to write to a setting that no longer exists
+- [vrSetting](../visionary-render-programming/reference/lua-api/modules/settings.mdx) functions will continue to work when the setting they reference is moved
+- [vrSettingWrite](../visionary-render-programming/reference/lua-api/modules/settings.mdx#vrsettingwrite) throws a warning instead of an error when attempting to write to a setting that no longer exists
 
 #### Fixed
 
-- Make `vrExtractBinaryAssets` accept unversioned metanode names and deduce the metanode type automatically from the provided node if no explicit type is defined
+- Make [vrExtractBinaryAssets](../visionary-render-programming/reference/lua-api/modules/core.mdx#vrextractbinaryassets) accept unversioned metanode names and deduce the metanode type automatically from the provided node if no explicit type is defined
 
 ---
 
@@ -75,7 +76,7 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- `vrHasLicenceFeature` to check whether a licence feature is available
+- [vrHasLicenceFeature](../visionary-render-programming/reference/lua-api/modules/core.mdx#vrhaslicencefeature) to check whether a licence feature is available
 
 ---
 
@@ -85,15 +86,15 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- `vrDisableNetwork` to permit networking to be disabled, in contrast to `vrEnableNetwork`
+- [vrDisableNetwork](../visionary-render-programming/reference/lua-api/modules/core.mdx#vrdisablenetwork) to permit networking to be disabled, in contrast to [vrEnableNetwork](../visionary-render-programming/reference/lua-api/modules/core.mdx#vrenablenetwork)
 
 #### Removed
 
-- `relTo` parameter from `vrScriptEditorSetInsertPos` and `vrScriptEditorSetMarkPos`
+- `relTo` parameter from [vrScriptEditorSetInsertPos](../visionary-render-programming/reference/lua-api/modules/script-editor.mdx#vrscripteditorsetinsertpos) and [vrScriptEditorSetMarkPos](../visionary-render-programming/reference/lua-api/modules/script-editor.mdx#vrscripteditorsetmarkpos)
 
 #### Fixed
 
-- Prevent `vrSettingCreate` functions from being able to create unnamed settings
+- Prevent [vrSettingCreate](../visionary-render-programming/reference/lua-api/modules/settings.mdx) functions from being able to create unnamed settings
 
 ---
 
@@ -103,11 +104,11 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- `vrSplitVirtalisHubURL` to identify Virtalis Hub URLs and extract their server name, artifact ID and artifact name
+- [vrSplitVirtalisHubURL](../visionary-render-programming/reference/lua-api/modules/core.mdx#vrsplitvirtalishuburl) to identify Virtalis Hub URLs and extract their server name, artifact ID and artifact name
 
 #### Fixed
 
-- `vrDot` to work with `vrVec4` values
+- [vrDot](../visionary-render-programming/reference/lua-api/modules/maths.mdx#vrdot) to work with [vrvec4](../visionary-render-programming/reference/lua-api/classes/vrvec4) values
 
 ---
 
@@ -117,7 +118,7 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- `vrGenerateQRCodeFile` to permit QR codes to be generated and saved to a file (which is used by the HoloLens 2 to view scenes in Augmented Reality)
+- [vrGenerateQRCodeFile](../visionary-render-programming/reference/lua-api/modules/core.mdx#vrgenerateqrcodefile) to permit QR codes to be generated and saved to a file (which is used by the HoloLens 2 to view scenes in Augmented Reality)
 
 ---
 
@@ -127,7 +128,7 @@ import TabItem from '@theme/TabItem';
 
 #### Fixed
 
-- Incorrect return values from `vrNodeIsInGroup`
+- Incorrect return values from [vrNodeIsInGroup](../visionary-render-programming/reference/lua-api/modules/nodes.mdx#vrnodeisingroup)
 
 ---
 
@@ -157,7 +158,7 @@ import TabItem from '@theme/TabItem';
 
 #### Changed
 
-- `vrNodeFindChild` to return `nil` instead of the node to search from when passed an empty search path
+- [vrNodeFindChild](../visionary-render-programming/reference/lua-api/modules/nodes.mdx#vrnodefindchild) to return `nil` instead of the node to search from when passed an empty search path
 
 ---
 
@@ -352,7 +353,7 @@ import TabItem from '@theme/TabItem';
 | `VRAddSettingToScene`            | Adds a scene override of a setting (if it doesn't already exist) and copies the value from the user setting to the override |
 | `VRRemoveSettingFromScene`       | Removes a scene override of a setting |
 | `VRAddCallbackSettingChanged`    | Registers a function to be called when a setting value changes |
-| `VRRemoveCallbackSettingChanged` | Removes a callback that was added with `VRAddCallbackSettingChanged()` |
+| `VRRemoveCallbackSettingChanged` | Removes a callback that was added with `VRAddCallbackSettingChanged` |
 
 - `vrNodeArrayClear` to clear the values held in an array property
 
@@ -437,7 +438,7 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- `VRGetPropertyEx()` to extract the property index from a metanode name and property name
+- `VRGetPropertyEx` to extract the property index from a metanode name and property name
 - `VRRemoveCallbackEx` variants to remove callbacks specific to a piece of user data
 
 <Tabs>
@@ -513,7 +514,7 @@ struct MyManager2
 #### Changed
 
 - Updated the scripting engine to `LuaJIT-2.1.0-beta3`, which allows 64-bit memory management
-- `vrGeometryOp()` now supports `optimise`, `split`, `explode`, `prune`, `sieve`, `recentre`, `transform` and `merge` operations
+- `vrGeometryOp` now supports `optimise`, `split`, `explode`, `prune`, `sieve`, `recentre`, `transform` and `merge` operations
 
 #### Fixed
 
@@ -658,7 +659,7 @@ vrSetToolEnabled("MouseNavigatorTool", false)
 #### Changed
 
 - The internal Lua engine has changed from Lua 5.1 to LuaJIT 2.0.5. This is fully compatible with all existing Lua 5.1 code and plugins, and also supports some extensions from Lua 5.2. You can read more about LuaJIT and its extensions and performance benefits at http://luajit.org/luajit.html
-- Adds an improved API for node observer in Lua. Updates the function signatures of `vrAddNodeObserver` and `vrAddMetaNodeObserver`. The old versions have been deprecated. See [Observers](../visionary-render-programming/scripts/metanodes/observers.mdx) for more information
+- Adds an improved API for node observer in Lua. Updates the function signatures of [vrAddNodeObserver](../visionary-render-programming/reference/lua-api/modules/observers.mdx#vraddnodeobserver) and [vrAddMetaNodeObserver](../visionary-render-programming/reference/lua-api/modules/observers.mdx#vraddmetanodeobserver). The old versions have been deprecated.
 - VR API development licenses are now less restricting, and one development license for a machine will allow development and debugging of any number of plugins
 
 #### Fixed
@@ -904,7 +905,7 @@ The observer can also be removed using the `vrRemoveObserver` function, by provi
 
 ##### Changes to Node and MetaNode Observers
 
-`vrAddNodeObserver` and `vrAddMetaNodeObserver` have been extended to support additional callbacks.
+[vrAddNodeObserver](../visionary-render-programming/reference/lua-api/modules/observers.mdx#vraddnodeobserver) and [vrAddMetaNodeObserver](../visionary-render-programming/reference/lua-api/modules/observers.mdx#vraddmetanodeobserver) have been extended to support additional callbacks.
 
 ###### Node Observer
 
@@ -1069,7 +1070,7 @@ target.Pivot.UnpivotedWorldTransform.Rotation = {0,0,0}
 
 #### Fixed
 
-- Fixes issue where a Lua script call to `find()` could fail when searching for children of a node with the same name
+- Fixes issue where a Lua script call to `find` could fail when searching for children of a node with the same name
 
 ---
 
@@ -1079,7 +1080,7 @@ target.Pivot.UnpivotedWorldTransform.Rotation = {0,0,0}
 
 #### Changed
 
-- Lua functions registered with `vrAddNodeObserver` and similar, now have valid `__Script` and `__Self` registers when called
+- Lua functions registered with [vrAddNodeObserver](../visionary-render-programming/reference/lua-api/modules/observers.mdx#vraddnodeobserver) and similar, now have valid `__Script` and `__Self` registers when called
 
 ---
 
