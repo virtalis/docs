@@ -32,9 +32,10 @@ Core functions and types that can be used by Lua scripts and plugins.
 | boolean | **[vrClearSelection](#vrclearselection)**([vrnode](../classes/vrnode.mdx) selectionGroup)<br />Clears the selection in the specified selection group.  |
 | void | **[vrClusterMaster](#vrclustermaster)**()<br />Returns true if the local user is a cluster master.  |
 | void | **[vrClusterSlave](#vrclusterslave)**()<br />Returns true if the local user is a cluster slave.  |
-| boolean | **[vrConfigModeAvailable](#vrconfigmodeavailable)**(number mode =CM_MODE_COUNT)<br />Returns true or false if the specified mode is available.  |
 | void | **[vrCompressTexture](#vrcompresstexture)**([vrnode](../classes/vrnode.mdx) node)<br />Applies DXT compression to a texture.  |
+| boolean | **[vrConfigModeAvailable](#vrconfigmodeavailable)**(number mode =CM_MODE_COUNT)<br />Returns true or false if the specified mode is available.  |
 | void | **[vrConstrainNodeToBounds](#vrconstrainnodetobounds)**([vrnode](../classes/vrnode.mdx) node =nil, [vrbox](../classes/vrbox.mdx) bbox =nil)<br />Constrains a node with a TransformLimit to a bounding box.  |
+| void | **[vrControlManikinTargets](#vrcontrolmanikintargets)**([vrnode](../classes/vrnode.mdx) manikin, boolean controlRemotely, [vrnode](../classes/vrnode.mdx) user)<br />Take control of a manikin with a specified user (or local user if none specified).  |
 | void | **[vrCopyBitmap](#vrcopybitmap)**([vrnode](../classes/vrnode.mdx) node)<br />Copies the texture data from a node onto the Windows clipboard.  |
 | void | **[vrCopySelectionToClipboard](#vrcopyselectiontoclipboard)**([vrnode](../classes/vrnode.mdx) selectionToCopy)<br />Copies the specified selection group to the clipboard.  |
 | void | **[vrCopyToClipboard](#vrcopytoclipboard)**([vrnode](../classes/vrnode.mdx) nodeToCopy)<br />Copies the specified node to the clipboard.  |
@@ -141,6 +142,7 @@ Core functions and types that can be used by Lua scripts and plugins.
 | void | **[vrPrimaryUserNode](#vrprimaryusernode)**()<br />Returns the cluster master's user node, or the local user node if unclustered.  |
 | void | **[vrPushRecentFile](#vrpushrecentfile)**(string file)<br />Adds a file to the end of the list of recent files and its folder to the end of the list of recent folders.  |
 | void | **[vrPushRecentImportFile](#vrpushrecentimportfile)**(string file)<br />Adds a file to the end of the list of recent imports and its folder to the end of the list of recent import folders.  |
+| void | **[vrReleaseManikin](#vrreleasemanikin)**([vrnode](../classes/vrnode.mdx) manikinOrUser)<br />Releases a manikin from the user who is controlling it.  |
 | void | **[vrReleaseObjectFromTrackedHand](#vrreleaseobjectfromtrackedhand)**([vrnode](../classes/vrnode.mdx) target =nil, number handIndex =-1, [vrnode](../classes/vrnode.mdx) user =nil)<br />Releases a node attached to the hand. This works in conjunction with vrGrabObjectWithTrackedHand and the TrackedManipulatorTool.  |
 | void | **[vrReloadAudio](#vrreloadaudio)**([vrnode](../classes/vrnode.mdx) node)<br />Finds audio nodes and reloads the audio data from the associated files.  |
 | void | **[vrReloadTextures](#vrreloadtextures)**([vrnode](../classes/vrnode.mdx) node)<br />Recursively finds texture nodes and reloads the texture data from the associated files.  |
@@ -439,6 +441,24 @@ Constrains a node with a TransformLimit to a bounding box.
 **Parameters**: 
 
   * **node** The node to Constrain 
+
+### vrControlManikinTargets
+
+```lua
+void vrControlManikinTargets(
+    vrnode manikin,
+    boolean controlRemotely,
+    vrnode user
+)
+```
+
+Take control of a manikin with a specified user (or local user if none specified).
+
+**Parameters**: 
+
+  * **manikin** The manikin to take control of
+  * **controlRemotely** Whether to control the manikin remotely by not locking the camera to its position
+  * **user** The user who will take control of the manikin (local user if none specified)
 
 ### vrCopyBitmap
 
@@ -1846,6 +1866,20 @@ void vrPushRecentImportFile(
 ```
 
 Adds a file to the end of the list of recent imports and its folder to the end of the list of recent import folders. 
+
+### vrReleaseManikin
+
+```lua
+void vrReleaseManikin(
+    vrnode manikinOrUser
+)
+```
+
+Releases a manikin from the user who is controlling it.
+
+**Parameters**: 
+
+  * **manikinOrUser** The manikin to release or the user who is controlling the manikin
 
 ### vrReleaseObjectFromTrackedHand
 
