@@ -214,8 +214,8 @@ import TabItem from '@theme/TabItem';
 
 - 14 functions to the Lua API for creating and editing user settings:
 
-| Function                       | Description                                                                                                                |
-|--------------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| Function                     | Description                                                                                                                |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------|
 | `vrSettingCreateArrayDouble` | Creates a new double array user setting                                                                                    |
 | `vrSettingCreateArrayFloat`  | Creates a new float array user setting                                                                                     |
 | `vrSettingCreateArrayInt`    | Creates a new integer array user setting                                                                                   |
@@ -254,7 +254,7 @@ import TabItem from '@theme/TabItem';
 
 #### Changed
 
-- `vrAddPropertyObserver` can observe multiple properties of a metanode
+- [vrAddPropertyObserver](../visionary-render-programming/reference/lua-api/modules/observers.mdx#vraddpropertyobserver) can observe multiple properties of a metanode
 
 ---
 
@@ -264,10 +264,10 @@ import TabItem from '@theme/TabItem';
 
 #### Added
 
-- 40 functions to the Lua API for for creating your own metanode types:
+- 40 functions to the Lua API for creating your own metanode types:
 
-| Function                          | Description                 |
-| --------------------------------- | --------------------------- |
+| Function                        | Description                 |
+| ------------------------------- | --------------------------- |
 | `vrCreateMetaNode`              | Creates a new metanode |
 | `vrFinishMetaNode`              | Finishes a metanode (call this after creating it and adding properties, etc.) |
 | `vrAddPropertyBool`             | Adds a new boolean property to an unfinished metanode |
@@ -312,8 +312,8 @@ import TabItem from '@theme/TabItem';
 
 - 40 functions to the C API for creating and observing settings:
 
-| Function                           | Description                 |
-| ---------------------------------- | --------------------------- |
+| Function                         | Description                 |
+| -------------------------------- | --------------------------- |
 | `VRCreateSettingBool`            | Creates a boolean setting if it doesn't already exist |
 | `VRCreateSettingInt`             | Creates an integer setting if it doesn't already exist |
 | `VRCreateSettingArrayInt`        | Creates an integer array setting if it doesn't already exist |
