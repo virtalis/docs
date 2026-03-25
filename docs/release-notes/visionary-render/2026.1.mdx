@@ -1,69 +1,53 @@
 ---
-sidebar_position: 976
+sidebar_position: 975
 ---
 
 # 2026.1
 
-Thank you for downloading Visionary Render 2026.1. This release delivers visible improvements to rendering, immersive tracking, and interaction. You will see cleaner visuals in large scenes, simpler plug-and-play tracking in OpenXR mode, and more predictable VR interaction.
+Thank you for downloading Visionary Render 2026.1. This release introduces motion-tracked manikin control, improves ambient occlusion for VR headsets, and brings a range of workflow and quality-of-life enhancements driven by customer feedback.
 
 ## What's New in This Release?
 
-### Rendering Improvements
+### Manikin Control (Immersive License Only)
 
-Visual quality is more stable across very large and very small scenes. Visionary Render now natively handles extreme depth ranges, from close-up detail work to distant terrain, without z-fighting. You no longer need to fine-tune near and far clip planes.
+Static manikin posing has long been the standard approach for ergonomic and serviceability assessments, but it requires painstaking manual adjustment and can’t capture the subtleties of real human movement. Transitional motions between positions, the natural arc of limbs during a task, and the cumulative space a person needs to complete an operation are all lost. Engineering teams have told us that ergonomic issues found late in development cause costly rework, and that they often fall back on rulers and tape measures because the digital tools are too slow or rigid.
 
-The old Logarithmic Depth Buffer option has been removed. Very large clip plane values are directly supported without the performance hit that the logarithmic option could casue.
+Motion-tracked manikins change this. In VR, you can select a manikin and take control of it in real time using body trackers. Crawl underneath a machine, reach for a component, test whether a maintenance platform gives enough clearance. Issues that would never surface in a traditional CAD review or with static posing become obvious in seconds.
 
-### Tracking System Overhaul (Immersive Licence in OpenXR Mode)
+This release delivers:
 
-1. We’ve added support for HTC Vive Trackers in OpenXR mode (Immersive Licence required). These will appear as nodes under [User]/ViewConfig/Camera/OpenXR when they are detected. If you want an object in your scene to move with the tracker, for example, create a TransformLink and connect it to the detected Tracker.
-
-2. This release introduces a simplified structure for tracking configurations, currently available in OpenXR mode only. Other modes will receive this update in future releases.
-
-Notable changes for script and plugin developers:
-
-- Node types and names within the Camera node have changed
-- The new Tracker node type replaces TrackerPRSLink
-- Tracker inputs are now under the ViewConfig node rather than [User]/Inputs/Tracker
+- The ability to control a manikin through the immersive context menu using VIVE body trackers.
+- A calibration wizard that guides you through body-tracking setup and stores offsets so calibration only needs to happen once.
+- Full scripting support through two new Lua functions (vrControlManikinTargets and vrReleaseManikin), so the capability can be integrated into bespoke workflows.
+- Support for PICO motion trackers in the OpenXR layer. Connection between PICO trackers and manikin control is still in progress, so for now, manikin control works with VIVE trackers only.
 
 :::note
-Existing custom view and tracking configurations remain fully supported without any modifications needed.
+This is the first production release of manikin control. Planned follow-on work includes recording and playback of manikin motion, and handling of size differences between the user and the manikin.
 :::
 
-### VR Interaction Updates (Immersive Licence)
+Your avatar is hidden while controlling a manikin, and other users in a collaborative session cannot control the same manikin simultaneously.
 
-Hand-tracking interaction with 3D GUI elements now responds directly to fingertip contact, improving speed and reliability. Enter and leave events are triggered from head position.
+### Ambient Occlusion Improvements
 
-### Texture Compression and Scaling
+We have improved our ambient occlusion implementation (the soft shadowing that gives 3D scenes a sense of depth) to work better in VR and stereo rendering. The previous approach produced inconsistent results between left and right eye views, particularly at high headset resolutions. A new sampling method gives even, predictable shading on every frame without artefacts seen previously. The result is noticeably better shadow quality in the headset with an unnoticeable performance impact.
 
-You can now automate texture compression and rescaling through Lua functions. Making this script-accessible allows these operations to be applied programmatically across assets, making batch processing and workflow integration easier.
+### Headset Output Image Stabilisation
 
-### Lua Scripting Enhancements
+When projecting a VR headset view onto a shared screen for group training or review sessions, the instructor's natural head movement causes the projected image to shake, making it difficult for the audience to follow. This release adds image stabilisation and zoom settings for headset output, so the projected view remains steady even when the instructor moves. The up direction remains fixed even if the headset tilts.
 
-`vrAddNodeObserver` and `vrAddMetaNodeObserver` now accept additional keys so you can register callbacks for all supported observer events. Specify the keys you want to observe and provide the associated Lua functions. This exposes creation, deletion, parenting, linking and cloning events without requiring C++.
+### Runtime Audio Device Switching
 
-| Node observer keys | Metanode observer keys |
-|---|---|
-| addChild | nodeChildAdded |
-| removeChild | nodeChildRemoved |
-| parentChanged | nodePathChanged |
-| pathChanged | |
-| renameNode | |
-| valuesChanged | |
-| addLink | nodeLinkAdded |
-| removeLink | nodeLinkRemoved |
-| cloned | nodeCloned |
+Previously, Visionary Render would only play audio through whichever device was set as the Windows default at startup. Switching to headphones or a headset audio output meant closing and reopening the application. You can now change the audio output device at runtime without restarting. Positional audio on AudioSound nodes has been corrected so that sounds play from the node's position in the scene rather than always from the origin.
 
-### General Workflow Updates
+### OpenXR Controller Visuals
 
-- **Web browser rig:** In the Developer tree context menu under Create > Media there is a new one-click setup for a browser rig. The default size is 1920 x 1080 but it is easily resizable.
-- **Pivots and snapping:** Snap-to-vertex and pivot behaviour are now consistent across tools.
+You can now enable or disable the rendering of OpenXR controller models in the virtual environment.
 
-:::warning
-Visionary Render 2025.2 and earlier used the OpenGL standard depth range of -1 (near) to 1 (far) in normalised device coordinates, and 0 (near) to 1 (far) in the depth buffer (window coordinates). From 2025.3, Visionary Render uses a reversed range of 1 (near) to 0 (far) in both cases for better precision.
+### Licence Management Improvements
 
-Any view shaders using the result of getDepth() directly, or using the projection matrix, may need updating to handle the new range. View shaders using getDistance() or getEyePos() are unaffected as the conversion is handled internally, but will benefit from improved precision.
-:::
+This release introduces improved licence validation. Subscription licences grant access to any version within a fixed period. Maintenance licences grant version updates for a fixed period and then allow continued use of any version released during that window. These changes ensure that the correct entitlements are applied at startup.
+
+The licence server has also received a full user-interface and usability refresh.
 
 ### Importers and Exporters
 
@@ -79,13 +63,23 @@ Any view shaders using the result of getDepth() directly, or using the projectio
 
 ## Resolved Issues
 
-We continue to focus on addressing issues you report and improving the quality of Visionary Render. In this release we identified and resolved 45 issues, 11 of which were reported as bugs and 2 were raised directly by customers. 
+We continue to focus on addressing issues reported by customers and improving overall quality. Key fixes in this release:
 
 | ID | Summary |
 |---|---|
-| FUS-3815 | Added missing Lua observer callbacks to support better node event tracking |
-| FUS-3816 | Added tools for compressing and scaling imported textures for faster loading |
+| FUS-3340 | Show Properties context menu option fails with Lua error |
+| FUS-3697 | No text visible when typing into password field of ActiveView Light |
+| FUS-3725 | Positional audio does not work on AudioSound nodes |
+| FUS-3741 | Lua package.path does not allow use of absolute paths with require |
+| FUS-3883 | Snap Home tool does not restore correct transforms after file load |
+| FUS-3948 | Render to Texture does not work (regression since 2025.1) |
+| FUS-4041 | Networking connection problems when joining collaborative sessions |
+| FUS-4114 | Joystick positions and buttons lost when Oculus runtime is started in OpenXR mode |
 
 :::note
 See the [Changelog](../../changelogs/visionary-render#20261) for a complete list of resolved issues and changes.
 :::
+
+## Documentation Corrections
+
+Minor corrections have been made to the online API documentation, including updated callback listings for observer functions.
