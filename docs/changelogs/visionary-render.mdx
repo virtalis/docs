@@ -7,21 +7,22 @@ description: 1.0.1 to 2026.1
 
 ## 2026.1
 
-*Released 2026-03-16*
+*Released 2026-03-30*
 
 #### Added
 
-- Support for Pico Motion Trackers in OpenXR mode
 - Ability to take control of manikins via the immersive context menu
-- Wizard to permit body tracking to be calibrated
 - Ability to change the current audio device without having to restart Visionary Render for changes to take effect
-- Image stabilisation and zoom settings for headset output
-- Improve the appearance of shadows by supporting Horizon-Based Ambient Occlusion (NVIDIA HBAO+)
-- Option to enable/disable OpenXR controller visuals
+- Image stabilisation and zoom settings for the desktop mirror view when using a headset
+- Controller visuals for Meta headsets in OpenXR mode
+- Support for OpenXR body tracking extensions with HTC, Meta and Pico devices
+- Joystick and button inputs in the new OpenXR tracking node structure
+- Camera property to control whether world settings are used with render-to-texture
 
 #### Changed
 
 - Update OpenAL to 1.24.3 
+- Improve ambient occlusion quality and performance
 
 #### Fixed
 
@@ -29,13 +30,9 @@ description: 1.0.1 to 2026.1
 - Positional audio does not work on audio sounds
 - Show properties context menu option fails with Lua error
 - No text visible when typing into password field of ActiveView Light
-- Render to Texture does not work
-- Joystick positions and buttons are lost when the Oculus runtime is started in OpenXR mode
 - Gallery component items don't show up on the live previews
 - Snap Home tool does not restore correct transforms after file load
 - Group members do not show from Developer tree selection
-- Stabilised HMD view disappears when scene scale is small
-- Left eye view in HoloLens is wrong when ocean underwater effects are enabled
 - Gallery component items do not show up on live preview
 - Preview icons are not created for new Gallery items
 
