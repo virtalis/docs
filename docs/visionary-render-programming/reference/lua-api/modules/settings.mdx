@@ -3,9 +3,12 @@ title: Settings
 summary: Functions for accessing settings. 
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Settings
 
-Functions for accessing settings. 
+These functions permit you to access and edit user and scene settings. They always apply to the setting that is currently active, whether it is a user setting or a scene override.
 
 ## Functions
 
@@ -56,6 +59,44 @@ Creates a scene setting as an override to an existing setting or a scene-only se
   * **slot** Function to call when the setting value changes 
   * **complete** Function to call when the node has been created, which may not be immediately 
   * **typestr** Hint at which number type should be used instead of a double to create a scene-only setting (int, float, world) 
+
+**Example 1**: 
+
+This example shows how to add a scene override for a user setting.
+
+<Tabs>
+<TabItem value="script" label="Script">
+
+```lua
+vrSettingAddToScene("Renderer/Scene/ClipRange", {0,0})
+vrSettingWrite("Renderer/Scene/ClipRange", {1.0, 200.0})
+
+print(vrSettingRead("Renderer/Scene/ClipRange"))
+```
+
+</TabItem>
+<TabItem value="output" label="Output">
+
+```
+Running...
+1.000, 200.000
+Ended.
+```
+
+</TabItem>
+</Tabs>
+
+**Example 2**: 
+
+This example shows how to add new settings for a specific scene. These settings are not saved in the user registry, only with the scene. They do, however, automatically trigger the generation of a new Settings category to allow instant user interaction with scene configuration settings.
+
+```lua
+vrSettingAddToScene("MyScene/CustomSetting", 5)
+```
+
+This results in an additional category in the settings interface, and an interface control for editing the setting value.
+
+![](/img/visionary-render-programming/custom-scene-setting.png)
 
 ### vrSettingCreateArrayDouble
 
@@ -253,6 +294,35 @@ Gets an application setting from the user registry, or a scene override if it ex
   * **path** Path to the setting (relative to the registry root) 
   * **user** The user that this setting belongs to (defaults to the current user) 
 
+**Example**: 
+
+<Tabs>
+<TabItem value="script" label="Script">
+
+```lua
+local clipPlanes = vrSettingGet("Renderer/Scene/ClipRange")
+
+print(clipPlanes)
+print(clipPlanes.Value)
+print(clipPlanes.Value.x)
+print(clipPlanes.Value.y)
+```
+
+</TabItem>
+<TabItem value="output" label="Output">
+
+```
+Running...
+Setting: [000000004E90D2A0, path:Renderer/Scene/ClipRange]
+0.100, 1000.000
+0.10000000149
+1000
+Ended.
+```
+
+</TabItem>
+</Tabs>
+
 ### vrSettingGetNode
 
 ```lua
@@ -305,6 +375,33 @@ Reads the value of a setting.
   * **path** Path to the setting (relative to the registry root 
   * **user** The user that this setting belongs to (defaults to the current user) 
 
+**Example**: 
+
+<Tabs>
+<TabItem value="script" label="Script">
+
+```lua
+local clipPlanes = vrSettingRead("Renderer/Scene/ClipRange")
+
+print(clipPlanes)
+print(clipPlanes.x)
+print(clipPlanes.y)
+```
+
+</TabItem>
+<TabItem value="output" label="Output">
+
+```
+Running...
+0.100, 1000.000
+0.10000000149
+1000
+Ended.
+```
+
+</TabItem>
+</Tabs>
+
 ### vrSettingRemoveFromScene
 
 ```lua
@@ -320,6 +417,29 @@ Removes a scene setting.
   * **path** Path to the setting (relative to the registry root) 
 
 **Return**: True if the setting was removed 
+
+**Example**: 
+
+<Tabs>
+<TabItem value="script" label="Script">
+
+```lua
+vrSettingRemoveFromScene("Renderer/Scene/ClipRange")
+
+print(vrSettingRead("Renderer/Scene/ClipRange"))
+```
+
+</TabItem>
+<TabItem value="output" label="Output">
+
+```
+Running...
+0.300, 500.000
+Ended.
+```
+
+</TabItem>
+</Tabs>
 
 ### vrSettingSetCaption
 
@@ -410,3 +530,27 @@ Writes the value of a setting.
   * **path** Path to the setting (relative to the registry root 
   * **value** The value to set 
   * **user** The user that this setting belongs to (defaults to the current user) 
+
+**Example**: 
+
+<Tabs>
+<TabItem value="script" label="Script">
+
+```lua
+vrSettingWrite("Renderer/Scene/ClipRange", {0.3, 500.0})
+
+local clipPlanes = vrSettingRead("Renderer/Scene/ClipRange")
+print(clipPlanes)
+```
+
+</TabItem>
+<TabItem value="output" label="Output">
+
+```
+Running...
+0.300, 500.000
+Ended.
+```
+
+</TabItem>
+</Tabs>

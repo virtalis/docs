@@ -321,6 +321,44 @@ Adds an observer of a setting. This notifies the script whenever the setting cha
   * **settingPath** Path to the setting to observe (relative to the registry root) 
   * **user** The user that this observer belongs to (defaults to the current user) 
 
+**Example**: 
+
+This function makes use of the capability of passing local Lua functions into the API to be called later. The following line of code provides a simple function to print the value of a setting whenever it changes. Whenever the Clip Planes setting in the Renderer/Scene category is changed (e.g. by the user interface), the script will print the new value of the setting.
+
+<Tabs>
+<TabItem value="script" label="Script">
+
+```lua
+vrAddSettingObserver("clipobs", function(value) print(value) end, "Renderer/Scene/ClipRange")
+```
+
+</TabItem>
+<TabItem value="output" label="Output">
+
+```
+Running...
+0.310, 500.000
+0.320, 500.000
+0.330, 500.000
+0.320, 500.000
+0.310, 500.000
+0.300, 500.000
+Ended.
+```
+
+</TabItem>
+</Tabs>
+
+This doesn’t have to be an anonymous function, either, it can be a separate function defined locally or globally, and can also accept a string as the name of a global function.
+
+```lua
+local function printer(value) 
+  print(value) 
+end
+
+vrAddSettingObserver("clipobs", printer, "Renderer/Scene/ClipRange")
+```
+
 ### vrAddTransformNodeObserver
 
 ```lua
