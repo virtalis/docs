@@ -21,15 +21,15 @@ This release delivers:
 - Full scripting support through two new Lua functions (vrControlManikinTargets and vrReleaseManikin), so the capability can be integrated into bespoke workflows.
 - Support for PICO motion trackers in the OpenXR layer. Connection between PICO trackers and manikin control is still in progress, so for now, manikin control works with VIVE trackers only.
 
-:::note
-This is the first production release of manikin control. Planned follow-on work includes recording and playback of manikin motion, and handling of size differences between the user and the manikin.
-:::
+This is the first production release of manikin control. Planned follow-on work includes recording and playback of manikin motion, and handling of size differences between the user and the manikin. Support for PICO motion trackers will be also added in the near future.
 
+:::note
 Your avatar is hidden while controlling a manikin, and other users in a collaborative session cannot control the same manikin simultaneously.
+:::
 
 ### Ambient Occlusion Improvements
 
-We have improved our ambient occlusion implementation (the soft shadowing that gives 3D scenes a sense of depth) to work better in VR and stereo rendering. The previous approach produced inconsistent results between left and right eye views, particularly at high headset resolutions. A new sampling method gives even, predictable shading on every frame without artefacts seen previously. The result is noticeably better shadow quality in the headset with an unnoticeable performance impact.
+Ambient occlusion, the soft shadowing that gives 3D scenes a greater sense of depth, has been improved for VR and stereo rendering. A new sampling method delivers more consistent shading from frame to frame, removes previously seen artefacts, and produces a cleaner result both in-headset and on screen. Shadow quality is noticeably improved, and in some cases performance may also be improved.
 
 ### Headset Output Image Stabilisation
 
@@ -41,7 +41,7 @@ Previously, Visionary Render would only play audio through whichever device was 
 
 ### OpenXR Controller Visuals
 
-You can now enable or disable the rendering of OpenXR controller models in the virtual environment.
+Controller visuals are now shown for Meta headsets when running in OpenXR mode.
 
 ### Licence Management Improvements
 
@@ -68,14 +68,14 @@ We continue to focus on addressing issues reported by customers and improving ov
 | FUS-3725 | Positional audio does not work on AudioSound nodes |
 | FUS-3741 | Lua package.path does not allow use of absolute paths with require |
 | FUS-3883 | Snap Home tool does not restore correct transforms after file load |
-| FUS-3948 | Render to Texture does not work (regression since 2025.1) |
+| FUS-3948 | Camera property to control whether world settings are used with render-to-texture |
 | FUS-4041 | Networking connection problems when joining collaborative sessions |
-| FUS-4114 | Joystick positions and buttons lost when Oculus runtime is started in OpenXR mode |
+| FUS-4114 | Joystick and button inputs in the new OpenXR tracking node structure |
 
 :::note
 See the [Changelog](../../changelogs/visionary-render#20261) for a complete list of resolved issues and changes.
 :::
 
-## Documentation Corrections
+## Documentation Improvements
 
-Minor corrections have been made to the online API documentation, including updated callback listings for observer functions.
+The settings and observers API documentation has been improved and hyperlinks have been added to the API changelog, among other improvements.
