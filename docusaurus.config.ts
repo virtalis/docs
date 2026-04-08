@@ -6,7 +6,7 @@ const config: Config = {
 
   title: 'Virtalis Docs',
   tagline: 'Documentation portal for Virtalis applications',
-  favicon: 'favicon.ico',
+  favicon: 'favicon.svg',
   url: 'https://docs.virtalis.com',
   baseUrl: '/',
   organizationName: 'virtalis',
@@ -105,6 +105,7 @@ const config: Config = {
       logo: {
         alt: 'Virtalis Docs Logo',
         src: 'assets/logos/virtalis-docs.svg',
+        srcDark: 'assets/logos/virtalis-docs-dark.svg',
         width: 180,
       },
       items: [
