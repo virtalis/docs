@@ -1,0 +1,70 @@
+/* Hero Banner */
+
+.heroBanner {
+  background-color: var(--ifm-color-white);
+  color: #ffffff;
+  padding: 5rem 0 3rem;
+  text-align: center;
+}
+
+[data-theme='dark'] .heroBanner{
+  background-color: var(--ifm-color-gray-950);
+}
+
+.heroLogoContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.heroLogo {
+  width: 800px;
+  height: auto;
+  display: block;
+}
+
+/* Search Bar */
+
+.searchSection {
+  background-color: var(--ifm-color-emphasis-100);
+  padding: 2.5rem 0;
+}
+
+.searchBarWrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.searchInner :global(.DocSearch-Button) {
+  width: 100% !important;
+  height: 3.5rem !important;
+  border-radius: 12px !important;
+  margin: 0 !important;
+  background: var(--ifm-background-color);
+  border: 2px solid var(--ifm-color-primary);
+}
+
+.searchInner :global(.DocSearch-Button-Placeholder) {
+  font-size: 1.3rem !important;
+  padding-left: 0.5rem;
+}
+
+.searchInner :global(.DocSearch-Search-Icon) {
+  width: 26px;
+  height: 26px;
+}
+
+/* Product Cards */
+
+.featureSvg {
+  height: 120px;
+  width: 120px;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
