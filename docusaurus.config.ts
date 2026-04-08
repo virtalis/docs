@@ -188,16 +188,16 @@ const config: Config = {
               href: 'https://www.virtalis.com/contact',
             },
             {
-              label: 'Support',
-              href: 'https://www.virtalis.com/support',
-            },
-            {
               label: 'Glossary',
               to: 'glossary',
             },
             {
               label: 'Privacy Policy',
-              to: 'privacy-policy',
+              href: 'https://www.virtalis.com/privacy-policy',
+            },
+            {
+              label: 'Support',
+              href: 'https://www.virtalis.com/support',
             },
             // {
             //   label: 'Terms and Conditions',
