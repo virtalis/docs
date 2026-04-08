@@ -106,7 +106,7 @@ export default function Home(): JSX.Element {
         <div className="container">
           <div className={styles.heroLogoContainer}>
             <ThemedImage
-              alt="Project Logo"
+              alt="Virtalis Docs Logo"
               className={styles.heroLogo}
               sources={{
                 light: useBaseUrl('/assets/logos/virtalis-docs.svg'),

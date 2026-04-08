@@ -7,9 +7,8 @@
   --virtalis-color-dark-blue-highlight: rgb(25, 18, 143);
   --virtalis-color-darker-blue: rgb(12, 8, 58);
   --virtalis-color-darkest-blue: rgb(7, 5, 33);
-  --virtalis-color-orange: rgb(232, 169, 44);
 
-  --ifm-color-primary: rgb(230, 114, 5);
+  --ifm-color-primary: rgb(225, 129, 38);
   --ifm-color-primary-dark: rgb(207, 103, 5);
   --ifm-color-primary-darker: rgb(195, 97, 4);
   --ifm-color-primary-darkest: rgb(161, 80, 4);
@@ -78,7 +77,7 @@
 }
 
 [data-theme='dark'] {
-  --ifm-color-primary: rgb(232, 169, 44);
+  --ifm-color-primary: rgb(241, 172, 39);
   --ifm-color-primary-dark: rgb(224, 157, 24);
   --ifm-color-primary-darker: rgb(212, 148, 23);
   --ifm-color-primary-darkest: rgb(174, 122, 19);
