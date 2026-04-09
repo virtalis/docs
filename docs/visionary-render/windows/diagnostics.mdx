@@ -2,7 +2,7 @@
 
 The Diagnostics window can be used to investigate any problems that you encounter, such as hardware and scripting errors or performance issues. It contains 5 tabs: **View**, **Tracking**, **Log**, **Lua State**, and **Support**.
 
-![](/img/visionary-render/windows/diagnostics/overview.png)
+![](/img/visionary-render/windows/diagnostics/overview.webp)
 
 To open the Diagnostics window, click on the Virtalis button at the top-left of the Toolbar and select **Windows** > **Diagnostics**. Alternatively, click and hold left mouse button over the Windows menu of the Toolbar and select **Diagnostics**. It can also be shown or hidden with `Ctrl` + `D`.
 
@@ -12,7 +12,7 @@ The View tab displays information about the 3D view such as the framerate and cu
 
 ### Statistics
 
-![](/img/visionary-render/windows/diagnostics/statistics.png)
+![](/img/visionary-render/windows/diagnostics/statistics.webp)
 
 #### Buttons
 
@@ -40,19 +40,19 @@ The View tab displays information about the 3D view such as the framerate and cu
 
 ### FPS Graph
 
-![](/img/visionary-render/windows/diagnostics/fps.png)
+![](/img/visionary-render/windows/diagnostics/fps.webp)
 
 The FPS Graph shows the frames per second since the session of Visionary Render began. A new bar is added to the graph each second. Hover the mouse over a bar to see the FPS that it represents. The higher the bar, the higher the FPS.
 
 ### Batches Histogram
 
-![](/img/visionary-render/windows/diagnostics/batches.png)
+![](/img/visionary-render/windows/diagnostics/batches.webp)
 
 The Batches Histogram is an advanced utility for diagnosing performance issues in your scenes. Visionary Render draws meshes by sending triangle draw commands - or "batches" - to the graphics card. This incurs a cost regardless of how many triangles are being drawn, but that cost can be reduced by sending less draw commands to draw the same number of triangles. You can achieve this by merging Meshes under a single GeoGroup and GeoGroups under a single Model or LOD. To do this, rearrange your assets in the original software that you used to author them, or in Visionary Render by tweaking importer settings or applying geometry operators.
 
 By default, the histogram is hidden. To open it, click on the **Batches Histogram** rollout. It will be automatically generated for the current frame and displayed as above. The histogram is arranged into a series of bars - or "bins" - whose heights show the percentage of batches in the frame that render a specified range of triangles. A full height bar represents 100% of the batches in the frame, whilst half height is 50%, etc. Empty bins are not shown. Mouse over one of the bars to see a tooltip with the exact figures.
 
-![](/img/visionary-render/windows/diagnostics/tooltip.png)
+![](/img/visionary-render/windows/diagnostics/tooltip.webp)
 
 In the example above, we see that there are 29 batches in the frame that render between 1024 and 1087 triangles. 29 batches is 2.74% of the total number of batches in the frame. If the histogram shows that most of your batches draw between 0 and 63 triangles (i.e. the bar at the far left is the highest) then you're not using the graphics card efficiently and your Meshes and/or GeoGroups should be merged.
 
@@ -62,7 +62,7 @@ By default, the bars are arranged from left to right in increments of 64 triangl
 
 ### GPU Limits
 
-![](/img/visionary-render/windows/diagnostics/gpu-limits.png)
+![](/img/visionary-render/windows/diagnostics/gpu-limits.webp)
 
 The GPU Limits rollout shows various limitations of your graphics card such as maximum viewport size and maximum 2D/3D texture size.
 
@@ -74,13 +74,13 @@ If you exceed these limits in your scene then Visionary Render may become unresp
 
 On a cluster, a drop-down menu will be shown in the toolbar to permit you to view the Statistics, Batches Histogram and GPU Limits for different cluster nodes.
 
-![](/img/visionary-render/windows/diagnostics/view-cluster.png)
+![](/img/visionary-render/windows/diagnostics/view-cluster.webp)
 
 ## Tracking
 
 The Tracking tab shows input sensor data for any connected tracking hardware in the current desktop immersion mode as well as any AR markers.
 
-![](/img/visionary-render/windows/diagnostics/tracking.png)
+![](/img/visionary-render/windows/diagnostics/tracking.webp)
 
 ### Diagnostic Tools
 
@@ -98,7 +98,7 @@ The Tracking tab of the Diagnostics window shows a table with all of the AR mark
 
 The Log tab displays information, warnings, and errors. When you experience an issue in the software it is a good idea to check the log first for any errors.
 
-![](/img/visionary-render/windows/diagnostics/log.png)
+![](/img/visionary-render/windows/diagnostics/log.webp)
 
 :::tip
 If necessary, additional debug messages can be enabled with the **Verbose Log** setting under **User Interface** > **Advanced**.
@@ -118,7 +118,7 @@ The start of the log contains a header with information about the application an
 
 Here's an example of the different kinds of text:
 
-![](/img/visionary-render/windows/diagnostics/key.png)
+![](/img/visionary-render/windows/diagnostics/key.webp)
 
 ### Usage
 
@@ -126,7 +126,7 @@ Here's an example of the different kinds of text:
 
 To copy text from the log, hold down left mouse button and drag to select the text that you wish to copy, then right-click and select **Copy** from the context menu. The text will be copied to the clipboard.
 
-![](/img/visionary-render/windows/diagnostics/copy.png)
+![](/img/visionary-render/windows/diagnostics/copy.webp)
 
 #### Clear
 
@@ -151,19 +151,19 @@ To filter the log, click on one of the filter buttons at the top-right of the te
 
 The log also displays messages related to Lua scripting, such as information and errors. These contain the prefix `{Lua}`. If an error occurs in a script, a hyperlink will be added to the log - click on it to open the script in the Script Editor.
 
-![](/img/visionary-render/windows/diagnostics/lua-error.png)
+![](/img/visionary-render/windows/diagnostics/lua-error.webp)
 
 ### Cluster
 
 On a cluster, a drop-down menu will be shown in the toolbar to permit you to view and save the logs of different cluster nodes. A **Save All...** button is added to permit all the cluster node logs to be saved to a directory.
 
-![](/img/visionary-render/windows/diagnostics/log-cluster.png)
+![](/img/visionary-render/windows/diagnostics/log-cluster.webp)
 
 ## Lua State
 
 The Lua State tab is an advanced feature for diagnosing issues in Lua scripts. The left panel shows the current values of built-in and user global variables. The right panel shows the scripts that are currently running.
 
-![](/img/visionary-render/windows/diagnostics/lua-state.png)
+![](/img/visionary-render/windows/diagnostics/lua-state.webp)
 
 ### Capture Data
 
@@ -185,7 +185,7 @@ See the [Visionary Render Programming Guide](../../visionary-render-programming)
 
 The Support tab provides information on how to contact us if you encounter a problem. It also permits a support e-mail to be generated with an optional log file attached to it.
 
-![](/img/visionary-render/windows/diagnostics/support.png)
+![](/img/visionary-render/windows/diagnostics/support.webp)
 
 ### Support Form
 

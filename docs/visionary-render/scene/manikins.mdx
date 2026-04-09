@@ -2,7 +2,7 @@
 
 A Visionary Render Manikin is a 1:1 scale model of a virtual human that can be representatively posed and proportioned. The manikin functionality can be used early in the design process to inform decision-making around ergonomics.
 
-![](/img/visionary-render/scene/manikins/overview.png)
+![](/img/visionary-render/scene/manikins/overview.webp)
 
 Manikins can be easily positioned into relevant and representative poses in a scene using inverse kinematics (IK) and forward kinematics (FK). You can rapidly adjust and re-adjust the manikin, and you also have the ability to fine-tune positions with FK. You can also individually tweak the separate bone lengths in order to approximate the anthropometric measurements, for example the scaling of the individual body segments.
 
@@ -26,13 +26,13 @@ Where possible, the ranges of motion have been based on the medical textbook Net
 
 Right-click the VR Scenes Tree and select **Create** > **Manikin** from the context menu.
 
-![](/img/visionary-render/scene/manikins/create.png) 
+![](/img/visionary-render/scene/manikins/create.webp) 
 
 ## Properties
 
 Use the Properties window (`Ctrl` + `P`) to configure the manikin.
 
-![](/img/visionary-render/scene/manikins/properties.png)
+![](/img/visionary-render/scene/manikins/properties.webp)
 
 | Property | Description |
 | --- | --- |
@@ -56,15 +56,15 @@ The Target and Bone Helpers are manipulators that enable you to adjust the pose 
 
 Helpers can be enabled or disabled using the Manikin Helpers option from the Toolbar (they are enabled by default) or via the **Settings** > **User Interface** > **Helpers** window.
 
-![](/img/visionary-render/scene/manikins/toolbar.png)
+![](/img/visionary-render/scene/manikins/toolbar.webp)
 
-![](/img/visionary-render/scene/manikins/helper-settings.png)
+![](/img/visionary-render/scene/manikins/helper-settings.webp)
 
 ### Target Helpers
 
 The target node is highlighted by a transparent box. Select a node and use the PRS manipulator to change the position and rotation of the selected object. You can also use the mouse manipulator, drag and drop them to snap them to a surface, or drag them immersively.
 
-![](/img/visionary-render/scene/manikins/target-helpers.png)
+![](/img/visionary-render/scene/manikins/target-helpers.webp)
 
 :::note
 If the manikin jumps rapidly between different poses when moving a target, this usually indicates that the targets have been placed in locations that are impossible for the manikin to reach simultaneously. The orientation of the targets may be causing one or more of the manikin's joints to reach its rotation limits. Move or rotate the targets into a more natural pose to restore normal movement.
@@ -80,25 +80,25 @@ You can select multiple target nodes in the Tree view with `Shift` or `Ctrl` or 
 
 </Steps>
 
-![](/img/visionary-render/scene/manikins/multiselect1.png)
+![](/img/visionary-render/scene/manikins/multiselect1.webp)
 
 :::note
 You can select the manikin parent node and use the **Windows > View Widget** (`Ctrl` + `U`) to change the camera view and edit the position and orientation of the manikin in 3D with greater accuracy.
 :::
 
-![](/img/visionary-render/scene/manikins/multiselect2.png) ![](/img/visionary-render/scene/manikins/multiselect3.png) ![](/img/visionary-render/scene/manikins/multiselect4.png) ![](/img/visionary-render/scene/manikins/multiselect5.png)
+![](/img/visionary-render/scene/manikins/multiselect2.webp) ![](/img/visionary-render/scene/manikins/multiselect3.webp) ![](/img/visionary-render/scene/manikins/multiselect4.webp) ![](/img/visionary-render/scene/manikins/multiselect5.webp)
 
 ### Bone Helpers
 
 In the Properties window, deselect **IK Enabled** to display the individual Manikin Bone Helpers (forward kinematics),
 
-![](/img/visionary-render/scene/manikins/bone-helpers1.png)
+![](/img/visionary-render/scene/manikins/bone-helpers1.webp)
 
 The Manikin Bone Helpers are shown as white circles. The circles - or "handles" - are highlighted yellow when the cursor is hovered over them. Select the bones individually to make fine adjustments to the position of the manikin. The selected bone node will be highlighted by a yellow dot. You can select multiple bone nodes in the Tree view with `Shift` or `Ctrl`.
 
 Use the PRS manipulator 3D widget to change the position and rotation of the selected nodes. The pelvis can also be moved as it is the root of the entire bone structure.
 
-![](/img/visionary-render/scene/manikins/bone-helpers2.png)
+![](/img/visionary-render/scene/manikins/bone-helpers2.webp)
 
 :::note
 When you deselect **IK Enabled** in the properties panel and then position the manikin by manipulating the Bone Helpers, if you re-enable the **IK Enabled** property then all bones will snap back to their respective IK targets.
@@ -112,21 +112,21 @@ The hand helpers are always enabled (providing that the helpers are enabled in t
 
 To create a hand position where just the index finger is extended, you can deselect **Follow** in the Properties window. To keep the index finger extended you should deselect the follow property on Right finger 2A. This creates a bone helper on the middle finger which is now the parent for the other fingers (Right finger 3, Right finger 4) to follow. The index finger is now independent. You can now rotate the newly exposed Bone Helper on the middle finger and to curve the fingers.
 
-![](/img/visionary-render/scene/manikins/hands1.png)
+![](/img/visionary-render/scene/manikins/hands1.webp)
 
-![](/img/visionary-render/scene/manikins/hands2.png)
+![](/img/visionary-render/scene/manikins/hands2.webp)
 
 The fingers are also articulated so that you can turn off the follow property on the A, B and C bones for each finger. As you turn off the follow property, Manikin Bone Helpers will appear and you will be able to individually manipulate each finger.
 
-![](/img/visionary-render/scene/manikins/hands3.png)
+![](/img/visionary-render/scene/manikins/hands3.webp)
 
 You can also spread the manikin fingers using the rotation manipulator (as long as you select the helper that has all the other fingers parented to follow it).
 
 To grip imported objects such as tools in the manikin's hands, the object must be placed under the sub-assembly for the relevant bone in the Tree structure. It will then follow the target for the sub-assembly and move with it accordingly.
 
-![](/img/visionary-render/scene/manikins/hands4.png)
+![](/img/visionary-render/scene/manikins/hands4.webp)
 
-![](/img/visionary-render/scene/manikins/hands5.png)
+![](/img/visionary-render/scene/manikins/hands5.webp)
 
 :::note
 When working in immersive mode (either via a HMD or one of our supported tracking systems in an immersive facility), you can still manipulate and manoeuvre the manikin via the Target or Bone Helpers as described above. You can also control manikins directly from your tracking system or make use of Position at Body.
@@ -136,7 +136,7 @@ When working in immersive mode (either via a HMD or one of our supported trackin
 
 Open the [Immersive Context Menu](../tracking/immersive-context-menu) by right-clicking when immersed (or Alt + right-click from a desktop) and choose the **Manikins** category. You will see some controls at the top with a list of manikins in the scene below.
 
-![](/img/visionary-render/scene/manikins/icm.png)
+![](/img/visionary-render/scene/manikins/icm.webp)
 
 ### Controls
 
@@ -166,7 +166,7 @@ If you have any manikins in your scene that you wish to export, such as with the
 
 Manikins can be viewed and edited in the browser. The small and large icon views show an image of each manikin in the scene whilst the list view shows and permits the below properties to be edited.
 
-![](/img/visionary-render/scene/manikins/browser.png)
+![](/img/visionary-render/scene/manikins/browser.webp)
 
 ## Settings
 
@@ -176,4 +176,4 @@ You can edit manikin settings under **Settings** > **Tracking** > **Manikins**. 
 The offsets are set during the calibration process so it's better not to tweak them unless you know what you're doing and require finer control over calibration.
 :::
 
-![](/img/visionary-render/scene/manikins/manikin-settings.png)
+![](/img/visionary-render/scene/manikins/manikin-settings.webp)

@@ -4,9 +4,9 @@ Visionary Render supports basic collision detection and response via the Charact
 
 ## Character Controller
 
-The character controller can be enabled by clicking on the ![](/img/visionary-render/scene/collisions/character.png) button in the Toolbar. It creates a capsule around your avatar to detect when it collides with the environment. This is enabled by default in the Start Room and is what permits you to walk around the room and up and down the stairs, etc. without walking through objects and walls.
+The character controller can be enabled by clicking on the ![](/img/visionary-render/scene/collisions/character.webp) button in the Toolbar. It creates a capsule around your avatar to detect when it collides with the environment. This is enabled by default in the Start Room and is what permits you to walk around the room and up and down the stairs, etc. without walking through objects and walls.
 
-![](/img/visionary-render/scene/collisions/overview.png)
+![](/img/visionary-render/scene/collisions/overview.webp)
 
 :::note
 If the character controller is enabled whilst the camera is inside geometry, it will attempt to resolve the collision. If the collision cannot be resolved, a dialog will be shown. To fix the problem, disable the character controller, move the camera away from any geometry in the scene, and try again.
@@ -36,7 +36,7 @@ The collision node has several properties that determine how collisions are dete
 
 ### Properties
 
-![](/img/visionary-render/scene/collisions/properties.png)
+![](/img/visionary-render/scene/collisions/properties.webp)
 
 | Property | Description |
 | --- | --- |
@@ -51,7 +51,7 @@ The collision node has several properties that determine how collisions are dete
 
 The Kinematic drop-down allows for a mass to be applied to an object so that it can have rudimentary physics applied to it. This requires a Dynamics feature license.
 
-![](/img/visionary-render/scene/collisions/kinematic.png)
+![](/img/visionary-render/scene/collisions/kinematic.webp)
 
 | Property    | Description                                                                                                                                                                   |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -63,17 +63,17 @@ The Kinematic drop-down allows for a mass to be applied to an object so that it 
 
 When collision nodes have been applied within a scene, they can be easily disabled or enabled using the context menu. Enabling or disabling will walk through the tree structure and enable/disable any collision nodes that are beneath it in the tree.
 
-![](/img/visionary-render/scene/collisions/context-menu.png)
+![](/img/visionary-render/scene/collisions/context-menu.webp)
 
 ## Detect Clashes
 
 Often in scenes its useful to be able to detect whether parts can fit through gaps freely or whether they will collide with doorways, etc. Visionary Render provides a simple one-click method of adding this to a scene. Right-click on the Assembly that you wish to add collision detection to and select **Tools** > **Detect Clashes** from the context menu.
 
-![](/img/visionary-render/scene/collisions/tools.png)
+![](/img/visionary-render/scene/collisions/tools.webp)
 
 This will add a Collision node, Touch Script and Break Script to the Assembly and create a collision material called CLASH_assembly_name – i.e. CLASH_Solid_81.
 
-![](/img/visionary-render/scene/collisions/tree.png)
+![](/img/visionary-render/scene/collisions/tree.webp)
 
 When the part is moved, any object it collides with will be turned white whilst it is in contact. This colour can be changed as per changing any material colour.
 

@@ -10,11 +10,11 @@ To create a GUI container, open the Developer tree, then right-click on Scenes a
 
 Billboards can be used to move or size your GUI with the view, and are often used as a base layer (although GUI items can also be attached to regular Assemblies). They are not solely tied to GUI items and can also be applied to Assembly nodes with Models.
 
-![](/img/visionary-render/scene/gui/billboard1.png)
+![](/img/visionary-render/scene/gui/billboard1.webp)
 
 The billboard on its own isn’t visible in the scene and requires further GUI assemblies before its behaviour can be seen.
 
-![](/img/visionary-render/scene/gui/billboard2.png)
+![](/img/visionary-render/scene/gui/billboard2.webp)
 
 Typically this would start with a GUI, Stack and Button. Once these are created, we can start to look at the Billboard properties. As with all assemblies, the billboard can be enabled and disabled via the Properties window.
 
@@ -41,7 +41,7 @@ By mixing and matching settings, GUI’s can be created as Head Up Displays (HUD
 
 Once the position mode is selected, the position of the GUI can be adjusted with the X, Y, Z values. The World position mode includes a setting offset the billboard towards or away from the camera.
 
-![](/img/visionary-render/scene/gui/billboard3.png)
+![](/img/visionary-render/scene/gui/billboard3.webp)
 
 #### Size Mode
 
@@ -53,15 +53,15 @@ If using Screen aligned, Screen positioned, you will use either View or Pixel si
 
 Screen Aligned, Screen Positioned:
 
-![](/img/visionary-render/scene/gui/billboard4.png)
+![](/img/visionary-render/scene/gui/billboard4.webp)
 
 World Aligned, View Positioned:
 
-![](/img/visionary-render/scene/gui/billboard5.png)
+![](/img/visionary-render/scene/gui/billboard5.webp)
 
 Camera Around Y Aligned, World Positioned:
 
-![](/img/visionary-render/scene/gui/billboard6.png)
+![](/img/visionary-render/scene/gui/billboard6.webp)
 
 Adjusting these settings will allow you to create GUI’s that are positioned in a world scene such as a touch screen panel in the 3d scene or as a HUD display that is always visible etc.
 
@@ -69,7 +69,7 @@ Adjusting these settings will allow you to create GUI’s that are positioned in
 
 The GUI node is a container for other GUI items. Layer, Depth Write and Depth Test determine the depth at which the GUI is drawn within a scene.
 
-![](/img/visionary-render/scene/gui/gui1.png)
+![](/img/visionary-render/scene/gui/gui1.webp)
 
 Within a 3D scene, different layers are drawn at different depth layers. The easy way to think of it is like a stack of pages with higher number pages overlaying lower numbers. The large value allows for numerous assemblies to be layered without conflicting. If set low i.e. 1000, the GUI will be drawn behind scene objects. By default, the GUI is created at 300,000. The predefined layers are set at:
 
@@ -80,7 +80,7 @@ Each layer can have an offset to differentiate between the default layers. Unpic
 
 By checking the Depth Test, the GUI assembly will use the Billboard Z position to determine if a 3D object is drawn in front of it. In this example, the GUI Z position is set at 2 meters away. When the viewpoint nears the car, it intersects with the car model.
 
-![](/img/visionary-render/scene/gui/gui2.png)
+![](/img/visionary-render/scene/gui/gui2.webp)
 
 Depth write will allow that GUI to obscure other things, i.e. if there’s something else drawn later but behind the GUI, you’ll need the depth write option turned on to stop it drawing over the GUI. In general use, the HUD GUI’s will have depth test and depth write set to off.
 
@@ -96,7 +96,7 @@ Visible From Back is enabled by default and determines whether the GUI is visibl
 
 Markers are an element of GUI’s that are used in the 3D scene.
 
-![](/img/visionary-render/scene/gui/marker.png)
+![](/img/visionary-render/scene/gui/marker.webp)
 
 By default, a spherical marker is added to the scene at 0,0,0. This can be moved around the scene. If draggable is enabled, the marker can be moved with the left mouse but uses the snap to selection to determine the marker position.
 
@@ -112,11 +112,11 @@ To create a GUI item, you must first have a GUI node in your scene. Open the Dev
 
 There are a few properties that apply to most GUI items and these cover position, size, and style. The following is from the stack item, but the core values can be found in most GUI items.
 
-![](/img/visionary-render/scene/gui/common1.png)
+![](/img/visionary-render/scene/gui/common1.webp)
 
 In most situations, the position should be controlled by the Billboard with the Stack position being used when you are creating multiple Stacks in the same GUI. The sizing mode determines how the GUI items fit within the stack.
 
-![](/img/visionary-render/scene/gui/common2.png)
+![](/img/visionary-render/scene/gui/common2.webp)
 
 | Mode        | Description                                                                                                                  |
 |-------------|------------------------------------------------------------------------------------------------------------------------------|
@@ -129,17 +129,17 @@ In most situations, the position should be controlled by the Billboard with the 
 
 Panels are used as holding assemblies for GUI items when you don’t want to have automatic alignment. A style can be applied that creates a background image for GUI item placement.
 
-![](/img/visionary-render/scene/gui/panel.png)
+![](/img/visionary-render/scene/gui/panel.webp)
 
 ### Stack
 
 The key assembly is the Stack. This provides a layout for buttons, images etc. Whilst not required, if GUI items are created without a stack, they all appear on top of each other. They can be moved into position but the stack eliminates the need by auto aligning GUI items. The size and appearance of the stack will be linked to the Direction.
 
-![](/img/visionary-render/scene/gui/stack1.png)
+![](/img/visionary-render/scene/gui/stack1.webp)
 
 The four options dictate how the GUI items will line up with each other. These are based on the order they appear in the scene tree.
 
-![](/img/visionary-render/scene/gui/stack2.png)
+![](/img/visionary-render/scene/gui/stack2.webp)
 
 In this example, with left to right, the button order will start with the Movie button on the left and the Viewpoints on the right. If switched to right to left, the order will change with the Viewpoints on the left and Movie on the right, etc.
 
@@ -147,23 +147,23 @@ As with all assemblies, the order can be adjusted by dragging the GUI item in th
 
 In this example, the Doors, Headlights and Steering use Top Bottom Direction stacks within the main left to right Direction used on the GUI stack.
 
-![](/img/visionary-render/scene/gui/stack3.png)
+![](/img/visionary-render/scene/gui/stack3.webp)
 
 Both Horizontal and Vertical align modes follow the same approach just using differing axis.
 
-![](/img/visionary-render/scene/gui/stack4.png)
+![](/img/visionary-render/scene/gui/stack4.webp)
 
 The first three options are self-explanatory with the final option of Full Width or Height ensuring that GUI items will fill the available space. The difference between centre and Full Width can be seen below with a full width slider and buttons.
 
-![](/img/visionary-render/scene/gui/stack5.png)
+![](/img/visionary-render/scene/gui/stack5.webp)
 
 By default, the stack adds GUI items with gap in between each item to distinguish between them easily. This can be varied to increase spacing, remove spacing or even overlap GUI items.
 
-![](/img/visionary-render/scene/gui/stack6.png)
+![](/img/visionary-render/scene/gui/stack6.webp)
 
 The final positional property for stacks is for the Content Z position. This is rarely used but in certain configurations of GUI, there can be times when the GUI items are “Z fighting”. This is a term used when two or more objects occupy the same position and the graphics card cannot decide which to draw first. What occurs in this situation is seen as flickering between the two faces. If this occurs in the GUI, you can move the Z position of the contents forward so that it is no longer on the same plane as the GUI stack.
 
-![](/img/visionary-render/scene/gui/stack7.png)
+![](/img/visionary-render/scene/gui/stack7.webp)
 
 The final two properties define the style of a button and toggle popup/hide the GUI as an animated visual.
 
@@ -171,11 +171,11 @@ The final two properties define the style of a button and toggle popup/hide the 
 
 The rollout stack is a variation on the base stack GUI item. The additional part is that a header button is created that when pressed will expand to show the child buttons/sliders, etc. The image below shows two vertical rollouts, one closed, the other expanded.
 
-![](/img/visionary-render/scene/gui/rollout-stack1.png)
+![](/img/visionary-render/scene/gui/rollout-stack1.webp)
 
 Additional properties to the normal stack are for the rollout Title and header button style.
 
-![](/img/visionary-render/scene/gui/rollout-stack2.png)
+![](/img/visionary-render/scene/gui/rollout-stack2.webp)
 
 ### Buffered Stack
 
@@ -187,7 +187,7 @@ The buffered stack works in the same manner as the standard stack. If creating a
 
 The scrolling stack uses the standard scroll bar approach to place multiple buttons within a small space by allowing them to scroll either vertically, horizontally or even both directions.
 
-![](/img/visionary-render/scene/gui/scrolling-stack.png)
+![](/img/visionary-render/scene/gui/scrolling-stack.webp)
 
 ### Button
 
@@ -195,19 +195,19 @@ The button item is probably one of the main GUI items that will be used for trig
 
 Buttons appear with a default style and the text Button. These can be changed in the properties window. Altering the Text will alter the button text.
 
-![](/img/visionary-render/scene/gui/button1.png)
+![](/img/visionary-render/scene/gui/button1.webp)
 
 If an image button is preferred, deleting the text will create a blank button that an image file can be added to or both text and image can be used. Any texture can be dragged into the link to apply to the button.
 
-![](/img/visionary-render/scene/gui/button2.png)
+![](/img/visionary-render/scene/gui/button2.webp)
 
-![](/img/visionary-render/scene/gui/button3.png)
+![](/img/visionary-render/scene/gui/button3.webp)
 
 The default style applied to a button has a small image style applied so to create a button that is just an image will require creating or adding a new button style.
 
 Toggle and Toggled are linked together. The toggle flag states that the button will toggle, and the toggled flag shows the state of the toggle. The default button style will turn a violet colour when it’s clicked and will revert to grey on a second click. You will see when the button is clicked the first time that the Toggled flag is enabled.
 
-![](/img/visionary-render/scene/gui/button4.png)
+![](/img/visionary-render/scene/gui/button4.webp)
 
 This could be used to toggle the visibility of a model or toggle a dynamic section etc. It is possible to change the text using Lua script when toggling between on and off.
 
@@ -215,11 +215,11 @@ The Radio Group is created so that only one member of its group can be toggled a
 
 Once a Button group is created, it can be dragged into the Radio Group link. No matter how many buttons are included in this group, only one can be toggled at any time. The tool tip allows you to add additional information to a button in the form of a tooltip popup.
 
-![](/img/visionary-render/scene/gui/button5.png)
+![](/img/visionary-render/scene/gui/button5.webp)
 
 ### Label
 
-![](/img/visionary-render/scene/gui/label.png)
+![](/img/visionary-render/scene/gui/label.webp)
 
 A label permits you to add text to your GUI – simply change the Text property and press `Enter` to view your text in the scene. To change the appearance of the label, drag a ColouredLabelStyle or TexturedLabelStyle node into the Style property.
 
@@ -227,7 +227,7 @@ A label permits you to add text to your GUI – simply change the Text property 
 
 Text boxes are basically an editable label - i.e. you can click on them in the scene and edit the text that is shown.
 
-![](/img/visionary-render/scene/gui/text-box1.png)
+![](/img/visionary-render/scene/gui/text-box1.webp)
 
 #### Usage
 
@@ -239,7 +239,7 @@ Text boxes are basically an editable label - i.e. you can click on them in the s
 
 #### Properties
 
-![](/img/visionary-render/scene/gui/text-box2.png)
+![](/img/visionary-render/scene/gui/text-box2.webp)
 
 | Property | Description |
 |----------|-------------|
@@ -258,29 +258,29 @@ Text boxes are basically an editable label - i.e. you can click on them in the s
 
 Separators are designed to provide a delineator between GUI items. They take the form of a vertical or horizontal bar of a specified colour.
 
-![](/img/visionary-render/scene/gui/separator1.png)
+![](/img/visionary-render/scene/gui/separator1.webp)
 
 With vertical and horizontal separators, the parent stack should be set to full height or full width.
 
-![](/img/visionary-render/scene/gui/separator2.png)
+![](/img/visionary-render/scene/gui/separator2.webp)
 
 ### Tree View Item
 
 TreeViewItem are expandable menus based on the standard +/- tree structure. This could be used when complex menu systems are required. Expanded items can contain any GUI items. The treeview item can be layered to create several expandable tree structures.
 
-![](/img/visionary-render/scene/gui/tree-view-item.png)
+![](/img/visionary-render/scene/gui/tree-view-item.webp)
 
 ### Slider
 
 Sliders provide a GUI item that can be dragged between two numbered values. A common use would be to link the slider position with a sequence position. This could be used to animate doors opening, dissassembling parts, etc. and could be controlled by moving the slider. This requires some basic Lua script.
 
-![](/img/visionary-render/scene/gui/slider1.png)
+![](/img/visionary-render/scene/gui/slider1.webp)
 
 The key properties of the slider are the min / max and value. These determine the range of the slider and the current position.
 
 The type specifies whether the slider is moved horizontally or vertically and the Length specifies the size of the slider handle. As the min/max range is increased the handle will become smaller and may require increasing in length. The difference can be seen below.
 
-![](/img/visionary-render/scene/gui/slider2.png) ![](/img/visionary-render/scene/gui/slider3.png)
+![](/img/visionary-render/scene/gui/slider2.webp) ![](/img/visionary-render/scene/gui/slider3.webp)
 
 When a range is specified, always increase the Maximum value by the length of the handle. This ensures that the slider can be dragged to the full required range. In the top example above, if the slider maximun was set to 1, the slider value would only move from 0 to 0.9 due to the 0.1 length of the handle.
 
@@ -288,13 +288,13 @@ When a range is specified, always increase the Maximum value by the length of th
 
 The scrollbar behaves the same as a slider but also has arrow buttons that adjust the handle position.
 
-![](/img/visionary-render/scene/gui/scroll-bar.png)
+![](/img/visionary-render/scene/gui/scroll-bar.webp)
 
 ### Image Panel
 
 Image panels can be used to create enhanced GUI’s by adding background visual elements. In this example,image panels are added to a stack. The background could be created as a style and applied to a stack but the image panel provides additional versatility in placing visual elements.
 
-![](/img/visionary-render/scene/gui/image-panel.png)
+![](/img/visionary-render/scene/gui/image-panel.webp)
 
 ## GUI Resources
 
@@ -308,7 +308,7 @@ Some example styles are in the Gallery and can be dragged into the style link to
 
 Styles are generally self-explanatory and use similar properties when defining. The properties are generally broken down into colour, border size, texture, font, and position.
 
-![](/img/visionary-render/scene/gui/styles.png)
+![](/img/visionary-render/scene/gui/styles.webp)
 
 The resource type is again self-explanatory as in Coloured, Gradient and Textured Panel Styles all apply to Panel GUI items etc. To apply a style, drag and drop the created style or pre-created system style into the style link for the GUI item, or use the link control dropdown to create a style suitable for the control being edited.
 
@@ -316,61 +316,61 @@ The resource type is again self-explanatory as in Coloured, Gradient and Texture
 
 Fonts are added to styles by dragging the link into the created style. When adding a font, enter the name of the font into the Typeface box then choose a point size, weight, italic and width for it.
 
-![](/img/visionary-render/scene/gui/font.png)
+![](/img/visionary-render/scene/gui/font.webp)
 
 ### Coloured Panel Style
 
 The coloured panel provides styling for controls such as panels and stacks. It provides controls for background colour, borders (interior padding), and colourful edges.
 
-![](/img/visionary-render/scene/gui/coloured-panel-style1.png)
+![](/img/visionary-render/scene/gui/coloured-panel-style1.webp)
 
 The opacity level is at the bottom of the wheel and allows for semi-transparent GUI items.
 
-![](/img/visionary-render/scene/gui/coloured-panel-style2.png)
+![](/img/visionary-render/scene/gui/coloured-panel-style2.webp)
 
 ### Gradient Panel Style
 
 The gradient panel style uses two colours and an angle to generate a gradient across the panel.
 
-![](/img/visionary-render/scene/gui/gradient-panel-style.png)
+![](/img/visionary-render/scene/gui/gradient-panel-style.webp)
 
 ### Textured Panel Style
 
 Texture Panel styles provide the ability to add a texture to a Panel GUI item. The position and size properties give control over the placement of the texture which lets you use repeating textures or just part of an image.
 
-![](/img/visionary-render/scene/gui/textured-panel-style1.png)
+![](/img/visionary-render/scene/gui/textured-panel-style1.webp)
 
 The corner properties are used when a square texture is applied to a non-square panel. Adjusting the corner size will move the edges inwards whilst the corner texture size stretches the corners of the texture to fit the corner space. On the left you can see the corner corrected version whilst the right shows the squashed square to non-square version.
 
-![](/img/visionary-render/scene/gui/textured-panel-style2.png)
+![](/img/visionary-render/scene/gui/textured-panel-style2.webp)
 
 ### Coloured Button Style
 
 The coloured button style provides simple colour options to distinguish between normal, hovering (mouse over), pressed and toggled. The font colour, type and size can be controlled as well as image size, alignment and position.
 
-![](/img/visionary-render/scene/gui/coloured-button-style.png)
+![](/img/visionary-render/scene/gui/coloured-button-style.webp)
 
 ### Textured Button Style
 
 Textured buttons may initially look overly complex, but the core properties remain the same allowing you to select font, size alignment etc. The four modes are still present for normal, hovering, pressed and toggled but are now covered by textures. The textures can be four separate textures or using the position and size properties can be a single texture split into different quadrants. Using the following texture, the size can be set to 0.5 and position adjusted so that a single texture can be used for all four button states.
 
-![](/img/visionary-render/scene/gui/textured-button-style1.png)
+![](/img/visionary-render/scene/gui/textured-button-style1.webp)
 
-![](/img/visionary-render/scene/gui/textured-button-style2.png) ![](/img/visionary-render/scene/gui/textured-button-style3.png)
+![](/img/visionary-render/scene/gui/textured-button-style2.webp) ![](/img/visionary-render/scene/gui/textured-button-style3.webp)
 
 Using the above texture is fine when the buttons are square but if the GUI button is rectangular the texture would appear squashed. To adjust for this, we can alter the Corner properties to move the corner inwards and stretch the texture to fill the area.
 
-![](/img/visionary-render/scene/gui/textured-button-style4.png)
+![](/img/visionary-render/scene/gui/textured-button-style4.webp)
 
 ### Coloured Label Style
 
-![](/img/visionary-render/scene/gui/coloured-label-style.png)
+![](/img/visionary-render/scene/gui/coloured-label-style.webp)
 
 A ColouredLabelStyle permits you to configure the background colour, text size, text colour, and font applied to labels. To apply it to a label, drag the ColouredLabelStyle node from the tree into the Style property of that label.
 
 ### Textured Label Style
 
-![](/img/visionary-render/scene/gui/textured-label-style.png)
+![](/img/visionary-render/scene/gui/textured-label-style.webp)
 
 A TexturedLabelStyle permits you to apply textures to the backgrounds of labels. You can also configure the text size, text colour and font. To apply it to a label, drag the TexturedLabelStyle node from the tree into the Style property of that label.
 
@@ -378,33 +378,33 @@ A TexturedLabelStyle permits you to apply textures to the backgrounds of labels.
 
 The coloured separator sets the colour, thickness and border size for the separator GUI item.
 
-![](/img/visionary-render/scene/gui/coloured-separator-style.png)
+![](/img/visionary-render/scene/gui/coloured-separator-style.webp)
 
 ### Scroll Bar Style
 
 Scrollbar styles use a mixture of styles and textures to define an overall look.
 
-![](/img/visionary-render/scene/gui/scroll-bar-style1.png)
+![](/img/visionary-render/scene/gui/scroll-bar-style1.webp)
 
 Style links left blank will use the default settings.
 
-![](/img/visionary-render/scene/gui/scroll-bar-style2.png)
+![](/img/visionary-render/scene/gui/scroll-bar-style2.webp)
 
 ### Scrolling Stack Style
 
 The scrolling stack style uses a selection of styles to create an overall style.
 
-![](/img/visionary-render/scene/gui/scrolling-stack-style.png)
+![](/img/visionary-render/scene/gui/scrolling-stack-style.webp)
 
 ### Spherical Marker Style
 
 The spherical marker style adjusts how the default marker is displayed in the scene.
 
-![](/img/visionary-render/scene/gui/spherical-marker-style1.png)
+![](/img/visionary-render/scene/gui/spherical-marker-style1.webp)
 
 As with other GUI styles, colours can be adjusted for base colour, highlight, hovering and pressed. The main settings are for size. World size is default and retains the specified size within the scene. If View or Pixels are set, the marker will adjust its size as you move further away from the marker.
 
-![](/img/visionary-render/scene/gui/spherical-marker-style2.png)
+![](/img/visionary-render/scene/gui/spherical-marker-style2.webp)
 
 With View set, you can specify a minimum and maximum size that the marker will appear on screen.
 
@@ -412,7 +412,7 @@ With View set, you can specify a minimum and maximum size that the marker will a
 
 Model marker style allow you to replace the default spherical marker with a 3D model.
 
-![](/img/visionary-render/scene/gui/model-marker-style.png)
+![](/img/visionary-render/scene/gui/model-marker-style.webp)
 
 As with spherical marker, the size and colour are defined in the style. The main property is the Model link. Drag and drop a model from the library into the link box. This will replace the spherical marker in the scene.
 
@@ -420,13 +420,13 @@ As with spherical marker, the size and colour are defined in the style. The main
 
 The image marker style controls how the default sphere marker is displayed in the scene. It provides the same properties as the spherical marker style, with the addition of a Texture property to apply an image to the marker and an Offset property to adjust the location of that image.
 
-![](/img/visionary-render/scene/gui/image-marker-style.png)
+![](/img/visionary-render/scene/gui/image-marker-style.webp)
 
 ### GUI Material
 
 The GUI material is an unlit material used for the GUI item. If no other styles are defined, this will apply to all GUI items. Note that Button style may add a level of transparency that makes the texture less visible. To adjust, create a button style with less opacity.
 
-![](/img/visionary-render/scene/gui/gui-material.png)
+![](/img/visionary-render/scene/gui/gui-material.webp)
 
 A variety of styles and menus can be created using the available options. Whether creating corporate identities or stylised interfaces the menu system can be tailored and scripted to provide a versatile GUI.
 
