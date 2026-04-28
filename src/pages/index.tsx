@@ -32,7 +32,7 @@ const ManualList: ManualItem[] = [
   {
     title: 'Importers and Exporters',
     Svg: require('@site/static/assets/logos/virtalis.svg').default,
-    description: 'Plugins to efficiently import and export various data formats within your visualisation workflow.',
+    description: 'Plugins to efficiently import and export various data formats across your visualisation workflow.',
     links: [
       { label: 'User Manual', url: 'importers-and-exporters' },
       { label: 'Changelog', url: 'changelogs/importers-and-exporters' },
@@ -73,6 +73,21 @@ const ManualList: ManualItem[] = [
 ];
 
 function FeatureCard({ title, Svg, description, links }: ManualItem) {
+  const getIcon = (label: string) => {
+    const l = label.toLowerCase();
+
+    {/* User Manuals - Closed Book Icon */}
+    if (l.includes('manual')) {
+      return <path d="M18,22A2,2 0 0,0 20,20V4C20,2.89 19.1,2 18,2H12V9L9.5,7.5L7,9V2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18Z" />;
+    }
+    {/* Technical Guides - Code Icon */}
+    if (l.includes('guide')) {
+      return <path d="M12.89,3L14.85,3.4L11.11,21L9.15,20.6L12.89,3M19.59,12L16,8.41V5.58L22.42,12L16,18.41V15.58L19.59,12M1.58,12L8,5.58V8.41L4.41,12L8,15.58V18.41L1.58,12Z" />;
+    }
+    {/* Default - Document Icon */}
+    return <path d="M6,2H18A2,2 0 0,1 20,4V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2M6,4V20H18V4H6M7,6H17V8H7V6M7,10H17V12H7V10M7,14H13V16H7V14Z" />
+  };
+
   return (
     <div className={clsx('col col--4 margin-bottom--lg')}>
       <div className={clsx('card padding--lg', styles.staticCard)}>
@@ -83,14 +98,27 @@ function FeatureCard({ title, Svg, description, links }: ManualItem) {
           <h3 className="text--center margin-top--md">{title}</h3>
           <p className="text--center">{description}</p>
           
+          {/* Add an icon and text for each link */}
           <ul className={styles.manualLinkList}>
             {links.map((link, idx) => (
-              <li key={idx}>
+              <li key={idx} className={styles.linkRow}>
                 <Link to={link.url} className={styles.manualLinkItem}>
-                  {link.label} →
+                  <svg viewBox="0 0 24 24" className={styles.docIcon} aria-hidden="true">
+                    {getIcon(link.label)}
+                  </svg>
+                  {link.label}
                 </Link>
               </li>
             ))}
+
+            {/* Add an empty row to pad the Virtalis Hub card */}
+            {links.length === 4 && (
+              <li className={styles.linkRow} style={{ visibility: 'hidden' }} aria-hidden="true">
+                <span className={styles.manualLinkItem}>
+                   &nbsp;
+                </span>
+              </li>
+            )}
           </ul>
         </div>
       </div>

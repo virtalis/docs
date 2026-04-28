@@ -46,13 +46,6 @@ const config: Config = {
             './src/css/youtube.css',
           ],
         },
-        // googleTagManager: {
-        //   containerId: 'GTM-KBWDPQHK',
-        // },
-        // gtag: {
-        //   trackingID: 'G-98F5PV30KY',
-        //   anonymizeIP: true,
-        // },
       } satisfies Preset.Options,
     ],
   ],
@@ -199,10 +192,6 @@ const config: Config = {
               label: 'Support',
               href: 'https://www.virtalis.com/support',
             },
-            // {
-            //   label: 'Terms and Conditions',
-            //   to: 'terms-and-conditions',
-            // },
           ],
         },
         {

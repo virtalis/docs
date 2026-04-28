@@ -65,6 +65,53 @@
 .cardContainer {
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease;
   border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.staticCard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.manualLinkList {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+.linkRow {
+  margin-bottom: 0.4rem;
+}
+
+.docIcon {
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  flex-shrink: 0;
+  fill: var(--ifm-color-primary);
+}
+
+.manualLinkItem {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-700);
+  transition: all 0.2s ease-in-out;
+}
+
+.manualLinkItem:hover {
+  text-decoration: none;
+  color: var(--ifm-color-primary);
+}
+
+.manualLinkItem:hover .docIcon {
+  transform: translateY(-1px);
+}
+
+.spacerRow {
+  list-style: none;
+  pointer-events: none;
+  user-select: none;
 }
