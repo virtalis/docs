@@ -22,7 +22,7 @@ Callback registration functions for observed node events.
 | void | **[VRAddCallbackKeyPress](#vraddcallbackkeypress)**([EventKeyFunc](../../definitions/function-prototypes.mdx#typedef-eventkeyfunc) callback, void * userData, int flags)<br />Add Key press callback (key was pressed)  |
 | void | **[VRAddCallbackKeyRelease](#vraddcallbackkeyrelease)**([EventKeyFunc](../../definitions/function-prototypes.mdx#typedef-eventkeyfunc) callback, void * userData, int flags)<br />Add Key release callback (key was released)  |
 | void | **[VRAddCallbackLeave](#vraddcallbackleave)**([HNode](../../definitions/types.mdx#typedef-hnode) node, [EventNodeFunc](../../definitions/function-prototypes.mdx#typedef-eventnodefunc) callback, void * userData, int flags)<br />Add Leave callback (a generic state was left)  |
-| void | **[VRAddCallbackMove](#vraddcallbackmove)**([HNode](../../definitions/types.mdx#typedef-hnode) node, [EventNodeFunc](../../definitions/function-prototypes.mdx#typedef-eventnodefunc) callback, void * userData, int flags)<br />Add Move callback. The �move� event applies to sliders, scrollbars and markers in the GUI system in addition to assemblies. It�s not the same as observing the transform property because the move event is also triggered on all the descendant assemblies of the object that has moved.  |
+| void | **[VRAddCallbackMove](#vraddcallbackmove)**([HNode](../../definitions/types.mdx#typedef-hnode) node, [EventNodeFunc](../../definitions/function-prototypes.mdx#typedef-eventnodefunc) callback, void * userData, int flags)<br />Add Move callback. The move event applies to sliders, scrollbars and markers in the GUI system in addition to assemblies. It's not the same as observing the transform property because the move event is also triggered on all the descendant assemblies of the object that has moved.  |
 | void | **[VRAddCallbackNodeChildAdded](#vraddcallbacknodechildadded)**(const char * metaName, [NodeChildAddedFunc](../../definitions/function-prototypes.mdx#typedef-nodechildaddedfunc) callback, void * userData)<br />Registers a function to be called whenever a node has a child added to it.  |
 | void | **[VRAddCallbackNodeChildRemoved](#vraddcallbacknodechildremoved)**(const char * metaName, [NodeChildRemovedFunc](../../definitions/function-prototypes.mdx#typedef-nodechildremovedfunc) callback, void * userData)<br />Registers a function to be called whenever a node has a child removed from it.  |
 | void | **[VRAddCallbackNodeCreation](#vraddcallbacknodecreation)**(const char * metaName, [NodeCreatedFunc](../../definitions/function-prototypes.mdx#typedef-nodecreatedfunc) callback, void * userData)<br />Registers a function to be called whenever a node is created.  |
@@ -259,7 +259,7 @@ void VRAddCallbackMove(
 )
 ```
 
-Add Move callback. The �move� event applies to sliders, scrollbars and markers in the GUI system in addition to assemblies. It�s not the same as observing the transform property because the move event is also triggered on all the descendant assemblies of the object that has moved. 
+Add Move callback. The move event applies to sliders, scrollbars and markers in the GUI system in addition to assemblies. It's not the same as observing the transform property because the move event is also triggered on all the descendant assemblies of the object that has moved. 
 
 **Parameters**: 
 
