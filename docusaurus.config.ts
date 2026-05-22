@@ -189,6 +189,10 @@ const config: Config = {
               href: 'https://www.virtalis.com/privacy-policy',
             },
             {
+              label: 'Software',
+              href: 'https://software.virtalis.com/',
+            },
+            {
               label: 'Support',
               href: 'https://www.virtalis.com/support',
             },

@@ -8,7 +8,7 @@
 }
 
 [data-theme='dark'] .heroBanner{
-  background-color: var(--ifm-color-gray-950);
+  background-color: var(--ifm-color-black);
 }
 
 .heroLogoContainer {
