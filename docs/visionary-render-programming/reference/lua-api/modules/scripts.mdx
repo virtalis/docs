@@ -1,16 +1,21 @@
 ---
-title: Script Editor
-summary: Functions for interacting with the script editor. 
+title: Scripts
+summary: Functions for interacting with scripts and the script editor. 
 ---
 
 # Script Editor
 
-Functions for interacting with the script editor.
+Functions for interacting with scripts and the script editor.
 
 ## Functions
 
 | Type           | Name           |
 | -------------- | -------------- |
+| void | **[vrAbortScript](#vrabortscript)**(string name)<br />Aborts a suspended script.  |
+| boolean | **[vrInCoroutine](#vrincoroutine)**(string script)<br />Executes the specified piece of Lua in a coroutine.  |
+| boolean | **[vrIsEditableScriptNode](#vriseditablescriptnode)**([vrnode](../classes/vrnode.mdx) node)<br />Returns true if the supplied node contains a script property supported by the script editor.  |
+| table | **[vrListSleepingScripts](#vrlistsleepingscripts)**(boolean details =false)<br />Lists the scripts currently suspended, awaiting resume.  |
+| void | **[vrRevertToCleanState](#vrreverttocleanstate)**()<br />Restores the captured state of the Lua global environment.  |
 | void | **[vrScriptEditorAppendText](#vrscripteditorappendtext)**(string text)<br />Inserts text into the currently visible script editor tab and advances the insert cursor position.  |
 | void | **[vrScriptEditorClearOutput](#vrscripteditorclearoutput)**()<br />Clears the script editor output.  |
 | void | **[vrScriptEditorCopySelection](#vrscripteditorcopyselection)**()<br />Copies the selected text in the currently visible script editor tab to the clipboard.  |
@@ -30,8 +35,80 @@ Functions for interacting with the script editor.
 | void | **[vrScriptEditorSetInsertAtMousePos](#vrscripteditorsetinsertatmousepos)**()<br />Places the text insert cursor in the currently visible script editor tab underneath the mouse cursor.  |
 | void | **[vrScriptEditorSetInsertPos](#vrscripteditorsetinsertpos)**(number pos)<br />Sets the text insert cursor position in the currently visible script editor tab.  |
 | void | **[vrScriptEditorSetMarkPos](#vrscripteditorsetmarkpos)**(number pos)<br />Sets the text mark cursor position in the currently visible script editor tab. This is for highlighting text.  |
+| void | **[vrSetAppQuitHook](#vrsetappquithook)**(string luaFunc)<br />Specify a lua function to be called when user tries to quit the application.  |
+| void | **[vrSetScriptIdentifier](#vrsetscriptidentifier)**(string name)<br />Sets an identifier for the Lua execution.  |
+| void | **[vrSetScriptTimeout](#vrsetscripttimeout)**(number time)<br />Overrides the default Lua timeout for scripts, until the next script event is triggered.  |
+| void | **[vrYield](#vryield)**(number time =0.0)<br />Yields the Lua execution back to the application for the (approximate) specified time.  |
 
 ## Functions Documentation
+
+### vrAbortScript
+
+```lua
+void vrAbortScript(
+    string name
+)
+```
+
+Aborts a suspended script. 
+
+**Parameters**: 
+
+  * **name** The name of the script (reported by vrListSleepingScripts) 
+
+### vrInCoroutine
+
+```lua
+boolean vrInCoroutine(
+    string script
+)
+```
+
+Executes the specified piece of Lua in a coroutine. 
+
+**Parameters**: 
+
+  * **script** Lua code to execute 
+
+**Return**: true if the coroutine is started successfully
+
+### vrIsEditableScriptNode
+
+```lua
+boolean vrIsEditableScriptNode(
+    vrnode node
+)
+```
+
+Returns true if the supplied node contains a script property supported by the script editor. 
+
+**Parameters**: 
+
+  * **node** node to check 
+
+### vrListSleepingScripts
+
+```lua
+table vrListSleepingScripts(
+    boolean details =false
+)
+```
+
+Lists the scripts currently suspended, awaiting resume. 
+
+**Parameters**: 
+
+  * **details** Whether to display additional details about each script 
+
+**Return**: Array of script identifiers 
+
+### vrRevertToCleanState
+
+```lua
+void vrRevertToCleanState()
+```
+
+Restores the captured state of the Lua global environment. 
 
 ### vrScriptEditorAppendText
 
@@ -224,3 +301,59 @@ Sets the text mark cursor position in the currently visible script editor tab. T
 **Parameters**: 
 
   * **pos** Character position in the text 
+
+### vrSetAppQuitHook
+
+```lua
+void vrSetAppQuitHook(
+    string luaFunc
+)
+```
+
+Specify a lua function to be called when user tries to quit the application. 
+
+**Parameters**: 
+
+  * **luaFunc** Name of the Lua function. This function should return false if it wants to block the exit. 
+
+### vrSetScriptIdentifier
+
+```lua
+void vrSetScriptIdentifier(
+    string name
+)
+```
+
+Sets an identifier for the Lua execution. 
+
+**Parameters**: 
+
+  * **name** Name to identify the current Lua execution 
+
+### vrSetScriptTimeout
+
+```lua
+void vrSetScriptTimeout(
+    number time
+)
+```
+
+Overrides the default Lua timeout for scripts, until the next script event is triggered. 
+
+**Parameters**: 
+
+  * **time** Number of seconds to wait before timing out. A value of 0 means it never times out. 
+
+### vrYield
+
+```lua
+void vrYield(
+    number time =0.0
+)
+```
+
+Yields the Lua execution back to the application for the (approximate) specified time. 
+
+**Parameters**: 
+
+  * **time** Number of seconds before resuming execution of this script, or 0 for one frame 

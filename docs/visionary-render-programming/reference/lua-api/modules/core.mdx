@@ -17,7 +17,6 @@ Core functions and types that can be used by Lua scripts and plugins.
 
 | Type           | Name           |
 | -------------- | -------------- |
-| void | **[vrAbortScript](#vrabortscript)**(string name)<br />Aborts a suspended script.  |
 | void | **[vrActivate](#vractivate)**([vrnode](../classes/vrnode.mdx) Self, [vrnode](../classes/vrnode.mdx) Other =nil)<br />Invokes the Activate event of a Node optionally setting the __Other register.  |
 | void | **[vrAppCommandAdd](#vrappcommandadd)**(string commandName)<br />Adds an app command and binds a lua function call to it.  |
 | void | **[vrAppCommandBind](#vrappcommandbind)**(string commandName, Any func)<br />Binds a lua function to an app command.  |
@@ -43,10 +42,9 @@ Core functions and types that can be used by Lua scripts and plugins.
 | void | **[vrCreateSequence](#vrcreatesequence)**()<br />Adds a child sequence to a selected node or the Scenes node.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrCreateShape](#vrcreateshape)**(string type, [vrnode](../classes/vrnode.mdx) parent)<br />Creates a new shape and attaches it to a parent node.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrCreateShapeData](#vrcreateshapedata)**(string type, [vrnode](../classes/vrnode.mdx) parent)<br />Creates vertex and index nodes of a shape and adds them to the Mesh node passed in.  |
-| void | **[vrCreateUserInterface](#vrcreateuserinterface)**([vrnode](../classes/vrnode.mdx) uinode)<br />Create the user interface components from the user interface metanode.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrCreateViewpoint](#vrcreateviewpoint)**([vrnode](../classes/vrnode.mdx) parent =nil, string name =0)<br />Creates a viewpoint at the current camera position.  |
 | void | **[vrCursorGetTouchedAssembly](#vrcursorgettouchedassembly)**()<br />Gets the first assembly currently under the mouse cursor.  |
-| void | **[vrCursorGetTouchedGeoGroup](#vrcursorgettouchedgeogroup)**()<br />Gets the first geogroup currently under the mouse cursor.  |
+| void | **[vrCursorGetTouchedGeoGroup](#vrcursorgettouchedgeogroup)**()<br />Gets the first geogroup currently   under the mouse cursor.  |
 | void | **[vrCursorGetTouchedModel](#vrcursorgettouchedmodel)**()<br />Gets the first model currently under the mouse cursor.  |
 | void | **[vrCursorGetTouchedVisual](#vrcursorgettouchedvisual)**()<br />Gets the first visual currently under the mouse cursor.  |
 | void | **[vrCursorIgnoreNode](#vrcursorignorenode)**([vrnode](../classes/vrnode.mdx) node, boolean ignore)<br />Makes the specified node unpickable with the cursor.  |
@@ -105,10 +103,8 @@ Core functions and types that can be used by Lua scripts and plugins.
 | void | **[vrHistoryStepBack](#vrhistorystepback)**()<br />Undoes the history to the previous history mark.  |
 | void | **[vrHistoryStepForward](#vrhistorystepforward)**()<br />Redoes the history to the next history mark.  |
 | void | **[vrImportAssetLibrary](#vrimportassetlibrary)**(string file)<br />Imports an asset library.  |
-| boolean | **[vrInCoroutine](#vrincoroutine)**(string script)<br />Executes the specified piece of Lua in a coroutine.  |
 | void | **[vrIsClustered](#vrisclustered)**()<br />Returns true if running in a cluster configuration.  |
 | void | **[vrIsDebugBuild](#vrisdebugbuild)**()<br />Returns true if the DEBUG compilation flag was defined.  |
-| boolean | **[vrIsEditableScriptNode](#vriseditablescriptnode)**([vrnode](../classes/vrnode.mdx) node)<br />Returns true if the supplied node contains a script property supported by the script editor.  |
 | boolean | **[vrIsStereoAvailable](#vrisstereoavailable)**(number mode =0)<br />Returns true if stereo 3D is available in the current instance of Visionary Render.  |
 | boolean | **[vrIsSystemNode](#vrissystemnode)**([vrnode](../classes/vrnode.mdx) node)<br />Returns true if the system node is an ancestor of node.  |
 | boolean | **[vrIsToolEnabled](#vristoolenabled)**(string toolName, [vrnode](../classes/vrnode.mdx) userNode =nil)<br />Tests whether a named Tool is enabled.  |
@@ -116,7 +112,6 @@ Core functions and types that can be used by Lua scripts and plugins.
 | boolean | **[vrLaunchProcess](#vrlaunchprocess)**(string cmdline, boolean pipeOutput =false, number timeout =0.0)<br />Launches a command or application asynchronously.  |
 | void | **[vrLinkNetwork](#vrlinknetwork)**(string host, number port)<br />Links to another application instance forming a Peer-To-Peer network.  |
 | string | **[vrListExports](#vrlistexports)**()<br />List all Lua VR extension functions.  |
-| table | **[vrListSleepingScripts](#vrlistsleepingscripts)**(boolean details =false)<br />Lists the scripts currently suspended, awaiting resume.  |
 | void | **[vrLoadAvatarFromFile](#vrloadavatarfromfile)**([vrnode](../classes/vrnode.mdx) parent, string filename)<br />Loads an avatar from a file and places it as a child to parent node.  |
 | void | **[vrLoadAvatarFromFileToEdit](#vrloadavatarfromfiletoedit)**([vrnode](../classes/vrnode.mdx) parent, string filename)<br />Loads an avatar from a file and places it in a scene to edit. Can be saved by using Developer->Save Avatar.  |
 | void | **[vrLoadPlugin](#vrloadplugin)**(string pluginName, string pluginVersion, string pluginInternalName, string pluginDir) |
@@ -128,15 +123,9 @@ Core functions and types that can be used by Lua scripts and plugins.
 | [vrnode](../classes/vrnode.mdx) | **[vrMakePlane](#vrmakeplane)**([vrnode](../classes/vrnode.mdx) parent, string name, number hsize, number vsize, number stacks, number slices, boolean reverseWinding, boolean doubleSided)<br />Creates a plane shape.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrMakeTorus](#vrmaketorus)**([vrnode](../classes/vrnode.mdx) parent, string name, number radius, number rez, number ringRadius, number ringRez)<br />Creates a torus shape.  |
 | boolean | **[vrModifierPressed](#vrmodifierpressed)**(number id)<br />Tests whether any modifier keys are pressed.  |
-| void | **[vrNetworkSetRetryConnect](#vrnetworksetretryconnect)**(boolean allowRetry)<br />Sets whether failed calls to vrLinkNetwork should retry until the user manual aborts them.  |
+| void | **[vrNetworkSetRetryConnect](#vrnetworksetretryconnect)**(boolean allowRetry)<br />Sets whether failed calls to vrLinkNetwork should retry until the user manually aborts them.  |
 | table | **[vrParseJSON](#vrparsejson)**(string data)<br />Parse JSON data into a Lua table.  |
 | table | **[vrParseXML](#vrparsexml)**(string xml)<br />Converts an XML string into a hierarchy of nested LUA tables.  |
-| void | **[vrPasteAsChild](#vrpasteaschild)**([vrnode](../classes/vrnode.mdx) targetNode)<br />Pastes the contents of the clipboard as a child to the target node.  |
-| void | **[vrPasteAsChildToSelection](#vrpasteaschildtoselection)**([vrnode](../classes/vrnode.mdx) viewSelection)<br />Pastes the contents of the clipboard as a child to the selection group.  |
-| void | **[vrPasteAsLinkToSelection](#vrpasteaslinktoselection)**([vrnode](../classes/vrnode.mdx) selectionGroup, string targetMetaNodeName, string targetPropertyName)<br />Pastes the nodes on the clipboard as a link into the target property of the specified selection group.  |
-| void | **[vrPasteAsSibling](#vrpasteassibling)**([vrnode](../classes/vrnode.mdx) targetNode)<br />Pastes the contents of the clipboard as a sibling to the specified node.  |
-| void | **[vrPasteAsSiblingToSelection](#vrpasteassiblingtoselection)**([vrnode](../classes/vrnode.mdx) selectionGroup)<br />Pastes the contents of the clipboard as a sibling to the specified selection group.  |
-| void | **[vrPastePropagateLink](#vrpastepropagatelink)**([vrnode](../classes/vrnode.mdx) selectionGroup, string targetMetaNodeName, string targetPropertyName)<br />Pastes the nodes on the clipboard as a link into all matching nodes and target properties.  |
 | string | **[vrPluginsDir](#vrpluginsdir)**()<br />Gets the Visionary Render plugins directory.  |
 | void | **[vrPostCommand](#vrpostcommand)**(string cmd, string param =0, [vrnode](../classes/vrnode.mdx) user =nil)<br />Posts a command to be processed by Visionary Render.  |
 | void | **[vrPrimaryUserNode](#vrprimaryusernode)**()<br />Returns the cluster master's user node, or the local user node if unclustered.  |
@@ -147,22 +136,12 @@ Core functions and types that can be used by Lua scripts and plugins.
 | void | **[vrReloadAudio](#vrreloadaudio)**([vrnode](../classes/vrnode.mdx) node)<br />Finds audio nodes and reloads the audio data from the associated files.  |
 | void | **[vrReloadTextures](#vrreloadtextures)**([vrnode](../classes/vrnode.mdx) node)<br />Recursively finds texture nodes and reloads the texture data from the associated files.  |
 | void | **[vrRemoveRecentItem](#vrremoverecentitem)**(string file, string nodeName)<br />Removes a recent file, folder or import from the corresponding list.  |
-| void | **[vrRemoveTransformLimits](#vrremovetransformlimits)**([vrnode](../classes/vrnode.mdx) node, string type)<br />Removes the TransformLimits on a node.  |
-| string | **[vrRequestFolder](#vrrequestfolder)**(string caption =0, string initialDir =0)<br />Invokes a dialog to select a folder.  |
-| string | **[vrRequestLoadFile](#vrrequestloadfile)**(string caption =0, string initialDir =0, string filterStr =0, string defaultExt =0)<br />Invokes a dialog to load a file.  |
-| string | **[vrRequestSaveFile](#vrrequestsavefile)**(string caption =0, string initialDir =0, string filterStr =0, string defaultExt =0, string defaultFile =0)<br />Invokes a dialog to save a file.  |
 | void | **[vrRescalePRSManipulator](#vrrescaleprsmanipulator)**()<br />Refreshes the scale of the PRS manipulator.  |
-| void | **[vrRevertToCleanState](#vrreverttocleanstate)**()<br />Restores the captured state of the Lua global environment.  |
 | void | **[vrScaleTexture](#vrscaletexture)**([vrnode](../classes/vrnode.mdx) node, number scaleX, number scaleY =0.0)<br />Scales a texture by the specified factor.  |
-| void | **[vrSearchView](#vrsearchview)**(string view, string searchString)<br />Sets the search query for a specified view.  |
-| void | **[vrSetAppQuitHook](#vrsetappquithook)**(string luaFunc)<br />Specify a lua function to be called when user tries to quit the application.  |
 | void | **[vrSetConfigMode](#vrsetconfigmode)**(number mode =CM_MODE_COUNT)<br />Sets the config to the specified mode, if its available.  |
-| void | **[vrSetScriptIdentifier](#vrsetscriptidentifier)**(string name)<br />Sets an identifier for the Lua execution.  |
-| void | **[vrSetScriptTimeout](#vrsetscripttimeout)**(number time)<br />Overrides the default Lua timeout for scripts, until the next script event is triggered.  |
 | void | **[vrSetToolEnabled](#vrsettoolenabled)**(string toolName, boolean enabled, [vrnode](../classes/vrnode.mdx) userNode =nil)<br />Sets the Enabled state of a named Tool.  |
 | void | **[vrSetTrackedEyeNode](#vrsettrackedeyenode)**([vrnode](../classes/vrnode.mdx) node =nil)<br />Sets the tracked eye to the specified node.  |
 | void | **[vrSetTrackedHandNode](#vrsettrackedhandnode)**([vrnode](../classes/vrnode.mdx) node =nil, number index =1)<br />Sets the tracked hand to the specified node.  |
-| void | **[vrSetTransformLimits](#vrsettransformlimits)**([vrnode](../classes/vrnode.mdx) node, string type, string limitType, boolean x, boolean y, boolean z)<br />Adds transform limits onto a node.  |
 | void | **[vrSetViewportLayout](#vrsetviewportlayout)**([vrnode](../classes/vrnode.mdx) viewportLayoutNode, [vrnode](../classes/vrnode.mdx) userNode =nil)<br />Sets the user's current viewport layout.  |
 | boolean | **[vrShouldSaveCamera](#vrshouldsavecamera)**()<br />Returns true if the camera position should be saved into documents.  |
 | void | **[vrSnapshotApply](#vrsnapshotapply)**([vrnode](../classes/vrnode.mdx) snapNode)<br />Applies the specified snapshot.  |
@@ -172,28 +151,12 @@ Core functions and types that can be used by Lua scripts and plugins.
 | void | **[vrToggleProjection](#vrtoggleprojection)**()<br />Toggles the current viewport between perspective and orthographic views.  |
 | void | **[vrToggleToolEnabled](#vrtoggletoolenabled)**(string toolName, [vrnode](../classes/vrnode.mdx) userNode =nil)<br />Toggles the Enabled state of a named Tool.  |
 | void | **[vrTrackedCursorGetTouchedAssembly](#vrtrackedcursorgettouchedassembly)**(number index)<br />Gets the first assembly currently under the tracked cursor.  |
-| void | **[vrUnloadPlugin](#vrunloadplugin)**(string pluginInfo) |
+| void | **[vrUnloadPlugin](#vrunloadplugin)**(string pluginInfo)<br />Unloads the specified plugin. |
 | string | **[vrUserDocumentsDir](#vruserdocumentsdir)**()<br />Gets the current user's documents directory.  |
 | string | **[vrUserPluginsDir](#vruserpluginsdir)**()<br />Gets the current applications users plug-ins directory.  |
-| [vrnode](../classes/vrnode.mdx) | **[vrUsersNode](#vrusersnode)**()<br />Returns the 'Users' node from the tree.  |
 | boolean | **[vrUsingHMD](#vrusinghmd)**()<br />Returns whether or not we are using a HMD.  |
-| void | **[vrYield](#vryield)**(number time =0.0)<br />Yields the Lua execution back to the application for the (approximate) specified time.  |
 
 ## Functions Documentation
-
-### vrAbortScript
-
-```lua
-void vrAbortScript(
-    string name
-)
-```
-
-Aborts a suspended script. 
-
-**Parameters**: 
-
-  * **name** The name of the script (reported by vrListSleepingScripts) 
 
 ### vrActivate
 
@@ -572,20 +535,6 @@ Creates vertex and index nodes of a shape and adds them to the Mesh node passed 
   * **parent** Mesh node onto which the data should be added 
 
 **Return**: The Mesh node passed in 
-
-### vrCreateUserInterface
-
-```lua
-void vrCreateUserInterface(
-    vrnode uinode
-)
-```
-
-Create the user interface components from the user interface metanode. 
-
-**Parameters**: 
-
-  * **uinode** The user interface metanode 
 
 ### vrCreateViewpoint
 
@@ -1387,22 +1336,6 @@ Imports an asset library.
 
   * **file** Path to the asset library file 
 
-### vrInCoroutine
-
-```lua
-boolean vrInCoroutine(
-    string script
-)
-```
-
-Executes the specified piece of Lua in a coroutine. 
-
-**Parameters**: 
-
-  * **script** Lua code to execute 
-
-**Return**: true if the coroutine is started successfully
-
 ### vrIsClustered
 
 ```lua
@@ -1418,20 +1351,6 @@ void vrIsDebugBuild()
 ```
 
 Returns true if the DEBUG compilation flag was defined. 
-
-### vrIsEditableScriptNode
-
-```lua
-boolean vrIsEditableScriptNode(
-    vrnode node
-)
-```
-
-Returns true if the supplied node contains a script property supported by the script editor. 
-
-**Parameters**: 
-
-  * **node** node to check 
 
 ### vrIsStereoAvailable
 
@@ -1530,22 +1449,6 @@ string vrListExports()
 List all Lua VR extension functions. 
 
 **Return**: List of function names separated by new lines 
-
-### vrListSleepingScripts
-
-```lua
-table vrListSleepingScripts(
-    boolean details =false
-)
-```
-
-Lists the scripts currently suspended, awaiting resume. 
-
-**Parameters**: 
-
-  * **details** Whether to display additional details about each script 
-
-**Return**: Array of script identifiers 
 
 ### vrLoadAvatarFromFile
 
@@ -1747,70 +1650,6 @@ Converts an XML string into a hierarchy of nested LUA tables.
 
 **Return**: Table representing the document structure 
 
-### vrPasteAsChild
-
-```lua
-void vrPasteAsChild(
-    vrnode targetNode
-)
-```
-
-Pastes the contents of the clipboard as a child to the target node. 
-
-### vrPasteAsChildToSelection
-
-```lua
-void vrPasteAsChildToSelection(
-    vrnode viewSelection
-)
-```
-
-Pastes the contents of the clipboard as a child to the selection group. 
-
-### vrPasteAsLinkToSelection
-
-```lua
-void vrPasteAsLinkToSelection(
-    vrnode selectionGroup,
-    string targetMetaNodeName,
-    string targetPropertyName
-)
-```
-
-Pastes the nodes on the clipboard as a link into the target property of the specified selection group. 
-
-### vrPasteAsSibling
-
-```lua
-void vrPasteAsSibling(
-    vrnode targetNode
-)
-```
-
-Pastes the contents of the clipboard as a sibling to the specified node. 
-
-### vrPasteAsSiblingToSelection
-
-```lua
-void vrPasteAsSiblingToSelection(
-    vrnode selectionGroup
-)
-```
-
-Pastes the contents of the clipboard as a sibling to the specified selection group. 
-
-### vrPastePropagateLink
-
-```lua
-void vrPastePropagateLink(
-    vrnode selectionGroup,
-    string targetMetaNodeName,
-    string targetPropertyName
-)
-```
-
-Pastes the nodes on the clipboard as a link into all matching nodes and target properties. 
-
 ### vrPluginsDir
 
 ```lua
@@ -1939,86 +1778,6 @@ Removes a recent file, folder or import from the corresponding list.
   * **file** The filename to remove 
   * **nodeName** Either 'RecentFiles' or 'RecentFolders' 
 
-### vrRemoveTransformLimits
-
-```lua
-void vrRemoveTransformLimits(
-    vrnode node,
-    string type
-)
-```
-
-Removes the TransformLimits on a node. 
-
-**Parameters**: 
-
-  * **node** The node to remove the limits from. 
-  * **type** The Type of TransformLimit to remove. Arguments are: "Position", "Rotation", "Scale". 
-
-### vrRequestFolder
-
-```lua
-string vrRequestFolder(
-    string caption =0,
-    string initialDir =0
-)
-```
-
-Invokes a dialog to select a folder. 
-
-**Parameters**: 
-
-  * **caption** Caption to present on the dialog 
-  * **initialDir** Path to the initial directory to browse (default: the last directory something was opened from) 
-
-**Return**: Absolute path to the selected folder 
-
-### vrRequestLoadFile
-
-```lua
-string vrRequestLoadFile(
-    string caption =0,
-    string initialDir =0,
-    string filterStr =0,
-    string defaultExt =0
-)
-```
-
-Invokes a dialog to load a file. 
-
-**Parameters**: 
-
-  * **caption** Caption to present on the dialog (optional, default: 'Select File') 
-  * **initialDir** Path to the initial directory to browse (optional, default: the last directory something was opened from) 
-  * **filterStr** Windows-style file filter string with | in place of null chars (optional, default: 'All Files (*.*)|*.*|' 
-  * **defaultExt** Default file extension to filter by (optional, no effect when using default filterStr) 
-
-**Return**: Absolute path to the file selected by the user in the dialog 
-
-### vrRequestSaveFile
-
-```lua
-string vrRequestSaveFile(
-    string caption =0,
-    string initialDir =0,
-    string filterStr =0,
-    string defaultExt =0,
-    string defaultFile =0
-)
-```
-
-Invokes a dialog to save a file. 
-
-**Parameters**: 
-
-  * **caption** Caption to present on the dialog (optional, default: 'Select File') 
-  * **initialDir** Path to the initial directory to browse. (optional, default: the last directory something was opened from) 
-  * **filterStr** Windows-style file filter string with | in place of null chars. (optional, default: 'All Files (*.*)|*.*|' 
-  * **defaultExt** Default file extension to filter by (optional, no effect when using default filterStr) 
-  * **defaultFile** Default file name to provide in the file name control on the dialog (optional) 
-
-**Return**: Absolute path to the file selected by the user in the dialog (this file may not exist) 
-
 ### vrRescalePRSManipulator
 
 ```lua
@@ -2026,14 +1785,6 @@ void vrRescalePRSManipulator()
 ```
 
 Refreshes the scale of the PRS manipulator. 
-
-### vrRevertToCleanState
-
-```lua
-void vrRevertToCleanState()
-```
-
-Restores the captured state of the Lua global environment. 
 
 ### vrScaleTexture
 
@@ -2053,36 +1804,6 @@ Scales a texture by the specified factor.
   * **scaleX** number The horizontal scale factor
   * **scaleY** number The vertical scale factor
 
-### vrSearchView
-
-```lua
-void vrSearchView(
-    string view,
-    string searchString
-)
-```
-
-Sets the search query for a specified view. 
-
-**Parameters**: 
-
-  * **view** The name of the view 
-  * **searchString** The string to insert into the search box 
-
-### vrSetAppQuitHook
-
-```lua
-void vrSetAppQuitHook(
-    string luaFunc
-)
-```
-
-Specify a lua function to be called when user tries to quit the application. 
-
-**Parameters**: 
-
-  * **luaFunc** Name of the Lua function. This function should return false if it wants to block the exit. 
-
 ### vrSetConfigMode
 
 ```lua
@@ -2096,34 +1817,6 @@ Sets the config to the specified mode, if its available.
 **Parameters**: 
 
   * **mode** Immersive mode value 
-
-### vrSetScriptIdentifier
-
-```lua
-void vrSetScriptIdentifier(
-    string name
-)
-```
-
-Sets an identifier for the Lua execution. 
-
-**Parameters**: 
-
-  * **name** Name to identify the current Lua execution 
-
-### vrSetScriptTimeout
-
-```lua
-void vrSetScriptTimeout(
-    number time
-)
-```
-
-Overrides the default Lua timeout for scripts, until the next script event is triggered. 
-
-**Parameters**: 
-
-  * **time** Number of seconds to wait before timing out. A value of 0 means it never times out. 
 
 ### vrSetToolEnabled
 
@@ -2167,27 +1860,6 @@ Sets the tracked hand to the specified node.
 **Parameters**: 
 
   * **index** 0 for left hand, 1 for right hand 
-
-### vrSetTransformLimits
-
-```lua
-void vrSetTransformLimits(
-    vrnode node,
-    string type,
-    string limitType,
-    boolean x,
-    boolean y,
-    boolean z
-)
-```
-
-Adds transform limits onto a node. 
-
-**Parameters**: 
-
-  * **node** The node to add the limits to. 
-  * **type** The Type of TransformLimit to add. Arguments are: "Position", "Rotation", "Scale". 
-  * **limitType** The Type of constraint to set. Arguments are "Lock", "Limit", "Step". 
 
 ### vrSetViewportLayout
 
@@ -2338,14 +2010,6 @@ Gets the current applications users plug-ins directory.
 
 **Return**: Absolute path to the plugins directory in the user's documents folder 
 
-### vrUsersNode
-
-```lua
-vrnode vrUsersNode()
-```
-
-Returns the 'Users' node from the tree. 
-
 ### vrUsingHMD
 
 ```lua
@@ -2353,17 +2017,3 @@ boolean vrUsingHMD()
 ```
 
 Returns whether or not we are using a HMD. 
-
-### vrYield
-
-```lua
-void vrYield(
-    number time =0.0
-)
-```
-
-Yields the Lua execution back to the application for the (approximate) specified time. 
-
-**Parameters**: 
-
-  * **time** Number of seconds before resuming execution of this script, or 0 for one frame 

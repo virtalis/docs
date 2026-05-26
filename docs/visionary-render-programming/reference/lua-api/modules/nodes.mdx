@@ -130,6 +130,14 @@ Functions for interacting with nodes.
 | void | **[vrNodeSetScaleZ](#vrnodesetscalez)**([vrnode](../classes/vrnode.mdx) node, number d)<br />Sets the world z scale of the node.  |
 | void | **[vrNodeSetValue](#vrnodesetvalue)**([vrnode](../classes/vrnode.mdx) node, string propName, Any value)<br />Sets the value of one of the properties of a node.  |
 | void | **[vrNodeSetValueByIndex](#vrnodesetvaluebyindex)**([vrnode](../classes/vrnode.mdx) node, number idx, Any value)<br />Sets the value of one of the properties of a node finding the property by its index.  |
+| void | **[vrPasteAsChild](#vrpasteaschild)**([vrnode](../classes/vrnode.mdx) targetNode)<br />Pastes the contents of the clipboard as a child to the target node.  |
+| void | **[vrPasteAsChildToSelection](#vrpasteaschildtoselection)**([vrnode](../classes/vrnode.mdx) viewSelection)<br />Pastes the contents of the clipboard as a child to the selection group.  |
+| void | **[vrPasteAsLinkToSelection](#vrpasteaslinktoselection)**([vrnode](../classes/vrnode.mdx) selectionGroup, string targetMetaNodeName, string targetPropertyName)<br />Pastes the nodes on the clipboard as a link into the target property of the specified selection group.  |
+| void | **[vrPasteAsSibling](#vrpasteassibling)**([vrnode](../classes/vrnode.mdx) targetNode)<br />Pastes the contents of the clipboard as a sibling to the specified node.  |
+| void | **[vrPasteAsSiblingToSelection](#vrpasteassiblingtoselection)**([vrnode](../classes/vrnode.mdx) selectionGroup)<br />Pastes the contents of the clipboard as a sibling to the specified selection group.  |
+| void | **[vrPastePropagateLink](#vrpastepropagatelink)**([vrnode](../classes/vrnode.mdx) selectionGroup, string targetMetaNodeName, string targetPropertyName)<br />Pastes the nodes on the clipboard as a link into all matching nodes and target properties.  |
+| void | **[vrRemoveTransformLimits](#vrremovetransformlimits)**([vrnode](../classes/vrnode.mdx) node, string type)<br />Removes the TransformLimits on a node.  |
+| void | **[vrSetTransformLimits](#vrsettransformlimits)**([vrnode](../classes/vrnode.mdx) node, string type, string limitType, boolean x, boolean y, boolean z)<br />Adds transform limits onto a node.  |
 
 ## Functions Documentation
 
@@ -2085,3 +2093,104 @@ Sets the value of one of the properties of a node finding the property by its in
   * **node** The node to set the property on 
   * **idx** The index of the property 
   * **value** The new property value to set. This value type should match the property type. 
+
+### vrPasteAsChild
+
+```lua
+void vrPasteAsChild(
+    vrnode targetNode
+)
+```
+
+Pastes the contents of the clipboard as a child to the target node. 
+
+### vrPasteAsChildToSelection
+
+```lua
+void vrPasteAsChildToSelection(
+    vrnode viewSelection
+)
+```
+
+Pastes the contents of the clipboard as a child to the selection group. 
+
+### vrPasteAsLinkToSelection
+
+```lua
+void vrPasteAsLinkToSelection(
+    vrnode selectionGroup,
+    string targetMetaNodeName,
+    string targetPropertyName
+)
+```
+
+Pastes the nodes on the clipboard as a link into the target property of the specified selection group. 
+
+### vrPasteAsSibling
+
+```lua
+void vrPasteAsSibling(
+    vrnode targetNode
+)
+```
+
+Pastes the contents of the clipboard as a sibling to the specified node. 
+
+### vrPasteAsSiblingToSelection
+
+```lua
+void vrPasteAsSiblingToSelection(
+    vrnode selectionGroup
+)
+```
+
+Pastes the contents of the clipboard as a sibling to the specified selection group. 
+
+### vrPastePropagateLink
+
+```lua
+void vrPastePropagateLink(
+    vrnode selectionGroup,
+    string targetMetaNodeName,
+    string targetPropertyName
+)
+```
+
+Pastes the nodes on the clipboard as a link into all matching nodes and target properties. 
+
+### vrRemoveTransformLimits
+
+```lua
+void vrRemoveTransformLimits(
+    vrnode node,
+    string type
+)
+```
+
+Removes the TransformLimits on a node. 
+
+**Parameters**: 
+
+  * **node** The node to remove the limits from. 
+  * **type** The Type of TransformLimit to remove. Arguments are: "Position", "Rotation", "Scale". 
+
+### vrSetTransformLimits
+
+```lua
+void vrSetTransformLimits(
+    vrnode node,
+    string type,
+    string limitType,
+    boolean x,
+    boolean y,
+    boolean z
+)
+```
+
+Adds transform limits onto a node. 
+
+**Parameters**: 
+
+  * **node** The node to add the limits to. 
+  * **type** The Type of TransformLimit to add. Arguments are: "Position", "Rotation", "Scale". 
+  * **limitType** The Type of constraint to set. Arguments are "Lock", "Limit", "Step". 

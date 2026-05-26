@@ -16,6 +16,7 @@ Functions for interacting with the Visionary Render GUI.
 | [vrnode](../classes/vrnode.mdx) | **[vrAddToolbarDock](#vraddtoolbardock)**([vrnode](../classes/vrnode.mdx) notebookNode, string tabName, string tabIcon)<br />Adds a docked window to a notebook that toolbars can be added to.  |
 | void | **[vrCloseNotebookPane](#vrclosenotebookpane)**(string notebookName, string paneName)<br />Closes the specified pane of the given notebook.  |
 | void | **[vrCloseSequence](#vrclosesequence)**([vrnode](../classes/vrnode.mdx) selection)<br />Closes the specified sequence in the sequencer window.  |
+| void | **[vrCreateUserInterface](#vrcreateuserinterface)**([vrnode](../classes/vrnode.mdx) uinode)<br />Create the user interface components from the user interface metanode.  |
 | void | **[vrFilterView](#vrfilterview)**(string view, string metaType)<br />Sets the filter for a specified view.  |
 | void | **[vrGalleryRequestImport](#vrgalleryrequestimport)**(string typeName, string importerName, string prompt, [vrnode](../classes/vrnode.mdx) destination =nil)<br />Imports a file using an importer registered with the gallery.  |
 | void | **[vrHideModalDialogues](#vrhidemodaldialogues)**(boolean suppressed =false)<br />Suppresses all modal dialogue message boxes.  |
@@ -30,6 +31,9 @@ Functions for interacting with the Visionary Render GUI.
 | void | **[vrProgressEnd](#vrprogressend)**()<br />Ends the progress display.  |
 | void | **[vrProgressEvents](#vrprogressevents)**(boolean enabled =true)<br />Create Nodes under user tree to indicate when progress events are occuring.  |
 | void | **[vrProgressYield](#vrprogressyield)**(string/int(optional) msg/ val, int(optional) max, string(optional) msg)<br />Updates the progress display.  |
+| string | **[vrRequestFolder](#vrrequestfolder)**(string caption =0, string initialDir =0)<br />Invokes a dialog to select a folder.  |
+| string | **[vrRequestLoadFile](#vrrequestloadfile)**(string caption =0, string initialDir =0, string filterStr =0, string defaultExt =0)<br />Invokes a dialog to load a file.  |
+| string | **[vrRequestSaveFile](#vrrequestsavefile)**(string caption =0, string initialDir =0, string filterStr =0, string defaultExt =0, string defaultFile =0)<br />Invokes a dialog to save a file.  |
 | void | **[vrResetWindows](#vrresetwindows)**()<br />Resets the windows to their initial positions and states that they were when the application was started.  |
 | void | **[vrSetGUIEnabled](#vrsetguienabled)**(boolean enabled, [vrnode](../classes/vrnode.mdx) userNode =nil)<br />Shows or hides the windows over the 3D scene.  |
 | void | **[vrSetIconToCurrentView](#vrseticontocurrentview)**([vrnode](../classes/vrnode.mdx) node)<br />Sets the browser icon for a node to the current view.  |
@@ -156,6 +160,20 @@ void vrCloseSequence(
 ```
 
 Closes the specified sequence in the sequencer window. 
+
+### vrCreateUserInterface
+
+```lua
+void vrCreateUserInterface(
+    vrnode uinode
+)
+```
+
+Create the user interface components from the user interface metanode. 
+
+**Parameters**: 
+
+  * **uinode** The user interface metanode 
 
 ### vrFilterView
 
@@ -372,6 +390,70 @@ Shows and updates the progress display.
 * When not the only argument, integer progress value for bar display 
   * **max** The maximum range of the progress bar 
   * **msg** The message to display 
+
+### vrRequestFolder
+
+```lua
+string vrRequestFolder(
+    string caption =0,
+    string initialDir =0
+)
+```
+
+Invokes a dialog to select a folder. 
+
+**Parameters**: 
+
+  * **caption** Caption to present on the dialog 
+  * **initialDir** Path to the initial directory to browse (default: the last directory something was opened from) 
+
+**Return**: Absolute path to the selected folder 
+
+### vrRequestLoadFile
+
+```lua
+string vrRequestLoadFile(
+    string caption =0,
+    string initialDir =0,
+    string filterStr =0,
+    string defaultExt =0
+)
+```
+
+Invokes a dialog to load a file. 
+
+**Parameters**: 
+
+  * **caption** Caption to present on the dialog (optional, default: 'Select File') 
+  * **initialDir** Path to the initial directory to browse (optional, default: the last directory something was opened from) 
+  * **filterStr** Windows-style file filter string with | in place of null chars (optional, default: 'All Files (*.*)|*.*|' 
+  * **defaultExt** Default file extension to filter by (optional, no effect when using default filterStr) 
+
+**Return**: Absolute path to the file selected by the user in the dialog 
+
+### vrRequestSaveFile
+
+```lua
+string vrRequestSaveFile(
+    string caption =0,
+    string initialDir =0,
+    string filterStr =0,
+    string defaultExt =0,
+    string defaultFile =0
+)
+```
+
+Invokes a dialog to save a file. 
+
+**Parameters**: 
+
+  * **caption** Caption to present on the dialog (optional, default: 'Select File') 
+  * **initialDir** Path to the initial directory to browse. (optional, default: the last directory something was opened from) 
+  * **filterStr** Windows-style file filter string with | in place of null chars. (optional, default: 'All Files (*.*)|*.*|' 
+  * **defaultExt** Default file extension to filter by (optional, no effect when using default filterStr) 
+  * **defaultFile** Default file name to provide in the file name control on the dialog (optional) 
+
+**Return**: Absolute path to the file selected by the user in the dialog (this file may not exist) 
 
 ### vrResetWindows
 
