@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import SearchBar from '@theme/SearchBar';
 import clsx from 'clsx';
 import styles from './index.module.css';
 import ThemedImage from '@theme/ThemedImage';
@@ -144,17 +143,6 @@ export default function Home(): JSX.Element {
           </div>
         </div>
       </header>
-
-      {/* Search Bar */}
-      <div className={styles.searchSection}>
-        <div className="container">
-          <div className={styles.searchBarWrapper}>
-            <div className={styles.searchInner}>
-              <SearchBar />
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* Product Cards */}
       <main className="padding-vert--xl">

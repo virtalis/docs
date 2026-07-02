@@ -50,8 +50,24 @@ const config: Config = {
     ],
   ],
 
+  themes: [
+    // Local Search
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        hashed: true,
+        indexBlog: false,
+        docsRouteBasePath: "/",
+        searchBarShortcutHint: true,
+      },
+    ],
+  ],
+
   plugins: [
+    // Image Zoom
     'docusaurus-plugin-image-zoom',
+
+    // Client Redirects
     [
       '@docusaurus/plugin-client-redirects',
       {
@@ -220,18 +236,6 @@ const config: Config = {
     colorMode: {
       defaultMode: 'dark',
       respectPrefersColorScheme: true,
-    },
-
-    algolia: {
-      appId: 'N450QRS24Y',
-      apiKey: '6d071f4bcb063177305cacdb6e2d8fe9',
-      indexName: 'virtalis',
-      contextualSearch: true,
-      externalUrlRegex: 'external\\.com|domain\\.com',
-      searchParameters: {},
-      searchPagePath: 'search',
-      insights: false,
-      placeholder: '',
     },
 
     prism: {
