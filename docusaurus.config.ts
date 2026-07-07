@@ -16,10 +16,6 @@ const config: Config = {
   onBrokenAnchors: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
-  //future: {
-  //  experimental_router: 'hash',
-  //},
-
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -94,7 +90,7 @@ const config: Config = {
           },
           {
             from: '/release-notes/geovisionary',
-            to: '/release-notes/geovisionary/2026.1',
+            to: '/release-notes/geovisionary/2026.2',
           },
           {
             from: '/release-notes/virtalis-hub-and-web-viewer',
@@ -102,7 +98,7 @@ const config: Config = {
           },
           {
             from: '/release-notes/visionary-render',
-            to: '/release-notes/visionary-render/2026.1',
+            to: '/release-notes/visionary-render/2026.2',
           },
         ],
       },

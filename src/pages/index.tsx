@@ -24,7 +24,7 @@ const ManualList: ManualItem[] = [
     Svg: require('@site/static/assets/logos/virtalis.svg').default,
     description: 'Intuitive desktop application for geoscientists to interpret large and complex spatial datasets.',
     links: [
-      { label: 'Release Notes', url: 'release-notes/geovisionary/2026.1' },
+      { label: 'Release Notes', url: 'release-notes/geovisionary/2026.2' },
       { label: 'Changelog', url: 'changelogs/geovisionary' },
     ],
   },
@@ -64,7 +64,7 @@ const ManualList: ManualItem[] = [
     links: [
       { label: 'User Manual', url: 'visionary-render' },
       { label: 'Programming Guide', url: 'visionary-render-programming' },
-      { label: 'Release Notes', url: 'release-notes/visionary-render/2026.1' },
+      { label: 'Release Notes', url: 'release-notes/visionary-render/2026.2' },
       { label: 'Changelog', url: 'changelogs/visionary-render' },
       { label: 'API Changelog', url: 'changelogs/visionary-render-api' },
     ],
