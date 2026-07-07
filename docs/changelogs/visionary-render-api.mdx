@@ -1,12 +1,44 @@
 ---
 sidebar_position: 6
-description: 1.1 to 2026.1
+description: 1.1 to 2026.2
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 # Visionary Render API
+
+## 2026.2
+
+*Released 2026-07-07*
+
+#### Added
+
+- [vrControlManikinJoints](../visionary-render-programming/reference/lua-api/modules/core.mdx#vrcontrolmanikinjoints) - Take control of a manikin's joints with a specified user (or local user if none specified)
+- [vrExplodeMesh](../visionary-render-programming/reference/lua-api/modules/geometry-operators#vrexplodemesh) - Divide a mesh into individual nodes based on which parts of the mesh are connected
+- [vrGenerateNormals](../visionary-render-programming/reference/lua-api/modules/geometry-operators#vrgeneratenormals) - Calculate the normal vectors of a mesh based on the mesh geometry and a smoothing threshold
+- [vrGenerateTangents](../visionary-render-programming/reference/lua-api/modules/geometry-operators#vrgeneratetangents) - Calculate the tangent vector for each vertex on a mesh
+- [vrGenerateUVs](../visionary-render-programming/reference/lua-api/modules/geometry-operators#vrgenerateuvs) - Calculate the texture coordinate for each vertex on a mesh based on a mapping mode and axis
+- [vrInvertMesh](../visionary-render-programming/reference/lua-api/modules/geometry-operators#vrinvertmesh) - Invert the surfaces of a mesh by reversing the winding of the polygons
+- [vrMergeMeshes](../visionary-render-programming/reference/lua-api/modules/geometry-operators#vrmergemeshes) - Merge all the children of a selected Assembly into a single Model node
+- [vrOptimiseMesh](../visionary-render-programming/reference/lua-api/modules/geometry-operators#vroptimisemesh) - Perform various common optimisations to your models
+- [vrPruneMesh](../visionary-render-programming/reference/lua-api/modules/geometry-operators#vrprunemesh) - Remove a proportion of the physically separate parts of a mesh at random, e.g. for reducing density of foliage in a tree model
+- [vrRecentreMesh](../visionary-render-programming/reference/lua-api/modules/geometry-operators#vrrecentremesh) - Recentre a mesh based on its bounding box
+- [vrSieveMesh](../visionary-render-programming/reference/lua-api/modules/geometry-operators#vrsievemesh) - Remove physically separate parts of a mesh that are smaller than a specified size
+- [vrSortVertices](../visionary-render-programming/reference/lua-api/modules/geometry-operators#vrsortvertices) - Perform an optimisation on indexed triangle lists within a mesh to reduce the number of cache misses that occur when looking for vertices on the graphics card
+- [vrTessellateMesh](../visionary-render-programming/reference/lua-api/modules/geometry-operators#vrtessellatemesh) - Perform a re-tessellation on the selected mesh
+- [vrTransformMesh](../visionary-render-programming/reference/lua-api/modules/geometry-operators#vrtransformmesh) - Transform the vertices of a mesh
+- [vrWeldMesh](../visionary-render-programming/reference/lua-api/modules/geometry-operators#vrweldmesh) - Merge vertices of a mesh that are within a specified distance of each other
+
+#### Changed
+
+- Display literal values of default arguments instead of constant names in function prototypes, such as `127` instead of `VR_CHAR_MAX`
+
+#### Deprecated
+
+- [vrGeometryOp](../visionary-render-programming/reference/lua-api/modules/geometry-operators#vrgeometryop) - Use the new individual geometry operator functions instead
+
+---
 
 ## 2026.1
 

@@ -1,10 +1,49 @@
 ---
 sidebar_position: 5
-description: 1.0.1 to 2026.1
+description: 1.0.1 to 2026.2
 ---
 
 # Visionary Render
 
+## 2026.2
+
+*Released 2026-07-07*
+
+#### Added
+
+- Body tracking calibration wizard
+- Allow manikins to be captured by the animation sequencer
+- Ability to control the manikin's fingers when finger tracking is enabled
+- Allow joint rotations to be copied to different manikins
+- Option to enable/disable OpenXR controller visuals
+- A way to fake being in XR mode
+- Video streaming now supports the Av1 format for enhanced quality (or VP8 as a fallback)
+- Min and max size values to annotations
+
+#### Changed
+
+- Improved the network system to better support collaboration on different types of networks - in particular, remote users, or groups of users, connecting over a VPN
+- Reduced the time required to set up and synchronise network connections, especially with larger numbers of users
+- Updated the background graphic of ActiveView Light to match current Virtalis branding
+
+#### Removed
+
+- All references to Virtalis Reach/Hub
+
+#### Fixed
+
+- Fly To Viewpoint positioning is inconsistent
+- Pivot not created at origin via scripting
+- Settings are not restored correctly after manikin calibration button is clicked more than once
+- Various issues with pivots when scripted, including rotation about the wrong axis, unintended target movement and pivot visual size being wrong
+- Left eye view in HoloLens is wrong when ocean underwater effects are enabled
+- Possessed manikins do not make use of the user's palms
+- Include GUI option on Screen Capture Tool breaks gvxwin clipping
+- Manikin's hands do not get controlled when hand tracking is enabled
+- Dynamic Sections cut through main immersive GUI
+
+---
+ 
 ## 2026.1
 
 *Released 2026-03-30*
