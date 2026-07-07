@@ -1,0 +1,336 @@
+---
+title: Geometry Operators
+summary: Functions for invoking geometry operators to post-process meshes imported into Visionary Render. 
+---
+
+# Geometry Operators
+
+Functions for invoking geometry operators to post-process meshes imported into Visionary Render. 
+
+## Functions
+
+| Type           | Name           |
+| -------------- | -------------- |
+| void | **[vrExplodeMesh](#vrexplodemesh)**([vrnode or vrnode[]](../classes/vrnode.mdx) nodes, number tolerance = 0.000100, string mode = 0, boolean models = true, boolean geogroups = true, boolean meshes = true)<br />Divides a mesh into individual nodes based on which parts of the mesh are connected.  |
+| void | **[vrGenerateNormals](#vrgeneratenormals)**([vrnode or vrnode[]](../classes/vrnode.mdx) nodes, number smoothingAngle = 55.000000)<br />Calculates the normal vectors of a mesh based on the mesh geometry and a smoothing threshold.  |
+| void | **[vrGenerateTangents](#vrgeneratetangents)**([vrnode or vrnode[]](../classes/vrnode.mdx) nodes)<br />Calculates the tangent vector for each vertex on a mesh.  |
+| void | **[vrGenerateUVs](#vrgenerateuvs)**([vrnode or vrnode[]](../classes/vrnode.mdx) nodes, string mode = 0, string axis = 0, vrvec2 offset = 0.000000, 0.000000, vrvec2 scale = 1.000000, 1.000000)<br />Calculates the texture coordinate for each vertex on a mesh based on a mapping mode and axis.  |
+| void | **[vrGeometryOp](#vrgeometryop)**(string type, [vrnode](../classes/vrnode.mdx) node)<br />This is deprecated as of 2026.2 - use the individual geometry operator functions instead.  |
+| void | **[vrInvertMesh](#vrinvertmesh)**([vrnode or vrnode[]](../classes/vrnode.mdx) nodes)<br />Inverts the surfaces of a mesh by reversing the winding of the polygons.  |
+| void | **[vrMergeMeshes](#vrmergemeshes)**([vrnode or vrnode[]](../classes/vrnode.mdx) nodes)<br />Merges all the children of a selected Assembly into a single Model node.  |
+| void | **[vrOptimiseMesh](#vroptimisemesh)**([vrnode or vrnode[]](../classes/vrnode.mdx) nodes, boolean merge = true, boolean sort = true, boolean pack = true)<br />Performs various common optimisations to your models.  |
+| void | **[vrPruneMesh](#vrprunemesh)**([vrnode or vrnode[]](../classes/vrnode.mdx) nodes, number fraction = 0.100000, number bias = 0.000000, number tolerance = 0.000100, string mode = 0)<br />Removes a proportion of the physically separate parts of a mesh at random, e.g. for reducing density of foliage in a tree model.  |
+| void | **[vrRecentreMesh](#vrrecentremesh)**([vrnode or vrnode[]](../classes/vrnode.mdx) nodes, vrvec3 origin = 0.500000, 0.500000, 0.500000, boolean relative = true)<br />Recentres a mesh based on its bounding box.  |
+| void | **[vrSieveMesh](#vrsievemesh)**([vrnode or vrnode[]](../classes/vrnode.mdx) nodes, number limit = 0.025000, number tolerance = 0.000100, string mode = 0)<br />Removes physically separate parts of a mesh that are smaller than a specified size.  |
+| void | **[vrSortVertices](#vrsortvertices)**([vrnode or vrnode[]](../classes/vrnode.mdx) nodes)<br />Performs an optimisation on indexed triangle lists within a mesh to reduce the number of cache misses that occur when looking for vertices on the graphics card.  |
+| void | **[vrSplitMesh](#vrsplitmesh)**([vrnode or vrnode[]](../classes/vrnode.mdx) nodes, number maxVertices = 65535)<br />Splits a mesh into separate meshes with no more than the specified number of vertices.  |
+| void | **[vrTessellateMesh](#vrtessellatemesh)**([vrnode or vrnode[]](../classes/vrnode.mdx) nodes, number length = 0.050000)<br />Performs a re-tessellation on the selected mesh.  |
+| void | **[vrTransformMesh](#vrtransformmesh)**([vrnode or vrnode[]](../classes/vrnode.mdx) nodes, vrvec3 translation = 0.000000, 0.000000, 0.000000, vrvec3 rotation = 0.000000, 0.000000, 0.000000, vrvec3 scale = 1.000000, 1.000000, 1.000000, boolean transformVisuals = true, boolean adjustCullFace = true)<br />Transforms the vertices of a mesh.  |
+| void | **[vrWeldMesh](#vrweldmesh)**([vrnode or vrnode[]](../classes/vrnode.mdx) nodes, number tol = 0.000300)<br />Merges vertices of a mesh that are within a specified distance of each other.  |
+
+## Functions Documentation
+
+### vrExplodeMesh
+
+```lua
+void vrExplodeMesh(
+    vrnode or vrnode[] nodes,
+    number tolerance = 0.000100,
+    string mode = 0,
+    boolean models = true,
+    boolean geogroups = true,
+    boolean meshes = true
+)
+```
+
+Divides a mesh into individual nodes based on which parts of the mesh are connected.
+
+**Parameters**: 
+
+  * **nodes** The nodes to perform the operation on 
+  * **tolerance** The minimum distance between vertices for them to be treated as separate parts of the mesh
+  * **mode** How the model is treated when performing the modifier.
+    * structure: examine each node in the hierarchy separately, without considering that meshes from separate GeoGroups may be intersecting
+    * connected: examine the entire model as a single mesh
+  * **models** Separate the model's meshes into their own geogroup nodes
+  * **geogroups** Separate the model's meshes into their own geogroup nodes
+  * **meshes** Separate the model's geogroups into their own model modes
+
+### vrGenerateNormals
+
+```lua
+void vrGenerateNormals(
+    vrnode or vrnode[] nodes,
+    number smoothingAngle = 55.000000
+)
+```
+
+Calculates the normal vectors of a mesh based on the mesh geometry and a smoothing threshold.
+
+**Parameters**: 
+
+  * **nodes** The nodes to perform the operation on 
+  * **smoothingAngle** The maximum angle in degrees between faces that will be smoothed
+
+### vrGenerateTangents
+
+```lua
+void vrGenerateTangents(
+    vrnode or vrnode[] nodes
+)
+```
+
+Calculates the tangent vector for each vertex on a mesh.
+
+**Parameters**: 
+
+  * **nodes** The nodes to perform the operation on 
+
+### vrGenerateUVs
+
+```lua
+void vrGenerateUVs(
+    vrnode or vrnode[] nodes,
+    string mode = 0,
+    string axis = 0,
+    vrvec2 offset = 0.000000, 0.000000,
+    vrvec2 scale = 1.000000, 1.000000
+)
+```
+
+Calculates the texture coordinate for each vertex on a mesh based on a mapping mode and axis.
+
+**Parameters**: 
+
+  * **nodes** The nodes to perform the operation on 
+  * **mode** Type of mapping:
+    - plane
+    - box
+    - cylinder
+    - sphere
+    - linear
+    - unwrap
+  * **axis** Axis of mapping:
+    - x
+    - y
+    - z
+  * **offset** Offsets the texture coordinates from their default position
+  * **scale** Scales the texture that is mapped to the mesh
+
+### vrGeometryOp
+
+```lua
+void vrGeometryOp(
+    string type,
+    vrnode node
+)
+```
+
+Performs the specified geometry operation on an Assembly, Visual, Library, Model, GeoGroup, or Mesh. 
+
+:::note
+This is deprecated as of 2026.2 - use the individual geometry operator functions instead.
+:::
+
+**Parameters**: 
+
+  * **type** The type of operation: weld, normals, tangents, uv, tess, sort, invert, optimise, split, explode, prune, sieve, recentre, transform, merge 
+  * **node** The node to perform the operation on 
+
+### vrInvertMesh
+
+```lua
+void vrInvertMesh(
+    vrnode or vrnode[] nodes
+)
+```
+
+Inverts the surfaces of a mesh by reversing the winding of the polygons.
+
+**Parameters**: 
+
+  * **nodes** The nodes to perform the operation on 
+
+### vrMergeMeshes
+
+```lua
+void vrMergeMeshes(
+    vrnode or vrnode[] nodes
+)
+```
+
+Merges all the children of a selected Assembly into a single Model node.
+
+**Parameters**: 
+
+  * **nodes** The nodes to perform the operation on 
+
+### vrOptimiseMesh
+
+```lua
+void vrOptimiseMesh(
+    vrnode or vrnode[] nodes,
+    boolean merge = true,
+    boolean sort = true,
+    boolean pack = true
+)
+```
+
+Performs various common optimisations to your models.
+
+**Parameters**: 
+
+  * **nodes** The nodes to perform the operation on 
+  * **merge** Merges all the GeoGroups in a model that use the same material into a single GeoGroup
+  * **sort** Orders the vertices in a mesh so that they are grouped according to use
+  * **pack** Combines meshes within each GeoGroup
+
+### vrPruneMesh
+
+```lua
+void vrPruneMesh(
+    vrnode or vrnode[] nodes,
+    number fraction = 0.100000,
+    number bias = 0.000000,
+    number tolerance = 0.000100,
+    string mode = 0
+)
+```
+
+Removes a proportion of the physically separate parts of a mesh at random, e.g. for reducing density of foliage in a tree model.
+
+**Parameters**: 
+
+  * **nodes** The nodes to perform the operation on 
+  * **fraction** The portion of the model that is to be pruned
+  * **bias** The bias applied when determining which parts of the model to remove. A negative value will try to remove mesh data from the edge of the model, whereas a positive value will try to remove mesh data from the centre of the model
+  * **tolerance** The minimum distance between vertices for them to be treated as separate parts of the mesh
+  * **mode** How the model is treated when performing the modifier
+    - structure: examine each mesh node independently. Not considering that separate mesh node may intersect
+    - connected: examine the entire model as a single mesh. Allowing for intersecting meshes to be treated as a single entity
+
+### vrRecentreMesh
+
+```lua
+void vrRecentreMesh(
+    vrnode or vrnode[] nodes,
+    vrvec3 origin = 0.500000, 0.500000, 0.500000,
+    boolean relative = true
+)
+```
+
+Recentres a mesh based on its bounding box.
+
+**Parameters**: 
+
+  * **nodes** The nodes to perform the operation on 
+  * **origin** The desired centre point of the model
+  * **relative** If true the origin will be relative to the bounding box of the model, with (0.5, 0.5, 0.5) being the centre of the model. If not relative the origin will be an absolute position
+
+### vrSieveMesh
+
+```lua
+void vrSieveMesh(
+    vrnode or vrnode[] nodes,
+    number limit = 0.025000, 
+    number tolerance = 0.000100, 
+    string mode = 0
+)
+```
+
+Removes physically separate parts of a mesh that are smaller than a specified size.
+
+**Parameters**: 
+
+  * **nodes** The nodes to perform the operation on 
+  * **limit** The maximum size of what should be removed from the mesh. Parts that have a dimension exceeding this value will be retained
+  * **tolerance** The minimum distance between vertices for them to be treated as separate parts of the mesh
+  * **mode** How the model is treated when performing the modifier
+    - structure: examine each mesh node independently. Not considering that separate mesh node may intersect
+    - connected: examine the entire model as a single mesh. Allowing for intersecting meshes to be treated as a single entity
+
+### vrSortVertices
+
+```lua
+void vrSortVertices(
+    vrnode or vrnode[] nodes
+)
+```
+
+Performs an optimisation on indexed triangle lists within a mesh to reduce the number of cache misses that occur when looking for vertices on the graphics card.
+
+**Parameters**: 
+
+  * **nodes** The nodes to perform the operation on 
+
+### vrSplitMesh
+
+```lua
+void vrSplitMesh(
+    vrnode or vrnode[] nodes,
+    number maxVertices = 65535
+)
+```
+
+Splits a mesh into separate meshes with no more than the specified number of vertices.
+
+**Parameters**: 
+
+  * **nodes** The nodes to perform the operation on 
+  * **maxVertices** Maximum number of vertices before splitting mesh
+
+### vrTessellateMesh
+
+```lua
+void vrTessellateMesh(
+    vrnode or vrnode[] nodes,
+    number length = 0.050000
+)
+```
+
+Performs a re-tessellation on the selected mesh.
+
+**Parameters**: 
+
+  * **nodes** The nodes to perform the operation on 
+  * **length** The maximum edge length of a polygon before it is split into a smaller triangle
+
+### vrTransformMesh
+
+```lua
+void vrTransformMesh(
+    vrnode or vrnode[] nodes,
+    vrvec3 translation = 0.000000, 0.000000, 0.000000,
+    vrvec3 rotation = 0.000000, 0.000000, 0.000000,
+    vrvec3 scale = 1.000000, 1.000000, 1.000000,
+    boolean transformVisuals = true,
+    boolean adjustCullFace = true
+)
+```
+
+Transforms the vertices of a mesh.
+
+**Parameters**: 
+
+  * **nodes** The nodes to perform the operation on 
+  * **translation** The displacement to be applied to the model
+  * **rotation** The rotation to be applied to the model
+  * **scale** The scale factor to be applied to the model
+  * **transformVisuals** If true, the inverse transform is applied to assemblies with visuals referencing the mesh so that their apparent position in the scene is unchanged after the mesh has been transformed
+  * **adjustCullFace** When applying a negative scale, inverts the cull face of the GeoGroup nodes to preserve the original appearance
+
+### vrWeldMesh
+
+```lua
+void vrWeldMesh(
+    vrnode or vrnode[] nodes,
+    number tol = 0.000300
+)
+```
+
+Merges vertices of a mesh that are within a specified distance of each other.
+
+**Parameters**: 
+
+  * **nodes** The nodes to perform the operation on 
+  * **tol** The maximum distance between vertices to weld

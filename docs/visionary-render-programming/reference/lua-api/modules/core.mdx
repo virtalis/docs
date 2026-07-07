@@ -34,6 +34,7 @@ Core functions and types that can be used by Lua scripts and plugins.
 | void | **[vrCompressTexture](#vrcompresstexture)**([vrnode](../classes/vrnode.mdx) node)<br />Applies DXT compression to a texture.  |
 | boolean | **[vrConfigModeAvailable](#vrconfigmodeavailable)**(number mode =CM_MODE_COUNT)<br />Returns true or false if the specified mode is available.  |
 | void | **[vrConstrainNodeToBounds](#vrconstrainnodetobounds)**([vrnode](../classes/vrnode.mdx) node =nil, [vrbox](../classes/vrbox.mdx) bbox =nil)<br />Constrains a node with a TransformLimit to a bounding box.  |
+| void | **[vrControlManikinJoints](#vrcontrolmanikinjoints)**([vrnode](../classes/vrnode.mdx) manikin, boolean controlRemotely, [vrnode](../classes/vrnode.mdx) user)<br />Take control of a manikin's joints with a specified user (or local user if none specified).  |
 | void | **[vrControlManikinTargets](#vrcontrolmanikintargets)**([vrnode](../classes/vrnode.mdx) manikin, boolean controlRemotely, [vrnode](../classes/vrnode.mdx) user)<br />Take control of a manikin with a specified user (or local user if none specified).  |
 | void | **[vrCopyBitmap](#vrcopybitmap)**([vrnode](../classes/vrnode.mdx) node)<br />Copies the texture data from a node onto the Windows clipboard.  |
 | void | **[vrCopySelectionToClipboard](#vrcopyselectiontoclipboard)**([vrnode](../classes/vrnode.mdx) selectionToCopy)<br />Copies the specified selection group to the clipboard.  |
@@ -404,6 +405,24 @@ Constrains a node with a TransformLimit to a bounding box.
 **Parameters**: 
 
   * **node** The node to Constrain 
+
+### vrControlManikinJoints
+
+```lua
+void vrControlManikinJoints(
+    vrnode manikin,
+    boolean controlRemotely,
+    vrnode user
+)
+```
+
+Take control of a manikin's joints with a specified user (or local user if none specified).
+
+**Parameters**: 
+
+  * **manikin** The manikin whose joints to take control of
+  * **controlRemotely** Whether to control the manikin remotely by not locking the camera to its position
+  * **user** The user who will take control of the manikin (local user if none specified)
 
 ### vrControlManikinTargets
 
@@ -804,38 +823,6 @@ void vrGenLightning()
 ```
 
 Generates a lightning polyline. 
-
-### vrGeometryOp
-
-```lua
-void vrGeometryOp(
-    string type,
-    vrnode node
-)
-```
-
-Performs a geometry operation. 
-
-**Parameters**: 
-
-  * **type** The type of operation:
-
-* weld
-* normals
-* tangents
-* uv
-* tess
-* sort
-* invert
-* optimise
-* split
-* explode
-* prune
-* sieve
-* recentre
-* transform
-* merge 
-  * **node** The node to perform the operation on 
 
 ### vrGetActivatorNode
 
