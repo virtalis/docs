@@ -1,0 +1,46 @@
+---
+sidebar_position: 982
+---
+
+# 2026.2
+
+Thank you for downloading GeoVisionary 2026.2. This release permits easier management of GeoVisionary installs, URLs in borehole data, and improved labels in shapefiles.
+
+## What's New in This Release?
+
+### Silent Installs
+
+We have added support for silent installs to facilitate easier management of GeoVisionary installs across your organisation. This permits administrators to quickly install, update and remove GeoVisionary via central management systems such as inTune, MECM, and SCCM. 
+
+### URLs in Borehole Data
+
+Borehole data often contains links to websites with additional information on them, such as scanned borehole logs and photographs. To prevent you from having to manually enter these in your browser, we have added support for URL hyperlinks in borehole data, as per URLs in Shapefile data.
+
+### Label Size in GVStyles
+
+To prevent labels in shapefiles from merging together when flying away from them, we have added a minimum/maximum scale, offset property (Z offset), and depth test toggle to the Billboard metanode.
+
+### Importers and Exporters
+
+| Importer | Version Support Added |
+|---|---|
+| CATIA V5 | V5-6R2026 |
+| Parasolid | 38.1 |
+| Solid Edge | 2026 |
+| Inventor | 2027 |
+
+## Resolved Issues
+
+We continue to focus on addressing issues you report and improving the quality of GeoVisionary. Key fixes in this release:
+
+| ID | Summary |
+|---|---|
+| FUS-3228 | Exporting a shape file produces a file with no data |
+| FUS-3506 | Spatial reference/EPSG Codes do not always give the location |
+| FUS-4173 | Gradients are not being applied to Styles and Shapefiles |
+| FUS-4190 | Gradients on a Voxel using the Smooth Iso Mode option look incorrect |
+| FUS-4248 | Scaling a point cloud doesn't affect the scale of the visual, but does affect the bounding box |
+
+:::note
+See the [Changelog](../../changelogs/geovisionary#20262) for a complete list of resolved issues and changes.
+:::

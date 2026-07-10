@@ -1,0 +1,74 @@
+---
+sidebar_position: 974
+---
+
+# 2026.2
+
+Thank you for downloading Visionary Render 2026.2. This release makes collaboration work properly on real-world networks, extends manikin control for human factors review, upgrades video streaming quality with AV1 encoding, and adds silent installation for enterprise deployments, alongside a range of workflow improvements driven by customer feedback.
+
+## What's New in This Release?
+
+### Networking and Collaboration
+
+Collaboration no longer needs every user to have a direct connection to every other user. Where a direct connection isn’t available, Visionary Render automatically forwards data through the users it can reach. This handles a wide variety of connection patterns and makes a particular difference for remote users, or groups of users, connecting over a VPN. It also makes better use of limited bandwidth on networks with a mixture of fast and slow connections.
+
+Setting up and synchronising network connections is now faster, especially with larger numbers of users. Outgoing data is sent in the background, so you can carry on working while other users receive scene data from you. Various other areas of the networking system have also been optimised.
+
+### Manikin Control for Different Body Sizes
+
+A new control mode lets you drive a manikin with different body dimensions from your own, using replicated joint rotations rather than IK target positions. This means a reviewer of any size can inhabit a manikin representing their target population, for example a 5th-percentile manikin, and assess reach, access and fit for that population rather than for themselves.
+
+### Manikin Finger Tracking
+
+When hardware that supports finger tracking is available, a possessed manikin's fingers now follow your own finger movements, with each hand tracked independently. Hand posture around controls, handles and in confined spaces is now part of what the manikin can demonstrate in reviews, rather than the hands remaining in a fixed pose.
+
+### Manikin Recording in the Animation Sequencer
+
+Manikin motion can now be captured by the animation sequencer and played back. Any assessment can be recorded and replayed rather than re-performed, and recordings can be kept as evidence for review and sign-off.
+
+### Silent Installs
+
+Visionary Render now supports silent installation, including installation for all users on a machine. Previously, deploying or updating the software meant running the installer manually on each workstation, and the command-line options were unsuitable for some enterprise deployment scenarios because they required a user environment. System administrators can now deploy and update Visionary Render remotely, with no user interaction, through standard endpoint management tools such as SCCM and Intune.
+
+### Video Streaming
+
+Video streaming now supports the AV1 format, a substantial quality improvement over the previous codecs. AV1 encoding is GPU-accelerated and requ  ires a recent NVIDIA card; VP8 remains available as a fallback.
+
+### Annotations
+
+Annotations now support minimum and maximum size values, so they remain legible at a distance without dominating the view when you’re up close.
+
+### OpenXR Controller Visuals
+
+A new option lets you show or hide OpenXR controller visuals.
+
+### Documentation Enhancements
+
+A new homepage has been added to Virtalis Docs with documentation listed by product, to permit an alternative way to find specific documents. Context sensitive help has been improved, with the documentation appearing in a separate Chromium window rather than your default browser to permit closer integration with Visionary Render. You can now also search the local documentation that is installed alongside Visionary Render. The experience on smartphones has also been improved, alongside various smaller improvements and bug fixes.
+
+### Importers and Exporters
+
+| Importer | Version Support Added |
+|---|---|
+| CATIA V5 | V5-6R2026 |
+| Parasolid | 38.1 |
+| Solid Edge | 2026 |
+| Inventor | 2027 |
+
+## Resolved Issues
+
+We continue to focus on addressing issues reported by customers and improving overall quality. Key fixes in this release:
+
+| ID | Summary |
+|---|---|
+| FUS-3629 | Various issues with pivots when scripted such as rotation about wrong axis |
+| FUS-4178 | Fly To Viewpoint positioning is inconsistent |
+| FUS-4181 | Pivot not created at origin via scripting |
+| FUS-4191 | Dynamic Sections cut through main Immersive GUI |
+| FUS-4215 | Settings are not restored correctly after manikin calibration button is clicked more than once |
+| FUS-4267 | Possessed manikins do not make use of the user's palms |
+| FUS-4289 | Include GUI option on Screen Capture Tool breaks GUI clipping |
+
+:::note
+See the [Changelog](../../changelogs/visionary-render#20262) for a complete list of resolved issues and changes.
+:::
