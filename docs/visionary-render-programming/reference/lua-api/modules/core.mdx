@@ -64,7 +64,6 @@ Core functions and types that can be used by Lua scripts and plugins.
 | void | **[vrForkApp](#vrforkapp)**()<br />Forks the application into another process.  |
 | void | **[vrGenerateQRCodeFile](#vrgenerateqrcodefile)**(string content, string filename, number border =4, number pixelsPerModule =32, number errorCorrection =0)<br />Generates a QR code and saves it to a file.  |
 | void | **[vrGenLightning](#vrgenlightning)**()<br />Generates a lightning polyline.  |
-| void | **[vrGeometryOp](#vrgeometryop)**(string type, [vrnode](../classes/vrnode.mdx) node)<br />Performs a geometry operation.  |
 | [vrnode](../classes/vrnode.mdx) | **[vrGetActivatorNode](#vrgetactivatornode)**()<br />Gets the node which activated the event.  |
 | [MULTI](../classes/multi.mdx)< boolean, string > | **[vrGetAllDocHelp](#vrgetalldochelp)**(boolean doxyFormat =false, string outputPath =0)<br />Gets the entire Lua API reference, either to a string or a file.  |
 |[vrnode](../classes/vrnode.mdx) | **[vrGetClipboardNode](#vrgetclipboardnode)**()<br />Returns the node containing the clipboard content, or nil if nothing is on the clipboard.  |
