@@ -91,7 +91,7 @@ function FeatureCard({ title, Svg, description, links }: ManualItem) {
     <div className={clsx('col col--4 margin-bottom--lg')}>
       <div className={clsx('card padding--lg', styles.staticCard)}>
         <div className="text--center">
-          <Svg className={styles.featureSvg} role="img" />
+          <Svg className={styles.featureSvg} aria-hidden="true" />
         </div>
         <div className="padding-horiz--md">
           <h3 className="text--center margin-top--md">{title}</h3>
@@ -127,7 +127,10 @@ function FeatureCard({ title, Svg, description, links }: ManualItem) {
 
 export default function Home(): JSX.Element {
   return (
-    <Layout>
+    <Layout
+      title="Virtalis Docs"
+      description="User manuals, technical guides, release notes, and changelogs for Virtalis software products">
+
       {/* Hero Banner */}
       <header className={clsx('hero', styles.heroBanner)}>
         <div className="container">

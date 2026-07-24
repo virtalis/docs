@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
 
   title: 'Virtalis Docs',
-  tagline: 'Documentation portal for Virtalis applications',
+  tagline: 'User manuals, technical guides, release notes, and changelogs for Virtalis software products',
   favicon: 'favicon.svg',
   url: 'https://docs.virtalis.com',
   baseUrl: '/',
