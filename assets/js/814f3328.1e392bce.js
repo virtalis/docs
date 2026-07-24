@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkvirtalis_docs=self.webpackChunkvirtalis_docs||[]).push([[67472],{55513:s=>{s.exports=JSON.parse('{"title":"Recent posts","items":[]}')}}]);
