@@ -2,7 +2,7 @@
 
 This repo contains the documentation for all of our applications. The documentation is stored as markdown and the web front-end is built with [Docusaurus](https://docusaurus.io/).
 
-![test](screenshot.png?raw=true)
+![](screenshot.png?raw=true)
 
 ### Installation
 
