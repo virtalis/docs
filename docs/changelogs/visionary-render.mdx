@@ -7,20 +7,44 @@ description: 1.0.1 to 2026.3
 
 ## 2026.3
 
-*Released 2026-11-09*
+*Released 2026-11-16*
+
+#### Added
+
+- Multi-user video streaming capabilities by connecting to ActiveView
+- Dual quaternion skinning to manikins to eliminate unrealistic mesh thinning when rotating joints
+- OpenXR marker support for alignment and spatial anchoring with supported XR devices
 
 #### Changed
 
-- 
+- Split ActiveView (previously 'video streaming') settings into their own settings category
+- Improve the UX of the ActiveView and screen capture settings pages
+- Permit parts of Assemblies to be shown in the background layer on OpenXR headsets
+- Improve arm length calculation in tracking calibration scene, permit trackers to be calibrated without anthropometrics, and improve shoulder and waist measurement
+
+#### Removed
+
+- Unused files from the installer to reduce install size
+- Virtalis Docs start menu link - these can be accessed from various places in the application or at docs.virtalis.com
 
 #### Fixed
 
-- Incorrect offset when teleporting to a manikin whilst not standing in the centre of your room boundary
-- Crash that could occur when connecting to a collaboration with a View Filter in your scene
+- Crash can occur when connecting to a collaboration with a View Filter in your scene
 - Crash when editing categories on an item in the gallery
+- Crash can occur when editing the categories assigned to an existing item in the gallery
+- Crash when setting the avatar to avatar_oculus.vrtext in OpenXR or Oculus Touch tracking modes
+- Crash when closing a scene containing a Movie player
+- Crash when undoing the creation of a duplicated node
+- Incorrect offset when teleporting to a manikin whilst not standing in the centre of your room boundary
+- Snap Home tool ghosting in passthrough mode on headsets
+- Cursor not visible on screen space GUIs when close to other objects
 - Avatar is disabled when controlling a manikin remotely
 - Gain does not work sometimes in AudioSound nodes
+- Clusters with 3 members in them fail to start
 - Transform links stop working after the source and target nodes are set to the same node
+- Physics debug visuals not working, including with the 'stop rendering when static' option enabled if nothing is moving in the scene
+- Uninstallers leave stray registry keys
+- Paste in password entry fields
 
 ---
 
